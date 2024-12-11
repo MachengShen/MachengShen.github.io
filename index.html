@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your Name | Home</title>
     <style>
         body {
@@ -35,10 +36,12 @@
             padding: 0 1rem;
             background: #fff;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-weight: 600;
         }
 
@@ -99,32 +102,39 @@
         .contact-info li {
             margin-bottom: 0.5rem;
         }
-
     </style>
 </head>
+
 <body>
     <header>
         <!-- Replace the placeholder with your photo file -->
         <img src="WechatIMG1106.jpeg" alt="Macheng Shen">
         <h1>Macheng Shen</h1>
         <p>Principal Investigator, Shanghai Qi Zhi Institute</p>
+        <p><a href="mailto:shenmacheng@sqz.ac.cn" style="color: #fff;">shenmacheng [at] sqz.ac.cn</a></p>
     </header>
 
     <main>
         <section class="section">
             <h2>About Me</h2>
             <p>
-                I am a Principal Investigator at the Shanghai Qi Zhi Institute. I received my Ph.D. from the Massachusetts Institute of Technology, advised by Professor Jonathan P. How. During my doctoral studies, my research focused on reinforcement learning, robotic perception, and autonomous driving, and I published multiple papers in top conferences and journals in the fields of robotics, machine learning, and autonomous driving.
+                I am a Principal Investigator at the Shanghai Qi Zhi Institute. I received my Ph.D. from the
+                Massachusetts Institute of Technology, advised by Professor Jonathan P. How. During my doctoral studies,
+                my research focused on reinforcement learning, robotic perception, and autonomous driving.
             </p>
             <p>
-                During and after my Ph.D., I served as a machine learning researcher at Meta Reality Lab and several startup companies in the autonomous driving and robotics sectors. In late 2023, I joined the Qi Zhi Institute full-time, where my research centers on embodied intelligence, with a particular focus on developing simple, unified, and principled algorithms for general embodied intelligence.
+                During and after my Ph.D., I served as a machine learning researcher at Meta Reality Lab and several
+                startup companies in the autonomous driving and robotics sectors. In late 2023, I joined the Qi Zhi
+                Institute full-time, where my research centers on embodied intelligence, with a particular focus on
+                developing simple, unified, and principled algorithms for general embodied intelligence.
             </p>
         </section>
 
         <section class="section">
             <h2>Research Direction</h2>
             <p>
-                My research aims to advance embodied intelligence through a simple, unified, and principled approach. I focus on algorithmic research that can generalize to various embodied AI tasks and domains.
+                My research aims to advance embodied intelligence by developing simple and principled approaches that
+                are scalable and generalizable to various embodied AI tasks and domains.
             </p>
         </section>
 
@@ -134,41 +144,34 @@
             <div class="research-item">
                 <h3>1) Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling</h3>
                 <p>
-                    Inspired by the pervasive use of differential equations to model continuous dynamics across scientific and engineering domains, we propose a novel and intuitive approach to continuous sequence modeling. We interpret time-series data as discrete samples from an underlying continuous dynamical system and model its time evolution using a general form of Stochastic Differential Equation (SDE), where both the drift and diffusion terms are parameterized by neural networks.
-                </p>
-                <p>
-                    We derive a principled maximum likelihood objective that aligns with the recently developed Flow Matching/Stochastic Interpolant framework but offers a key advantage: <em>invariance under data scaling</em>, achieved by explicitly learning the intrinsic data uncertainty captured by the diffusion term. This property alleviates the need for manual weight tuning across different modalities.
-                </p>
-                <p>
-                    Experiments on a variety of sequence modeling tasks in embodied and generative AI demonstrate the versatility and robustness of Neural SDEs, showcasing improved performance and flexibility over existing methods.
+                    We are developing a novel approach to modeling continuous sequence dynamics using Neural Stochastic
+                    Differential Equations (SDEs). Inspired by the use of differential equations in science and
+                    engineering, this framework treats time-series data as samples from an underlying continuous system.
+                    By parameterizing the drift and diffusion terms with neural networks, we ensure scalability and
+                    adaptability. A key innovation is incorporating intrinsic uncertainty directly into the model,
+                    making it robust to scaling across different data modalities. This approach is showing promise
+                    across diverse tasks in embodied and generative AI, offering both simplicity and flexibility.
                 </p>
             </div>
 
             <div class="research-item">
                 <h3>2) Denoising-based Contractive Imitation Learning</h3>
                 <p>
-                    A fundamental challenge in imitation learning is the problem of covariate shift. Existing methods to mitigate this often require additional expert interactions, access to environment dynamics, or complex adversarial training, which may not be practical in real-world applications.
-                </p>
-                <p>
-                    We propose a simple yet effective method to address covariate shift by introducing a denoising mechanism that enhances the contraction properties of the state transition mapping. Our approach involves training two neural networks: a dynamics model \( f \) that predicts the next state from the current state, and a joint state-action denoising policy network \( d \) that refines this state prediction via denoising and outputs the corresponding action.
-                </p>
-                <p>
-                    We theoretically prove that the denoising network acts as a local contraction mapping, reducing the Lipschitz constant of the state transition and improving stability. Our method can be easily integrated into existing imitation learning frameworks without requiring additional expert data or complex modifications. Empirical results demonstrate improved success rates in various imitation learning tasks under noise perturbations.
+                    We are addressing the challenge of covariate shift in imitation learning through a simple yet
+                    powerful denoising mechanism. Our method leverages a dual-network design: a dynamics model predicts
+                    transitions, while a denoising policy network refines these predictions and guides actions. By
+                    enhancing stability and contraction properties in state transitions, our approach reduces reliance
+                    on additional expert data or complex adversarial setups. This work is paving the way for more robust
+                    imitation learning systems that thrive even under noise and perturbations.
                 </p>
             </div>
         </section>
 
-        <section class="section">
-            <h2>Contact</h2>
-            <ul class="contact-info">
-                <li>Email: <a href="mailto:shenmacheng@sqz.ac.cn">shenmacheng [at] sqz.ac.cn</a></li>
-                <!-- Add more contact details as needed -->
-            </ul>
-        </section>
     </main>
 
     <footer>
-        <p>© 2024 Your Name. All rights reserved.</p>
+        <p>© 2024 Macheng Shen. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
