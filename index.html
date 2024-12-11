@@ -102,6 +102,12 @@
         .contact-info li {
             margin-bottom: 0.5rem;
         }
+
+        .submission-info {
+            font-size: 0.8rem;
+            color: #666;
+            font-weight: normal;
+        }
     </style>
 </head>
 
@@ -123,10 +129,12 @@
                 my research focused on reinforcement learning, robotic perception, and autonomous driving.
             </p>
             <p>
-                During and after my Ph.D., I served as a machine learning researcher at Meta Reality Lab and several
-                startup companies in the autonomous driving and robotics sectors. In late 2023, I joined the Qi Zhi
-                Institute full-time, where my research centers on embodied intelligence, with a particular focus on
-                developing simple, unified, and principled algorithms for general embodied intelligence.
+                During and after completing my Ph.D., I served as a machine learning research scientist/intern at Meta
+                Reality Lab, Pony.ai, and Dexterity AI. Motivated by a desire to understand the essence of general
+                intelligence and inspired by the groundbreaking advancements showcased by models like ChatGPT, I decided
+                to return to academia. In late 2023, I joined the Qi Zhi Institute full-time, where my research centers
+                on embodied intelligence, with a particular focus on developing simple, unified, and principled
+                algorithms for general embodied intelligence.
             </p>
         </section>
 
@@ -142,7 +150,9 @@
             <h2>Recent Works</h2>
 
             <div class="research-item">
-                <h3>1) Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling (onging work, submitting to ICML 2025)</h3>
+                <h3>1) Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling 
+                    <span class="submission-info">(ongoing work, submitting to ICML 2025)</span>
+                </h3>
                 <p>
                     We are developing a novel framework for modeling continuous-time sequence dynamics based on Neural
                     Stochastic Differential Equations (SDEs). Unlike previous methods that rely on virtual or artificial
@@ -157,14 +167,17 @@
             </div>
 
             <div class="research-item">
-                <h3>2) Denoising-based Contractive Imitation Learning (onging work, submitting to ICML 2025)</h3>
+                <h3>2) Denoising-based Contractive Imitation Learning 
+                    <span class="submission-info">(ongoing work, submitting to ICML 2025)</span>
+                </h3>
                 <p>
                     We propose a novel imitation learning strategy that uses a denoising score function not just for
                     distributional modeling, as in diffusion models, but as a powerful tool for inducing contraction in
                     state transitions. This is achieved through a dual-network design: a dynamics model predicts future
                     states, while a denoising policy network refines these predictions to guide action selection. By
                     leveraging the denoising mechanism as a contraction enhancement strategy, our approach inherently
-                    stabilizes the rollout trajectory and combats covariate-shift, without dependency on additional expert data or adversarial
+                    stabilizes the rollout trajectory and combats covariate-shift, without dependency on additional
+                    expert data or adversarial
                     training. This innovation paves the way for more robust imitation learning systems capable of
                     withstanding noise and disturbances in real-world scenarios.
                 </p>
