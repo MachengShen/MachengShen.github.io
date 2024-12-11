@@ -142,27 +142,31 @@
             <h2>Recent Works</h2>
 
             <div class="research-item">
-                <h3>1) Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling</h3>
+                <h3>1) Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling (onging work, submitting to ICML 2025)</h3>
                 <p>
-                    We are developing a novel approach to modeling continuous sequence dynamics using Neural Stochastic
-                    Differential Equations (SDEs). Inspired by the use of differential equations in science and
-                    engineering, this framework treats time-series data as samples from an underlying continuous system.
-                    By parameterizing the drift and diffusion terms with neural networks, we ensure scalability and
-                    adaptability. A key innovation is incorporating intrinsic uncertainty directly into the model,
-                    making it robust to scaling across different data modalities. This approach is showing promise
-                    across diverse tasks in embodied and generative AI, offering both simplicity and flexibility.
+                    We are developing a novel framework for modeling continuous-time sequence dynamics based on Neural
+                    Stochastic Differential Equations (SDEs). Unlike previous methods that rely on virtual or artificial
+                    time parameters—such as diffusion models or flow-matching approaches—our technique directly learns
+                    an SDE governing the natural temporal evolution of the data. By parameterizing both the drift and
+                    diffusion terms with neural networks, we introduce intrinsic uncertainty handling and enable a
+                    single model to scale seamlessly across diverse modalities. Despite its conceptual simplicity, our
+                    approach achieves competitive generative performance while operating orders of magnitude more
+                    efficiently than standard diffusion- and flow-based models. This blend of theoretical elegance and
+                    practical effectiveness makes Neural SDEs a compelling new direction for embodied and generative AI.
                 </p>
             </div>
 
             <div class="research-item">
-                <h3>2) Denoising-based Contractive Imitation Learning</h3>
+                <h3>2) Denoising-based Contractive Imitation Learning (onging work, submitting to ICML 2025)</h3>
                 <p>
-                    We are addressing the challenge of covariate shift in imitation learning through a simple yet
-                    powerful denoising mechanism. Our method leverages a dual-network design: a dynamics model predicts
-                    transitions, while a denoising policy network refines these predictions and guides actions. By
-                    enhancing stability and contraction properties in state transitions, our approach reduces reliance
-                    on additional expert data or complex adversarial setups. This work is paving the way for more robust
-                    imitation learning systems that thrive even under noise and perturbations.
+                    We propose a novel imitation learning strategy that uses a denoising score function not just for
+                    distributional modeling, as in diffusion models, but as a powerful tool for inducing contraction in
+                    state transitions. This is achieved through a dual-network design: a dynamics model predicts future
+                    states, while a denoising policy network refines these predictions to guide action selection. By
+                    leveraging the denoising mechanism as a contraction enhancement strategy, our approach inherently
+                    stabilizes the rollout trajectory and combats covariate-shift, without dependency on additional expert data or adversarial
+                    training. This innovation paves the way for more robust imitation learning systems capable of
+                    withstanding noise and disturbances in real-world scenarios.
                 </p>
             </div>
         </section>
