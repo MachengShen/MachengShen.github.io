@@ -4,75 +4,123 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Your Name | Home</title>
+    <title>Macheng Shen | Featured Essay</title>
     <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #4b5563;
+            --accent: #0f172a;
+            --link: #0b5fff;
+            --border: #dbe2ea;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: "Helvetica Neue", Arial, sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.6;
-            background: #fafafa;
-            color: #333;
+            background: var(--bg);
+            color: var(--text);
         }
 
         header {
-            background: #333;
+            background: var(--accent);
             color: #fff;
-            padding: 2rem;
+            padding: 2rem 1rem;
             text-align: center;
         }
 
         header img {
             border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            width: 132px;
+            height: 132px;
             object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 1rem auto;
-            padding: 0 1rem;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-weight: 600;
-        }
-
-        h1 {
-            margin-top: 0;
-            font-size: 2.5rem;
-            text-align: center;
-            padding-top: 1rem;
-        }
-
-        h2 {
             margin-bottom: 0.75rem;
         }
 
-        .section {
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            line-height: 1.2;
+        }
+
+        header p {
+            margin: 0.25rem 0;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 1rem auto 2rem;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+        }
+
+        .essay {
             padding: 1rem;
         }
 
-        .section p {
-            margin-bottom: 0.75em;
+        .essay h2 {
+            margin: 0 0 0.4rem;
+            font-size: 1.4rem;
         }
 
-        footer {
-            text-align: center;
-            color: #666;
-            font-size: 0.9rem;
-            padding: 2rem 1rem;
+        .essay .meta {
+            margin: 0 0 0.85rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .pdf-wrap {
+            width: 100%;
+            height: min(82vh, 1100px);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #f8fafc;
+        }
+
+        .pdf-wrap embed {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .note {
+            margin-top: 0.75rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .about {
+            margin-top: 1rem;
+            padding: 1rem;
+        }
+
+        .about h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .about p {
+            margin: 0;
+            color: var(--text);
         }
 
         a {
-            color: #0070f3;
+            color: var(--link);
             text-decoration: none;
         }
 
@@ -80,114 +128,47 @@
             text-decoration: underline;
         }
 
-        .research-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .research-item h3 {
-            margin: 0.5rem 0;
-            font-size: 1.25rem;
-        }
-
-        .research-item p {
-            margin: 0.5rem 0;
-        }
-
-        .contact-info {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .contact-info li {
-            margin-bottom: 0.5rem;
-        }
-
-        .submission-info {
-            font-size: 0.8rem;
-            color: #666;
-            font-weight: normal;
+        footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+            padding: 1.6rem 1rem 2rem;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <!-- Replace the placeholder with your photo file -->
-        <img src="WechatIMG1106.jpeg" alt="Macheng Shen">
+        <img src="WechatIMG1106.jpeg" alt="Macheng Shen" />
         <h1>Macheng Shen</h1>
         <p>Principal Investigator, Shanghai Qi Zhi Institute</p>
-        <p style="color: #fff;">Contact: shenmacheng [at] sqz.ac.cn</p>
+        <p>Contact: shenmacheng [at] sqz.ac.cn</p>
     </header>
 
-    <main>
-        <section class="section">
-            <h2>About Me</h2>
-            <p>
-                I am a Principal Investigator at the Shanghai Qi Zhi Institute. I received my Ph.D. in 2022 from the
-                Massachusetts Institute of Technology, advised by Professor Jonathan P. How. During my doctoral studies,
-                my research focused on reinforcement learning, robotic perception, and autonomous driving.
-            </p>
-            <p>
-                During and after completing my Ph.D., I served as a machine learning research scientist/intern at Meta
-                Reality Lab, Pony.ai, and Dexterity AI. Motivated by a desire to understand the essence of general
-                intelligence and inspired by the groundbreaking advancements showcased by foundation models, I decided
-                to return to academia. In late 2023, I joined the Qi Zhi Institute full-time, where my research centers
-                on embodied intelligence, with a particular focus on developing simple, unified, and principled
-                algorithms for general embodied intelligence.
-            </p>
-        </section>
-
-        <section class="section">
-            <h2>Research Direction</h2>
-            <p>
-                My research aims to advance embodied intelligence by developing simple and principled approaches that
-                are scalable and generalizable to various embodied AI tasks and domains.
-            </p>
-            <p style="color: #d14; font-weight: 500; margin-top: 1rem;">
-                📢 We are actively recruiting research interns and full-time researchers. 
-                If you're interested, please feel free to reach out via email.
-            </p>
-        </section>
-
-        <section class="section">
-            <h2>Recent Works</h2>
-
-            <div class="research-item">
-                <h3>1) <a href="https://neuralsde.github.io/">Neural SDEs as a Unified Approach to Continuous-Domain Sequence Modeling</a></h3>
-                <p>
-                    We developed a novel framework for modeling continuous-time sequence dynamics based on Neural
-                    Stochastic Differential Equations (SDEs). Unlike previous methods that rely on virtual or artificial
-                    time parameters—such as diffusion models or flow-matching approaches—our technique directly learns
-                    an SDE governing the natural temporal evolution of the data. By parameterizing both the drift and
-                    diffusion terms with neural networks, we introduce intrinsic uncertainty handling and enable a
-                    single model to scale seamlessly across diverse modalities. Despite its conceptual simplicity, our
-                    approach achieves competitive generative performance while operating orders of magnitude more
-                    efficiently than standard diffusion- and flow-based models. This blend of theoretical elegance and
-                    practical effectiveness makes Neural SDEs a compelling new direction for embodied and generative AI.
-                </p>
+    <main class="container">
+        <section class="card essay">
+            <h2>Featured Essay (Full Text)</h2>
+            <p class="meta">The original PDF is embedded by default to preserve wording and structure.</p>
+            <div class="pdf-wrap">
+                <embed src="essay.pdf" type="application/pdf" />
             </div>
-
-            <div class="research-item">
-                <h3>2) <a href="https://arxiv.org/abs/2503.15918">Denoising-based Contractive Imitation Learning</a></h3>
-                <p>
-                    We propose a novel imitation learning strategy that uses a denoising score function not just for
-                    distributional modeling, as in diffusion models, but as a powerful tool for inducing contraction in
-                    state transitions. This is achieved through a dual-network design: a dynamics model predicts future
-                    states, while a denoising policy network refines these predictions to guide action selection. By
-                    leveraging the denoising mechanism as a contraction enhancement strategy, our approach inherently
-                    stabilizes the rollout trajectory and combats covariate-shift, without dependency on additional
-                    expert data or adversarial
-                    training. This innovation paves the way for more robust imitation learning systems capable of
-                    withstanding noise and disturbances in real-world scenarios.
-                </p>
-            </div>
+            <p class="note">
+                If the embedded viewer does not load in your browser, open the original file directly:
+                <a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>
+            </p>
         </section>
 
+        <section class="card about">
+            <h2>About</h2>
+            <p>
+                I am a Principal Investigator at the Shanghai Qi Zhi Institute, focusing on embodied intelligence and
+                simple, principled algorithms for general-purpose intelligent systems.
+            </p>
+        </section>
     </main>
 
     <footer>
-        <p>© 2024 Macheng Shen. All rights reserved.</p>
+        <p>© 2026 Macheng Shen. All rights reserved.</p>
     </footer>
 </body>
 
