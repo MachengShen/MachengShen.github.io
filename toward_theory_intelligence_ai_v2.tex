@@ -1,0 +1,394 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{csquotes}
+\usepackage[round,authoryear]{natbib}
+\setstretch{1.1}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{leftmargin=*,itemsep=0.2em,topsep=0.2em}
+\setlist[enumerate]{leftmargin=*,itemsep=0.2em,topsep=0.2em}
+\title{Toward a Theory of Intelligence and Contemporary AI: \\ Control-Sufficient Abstractions, Adaptive Stacks, and AI Safety}
+\author{Macheng Shen\thanks{Contact: \href{mailto:macheng93@gmail.com}{macheng93@gmail.com}; Website: \href{https://machengshen.github.io}{machengshen.github.io}.} \and GPT-5.2 Pro}
+\date{March 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+
+This paper is not a finished theory. It is a working attempt to state, as clearly as possible, why a theory of intelligence is now needed, what such a theory should try to explain, and which research questions seem especially promising. The motivating problem is straightforward. Contemporary machine learning systems are becoming increasingly capable, yet we still lack a satisfying account of what they are doing, how their capabilities relate to the broader phenomenon we call intelligence, and why this matters so directly for AI safety.
+
+The central proposal of the paper is that intelligence should not be understood primarily as mere input-output function approximation, nor as a complete internal copy of the world. A better working picture is that an intelligent system is a resource-bounded physical system organized as an adaptive stack: it builds, updates, and deploys control-sufficient abstractions of environmental dynamics across multiple timescales and layers of plasticity. On this view, learning is not only statistical fitting. It is also the transfer of usable environmental structure onto a new physical substrate and into a new closed loop.
+
+This perspective motivates a research program linking machine learning, control theory, information bottlenecks, multiscale biological organization, thermodynamics of computation, world models, scaling, and AI safety. The paper keeps the main text intuitive and essay-like, while moving more technical or more specialized side discussions to the appendices. The aim is not to close debate, but to open a more coherent one.
+
+\textbf{Keywords:} intelligence theory; AI theory; control; world models; adaptive systems; multiscale feedback; AI safety
+
+\end{abstract}
+
+\section{Why a theory is needed now}
+
+
+The question of what AI systems are really doing no longer feels optional. It has become a scientific and practical problem. We are now in a situation where machine learning systems display increasingly strong abilities, yet our explanatory language often remains local to engineering practice: architecture, loss function, scaling trend, benchmark score, post-training recipe. That language is useful, but it is not yet a theory of intelligence.
+
+At the same time, the safety stakes are rising. If we do not understand what kind of adaptive phenomenon intelligence is, then our safety work risks remaining patchwork. We can improve alignment procedures, preference tuning, monitoring, and evaluation, but without a deeper theory we still do not know which regularities are structural, which are accidental, and which failure modes are likely to recur in new guises as systems become more capable.
+
+The motivating claim of this paper is therefore simple: a theory of intelligence is needed both for scientific understanding and for safety. More specifically, we need a theory that can connect present-day AI practice to broader principles of adaptive behavior, not just a theory of this or that model family.
+
+\section{What should count as a theory of intelligence?}
+
+
+A useful theory should produce real information gain. It should not merely rename familiar observations. It should connect a confusing domain to more mature and more reliable theoretical languages.
+
+In this case, that means a theory of intelligence should not stay entirely inside the local vocabulary of machine learning. It should create explicit bridges to dynamical systems, control, information theory, and physical implementation. If it can also clarify how these perspectives constrain one another, even better.
+
+A second requirement is level clarity. Marr's classic distinction between computational, algorithmic, and implementation levels remains useful here \citep{marr1982}. A great deal of confusion in intelligence debates comes from sliding across these levels without noticing it. One person is asking what objective a system is effectively solving. Another is asking what representation and update rule it uses. A third is asking what physical substrate and resource constraints make the whole thing possible. All three may use the same word, intelligence, while meaning different things.
+
+For the purposes of this paper, a theory of intelligence is successful to the extent that it does three things:
+
+\begin{enumerate}
+\item It identifies what sort of object intelligence is.
+\item It explains how existing descriptions of adaptive competence fit together.
+\item It generates new research questions or constraints that were hard to see before.
+
+\end{enumerate}
+
+That is the standard used here.
+
+\section{From supervised learning to closed-loop systems}
+
+
+A natural place to begin is supervised learning. In the simplest story, a model receives inputs and learns to map them to outputs. But that description leaves out something important. Inputs and outputs do not come from nowhere. They are traces or projections of states generated in an external environment.
+
+Once this point is taken seriously, a dataset is no longer just a bag of labeled pairs. It is a sample from processes induced by environmental dynamics. Standard learning theory often abstracts away this origin and studies stationary distributions, which is often exactly the right move. But if the goal is to understand intelligence rather than only generalization under ideal assumptions, then the origin of those regularities matters.
+
+A model trained on such data can be seen as learning not only a static mapping, but some effective structure that mirrors enough of the world's regularities to support prediction or action elsewhere. I used to think about this in terms of a learned transfer function. That metaphor is still useful, but it needs to be stated carefully. The model does not copy the world in full. Rather, it acquires a usable internal structure that can be redeployed in a new causal setting.
+
+This point becomes much clearer once we move from open-loop prediction to closed-loop systems. When a trained model is embedded into a larger process through prompts, tools, memory, user interaction, robotic action, or institutional workflows, it is no longer just evaluating a function. It becomes part of a feedback loop that can change future inputs, future states, and future opportunities for action. At that point, what matters is not only prediction accuracy, but regulation, stability, robustness, and adaptation.
+
+\section{A minimal dynamical skeleton}
+
+
+To keep the discussion grounded, it helps to write down a minimal skeleton. Let
+
+\begin{itemize}
+\item \(x_t\) be the environment state,
+\item \(o_t\) the observation available to the system,
+\item \(z_t\) the internal state,
+\item \(a_t\) the action,
+\item \(\theta_t\) the slowly changing parameters.
+
+\end{itemize}
+
+Then a very generic adaptive system can be described by:
+
+\[
+x_{t+1} \sim P(x_{t+1}\mid x_t, a_t), \qquad
+o_t = O(x_t),
+\]
+
+\[
+z_{t+1} = f_{\theta_t}(z_t, o_t), \qquad
+a_t = \pi_{\theta_t}(z_t),
+\]
+
+\[
+\theta_{t+1} = L(\theta_t, \tau_t),
+\]
+
+where \(\tau_t\) denotes some stream of experience, trajectories, feedback, or memory.
+
+This skeleton is deliberately broad. Supervised learning appears as a special case in which action is absent or irrelevant, the environment is not meaningfully altered by the model, and learning happens offline. More general intelligent behavior appears when the system is embedded in a genuine loop and when different parts of the system update on different timescales.
+
+The core theoretical question then becomes: under what conditions do the internal states \(z_t\) and the learned parameters \(\theta_t\) constitute a control-sufficient abstraction of the environment?
+
+\section{Working thesis: intelligence as control through control-sufficient abstractions}
+
+
+The central thesis of this paper is the following:
+
+\textbf{Working Thesis.} Intelligence is the capacity of a resource-bounded physical system to build, update, and use internal states that form control-sufficient abstractions of environmental dynamics, so that the system can keep itself or parts of its environment within a target set across perturbation, uncertainty, and distributional change.
+
+Several terms deserve emphasis.
+
+\textbf{Resource-bounded.} Real systems are finite. They have limited memory, limited energy, finite bandwidth, limited time, noisy sensors, imperfect actuators, and nonzero costs of communication and synchronization.
+
+\textbf{Control-sufficient abstraction.} A good internal model is not a full copy of the world. It is an abstraction that preserves enough structure for prediction, intervention, and error correction relative to the tasks that matter.
+
+\textbf{Target set.} Intelligence is not only about one-step prediction. Adaptive systems usually maintain viability, solve problems, stabilize goals, pursue preferences, or preserve certain relational patterns over time. The relevant target set may be explicit or implicit, learned or inherited, external or endogenous.
+
+This thesis is deliberately weaker than the claim that intelligence requires perfect world models, but stronger than the claim that intelligence is just input-output fitting. It says that useful intelligence consists in building abstractions that are sufficiently faithful for control.
+
+That picture lines up naturally with classic cybernetics. Conant and Ashby argued that every good regulator of a system must be a model of that system under broad conditions \citep{conant1970}. The internal model principle in control theory similarly says that good regulation requires model-like internal structure for the signals or dynamics to be tracked \citep{francis1976}. Recent formal work on general agents and world models strengthens the same intuition from another direction: agents that can generalize across flexible multi-step tasks must contain predictive structure rich enough to function as a world model \citep{richens2025}.
+
+Together, these lines of work support a simple but important shift in perspective. Intelligence is better understood as regulation through abstraction than as raw function approximation.
+
+\section{Adaptive stacks}
+
+
+One of the strongest revisions I would now make to the earlier version of this project is that the right object is not an isolated model, but an \textbf{adaptive stack}.
+
+By adaptive stack I mean a layered system in which sensing, representation, control, memory, and learning are distributed across multiple timescales and levels of organization. These levels may include fast recurrent state updates, medium-timescale memory or context management, slow parametric learning, tool use, external memory, bodily regulation, or even collective and institutional feedback loops.
+
+This shift matters because many debates about intelligence become clearer once we stop looking for a single magical module. In practice, intelligent behavior usually depends on interactions between layers. What the fast layer can do depends on what the slow layer has already learned. What the high-level planner can do depends on whether lower layers can maintain stability, recover from perturbations, and realize actions reliably.
+
+This is one reason biological systems are so suggestive. Multicellular life is not merely a large number of local parts. It is an organized stack of interacting competencies. Cells, tissues, organs, and organisms exhibit different forms of regulative plasticity at different scales. Michael Levin's multiscale competency picture is especially valuable here because it treats intelligence-like behavior as something that may be distributed across levels of organization rather than concentrated only in the most obviously cognitive layer \citep{levin2023,mcmillen2024}.
+
+For AI theory, the lesson is not that current models are secretly organisms. The lesson is that we may systematically underestimate the importance of distributed adaptation when we focus too narrowly on a single trained network considered in isolation.
+
+\section{Delegated plasticity}
+
+
+A related idea, and one of the most important additions in this revision, is what I will call \textbf{delegated plasticity}.
+
+The intuitive idea is simple. A system is more adaptable when adaptation is not concentrated only at the top. If lower layers can absorb perturbations, retune behavior, or maintain local regularities without waiting for a central controller to solve everything, then the whole system becomes more robust and more flexible.
+
+Recent work by Michael Timothy Bennett pushes this idea in a particularly provocative direction \citep{bennett2025}. In his "stack" framework, higher-level adaptability depends on adaptation being delegated to sufficiently low levels, and systems perform better when higher layers are not forced to micromanage everything. Even without adopting his framework wholesale, this basic insight is powerful.
+
+The way I would state it in this paper is:
+
+\textbf{Delegated Plasticity Hypothesis.} Open-ended adaptation improves when plasticity is distributed across multiple levels and timescales, rather than being concentrated in a single high-level learning layer.
+
+This hypothesis helps explain why biological intelligence remains a crucial comparison class. Organisms are not merely large parametric models. They are deeply layered adaptive systems in which metabolism, morphology, physiology, action, memory, and learning all contribute to resilience and competence.
+
+The relevance to AI is immediate. Current systems already exhibit partial forms of delegated plasticity: context windows, retrieval systems, tool use, online adaptation, external memory, self-reflection loops, and modular control all offload some burden from a single static weight matrix. A mature theory of intelligence should be able to describe these not as miscellaneous engineering hacks, but as moves in the space of adaptive stack design.
+
+\section{Weakness, not just simplicity}
+
+
+Another idea that deserves to be integrated carefully is Bennett's notion of \textbf{weakness} \citep{bennett2023}. The phrase itself may be unfamiliar, so it is important not to let terminology create unnecessary barriers. The intuitive point can be stated very simply.
+
+When a system forms an abstraction, there are often many possible descriptions that fit the data seen so far. Some descriptions are very specific and overcommitted. Others leave more possibilities open while still remaining useful. If a system adopts an overly strong description too early, it may fit the observed data but fail to generalize. In that sense, intelligence may depend not only on simplicity or compression, but on selecting the \textbf{least overcommitted} abstraction that is still sufficient for successful control.
+
+That is the sense in which I think the weakness idea is valuable for this paper. I do not want to burden the main text with a heavy new formal vocabulary, but I do want to preserve the insight. So the claim I will make here is the following:
+
+\textbf{Weakness Principle.} Among abstractions that are adequate for present control and prediction, more intelligent systems tend to preserve the weaker one: the one that commits to less incidental structure while retaining what is needed for future adaptation.
+
+This is closely related to, but not identical with, familiar ideas about simplicity, compression, or the information bottleneck \citep{tishby2000}. It suggests that good intelligence does not merely seek the shortest description. It seeks the right abstraction boundary: preserve what matters for regulation, discard what is accidental, and do not overcommit too early.
+
+This principle also helps refine the older transfer-function intuition. The system is not trying to import a complete environmental mechanism. It is trying to import an abstraction that is weak enough to generalize and strong enough to control.
+
+\section{Physical implementation and finite budgets}
+
+
+So far the discussion could still sound somewhat abstract. But the entire point of a "physics of AI" is that these abstractions are realized on finite physical substrates.
+
+That means at least four classes of constraint matter:
+
+\begin{enumerate}
+\item \textbf{Memory and storage limits}
+\item \textbf{Energy and dissipation limits}
+\item \textbf{Bandwidth, latency, and synchronization limits}
+\item \textbf{Noise, fragility, and error-correction costs}
+
+\end{enumerate}
+
+Landauer's principle remains one of the clearest bridges between information and physical cost: irreversible information processing has a thermodynamic price \citep{landauer1961}. More generally, any real adaptive system must spend physical resources to sense, store, communicate, coordinate, and update.
+
+This does not mean that physics directly dictates one privileged neural network architecture. That would be far too strong. But it does mean that no theory of intelligence is complete if it treats representation, memory, and adaptation as though they floated free of substrate. Related information-theoretic and statistical-mechanical analyses also support this direction \citep{xu2017,bahri2020}.
+
+In the main text, I want to keep this point intuitive. More speculative and more technical extensions, including discussion of finite information bounds and why the Bekenstein bound should be handled cautiously, are moved to the appendices. The short version is that physical finiteness matters a great deal, but one should be careful not to overclaim from any single bound.
+
+\section{Emergence without mystification}
+
+
+The framework above also suggests a more sober way to talk about emergence.
+
+When people say a capability emerges, they often mean that it appears suddenly at a larger scale even though it was not obvious at a smaller scale. There are two main possibilities. One is that the underlying system really does cross a meaningful threshold, for example in representational fidelity, compositional depth, memory horizon, or closed-loop stability. The other is that our evaluation metric is nonlinear or thresholded, making a smooth internal improvement look like a sudden jump. Empirical scaling trends can look smooth even when downstream task metrics appear sharp \citep{kaplan2020,schaeffer2023}.
+
+The most plausible general stance is to allow both. Some capability transitions may indeed behave like threshold phenomena. But many reported surprises may also reflect sparse or nonlinear measurement. The right scientific question is therefore not "Is emergence real?" in the abstract. It is: \textbf{Which internal variables, task structures, and metrics together make capability transitions look sharp?}
+
+That question fits naturally with the present framework, because emergence is then studied as a relation among representation, control horizon, and measurement, rather than as a mysterious primitive.
+
+\section{Why this matters for AI safety}
+
+
+This way of thinking changes what the safety object is.
+
+If an AI system is treated as a predictor in isolation, then risk looks like wrong answers, hallucinations, or benchmark failures. But once the system is viewed as a regulator embedded in a closed loop, the picture becomes deeper. Risk appears when the system models the wrong variables, regulates the wrong proxies, overcommits to brittle abstractions, mismanages uncertainty, or amplifies small errors through feedback.
+
+On this view, misalignment can be reframed as structural mismatch among:
+
+\begin{itemize}
+\item the system's internal abstractions,
+\item the objectives that actually govern its behavior,
+\item and the real environment in which it is deployed.
+
+\end{itemize}
+
+That mismatch can arise at several levels. The system may have a world model that is good enough for capability but not good enough for safe uncertainty management. It may optimize short-horizon proxies in a long-horizon causal system. It may rely on abstractions that work in open-loop evaluation but fail once feedback changes the data-generating process. Or it may lack the multiscale adaptation needed to degrade gracefully under perturbation.
+
+This does not solve alignment. But it does make part of the problem more scientifically legible.
+
+\section{Working conjectures and open questions}
+
+
+The aim of this essay is not to conclude, but to sharpen inquiry. Here are five conjectures that, in my view, deserve serious investigation.
+
+\subsection{Control-Sufficient Abstraction Conjecture}
+
+Any agent that can robustly achieve a nontrivial family of goals under perturbation must encode a control-sufficient abstraction of its environment, whether explicitly or implicitly.
+
+\textbf{Questions}
+\begin{itemize}
+\item How should control sufficiency be defined formally?
+\item Can it be linked to task-conditioned sufficiency, bisimulation, controllability, or intervention structure?
+\item Under what assumptions can such abstractions be extracted from trained policies?
+
+\end{itemize}
+
+\subsection{Adaptive Stack Conjecture}
+
+General intelligence is better modeled as a stack of coupled adaptive processes than as a single homogeneous optimizer.
+
+\textbf{Questions}
+\begin{itemize}
+\item What layers are minimal for nontrivial adaptive competence?
+\item Which existing AI systems already instantiate partial adaptive stacks?
+\item What empirical signatures distinguish stack depth from mere scale?
+
+\end{itemize}
+
+\subsection{Delegated Plasticity Conjecture}
+
+Robust open-ended adaptation requires plasticity to be delegated across multiple levels and timescales rather than concentrated only in a top-level learner.
+
+\textbf{Questions}
+\begin{itemize}
+\item How can delegated plasticity depth be measured?
+\item Does it predict robustness, sample efficiency, or graceful degradation better than parameter count?
+\item What forms of low-level adaptation are feasible in artificial systems?
+
+\end{itemize}
+
+\subsection{Weakness Conjecture}
+
+Among candidate abstractions that fit current evidence, systems that preserve the weaker control-sufficient abstraction will generalize more effectively than systems that commit too early to stronger and more brittle structure.
+
+\textbf{Questions}
+\begin{itemize}
+\item Can weakness be formalized in ways that connect to compression, information bottleneck, and causal abstraction?
+\item When does the shortest description fail to be the best operational abstraction?
+\item Can this principle guide architecture or training design?
+
+\end{itemize}
+
+\subsection{Thermodynamic Budget Conjecture}
+
+There exist joint limits on adaptive performance determined by information availability, memory capacity, control horizon, and physical dissipation budget.
+
+\textbf{Questions}
+\begin{itemize}
+\item Can generalization, memory formation, and physical cost be placed in a common formalism?
+\item Which architectural motifs improve adaptive performance per unit of energy, memory, or synchronization cost?
+\item Are there experimentally meaningful lower bounds for classes of adaptation tasks?
+
+\end{itemize}
+
+\section{Scope: intelligence first, consciousness later}
+
+
+One important clarification is that this paper is about intelligence, not a full theory of consciousness.
+
+The two topics may be related, and some recent work argues for deep connections between representation, value, selfhood, and conscious access. But I do not think this paper should try to settle those debates. Doing so would raise the entry barrier and diffuse the central contribution.
+
+The right order, in my view, is:
+\begin{enumerate}
+\item first, build a theory of intelligence as adaptive closed-loop regulation on finite substrates;
+\item then ask which additional ingredients, if any, are needed for consciousness.
+
+\end{enumerate}
+
+That separation keeps the current paper focused and more accessible, while still leaving open a future bridge.
+
+\section{Conclusion}
+
+
+The main intuition behind this paper can now be stated cleanly.
+
+Contemporary AI systems should not be understood only as function approximators trained on static datasets. They should be understood as physical systems that acquire, compress, and redeploy usable structure from the environment. When embedded in closed loops, such systems act as regulators. When organized across multiple timescales and layers of plasticity, they become adaptive stacks. Under this view, intelligence is neither magical nor trivial. It is the organized capacity to maintain and expand control through the right abstractions.
+
+This remains a working agenda rather than a settled doctrine. Several claims here are conjectural. But that is exactly the point. The goal is to propose a picture that is strong enough to organize research, weak enough to remain falsifiable, and intuitive enough to invite broad discussion. If even part of this picture is right, then a theory of intelligence for contemporary AI will have to connect machine learning to control, multiscale adaptation, physical implementation, and safety more tightly than is common today.
+
+\section{Acknowledgments}
+
+
+I am especially grateful to Ziming Liu for repeatedly motivating the possibility of a "physics of AI" and for helping crystallize why this problem feels urgent. During revision, Michael Timothy Bennett's recent thesis and related papers proved especially stimulating, particularly on adaptive stacks, weakness, and delegated adaptation. More broadly, this essay draws inspiration from the work of Roger Conant, W. Ross Ashby, David Marr, Rolf Landauer, Naftali Tishby, Karl Friston, Sergey Levine, Michael Levin, Patrick McMillen, Jonathan Richens, David Abel, Tom Everitt, and many others whose contributions make this discussion possible.
+
+\section{Author note}
+
+
+The initial motivation, problem framing, and many of the core intuitions in this paper were proposed by Macheng Shen, including the emphasis on dynamical systems, the idea that learning transfers usable environmental structure onto a new substrate, the role of multiscale feedback, and the connection to AI safety. Conceptual restructuring, argument tightening, literature integration, and drafting of the present English version were developed collaboratively with GPT-5.2 Pro. This text is intended as a public working paper designed to invite discussion, criticism, and further refinement.
+
+\appendix
+
+\section{How the Bennett-inspired ideas are used here}
+
+
+This paper draws real inspiration from Bennett's recent work \citep{bennett2025,bennett2023}, but it does not import his framework wholesale.
+
+The main text uses three Bennett-inspired ideas in a simplified and more accessible form:
+
+\begin{enumerate}
+\item \textbf{Adaptive stacks.}
+Rather than speaking only about a model or an agent in isolation, we speak about layered adaptive systems with interacting levels of control, representation, memory, and plasticity.
+
+\item \textbf{Weakness.}
+Instead of introducing Bennett's formal machinery in the main text, we state the intuitive version: good generalization often depends on keeping the least overcommitted abstraction that is still sufficient for successful control.
+
+\item \textbf{Delegated plasticity.}
+We borrow the core intuition that high-level adaptation depends on low-level adaptation, but we state it as a research hypothesis rather than as a completed formal result within our own framework.
+
+\end{enumerate}
+
+This choice is deliberate. The paper is meant to be a readable invitation into a research direction, not an attempt to reproduce the full internal vocabulary of another theory. Readers who want the more formal or more ambitious version should go directly to Bennett's thesis and associated papers.
+
+\section{Why the Bekenstein bound stays in the appendix}
+
+
+The physical finiteness of intelligent systems matters. But not every physical bound belongs in the center of the paper.
+
+The Bekenstein bound is relevant because it sharpens the idea that finite physical systems cannot carry unlimited information. However, the operational meaning of that bound is subtle. Recent work has shown that one must be careful in treating it as a universal, directly usable bound on all forms of information processing or channel capacity.
+
+For that reason, the main text does not lean heavily on the Bekenstein bound. The paper only claims the weaker and safer point: real intelligent systems are implemented on finite physical substrates with limited budgets for storage, communication, synchronization, and dissipation. That claim is enough for the present agenda.
+
+\section{Relation to several existing frameworks}
+
+
+The present paper should be read as a bridge, not as a replacement.
+
+\begin{itemize}
+\item \textbf{Cybernetics / Good Regulator.}
+The claim that intelligence requires control-sufficient internal structure is continuous with the idea that good regulators must model the systems they regulate \citep{conant1970}.
+
+\item \textbf{Internal Model Principle.}
+The emphasis on closed-loop structure and regulation is continuous with the control-theoretic idea that successful robust regulation requires internal model structure \citep{francis1976}.
+
+\item \textbf{Information Bottleneck.}
+The claim that intelligence depends on selective abstraction, not complete duplication, is continuous with the idea that useful representations preserve relevant information while discarding the rest \citep{tishby2000}.
+
+\item \textbf{World models.}
+Recent work showing that general agents need predictive world models supports the claim that multi-step flexible control requires substantial internal environmental structure \citep{richens2025}.
+
+\item \textbf{Multiscale competency.}
+The idea that competence can be distributed across scales supports the move from isolated models to adaptive stacks \citep{levin2023,mcmillen2024}.
+
+\item \textbf{Thermodynamics of computation.}
+The insistence on physical substrate and finite budgets grounds all of the above in implementable systems rather than free-floating abstractions \citep{landauer1961}.
+
+\end{itemize}
+
+\nocite{zhang2024}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
