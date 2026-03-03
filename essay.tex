@@ -30,15 +30,22 @@ that captures enough of the world's regularities to support prediction or action
 \section{A working thesis: intelligence as control-sufficient compressed modeling}
 The central claim of this essay is the following: Working thesis. Intelligence is the capacity of a resource-bounded physical system to build, update, and use internal states that form a control-sufficient compressed model of environmental dynamics, such that the system can keep itself or parts of its environment within a target set across perturbations, uncertainty, and distributional change. Several terms in this sentence need emphasis. Resource-bounded. Real systems have limited memory, finite energy, finite bandwidth, finite time, noise, and imperfect sensors and actuators. Compressed model. The internal model is not a total duplicate of the world. It is selective. It keeps what matters for prediction, intervention, and error correction, while discarding other information. Control-sufficient. What matters is not descriptive completeness but task relevance. The model is "good enough" insofar as it supports successful regulation and adaptation in the presence of disturbances. Target set. Intelligence should not be defined only by next-step prediction. Adaptive systems are usually trying to keep certain variables, structures, or outcomes within viable ranges. The relevant target set need not be externally specified or consciously represented; it may consist of viability constraints, learned preferences, epistemic aims, or homeodynamic setpoints. This thesis resonates with several existing traditions without collapsing into any one of them. Classical cybernetics suggests that successful regulation generally requires model-like internal structure. Conant and Ashby's famous result states that every good regulator of a system must be a model of that system under broad conditions (Conant \& Ashby, 1970). Information bottleneck ideas sharpen the compression side of the story by distinguishing between total information and task-relevant information (Tishby, Pereira, \& Bialek, 2000). Recent formal work on agency goes further and shows that agents capable of flexible multi-step goal-directed generalization must encode predictive models of their environment, even when that model is not explicitly exposed as a separate module (Richens, Everitt, \& Abel, 2025). Taken together, these lines of work suggest a more precise version of the original intuition. What matters is not whether an agent contains a complete internal copy of the world. What matters is whether it contains model-equivalent structure sufficient for successful regulation.
 \section{A minimal mathematical scaffold}
-To keep the discussion grounded, it helps to write a minimal dynamical scaffold. Let • x\_t denote the environment state, • o\_t denote the observation available to the system, • z\_t denote the system's internal state,
-\textbullet\ a\_t denote the action taken by the system, • theta\_t denote longer-timescale parameters, memory, or structural degrees of freedom. Then a broad class of adaptive systems can be described by four coupled update rules:
+To keep the discussion grounded, it helps to write a minimal dynamical scaffold. Let:
+\begin{itemize}
+\item $x_t$ denote the environment state,
+\item $o_t$ denote the observation available to the system,
+\item $z_t$ denote the system's internal state,
+\item $a_t$ denote the action taken by the system,
+\item $\theta_t$ denote longer-timescale parameters, memory, or structural degrees of freedom.
+\end{itemize}
+Then a broad class of adaptive systems can be described by four coupled update rules:
 \begin{align}
 \text{Environment dynamics:}\quad x_{t+1} &\sim P(x_{t+1}\mid x_t, a_t)\\
 \text{Internal state update:}\quad z_{t+1} &= f_{\theta}(z_t, o_t)\\
 \text{Policy / control law:}\quad a_t &= \pi_{\theta}(z_t)\\
 \text{Learning / adaptation:}\quad \theta_{t+1} &= \mathcal{L}(\theta_t, \tau_{0:t})
 \end{align}
-This is not yet a theory of intelligence, but it does clarify the object of study. Supervised learning appears here as a limiting case in which action does not materially affect future observations, the learning rule is mainly offline, and the causal loop is partially cut. General intelligence, by contrast, seems closer to the full closed-loop case. This scaffold also helps sharpen a thought that originally appears as talk of "inverse transfer functions" or identity relations. The stronger and more mathematically plausible question is not whether the agent reproduces the world's transfer function exactly. It is whether there exists a representation map phi and internal dynamics T\_hat\_a such that, on a task-relevant quotient of state space,
+This is not yet a theory of intelligence, but it does clarify the object of study. Supervised learning appears here as a limiting case in which action does not materially affect future observations, the learning rule is mainly offline, and the causal loop is partially cut. General intelligence, by contrast, seems closer to the full closed-loop case. This scaffold also helps sharpen a thought that originally appears as talk of "inverse transfer functions" or identity relations. The stronger and more mathematically plausible question is not whether the agent reproduces the world's transfer function exactly. It is whether there exists a representation map $\phi$ and internal dynamics $\hat{T}_a$ such that, on a task-relevant quotient of state space,
 \begin{equation}
 \phi \circ T_a \approx \hat{T}_a \circ \phi
 \end{equation}
@@ -59,13 +66,38 @@ horizon causal systems. It may perform well in open-loop benchmarks while failin
 \section{Conjectures and research questions}
 The purpose of this essay is not to present a complete theory but to articulate a set of justified conjectures and open questions. I list four here.
 \subsection{Control-sufficient model conjecture}
-Any agent that can robustly achieve a nontrivial family of goals under perturbation must encode a control-sufficient predictive model of its environment, whether explicitly or implicitly. Research questions • How should "control-sufficient" be defined mathematically? • Can it be quantified using information-theoretic sufficiency, controllability, or task-conditioned bisimulation? • Under what assumptions can a world model be extracted from a policy in a canonical way?
+Any agent that can robustly achieve a nontrivial family of goals under perturbation must encode a control-sufficient predictive model of its environment, whether explicitly or implicitly.
+Research questions:
+\begin{itemize}
+\item How should "control-sufficient" be defined mathematically?
+\item Can it be quantified using information-theoretic sufficiency, controllability, or task-conditioned bisimulation?
+\item Under what assumptions can a world model be extracted from a policy in a canonical way?
+\end{itemize}
 \subsection{Multiscale feedback conjecture}
-Open-ended adaptation requires more than one coupled time scale of state update or plasticity, together with channels that propagate constraints or errors across scales. Research questions • What is the minimal multiscale architecture required for robust adaptation? • Are there impossibility results for single-timescale agents in nonstationary or partially observed environments? • How do parametric memory, working memory, tool use, and external memory divide labor across scales?
+Open-ended adaptation requires more than one coupled time scale of state update or plasticity, together with channels that propagate constraints or errors across scales.
+Research questions:
+\begin{itemize}
+\item What is the minimal multiscale architecture required for robust adaptation?
+\item Are there impossibility results for single-timescale agents in nonstationary or partially observed environments?
+\item How do parametric memory, working memory, tool use, and external memory divide labor across scales?
+\end{itemize}
 \subsection{Emergence-threshold conjecture}
-Many new capabilities correspond not to the sudden creation of a new faculty, but to the crossing of task-dependent thresholds in representational fidelity, compositional depth, or control horizon. Research questions • Can we identify task families with measurable thresholds that are independent of arbitrary benchmark metrics? • How can we distinguish true dynamical phase transitions from artifacts induced by thresholded evaluation? • What internal observables best track capability transitions?
+Many new capabilities correspond not to the sudden creation of a new faculty, but to the crossing of task-dependent thresholds in representational fidelity, compositional depth, or control horizon.
+Research questions:
+\begin{itemize}
+\item Can we identify task families with measurable thresholds that are independent of arbitrary benchmark metrics?
+\item How can we distinguish true dynamical phase transitions from artifacts induced by thresholded evaluation?
+\item What internal observables best track capability transitions?
+\end{itemize}
 \subsection{Thermodynamic-budget conjecture}
-The upper bound on a learning system's adaptive performance depends jointly on data, model capacity, time budget, and physical dissipation budget. Research questions • Can generalization, memory formation, and energy dissipation be brought into a common formalism? • Are there experimentally meaningful lower bounds on the cost of adapting to classes of environments? • Which architectural motifs improve adaptation per unit of physical cost? A fifth, more speculative question cuts across all four conjectures: can a theory of intelligence be built around effective coarse-grainings of dynamics rather than around functions in isolation? If so, the right mathematical language may involve not only probability and control, but also symmetries, renormalization-like ideas, and structure-preserving maps between internal and external dynamics.
+The upper bound on a learning system's adaptive performance depends jointly on data, model capacity, time budget, and physical dissipation budget.
+Research questions:
+\begin{itemize}
+\item Can generalization, memory formation, and energy dissipation be brought into a common formalism?
+\item Are there experimentally meaningful lower bounds on the cost of adapting to classes of environments?
+\item Which architectural motifs improve adaptation per unit of physical cost?
+\end{itemize}
+A fifth, more speculative question cuts across all four conjectures: can a theory of intelligence be built around effective coarse-grainings of dynamics rather than around functions in isolation? If so, the right mathematical language may involve not only probability and control, but also symmetries, renormalization-like ideas, and structure-preserving maps between internal and external dynamics.
 \section{Conclusion}
 The central intuition behind this essay can now be stated more cleanly than at the start. Contemporary AI systems should not be understood only as function approximators trained on static datasets. They should be understood as physical systems that acquire, compress, and redeploy usable structure from the environment. When embedded in closed loops, these systems become regulators. Under sufficient complexity, memory, and multiscale feedback, they begin to exhibit behaviors we naturally describe as intelligent. This remains a working agenda, not a finished doctrine. Several claims in this paper are offered as conjectures, not settled facts. But that is precisely the point. The goal is to put forward a picture that is strong enough to organize research, weak enough to remain falsifiable, and concrete enough to generate formal questions. If even part of this picture is right, then a "physics of AI" is not just a slogan. It is a legitimate scientific program linking machine learning practice, general intelligence, and safety.
 \section{Acknowledgments}
