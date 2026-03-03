@@ -2,7 +2,7 @@
 ## A Working Agenda from Systems, Dynamics, and AI Safety
 
 **Macheng Shen** and **GPT-5.2 Pro**  
-Contact: macheng93@gmail.com  
+Contact: macshen93@gmail.com  
 Website: machengshen.github.io  
 Draft for public discussion - March 2026
 
