@@ -147,6 +147,35 @@
             text-decoration: underline;
         }
 
+        .nav-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        .nav-link.active {
+            color: var(--link);
+            border-bottom-color: var(--link);
+        }
+
         footer {
             text-align: center;
             color: #6b7280;
@@ -163,6 +192,11 @@
         <p>Principal Investigator, Shanghai Qi Zhi Institute</p>
         <p>Contact: macshen93@gmail.com</p>
     </header>
+
+    <nav class="nav-bar">
+        <a href="/" class="nav-link active">Home</a>
+        <a href="/ideas/" class="nav-link">Research Essays</a>
+    </nav>
 
     <main class="container">
         <section class="card essay">
