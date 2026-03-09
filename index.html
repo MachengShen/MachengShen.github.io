@@ -176,6 +176,30 @@
             border-bottom-color: var(--link);
         }
 
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white !important;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight::before {
+            content: "🆕";
+            position: absolute;
+            top: -4px;
+            right: -4px;
+            font-size: 1.2rem;
+        }
+
+        .highlight:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            text-decoration: none;
+        }
+
         footer {
             text-align: center;
             color: #6b7280;
@@ -195,6 +219,7 @@
     <nav class="nav-bar">
         <a href="/" class="nav-link active">Home</a>
         <a href="/ideas/" class="nav-link">Research Essays</a>
+        <a href="/research/wave-backprop-full.html" class="nav-link highlight">Wave Theory 🌊</a>
     </nav>
 
     <main class="container">
