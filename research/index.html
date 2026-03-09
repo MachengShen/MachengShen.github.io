@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Theory of Learning | Macheng Shen</title>
+    <style>
+        :root {
+            --bg: #f6f7fb;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #4b5563;
+            --accent: #0f172a;
+            --link: #0b5fff;
+            --border: #dbe2ea;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 0.5rem;
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
+        }
+
+        .card h2 {
+            margin: 0 0 0.5rem;
+            font-size: 1.6rem;
+            color: var(--accent);
+        }
+
+        .card h2 a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .card h2 a:hover {
+            color: var(--link);
+        }
+
+        .card .meta {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            margin: 0.5rem 0;
+            line-height: 1.7;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e0e7ff;
+            color: #4f46e5;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+
+        .badge.new {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .nav-bar {
+            background: #fff;
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--link);
+        }
+
+        a {
+            color: var(--link);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+            padding: 2rem 1rem;
+        }
+
+        .intro {
+            background: linear-gradient(135deg, #f0f4ff 0%, #fef3f8 100%);
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .intro h3 {
+            margin: 0 0 0.75rem;
+            color: #4f46e5;
+        }
+
+        .intro p {
+            margin: 0.5rem 0;
+        }
+
+        ul {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.5rem 0;
+        }
+
+        .cta {
+            background: #667eea;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .cta:hover {
+            background: #5a67d8;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌊 Wave Theory of Learning</h1>
+    <p>A Unified Physical Framework for Intelligence</p>
+</header>
+
+<nav class="nav-bar">
+    <a href="/" class="nav-link">← Back to Home</a>
+</nav>
+
+<main class="container">
+    <div class="intro">
+        <h3>What if neural networks are wave propagation systems?</h3>
+        <p>This research series derives learning algorithms from physical first principles, viewing neural networks as waves propagating through tunable media. The framework unifies Hebbian learning, Oja's rule, and backpropagation—and extends to explain the Fermi Paradox.</p>
+        <p><strong>Date:</strong> March 9, 2026 | <strong>Collaboration:</strong> Macheng Shen + Claude (Opus 4.6)</p>
+    </div>
+
+    <div class="card">
+        <h2><a href="hebbian-wave-interference.html">Hebbian Learning, Oja's Rule, and Backpropagation Unified</a></h2>
+        <div class="meta">
+            <span class="badge new">New</span>
+            <span class="badge">Core Theory</span>
+            <span class="badge">Neuroscience</span>
+        </div>
+        <p><strong>Central thesis:</strong> Three fundamental learning principles—Hebbian learning (1949), Oja's rule (1982), and backpropagation (1986)—are not independent mechanisms but unified manifestations of wave interference in tunable media.</p>
+        
+        <p><strong>Key results:</strong></p>
+        <ul>
+            <li>Hebbian learning = correlation between incident (forward) and reflected (error) waves</li>
+            <li>Oja's rule = physical saturation constraints in finite-capacity media</li>
+            <li>Backpropagation = reflected error waves (no explicit algorithm needed)</li>
+            <li>Resolves "biological plausibility of backprop" debate</li>
+        </ul>
+
+        <p><strong>Implications:</strong> Any wave system with tunable coupling automatically supports learning. Provides design principles for neuromorphic computing (optical, acoustic, memristive).</p>
+        
+        <a href="hebbian-wave-interference.html" class="cta">Read Full Paper →</a>
+    </div>
+
+    <div class="card">
+        <h2><a href="wave-backprop-full.html">Deriving Backpropagation from Wave Equations & the Fermi Paradox</a></h2>
+        <div class="meta">
+            <span class="badge new">New</span>
+            <span class="badge">Physics</span>
+            <span class="badge">Cosmology</span>
+        </div>
+        <p><strong>Central thesis:</strong> Information transmission obeys physical laws with fundamental cost constraints. The same framework that explains neural network training also explains why we see no signs of extraterrestrial intelligence.</p>
+        
+        <p><strong>Part I: Neural Networks</strong></p>
+        <ul>
+            <li>Forward pass = steady-state wave propagation</li>
+            <li>Loss function = boundary impedance mismatch</li>
+            <li>Backprop = time-reversed wave dynamics carrying reflected error signals</li>
+            <li>Explains vanishing gradients, ResNet, BatchNorm, spectral bias</li>
+        </ul>
+
+        <p><strong>Part II: Fermi Paradox</strong></p>
+        <ul>
+            <li>Control cost scales as ~R<sup>5</sup> with distance</li>
+            <li>Light-year latencies make interstellar closed-loop control infeasible</li>
+            <li>Civilizations "trapped" by thermodynamics, not technology</li>
+            <li>Universe may be full of "hermit civilizations" in local high-efficiency bubbles</li>
+        </ul>
+
+        <a href="wave-backprop-full.html" class="cta">Read Full Paper →</a>
+    </div>
+
+    <div class="card">
+        <h2><a href="wave-backprop-en.html">Deriving Backpropagation from Wave Equations (Short Version)</a></h2>
+        <div class="meta">
+            <span class="badge">Concise</span>
+            <span class="badge">Technical</span>
+        </div>
+        <p>A focused derivation of backpropagation from wave dynamics, without the Fermi Paradox extension. Best for readers interested in the core mathematical framework.</p>
+        <a href="wave-backprop-en.html" class="cta">Read Short Version →</a>
+    </div>
+
+    <div class="intro" style="margin-top: 2rem;">
+        <h3>🔬 Testable Predictions</h3>
+        <ul>
+            <li>Physical wave systems (optical, acoustic) with only local Hebbian plasticity should achieve backprop-level performance</li>
+            <li>Trained networks should have flat frequency response curves at task-relevant frequencies</li>
+            <li>STDP timing windows should scale with dendritic length (~L/v)</li>
+            <li>Network eigenmodes should align with learned weight structure</li>
+        </ul>
+    </div>
+
+    <div class="intro" style="background: #f0fdf4; border-color: #bbf7d0;">
+        <h3>📬 Feedback & Collaboration</h3>
+        <p>This work has been shared with Nature, Geoffrey Hinton, Yoshua Bengio, Yann LeCun, Max Tegmark, and Michael Levin for peer review.</p>
+        <p>If you find errors, have suggestions, or want to collaborate on experimental validation, please reach out: <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Macheng Shen. Research conducted in collaboration with Claude (Opus 4.6) by Anthropic.</p>
+    <p><a href="https://github.com/machengshen">GitHub</a> | <a href="https://twitter.com/MachengShen">Twitter</a></p>
+</footer>
+
+</body>
+</html>
