@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deriving Backpropagation from Wave Equations & Implications for the Fermi Paradox</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            color: #24292e;
+            background-color: #ffffff;
+        }
+        h1 {
+            border-bottom: 2px solid #0366d6;
+            padding-bottom: 0.3em;
+            margin-bottom: 1em;
+            color: #0366d6;
+        }
+        h2 {
+            border-bottom: 1px solid #eaecef;
+            padding-bottom: 0.3em;
+            margin-top: 2em;
+            color: #24292e;
+        }
+        h3 {
+            margin-top: 1.5em;
+            color: #586069;
+        }
+        .abstract, .origin {
+            background-color: #f6f8fa;
+            border-left: 4px solid #0366d6;
+            padding: 16px;
+            margin: 24px 0;
+        }
+        .origin {
+            border-left-color: #28a745;
+            font-style: italic;
+        }
+        .box {
+            border: 2px solid;
+            border-radius: 6px;
+            padding: 16px;
+            margin: 20px 0;
+        }
+        .box-blue { background-color: #f1f8ff; border-color: #0366d6; }
+        .box-red { background-color: #ffeef0; border-color: #d73a49; }
+        .box-green { background-color: #f0fff4; border-color: #28a745; }
+        .box-orange { background-color: #fff8e6; border-color: #fb8500; }
+        .box-purple { background-color: #f5f0ff; border-color: #6f42c1; }
+        .box-yellow { background-color: #fffbdd; border-color: #ffd33d; }
+        .box-cyan { background-color: #e6f7ff; border-color: #1890ff; }
+        .box-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #dfe2e5;
+            padding: 10px 16px;
+            text-align: left;
+        }
+        th {
+            background-color: #f6f8fa;
+            font-weight: 600;
+        }
+        ul, ol {
+            padding-left: 2em;
+        }
+        li {
+            margin: 0.5em 0;
+        }
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 0.9em;
+        }
+        .meta {
+            color: #586069;
+            font-size: 0.9em;
+            margin-bottom: 2em;
+        }
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding-left: 16px;
+            margin: 20px 0;
+            color: #586069;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Deriving Backpropagation from Wave Equations</h1>
+<h2 style="border:none; color: #586069; font-size: 1.2em; margin-top: 0.5em;">& Implications for the Fermi Paradox</h2>
+
+<p class="meta"><em>Neural Networks as Wave Propagation Systems</em><br>
+Macheng Shen & OpenClaw | March 9, 2026</p>
+
+<div class="origin">
+<strong>Original Prompt (by Macheng Shen):</strong><br><br>
+"What if our mental model of neural networks is fundamentally wrong? We think of them as static function mappings, but physically, information propagates through space as waves. The input is AC current—it has frequency. During the forward pass, information must physically travel through the system. How does this wave propagation really work in neural networks?"
+</div>
+
+<div class="abstract">
+<strong>Abstract:</strong>
+We re-examine neural networks from physical first principles, viewing them as <strong>discrete layered waveguide media</strong>. In this framework, the forward pass corresponds to wave propagation, and backpropagation corresponds to error waves reflected from boundary mismatches. This perspective not only reinterprets the classical gradient descent algorithm but also reveals the physical constraints on network architecture design and provides a unified wave-dynamics framework for understanding phenomena like vanishing gradients and exploding gradients. We then extend this framework to analyze the Fermi Paradox, proposing that physical laws of information transmission impose fundamental limits on the spatial scale of intelligent systems.
+</div>
+
+<h2>Part I: Deriving Backpropagation from Wave Equations</h2>
+
+<h3>1. Setup: Neural Networks as Layered Media</h3>
+
+<h4>1.1 Physical Model</h4>
+<p>Imagine a neural network as \(N\) layers of waveguide media:</p>
+<ul>
+    <li>Each layer \(l \in \{1, 2, \ldots, L\}\) is a "medium slab"</li>
+    <li>Waves propagate, refract, and undergo nonlinear interactions between layers</li>
+    <li>Weight matrix \(\mathbf{W}_l\) describes the propagation characteristics of the medium (impedance/coupling strength)</li>
+</ul>
+
+<h4>1.2 Activation Dynamics</h4>
+<p>Let \(\mathbf{x}_l(t) \in \mathbb{R}^{n_l}\) be the wave amplitude (activation value) at layer \(l\) at time \(t\). Inter-layer propagation follows the dynamical equation:</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\frac{\partial \mathbf{x}_l}{\partial t} = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}) - \gamma_l \mathbf{x}_l \tag{1}
+\]
+</div>
+
+<p>where:</p>
+<ul>
+    <li>\(\mathbf{W}_l \in \mathbb{R}^{n_l \times n_{l-1}}\) is the propagation matrix for layer \(l\)</li>
+    <li>\(\gamma_l > 0\) is the damping coefficient (energy loss rate)</li>
+    <li>\(\sigma: \mathbb{R} \to \mathbb{R}\) is the nonlinear activation function (corresponding to nonlinear medium response, such as optical Kerr effect)</li>
+</ul>
+
+<h4>1.3 Steady-State Solution and Standard Forward Pass</h4>
+<p>At steady state (\(\partial \mathbf{x}_l / \partial t = 0\)), equation (1) reduces to:</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\mathbf{x}_l = \frac{1}{\gamma_l} \sigma(\mathbf{W}_l \mathbf{x}_{l-1})
+\]
+</div>
+
+<p>Without loss of generality, set \(\gamma_l = 1\) (or absorb it into the weights), yielding the standard forward pass:</p>
+
+<div class="box box-blue">
+<div class="box-title">Forward Pass (Steady-State Wave Propagation)</div>
+\[
+\mathbf{x}_l = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}), \quad l = 1, 2, \ldots, L \tag{2}
+\]
+</div>
+
+<p><strong>Physical interpretation:</strong> The forward pass is the steady-state distribution of waves propagating from input layer \(\mathbf{x}_0\) layer-by-layer to output layer \(\mathbf{x}_L\).</p>
+
+<h3>2. Loss Function: Impedance Mismatch at the Boundary</h3>
+
+<h4>2.1 Boundary Condition</h4>
+<p>At output layer \(L\), we have:</p>
+<ul>
+    <li>Desired output (target boundary condition): \(\mathbf{y}^* \in \mathbb{R}^{n_L}\)</li>
+    <li>Actual output (wave state at boundary): \(\mathbf{x}_L\)</li>
+</ul>
+
+<h4>2.2 Loss as Boundary Mismatch</h4>
+<p>The loss function measures the degree to which the boundary condition is satisfied:</p>
+
+<div class="box box-red">
+<div class="box-title">Loss Function (Boundary Mismatch)</div>
+\[
+\mathcal{L} = \frac{1}{2} \|\mathbf{x}_L - \mathbf{y}^*\|^2 \tag{3}
+\]
+</div>
+
+<p><strong>Physical meaning:</strong> In wave theory, unsatisfied boundary conditions lead to the generation of <strong>reflected waves</strong>. The loss function measures the intensity of this "reflection."</p>
+
+<h3>3. Backpropagation: Backward-Propagating Error Waves</h3>
+
+<h4>3.1 Time-Reversal Symmetry</h4>
+<p>Many wave equations satisfy <strong>time-reversal symmetry</strong>: if \(\mathbf{x}(t)\) is a solution, then \(\mathbf{x}(-t)\) is also a solution. This inspires us:</p>
+
+<div class="box box-green">
+<div class="box-title">Core Idea</div>
+<strong>Backpropagation is time-reversed forward pass, carrying "error/reflected waves."</strong>
+</div>
+
+<h4>3.2 Definition of Error Wave</h4>
+<p>Define the <strong>error wave</strong> (or adjoint wave) at layer \(l\):</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\boldsymbol{\delta}_l \equiv \frac{\partial \mathcal{L}}{\partial \mathbf{x}_l} \tag{4}
+\]
+</div>
+
+<h4>3.3 Boundary Condition (Output Layer)</h4>
+<p>From equations (3) and (4), the initial condition for the error wave at the output layer is:</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\boldsymbol{\delta}_L = \frac{\partial \mathcal{L}}{\partial \mathbf{x}_L} = \mathbf{x}_L - \mathbf{y}^* \tag{5}
+\]
+</div>
+
+<h4>3.4 Backpropagation Equation</h4>
+<p>Using the chain rule:</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\boldsymbol{\delta}_{l-1} = \left(\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}}\right)^T \boldsymbol{\delta}_l
+\]
+</div>
+
+<p>From the forward pass equation (2):</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}} = \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \mathbf{W}_l
+\]
+</div>
+
+<p>where \(\mathbf{z}_l = \mathbf{W}_l \mathbf{x}_{l-1}\). Therefore:</p>
+
+<div class="box box-orange">
+<div class="box-title">Backpropagation (Reflected Wave Propagation)</div>
+\[
+\boldsymbol{\delta}_{l-1} = \mathbf{W}_l^T \cdot \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \boldsymbol{\delta}_l \tag{6}
+\]
+</div>
+
+<h3>4. Physical Interpretation</h3>
+
+<h4>4.1 Backward Propagation Matrix \(\mathbf{W}_l^T\)</h4>
+<ul>
+    <li><strong>Forward:</strong> Wave propagates from layer \(l-1\) to layer \(l\) via \(\mathbf{W}_l\)</li>
+    <li><strong>Backward:</strong> Reflected wave propagates from layer \(l\) back to layer \(l-1\) via \(\mathbf{W}_l^T\)</li>
+</ul>
+<p>This corresponds to the <strong>reciprocity theorem</strong> in waveguide theory.</p>
+
+<h4>4.2 Nonlinear Modulation \(\sigma'(\mathbf{z}_l)\)</h4>
+<ul>
+    <li>\(\sigma'\) describes the "differential response" of the medium</li>
+    <li>Analogous to <strong>small-signal approximation</strong> in physics</li>
+</ul>
+
+<h4>4.3 Error Wave Energy Decay</h4>
+
+<div class="box box-yellow">
+<div class="box-title">Physical Origin of Vanishing Gradient</div>
+<strong>The reflected wave decays during propagation.</strong> If the medium is highly absorptive (\(\sigma'\) small), wave energy is rapidly lost, leading to <strong>vanishing gradient</strong>.
+</div>
+
+<h3>5. Weight Updates: Adjusting Medium Impedance</h3>
+
+<p>The gradient with respect to weights is:</p>
+
+<div style="text-align: center; margin: 20px 0;">
+\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} = \boldsymbol{\delta}_l \mathbf{x}_{l-1}^T \tag{7}
+\]
+</div>
+
+<p><strong>Physical meaning:</strong> This is the <strong>correlation</strong> between incident wave \(\mathbf{x}_{l-1}\) and reflected wave \(\boldsymbol{\delta}_l\), analogous to <strong>holographic interference</strong>.</p>
+
+<div class="box box-purple">
+<div class="box-title">Weight Update (Medium Adjustment)</div>
+\[
+\mathbf{W}_l \leftarrow \mathbf{W}_l - \eta \frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} \tag{8}
+\]
+</div>
+
+<h3>6. Classical Phenomena Reinterpreted</h3>
+
+<table>
+<thead>
+<tr>
+    <th>Phenomenon</th>
+    <th>Traditional Explanation</th>
+    <th>Wave Dynamics Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Vanishing gradient</td>
+    <td>Product of derivatives &lt; 1</td>
+    <td>Reflected wave decays in absorptive medium</td>
+</tr>
+<tr>
+    <td>Exploding gradient</td>
+    <td>Product of derivatives &gt; 1</td>
+    <td>Reflected wave amplifies/resonates</td>
+</tr>
+<tr>
+    <td>ResNet skip connections</td>
+    <td>Alleviates vanishing gradient</td>
+    <td>Provides low-loss "bypass waveguide"</td>
+</tr>
+<tr>
+    <td>Batch Normalization</td>
+    <td>Stabilizes training</td>
+    <td>Impedance matching, reduces inter-layer reflection</td>
+</tr>
+<tr>
+    <td>Spectral Bias</td>
+    <td>——</td>
+    <td>Impedance too high at certain frequencies</td>
+</tr>
+</tbody>
+</table>
+
+<hr style="margin: 50px 0; border: none; border-top: 2px solid #0366d6;">
+
+<h2>Part II: Implications for the Fermi Paradox</h2>
+
+<div class="box box-cyan">
+<div class="box-title">Connecting Intelligence Theory to Cosmology</div>
+If information transmission obeys physical laws with fundamental cost constraints, what does this imply for the spatial scale of intelligent civilizations? Can the same framework that explains neural network training also explain why we see no signs of extraterrestrial intelligence?
+</div>
+
+<h3>7. The Fermi Paradox Through the Lens of Physical Cost Theory</h3>
+
+<h4>7.1 The Classical Puzzle</h4>
+<blockquote>
+"If there are numerous advanced civilizations in the universe, why do we see no trace of them?"
+</blockquote>
+
+<h4>7.2 Core Insights from Our Framework</h4>
+<ul>
+    <li><strong>Line Loss:</strong> Communication dominates computation; spatial distance → exponential cost</li>
+    <li><strong>Wave Propagation:</strong> All information must propagate via physical waves (speed-of-light limit + attenuation)</li>
+    <li><strong>Cognitive Cone:</strong> Larger control range = higher physical cost</li>
+    <li><strong>Impedance Matching:</strong> Spanning vast scales requires full-spectrum low impedance → extremely difficult</li>
+</ul>
+
+<h3>8. Four Physics-Based Explanations</h3>
+
+<h4>8.1 The Disproportionate Cost Barrier</h4>
+
+<div class="box box-blue">
+<div class="box-title">Core Idea</div>
+From planet → star system → galaxy, control costs may grow <strong>super-linearly (even exponentially)</strong>, eventually exceeding any civilization's energy budget.
+</div>
+
+<p><strong>Physical derivation:</strong></p>
+<ul>
+    <li>Information transmission cost ∝ distance² (or higher)</li>
+    <li>Control latency ∝ distance/c (speed of light)</li>
+    <li>Interstellar distances (light-years) → latency of years → <strong>closed-loop control infeasible</strong></li>
+</ul>
+
+<p><strong>Prediction:</strong> Civilizations saturate at some spatial scale where marginal expansion cost exceeds marginal benefit.</p>
+
+<p><strong>Why we don't see them:</strong> Even if millions of civilizations exist, each is confined to its own "bubble." Cross-galaxy communication is too expensive; no incentive to broadcast.</p>
+
+<h4>8.2 The Locality Constraint of Intelligence</h4>
+
+<div class="box box-green">
+<div class="box-title">Core Idea</div>
+True intelligence requires <strong>low-latency closed-loop control</strong>. Light-year latencies prevent formation of "unified intelligences."
+</div>
+
+<p><strong>From today's discussion:</strong></p>
+<ul>
+    <li>Intelligence = closed-loop regulation (perceive → reason → act → new perception)</li>
+    <li>Latency >> environmental change rate → control fails</li>
+    <li>10 light-year latency = 20 years per loop → <strong>cannot adapt to dynamic environments</strong></li>
+</ul>
+
+<p><strong>Implication:</strong> No "Galactic Empire" as a unified civilization exists—only <strong>loosely coupled autonomous local units</strong>.</p>
+
+<p><strong>Why we don't see them:</strong> Interstellar "civilizations" are like the internet, not single intelligences. We're looking for "wholes" but only "fragments" exist.</p>
+
+<h4>8.3 Interstellar Attenuation of High-Frequency Information</h4>
+
+<div class="box box-orange">
+<div class="box-title">Core Idea</div>
+Complex, fine-grained information (high-frequency) attenuates faster than simple patterns (low-frequency). Across interstellar distances, we can only receive "low-frequency noise."
+</div>
+
+<p><strong>Physical basis (from frequency-impedance discussion):</strong></p>
+<ul>
+    <li>Different frequencies have different propagation losses</li>
+    <li><strong>High-frequency information (complex patterns)</strong> preferentially decays over long distances</li>
+    <li>Analogous to hearing music from afar: only bass drums survive, high-frequency details lost</li>
+</ul>
+
+<p><strong>Application to SETI:</strong></p>
+<ul>
+    <li>Advanced civilizations' communications may be <strong>high-bandwidth, high-frequency modulated</strong></li>
+    <li>After light-years, only low-frequency "background noise" remains</li>
+    <li>Our receivers search for "narrowband signals," but real signals have "blurred" into broadband noise</li>
+</ul>
+
+<p><strong>Counter-intuitive prediction:</strong> The most advanced civilizations are the hardest to detect.</p>
+
+<h4>8.4 The Cognitive Cone Cost vs. Benefit Paradox</h4>
+
+<div class="box box-purple">
+<div class="box-title">Core Idea</div>
+The cost of extending the cognitive cone (control range) to interstellar scales >> benefits. Rational civilizations choose "inward development" over "outward expansion."
+</div>
+
+<p><strong>Calculation example:</strong></p>
+<p>Assume control radius \(R\), cost ∝ \(R^3\) (volume) × \(R^2\) (surface communication) = \(R^5\)</p>
+<ul>
+    <li>10× distance → 10⁵ = 100,000× cost increase</li>
+    <li>Stellar → galactic scale → cost increases by 10¹⁵×+</li>
+</ul>
+
+<p><strong>Rational choice:</strong></p>
+<ul>
+    <li><strong>Outward:</strong> Colonize Mars/nearby stars → diminishing returns, exploding costs</li>
+    <li><strong>Inward:</strong> Increase computational density, virtual reality, nanotech → increasing returns</li>
+</ul>
+
+<p><strong>Why we don't see them:</strong> All sufficiently advanced civilizations choose to "optimize inward." Physical space is too "inefficient" for them. They live in high-density computational bubbles (possibly planetary-scale or smaller).</p>
+
+<h3>9. Unified "Physical Paradox" Explanation</h3>
+
+<div class="box box-yellow">
+<div class="box-title">Core Thesis</div>
+<strong>The answer to the Fermi Paradox is not sociological or biological, but physical.</strong><br><br>
+Intelligence expansion is constrained by <strong>physical laws of information transmission</strong>, with insurmountable cost barriers.
+</div>
+
+<p><strong>Three hard physical constraints:</strong></p>
+<ol>
+    <li><strong>Speed of light:</strong> Upper limit on information propagation → lower limit on latency</li>
+    <li><strong>Energy:</strong> Energy cost of long-distance communication/control</li>
+    <li><strong>Impedance:</strong> Information impedance in large-scale systems grows exponentially</li>
+</ol>
+
+<p><strong>Conclusion:</strong></p>
+<ul>
+    <li>The universe may have countless civilizations, all <strong>"trapped" locally by physical laws</strong></li>
+    <li>Not "don't want" to expand, but <strong>physically uneconomical</strong></li>
+    <li>Interstellar travel/communication is not a technology problem but a <strong>fundamental thermodynamics + information theory limit</strong></li>
+</ul>
+
+<h3>10. Testable Predictions</h3>
+
+<p>If this theory is correct, we should observe:</p>
+
+<ol>
+    <li><strong>SETI should redefine search strategies</strong>
+        <ul>
+            <li>Don't look for narrowband signals; look for <strong>broadband, low-SNR complex patterns</strong></li>
+            <li>Search for structure in "noise" (analogous to CMB anisotropy analysis)</li>
+        </ul>
+    </li>
+    <li><strong>Human civilization's future trajectory</strong>
+        <ul>
+            <li>Space expansion slows (stalls after Mars colonization)</li>
+            <li>Shift toward VR, brain-computer interfaces, nanotech (inward development)</li>
+        </ul>
+    </li>
+    <li><strong>Directionality of technological progress</strong>
+        <ul>
+            <li>Advanced civilizations prioritize: quantum computing, high-density storage, virtual worlds</li>
+            <li>Not: Dyson spheres, interstellar ships, galactic colonization</li>
+        </ul>
+    </li>
+</ol>
+
+<h3>11. Philosophical Implications</h3>
+
+<p>If the Fermi Paradox answer is "physical cost barrier," this means:</p>
+
+<ul>
+    <li><strong>Loneliness may be the cosmic norm:</strong> Not because life is rare, but because communication is infeasible</li>
+    <li><strong>The "Great Filter" may not exist:</strong> Civilizations don't self-destruct; they just "choose to optimize inward"</li>
+    <li><strong>Ultimate limit on cosmic exploration:</strong> Not technology, but thermodynamics + information theory</li>
+</ul>
+
+<div class="box box-cyan">
+<div class="box-title">Deepest Insight</div>
+The essence of intelligence is <strong>optimizing control under limited resources</strong>.<br><br>
+When expansion cost >> benefit, <strong>rational agents choose not to expand</strong>.<br><br>
+The universe may be full of "hermit civilizations"—each living in its own high-efficiency bubble, uninterested in the outside.
+</div>
+
+<h2>12. Conclusion</h2>
+
+<p>We have shown that:</p>
+
+<ol>
+    <li>Neural networks can be rigorously understood as <strong>wave propagation systems</strong></li>
+    <li>Backpropagation is the <strong>time-reversal of forward pass, carrying reflected error waves</strong></li>
+    <li>The same physical laws governing neural networks may explain <strong>fundamental limits on the spatial scale of intelligence</strong></li>
+    <li>The Fermi Paradox may have a <strong>physics-based answer</strong>: civilizations are "trapped" by information transmission costs</li>
+</ol>
+
+<p>This framework suggests that <strong>physical laws, not sociology or technology, determine the ultimate structure of intelligent systems</strong>—whether neural networks or galactic civilizations.</p>
+
+<hr style="margin: 40px 0; border: none; border-top: 1px solid #eaecef;">
+
+<h3>Discussion & Feedback</h3>
+<p>This is an early-stage theoretical framework. We welcome critiques, extensions, and experimental validations. Key open questions:</p>
+
+<ul>
+    <li>Can we experimentally measure "frequency response" of trained neural networks?</li>
+    <li>Does the \(R^5\) cost scaling for cognitive cone extension hold empirically?</li>
+    <li>Are there counterexamples or alternative physical mechanisms we've missed?</li>
+</ul>
+
+<p><strong>How to reproduce this work:</strong> This entire framework emerged from a single prompt (see "Original Prompt" at the top). The conversation was conducted using Claude (Opus 4.6) with extended thinking enabled. All derivations and connections were developed through iterative dialogue between human intuition and AI reasoning.</p>
+
+<p style="text-align: center; color: #586069; font-size: 0.9em; margin-top: 40px;">
+Generated by OpenClaw | March 9, 2026<br>
+Contact: <a href="https://github.com/machengshen">@machengshen</a> | <a href="https://machengshen.github.io">machengshen.github.io</a>
+</p>
+
+</body>
+</html>
