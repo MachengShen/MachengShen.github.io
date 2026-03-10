@@ -5,7 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neural Networks are Wave Propagation Systems: A Physical Theory of Learning</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['\(', '\)']],
+    displayMath: [['$$', '$$']],
+    processEscapes: true
+  }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         :root {
             --bg: #fafbfc;
@@ -206,7 +215,7 @@
     
     <p><strong>Three major biological implausibilities identified:</strong></p>
     <ol>
-        <li><strong>Weight transport problem:</strong> Backward pass requires symmetric weights ($W^T$), but biological synapses are unidirectional</li>
+        <li><strong>Weight transport problem:</strong> Backward pass requires symmetric weights (\(W^T\)), but biological synapses are unidirectional</li>
         <li><strong>Phase separation:</strong> Forward and backward passes must be temporally separated, but neurons fire continuously</li>
         <li><strong>Non-local credit assignment:</strong> Neurons need to know downstream derivatives, but biological learning is local</li>
     </ol>
@@ -234,7 +243,7 @@
 
 <h3>Step 1: Neural Networks Must Transmit Information</h3>
 
-<p><strong>Observation:</strong> A feedforward neural network transforms input $\mathbf{x}_0$ into output $\mathbf{x}_L$:</p>
+<p><strong>Observation:</strong> A feedforward neural network transforms input \(\mathbf{x}_0\) into output \(\mathbf{x}_L\):</p>
 
 <div class="equation">
 $$\mathbf{x}_0 \xrightarrow{\text{Layer 1}} \mathbf{x}_1 \xrightarrow{\text{Layer 2}} \cdots \xrightarrow{\text{Layer L}} \mathbf{x}_L$$
@@ -246,7 +255,7 @@ $$\mathbf{x}_0 \xrightarrow{\text{Layer 1}} \mathbf{x}_1 \xrightarrow{\text{Laye
 <ul>
     <li>Lookup tables require storing all input-output pairs</li>
     <li>For continuous inputs: requires <strong>infinite memory</strong></li>
-    <li>For $n$-dimensional inputs: memory grows <strong>exponentially</strong> with $n$</li>
+    <li>For \(n\)-dimensional inputs: memory grows <strong>exponentially</strong> with \(n\)</li>
 </ul>
 
 <p><strong>Therefore:</strong> Neural networks must perform <strong>dynamic transformation</strong> — each layer actively <em>processes</em> information, not just retrieves pre-stored answers.</p>
@@ -278,9 +287,9 @@ $$\frac{\partial^2 \psi}{\partial t^2} = v^2 \nabla^2 \psi + F(\psi)$$
 
 <p style="margin-top: 1rem;"><strong>Where:</strong></p>
 <ul style="list-style: none; padding: 0;">
-    <li>• $\psi(x,t)$ = wave amplitude (voltage, concentration, displacement...)</li>
-    <li>• $v$ = propagation velocity</li>
-    <li>• $F(\psi)$ = nonlinear terms (source, damping, interactions)</li>
+    <li>• \(\psi(x,t)\) = wave amplitude (voltage, concentration, displacement...)</li>
+    <li>• \(v\) = propagation velocity</li>
+    <li>• \(F(\psi)\) = nonlinear terms (source, damping, interactions)</li>
 </ul>
 </div>
 
@@ -365,7 +374,7 @@ $$\frac{\partial^2 \psi}{\partial t^2} = v^2 \nabla^2 \psi + F(\psi)$$
 
 <p>This is analogous to:</p>
 <ul>
-    <li><strong>Generative AI:</strong> Latent noise $z$ → Generator $G$ → Realistic image $x$</li>
+    <li><strong>Generative AI:</strong> Latent noise \(z\) → Generator \(G\) → Realistic image \(x\)</li>
     <li><strong>Wave interference:</strong> Random waves → Interference → Standing wave patterns</li>
 </ul>
 
@@ -433,7 +442,7 @@ $$\frac{\partial^2 \psi}{\partial t^2} = v^2 \nabla^2 \psi + F(\psi)$$
     <tbody>
         <tr>
             <td><strong>Computational</strong></td>
-            <td>Minimize loss $L(y, y^*)$</td>
+            <td>Minimize loss \(L(y, y^*)\)</td>
             <td>✓ Same</td>
         </tr>
         <tr>
@@ -483,13 +492,13 @@ Matrix multiplication can be <em>algorithmically</em> described as nested loops 
 
 <div class="evidence-box">
     <strong>Hinton's critique:</strong>
-    <blockquote>"Backpropagation requires symmetric backward weights ($W^T$), but biological synapses are unidirectional."</blockquote>
+    <blockquote>"Backpropagation requires symmetric backward weights (\(W^T\)), but biological synapses are unidirectional."</blockquote>
 </div>
 
 <p><strong>Traditional backprop:</strong></p>
 <div class="equation">
 $$\delta_{l-1} = W_l^T \cdot \delta_l \odot \sigma'(z_{l-1})$$
-<p style="margin-top: 0.5rem;">Requires knowing $W_l^T$ (transpose of forward weights)</p>
+<p style="margin-top: 0.5rem;">Requires knowing \(W_l^T\) (transpose of forward weights)</p>
 </div>
 
 <p><strong>Wave theory solution:</strong></p>
@@ -503,14 +512,14 @@ $$\delta_{l-1} = W_l^T \cdot \delta_l \odot \sigma'(z_{l-1})$$
     <strong>Reflection coefficient:</strong>
     $$R = \frac{Z_2 - Z_1}{Z_2 + Z_1}$$
     
-    <p style="margin-top: 0.5rem;">Where $Z_i$ = impedance of layer $i$</p>
+    <p style="margin-top: 0.5rem;">Where \(Z_i\) = impedance of layer \(i\)</p>
     </div>
     
     <p><strong>Key insight:</strong> Impedance is a <em>local</em> property:</p>
     $$Z_l \propto |\mathbf{x}_l - \mathbf{x}_l^*|^2$$
     
     <ul>
-        <li>No need to "know" forward weights $W$</li>
+        <li>No need to "know" forward weights \(W\)</li>
         <li>Reflection happens <em>automatically</em> (like sound echoes)</li>
         <li>Carries gradient information backward</li>
     </ul>
@@ -574,7 +583,7 @@ $$\delta_{l-1} = W_l^T \cdot \delta_l \odot \sigma'(z_{l-1})$$
 <p><strong>Traditional backprop:</strong></p>
 <div class="equation">
 $$\frac{\partial L}{\partial w_{ij}} = \delta_j \cdot x_i$$
-Where $\delta_j$ depends on <em>all downstream weights</em>
+Where \(\delta_j\) depends on <em>all downstream weights</em>
 </div>
 
 <p><strong>Wave theory solution:</strong></p>
@@ -615,7 +624,7 @@ Where $\delta_j$ depends on <em>all downstream weights</em>
     <tbody>
         <tr>
             <td><strong>Weight transport</strong></td>
-            <td>Need $W^T$</td>
+            <td>Need \(W^T\)</td>
             <td>Automatic reflection (no explicit weights)</td>
         </tr>
         <tr>
@@ -661,7 +670,7 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
 <p><strong>What was missing:</strong></p>
 <ul>
     <li>Experiments didn't <em>separate</em> forward and backward components in post-synaptic activity</li>
-    <li>Measured <em>total</em> activity: $x_{\text{post}} = x_{\text{forward}} + x_{\text{reflected}}$</li>
+    <li>Measured <em>total</em> activity: \(x_{\text{post}} = x_{\text{forward}} + x_{\text{reflected}}\)</li>
     <li>Wave interference was <strong>invisible</strong> at macro scale</li>
 </ul>
 
@@ -672,7 +681,7 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
     <div class="equation">
     Input → Layer 1 → Layer 2 → ... → Output
     </div>
-    <p>Creates forward activity: $x_j^{\text{forward}}$</p>
+    <p>Creates forward activity: \(x_j^{\text{forward}}\)</p>
 </div>
 
 <div class="step-box">
@@ -680,7 +689,7 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
     <div class="equation">
     Output error → Reflect → Layer L-1 → ... → Layer 1
     </div>
-    <p>Creates reflected activity: $x_j^{\text{reflected}}$ (proportional to gradient)</p>
+    <p>Creates reflected activity: \(x_j^{\text{reflected}}\) (proportional to gradient)</p>
 </div>
 
 <div class="step-box">
@@ -710,13 +719,13 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
     </thead>
     <tbody>
         <tr>
-            <td>$x_i \cdot x_j^{\text{forward}}$</td>
+            <td>\(x_i \cdot x_j^{\text{forward}}\)</td>
             <td>Correlation</td>
             <td>Discover input patterns</td>
             <td>Unsupervised</td>
         </tr>
         <tr>
-            <td>$x_i \cdot x_j^{\text{reflected}}$</td>
+            <td>\(x_i \cdot x_j^{\text{reflected}}\)</td>
             <td>Error signal</td>
             <td>Task-specific optimization</td>
             <td>Supervised</td>
@@ -790,7 +799,7 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
     <h4>Expected result</h4>
     <div class="equation">
     $$\Delta w \propto \cos(\phi)$$
-    Where $\phi$ = phase difference between forward and reflected waves
+    Where \(\phi\) = phase difference between forward and reflected waves
     </div>
     
     <h4>Existing evidence</h4>
@@ -837,7 +846,7 @@ Synapses strengthen when pre- and post-synaptic neurons are simultaneously activ
 
 <div class="evidence-box">
     <h4>Background</h4>
-    <p>Lillicrap et al. (2016) showed that neural networks can learn with <em>random</em> feedback weights (not $W^T$), contradicting standard backprop.</p>
+    <p>Lillicrap et al. (2016) showed that neural networks can learn with <em>random</em> feedback weights (not \(W^T\)), contradicting standard backprop.</p>
     
     <h4>Prediction</h4>
     <p>Feedback Alignment works because <strong>wave interference</strong> doesn't require exact weight symmetry — only that reflected waves carry <em>some</em> error information.</p>
@@ -871,9 +880,9 @@ $$\frac{\partial^2 \mathbf{x}_l}{\partial t^2} + \gamma \frac{\partial \mathbf{x
 
 <p style="margin-top: 1rem;"><strong>Where:</strong></p>
 <ul style="list-style: none; padding: 0;">
-    <li>• $\gamma$ = damping coefficient (biological: refractory period)</li>
-    <li>• $V(\mathbf{x}_l)$ = potential energy (biological: metabolic cost)</li>
-    <li>• At steady state ($\partial/\partial t = 0$): reduces to standard formulation</li>
+    <li>• \(\gamma\) = damping coefficient (biological: refractory period)</li>
+    <li>• \(V(\mathbf{x}_l)\) = potential energy (biological: metabolic cost)</li>
+    <li>• At steady state (\(\partial/\partial t = 0\)): reduces to standard formulation</li>
 </ul>
 </div>
 
@@ -883,7 +892,7 @@ $$\frac{\partial^2 \mathbf{x}_l}{\partial t^2} + \gamma \frac{\partial \mathbf{x
 <strong>Layer impedance:</strong>
 $$Z_l = \|\mathbf{x}_l - \mathbf{x}_l^*\|^2$$
 
-<p style="margin-top: 0.5rem;">Where $\mathbf{x}_l^*$ = ideal (target) activation</p>
+<p style="margin-top: 0.5rem;">Where \(\mathbf{x}_l^*\) = ideal (target) activation</p>
 
 <strong>Physical meaning:</strong> Resistance to information flow
 </div>
