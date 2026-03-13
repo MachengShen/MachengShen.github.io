@@ -1,376 +1,261 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>从波动方程推导 Backpropagation</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            color: #24292e;
-            background-color: #ffffff;
-        }
-        h1 {
-            border-bottom: 2px solid #0366d6;
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
-            color: #0366d6;
-        }
-        h2 {
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
-            margin-top: 2em;
-            color: #24292e;
-        }
-        h3 {
-            margin-top: 1.5em;
-            color: #586069;
-        }
-        .abstract {
-            background-color: #f6f8fa;
-            border-left: 4px solid #0366d6;
-            padding: 16px;
-            margin: 24px 0;
-            font-style: italic;
-        }
-        .box {
-            border: 2px solid;
-            border-radius: 6px;
-            padding: 16px;
-            margin: 20px 0;
-        }
-        .box-blue { background-color: #f1f8ff; border-color: #0366d6; }
-        .box-red { background-color: #ffeef0; border-color: #d73a49; }
-        .box-green { background-color: #f0fff4; border-color: #28a745; }
-        .box-orange { background-color: #fff8e6; border-color: #fb8500; }
-        .box-purple { background-color: #f5f0ff; border-color: #6f42c1; }
-        .box-yellow { background-color: #fffbdd; border-color: #ffd33d; }
-        .box-title {
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #dfe2e5;
-            padding: 10px 16px;
-            text-align: left;
-        }
-        th {
-            background-color: #f6f8fa;
-            font-weight: 600;
-        }
-        ul, ol {
-            padding-left: 2em;
-        }
-        li {
-            margin: 0.5em 0;
-        }
-        code {
-            background-color: #f6f8fa;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9em;
-        }
-        .meta {
-            color: #586069;
-            font-size: 0.9em;
-            margin-bottom: 2em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>从波动方程推导 Backpropagation（存档说明）</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<h1>从波动方程推导 Backpropagation</h1>
-<p class="meta"><em>Neural Networks as Wave Propagation Systems</em><br>
-Macheng Shen & OpenClaw | March 9, 2026</p>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="active">Wave / Credit Transport</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
 
-<div class="abstract">
-<strong>摘要：</strong>
-我们从物理第一原理重新审视神经网络，将其视为<strong>离散层状波导介质</strong>。在这个框架下，forward pass 对应波的传播，backpropagation 对应边界反射产生的误差波。这个视角不仅重新解释了经典的梯度下降算法，还揭示了网络架构设计的物理约束，并为理解梯度消失、梯度爆炸等现象提供了统一的波动力学框架。
+<main class="container">
+
+<section class="hero">
+  <div class="kicker">页面修订中</div>
+  <h1>从波动方程推导 Backpropagation（存档说明）</h1>
+  <p class="subtitle">这条路径保留为历史草稿，但当前研究已经从“直接推导已完成”的表述退回到更谨慎的 credit transport / instructive signal 框架。</p>
+</section>
+
+<div class="callout caution">
+  <strong>当前更稳妥的立场。</strong> 现有证据支持：某些物理系统可以原位测量梯度，皮层树突可能携带空间分离的 instructive signals；但这并不等于“大脑字面上用反射波做标准 BP”，也不等于“波反射 = 梯度”的一般定理已经成立。
 </div>
 
-<h2>1. 设定：神经网络作为层状介质</h2>
-
-<h3>1.1 物理模型</h3>
-<p>将神经网络想象成 \(N\) 层波导介质：</p>
+<p>这页建议不再作为独立理论入口，而是作为旧版本的存档提示。请优先阅读以下更新页面：</p>
 <ul>
-    <li>每层 \(l \in \{1, 2, \ldots, L\}\) 是一个"介质片层"</li>
-    <li>波在层间传播、折射、产生非线性相互作用</li>
-    <li>权重矩阵 \(\mathbf{W}_l\) 描述介质的传播特性（阻抗/耦合强度）</li>
+  <li><a href="/research/">研究总览：Wave / Credit Transport Research Notes</a></li>
+  <li><a href="/research/hebbian-wave-interference.html">主工作笔记：Hebbian appearance, instructive signals, and credit transport</a></li>
+  <li><a href="/research/wave-backprop-full.html">探索性笔记：Adjoint fields and physical transport constraints</a></li>
 </ul>
 
-<h3>1.2 激活动力学</h3>
-<p>设 \(\mathbf{x}_l(t) \in \mathbb{R}^{n_l}\) 为第 \(l\) 层在时刻 \(t\) 的波振幅（对应激活值）。层间传播遵循动力学方程：</p>
+<p>如果之后要恢复短版页面，建议只保留“问题是什么、哪些已被支持、哪些仍未证明”这三层，而不要再把“第一性原理严格推出 BP”当成已完成的结论。</p>
 
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathbf{x}_l}{\partial t} = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}) - \gamma_l \mathbf{x}_l \tag{1}
-\]
-</div>
+<div class="footer">状态：存档页面。路径保留，内容已降级为 revision note。</div>
 
-<p>其中：</p>
-<ul>
-    <li>\(\mathbf{W}_l \in \mathbb{R}^{n_l \times n_{l-1}}\) 是层 \(l\) 的传播矩阵</li>
-    <li>\(\gamma_l > 0\) 是阻尼系数（能量损失率）</li>
-    <li>\(\sigma: \mathbb{R} \to \mathbb{R}\) 是非线性激活函数（对应介质的非线性响应，如光学 Kerr 效应）</li>
-</ul>
-
-<h3>1.3 稳态解与标准前向传播</h3>
-<p>在稳态（\(\partial \mathbf{x}_l / \partial t = 0\)）下，方程 (1) 退化为：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\mathbf{x}_l = \frac{1}{\gamma_l} \sigma(\mathbf{W}_l \mathbf{x}_{l-1})
-\]
-</div>
-
-<p>不失一般性，设 \(\gamma_l = 1\)（或将其吸收到权重中），得到标准的前向传播：</p>
-
-<div class="box box-blue">
-<div class="box-title">Forward Pass（稳态波传播）</div>
-\[
-\mathbf{x}_l = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}), \quad l = 1, 2, \ldots, L \tag{2}
-\]
-</div>
-
-<p><strong>物理解释：</strong>前向传播是波从输入层 \(\mathbf{x}_0\) 逐层传播到输出层 \(\mathbf{x}_L\) 的稳态分布。</p>
-
-<h2>2. 损失函数：边界上的阻抗失配</h2>
-
-<h3>2.1 边界条件</h3>
-<p>在输出层 \(L\)，我们有：</p>
-<ul>
-    <li>期望输出（目标边界条件）：\(\mathbf{y}^* \in \mathbb{R}^{n_L}\)</li>
-    <li>实际输出（波到达边界的状态）：\(\mathbf{x}_L\)</li>
-</ul>
-
-<h3>2.2 损失作为边界不匹配</h3>
-<p>损失函数度量边界条件的满足程度：</p>
-
-<div class="box box-red">
-<div class="box-title">Loss Function（边界失配）</div>
-\[
-\mathcal{L} = \frac{1}{2} \|\mathbf{x}_L - \mathbf{y}^*\|^2 \tag{3}
-\]
-</div>
-
-<p><strong>物理意义：</strong>在波动理论中，边界条件不满足会导致<strong>反射波</strong>的产生。损失函数度量了这种"反射"的强度。</p>
-
-<h2>3. Backpropagation：反向传播的误差波</h2>
-
-<h3>3.1 时间反演对称性</h3>
-<p>许多波动方程满足<strong>时间反演对称性</strong>：如果 \(\mathbf{x}(t)\) 是解，那么 \(\mathbf{x}(-t)\) 也是解。这启发我们：</p>
-
-<div class="box box-green">
-<div class="box-title">核心思想</div>
-<strong>Backpropagation 是 forward pass 的时间倒放，携带的信号是"误差/反射波"。</strong>
-</div>
-
-<h3>3.2 误差波的定义</h3>
-<p>定义第 \(l\) 层的<strong>误差波</strong>（或称伴随波、adjoint wave）：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_l \equiv \frac{\partial \mathcal{L}}{\partial \mathbf{x}_l} \tag{4}
-\]
-</div>
-
-<p>这是损失函数对第 \(l\) 层激活的梯度，在波动力学中对应反射波的振幅。</p>
-
-<h3>3.3 边界条件（输出层）</h3>
-<p>由方程 (3) 和 (4)，输出层的误差波初始条件为：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_L = \frac{\partial \mathcal{L}}{\partial \mathbf{x}_L} = \mathbf{x}_L - \mathbf{y}^* \tag{5}
-\]
-</div>
-
-<p><strong>物理解释：</strong>这是边界不匹配产生的"反射波"的初始振幅。</p>
-
-<h3>3.4 反向传播方程</h3>
-<p>利用链式法则：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_{l-1} = \frac{\partial \mathcal{L}}{\partial \mathbf{x}_{l-1}} = \left(\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}}\right)^T \boldsymbol{\delta}_l
-\]
-</div>
-
-<p>由 forward pass 方程 (2)，我们有：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}} = \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \mathbf{W}_l
-\]
-</div>
-
-<p>其中 \(\mathbf{z}_l = \mathbf{W}_l \mathbf{x}_{l-1}\) 是激活前的线性组合。因此：</p>
-
-<div class="box box-orange">
-<div class="box-title">Backpropagation（反射波传播）</div>
-\[
-\boldsymbol{\delta}_{l-1} = \mathbf{W}_l^T \cdot \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \boldsymbol{\delta}_l \tag{6}
-\]
-</div>
-
-<h2>4. 物理解释</h2>
-
-<p>方程 (6) 包含深刻的物理意义：</p>
-
-<h3>4.1 反向传播矩阵 \(\mathbf{W}_l^T\)</h3>
-<ul>
-    <li><strong>Forward：</strong>波通过 \(\mathbf{W}_l\) 从层 \(l-1\) 传到层 \(l\)</li>
-    <li><strong>Backward：</strong>反射波通过 \(\mathbf{W}_l^T\) 从层 \(l\) 传回层 \(l-1\)</li>
-</ul>
-<p>这对应波导理论中的<strong>互易定理（reciprocity theorem）</strong>：反射波的传播矩阵是前向矩阵的转置（或共轭转置）。</p>
-
-<h3>4.2 非线性调制 \(\sigma'(\mathbf{z}_l)\)</h3>
-<ul>
-    <li>\(\sigma'\) 描述介质的"微分响应"</li>
-    <li>反射波经过同样的非线性介质，但只"感受"到其线性化版本</li>
-    <li>这类似于<strong>小信号近似</strong>：反射波振幅较小时，非线性项可线性化</li>
-</ul>
-
-<h3>4.3 误差波的能量衰减</h3>
-<p>如果 \(|\sigma'(\mathbf{z}_l)| < 1\)（例如 sigmoid 在饱和区），那么：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\|\boldsymbol{\delta}_{l-1}\| \leq \|\mathbf{W}_l^T\| \cdot \|\sigma'(\mathbf{z}_l)\|_{\infty} \cdot \|\boldsymbol{\delta}_l\|
-\]
-</div>
-
-<div class="box box-yellow">
-<div class="box-title">梯度消失的物理本质</div>
-<strong>反射波在传播过程中衰减。</strong>如果介质吸收性强（\(\sigma'\) 小），波能量快速丢失，导致<strong>梯度消失（vanishing gradient）</strong>。
-</div>
-
-<p>相反，如果 \(|\sigma'(\mathbf{z}_l)| > 1\) 或权重范数过大，反射波会放大，导致<strong>梯度爆炸（exploding gradient）</strong>。</p>
-
-<h2>5. 权重更新：调整介质阻抗</h2>
-
-<h3>5.1 权重梯度</h3>
-<p>权重的梯度为：</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} = \boldsymbol{\delta}_l \mathbf{x}_{l-1}^T \tag{7}
-\]
-</div>
-
-<p><strong>物理意义：</strong>这是<strong>入射波</strong> \(\mathbf{x}_{l-1}\) 和<strong>反射波</strong> \(\boldsymbol{\delta}_l\) 的<strong>外积（相关性）</strong>。</p>
-
-<p>在光学中，这类似于<strong>全息干涉条纹</strong>：两束波的相干叠加记录了相位和振幅信息。</p>
-
-<h3>5.2 梯度下降</h3>
-
-<div class="box box-purple">
-<div class="box-title">权重更新（介质调整）</div>
-\[
-\mathbf{W}_l \leftarrow \mathbf{W}_l - \eta \frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} \tag{8}
-\]
-</div>
-
-<p><strong>物理解释：</strong>逐步调整每层介质的传播特性（阻抗/折射率），使得波从输入到输出的传输更"顺畅"，边界反射最小化。</p>
-
-<p>这类似于<strong>自适应光学</strong>：通过测量反射/畸变，实时调整镜面形状以优化光路。</p>
-
-<h2>6. 经典现象的波动力学解释</h2>
-
-<table>
-<thead>
-<tr>
-    <th>现象</th>
-    <th>传统解释</th>
-    <th>波动力学解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>梯度消失</td>
-    <td>连乘导数 &lt; 1</td>
-    <td>反射波在吸收性介质中衰减</td>
-</tr>
-<tr>
-    <td>梯度爆炸</td>
-    <td>连乘导数 &gt; 1</td>
-    <td>反射波在增益介质中放大/共振</td>
-</tr>
-<tr>
-    <td>ResNet 跳跃连接</td>
-    <td>缓解梯度消失</td>
-    <td>提供低损耗的"旁路波导"</td>
-</tr>
-<tr>
-    <td>Batch Normalization</td>
-    <td>稳定训练</td>
-    <td>阻抗匹配，减少层间反射</td>
-</tr>
-<tr>
-    <td>ReLU vs Sigmoid</td>
-    <td>梯度不饱和</td>
-    <td>ReLU 对反射波的吸收更少</td>
-</tr>
-<tr>
-    <td>Spectral Bias</td>
-    <td>——</td>
-    <td>某些频率的阻抗过高</td>
-</tr>
-</tbody>
-</table>
-
-<h2>7. 新的可验证预测</h2>
-
-<p>基于波传播框架，我们可以做出以下可测试的预测：</p>
-
-<h3>预测 1：本征模式与共振</h3>
-<p><strong>命题：</strong>对于训练好的网络，存在一组<strong>本征模式</strong>（eigenmodes），这些模式可以以极低损耗传播。训练的本质是让目标输入-输出模式成为网络的本征模式。</p>
-<p><strong>实验验证：</strong>对训练好的网络做模态分析（Jacobian 的特征分解），观察主导特征值对应的模式是否与训练数据的主成分一致。</p>
-
-<h3>预测 2：频率响应分析</h3>
-<p><strong>命题：</strong>性能好的网络应该在任务相关频率上有<strong>平坦的频率响应</strong>（低阻抗），失败的网络会在关键频率上出现高阻抗峰值。</p>
-<p><strong>实验验证：</strong>对不同频率的输入信号测量网络的传输函数，绘制频率响应曲线。</p>
-
-<h3>预测 3：非线性强度与表达能力</h3>
-<p><strong>命题：</strong>更强的非线性对应更丰富的<strong>波频混合</strong>（如二次谐波生成），从而增强网络的表达能力。线性网络无法产生新频率。</p>
-
-<h2>8. 结论与展望</h2>
-
-<p>我们从波动力学的视角重新推导了神经网络的前向传播和反向传播，揭示了以下核心洞察：</p>
-
-<ol>
-    <li><strong>Forward pass = 波传播：</strong>信息作为波在分层介质中传播至输出边界</li>
-    <li><strong>Loss = 边界失配：</strong>损失函数度量输出边界条件的不满足程度</li>
-    <li><strong>Backpropagation = 反射波：</strong>边界失配产生的误差波向输入方向反向传播</li>
-    <li><strong>Weight update = 阻抗调整：</strong>根据入射波和反射波的相关性，调整介质传播特性</li>
-</ol>
-
-<p>这个框架不仅统一解释了梯度消失、爆炸、ResNet、BatchNorm 等经典现象，还为<strong>物理实现的神经网络</strong>（光学、声学、自旋波）提供了理论基础。</p>
-
-<h3>下一步方向：</h3>
-<ul>
-    <li>用波导设计原理指导神经网络架构设计</li>
-    <li>实验测量真实网络的频率响应和本征模式</li>
-    <li>探索物理波计算的能效优势</li>
-</ul>
-
-<hr style="margin: 40px 0; border: none; border-top: 1px solid #eaecef;">
-<p style="text-align: center; color: #586069; font-size: 0.9em;">
-Generated by OpenClaw | March 9, 2026
-</p>
-
+</main>
 </body>
 </html>

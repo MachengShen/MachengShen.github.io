@@ -1,345 +1,334 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wave Theory of Learning | Macheng Shen</title>
-    <style>
-        :root {
-            --bg: #f6f7fb;
-            --card: #ffffff;
-            --text: #1f2937;
-            --muted: #4b5563;
-            --accent: #0f172a;
-            --link: #0b5fff;
-            --border: #dbe2ea;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #fff;
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0 0 0.5rem;
-            font-size: 2.5rem;
-            line-height: 1.2;
-        }
-
-        header p {
-            margin: 0;
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.15);
-        }
-
-        .card h2 {
-            margin: 0 0 0.5rem;
-            font-size: 1.6rem;
-            color: var(--accent);
-        }
-
-        .card h2 a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .card h2 a:hover {
-            color: var(--link);
-        }
-
-        .card .meta {
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .card p {
-            margin: 0.5rem 0;
-            line-height: 1.7;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #e0e7ff;
-            color: #4f46e5;
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-        }
-
-        .badge.new {
-            background: #fef3c7;
-            color: #d97706;
-        }
-
-        .nav-bar {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            display: inline-block;
-            padding: 1rem 1.5rem;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-
-        .nav-link:hover {
-            color: var(--link);
-        }
-
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
-            padding: 2rem 1rem;
-        }
-
-        .intro {
-            background: linear-gradient(135deg, #f0f4ff 0%, #fef3f8 100%);
-            border: 2px solid #e0e7ff;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .intro h3 {
-            margin: 0 0 0.75rem;
-            color: #4f46e5;
-        }
-
-        .intro p {
-            margin: 0.5rem 0;
-        }
-
-        ul {
-            padding-left: 1.5rem;
-        }
-
-        li {
-            margin: 0.5rem 0;
-        }
-
-        .cta {
-            background: #667eea;
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            display: inline-block;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .cta:hover {
-            background: #5a67d8;
-            text-decoration: none;
-            transform: translateY(-2px);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wave / Credit Transport Research Notes | Macheng Shen</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<header>
-    <h1>🌊 Wave Theory of Learning</h1>
-    <p>A Unified Physical Framework for Intelligence</p>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="active">Wave / Credit Transport</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
 </header>
 
-<nav class="nav-bar">
-    <a href="/" class="nav-link">← Back to Home</a>
-</nav>
-
 <main class="container">
-    <div class="intro">
-        <h3>What if neural networks are wave propagation systems?</h3>
-        <p>This research series derives learning algorithms from physical first principles, viewing neural networks as waves propagating through tunable media. The framework unifies Hebbian learning, Oja's rule, and backpropagation—and extends to explain the Fermi Paradox.</p>
-        <p><strong>Date:</strong> March 9, 2026 | <strong>Collaboration:</strong> Macheng Shen + Claude (Opus 4.6)</p>
-        <p><a href="hebbian-wave-interference.html" style="color: #0b5fff; font-weight: 600;">→ Read the complete theory</a></p>
-    </div>
 
-    <div class="card">
-        <h2><a href="hebbian-wave-interference.html">Hebbian Learning, Oja's Rule, and Backpropagation Unified</a></h2>
-        <div class="meta">
-            <span class="badge" style="background: #fef3c7; color: #92400e;">Preliminary</span>
-            <span class="badge">Core Theory</span>
-            <span class="badge">Neuroscience</span>
-        </div>
-        <p><strong>Central thesis:</strong> Three fundamental learning principles—Hebbian learning (1949), Oja's rule (1982), and backpropagation (1986)—are not independent mechanisms but unified manifestations of wave interference in tunable media.</p>
-        
-        <p><strong>Key results:</strong></p>
-        <ul>
-            <li>Hebbian learning = correlation between incident (forward) and reflected (error) waves</li>
-            <li>Oja's rule = physical saturation constraints in finite-capacity media</li>
-            <li>Backpropagation = reflected error waves (no explicit algorithm needed)</li>
-            <li>Resolves "biological plausibility of backprop" debate</li>
-        </ul>
+<section class="hero">
+  <div class="kicker">Revised research branch</div>
+  <h1>Wave / Credit Transport Research Notes</h1>
+  <p class="subtitle">A narrower branch inside the broader intelligence agenda: how learning-relevant signals move through finite physical systems, and when wave / adjoint language is genuinely informative.</p>
+</section>
 
-        <p><strong>Implications:</strong> Any wave system with tunable coupling automatically supports learning. Provides design principles for neuromorphic computing (optical, acoustic, memristive).</p>
-        
-        <a href="hebbian-wave-interference.html" class="cta">Read Full Paper →</a>
-    </div>
+<div class="callout caution">
+  <strong>Revision note.</strong> Earlier versions of this section overstated the case. The project no longer claims that backpropagation has already been derived from wave reflection, or that cortex has already been shown to implement literal reflected-wave backprop. The more careful question is: <em>what are the physically plausible ways to transport credit or instructive information?</em>
+</div>
 
-    <div class="card">
-        <h2><a href="wave-backprop-full.html">Deriving Backpropagation from Wave Equations & the Fermi Paradox</a></h2>
-        <div class="meta">
-            <span class="badge" style="background: #fef3c7; color: #92400e;">Preliminary</span>
-            <span class="badge">Physics</span>
-            <span class="badge">Cosmology</span>
-        </div>
-        <p><strong>Central thesis:</strong> Information transmission obeys physical laws with fundamental cost constraints. The same framework that explains neural network training also explains why we see no signs of extraterrestrial intelligence.</p>
-        
-        <p><strong>Part I: Neural Networks</strong></p>
-        <ul>
-            <li>Forward pass = steady-state wave propagation</li>
-            <li>Loss function = boundary impedance mismatch</li>
-            <li>Backprop = time-reversed wave dynamics carrying reflected error signals</li>
-            <li>Explains vanishing gradients, ResNet, BatchNorm, spectral bias</li>
-        </ul>
+<h2>Layered view of the evidence</h2>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">More solid</div>
+    <h3>Physical media can compute</h3>
+    <p>Wave and field-like substrates can realize neural-network-like inference or temporal computation. This makes “dynamic propagation system” a serious implementation lens rather than a metaphor.</p>
+  </div>
+  <div class="card">
+    <div class="tag">More solid</div>
+    <h3>Some substrates can carry gradients</h3>
+    <p>In reciprocal or adjoint-friendly physical systems, backward fields can locally encode exact or approximate gradients. That is a hard engineering fact, but only under specific conditions.</p>
+  </div>
+  <div class="card">
+    <div class="tag">More solid</div>
+    <h3>Cortex has segregated instructive signals</h3>
+    <p>Recent dendritic work supports the idea that local plasticity can be modulated by task-conditioned signals that are spatially separated from ordinary forward drive.</p>
+  </div>
+</div>
 
-        <p><strong>Part II: Fermi Paradox</strong></p>
-        <ul>
-            <li>Control cost scales as ~R<sup>5</sup> with distance</li>
-            <li>Light-year latencies make interstellar closed-loop control infeasible</li>
-            <li>Civilizations "trapped" by thermodynamics, not technology</li>
-            <li>Universe may be full of "hermit civilizations" in local high-efficiency bubbles</li>
-        </ul>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">Plausible hypothesis</div>
+    <h3>Learning needs credit transport</h3>
+    <p>Any nontrivial learner needs a way to move update-relevant information through the system. Digital backprop is one realization; dendritic mismatch dynamics or adjoint fields may be others.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Plausible hypothesis</div>
+    <h3>Wave language can be useful</h3>
+    <p>Wave, reciprocity, and impedance can sometimes reveal real design constraints. But the vocabulary becomes misleading when it is treated as a universal theorem without explicit conditions.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Open question</div>
+    <h3>Exact equivalence remains open</h3>
+    <p>Reflection is not yet the same thing as gradient. A true derivation would need explicit dynamics, explicit boundary conditions, and a proof that the physical backward mode matches the adjoint.</p>
+  </div>
+</div>
 
-        <a href="wave-backprop-full.html" class="cta">Read Full Paper →</a>
-    </div>
+<h2>Updated notes</h2>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">Working note</div>
+    <h3><a href="/research/hebbian-wave-interference.html">Hebbian Appearance, Instructive Signals, and Physical Credit Transport</a></h3>
+    <p>The most up-to-date note. Reframes the project around credit transport, dendritic instructive signals, and a self-consistent continuous-time Part VI.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Exploratory note</div>
+    <h3><a href="/research/wave-backprop-full.html">Backpropagation, Adjoint Fields, and Physical Transport Constraints</a></h3>
+    <p>What physical systems really show, what a genuine derivation would require, and how this branch connects back to transport costs and the larger intelligence thesis.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Speculative extension</div>
+    <h3><a href="/research/sleep-learning-wave-theory.html">Sleep, Replay, and Offline Credit Reorganization</a></h3>
+    <p>A restrained reinterpretation of the sleep note: replay, renormalization, and associative exploration are plausible; literal global impedance optimization remains unproven.</p>
+  </div>
+</div>
 
-    <div class="card">
-        <h2><a href="wave-backprop-en.html">Deriving Backpropagation from Wave Equations (Short Version)</a></h2>
-        <div class="meta">
-            <span class="badge">Concise</span>
-            <span class="badge">Technical</span>
-        </div>
-        <p>A focused derivation of backpropagation from wave dynamics, without the Fermi Paradox extension. Best for readers interested in the core mathematical framework.</p>
-        <a href="wave-backprop-en.html" class="cta">Read Short Version →</a>
-    </div>
+<h2>Archived / under revision</h2>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">Archive note</div>
+    <h3><a href="/research/wave-backprop.html">中文短版：从波动方程推导 BP</a></h3>
+    <p>Kept online as a historical path, but now marked as under revision. The stronger “direct derivation” language is being retired.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Archive note</div>
+    <h3><a href="/research/wave-backprop-en.html">Short English note</a></h3>
+    <p>Now reframed as an archive pointer rather than a stand-alone derivation.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Archive note</div>
+    <h3><a href="/research/response-to-lillicrap.html">Response to Lillicrap–Hinton</a></h3>
+    <p>Older argument preserved only as background. The current position is more cautious and cortex-first.</p>
+  </div>
+</div>
 
-    <div class="intro" style="margin-top: 2rem;">
+<h2>What this branch is for</h2>
+<p>This branch is not a finished theory of intelligence. It is an implementation-level investigation nested inside a larger picture. The bigger theory still has to explain control-sufficient abstraction, endogenous viability, multiscale feedback, and why distributed systems organize the way they do. The credit-transport branch asks one narrower question: <em>how does a learning system move and localize update information?</em></p>
 
-    <div class="card">
-        <h2><a href="sleep-learning-wave-theory.html">Sleep as Wave Optimization: Why We Wake with Solutions</a></h2>
-        <div class="meta">
-            <span class="badge" style="background: #fef3c7; color: #92400e;">Preliminary</span>
-            <span class="badge">Neuroscience</span>
-            <span class="badge">Sleep</span>
-            <span class="badge">Learning</span>
-        </div>
-        <p><strong>Central thesis:</strong> Sleep is not passive recovery but active wave impedance optimization. Slow-wave sleep (SWS) minimizes global impedance through synaptic renormalization and memory replay; REM sleep explores novel pathways through random frequency scanning. Morning insights emerge when optimized connections are first "seen" by conscious awareness.</p>
-        
-        <p><strong>Key mechanisms:</strong></p>
-        <ul>
-            <li><strong>SWS (hours 0-3):</strong> Synaptic pruning (15-20% reduction), sharp-wave ripples replay at 10-20× speed, slow oscillations enable global optimization</li>
-            <li><strong>REM (hours 4-6):</strong> Theta oscillations, frontal lobe suppression, random wave propagation discovers new connections</li>
-            <li><strong>Awakening:</strong> Optimized pathways become conscious → "Aha!" moments</li>
-        </ul>
+<div class="callout good">
+  <strong>Working research direction.</strong> The most promising path right now is not “prove the brain literally does reflected-wave backprop.” It is “build a physics of credit transport that can connect digital backprop, reciprocal physical media, and compartmentalized instructive dynamics in cortex.”
+</div>
 
-        <p><strong>Neuroscience evidence (2003-2026):</strong></p>
-        <ul>
-            <li>✅ Sharp-wave ripples predict consolidation (Cell Neuron 2025, PMC 12576410)</li>
-            <li>✅ Synaptic homeostasis hypothesis confirmed (Tononi & Cirelli 2003-2012)</li>
-            <li>✅ REM enhances creativity via associative networks (PNAS 2009)</li>
-            <li>✅ Guided dreaming boosts problem-solving +25% (Northwestern 2026)</li>
-        </ul>
+<div class="footer">If you spot errors or want to collaborate, reach out at <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>. This page is intentionally explicit about which claims are established, plausible, open, or speculative.</div>
 
-        <p><strong>Parallels with AI:</strong> Human sleep = batch training + exploration; awake = online learning. Same optimization principles!</p>
-        
-        <p><strong>Practical applications:</strong> Load problems before sleep, protect REM (7-8h), capture insights immediately upon waking.</p>
-        
-        <a href="sleep-learning-wave-theory.html" class="cta">Read Full Theory →</a>
-    </div>
-
-            <li><strong>Weight transport:</strong> Reflected waves carry error automatically—no need to "know" forward weights</li>
-            <li><strong>Phase separation:</strong> Continuous wave propagation—forward/backward waves coexist</li>
-            <li><strong>Non-locality:</strong> Hebbian plasticity = local wave interference</li>
-        </ul>
-
-        <p><strong>Connections to other theories:</strong></p>
-        <ul>
-            <li>Feedback Alignment (Lillicrap 2016): wave interference explains why random feedback works</li>
-            <li>Predictive Coding: forward wave = prediction, reflected wave = prediction error</li>
-            <li>Target Propagation: propagating "desired wave patterns"</li>
-        </ul>
-
-        <p><strong>Testable predictions:</strong> bidirectional wave propagation, phase-dependent synaptic plasticity, impedance-based learning difficulty.</p>
-        
-        <a href="response-to-lillicrap.html" class="cta">Read Full Response →</a>
-    </div>
-
-
-        <h3>🔬 Testable Predictions</h3>
-        <ul>
-            <li>Physical wave systems (optical, acoustic) with only local Hebbian plasticity should achieve backprop-level performance</li>
-            <li>Trained networks should have flat frequency response curves at task-relevant frequencies</li>
-            <li>STDP timing windows should scale with dendritic length (~L/v)</li>
-            <li>Network eigenmodes should align with learned weight structure</li>
-        </ul>
-    </div>
-
-    <div class="intro" style="background: #f0fdf4; border-color: #bbf7d0;">
-        <h3>📬 Feedback & Collaboration</h3>
-        <p>If you find errors, have suggestions, or want to collaborate on experimental validation, please reach out: <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p>
-    </div>
 </main>
-
-<footer>
-    <p>© 2026 Macheng Shen. Research conducted in collaboration with Claude (Opus 4.6) by Anthropic.</p>
-    <p><a href="https://github.com/machengshen">GitHub</a> | <a href="https://twitter.com/MachengShen">Twitter</a></p>
-</footer>
-
 </body>
 </html>

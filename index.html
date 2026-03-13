@@ -1,266 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Macheng Shen | Featured Essay</title>
-    <style>
-        :root {
-            --bg: #f6f7fb;
-            --card: #ffffff;
-            --text: #1f2937;
-            --muted: #4b5563;
-            --accent: #0f172a;
-            --link: #0b5fff;
-            --border: #dbe2ea;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background: var(--bg);
-            color: var(--text);
-        }
-
-        header {
-            background: var(--accent);
-            color: #fff;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        header img {
-            border-radius: 50%;
-            width: 132px;
-            height: 132px;
-            object-fit: cover;
-            margin-bottom: 0.75rem;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            line-height: 1.2;
-        }
-
-        header p {
-            margin: 0.25rem 0;
-        }
-
-        .container {
-            max-width: 1050px;
-            margin: 1rem auto 2rem;
-            padding: 0 1rem;
-        }
-
-        .card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
-        }
-
-        .essay {
-            padding: 1rem;
-        }
-
-        .essay h2 {
-            margin: 0 0 0.4rem;
-            font-size: 1.4rem;
-        }
-
-        .essay .meta {
-            margin: 0 0 0.85rem;
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .pdf-wrap {
-            width: 100%;
-            height: min(82vh, 1100px);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            background: #f8fafc;
-        }
-
-        .pdf-wrap embed {
-            width: 100%;
-            height: 100%;
-            border: 0;
-            display: block;
-        }
-
-        .note {
-            margin-top: 0.75rem;
-            color: var(--muted);
-            font-size: 0.92rem;
-        }
-
-        .raw-prompt {
-            margin-top: 1rem;
-            padding: 0.9rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: #f8fafc;
-        }
-
-        .raw-prompt h3 {
-            margin: 0 0 0.35rem;
-            font-size: 1.02rem;
-        }
-
-        .raw-prompt p {
-            margin: 0.35rem 0;
-            color: var(--muted);
-            font-size: 0.93rem;
-        }
-
-        .about {
-            margin-top: 1rem;
-            padding: 1rem;
-        }
-
-        .about h2 {
-            margin: 0 0 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .about p {
-            margin: 0;
-            color: var(--text);
-        }
-
-        a {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .nav-bar {
-            background: #fff;
-            border-bottom: 1px solid var(--border);
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            display: inline-block;
-            padding: 1rem 1.5rem;
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 3px solid transparent;
-            transition: all 0.2s;
-        }
-
-        .nav-link:hover {
-            color: var(--link);
-            text-decoration: none;
-        }
-
-        .nav-link.active {
-            color: var(--link);
-            border-bottom-color: var(--link);
-        }
-
-        .highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white !important;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 600;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .highlight::before {
-            content: "🆕";
-            position: absolute;
-            top: -4px;
-            right: -4px;
-            font-size: 1.2rem;
-        }
-
-        .highlight:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
-            padding: 1.6rem 1rem 2rem;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macheng Shen | Featured Essay</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
-
 <body>
-    <header>
-        <img src="WechatIMG1106.jpeg" alt="Macheng Shen" />
-        <h1>Macheng Shen</h1>
-        <p>Contact: macshen93@gmail.com</p>
-    </header>
 
-    <nav class="nav-bar">
-        <a href="/" class="nav-link active">Home</a>
-        <a href="/ideas/" class="nav-link">Research Essays</a>
-        <a href="/research/" class="nav-link highlight">Wave Theory 🌊</a>
-    </nav>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="active">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="">Wave / Credit Transport</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
 
-    <main class="container">
-        <section class="card essay">
-            <h2>Featured Essay (Full Text)</h2>
-            <p class="meta">Current featured PDF.</p>
-            <div class="pdf-wrap">
-                <embed src="essay.pdf" type="application/pdf" />
-            </div>
-            <p class="note">
-                If the embedded viewer does not load in your browser, open the PDF directly:
-                <a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>
-            </p>
-            <div class="raw-prompt">
-                <h3>Original Raw Prompt (Shared for Reproducibility)</h3>
-                <p>
-                    This is the original raw prompt used to generate these assets. Later, GPT helped refine parts of the
-                    wording, but this file is the initial version.
-                </p>
-                <p>
-                    I am sharing it so others can reproduce the process, adapt the workflow, and explore new innovation
-                    directions with language models.
-                </p>
-                <p>
-                    <a href="assets/original_raw_prompt.txt" target="_blank" rel="noopener">View raw prompt (.txt)</a>
-                </p>
-            </div>
-        </section>
+<main class="container">
 
-        <section class="card about">
-            <h2>About</h2>
-            <p>
-                I think about embodied intelligence and
-                simple, principled algorithms for general-purpose intelligent systems.
-            </p>
-        </section>
-    </main>
+<section class="hero">
+  <div class="hero-flex">
+    <img src="WechatIMG1106.jpeg" alt="Macheng Shen" class="profile" />
+    <div>
+      <div class="kicker">Featured essay + research map</div>
+      <h1>Macheng Shen</h1>
+      <p class="subtitle">I think about intelligence as closed-loop, multiscale competence in finite physical systems: how useful structure is acquired, how control is maintained, and how learning signals move through real substrates.</p>
+      <div class="button-row">
+        <a class="button" href="/ideas/">Read essays</a>
+        <a class="button secondary" href="/research/">Open wave / credit-transport notes</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <p>© 2026 Macheng Shen. All rights reserved.</p>
-    </footer>
+<div class="callout note">
+  <strong>Current framing.</strong> The main thesis lives in the featured essay and the ideas page. The wave-backprop work is now treated as a narrower research branch about <em>credit transport</em> and physical implementations of learning, not as a finished total theory.
+</div>
+
+<h2>Featured Essay (Full Text)</h2>
+<p>This PDF is the current overview of the broader agenda: intelligence as a finite physical system that builds, updates, and deploys internal structure sufficient for prediction, intervention, and control.</p>
+
+<div class="embed-wrap">
+  <embed src="essay.pdf" type="application/pdf" />
+</div>
+
+<p>If the embedded viewer does not load in your browser, open the PDF directly: <a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>.</p>
+
+<h2>Research Map</h2>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">Main thesis</div>
+    <h3>Toward a theory of intelligence</h3>
+    <p>The core question is what sort of object intelligence is. The working answer is not “static function approximation,” but multiscale closed-loop competence under physical, informational, and control constraints.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Ideas page</div>
+    <h3>Line loss, viability, and distributed cognition</h3>
+    <p>These essays develop the higher-level language: physical budgets, coordination costs, endogenous viability, and why multiscale organization keeps appearing in biological and artificial systems.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Research branch</div>
+    <h3>Credit transport and wave-inspired learning</h3>
+    <p>This branch asks a narrower question: how does task-relevant update information move inside a learning system? Some physical media can compute with fields and even measure gradients in situ; cortex may use its own cousin of this idea.</p>
+  </div>
+</div>
+
+<h2>Original Raw Prompt</h2>
+<p class="small">I am still sharing the original prompt for reproducibility. It was useful as a seed, but several claims on the site have since been revised into a more careful layered framing.</p>
+<p><a href="assets/original_raw_prompt.txt" target="_blank" rel="noopener">View raw prompt (.txt)</a></p>
+
+<h2>About</h2>
+<p>I am trying to find a language that can describe intelligent behavior across biology and AI without collapsing everything into current engineering jargon. That means connecting learning, control, multiscale feedback, physical implementation, and safety.</p>
+
+<div class="footer">© 2026 Macheng Shen. This site is under active revision. Strong claims are being separated from working hypotheses and open questions.</div>
+
+</main>
 </body>
-
 </html>

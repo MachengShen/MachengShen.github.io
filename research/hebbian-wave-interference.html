@@ -1,1035 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural Networks are Wave Propagation Systems: A Physical Theory of Learning</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hebbian Appearance, Instructive Signals, and Physical Credit Transport</title>
+  
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
 window.MathJax = {
   tex: {
-    inlineMath: [['\(', '\)']],
+    inlineMath: [['\\(', '\\)']],
     displayMath: [['$$', '$$']],
     processEscapes: true
   }
 };
 </script>
-<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --bg: #fafbfc;
-            --text: #24292e;
-            --accent: #0366d6;
-            --border: #e1e4e8;
-            --code-bg: #f6f8fa;
-            --gradient-start: #667eea;
-            --gradient-end: #764ba2;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        h1, h2, h3 {
-            color: var(--text);
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            border-bottom: 4px solid var(--gradient-start);
-            padding-bottom: 0.5rem;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.3rem;
-        }
-        
-        h3 {
-            font-size: 1.4rem;
-            color: var(--accent);
-        }
-        
-        .hero {
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            border: 2px solid var(--gradient-start);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .equation {
-            background: var(--code-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            margin: 1.5rem 0;
-            overflow-x: auto;
-        }
-        
-        .insight-box {
-            background: #fff9e6;
-            border: 2px solid #f59e0b;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .evidence-box {
-            background: #f0f9ff;
-            border-left: 4px solid #3b82f6;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
-        
-        blockquote {
-            border-left: 4px solid var(--accent);
-            padding-left: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: #555;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        
-        th, td {
-            border: 1px solid var(--border);
-            padding: 0.75rem;
-            text-align: left;
-        }
-        
-        th {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            font-weight: 600;
-        }
-        
-        tr:nth-child(even) {
-            background: #f9fafb;
-        }
-        
-        ul, ol {
-            padding-left: 2rem;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-        }
-        
-        .author-note {
-            background: #f0fdf4;
-            border: 2px solid #10b981;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .step-box {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        
-        .step-box h4 {
-            margin-top: 0;
-            color: var(--gradient-start);
-        }
-    </style>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<h1>Neural Networks are Wave Propagation Systems</h1>
-<h2 style="border:none; color: #666; font-size: 1.4rem; margin-top: 0;">A Physical Theory of Learning from First Principles</h2>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="active">Wave / Credit Transport</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
 
-<div class="author-note">
-    <strong>📖 Research Context</strong><br>
-    This work derives learning algorithms from physical first principles, showing that backpropagation—historically viewed as biologically implausible—emerges naturally when neural networks are understood as wave propagation systems. We reconcile Hebbian learning, backpropagation, and biological constraints through a unified wave framework.<br><br>
-    <strong>Authors:</strong> Macheng Shen + Claude (Opus 4.6) | <strong>Date:</strong> March 2026
+<main class="container">
+
+<section class="hero">
+  <div class="kicker">Working note</div>
+  <h1>Hebbian Appearance, Instructive Signals, and Physical Credit Transport</h1>
+  <p class="subtitle">A revised hypothesis about why local plasticity can look Hebbian while still carrying task-dependent update information — and where wave / adjoint language may genuinely help.</p>
+</section>
+
+<div class="callout caution">
+  <strong>What changed.</strong> Earlier versions of this project claimed too much: that backpropagation had already been derived from wave reflection, and that the biological plausibility problem was basically solved. This note steps back. The stronger theorem is not established. The narrower and more promising problem is <em>credit transport</em>.
 </div>
 
-<h2>Contents</h2>
+<h2>1. What already seems real</h2>
+<div class="card-grid">
+  <div class="card">
+    <div class="tag">Engineering fact</div>
+    <h3>Wave-like substrates can compute</h3>
+    <p>Physical wave systems can implement recurrent or field-based computation. That makes “neural network as propagation system” more than a metaphor at the implementation level.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Engineering fact</div>
+    <h3>Adjoint-friendly media can carry gradients</h3>
+    <p>In some reciprocal photonic or mechanical systems, local measurements of backward fields can yield exact or near-exact gradients. This is a real result, but it depends on explicit physical conditions.</p>
+  </div>
+  <div class="card">
+    <div class="tag">Neuroscience fact</div>
+    <h3>Forward and instructive signals can be separated</h3>
+    <p>Recent dendritic work supports a picture in which perisomatic / basal pathways carry ordinary drive while distal apical pathways carry task-conditioned instructive information with causal importance for learning.</p>
+  </div>
+</div>
+
+<p>Those three facts matter. They show that update-relevant information can, in principle, be a physically transported quantity, and that cortex may use a specialized compartmentalized version of this idea. But they do <em>not</em> yet imply that “reflection equals gradient” in the general case.</p>
+
+<h2>2. The more careful core hypothesis</h2>
+<p>The strongest useful version of the project is:</p>
 <ol>
-    <li><a href="#motivation">Motivation: The Biological Plausibility Problem</a></li>
-    <li><a href="#first-principles">From First Principles: Information Requires Waves</a></li>
-    <li><a href="#marr">Marr's Three Levels: Resolving Confusion</a></li>
-    <li><a href="#hinton">Reconciling Hinton 2020: Solving Implausibilities</a></li>
-    <li><a href="#hebbian">Why It Looks Like Hebbian Learning</a></li>
-    <li><a href="#predictions">Testable Predictions</a></li>
-    <li><a href="#mathematics">Mathematical Formalization</a></li>
+  <li><strong>Any capable learner needs a way to transport credit-relevant information.</strong> The system must somehow mark which internal states or couplings should change, and in what direction.</li>
+  <li><strong>That transported quantity need not look like textbook digital backprop.</strong> It may be an exact gradient, an approximate local mismatch, a target-like activity signal, or a neuron-specific instructive field.</li>
+  <li><strong>Wave / field language is one implementation-level candidate.</strong> In the right substrate, backward modes, reciprocity, or interference may provide the physical carrier.</li>
 </ol>
 
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="motivation">Part 0: Motivation</h2>
-
-<h3>The Central Puzzle</h3>
-
-<p>The brain clearly learns—from infancy to adulthood, we acquire skills, knowledge, and behaviors through experience. But <strong>how</strong> does learning happen at the neural level?</p>
-
-<p><strong>Two competing frameworks exist:</strong></p>
-
-<div class="step-box">
-    <h4>Framework 1: Hebbian Learning (1949)</h4>
-    <blockquote>"Neurons that fire together, wire together."</blockquote>
-    <ul>
-        <li><strong>Mechanism:</strong> Synapses strengthen when pre- and post-synaptic neurons are simultaneously active</li>
-        <li><strong>Biological evidence:</strong> Strong (observed in real neurons)</li>
-        <li><strong>Computational power:</strong> Limited (mainly unsupervised, local correlations)</li>
-    </ul>
+<div class="callout note">
+  <strong>Implementation, not ontology.</strong> The useful claim is not “all intelligence is literally wave reflection.” It is “some learning systems are better understood as dynamic propagation media, and that perspective may reveal real constraints on how credit is moved.”
 </div>
 
-<div class="step-box">
-    <h4>Framework 2: Backpropagation (1986)</h4>
-    <blockquote>"Propagate error gradients backward to adjust weights."</blockquote>
-    <ul>
-        <li><strong>Mechanism:</strong> Compute loss at output, propagate gradients backward layer-by-layer</li>
-        <li><strong>Biological evidence:</strong> Weak (criticized as implausible, Lillicrap & Hinton 2020)</li>
-        <li><strong>Computational power:</strong> Strong (solves complex supervised learning tasks)</li>
-    </ul>
-</div>
+<h2>3. Why the stronger argument overreached</h2>
+<ul>
+  <li><strong>Information needs a carrier, but not every carrier implies a useful wave theorem.</strong> Having propagation delays or continuous-time dynamics does not automatically produce the adjoint equations needed for gradient transport.</li>
+  <li><strong>Reflection is not yet gradient.</strong> A reflected field can exist without encoding the derivative that gradient descent requires.</li>
+  <li><strong>“Impedance” got overloaded.</strong> Physical impedance is a property of a medium or interface. Task mismatch is an objective-dependent error quantity. Mixing the two too early blurs the argument.</li>
+  <li><strong>Coexistence does not solve credit assignment by itself.</strong> Forward and backward dynamics may run simultaneously, but simultaneity alone does not prove that the local update is a useful gradient estimate.</li>
+</ul>
 
-<h3>Hinton's 2020 Critique</h3>
+<h2>4. A cortex-first mental model</h2>
+<p>For an ML reader, a pyramidal neuron can be treated as a rough two-port unit:</p>
+<ul>
+  <li><strong>Basal / perisomatic drive</strong> carries the ordinary forward signal.</li>
+  <li><strong>Apical drive</strong> carries a task-conditioned instructive or feedback signal.</li>
+  <li><strong>The soma</strong> mixes the two into the output activity that downstream neurons see.</li>
+</ul>
 
-<div class="evidence-box">
-    <strong>Lillicrap & Hinton (Nature Reviews Neuroscience, 2020):</strong>
-    <blockquote>"Backpropagation and the Brain"</blockquote>
-    
-    <p><strong>Three major biological implausibilities identified:</strong></p>
-    <ol>
-        <li><strong>Weight transport problem:</strong> Backward pass requires symmetric weights (\(W^T\)), but biological synapses are unidirectional</li>
-        <li><strong>Phase separation:</strong> Forward and backward passes must be temporally separated, but neurons fire continuously</li>
-        <li><strong>Non-local credit assignment:</strong> Neurons need to know downstream derivatives, but biological learning is local</li>
-    </ol>
-</div>
-
-<h3>Our Question</h3>
-
-<div class="hero">
-    <p style="font-size: 1.2rem; font-weight: 500;">
-        <strong>Can we find a physical framework that:</strong>
-    </p>
-    <ul style="font-size: 1.1rem;">
-        <li>✓ Resolves biological implausibility issues</li>
-        <li>✓ Unifies Hebbian and backpropagation mechanisms</li>
-        <li>✓ Derives learning from physical first principles</li>
-        <li>✓ Makes testable experimental predictions</li>
-    </ul>
-</div>
-
-<p><strong>Answer:</strong> Yes — by viewing neural networks as <strong>wave propagation systems</strong>.</p>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="first-principles">Part I: From First Principles</h2>
-
-<h3>Step 1: Neural Networks Must Transmit Information</h3>
-
-<p><strong>Observation:</strong> A feedforward neural network transforms input \(\mathbf{x}_0\) into output \(\mathbf{x}_L\):</p>
+<p>That means local plasticity can look Hebbian on the surface while still being shaped by a hidden teacher-like component. In modern ML terms, the neuron may have something closer to a private gradient hook or control side-channel than a purely correlation-based rule.</p>
 
 <div class="equation">
-$$\mathbf{x}_0 \xrightarrow{\text{Layer 1}} \mathbf{x}_1 \xrightarrow{\text{Layer 2}} \cdots \xrightarrow{\text{Layer L}} \mathbf{x}_L$$
+$$
+b_l \;\text{= basal forward drive}, \qquad
+a_l \;\text{= apical instructive drive}, \qquad
+s_l \;\text{= somatic output}.
+$$
 </div>
 
-<p><strong>Question:</strong> What is the <em>physical nature</em> of this transformation?</p>
+<p>If the apical component is informative, then a synapse can update using only local quantities and still implement something more than naïve Hebbian correlation.</p>
 
-<p><strong>Not a lookup table:</strong></p>
-<ul>
-    <li>Lookup tables require storing all input-output pairs</li>
-    <li>For continuous inputs: requires <strong>infinite memory</strong></li>
-    <li>For \(n\)-dimensional inputs: memory grows <strong>exponentially</strong> with \(n\)</li>
-</ul>
+<h2>5. Part VI — a self-consistent minimal formalization</h2>
+<p>The old Part VI had a real bug: the steady-state limit dropped the feedforward term. A safer formulation is a continuous-time, two-compartment network in which the forward and instructive streams remain present at equilibrium.</p>
 
-<p><strong>Therefore:</strong> Neural networks must perform <strong>dynamic transformation</strong> — each layer actively <em>processes</em> information, not just retrieves pre-stored answers.</p>
-
-<h3>Step 2: Information Transmission Requires Physical Carriers</h3>
-
-<p><strong>Physical constraint:</strong> In the physical world, information cannot "teleport" from point A to point B instantaneously.</p>
-
-<div class="insight-box">
-    <strong>💡 Fundamental principle:</strong> Information must be carried by a <strong>physical medium</strong>.
+<h3>5.1 Minimal dynamics</h3>
+<div class="equation">
+$$
+\tau_b \dot b_l = -b_l + W_l s_{l-1}
+$$
+$$
+\tau_a \dot a_l = -a_l + B_l e_{l+1}
+$$
+$$
+s_l = \phi\!\left(b_l + \beta a_l\right)
+$$
 </div>
 
-<p><strong>Candidates in neural systems:</strong></p>
+<p>Interpretation:</p>
 <ul>
-    <li><strong>Electrical signals:</strong> Action potentials, dendritic potentials</li>
-    <li><strong>Chemical signals:</strong> Neurotransmitters, neuromodulators</li>
-    <li><strong>Mechanical signals:</strong> Cytoskeletal dynamics, membrane tension</li>
+  <li>\(b_l\) integrates ordinary forward drive from the previous layer.</li>
+  <li>\(a_l\) integrates an instructive or feedback signal coming from a downstream error-like process.</li>
+  <li>\(\beta\) sets how strongly the instructive stream modulates somatic output.</li>
 </ul>
 
-<p><strong>Common property:</strong> All are <em>propagating disturbances</em> in a medium.</p>
+<h3>5.2 Output objective and top-level signal</h3>
+<div class="equation">
+$$
+\mathcal{L} = \mathcal{L}(s_L, y), \qquad
+e_L := \nabla_{s_L}\mathcal{L}.
+$$
+</div>
 
-<h3>Step 3: Physical Carriers Obey Wave Equations</h3>
-
-<p><strong>Universal principle:</strong> Any disturbance propagating through a medium satisfies a wave equation.</p>
+<p>For hidden layers, we do <em>not</em> assume that the cortex computes textbook backprop by fiat. Instead we leave the hidden instructive dynamics explicit:</p>
 
 <div class="equation">
-<strong>General wave equation:</strong>
-$$\frac{\partial^2 \psi}{\partial t^2} = v^2 \nabla^2 \psi + F(\psi)$$
-
-<p style="margin-top: 1rem;"><strong>Where:</strong></p>
-<ul style="list-style: none; padding: 0;">
-    <li>• \(\psi(x,t)\) = wave amplitude (voltage, concentration, displacement...)</li>
-    <li>• \(v\) = propagation velocity</li>
-    <li>• \(F(\psi)\) = nonlinear terms (source, damping, interactions)</li>
-</ul>
+$$
+e_l = D_l\big(s_l, a_l, e_{l+1}; \theta_D\big).
+$$
 </div>
 
-<p><strong>Examples across scales:</strong></p>
-<table>
-    <thead>
-        <tr>
-            <th>System</th>
-            <th>Medium</th>
-            <th>Wave Type</th>
-            <th>Velocity</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Sound</td>
-            <td>Air</td>
-            <td>Pressure wave</td>
-            <td>~343 m/s</td>
-        </tr>
-        <tr>
-            <td>Light</td>
-            <td>Electromagnetic field</td>
-            <td>EM wave</td>
-            <td>~3×10⁸ m/s</td>
-        </tr>
-        <tr>
-            <td>Action potential</td>
-            <td>Axon membrane</td>
-            <td>Voltage wave</td>
-            <td>~100 m/s</td>
-        </tr>
-        <tr>
-            <td>Dendritic signal</td>
-            <td>Dendrite cable</td>
-            <td>Current wave</td>
-            <td>~10 m/s</td>
-        </tr>
-    </tbody>
-</table>
+<p>Here \(D_l\) is the local rule or dendritic mechanism that generates a useful hidden-layer instructive signal. Exact backprop is recovered only in the special case where \(D_l\) happens to implement the adjoint recursion.</p>
 
-<h3>Step 4: Static Mapping vs Dynamic Wave</h3>
-
-<p><strong>Conceptual difference:</strong></p>
-
-<div class="step-box">
-    <h4>Static Mapping</h4>
-    $$y = f(x)$$
-    <ul>
-        <li>Instantaneous (no time dependence)</li>
-        <li>No propagation delay</li>
-        <li>No momentum or inertia</li>
-    </ul>
-</div>
-
-<div class="step-box">
-    <h4>Dynamic Wave</h4>
-    $$\psi(x, t)$$
-    <ul>
-        <li>Takes time to propagate</li>
-        <li>Has momentum (carries information + energy)</li>
-        <li>Can reflect, interfere, resonate</li>
-    </ul>
-</div>
-
-<p><strong>Neural networks operate on millisecond timescales:</strong></p>
-<ul>
-    <li>Synaptic transmission: ~0.5-2 ms delay</li>
-    <li>Dendritic propagation: ~1-10 ms</li>
-    <li>Action potential propagation: ~1-100 ms (depending on distance)</li>
-</ul>
-
-<p><strong>Conclusion:</strong> Neural computation is <strong>not instantaneous</strong> — it must involve wave propagation.</p>
-
-<h3>Step 5: Neural Networks as Pattern-Forming Media</h3>
-
-<p><strong>Analogy: Generative models</strong></p>
+<h3>5.3 Local mismatch and local update</h3>
+<p>Define the somatic departure from purely forward activity as</p>
 
 <div class="equation">
-<strong>Standard electricity (random noise)</strong> → <strong>Neural network</strong> → <strong>Structured output (patterns)</strong>
+$$
+m_l := s_l - \phi(b_l).
+$$
+$$
+\text{For small } \beta, \quad
+m_l \approx \beta\, \phi'(b_l) \odot a_l.
+$$
 </div>
 
-<p>This is analogous to:</p>
-<ul>
-    <li><strong>Generative AI:</strong> Latent noise \(z\) → Generator \(G\) → Realistic image \(x\)</li>
-    <li><strong>Wave interference:</strong> Random waves → Interference → Standing wave patterns</li>
-</ul>
-
-<p><strong>Physical interpretation:</strong> Neural networks are <strong>pattern-forming media</strong> where waves naturally organize into structures through:</p>
-<ul>
-    <li>Constructive interference (amplification)</li>
-    <li>Destructive interference (cancellation)</li>
-    <li>Resonance (mode selection)</li>
-</ul>
-
-<h3>Conclusion of Part I</h3>
-
-<div class="hero">
-    <strong>Fundamental insight:</strong>
-    <p style="font-size: 1.15rem; margin-top: 1rem;">
-        Neural networks are <strong>wave propagation systems</strong>, not static function approximators. Information flows as physical waves through tunable media (synapses), and learning emerges from wave interference and impedance matching.
-    </p>
-</div>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="marr">Part II: Marr's Three Levels</h2>
-
-<h3>The Framework</h3>
-
-<p>David Marr (1982) proposed that any information-processing system can be understood at three levels:</p>
-
-<table>
-    <thead>
-        <tr>
-            <th>Level</th>
-            <th>Question</th>
-            <th>Example (Vision)</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>1. Computational</strong></td>
-            <td>What is being computed? (Goal/objective)</td>
-            <td>Extract depth from stereo images</td>
-        </tr>
-        <tr>
-            <td><strong>2. Algorithmic</strong></td>
-            <td>How is it computed? (Procedure/steps)</td>
-            <td>Match corresponding features, compute disparity</td>
-        </tr>
-        <tr>
-            <td><strong>3. Implementation</strong></td>
-            <td>What physical substrate? (Hardware)</td>
-            <td>V1 neurons, synaptic connections</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3>Applying to Neural Network Learning</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Level</th>
-            <th>Traditional View</th>
-            <th>Wave Theory View</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Computational</strong></td>
-            <td>Minimize loss \(L(y, y^*)\)</td>
-            <td>✓ Same</td>
-        </tr>
-        <tr>
-            <td><strong>Algorithmic</strong></td>
-            <td>Backpropagation (non-local gradients)</td>
-            <td>Wave interference (local)</td>
-        </tr>
-        <tr>
-            <td><strong>Implementation</strong></td>
-            <td>❌ Unclear (biological problem!)</td>
-            <td>✓ Wave reflection + interference</td>
-        </tr>
-    </tbody>
-</table>
-
-<h3>Key Insight: Level Confusion</h3>
-
-<div class="insight-box">
-    <strong>💡 Source of confusion:</strong>
-    <p>Previous debates <strong>conflated levels</strong>:</p>
-    <ul>
-        <li>Backpropagation is an <strong>algorithm</strong> (Level 2)</li>
-        <li>Biological plausibility concerns the <strong>implementation</strong> (Level 3)</li>
-        <li>These are <em>independent</em> questions!</li>
-    </ul>
-</div>
-
-<p><strong>Resolution:</strong></p>
-<ul>
-    <li><strong>Algorithmic level:</strong> Backpropagation (gradient descent) may <em>seem</em> non-local</li>
-    <li><strong>Implementation level:</strong> Realized through <em>local</em> wave interference</li>
-    <li><strong>No contradiction!</strong> Same computation, different physical substrate</li>
-</ul>
-
-<p><strong>Analogy:</strong></p>
-<blockquote>
-Matrix multiplication can be <em>algorithmically</em> described as nested loops (non-parallel), but <em>implemented</em> with parallel hardware (GPU). The algorithm and implementation are different, but compute the same result.
-</blockquote>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="hinton">Part III: Reconciling Hinton 2020</h2>
-
-<p>Now we can directly address Lillicrap & Hinton's three critiques, showing how wave theory resolves each biological implausibility.</p>
-
-<h3>Problem 1: Weight Transport</h3>
-
-<div class="evidence-box">
-    <strong>Hinton's critique:</strong>
-    <blockquote>"Backpropagation requires symmetric backward weights (\(W^T\)), but biological synapses are unidirectional."</blockquote>
-</div>
-
-<p><strong>Traditional backprop:</strong></p>
-<div class="equation">
-$$\delta_{l-1} = W_l^T \cdot \delta_l \odot \sigma'(z_{l-1})$$
-<p style="margin-top: 0.5rem;">Requires knowing \(W_l^T\) (transpose of forward weights)</p>
-</div>
-
-<p><strong>Wave theory solution:</strong></p>
-
-<div class="step-box">
-    <h4>Reflected waves carry error automatically</h4>
-    
-    <p><strong>Physical mechanism:</strong> When a wave encounters an impedance mismatch (at layer boundaries), it automatically reflects.</p>
-    
-    <div class="equation">
-    <strong>Reflection coefficient:</strong>
-    $$R = \frac{Z_2 - Z_1}{Z_2 + Z_1}$$
-    
-    <p style="margin-top: 0.5rem;">Where \(Z_i\) = impedance of layer \(i\)</p>
-    </div>
-    
-    <p><strong>Key insight:</strong> Impedance is a <em>local</em> property:</p>
-    $$Z_l \propto |\mathbf{x}_l - \mathbf{x}_l^*|^2$$
-    
-    <ul>
-        <li>No need to "know" forward weights \(W\)</li>
-        <li>Reflection happens <em>automatically</em> (like sound echoes)</li>
-        <li>Carries gradient information backward</li>
-    </ul>
-</div>
-
-<p><strong>Biological analogue:</strong> Backpropagating action potentials (BAPs)</p>
-<ul>
-    <li>Stuart & Sakmann (1994): Detected backward-traveling spikes in dendrites</li>
-    <li>Don't require explicit backward synapses</li>
-    <li>Arise from membrane impedance properties</li>
-</ul>
-
-<h3>Problem 2: Phase Separation</h3>
-
-<div class="evidence-box">
-    <strong>Hinton's critique:</strong>
-    <blockquote>"Forward and backward passes must be temporally separated, but biological neurons fire continuously."</blockquote>
-</div>
-
-<p><strong>Traditional backprop:</strong></p>
-<ol>
-    <li>Forward pass: Compute activations layer-by-layer</li>
-    <li><em>Wait</em> until output is reached</li>
-    <li>Backward pass: Propagate gradients back</li>
-</ol>
-
-<p><strong>Wave theory solution:</strong></p>
-
-<div class="step-box">
-    <h4>Forward and backward waves coexist</h4>
-    
-    <p><strong>Physical principle:</strong> In wave systems, incident and reflected waves <em>overlap</em>.</p>
-    
-    <p><strong>Example: Sound echoes</strong></p>
-    <ul>
-        <li>You speak (incident wave)</li>
-        <li>Echo returns (reflected wave)</li>
-        <li>Both exist <em>simultaneously</em> in the room</li>
-    </ul>
-    
-    <div class="equation">
-    <strong>Total wave at any point:</strong>
-    $$\psi_{\text{total}}(x,t) = \psi_{\text{forward}}(x,t) + \psi_{\text{reflected}}(x,t)$$
-    </div>
-    
-    <p><strong>Biological implication:</strong></p>
-    <ul>
-        <li>Neurons can fire continuously</li>
-        <li>Forward and backward signals overlap in time</li>
-        <li>No temporal separation required!</li>
-    </ul>
-</div>
-
-<h3>Problem 3: Non-Local Credit Assignment</h3>
-
-<div class="evidence-box">
-    <strong>Hinton's critique:</strong>
-    <blockquote>"Neurons need to know downstream derivatives, but biological learning is local."</blockquote>
-</div>
-
-<p><strong>Traditional backprop:</strong></p>
-<div class="equation">
-$$\frac{\partial L}{\partial w_{ij}} = \delta_j \cdot x_i$$
-Where \(\delta_j\) depends on <em>all downstream weights</em>
-</div>
-
-<p><strong>Wave theory solution:</strong></p>
-
-<div class="step-box">
-    <h4>Credit assignment via local interference</h4>
-    
-    <p><strong>Observable: Hebbian rule</strong></p>
-    $$\Delta w_{ij} \propto x_i \cdot x_j$$
-    
-    <p>Appears purely local: just correlation between pre- and post-synaptic activity.</p>
-    
-    <p><strong>Hidden mechanism:</strong></p>
-    <div class="equation">
-    Post-synaptic activity contains <em>both components</em>:
-    $$x_j = x_j^{\text{forward}} + x_j^{\text{reflected}}$$
-    
-    <p style="margin-top: 1rem;">Therefore:</p>
-    $$\begin{align}
-    \Delta w_{ij} &\propto x_i \cdot (x_j^{\text{forward}} + x_j^{\text{reflected}}) \\
-    &= \underbrace{x_i \cdot x_j^{\text{forward}}}_{\text{Hebbian term}} + \underbrace{x_i \cdot x_j^{\text{reflected}}}_{\text{Backprop term!}}
-    \end{align}$$
-    </div>
-    
-    <p><strong>Key insight:</strong> What looks like "Hebbian" locally actually contains gradient information hidden in the reflected wave component!</p>
-</div>
-
-<h3>Summary: All Three Problems Resolved</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Problem</th>
-            <th>Traditional Issue</th>
-            <th>Wave Solution</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>Weight transport</strong></td>
-            <td>Need \(W^T\)</td>
-            <td>Automatic reflection (no explicit weights)</td>
-        </tr>
-        <tr>
-            <td><strong>Phase separation</strong></td>
-            <td>Temporal separation</td>
-            <td>Waves coexist (no separation needed)</td>
-        </tr>
-        <tr>
-            <td><strong>Non-locality</strong></td>
-            <td>Need downstream info</td>
-            <td>Local interference encodes gradients</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="hebbian">Part IV: Why It Looks Like Hebbian Learning</h2>
-
-<h3>The Hypothesis</h3>
-
-<div class="hero">
-    <strong>Central claim:</strong>
-    <p style="font-size: 1.15rem; margin-top: 1rem;">
-        The brain <em>is</em> doing backpropagation, but it <strong>looks like</strong> Hebbian learning at the synaptic level because synaptic plasticity measures wave <em>interference</em>, not separate components.
-    </p>
-</div>
-
-<h3>Why Previous Experiments Seemed to Support Hebbian</h3>
-
-<p><strong>Experimental observation (consistent across decades):</strong></p>
-<blockquote>
-Synapses strengthen when pre- and post-synaptic neurons are simultaneously active.
-</blockquote>
-
-<p><strong>Why this was interpreted as "purely Hebbian":</strong></p>
-<ul>
-    <li>Measurement: Correlation between pre- and post-synaptic activity</li>
-    <li>Seems purely <em>local</em> (no need for downstream information)</li>
-    <li>Matches Hebb's 1949 postulate perfectly</li>
-</ul>
-
-<p><strong>What was missing:</strong></p>
-<ul>
-    <li>Experiments didn't <em>separate</em> forward and backward components in post-synaptic activity</li>
-    <li>Measured <em>total</em> activity: \(x_{\text{post}} = x_{\text{forward}} + x_{\text{reflected}}\)</li>
-    <li>Wave interference was <strong>invisible</strong> at macro scale</li>
-</ul>
-
-<h3>Detailed Mechanism</h3>
-
-<div class="step-box">
-    <h4>Step 1: Forward wave propagates</h4>
-    <div class="equation">
-    Input → Layer 1 → Layer 2 → ... → Output
-    </div>
-    <p>Creates forward activity: \(x_j^{\text{forward}}\)</p>
-</div>
-
-<div class="step-box">
-    <h4>Step 2: Error signal reflects back</h4>
-    <div class="equation">
-    Output error → Reflect → Layer L-1 → ... → Layer 1
-    </div>
-    <p>Creates reflected activity: \(x_j^{\text{reflected}}\) (proportional to gradient)</p>
-</div>
-
-<div class="step-box">
-    <h4>Step 3: Waves interfere at synapse</h4>
-    <div class="equation">
-    $$x_j^{\text{total}} = x_j^{\text{forward}} + x_j^{\text{reflected}}$$
-    </div>
-    <p><strong>Synaptic plasticity:</strong> Responds to <em>total</em> activity</p>
-    <div class="equation">
-    $$\begin{align}
-    \Delta w_{ij} &\propto x_i \cdot x_j^{\text{total}} \\
-    &= x_i \cdot x_j^{\text{forward}} + x_i \cdot x_j^{\text{reflected}}
-    \end{align}$$
-    </div>
-</div>
-
-<h3>Two Components of "Hebbian" Plasticity</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Component</th>
-            <th>Origin</th>
-            <th>Function</th>
-            <th>Learning Type</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>\(x_i \cdot x_j^{\text{forward}}\)</td>
-            <td>Correlation</td>
-            <td>Discover input patterns</td>
-            <td>Unsupervised</td>
-        </tr>
-        <tr>
-            <td>\(x_i \cdot x_j^{\text{reflected}}\)</td>
-            <td>Error signal</td>
-            <td>Task-specific optimization</td>
-            <td>Supervised</td>
-        </tr>
-    </tbody>
-</table>
-
-<p><strong>Implication:</strong> Purely "Hebbian" experiments (no task, no error) only capture the first term. The second term (backprop) requires a loss function and output target.</p>
-
-<h3>Connection to Spike-Timing-Dependent Plasticity (STDP)</h3>
-
-<p><strong>STDP observation (Markram et al. 1997):</strong></p>
-<ul>
-    <li>If pre-synaptic spike comes <em>before</em> post-synaptic: LTP (strengthening)</li>
-    <li>If pre-synaptic spike comes <em>after</em> post-synaptic: LTD (weakening)</li>
-</ul>
-
-<p><strong>Wave interpretation:</strong></p>
-<div class="insight-box">
-    <strong>Timing = Phase relationship</strong>
-    <ul>
-        <li><strong>In phase</strong> (pre before post): Constructive interference → LTP</li>
-        <li><strong>Out of phase</strong> (pre after post): Destructive interference → LTD</li>
-    </ul>
-    <p>STDP is measuring <strong>wave phase coherence</strong>, not just timing!</p>
-</div>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="predictions">Part V: Testable Predictions</h2>
-
-<p>If this theory is correct, we should observe:</p>
-
-<h3>Prediction 1: Bidirectional Information Flow</h3>
-
-<div class="evidence-box">
-    <h4>Prediction</h4>
-    <p>Both forward and backward waves should be detectable in neural tissue during learning.</p>
-    
-    <h4>How to test</h4>
-    <ul>
-        <li>Multi-electrode recording along dendrites</li>
-        <li>Measure propagation direction of electrical signals</li>
-        <li>During task performance with feedback</li>
-    </ul>
-    
-    <h4>Expected result</h4>
-    <ul>
-        <li>Forward waves: input → output direction</li>
-        <li>Backward waves: output → input direction (time-locked to error/feedback)</li>
-    </ul>
-    
-    <h4>Existing evidence</h4>
-    <p>✅ <strong>Partially confirmed:</strong> Backpropagating action potentials (BAPs) observed in pyramidal neurons (Stuart & Sakmann 1994)</p>
-</div>
-
-<h3>Prediction 2: Phase-Dependent Plasticity</h3>
-
-<div class="evidence-box">
-    <h4>Prediction</h4>
-    <p>Synaptic plasticity should depend on <em>phase relationship</em> between forward and reflected waves, not just correlation.</p>
-    
-    <h4>How to test</h4>
-    <ul>
-        <li>Induce controlled forward activity (stimulate input)</li>
-        <li>Induce controlled backward activity (stimulate output or feedback pathway)</li>
-        <li>Vary temporal delay (phase shift)</li>
-        <li>Measure LTP/LTD magnitude</li>
-    </ul>
-    
-    <h4>Expected result</h4>
-    <div class="equation">
-    $$\Delta w \propto \cos(\phi)$$
-    Where \(\phi\) = phase difference between forward and reflected waves
-    </div>
-    
-    <h4>Existing evidence</h4>
-    <p>✅ <strong>Consistent with STDP:</strong> Timing-dependent plasticity shows similar phase-dependence</p>
-</div>
-
-<h3>Prediction 3: Impedance Matching in Trained Networks</h3>
-
-<div class="evidence-box">
-    <h4>Prediction</h4>
-    <p>Well-trained neural networks should exhibit <em>low impedance</em> across layers (minimal reflection), while untrained networks have high impedance.</p>
-    
-    <h4>How to test</h4>
-    <ul>
-        <li>Measure frequency response of artificial neural networks</li>
-        <li>Apply sinusoidal perturbations at different frequencies</li>
-        <li>Compare trained vs untrained networks</li>
-    </ul>
-    
-    <h4>Expected result</h4>
-    <table>
-        <tr>
-            <th>Network</th>
-            <th>Frequency Response</th>
-            <th>Impedance</th>
-        </tr>
-        <tr>
-            <td>Trained</td>
-            <td>Flat (all frequencies pass)</td>
-            <td>Low</td>
-        </tr>
-        <tr>
-            <td>Untrained</td>
-            <td>Frequency-dependent (filtering)</td>
-            <td>High</td>
-        </tr>
-    </table>
-    
-    <h4>Existing evidence</h4>
-    <p>⏳ <strong>Not yet tested directly</strong> (novel prediction)</p>
-</div>
-
-<h3>Prediction 4: Wave Interference Explains Feedback Alignment</h3>
-
-<div class="evidence-box">
-    <h4>Background</h4>
-    <p>Lillicrap et al. (2016) showed that neural networks can learn with <em>random</em> feedback weights (not \(W^T\)), contradicting standard backprop.</p>
-    
-    <h4>Prediction</h4>
-    <p>Feedback Alignment works because <strong>wave interference</strong> doesn't require exact weight symmetry — only that reflected waves carry <em>some</em> error information.</p>
-    
-    <h4>How to test</h4>
-    <ul>
-        <li>Analyze wave patterns in Feedback Alignment networks</li>
-        <li>Should observe constructive interference even with random feedback</li>
-    </ul>
-    
-    <h4>Existing evidence</h4>
-    <p>✅ <strong>Consistent:</strong> Feedback Alignment success supports wave interference mechanism</p>
-</div>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2 id="mathematics">Part VI: Mathematical Formalization</h2>
-
-<p><em>Now that we've established physical motivation, we can formalize the mathematics.</em></p>
-
-<h3>Neural Network as Wave System</h3>
-
-<p><strong>Standard formulation:</strong></p>
-<div class="equation">
-$$\mathbf{x}_l = \sigma(\mathbf{W}_l \mathbf{x}_{l-1})$$
-</div>
-
-<p><strong>Wave formulation:</strong></p>
-<div class="equation">
-$$\frac{\partial^2 \mathbf{x}_l}{\partial t^2} + \gamma \frac{\partial \mathbf{x}_l}{\partial t} = \mathbf{W}_l \frac{\partial \mathbf{x}_{l-1}}{\partial t} - \nabla_{\mathbf{x}_l} V(\mathbf{x}_l)$$
-
-<p style="margin-top: 1rem;"><strong>Where:</strong></p>
-<ul style="list-style: none; padding: 0;">
-    <li>• \(\gamma\) = damping coefficient (biological: refractory period)</li>
-    <li>• \(V(\mathbf{x}_l)\) = potential energy (biological: metabolic cost)</li>
-    <li>• At steady state (\(\partial/\partial t = 0\)): reduces to standard formulation</li>
-</ul>
-</div>
-
-<h3>Impedance Definition</h3>
+<p>This quantity is useful because it isolates the task-conditioned component. A natural local forward-weight update is then</p>
 
 <div class="equation">
-<strong>Layer impedance:</strong>
-$$Z_l = \|\mathbf{x}_l - \mathbf{x}_l^*\|^2$$
-
-<p style="margin-top: 0.5rem;">Where \(\mathbf{x}_l^*\) = ideal (target) activation</p>
-
-<strong>Physical meaning:</strong> Resistance to information flow
+$$
+\Delta W_l = -\eta\, m_l s_{l-1}^{\top}.
+$$
 </div>
 
-<h3>Backpropagation as Wave Reflection</h3>
+<p>That rule is local, Hebbian-looking, and task-modulated. It does <em>not</em> automatically equal exact backprop. But it defines a coherent family of local learning rules whose quality depends on how informative \(a_l\) is.</p>
 
-<div class="equation">
-<strong>Forward wave (incident):</strong>
-$$\mathbf{x}_l^{\text{forward}} = \sigma(\mathbf{W}_l \mathbf{x}_{l-1})$$
-
-<strong>Boundary condition at output:</strong>
-$$\mathbf{x}_L \neq \mathbf{y}^* \quad \Rightarrow \quad \text{Impedance mismatch}$$
-
-<strong>Reflected wave (error signal):</strong>
-$$\boldsymbol{\delta}_L = \frac{\partial L}{\partial \mathbf{x}_L} = 2(\mathbf{x}_L - \mathbf{y}^*)$$
-
-<strong>Backward propagation:</strong>
-$$\boldsymbol{\delta}_{l-1} = \mathbf{W}_l^T \boldsymbol{\delta}_l \odot \sigma'(\mathbf{z}_{l-1})$$
-
-<p style="margin-top: 1rem;"><strong>Key insight:</strong> This is <em>identical</em> to standard backprop, but derived from wave reflection!</p>
-</div>
-
-<h3>Gradient Descent = Impedance Minimization</h3>
-
-<div class="equation">
-<strong>Training objective:</strong>
-$$\min_{\mathbf{W}} \sum_l Z_l = \min_{\mathbf{W}} \sum_l \|\mathbf{x}_l - \mathbf{x}_l^*\|^2$$
-
-<strong>Gradient descent:</strong>
-$$\mathbf{W}_{l} \leftarrow \mathbf{W}_{l} - \eta \frac{\partial Z_{\text{total}}}{\partial \mathbf{W}_{l}}$$
-
-<p style="margin-top: 1rem;"><strong>Physical interpretation:</strong> Training adjusts medium properties (weights) to minimize wave reflection (error).</p>
-</div>
-
-<h3>Connection to Hebbian Learning</h3>
-
-<div class="equation">
-<strong>Observed synaptic plasticity:</strong>
-$$\Delta w_{ij} = \eta \cdot x_i \cdot x_j$$
-
-<strong>Wave decomposition:</strong>
-$$x_j = x_j^{\text{forward}} + x_j^{\text{reflected}}$$
-
-<strong>Therefore:</strong>
-$$\begin{align}
-\Delta w_{ij} &= \eta \cdot x_i \cdot (x_j^{\text{forward}} + x_j^{\text{reflected}}) \\
-&= \underbrace{\eta \cdot x_i \cdot x_j^{\text{forward}}}_{\text{Hebbian (correlation)}} + \underbrace{\eta \cdot x_i \cdot x_j^{\text{reflected}}}_{\text{Backprop (gradient)}}
-\end{align}$$
-</div>
-
-<h3>Why This Unifies Everything</h3>
-
-<table>
-    <thead>
-        <tr>
-            <th>Framework</th>
-            <th>Wave Interpretation</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Hebbian learning</td>
-            <td>Correlation term in wave interference</td>
-        </tr>
-        <tr>
-            <td>Backpropagation</td>
-            <td>Reflected wave carries gradient</td>
-        </tr>
-        <tr>
-            <td>Oja's rule</td>
-            <td>Wave saturation (finite medium capacity)</td>
-        </tr>
-        <tr>
-            <td>STDP</td>
-            <td>Phase-dependent interference</td>
-        </tr>
-        <tr>
-            <td>Feedback Alignment</td>
-            <td>Approximate wave reflection (random paths still convey error)</td>
-        </tr>
-    </tbody>
-</table>
-
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2>Conclusion</h2>
-
-<p>We have shown that viewing neural networks as <strong>wave propagation systems</strong> resolves the longstanding conflict between Hebbian learning and backpropagation:</p>
-
-<div class="hero">
-    <ul style="font-size: 1.05rem;">
-        <li>✓ <strong>First principles:</strong> Information transmission requires physical waves</li>
-        <li>✓ <strong>Marr's framework:</strong> Algorithm (backprop) and implementation (waves) are distinct</li>
-        <li>✓ <strong>Hinton 2020:</strong> All three biological implausibilities resolved</li>
-        <li>✓ <strong>Hebbian mystery:</strong> Appears Hebbian, actually contains backprop</li>
-        <li>✓ <strong>Testable:</strong> Makes falsifiable experimental predictions</li>
-    </ul>
-</div>
-
-<p><strong>Implications:</strong></p>
+<h3>5.4 A cleaner mismatch language</h3>
+<p>Instead of using an unknown hidden target \(x_l^*\) and calling its distance an “impedance,” the safer move is to distinguish two notions:</p>
 <ul>
-    <li><strong>Neuroscience:</strong> Suggests new experiments to measure wave interference in vivo</li>
-    <li><strong>AI:</strong> Inspires neuromorphic hardware based on wave propagation (optical, acoustic)</li>
-    <li><strong>Theory:</strong> Unifies multiple learning paradigms under single physical framework</li>
+  <li><strong>Physical impedance:</strong> a substrate or interface property relevant only when a literal wave model is specified.</li>
+  <li><strong>Local mismatch energy:</strong> a task-dependent measure such as \(\|m_l\|^2\) or the difference between free and nudged states.</li>
 </ul>
 
-<h2>References</h2>
-
-<div class="evidence-box">
-    <h4>Primary Sources</h4>
-    <ul>
-        <li>Hebb, D. O. (1949). <em>The Organization of Behavior</em>. Wiley.</li>
-        <li>Rumelhart, D. E., Hinton, G. E., & Williams, R. J. (1986). Learning representations by back-propagating errors. <em>Nature</em>, 323(6088), 533-536.</li>
-        <li>Marr, D. (1982). <em>Vision: A Computational Investigation into the Human Representation and Processing of Visual Information</em>. Freeman.</li>
-        <li>Stuart, G. J., & Sakmann, B. (1994). Active propagation of somatic action potentials into neocortical pyramidal cell dendrites. <em>Nature</em>, 367, 69-72.</li>
-        <li>Markram, H., Lübke, J., Frotscher, M., & Sakmann, B. (1997). Regulation of synaptic efficacy by coincidence of postsynaptic APs and EPSPs. <em>Science</em>, 275(5297), 213-215.</li>
-        <li>Lillicrap, T. P., Cownden, D., Tweed, D. B., & Akerman, C. J. (2016). Random synaptic feedback weights support error backpropagation for deep learning. <em>Nature Communications</em>, 7, 13276.</li>
-        <li>Lillicrap, T. P., Santoro, A., Marris, L., Akerman, C. J., & Hinton, G. (2020). Backpropagation and the brain. <em>Nature Reviews Neuroscience</em>, 21(6), 335-346.</li>
-    </ul>
+<div class="equation">
+$$
+Z_l^{\text{local}} := \|m_l\|^2
+\quad \text{or} \quad
+Z_l^{\text{free-nudged}} := \|s_l^{\text{free}} - s_l^{\text{nudged}}\|^2.
+$$
 </div>
 
-<div class="author-note">
-    <h3>About This Work</h3>
-    <p>This research is part of a broader wave dynamics framework. All work is open-access and available at:</p>
-    <p><strong>🔗 <a href="https://machengshen.github.io/research/">https://machengshen.github.io/research/</a></strong></p>
-    
-    <p><strong>Contact:</strong> macshen93@gmail.com | <strong>Collaboration:</strong> Macheng Shen + Claude (Anthropic Opus 4.6)</p>
+<p>That keeps the optimization claim honest: the learner is reducing a <em>local task-relevant mismatch</em>, not yet a literal transmission-line impedance unless a physical derivation has been supplied.</p>
+
+<h3>5.5 Where exact backprop would live</h3>
+<p>The exact-backprop limit can be stated conditionally:</p>
+<div class="equation">
+$$
+\text{If } a_l \propto J_{l+1:L}^{\top} e_L,
+\quad \text{then } m_l \text{ becomes a local proxy for the adjoint signal.}
+$$
 </div>
 
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
+<p>That is the real missing bridge. A true wave theorem would need to prove that some physical backward mode <em>actually</em> supplies that adjoint quantity under explicit symmetry, reciprocity, or linearization conditions.</p>
 
-<p style="text-align: center; color: #666; font-size: 0.9rem;">
-    © 2026 Macheng Shen. Research conducted with Claude (Opus 4.6).<br>
-    <a href="https://machengshen.github.io/research/">Research Home</a> | 
-    <a href="https://github.com/machengshen">GitHub</a> | 
-    <a href="https://twitter.com/MachengShen">Twitter</a>
-</p>
+<h2>6. Where wave language can honestly re-enter</h2>
+<p>Once the local formalism is in place, wave / field language can be reintroduced more carefully. Suppose a substrate supports a physically realizable backward mode \(\lambda\) generated by a boundary perturbation at the output. Then the interesting question is whether</p>
 
+<div class="equation">
+$$
+a_l = \mathcal{A}_l(\lambda; \text{substrate parameters})
+$$
+</div>
+
+<p>approximates the adjoint signal needed for useful credit assignment. In reciprocal media this can happen. In arbitrary biological tissue it remains an open empirical and theoretical question. So wave language is best treated as a <em>candidate implementation map</em>, not yet the universal derivation.</p>
+
+<h2>7. Discriminative predictions</h2>
+<p>Good predictions should separate this picture from generic “there is feedback” stories.</p>
+<ul>
+  <li><strong>Apical / basal relative-timing experiments.</strong> If local updates depend on a genuine instructive component, changing the timing or gain of apical drive relative to basal drive should rotate or even flip the sign of plasticity.</li>
+  <li><strong>Learning vs inference dissociation.</strong> Selectively suppressing the instructive stream should hurt learning more than immediate feedforward task performance.</li>
+  <li><strong>Voltage-level measurements.</strong> High-speed recordings should reveal neuron-specific instructive dynamics that are richer than coarse calcium correlations and potentially aligned with local credit signals.</li>
+  <li><strong>Reciprocity stress tests in physical media.</strong> In hardware, local backward-field measurements should correlate with gradients when reciprocity holds and fail gracefully when it is broken.</li>
+</ul>
+
+<h2>8. Relation to the broader intelligence thesis</h2>
+<p>This note tackles only one subproblem inside a larger theory of intelligence. The broader agenda still has to explain why some internal structures are control-sufficient, how objectives become endogenous, how multiscale systems preserve viability, and why transport costs shape architecture. The present contribution is narrower: it asks what kinds of physically plausible mechanisms can move <em>credit</em> inside a learner.</p>
+
+<div class="callout good">
+  <strong>Most promising reframing.</strong> The productive question is not “has wave reflection already proven what learning is?” It is “can we build a physics of credit transport that connects digital backprop, reciprocal physical media, and compartmentalized instructive dynamics in cortex?”
+</div>
+
+<h2>Selected references for this revision</h2>
+<ul>
+  <li>Hughes et al. (2019), <em>Wave physics as an analog recurrent neural network</em>.</li>
+  <li>Gartside et al. (2021), <em>A spin-wave neuromorphic computer</em>.</li>
+  <li>Sacramento et al. (2018), <em>Dendritic cortical microcircuits approximate the backpropagation algorithm</em>.</li>
+  <li>Song, Millidge &amp; Bogacz (2024), <em>Prospective configuration</em>.</li>
+  <li>Ellenberger et al. (2025), <em>GLE and local spatiotemporal credit assignment</em>.</li>
+  <li>Francioni et al. (2026), vectorized instructive signals in distal dendrites during learning.</li>
+</ul>
+
+<div class="footer">Revision status: active working note. Strong claims are intentionally narrowed. The goal is clarity, not premature closure.</div>
+
+</main>
 </body>
 </html>

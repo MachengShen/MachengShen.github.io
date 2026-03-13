@@ -1,505 +1,264 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>回应Lillicrap-Hinton论文：波动理论如何解决BP的生物不合理性</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        :root {
-            --bg: #fafbfc;
-            --text: #24292e;
-            --accent: #0366d6;
-            --border: #e1e4e8;
-            --code-bg: #f6f8fa;
-            --highlight: #fff3cd;
-            --success: #d4edda;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--bg);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        h1, h2, h3 {
-            color: var(--text);
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 2.2rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-        }
-        
-        h2 {
-            font-size: 1.7rem;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 0.3rem;
-        }
-        
-        h3 {
-            font-size: 1.3rem;
-            color: var(--accent);
-        }
-        
-        .paper-ref {
-            background: #e7f3ff;
-            border-left: 4px solid #0969da;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .problem-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .solution-box {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 1rem 1.5rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-        
-        .equation {
-            background: var(--code-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--accent);
-            margin: 1.5rem 0;
-            overflow-x: auto;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        .comparison-table th, .comparison-table td {
-            border: 1px solid var(--border);
-            padding: 0.75rem;
-            text-align: left;
-        }
-        
-        .comparison-table th {
-            background: var(--code-bg);
-            font-weight: 600;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: #f9fafb;
-        }
-        
-        .key-point {
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            border: 2px solid #667eea;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        ul, ol {
-            padding-left: 2rem;
-        }
-        
-        li {
-            margin: 0.5rem 0;
-        }
-        
-        code {
-            background: var(--code-bg);
-            padding: 0.2rem 0.4rem;
-            border-radius: 3px;
-            font-family: "SF Mono", Monaco, monospace;
-            font-size: 0.9em;
-        }
-        
-        .check {
-            color: #28a745;
-            font-weight: bold;
-        }
-        
-        .cross {
-            color: #dc3545;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>回应 Lillicrap–Hinton：页面修订中</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<h1>回应Lillicrap-Hinton论文</h1>
-<h2 style="border:none; color: #666; font-size: 1.2rem; margin-top: 0;">波动理论如何解决Backpropagation的生物不合理性</h2>
-
-<div class="paper-ref">
-    <strong>参考论文：</strong><br>
-    Lillicrap, T.P., Santoro, A., Marris, L., Akerman, C.J., Hinton, G. (2020).<br>
-    <em>"Backpropagation and the brain"</em><br>
-    Nature Reviews Neuroscience, 21(6), 335-346.<br>
-    DOI: 10.1038/s41583-020-0277-3
-</div>
-
-<h2>1. Lillicrap-Hinton论文的核心论点</h2>
-
-<p>这篇由Geoffrey Hinton等人撰写的重磅综述指出，标准反向传播（BP）算法存在<strong>三大生物不合理性（biological implausibilities）</strong>：</p>
-
-<h3>问题1：权重传输问题（Weight Transport Problem）</h3>
-
-<div class="problem-box">
-    <strong>❌ 问题：</strong>
-    <p>BP需要backward pass使用forward pass的<strong>相同权重的转置</strong>：</p>
-    <div class="equation" style="background: white;">
-    $$\boldsymbol{\delta}_{l-1} = \mathbf{W}_l^T \cdot \boldsymbol{\delta}_l$$
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="active">Wave / Credit Transport</a>
     </div>
-    <p><strong>生物困境：</strong>神经元A怎么"知道"神经元B对它的突触权重？这需要<strong>对称的反馈连接</strong>（$\mathbf{W}^T$），但大脑中没有发现这样的结构。</p>
-</div>
-
-<h3>问题2：前向-后向阶段分离（Forward-Backward Phase Separation）</h3>
-
-<div class="problem-box">
-    <strong>❌ 问题：</strong>
-    <p>BP需要严格的<strong>时间分离</strong>：</p>
-    <ol>
-        <li>先完成整个前向传播</li>
-        <li>再从输出层向输入层传播误差</li>
-    </ol>
-    <p><strong>生物困境：</strong>大脑没有全局时钟，无法协调所有神经元同步进行"前向"或"后向"阶段。</p>
-</div>
-
-<h3>问题3：非局部信息传递（Non-local Credit Assignment）</h3>
-
-<div class="problem-box">
-    <strong>❌ 问题：</strong>
-    <p>BP需要将输出层的误差<strong>精确传回</strong>每一层，这需要多跳的信息传递。</p>
-    <p><strong>生物困境：</strong>深层网络中，浅层神经元如何"知道"它对最终输出的贡献？这需要非局部的、长距离的反馈信号。</p>
-</div>
-
-<hr style="margin: 2rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2>2. 我们的波动理论：一个统一的解决方案</h2>
-
-<div class="key-point">
-    <h3 style="margin-top: 0;">核心洞察</h3>
-    <p>如果神经网络不是"静态计算图"，而是<strong>波在可调介质中传播的物理系统</strong>，那么：</p>
-    <ul>
-        <li><strong>前向传播 = 入射波</strong></li>
-        <li><strong>反向传播 = 反射波</strong>（从阻抗不匹配的边界自动反射）</li>
-        <li><strong>权重更新 = Hebbian可塑性</strong>（入射波与反射波的干涉）</li>
-    </ul>
-    <p><strong>关键：</strong>反射是<strong>物理过程</strong>，自动发生，不需要"知道"前向权重！</p>
-</div>
-
-<h3>解决方案1：反射波自动携带误差信息</h3>
-
-<div class="solution-box">
-    <strong>✓ 波动理论的解答：</strong>
-    <p>在波动框架中，误差信号的反向传播是<strong>物理反射过程</strong>：</p>
-    
-    <div class="equation" style="background: white;">
-    <strong>前向（入射波）：</strong>
-    $$\mathbf{x}_l = \sigma(\mathbf{W}_l \mathbf{x}_{l-1})$$
-    
-    <strong>边界条件（损失函数）：</strong>
-    $$\text{Mismatch at boundary: } \mathcal{L} = \frac{1}{2}\|\mathbf{x}_L - \mathbf{y}^*\|^2$$
-    
-    <strong>反向（反射波）：</strong>
-    $$\boldsymbol{\delta}_l = \text{reflected wave from layer } l+1$$
-    
-    <strong>关键：反射波的传播由<u>局部阻抗</u>决定，不需要"知道"前向权重！</strong>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
     </div>
-    
-    <p><strong>物理类比：</strong></p>
-    <ul>
-        <li>声波遇到墙壁时，会自动反射</li>
-        <li>反射波的强度由<strong>阻抗差</strong>决定，不需要"传输"墙的信息</li>
-        <li>同样，神经网络中的"误差反射"也是自发的物理过程</li>
-    </ul>
-    
-    <p><strong>数学上：</strong>虽然推导会出现 $\mathbf{W}^T$，但这是<strong>对物理过程的近似描述</strong>，而非生物必须实现的算法步骤。实际的反射由<strong>局部介质性质</strong>（突触可塑性、树突特性）决定。</p>
+  </div>
+</header>
+
+<main class="container">
+
+<section class="hero">
+  <div class="kicker">修订说明</div>
+  <h1>回应 Lillicrap–Hinton：这页正在重写</h1>
+  <p class="subtitle">旧版本把“波动反射自动解决 BP 的生物不合理性”说得过强。现在这条线被重写为更谨慎的 credit transport / dendritic instructive signal 问题。</p>
+</section>
+
+<div class="callout caution">
+  <strong>当前更靠谱的三点。</strong>
+  <ol>
+    <li>某些 reciprocal / adjoint 物理系统确实可以原位测量梯度。</li>
+    <li>皮层里存在空间分离、对学习有因果作用的 instructive signals。</li>
+    <li>但这还不能推出“大脑字面上利用反射波实现标准 BP”。</li>
+  </ol>
 </div>
 
-<h3>解决方案2：连续波传播，无需阶段分离</h3>
-
-<div class="solution-box">
-    <strong>✓ 波动理论的解答：</strong>
-    <p>波传播是<strong>连续过程</strong>，前向和后向波可以<strong>同时存在</strong>：</p>
-    
-    <ul>
-        <li>前向波从输入层向输出层传播（~10-50ms）</li>
-        <li>当前向波到达输出层，检测到阻抗不匹配，立刻产生反射波</li>
-        <li>反射波向回传播的同时，新的前向波可能已经开始</li>
-        <li><strong>不需要全局同步</strong>，只需要局部的波动力学</li>
-    </ul>
-    
-    <p><strong>类比：</strong>就像池塘中的波纹，入射波和反射波可以同时存在、相互叠加，不需要"先入射完，再反射"。</p>
-    
-    <p><strong>生物证据：</strong></p>
-    <ul>
-        <li>大脑中确实存在<strong>双向信息流</strong>（feedforward + feedback）</li>
-        <li>EEG/MEG显示<strong>连续振荡</strong>，而非离散的"前向-后向"阶段</li>
-        <li>预测编码（predictive coding）理论也支持连续的前向-后向交互</li>
-    </ul>
-</div>
-
-<h3>解决方案3：Hebbian可塑性 = 波干涉</h3>
-
-<div class="solution-box">
-    <strong>✓ 波动理论的解答：</strong>
-    <p>权重更新不需要"从输出层传回的精确误差"，只需要<strong>局部的波干涉</strong>：</p>
-    
-    <div class="equation" style="background: white;">
-    <strong>Hebbian学习规则：</strong>
-    $$\Delta \mathbf{W}_l = \eta \cdot \underbrace{\mathbf{x}_{l-1}}_{\text{入射波（前突触）}} \otimes \underbrace{\boldsymbol{\delta}_l}_{\text{反射波（后突触）}}$$
-    
-    <strong>物理意义：</strong>
-    <ul style="list-style: none; padding: 0;">
-        <li>• 当<strong>入射波</strong>（前突触活动）与<strong>反射波</strong>（后突触误差）<strong>相位一致</strong>时 → 增强连接</li>
-        <li>• 当<strong>相位相反</strong>时 → 减弱连接</li>
-        <li>• 这正是<strong>Hebb规则</strong>："一起发放的神经元，连在一起"</li>
-    </ul>
-    </div>
-    
-    <p><strong>关键优势：</strong></p>
-    <ul>
-        <li><span class="check">✓</span> 完全局部：只需要突触前后的信息</li>
-        <li><span class="check">✓</span> 生物可实现：Hebbian可塑性已被广泛证实（LTP/LTD）</li>
-        <li><span class="check">✓</span> 自动对齐：波干涉自动实现"credit assignment"</li>
-    </ul>
-    
-    <p><strong>与Lillicrap的"Feedback Alignment"的联系：</strong></p>
-    <p>Lillicrap 2016年发现，即使用<strong>随机反馈权重</strong>，网络也能学习。我们的理论解释了为什么：</p>
-    <ul>
-        <li>反射波不需要精确知道前向权重</li>
-        <li>只要反射波携带"大致正确"的误差信号，Hebbian可塑性就能调整前向权重</li>
-        <li>系统会自动"对齐"前向和反馈路径（通过波干涉优化）</li>
-    </ul>
-</div>
-
-<hr style="margin: 2rem 0; border: none; border-top: 2px solid var(--border);">
-
-<h2>3. 对比总结</h2>
-
-<table class="comparison-table">
-    <thead>
-        <tr>
-            <th>维度</th>
-            <th>标准BP（Lillicrap批评）</th>
-            <th>波动理论（我们的解决方案）</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><strong>权重传输</strong></td>
-            <td><span class="cross">✗</span> 需要 $\mathbf{W}^T$（对称反馈）</td>
-            <td><span class="check">✓</span> 反射波自动产生，不需要"知道"前向权重</td>
-        </tr>
-        <tr>
-            <td><strong>阶段分离</strong></td>
-            <td><span class="cross">✗</span> 需要前向-后向严格分离</td>
-            <td><span class="check">✓</span> 连续波传播，前向/反向波可同时存在</td>
-        </tr>
-        <tr>
-            <td><strong>非局部性</strong></td>
-            <td><span class="cross">✗</span> 需要长距离误差传递</td>
-            <td><span class="check">✓</span> 局部Hebbian可塑性（波干涉）</td>
-        </tr>
-        <tr>
-            <td><strong>生物证据</strong></td>
-            <td><span class="cross">✗</span> 缺乏对称连接、全局时钟</td>
-            <td><span class="check">✓</span> LTP/LTD、连续振荡、预测编码</td>
-        </tr>
-        <tr>
-            <td><strong>计算效率</strong></td>
-            <td>高（在数字硬件上）</td>
-            <td>可能更高（在模拟/光学硬件上）</td>
-        </tr>
-        <tr>
-            <td><strong>理论优雅性</strong></td>
-            <td>简单明了（但生物不可实现）</td>
-            <td>统一物理框架（BP、Hebbian、Oja's都是特例）</td>
-        </tr>
-    </tbody>
-</table>
-
-<h2>4. 与其他生物学习理论的联系</h2>
-
-<h3>4.1 与Feedback Alignment的关系</h3>
-
-<p>Lillicrap 2016年的"Feedback Alignment"表明，BP不需要精确的 $\mathbf{W}^T$，<strong>随机反馈权重</strong>也能工作。</p>
-
-<div class="key-point">
-    <strong>我们的解释：</strong>
-    <p>反馈对齐之所以有效，是因为：</p>
-    <ol>
-        <li>反射波只需要携带"大致的误差方向"</li>
-        <li>Hebbian可塑性会自动调整前向权重，使其与反馈路径"对齐"</li>
-        <li>这是<strong>波干涉优化</strong>的自然结果，不需要显式的对称性</li>
-    </ol>
-    <p><strong>预测：</strong>如果我们测量训练过程中前向和反馈权重的演化，应该看到它们逐渐"对齐"（$\mathbf{W}_f \cdot \mathbf{W}_b^T \rightarrow \mathbf{I}$）。</p>
-</div>
-
-<h3>4.2 与Target Propagation的关系</h3>
-
-<p>Target Propagation（目标传播）是另一种生物可行的学习算法，它不传播误差梯度，而是传播"目标激活值"。</p>
-
-<div class="key-point">
-    <strong>我们的解释：</strong>
-    <p>目标传播可以看作波动框架的另一种实现：</p>
-    <ul>
-        <li>传播"目标激活" = 传播"期望的波模式"</li>
-        <li>当前激活与目标激活的差异 = 局部阻抗不匹配</li>
-        <li>学习 = 调整介质以减少不匹配</li>
-    </ul>
-</div>
-
-<h3>4.3 与Predictive Coding的关系</h3>
-
-<p>预测编码（Predictive Coding）理论认为，大脑不断产生预测，并只传播"预测误差"。</p>
-
-<div class="key-point">
-    <strong>我们的解释：</strong>
-    <p>预测编码与波动理论高度一致：</p>
-    <ul>
-        <li>前向波 = 预测信号（top-down）</li>
-        <li>反射波 = 预测误差（bottom-up）</li>
-        <li>学习 = 最小化预测误差 = 最小化阻抗不匹配</li>
-    </ul>
-    <p><strong>统一图景：</strong>预测编码、BP、Hebbian学习都是同一物理过程（波传播+干涉）的不同视角。</p>
-</div>
-
-<h2>5. 可验证的生物学预测</h2>
-
-<p>如果波动理论正确，我们应该在生物大脑中观察到：</p>
-
-<h3>预测1：双向波传播的证据</h3>
-
-<div class="solution-box">
-    <strong>实验设计：</strong>
-    <ol>
-        <li>用高时空分辨率技术（如2光子成像）记录神经活动</li>
-        <li>在学习任务中，追踪激活如何在层间传播</li>
-    </ol>
-    
-    <strong>预期结果：</strong>
-    <ul>
-        <li>应看到<strong>连续的双向激活流</strong></li>
-        <li>前向波和反向波的时间差应该对应"反射延迟"</li>
-        <li>反向波的强度应该与学习速率相关</li>
-    </ul>
-    
-    <strong>已有证据：</strong>
-    <ul>
-        <li>视觉皮层中确实存在快速的feedback连接（~50ms）</li>
-        <li>预测误差信号确实沿着层次向下传播</li>
-    </ul>
-</div>
-
-<h3>预测2：突触可塑性的相位依赖</h3>
-
-<div class="solution-box">
-    <strong>实验设计：</strong>
-    <ol>
-        <li>记录突触前后神经元的活动相位</li>
-        <li>测量STDP（spike-timing-dependent plasticity）窗口</li>
-    </ol>
-    
-    <strong>预期结果：</strong>
-    <ul>
-        <li>LTP应该发生在<strong>入射波与反射波相位一致</strong>时</li>
-        <li>LTD应该发生在<strong>相位相反</strong>时</li>
-        <li>STDP窗口的形状应该对应"波干涉模式"</li>
-    </ul>
-    
-    <strong>已有证据：</strong>
-    <ul>
-        <li>STDP确实表现出相位依赖性</li>
-        <li>时间窗口（~20ms）对应声波在树突中的传播时间</li>
-    </ul>
-</div>
-
-<h3>预测3：阻抗不匹配与学习困难</h3>
-
-<div class="solution-box">
-    <strong>假设：</strong>某些频率的信息难以学习，是因为对应的阻抗太高（波无法传播）。
-    
-    <strong>实验设计：</strong>
-    <ol>
-        <li>训练网络学习不同频率的模式</li>
-        <li>测量网络的频率响应曲线</li>
-    </ol>
-    
-    <strong>预期结果：</strong>
-    <ul>
-        <li>难学的模式应该对应<strong>高阻抗频率</strong></li>
-        <li>训练后，这些频率的阻抗应该<strong>降低</strong></li>
-        <li>这解释了"spectral bias"（神经网络倾向学习低频特征）</li>
-    </ul>
-</div>
-
-<h2>6. 结论：从"算法"到"物理"的范式转变</h2>
-
-<div class="key-point">
-    <h3 style="margin-top: 0;">核心观点</h3>
-    <p>Lillicrap-Hinton论文正确指出了标准BP的生物不合理性。但他们提出的解决方案（feedback alignment, target propagation等）仍然是<strong>"算法式"</strong>的。</p>
-    
-    <p><strong>我们的贡献：</strong>提出<strong>"物理式"</strong>的新视角：</p>
-    <ul>
-        <li>不要问"大脑如何实现BP算法？"</li>
-        <li>而要问"什么物理过程自然产生类似BP的行为？"</li>
-    </ul>
-    
-    <p><strong>答案：</strong>波在可调介质中的传播与反射。</p>
-    
-    <p><strong>优势：</strong></p>
-    <ol>
-        <li><span class="check">✓</span> 解决所有三个生物不合理性</li>
-        <li><span class="check">✓</span> 统一BP、Hebbian、Oja's在同一框架</li>
-        <li><span class="check">✓</span> 提供可测试的生物学预测</li>
-        <li><span class="check">✓</span> 指向新型硬件（光学、声学神经网络）</li>
-    </ol>
-</div>
-
-<h3>对Hinton等人的致敬</h3>
-
-<p>Lillicrap-Hinton论文提出的问题至关重要。如果我们的波动理论能够解决这些问题，那将是：</p>
-
+<p>因此，这页不再作为完整回应，而是作为入口提示。请改看：</p>
 <ul>
-    <li>对BP算法的<strong>物理基础</strong>的深刻理解</li>
-    <li>对大脑学习机制的<strong>统一解释</strong></li>
-    <li>迈向<strong>生物兼容的AI系统</strong>的关键一步</li>
+  <li><a href="/research/">研究总览</a></li>
+  <li><a href="/research/hebbian-wave-interference.html">更新后的主工作笔记</a></li>
+  <li><a href="/research/wave-backprop-full.html">关于 adjoint fields 与 transport constraints 的探索性说明</a></li>
 </ul>
 
-<div class="paper-ref">
-    <strong>建议的后续工作：</strong>
-    <ol>
-        <li>与Lillicrap、Hinton团队讨论，寻求实验合作</li>
-        <li>在神经科学实验室验证"双向波传播"预测</li>
-        <li>构建基于波动原理的神经形态硬件</li>
-        <li>探索波动理论在其他学习范式（强化学习、meta-learning）中的应用</li>
-    </ol>
-</div>
+<div class="footer">状态：保留路径，内容降级为 revision note。</div>
 
-<hr style="margin: 3rem 0; border: none; border-top: 2px solid var(--border);">
-
-<p style="text-align: center; color: #666; font-size: 0.9rem;">
-    © 2026 Macheng Shen. 回应文档由 Claude (Opus 4.6) 协助完成。<br>
-    <a href="https://machengshen.github.io/research/">返回研究主页</a>
-</p>
-
+</main>
 </body>
 </html>

@@ -1,376 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deriving Backpropagation from Wave Equations</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.8;
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            color: #24292e;
-            background-color: #ffffff;
-        }
-        h1 {
-            border-bottom: 2px solid #0366d6;
-            padding-bottom: 0.3em;
-            margin-bottom: 1em;
-            color: #0366d6;
-        }
-        h2 {
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
-            margin-top: 2em;
-            color: #24292e;
-        }
-        h3 {
-            margin-top: 1.5em;
-            color: #586069;
-        }
-        .abstract {
-            background-color: #f6f8fa;
-            border-left: 4px solid #0366d6;
-            padding: 16px;
-            margin: 24px 0;
-            font-style: italic;
-        }
-        .box {
-            border: 2px solid;
-            border-radius: 6px;
-            padding: 16px;
-            margin: 20px 0;
-        }
-        .box-blue { background-color: #f1f8ff; border-color: #0366d6; }
-        .box-red { background-color: #ffeef0; border-color: #d73a49; }
-        .box-green { background-color: #f0fff4; border-color: #28a745; }
-        .box-orange { background-color: #fff8e6; border-color: #fb8500; }
-        .box-purple { background-color: #f5f0ff; border-color: #6f42c1; }
-        .box-yellow { background-color: #fffbdd; border-color: #ffd33d; }
-        .box-title {
-            font-weight: bold;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #dfe2e5;
-            padding: 10px 16px;
-            text-align: left;
-        }
-        th {
-            background-color: #f6f8fa;
-            font-weight: 600;
-        }
-        ul, ol {
-            padding-left: 2em;
-        }
-        li {
-            margin: 0.5em 0;
-        }
-        code {
-            background-color: #f6f8fa;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-            font-size: 0.9em;
-        }
-        .meta {
-            color: #586069;
-            font-size: 0.9em;
-            margin-bottom: 2em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deriving Backpropagation from Wave Equations (Archive Notice)</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<h1>Deriving Backpropagation from Wave Equations</h1>
-<p class="meta"><em>Neural Networks as Wave Propagation Systems</em><br>
-Macheng Shen & OpenClaw | March 9, 2026</p>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/research/" class="active">Wave / Credit Transport</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
 
-<div class="abstract">
-<strong>Abstract:</strong>
-We re-examine neural networks from physical first principles, viewing them as <strong>discrete layered waveguide media</strong>. In this framework, the forward pass corresponds to wave propagation, and backpropagation corresponds to error waves reflected from boundary mismatches. This perspective not only reinterprets the classical gradient descent algorithm but also reveals the physical constraints on network architecture design and provides a unified wave-dynamics framework for understanding phenomena like vanishing gradients and exploding gradients.
+<main class="container">
+
+<section class="hero">
+  <div class="kicker">Archive notice</div>
+  <h1>Deriving Backpropagation from Wave Equations</h1>
+  <p class="subtitle">This short note is being retired as a stand-alone derivation and kept only as a path-preserving archive page.</p>
+</section>
+
+<div class="callout caution">
+  <strong>Updated position.</strong> The stronger claim is no longer that wave reflection has already provided a general first-principles derivation of backpropagation. The live project is now framed more cautiously as a study of <em>credit transport</em> and physically plausible implementations of instructive signals.
 </div>
 
-<h2>1. Setup: Neural Networks as Layered Media</h2>
-
-<h3>1.1 Physical Model</h3>
-<p>Imagine a neural network as \(N\) layers of waveguide media:</p>
+<p>Please read the revised materials instead:</p>
 <ul>
-    <li>Each layer \(l \in \{1, 2, \ldots, L\}\) is a "medium slab"</li>
-    <li>Waves propagate, refract, and undergo nonlinear interactions between layers</li>
-    <li>Weight matrix \(\mathbf{W}_l\) describes the propagation characteristics of the medium (impedance/coupling strength)</li>
+  <li><a href="/research/">Research overview</a></li>
+  <li><a href="/research/hebbian-wave-interference.html">Main working note</a></li>
+  <li><a href="/research/wave-backprop-full.html">Exploratory adjoint / transport note</a></li>
 </ul>
 
-<h3>1.2 Activation Dynamics</h3>
-<p>Let \(\mathbf{x}_l(t) \in \mathbb{R}^{n_l}\) be the wave amplitude (activation value) at layer \(l\) at time \(t\). Inter-layer propagation follows the dynamical equation:</p>
+<div class="footer">Status: archive note. Path preserved for continuity; the stronger derivation claim has been retired.</div>
 
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathbf{x}_l}{\partial t} = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}) - \gamma_l \mathbf{x}_l \tag{1}
-\]
-</div>
-
-<p>where:</p>
-<ul>
-    <li>\(\mathbf{W}_l \in \mathbb{R}^{n_l \times n_{l-1}}\) is the propagation matrix for layer \(l\)</li>
-    <li>\(\gamma_l > 0\) is the damping coefficient (energy loss rate)</li>
-    <li>\(\sigma: \mathbb{R} \to \mathbb{R}\) is the nonlinear activation function (corresponding to nonlinear medium response, such as optical Kerr effect)</li>
-</ul>
-
-<h3>1.3 Steady-State Solution and Standard Forward Pass</h3>
-<p>At steady state (\(\partial \mathbf{x}_l / \partial t = 0\)), equation (1) reduces to:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\mathbf{x}_l = \frac{1}{\gamma_l} \sigma(\mathbf{W}_l \mathbf{x}_{l-1})
-\]
-</div>
-
-<p>Without loss of generality, set \(\gamma_l = 1\) (or absorb it into the weights), yielding the standard forward pass:</p>
-
-<div class="box box-blue">
-<div class="box-title">Forward Pass (Steady-State Wave Propagation)</div>
-\[
-\mathbf{x}_l = \sigma(\mathbf{W}_l \mathbf{x}_{l-1}), \quad l = 1, 2, \ldots, L \tag{2}
-\]
-</div>
-
-<p><strong>Physical interpretation:</strong> The forward pass is the steady-state distribution of waves propagating from input layer \(\mathbf{x}_0\) layer-by-layer to output layer \(\mathbf{x}_L\).</p>
-
-<h2>2. Loss Function: Impedance Mismatch at the Boundary</h2>
-
-<h3>2.1 Boundary Condition</h3>
-<p>At output layer \(L\), we have:</p>
-<ul>
-    <li>Desired output (target boundary condition): \(\mathbf{y}^* \in \mathbb{R}^{n_L}\)</li>
-    <li>Actual output (wave state at boundary): \(\mathbf{x}_L\)</li>
-</ul>
-
-<h3>2.2 Loss as Boundary Mismatch</h3>
-<p>The loss function measures the degree to which the boundary condition is satisfied:</p>
-
-<div class="box box-red">
-<div class="box-title">Loss Function (Boundary Mismatch)</div>
-\[
-\mathcal{L} = \frac{1}{2} \|\mathbf{x}_L - \mathbf{y}^*\|^2 \tag{3}
-\]
-</div>
-
-<p><strong>Physical meaning:</strong> In wave theory, unsatisfied boundary conditions lead to the generation of <strong>reflected waves</strong>. The loss function measures the intensity of this "reflection."</p>
-
-<h2>3. Backpropagation: Backward-Propagating Error Waves</h2>
-
-<h3>3.1 Time-Reversal Symmetry</h3>
-<p>Many wave equations satisfy <strong>time-reversal symmetry</strong>: if \(\mathbf{x}(t)\) is a solution, then \(\mathbf{x}(-t)\) is also a solution. This inspires us:</p>
-
-<div class="box box-green">
-<div class="box-title">Core Idea</div>
-<strong>Backpropagation is time-reversed forward pass, carrying "error/reflected waves."</strong>
-</div>
-
-<h3>3.2 Definition of Error Wave</h3>
-<p>Define the <strong>error wave</strong> (or adjoint wave) at layer \(l\):</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_l \equiv \frac{\partial \mathcal{L}}{\partial \mathbf{x}_l} \tag{4}
-\]
-</div>
-
-<p>This is the gradient of the loss function with respect to the activation at layer \(l\), corresponding to the amplitude of the reflected wave in wave dynamics.</p>
-
-<h3>3.3 Boundary Condition (Output Layer)</h3>
-<p>From equations (3) and (4), the initial condition for the error wave at the output layer is:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_L = \frac{\partial \mathcal{L}}{\partial \mathbf{x}_L} = \mathbf{x}_L - \mathbf{y}^* \tag{5}
-\]
-</div>
-
-<p><strong>Physical interpretation:</strong> This is the initial amplitude of the "reflected wave" generated by boundary mismatch.</p>
-
-<h3>3.4 Backpropagation Equation</h3>
-<p>Using the chain rule:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\boldsymbol{\delta}_{l-1} = \frac{\partial \mathcal{L}}{\partial \mathbf{x}_{l-1}} = \left(\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}}\right)^T \boldsymbol{\delta}_l
-\]
-</div>
-
-<p>From the forward pass equation (2), we have:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathbf{x}_l}{\partial \mathbf{x}_{l-1}} = \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \mathbf{W}_l
-\]
-</div>
-
-<p>where \(\mathbf{z}_l = \mathbf{W}_l \mathbf{x}_{l-1}\) is the linear combination before activation. Therefore:</p>
-
-<div class="box box-orange">
-<div class="box-title">Backpropagation (Reflected Wave Propagation)</div>
-\[
-\boldsymbol{\delta}_{l-1} = \mathbf{W}_l^T \cdot \text{diag}(\sigma'(\mathbf{z}_l)) \cdot \boldsymbol{\delta}_l \tag{6}
-\]
-</div>
-
-<h2>4. Physical Interpretation</h2>
-
-<p>Equation (6) contains profound physical meaning:</p>
-
-<h3>4.1 Backward Propagation Matrix \(\mathbf{W}_l^T\)</h3>
-<ul>
-    <li><strong>Forward:</strong> Wave propagates from layer \(l-1\) to layer \(l\) via \(\mathbf{W}_l\)</li>
-    <li><strong>Backward:</strong> Reflected wave propagates from layer \(l\) back to layer \(l-1\) via \(\mathbf{W}_l^T\)</li>
-</ul>
-<p>This corresponds to the <strong>reciprocity theorem</strong> in waveguide theory: the propagation matrix for the reflected wave is the transpose (or conjugate transpose) of the forward matrix.</p>
-
-<h3>4.2 Nonlinear Modulation \(\sigma'(\mathbf{z}_l)\)</h3>
-<ul>
-    <li>\(\sigma'\) describes the "differential response" of the medium</li>
-    <li>The reflected wave passes through the same nonlinear medium but only "experiences" its linearized version</li>
-    <li>This is analogous to <strong>small-signal approximation</strong>: when reflected wave amplitude is small, nonlinear terms can be linearized</li>
-</ul>
-
-<h3>4.3 Error Wave Energy Decay</h3>
-<p>If \(|\sigma'(\mathbf{z}_l)| < 1\) (e.g., sigmoid in saturation region), then:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\|\boldsymbol{\delta}_{l-1}\| \leq \|\mathbf{W}_l^T\| \cdot \|\sigma'(\mathbf{z}_l)\|_{\infty} \cdot \|\boldsymbol{\delta}_l\|
-\]
-</div>
-
-<div class="box box-yellow">
-<div class="box-title">Physical Origin of Vanishing Gradient</div>
-<strong>The reflected wave decays during propagation.</strong> If the medium is highly absorptive (\(\sigma'\) small), wave energy is rapidly lost, leading to <strong>vanishing gradient</strong>.
-</div>
-
-<p>Conversely, if \(|\sigma'(\mathbf{z}_l)| > 1\) or weight norms are too large, the reflected wave amplifies, leading to <strong>exploding gradient</strong>.</p>
-
-<h2>5. Weight Updates: Adjusting Medium Impedance</h2>
-
-<h3>5.1 Weight Gradient</h3>
-<p>The gradient with respect to weights is:</p>
-
-<div style="text-align: center; margin: 20px 0;">
-\[
-\frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} = \boldsymbol{\delta}_l \mathbf{x}_{l-1}^T \tag{7}
-\]
-</div>
-
-<p><strong>Physical meaning:</strong> This is the <strong>outer product (correlation)</strong> of the <strong>incident wave</strong> \(\mathbf{x}_{l-1}\) and the <strong>reflected wave</strong> \(\boldsymbol{\delta}_l\).</p>
-
-<p>In optics, this is analogous to <strong>holographic interference fringes</strong>: the coherent superposition of two waves records phase and amplitude information.</p>
-
-<h3>5.2 Gradient Descent</h3>
-
-<div class="box box-purple">
-<div class="box-title">Weight Update (Medium Adjustment)</div>
-\[
-\mathbf{W}_l \leftarrow \mathbf{W}_l - \eta \frac{\partial \mathcal{L}}{\partial \mathbf{W}_l} \tag{8}
-\]
-</div>
-
-<p><strong>Physical interpretation:</strong> Gradually adjust the propagation characteristics (impedance/refractive index) of each layer's medium so that wave transmission from input to output becomes more "smooth," minimizing boundary reflection.</p>
-
-<p>This is similar to <strong>adaptive optics</strong>: measuring reflection/distortion and adjusting mirror shape in real-time to optimize the optical path.</p>
-
-<h2>6. Wave-Dynamics Reinterpretation of Classical Phenomena</h2>
-
-<table>
-<thead>
-<tr>
-    <th>Phenomenon</th>
-    <th>Traditional Explanation</th>
-    <th>Wave Dynamics Explanation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td>Vanishing gradient</td>
-    <td>Product of derivatives &lt; 1</td>
-    <td>Reflected wave decays in absorptive medium</td>
-</tr>
-<tr>
-    <td>Exploding gradient</td>
-    <td>Product of derivatives &gt; 1</td>
-    <td>Reflected wave amplifies/resonates in gain medium</td>
-</tr>
-<tr>
-    <td>ResNet skip connections</td>
-    <td>Alleviates vanishing gradient</td>
-    <td>Provides low-loss "bypass waveguide"</td>
-</tr>
-<tr>
-    <td>Batch Normalization</td>
-    <td>Stabilizes training</td>
-    <td>Impedance matching, reduces inter-layer reflection</td>
-</tr>
-<tr>
-    <td>ReLU vs Sigmoid</td>
-    <td>No gradient saturation</td>
-    <td>ReLU absorbs reflected wave less</td>
-</tr>
-<tr>
-    <td>Spectral Bias</td>
-    <td>——</td>
-    <td>Impedance too high at certain frequencies</td>
-</tr>
-</tbody>
-</table>
-
-<h2>7. New Testable Predictions</h2>
-
-<p>Based on the wave propagation framework, we can make the following testable predictions:</p>
-
-<h3>Prediction 1: Eigenmodes and Resonance</h3>
-<p><strong>Proposition:</strong> For a trained network, there exists a set of <strong>eigenmodes</strong> that can propagate with minimal loss. The essence of training is to make target input-output patterns become eigenmodes of the network.</p>
-<p><strong>Experimental verification:</strong> Perform modal analysis (eigendecomposition of Jacobian) on trained networks and observe whether modes corresponding to dominant eigenvalues align with principal components of training data.</p>
-
-<h3>Prediction 2: Frequency Response Analysis</h3>
-<p><strong>Proposition:</strong> Well-performing networks should have <strong>flat frequency response</strong> (low impedance) at task-relevant frequencies, while failing networks exhibit high-impedance peaks at critical frequencies.</p>
-<p><strong>Experimental verification:</strong> Measure the network's transfer function for input signals at different frequencies and plot frequency response curves.</p>
-
-<h3>Prediction 3: Nonlinearity Strength and Expressivity</h3>
-<p><strong>Proposition:</strong> Stronger nonlinearity corresponds to richer <strong>wave frequency mixing</strong> (e.g., second harmonic generation), thereby enhancing network expressivity. Linear networks cannot generate new frequencies.</p>
-
-<h2>8. Conclusion and Outlook</h2>
-
-<p>We have re-derived neural network forward and backward propagation from a wave dynamics perspective, revealing the following core insights:</p>
-
-<ol>
-    <li><strong>Forward pass = wave propagation:</strong> Information propagates as waves through layered media to the output boundary</li>
-    <li><strong>Loss = boundary mismatch:</strong> Loss function measures the degree of unsatisfied output boundary condition</li>
-    <li><strong>Backpropagation = reflected wave:</strong> Error waves generated by boundary mismatch propagate backward toward the input</li>
-    <li><strong>Weight update = impedance adjustment:</strong> Adjust medium propagation characteristics based on correlation between incident and reflected waves</li>
-</ol>
-
-<p>This framework not only provides a unified explanation for classical phenomena like vanishing/exploding gradients, ResNet, and BatchNorm, but also lays theoretical foundations for <strong>physically implemented neural networks</strong> (optical, acoustic, spin-wave).</p>
-
-<h3>Next Steps:</h3>
-<ul>
-    <li>Guide neural network architecture design using waveguide design principles</li>
-    <li>Experimentally measure frequency response and eigenmodes of real networks</li>
-    <li>Explore energy efficiency advantages of physical wave computing</li>
-</ul>
-
-<hr style="margin: 40px 0; border: none; border-top: 1px solid #eaecef;">
-<p style="text-align: center; color: #586069; font-size: 0.9em;">
-Generated by OpenClaw | March 9, 2026
-</p>
-
+</main>
 </body>
 </html>

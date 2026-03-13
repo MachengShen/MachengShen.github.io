@@ -1,85 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Macheng Shen</title>
-  <meta name="description" content="Macheng Shen — essays on theories of intelligence, distributed cognition, and the physical limits of learning systems.">
-  <meta property="og:title" content="Macheng Shen">
-  <meta property="og:description" content="Essays and research notes on intelligence, information theory, and distributed cognition.">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="/ideas/assets/css/essay.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Macheng Shen — Ideas",
-    "description": "Essays and research notes on intelligence, information theory, and distributed cognition.",
-    "url": "https://machengshen.github.io/ideas/",
-    "author": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://github.com/MachengShen"
-    },
-    "blogPost": [
-      {
-        "@type": "BlogPosting",
-        "headline": "Line Loss for Intelligence",
-        "url": "https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/",
-        "datePublished": "2026-03-07"
-      },
-      {
-        "@type": "BlogPosting",
-        "headline": "From Mutual Information to Endogenous Viability",
-        "url": "https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/",
-        "datePublished": "2026-03-07"
-      }
-    ]
-  }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macheng Shen | Research Essays</title>
+  
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #0969da;
+    --shadow: 0 1px 2px rgba(0,0,0,0.06);
+}
+* { box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.72;
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1.4rem;
+}
+header.site-header {
+    background: var(--panel);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-weight: 600;
+}
+.nav a.active, .nav a:hover { color: var(--accent); }
+.hero {
+    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.6rem;
+    box-shadow: var(--shadow);
+    margin: 1.25rem 0 1.75rem;
+}
+.hero h1 {
+    margin: 0 0 0.35rem;
+    font-size: 2.2rem;
+    line-height: 1.15;
+}
+.hero p.subtitle {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+}
+h2 {
+    font-size: 1.55rem;
+    margin-top: 2.1rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
+    border-bottom: 2px solid var(--border);
+}
+h3 {
+    font-size: 1.16rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.45rem;
+    color: var(--accent);
+}
+p { margin: 0.75rem 0; }
+a { color: var(--accent); }
+.callout {
+    border-radius: 14px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+    border: 1px solid var(--border);
+    background: var(--panel);
+}
+.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
+.callout.note { background: var(--note-bg); border-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-color: var(--good-border); }
+.muted { color: var(--muted); }
+.small { font-size: 0.96rem; }
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+}
+.card h3 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 999px;
+    background: var(--soft);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.65rem;
+}
+ul, ol { padding-left: 1.3rem; }
+li { margin: 0.4rem 0; }
+.equation {
+    background: var(--soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 1rem 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+}
+.quote {
+    border-left: 4px solid var(--border);
+    padding-left: 1rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+.footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
+.button {
+    display: inline-block;
+    padding: 0.68rem 0.95rem;
+    border-radius: 10px;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+.button.secondary {
+    background: var(--panel);
+    color: var(--accent);
+    border: 1px solid var(--border);
+}
+.embed-wrap {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 0.9rem;
+    margin-top: 1rem;
+}
+.embed-wrap embed {
+    width: 100%;
+    min-height: 900px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+img.profile {
+    width: 110px;
+    height: 110px;
+    border-radius: 16px;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+.hero-flex {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.6rem 0;
+}
+.code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    background: var(--soft);
+    border-radius: 6px;
+    padding: 0.08rem 0.32rem;
+}
+@media (max-width: 700px) {
+    .hero h1 { font-size: 1.8rem; }
+    .container { padding: 1rem; }
+    .embed-wrap embed { min-height: 650px; }
+}
+</style>
 </head>
 <body>
 
-<main class="essay-shell">
-
-  <h1 class="essay-title" style="margin-bottom:6px;">Macheng Shen</h1>
-  <p class="essay-subtitle" style="margin-bottom:40px;">I think about theories of intelligence, distributed cognition, and the physical limits of learning systems.</p>
-
-  <p style="font-size:0.92rem; color:var(--muted); margin-bottom:40px;">
-    <a href="https://github.com/MachengShen" style="color:var(--link);text-decoration:none;">GitHub</a> · 
-    <a href="https://github.com/MachengShen/openclaw-deployment-kit" style="color:var(--link);text-decoration:none;">OpenClaw Deployment Kit</a>
-  </p>
-
-  <hr class="essay-divider">
-
-  <div style="margin-top:32px;">
-
-    <div style="margin-bottom:28px;">
-      <span style="color:var(--muted);font-size:0.85rem;">Mar 7, 2026</span>
-      <h3 style="margin:4px 0 6px;font-size:1.15rem;font-weight:600;line-height:1.35;">
-        <a href="/ideas/blog/line-loss-for-intelligence/" style="color:var(--text);text-decoration:none;">Line Loss for Intelligence: Thermodynamics, Topology, and Cognitive Cones for Planet-Scale AI Infrastructure</a>
-      </h3>
-      <p style="color:#6b7280;font-size:0.9rem;margin:0;line-height:1.6;">As AI becomes planet-scale infrastructure, intelligence will be transported across space — and that transport has unavoidable costs. Network topology may minimize those costs.</p>
-      <p style="color:#6b7280;font-size:0.85rem;margin:4px 0 0 16px;line-height:1.5;"><strong>↳</strong> <a href="/ideas/blog/challenging-line-loss/" style="color:var(--link);text-decoration:none;">Adversarial Review: A Stress Test</a> <span style="color:var(--muted);font-size:0.8rem;">(GPT-5.4 Thesis Challenger)</span></p>
-      <p style="color:#6b7280;font-size:0.85rem;margin:4px 0 0 16px;line-height:1.5;"><strong>↳</strong> <a href="/ideas/blog/debate-information-energy/" style="color:var(--link);text-decoration:none;">Debate: Is Information More Fundamental Than Energy?</a> <span style="color:var(--muted);font-size:0.8rem;">(Three-layer dialectic)</span></p>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/" class="">Home</a>
+      <a href="/ideas/" class="active">Research Essays</a>
+      <a href="/research/" class="">Wave / Credit Transport</a>
     </div>
-
-    <div style="margin-bottom:28px;">
-      <span style="color:var(--muted);font-size:0.85rem;">Mar 7, 2026</span>
-      <h3 style="margin:4px 0 6px;font-size:1.15rem;font-weight:600;line-height:1.35;">
-        <a href="/ideas/blog/from-mutual-information-to-endogenous-viability/" style="color:var(--text);text-decoration:none;">From Mutual Information to Endogenous Viability</a>
-      </h3>
-      <p style="color:#6b7280;font-size:0.9rem;margin:0;line-height:1.6;">Why mutual information is only a starting point for understanding intelligence, and why a deeper theory may need endogenous viability and distributed multiscale organization.</p>
-      <p style="color:#6b7280;font-size:0.85rem;margin:4px 0 0 16px;line-height:1.5;"><strong>↳</strong> <a href="/ideas/blog/challenging-endogenous-viability/" style="color:var(--link);text-decoration:none;">Adversarial Review: A Stress Test from Three Directions</a> <span style="color:var(--muted);font-size:0.8rem;">(GPT-5.4 Thesis Challenger)</span></p>
-      <p style="color:#6b7280;font-size:0.85rem;margin:4px 0 0 16px;line-height:1.5;"><strong>↳</strong> <a href="/ideas/blog/debate-category-jump/" style="color:var(--link);text-decoration:none;">Debate: From Persistence to Goals — The Category Jump</a> <span style="color:var(--muted);font-size:0.8rem;">(Three-layer dialectic)</span></p>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
     </div>
-
   </div>
+</header>
 
-  <hr class="essay-divider" style="margin-top:48px;">
-  <p style="color:var(--muted);font-size:0.82rem;">Essays auto-published via <a href="https://github.com/openclaw/openclaw" style="color:var(--muted);text-decoration:none;">OpenClaw</a></p>
+<main class="container">
+
+<section class="hero">
+  <div class="kicker">Ideas and research essays</div>
+  <h1>Macheng Shen</h1>
+  <p class="subtitle">Essays on intelligence, control, distributed cognition, physical budgets, and why adaptive systems seem to organize themselves across multiple scales.</p>
+</section>
+
+<div class="callout note">
+  <strong>How these essays fit together.</strong> The essays on this page carry the broad thesis. The research page carries a narrower branch on <em>credit transport</em> and physical implementations of learning. That branch is important, but it is not the whole theory of intelligence.
+</div>
+
+<p>I think about intelligent systems as finite physical systems that must build control-sufficient internal structure while paying for memory, communication, delay, synchronization, and adaptation. That framing connects biological multiscale competency, current AI systems, and infrastructure-scale coordination problems.</p>
+
+<hr />
+
+<div class="card">
+  <div class="tag">Mar 7, 2026</div>
+  <h3><a href="/ideas/blog/line-loss-for-intelligence/">Line Loss for Intelligence: Thermodynamics, Topology, and Cognitive Cones for Planet-Scale AI Infrastructure</a></h3>
+  <p>As AI becomes infrastructure, intelligence will not just be computed; it will be transported across space. The bottleneck may be transport, synchronization, and control-relevant communication rather than raw compute.</p>
+  <p class="small">↳ <a href="/ideas/blog/line-loss-for-intelligence/adversarial-review/">Adversarial Review: A Stress Test</a><br />
+  ↳ <a href="/ideas/blog/line-loss-for-intelligence/debate-information-vs-energy/">Debate: Is Information More Fundamental Than Energy?</a></p>
+</div>
+
+<div class="card" style="margin-top: 1rem;">
+  <div class="tag">Mar 7, 2026</div>
+  <h3><a href="/ideas/blog/from-mutual-information-to-endogenous-viability/">From Mutual Information to Endogenous Viability</a></h3>
+  <p>Why mutual information is only a starting point for understanding intelligence, and why a deeper theory may need endogenous viability, relevance, and distributed multiscale organization.</p>
+  <p class="small">↳ <a href="/ideas/blog/from-mutual-information-to-endogenous-viability/adversarial-review/">Adversarial Review: A Stress Test from Three Directions</a><br />
+  ↳ <a href="/ideas/blog/from-mutual-information-to-endogenous-viability/debate-persistence-to-goals/">Debate: From Persistence to Goals — The Category Jump</a></p>
+</div>
+
+<h2>Bridge to the research branch</h2>
+<p>The wave / credit-transport notes are best read as a subproblem inside this larger agenda. They ask how update-relevant information moves through real learning systems. The bigger thesis still needs additional layers: relevance, task formation, endogenous objectives, multiscale control, and physical viability.</p>
+
+<p><a href="/research/">Open the research branch →</a></p>
+
+<div class="footer">Essays auto-published via <a href="https://github.com/" target="_blank" rel="noopener">OpenClaw</a>. Current copy is being revised to distinguish established claims from plausible hypotheses.</div>
 
 </main>
-
 </body>
 </html>
