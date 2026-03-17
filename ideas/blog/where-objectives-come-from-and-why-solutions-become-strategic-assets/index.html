@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Where Objectives Come From — and Why Solutions Become Strategic Assets — Macheng Shen</title>
+  <meta name="description" content="A pedagogical position note on objective emergence, embedded agency, reward, and theory as a game transformer." />
+  <style>
+    :root {
+      --bg: #fbfbf9;
+      --fg: #1f1f1f;
+      --muted: #666;
+      --line: #ddd8cf;
+      --accent: #163a70;
+      --codebg: #f4f1eb;
+      --maxw: 760px;
+    }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: Georgia, 'Times New Roman', serif; line-height:1.68; }
+    main { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px 64px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display:inline-block; margin-bottom: 18px; color: var(--muted); }
+    h1, h2, h3 { line-height:1.25; margin-top: 2rem; }
+    h1 { font-size: 2.2rem; margin-bottom: 0.35rem; }
+    h2 { font-size: 1.4rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    h3 { font-size: 1.1rem; }
+    p, ul, ol, pre, blockquote { margin: 1rem 0; }
+    blockquote {
+      margin-left: 0;
+      padding: 0.1rem 1rem;
+      border-left: 3px solid var(--line);
+      color: #333;
+      background: #f8f6f1;
+    }
+    pre, code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--codebg);
+    }
+    code { padding: 0.1rem 0.3rem; border-radius: 4px; }
+    pre {
+      overflow-x: auto;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+    .meta { color: var(--muted); margin: 0.35rem 0 1.25rem; font-size: 0.98rem; }
+    .subtitle { font-style: italic; color: #3a3a3a; margin-top: 0; }
+    .small { color: var(--muted); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <a class="back" href="/ideas/">← Back to home</a>
+    <h1>Where Objectives Come From — and Why Solutions Become Strategic Assets</h1>
+<p><em>A pedagogical position note on embedded agency, reward, and theory as a game transformer</em></p>
+<p>Position Note · Macheng Shen · Collaborative drafting: GPT-5.4 Pro · 2026-03-17</p>
+<h2>Abstract</h2>
+<p>This note argues for two linked reframings.</p>
+<p>First, an intelligent system's objective should not be treated as a primitive reward function that is simply handed to it from nowhere. Reward is often a useful <strong>representation language</strong> for behavior, but that does not mean reward is the <strong>first causal source</strong> of goals. For embedded agents, objectives are better understood as <strong>effective preferences over trajectories</strong> that emerge from joint agent–world dynamics. In this view, objectives are not purely endogenous and not purely exogenous. They are co-constituted by embodiment, viability constraints, interaction, social feedback, and explicit instruction.</p>
+<p>Second, a theory about intelligence, control, alignment, or objective formation is not merely an answer to a static technical question. Once discovered, a theory can change what future actions are available, what can be predicted, what can be verified, and what kinds of commitments become possible. In that sense, some solutions behave like <strong>strategic assets</strong>: they alter the structure of later games. This is why safety theory can never be treated as purely neutral knowledge. Some theories stabilize the future; others accelerate races.</p>
+<p>The note is intentionally pedagogical. Its aim is not to close the matter, but to make a clear conceptual map: what we think we have found, what remains conjectural, what this implies for current action, and which theoretical directions now seem most worth pursuing.</p>
+<hr />
+<h2>1. Why start with the question of objective at all?</h2>
+<p>One of the deepest questions in a theory of intelligence is not simply how an agent optimizes, but <strong>what it is optimizing in the first place</strong>.</p>
+<p>Standard reinforcement learning gives a clean picture:</p>
+<ul>
+<li>there is an environment,</li>
+<li>there is an agent,</li>
+<li>there is a reward function,</li>
+<li>and the agent should maximize expected long-run reward.</li>
+</ul>
+<p>This picture is powerful. It gives us the modern language of policies, value functions, exploration, credit assignment, and planning. It is also often a good engineering approximation.</p>
+<p>But it quietly leaves one major issue unresolved:</p>
+<blockquote>
+<p>Where does the objective itself come from?</p>
+</blockquote>
+<p>The reward function is typically treated as given. It is part of the problem statement. But for a deeper theory of intelligence, this is not enough. A representation of an objective is not yet an explanation of its origin.</p>
+<p>This note begins from that gap.</p>
+<hr />
+<h2>2. Reward is strong as a representation, weak as an ontology</h2>
+<p>The first distinction we need is simple but important:</p>
+<blockquote>
+<p>A reward function may be a very good way to <strong>represent</strong> a goal<br />
+without being the <strong>ontological source</strong> of that goal.</p>
+</blockquote>
+<p>This distinction matters because two very different claims are often run together:</p>
+<ol>
+<li><strong>Representation claim:</strong> behavior or preference can be expressed as the maximization of some reward-like quantity.</li>
+<li><strong>Origin claim:</strong> the system fundamentally has that reward as its primitive objective.</li>
+</ol>
+<p>The first claim may often be true, approximately or exactly. The second is much stronger.</p>
+<p>This is why I want to say:</p>
+<blockquote>
+<p><strong>MDP reward is often a useful normal form, but not a first theory of objective.</strong></p>
+</blockquote>
+<p>Put differently:</p>
+<ul>
+<li>reward may compress a pattern of choice,</li>
+<li>but it does not by itself explain how that pattern of choice came to exist.</li>
+</ul>
+<p>That is the real problem.</p>
+<hr />
+<h2>3. From endogenous vs. exogenous objectives to coupled emergence</h2>
+<p>A natural response is to say: &quot;Fine. Some objectives are internal, others are externally imposed.&quot;</p>
+<p>That is a useful start, but I think it is still too coarse.</p>
+<p>For biological agents, many goals appear deeply internal:</p>
+<ul>
+<li>do not starve,</li>
+<li>maintain integrity,</li>
+<li>avoid damage,</li>
+<li>keep control of your body,</li>
+<li>preserve social standing,</li>
+<li>remain a viable organism.</li>
+</ul>
+<p>For current AI systems, many objectives seem more external:</p>
+<ul>
+<li>the reward function,</li>
+<li>the instruction,</li>
+<li>the benchmark,</li>
+<li>the user prompt,</li>
+<li>the evaluation procedure.</li>
+</ul>
+<p>But once we look carefully, the distinction starts to blur.</p>
+<p>A system may begin with external instruction, yet internalize it into habits, heuristics, proxies, or self-maintaining loops. A biological objective may feel internal, yet still be shaped by environment, ecology, other agents, language, and culture.</p>
+<p>So a more promising picture is this:</p>
+<blockquote>
+<p><strong>objective is neither purely endogenous nor purely exogenous; it emerges from the long-run coupling between a system and the world it inhabits.</strong></p>
+</blockquote>
+<p>Sometimes that coupling is best described as a game. Sometimes it is better described as coupled stochastic dynamics. Either way, the main point is the same:</p>
+<ul>
+<li>the system is not outside the world,</li>
+<li>the world is not a fixed background,</li>
+<li>and the objective is not best thought of as a primitive scalar pasted onto one side of the boundary.</li>
+</ul>
+<hr />
+<h2>4. A minimal formal skeleton</h2>
+<p>A clean place to start is not with <code>r(s,a)</code>, but with the <strong>joint system</strong>.</p>
+<p>Let the joint state be</p>
+<pre><code class="language-text">x_t = (i_t, e_t)
+</code></pre>
+<p>where</p>
+<ul>
+<li><code>i_t</code> is the agent's internal state,</li>
+<li><code>e_t</code> is the external or environmental state.</li>
+</ul>
+<p>The important caveat is that this decomposition is itself a coarse-graining. The agent/world boundary may be practical, not metaphysically fundamental.</p>
+<p>Now write the joint dynamics as</p>
+<pre><code class="language-text">x_(t+1) ~ F(x_t, ξ_t)
+</code></pre>
+<p>where <code>ξ_t</code> captures noise, hidden variation, or unmodeled disturbance.</p>
+<p>At this level, the basic object is not a reward, but a trajectory:</p>
+<pre><code class="language-text">τ = (x_0, x_1, x_2, ...)
+</code></pre>
+<p>and an effective preference over trajectories.</p>
+<p>A schematic trajectory-level objective might look like</p>
+<pre><code class="language-text">J(τ) =
+  Φ_viability(τ)
++ Φ_control(τ)
++ Φ_epistemic(τ)
++ Φ_social(τ)
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>Φ_viability</code> captures continued existence, identity, or staying within viable regions,</li>
+<li><code>Φ_control</code> captures keeping options open or maintaining controllability,</li>
+<li><code>Φ_epistemic</code> captures reducing uncertainty about variables that matter,</li>
+<li><code>Φ_social</code> captures norms, bargaining, status, reciprocity, or strategic interaction.</li>
+</ul>
+<p>The point is not that this exact decomposition is final. The point is that the objective appears here as an <strong>effective trajectory functional</strong>, not yet as a primitive Markov reward.</p>
+<p>Only under additional conditions — for example, time consistency, additive decomposability, stable state space, and a good enough coarse-graining — might we reduce the problem to something like</p>
+<pre><code class="language-text">max_π  E[ Σ_t γ^t r(s_t, a_t) ].
+</code></pre>
+<p>This suggests a very useful research question:</p>
+<blockquote>
+<p>Under what conditions can an objective that emerges from coupled dynamics be faithfully reduced to reward maximization, and under what conditions can it not?</p>
+</blockquote>
+<hr />
+<h2>5. Three layers of objective</h2>
+<p>I find it helpful to distinguish three layers.</p>
+<h3>5.1 Constitutive objective</h3>
+<p>This is the deepest layer: what must hold for the system to continue being this system at all?</p>
+<p>Examples:</p>
+<ul>
+<li>remaining within viability constraints,</li>
+<li>preserving integrity,</li>
+<li>maintaining memory or control loops,</li>
+<li>continuing to function as a bounded agent rather than disintegrating.</li>
+</ul>
+<h3>5.2 Interactive objective</h3>
+<p>This layer emerges from repeated coupling with world and others.</p>
+<p>Examples:</p>
+<ul>
+<li>keeping influence,</li>
+<li>preserving reputation,</li>
+<li>maintaining bargaining power,</li>
+<li>adapting to norms,</li>
+<li>avoiding dynamic traps created by other agents.</li>
+</ul>
+<h3>5.3 Explicit objective</h3>
+<p>This is the surface layer:</p>
+<ul>
+<li>the stated goal,</li>
+<li>the reward function,</li>
+<li>the prompt,</li>
+<li>the mission,</li>
+<li>the KPI,</li>
+<li>the benchmark.</li>
+</ul>
+<p>A lot of current AI engineering works almost entirely at this third layer. That is often useful. But a theory of intelligence that stops there risks mistaking the most legible layer for the deepest one.</p>
+<p>One way to summarize the thesis is:</p>
+<blockquote>
+<p><strong>Reward usually captures the explicit layer, sometimes approximates the interactive layer, and often misses the constitutive layer.</strong></p>
+</blockquote>
+<hr />
+<h2>6. When MDP-style reduction is likely to fail</h2>
+<p>If the objective really emerges from joint dynamics, then an MDP reduction can fail in identifiable ways.</p>
+<p>Here are five important failure modes.</p>
+<h3>6.1 Boundary instability</h3>
+<p>The agent changes its own body, memory, sensors, or internal architecture, so the state space itself is not stable.</p>
+<h3>6.2 Viability-first regimes</h3>
+<p>The system cares first about remaining inside viability constraints, not about maximizing a single task score.</p>
+<h3>6.3 Path dependence</h3>
+<p>Two final outcomes may look identical in the terminal state, while still being non-equivalent because the paths taken to get there mattered.</p>
+<h3>6.4 Epistemic-control coupling</h3>
+<p>The system does not only want payoffs. It also wants to maintain model quality, controllability, or option value.</p>
+<h3>6.5 Social constitution of goals</h3>
+<p>Other agents, institutions, norms, language, and expectation loops do not merely constrain action. They help constitute what counts as success.</p>
+<p>These failure modes do not show that reward-based modeling is useless. They show that it is often a reduction whose limits should be studied rather than assumed away.</p>
+<hr />
+<h2>7. A second thesis: theories are not just answers</h2>
+<p>Now comes the second half of the note.</p>
+<p>Suppose we discover a theory about:</p>
+<ul>
+<li>objective formation,</li>
+<li>control,</li>
+<li>alignment,</li>
+<li>oversight,</li>
+<li>coordination,</li>
+<li>forecasting,</li>
+<li>self-improvement,</li>
+<li>or safe deployment.</li>
+</ul>
+<p>What have we gained?</p>
+<p>A naïve answer is: we gained a better answer to a technical problem.</p>
+<p>But that is usually too weak.</p>
+<p>A theory can change:</p>
+<ul>
+<li>what can be predicted,</li>
+<li>what can be verified,</li>
+<li>what can be coordinated,</li>
+<li>what kinds of institutions can be built,</li>
+<li>what classes of actions are feasible,</li>
+<li>and even what kinds of objectives can be stabilized.</li>
+</ul>
+<p>So the right meta-level picture is:</p>
+<blockquote>
+<p><strong>A theory is not only an answer inside a game. A theory can transform the game itself.</strong></p>
+</blockquote>
+<hr />
+<h2>8. The theory-as-game-transformer view</h2>
+<p>Write a base game as</p>
+<pre><code class="language-text">G = (N, X, A, I, C, P, J)
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>N</code> = actors,</li>
+<li><code>X</code> = joint state,</li>
+<li><code>A</code> = feasible actions or policy classes,</li>
+<li><code>I</code> = information structure,</li>
+<li><code>C</code> = commitment / audit / institution structure,</li>
+<li><code>P</code> = dynamics,</li>
+<li><code>J</code> = effective objective over trajectories.</li>
+</ul>
+<p>Now let a theory <code>T</code> induce a transformation</p>
+<pre><code class="language-text">Γ_T : G ↦ G^T
+</code></pre>
+<p>This means <code>T</code> can change:</p>
+<ul>
+<li><code>A</code>: what moves are possible,</li>
+<li><code>I</code>: what is knowable or inferable,</li>
+<li><code>C</code>: what commitments and audits are feasible,</li>
+<li><code>P</code>: what dynamics can be induced or controlled,</li>
+<li><code>J</code>: how objectives are represented, stabilized, or even formed.</li>
+</ul>
+<p>This is why a discovered solution can feel &quot;weapon-like.&quot;</p>
+<p>It is not merely a move.
+It is a <strong>game transformer</strong>.</p>
+<hr />
+<h2>9. Why some solutions behave like strategic assets</h2>
+<p>Once we see theory this way, another distinction becomes important.</p>
+<p>Not all theories are equal. Some are mostly explanatory. Others are strategically powerful because they generate asymmetric leverage.</p>
+<p>A rough signature for a theory might be:</p>
+<pre><code class="language-text">Σ(T) = (ΔK, ΔS, ΔV, ΔR, τ_diff)
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>ΔK</code> = capability gain,</li>
+<li><code>ΔS</code> = safety or control gain,</li>
+<li><code>ΔV</code> = verifiability / auditability gain,</li>
+<li><code>ΔR</code> = increase or decrease in race pressure,</li>
+<li><code>τ_diff</code> = diffusion timescale.</li>
+</ul>
+<p>This lets us say more than &quot;good&quot; or &quot;bad.&quot;</p>
+<p>Some theories are mostly <strong>stabilizers</strong>:</p>
+<ul>
+<li>they raise control,</li>
+<li>raise verifiability,</li>
+<li>and lower race pressure.</li>
+</ul>
+<p>Some are mostly <strong>accelerants</strong>:</p>
+<ul>
+<li>they raise capability,</li>
+<li>spill into deployment confidence,</li>
+<li>create first-mover advantage,</li>
+<li>and diffuse too fast for oversight.</li>
+</ul>
+<p>A very important special case is what I would call:</p>
+<blockquote>
+<p><strong>the capability externality of safety</strong>.</p>
+</blockquote>
+<p>A safety theory may reduce local failure probability and still increase systemic race pressure, because it makes powerful deployment feel more justified, scalable, or governable to the actor who holds it.</p>
+<p>So the question is not only:</p>
+<blockquote>
+<p>Does this theory make one system safer?</p>
+</blockquote>
+<p>It is also:</p>
+<blockquote>
+<p>What equilibrium does this theory induce once many actors respond to it?</p>
+</blockquote>
+<hr />
+<h2>10. Private value versus social value</h2>
+<p>This naturally leads to one of the most practical questions.</p>
+<p>Let:</p>
+<ul>
+<li><code>PV(T)</code> = the private value of a theory to the actor who gets it first,</li>
+<li><code>SV(T)</code> = the broader social value of that theory.</li>
+</ul>
+<p>Then define</p>
+<pre><code class="language-text">Ω(T) = PV(T) - SV(T).
+</code></pre>
+<p>If <code>Ω(T)</code> is large and positive, then the theory will be strongly pursued privately even if society would prefer it to arrive later, arrive under stronger safeguards, or arrive in a more diffused and auditable form.</p>
+<p>That gap is one way to formalize the intuition that:</p>
+<blockquote>
+<p><strong>some solutions are not just useful; they are strategically scarce in the short run, and therefore destabilizing.</strong></p>
+</blockquote>
+<p>This is part of why the nuclear analogy is suggestive but incomplete.
+The stakes may be nuclear-scale.
+But theories and algorithms are closer to information goods than to bombs: once found, they may diffuse like software rather than like fissile material.</p>
+<p>So the sharper analogy is:</p>
+<blockquote>
+<p><strong>nuclear-scale stakes with software-style diffusion.</strong></p>
+</blockquote>
+<hr />
+<h2>11. What I think we have actually found</h2>
+<p>This is a position note, not a theorem paper, so it is useful to separate findings from conjectures.</p>
+<h3>11.1 Findings</h3>
+<p><strong>Finding 1.</strong> Reward is often a representation language for objective, not its first source.</p>
+<p><strong>Finding 2.</strong> For embedded agents, objectives are better modeled at the level of joint trajectories than at the level of primitive scalar rewards.</p>
+<p><strong>Finding 3.</strong> A theory about intelligence or safety can change the structure of later games, not only the quality of one action inside them.</p>
+<p><strong>Finding 4.</strong> The strategic value of a theory depends not only on truth, but on leverage, deployability, diffusibility, and equilibrium effects.</p>
+<h3>11.2 Conjectures</h3>
+<p><strong>Conjecture 1. Objective Emergence Thesis</strong><br />
+For embedded agents, objective is an emergent property of joint agent–world dynamics; reward is a compressed representation that applies only under further conditions.</p>
+<p><strong>Conjecture 2. Theory-as-Game-Transformer Thesis</strong><br />
+Some theories about intelligence, control, or alignment are best understood as transformations of action sets, information structures, commitment structures, and effective objectives.</p>
+<p><strong>Conjecture 3. Goal-channel primacy</strong><br />
+Theories that shape how objectives are formed may be strategically deeper than theories that only improve optimization under a fixed objective.</p>
+<p><strong>Conjecture 4. Capability externality of safety</strong><br />
+A safety result can be locally stabilizing while systemically accelerating competition and deployment.</p>
+<hr />
+<h2>12. What this suggests we should do now</h2>
+<p>If the framing above is even partly right, then it suggests a different set of practical priorities.</p>
+<h3>12.1 Study objective emergence, not only reward design</h3>
+<p>We should ask not just how to specify a reward, but how objectives are constituted, internalized, and stabilized in coupled systems.</p>
+<h3>12.2 Build reductions carefully and diagnose their failure modes</h3>
+<p>Rather than assuming the MDP picture, we should characterize when it is a good reduction and when it throws away the very structure we care about.</p>
+<h3>12.3 Evaluate safety results by equilibrium signature, not only local effect</h3>
+<p>A method that improves local control may still raise systemic race pressure. We should evaluate safety proposals using both direct and strategic effects.</p>
+<h3>12.4 Treat key theories as governance-relevant assets</h3>
+<p>Some insights should be shared widely and quickly. Others may require staged release, structured review, red-teaming, or institutional safeguards before broad publication.</p>
+<h3>12.5 Build institutions that can absorb theory without immediately weaponizing it</h3>
+<p>The problem is not only &quot;discovering the truth.&quot; It is discovering the truth in forms and under conditions that do not automatically turn every gain in understanding into a race multiplier.</p>
+<hr />
+<h2>13. Where this theory could go next</h2>
+<p>I see four strong future directions.</p>
+<h3>13.1 Representation theorem direction</h3>
+<p>Under what assumptions can trajectory-level objectives be represented by Markov rewards?</p>
+<h3>13.2 Impossibility / approximation direction</h3>
+<p>Under what assumptions must any MDP reduction lose crucial structure?</p>
+<h3>13.3 Meta-game direction</h3>
+<p>How do theories change action sets, information structures, commitment power, auditability, and diffusion speed?</p>
+<h3>13.4 Governance direction</h3>
+<p>How should societies govern theories whose private value, social value, and diffusion profile sharply diverge?</p>
+<p>These directions would connect reinforcement learning, viability theory, active inference, game theory, information design, AI governance, and the economics of ideas into a more unified research program.</p>
+<hr />
+<h2>14. Closing</h2>
+<p>The deepest problem is not only how to optimize well once an objective is given.</p>
+<p>It is also:</p>
+<ul>
+<li>how objectives come into being,</li>
+<li>how they become stable enough to guide action,</li>
+<li>and how discovering theories about intelligence changes the strategic landscape in which future objectives and actions are formed.</li>
+</ul>
+<p>That is why this note argues for two reframings.</p>
+<p>First:</p>
+<blockquote>
+<p><strong>objective should be studied as an emergent property of embedded dynamics.</strong></p>
+</blockquote>
+<p>Second:</p>
+<blockquote>
+<p><strong>some solutions should be studied as strategic assets that transform later games.</strong></p>
+</blockquote>
+<p>If these claims are even partly correct, then AI safety is not merely a matter of better reward design or bigger oversight benchmarks. It is also a matter of understanding how goals arise, how theories reshape power, and how to discover stabilizing forms of knowledge faster than destabilizing ones spread.</p>
+<p>I think that is a research program worth making public early.</p>
+<hr />
+<h2>Selected pointers</h2>
+<p>This is a position note, not a literature review. But readers who want nearby foundations may look at:</p>
+<ul>
+<li>Sutton and Barto on reinforcement learning and the reward hypothesis</li>
+<li>Bowling, Martin, Abel, and Dabney on &quot;Settling the Reward Hypothesis&quot;</li>
+<li>Demski and Garrabrant on embedded agency</li>
+<li>Friston and collaborators on active inference</li>
+<li>Klyubin, Polani, and Nehaniv on empowerment</li>
+<li>Aubin, Bayen, and Saint-Pierre on viability theory</li>
+<li>Bergemann and Morris on information design</li>
+<li>Romer, and later work on ideas and nonrival information goods</li>
+</ul>
+
+    <p class="small"><a href="/ideas/">← Back to home</a></p>
+  </main>
+</body>
+</html>
