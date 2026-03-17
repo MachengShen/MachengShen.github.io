@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Why Distributed Memory Matters for Lifelong Agents — Macheng Shen</title>
+  <meta name="description" content="Long-term memory as a distributed, continuously updatable policy for lifelong agents: neuroscience, Nested Learning, and the stability–plasticity tradeoff." />
+  <style>
+    :root {
+      --bg: #fbfbf9;
+      --fg: #1f1f1f;
+      --muted: #666;
+      --line: #ddd8cf;
+      --accent: #163a70;
+      --codebg: #f4f1eb;
+      --maxw: 760px;
+    }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: Georgia, 'Times New Roman', serif; line-height:1.68; }
+    main { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px 64px; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .back { display:inline-block; margin-bottom: 18px; color: var(--muted); }
+    h1, h2, h3 { line-height:1.25; margin-top: 2rem; }
+    h1 { font-size: 2.2rem; margin-bottom: 0.35rem; }
+    h2 { font-size: 1.4rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+    h3 { font-size: 1.1rem; }
+    p, ul, ol, pre, blockquote { margin: 1rem 0; }
+    blockquote {
+      margin-left: 0;
+      padding: 0.1rem 1rem;
+      border-left: 3px solid var(--line);
+      color: #333;
+      background: #f8f6f1;
+    }
+    pre, code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background: var(--codebg);
+    }
+    code { padding: 0.1rem 0.3rem; border-radius: 4px; }
+    pre {
+      overflow-x: auto;
+      padding: 0.85rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+    }
+    hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+    .meta { color: var(--muted); margin: 0.35rem 0 1.25rem; font-size: 0.98rem; }
+    .subtitle { font-style: italic; color: #3a3a3a; margin-top: 0; }
+    .small { color: var(--muted); font-size: 0.95rem; }
+    .references { margin-top: 2rem; }
+    .references h2 { font-size: 1.3rem; }
+    .references ul { padding-left: 1.3rem; }
+    .references li { margin: 0.55rem 0; font-size: 0.97rem; }
+  </style>
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+  <main>
+    <a class="back" href="/ideas/">← Back to home</a>
+    <h1>Why Distributed Memory Matters for Lifelong Agents</h1>
+    <p class="meta">Position Note · Macheng Shen · Collaborative drafting: GPT-5.4 Pro · 2026-03-17</p>
+
+    <h2>Abstract</h2>
+    <p>Why do some agentic systems feel strikingly more <em>continuous</em> over time than others? One plausible answer is not simply that they "have memory," but that they implement memory in a <strong>distributed, continuously updatable, externally inspectable, and multi-timescale</strong> way. This note argues that long-term memory should be understood not as passive storage, but as a <strong>policy for preserving and updating internal state so that future prediction, control, and identity maintenance can be improved at lower expected cost than recomputing everything from scratch</strong>. From this perspective, the practical usefulness of filesystem-based agents is not an accident: they expose a form of distributed memory that supports local updates, selective retrieval, gradual consolidation, and cross-task continuity. We connect this view to neuroscience (distributed engrams, complementary learning systems, pattern separation/completion) and to recent machine-learning work such as <strong>Nested Learning</strong>, which frames modern models as nested multi-level optimization/memory systems with different context flows and update frequencies. The core claim is that distributed memory is valuable not merely because it is robust, but because it helps solve the deeper <strong>stability–plasticity</strong> problem required for lifelong learning.</p>
+
+    <h2>1. The puzzle</h2>
+    <p>A recurring practical observation in agent systems is this: some agents feel stateless, while others feel as if they are <em>becoming a continuing system</em>. A major reason seems to be memory. But not just any memory.</p>
+    <p>In particular, filesystem-based agents often feel more useful because they can:</p>
+    <ul>
+      <li>write new information quickly,</li>
+      <li>preserve older information without rewriting the entire substrate,</li>
+      <li>retrieve relevant fragments later,</li>
+      <li>and iteratively reorganize their own external state.</li>
+    </ul>
+    <p>This suggests that what matters is not merely "having more storage," but having a memory architecture that can support <strong>continued learning without repeated self-overwrite</strong>.</p>
+    <p>That motivates the central question of this note:</p>
+    <blockquote>
+      <p>What is long-term memory, really, and why does a <strong>distributed</strong> memory system appear especially helpful for lifelong agents?</p>
+    </blockquote>
+
+    <h2>2. A working definition of long-term memory</h2>
+    <p>A useful starting point is decision-making under partial observability. In the fully general case, an optimal controller depends on history. A memory system is therefore a way of compressing history into a persistent state that can still support good future decisions.</p>
+    <p>A compact formal sketch is:</p>
+    <p>
+      \[
+      m_t = W(m_{t-1}, o_t, a_{t-1}),
+      \qquad
+      a_t = \pi(m_t, o_t).
+      \]
+    </p>
+    <p>Here:</p>
+    <ul>
+      <li>\(m_t\) is memory state,</li>
+      <li>\(W\) is the write/update rule,</li>
+      <li>\(\pi\) is the read/use rule.</li>
+    </ul>
+    <p>From this point of view:</p>
+    <blockquote>
+      <p><strong>Memory is a resource-bounded policy for preserving and updating state so that future prediction, control, and identity maintenance improve at lower cost than recomputing everything from scratch.</strong></p>
+    </blockquote>
+    <p>Long-term memory is the subset of this preserved state that continues to matter across long timescales and across episodes.</p>
+    <p>This immediately shifts the discussion away from "storage size" and toward:</p>
+    <ul>
+      <li>what gets written,</li>
+      <li>how long it persists,</li>
+      <li>how it is retrieved,</li>
+      <li>how it is consolidated,</li>
+      <li>and what is forgotten.</li>
+    </ul>
+
+    <h2>3. Why distributed memory is probably not a coincidence</h2>
+    <p>At first glance, one might think distributed memory is useful merely because it is robust or energy-efficient. Those are real advantages, but they are probably not the deepest reason.</p>
+    <p>The deeper reason is that distributed memory helps solve a fundamental tension:</p>
+    <blockquote>
+      <p><strong>A lifelong system must remain writable without becoming unstable, and remain stable without becoming unwritable.</strong></p>
+    </blockquote>
+    <p>This is the classic stability–plasticity problem. In continual learning, standard deep systems often lose plasticity over time; a 2024 <em>Nature</em> paper showed that standard deep-learning methods can gradually lose plasticity in continual-learning settings until they learn no better than a shallow network. Meanwhile, neuroscience strongly suggests that biological memory is neither monolithic nor static: single memories are distributed across multiple brain regions, and effective learning depends on interactions across different timescales.</p>
+    <p>A distributed memory system helps because it allows:</p>
+    <ol>
+      <li><strong>Local writing, global stability</strong> — New experience can be written into a local region or shard rather than globally rewriting the whole substrate.</li>
+      <li><strong>Pattern separation</strong> — Similar events can be encoded separately instead of collapsing onto one another.</li>
+      <li><strong>Pattern completion</strong> — Later, partial cues can retrieve and reassemble a larger relevant structure.</li>
+      <li><strong>Fast writing + slow integration</strong> — Concrete events can be stored rapidly, while slower processes abstract, summarize, and consolidate them.</li>
+      <li><strong>Compositional reuse</strong> — Future tasks can draw on combinations of memory fragments rather than only replaying entire monolithic blobs.</li>
+      <li><strong>Governability</strong> — In external systems (files, logs, databases), memory can be versioned, audited, corrected, or garbage-collected.</li>
+    </ol>
+    <p>These are not side benefits. They are exactly the kinds of operations a continually learning agent needs.</p>
+
+    <h2>4. What neuroscience suggests</h2>
+    <p>A few neuroscience results are especially relevant.</p>
+
+    <h3>4.1 Distributed engrams</h3>
+    <p>Recent brain-wide work supports the idea that a single memory is not stored in one place, but in a <strong>distributed engram complex</strong> spanning multiple functionally connected regions. This matters because it suggests memory should be understood as a <strong>distributed pattern</strong> rather than a single location.</p>
+
+    <h3>4.2 Complementary learning systems</h3>
+    <p>The complementary learning systems (CLS) perspective proposes that fast learning in the hippocampus and slow learning in cortex work together. A recent theoretical treatment sharpened this view: fast notebook-like memory plus slow student-like integration can outperform either subsystem alone for generalization.</p>
+    <p>This is extremely suggestive for agent design. It implies that long-term memory should probably not be one store. It should at least be split into:</p>
+    <ul>
+      <li>a <strong>fast episodic path</strong>,</li>
+      <li>a <strong>slow semantic abstraction path</strong>,</li>
+      <li>and an <strong>active working-memory path</strong>.</li>
+    </ul>
+
+    <h3>4.3 Pattern separation and completion</h3>
+    <p>Hippocampal theories emphasize two complementary computations:</p>
+    <ul>
+      <li><strong>pattern separation</strong>: keep similar memories distinct,</li>
+      <li><strong>pattern completion</strong>: recover a whole memory from partial cues.</li>
+    </ul>
+    <p>A filesystem-based agent often behaves in an analogous way:</p>
+    <ul>
+      <li>shard, isolate, and annotate experiences separately,</li>
+      <li>then reconstruct useful global context from a targeted retrieval query.</li>
+    </ul>
+    <p>This is one reason distributed memory can support better reasoning than a single undifferentiated memory blob.</p>
+
+    <h2>5. What recent ML work gets right: Nested Learning</h2>
+    <p>The recent <strong>Nested Learning</strong> work from Google Research is highly relevant. Its central move is to view a model not as one smooth learning process, but as a system of <strong>nested, multi-level, and/or parallel optimization problems</strong>, each with its own <strong>context flow</strong> and update frequency. The Google Research post explicitly argues that Nested Learning reveals a new dimension for continual learning and ties this to multi-timescale structure in the brain. The paper also frames optimizers themselves as memory-like modules that compress gradient information, and introduces a proof-of-concept architecture called <strong>Hope</strong>, which combines self-modifying memory updates with a <strong>Continuum Memory System (CMS)</strong> and reports stronger long-context and continual-learning behavior than several baselines.</p>
+    <p>This has obvious conceptual overlap with the discussion above. In particular, Nested Learning shares the spirit that:</p>
+    <ul>
+      <li>memory is not a single place but a <strong>stack of interacting learning processes</strong>,</li>
+      <li>update frequency matters,</li>
+      <li>memory and optimization are deeply entangled,</li>
+      <li>and continual learning likely requires <strong>multi-timescale</strong> structure.</li>
+    </ul>
+    <p>So yes: Nested Learning contains a meaningful part of the same spirit.</p>
+
+    <h2>6. Where our discussion goes beyond Nested Learning</h2>
+    <p>At the same time, the framework developed here pushes beyond Nested Learning in several directions.</p>
+
+    <h3>6.1 From model-internal memory to external distributed memory</h3>
+    <p>Nested Learning mainly studies model-internal optimization/memory structure. Our discussion emphasizes that <strong>externalized memory substrates</strong>—file systems, logs, note stores, databases, graph structures—may be crucial for real agents.</p>
+
+    <h3>6.2 From memory as capacity to memory as institution</h3>
+    <p>A filesystem does not merely store more. It creates a <strong>governable memory institution</strong>:</p>
+    <ul>
+      <li>provenance,</li>
+      <li>editability,</li>
+      <li>rollback,</li>
+      <li>permissions,</li>
+      <li>consolidation policies,</li>
+      <li>explicit forgetting.</li>
+    </ul>
+    <p>Brains do not expose this in the same way, but agents can.</p>
+
+    <h3>6.3 From continual learning benchmarks to lifelong agent continuity</h3>
+    <p>Nested Learning is framed around continual learning and long-context performance. Our broader claim is about something more phenomenological but also more operational:</p>
+    <blockquote>
+      <p>A system feels like it has long-term memory when it does not have to become stupid again tomorrow.</p>
+    </blockquote>
+    <p>This pushes memory design from "benchmark performance" toward "persistent agent identity and decision quality over time."</p>
+
+    <h2>7. A practical memory architecture for lifelong agents</h2>
+    <p>A useful design decomposition is:</p>
+
+    <h3>(A) Working memory</h3>
+    <p>Short-term active context for the current task.</p>
+
+    <h3>(B) Episodic memory</h3>
+    <p>Fast-write, append-first memory of events, conversations, observations, failures, successes, local facts.</p>
+
+    <h3>(C) Semantic memory</h3>
+    <p>Slowly consolidated abstractions: stable facts, user preferences, environment structure, summaries, world models.</p>
+
+    <h3>(D) Procedural memory</h3>
+    <p>Reusable skills, scripts, workflows, policies, tool-use templates.</p>
+
+    <h3>(E) Meta-memory</h3>
+    <p>A registry that tracks:</p>
+    <ul>
+      <li>provenance,</li>
+      <li>confidence,</li>
+      <li>recency,</li>
+      <li>relevance,</li>
+      <li>conflicts,</li>
+      <li>and access/update frequency.</li>
+    </ul>
+
+    <p>Then add one essential process:</p>
+
+    <h3>(F) Consolidation loop</h3>
+    <p>A periodic loop that:</p>
+    <ul>
+      <li>summarizes,</li>
+      <li>clusters,</li>
+      <li>deduplicates,</li>
+      <li>resolves conflicts,</li>
+      <li>updates semantic memory,</li>
+      <li>and forgets low-value material.</li>
+    </ul>
+    <p>Without this, a system has storage but not long-term memory.</p>
+
+    <h2>8. Optimization principles for OpenCLOUD-like systems</h2>
+    <p>The following principles seem especially promising.</p>
+    <ol>
+      <li><strong>Local write, delayed global rewrite</strong> — Prefer append-first episodic writes. Avoid eagerly rewriting canonical semantic memory.</li>
+      <li><strong>Separate episodic from semantic memory</strong> — Do not use one store for both raw events and abstracted knowledge.</li>
+      <li><strong>Treat forgetting as first-class</strong> — Garbage collection, archival, decay, and confidence downgrading are not optional.</li>
+      <li><strong>Use task-conditioned retrieval</strong> — Retrieval should depend on uncertainty, current goal, and predicted future reuse value.</li>
+      <li><strong>Maintain provenance and editability</strong> — Every memory item should track source, timestamp, authoring context, and downstream edits.</li>
+      <li><strong>Support compositional retrieval</strong> — Allow the system to retrieve and assemble fragments across files instead of only full-document recall.</li>
+      <li><strong>Consolidate across timescales</strong> — Fast capture, medium-term summarization, slow semantic integration.</li>
+      <li><strong>Measure interference explicitly</strong> — Track when new writes degrade retrieval or decision quality on older material.</li>
+      <li><strong>Use memory to preserve identity, not just facts</strong> — Preferences, commitments, naming conventions, open projects, and unresolved questions all matter.</li>
+      <li><strong>Distinguish decision-critical memory from interesting memory</strong> — Not everything worth storing is worth retrieving during decision-making.</li>
+    </ol>
+
+    <h2>9. A formal lens</h2>
+    <p>A useful formal object is:</p>
+    <p>
+      \[
+      \mathcal M = (\mathcal S, \mathcal W, \mathcal R, \mathcal C)
+      \]
+    </p>
+    <p>where:</p>
+    <ul>
+      <li>\(\mathcal S\): storage substrate,</li>
+      <li>\(\mathcal W\): write policy,</li>
+      <li>\(\mathcal R\): retrieval policy,</li>
+      <li>\(\mathcal C\): consolidation policy.</li>
+    </ul>
+    <p>Then define a lifelong utility objective:</p>
+    <p>
+      \[
+      J
+      =
+      \mathbb E\!\left[\sum_t U_t\right]
+      -\lambda\,\text{interference}
+      -\mu\,\text{storage/retrieval cost}
+      +\eta\,\text{future reuse value}.
+      \]
+    </p>
+    <p>In this lens, distributed memory matters because it can reduce interference while increasing future reuse value under bounded cost.</p>
+
+    <h2>10. Conjecture</h2>
+    <p>Here is the core conjecture:</p>
+    <blockquote>
+      <p><strong>Distributed memory is not merely a robustness trick. It is a structural solution to the stability–plasticity tradeoff that makes lifelong learning possible by enabling local writes, multi-timescale consolidation, and compositional retrieval without global self-overwrite.</strong></p>
+    </blockquote>
+
+    <h2>11. Open questions</h2>
+    <ol>
+      <li>What is the minimal distributed memory architecture that is decision-sufficient under long horizons?</li>
+      <li>When should memory remain external, and when should it be distilled into parameters?</li>
+      <li>How should an agent estimate the future reuse value of a memory item?</li>
+      <li>What are the right metrics for "agent continuity" beyond retrieval accuracy?</li>
+      <li>Can we learn write/retrieval/consolidation policies end-to-end?</li>
+      <li>How should safety and governance constraints shape external memory design?</li>
+    </ol>
+
+    <h2>12. The punchline</h2>
+    <p>The main idea can be compressed into one sentence:</p>
+    <blockquote>
+      <p><strong>Distributed memory is not just a way to store more; it is a way to keep learning without having to overwrite yourself.</strong></p>
+    </blockquote>
+
+    <hr />
+
+    <div class="references">
+      <h2>References</h2>
+      <ul>
+        <li>
+          <strong>Nested Learning</strong><br />
+          Google Research blog: <em>Introducing Nested Learning: A new ML paradigm for continual learning</em><br />
+          <a href="https://research.google/blog/introducing-nested-learning-a-new-ml-paradigm-for-continual-learning/" target="_blank" rel="noopener">research.google/blog/introducing-nested-learning…</a>
+        </li>
+        <li>
+          Behrouz, Razaviyayn, Zhong, Mirrokni. <em>Nested Learning: The Illusion of Deep Learning Architectures</em><br />
+          <a href="https://arxiv.org/abs/2512.24695" target="_blank" rel="noopener">arxiv.org/abs/2512.24695</a>
+        </li>
+        <li>
+          <strong>Distributed engrams</strong><br />
+          Roy et al. (2022). <em>Brain-wide mapping reveals that engrams for a single memory are distributed across multiple brain regions.</em> <em>Nature Communications.</em><br />
+          <a href="https://www.nature.com/articles/s41467-022-29384-4" target="_blank" rel="noopener">nature.com/articles/s41467-022-29384-4</a>
+        </li>
+        <li>
+          <strong>Complementary learning systems</strong><br />
+          Sun et al. (2023). <em>Organizing memories for generalization in complementary learning systems.</em> <em>Nature Neuroscience.</em><br />
+          <a href="https://www.nature.com/articles/s41593-023-01382-9" target="_blank" rel="noopener">nature.com/articles/s41593-023-01382-9</a>
+        </li>
+        <li>
+          <strong>Continual learning and loss of plasticity</strong><br />
+          Dohare et al. (2024). <em>Loss of plasticity in deep continual learning.</em> <em>Nature.</em><br />
+          <a href="https://www.nature.com/articles/s41586-024-07711-7" target="_blank" rel="noopener">nature.com/articles/s41586-024-07711-7</a>
+        </li>
+        <li>
+          <strong>Pattern separation / completion</strong><br />
+          Yassa &amp; Stark (2011). <em>Pattern separation in the hippocampus.</em> <em>Trends in Neurosciences.</em><br />
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3183227/" target="_blank" rel="noopener">pmc.ncbi.nlm.nih.gov/articles/PMC3183227/</a>
+        </li>
+      </ul>
+    </div>
+
+    <p class="small"><a href="/ideas/">← Back to home</a></p>
+  </main>
+</body>
+</html>
