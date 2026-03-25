@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meta-Control, Information Gain, and the Architecture of Autonomous Learning — Macheng Shen</title>
+  <meta name="description" content="A pedagogical research note on prediction error, anticipated information gain, and why autonomous learning may need a control plane over learning itself." />
+
+<style>
+  :root {
+    --bg: #fbfbf9;
+    --fg: #1f1f1f;
+    --muted: #666;
+    --line: #ddd8cf;
+    --accent: #163a70;
+    --codebg: #f4f1eb;
+    --maxw: 760px;
+  }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--fg); font-family: Georgia, "Times New Roman", serif; line-height:1.68; }
+  main { max-width: var(--maxw); margin: 0 auto; padding: 24px 20px 64px; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .back { display:inline-block; margin-bottom: 18px; color: var(--muted); }
+  h1, h2, h3 { line-height:1.25; margin-top: 2rem; }
+  h1 { font-size: 2.2rem; margin-bottom: 0.35rem; }
+  h2 { font-size: 1.4rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+  h3 { font-size: 1.1rem; }
+  p, ul, ol, pre, blockquote { margin: 1rem 0; }
+  blockquote {
+    margin-left: 0;
+    padding: 0.1rem 1rem;
+    border-left: 3px solid var(--line);
+    color: #333;
+    background: #f8f6f1;
+  }
+  pre, code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--codebg);
+  }
+  code { padding: 0.1rem 0.3rem; border-radius: 4px; }
+  pre {
+    overflow-x: auto;
+    padding: 0.85rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+  }
+  hr { border: none; border-top: 1px solid var(--line); margin: 2rem 0; }
+  .meta { color: var(--muted); margin: 0.35rem 0 1.25rem; font-size: 0.98rem; }
+</style>
+
+</head>
+<body>
+  <main>
+    <a class="back" href="/ideas/">← Back to home</a>
+    <h1>Meta-Control, Information Gain, and the Architecture of Autonomous Learning</h1>
+<p><em>A pedagogical research note on prediction error, anticipated information gain, and why autonomous learning may need a control plane over learning itself</em></p>
+<p>Research Note · Macheng Shen · Collaborative drafting: GPT-5.4 Pro · 2026-03-24</p>
+<h2>Abstract</h2>
+<p>This note argues that <strong>meta-control</strong> should be treated as a first-class object in any serious theory of autonomous learning. A useful way to frame the problem is to distinguish four signals that are often blurred together: <strong>prediction error</strong>, <strong>anticipated information gain</strong>, <strong>learning progress</strong>, and <strong>pragmatic or hazard-relevant value</strong>. These signals are related, but they are not interchangeable. Prediction error is retrospective: it says where the current model failed. Anticipated information gain is prospective: it says which action is expected to reduce uncertainty. Learning progress is developmental: it asks where the agent is still becoming more predictive or compressive. Pragmatic value asks which futures matter for success, safety, or viability. The core proposal of this note is that <strong>meta-control</strong> is the mechanism that arbitrates among these signals across time, deciding when the system should observe, act, replay, imagine, or exploit what it already knows.</p>
+<p>This framing connects a number of strands that are usually discussed separately: active inference and expected free energy, curiosity and compression progress, exploration–exploitation trade-offs, surprise-driven memory gating, and recent proposals for autonomous learning architectures such as the A/B/M decomposition in <em>Why AI systems don't learn and what to do about it</em>. The note is deliberately pedagogical. It does not claim to settle the theory. Its goal is to make one line of thought explicit: that the missing ingredient in current AI may not merely be more data or more online updates, but a <strong>meta-controller over learning itself</strong>.</p>
+<hr />
+<h2>1. Why this question matters</h2>
+<p>One of the clearest lessons from the current wave of AI is that impressive capability does not automatically imply autonomous learning. Models can be trained to astonishing performance and still depend on human-designed data pipelines, training recipes, evaluation loops, and post hoc adaptation. In other words, today's systems often learn <strong>through</strong> large-scale engineering rather than <strong>as</strong> persistent learning organisms.</p>
+<p>This is why the question of meta-control matters. If we want systems that do not merely infer or imitate, but continue to learn while alive in the world, then we need more than a stronger world model or a larger replay buffer. We need a mechanism that decides:</p>
+<ul>
+<li>when to gather new data,</li>
+<li>when to act for reward,</li>
+<li>when to act for information,</li>
+<li>when to replay or consolidate memory,</li>
+<li>when to simulate internally,</li>
+<li>and how to balance these modes under resource and safety constraints.</li>
+</ul>
+<p>That mechanism is what I will call <strong>meta-control</strong>.</p>
+<hr />
+<h2>2. The temptation: just minimize prediction error</h2>
+<p>A very natural first idea is this: perhaps an autonomous learner simply needs to minimize prediction error. This idea is attractive for good reasons.</p>
+<ul>
+<li>Prediction error is a direct signal that the current model is incomplete.</li>
+<li>It can be computed online.</li>
+<li>It naturally highlights novelty and mismatch.</li>
+<li>It can drive both learning and memory allocation.</li>
+</ul>
+<p>Recent work has indeed used surprise or prediction error as a central control signal. The Cambrian-S line, for example, proposes using surprise for both <strong>memory management</strong> and <strong>event segmentation</strong> in long-form video understanding. The appeal is obvious: unexpected events are often precisely the events that are most informative, most compressible in hindsight, or most worth writing into memory. At the same time, much of the curiosity literature has built intrinsic rewards directly from prediction error or forward-model error.</p>
+<p>So the raw idea is not foolish. Prediction error really does seem to be one of the most natural internal signals an agent can use.</p>
+<p>And yet, taken as a global objective, it is not enough.</p>
+<hr />
+<h2>3. Why raw prediction error is not a sufficient global objective</h2>
+<p>The main problem is simple: <strong>not all unpredictability is useful</strong>.</p>
+<p>A system that blindly seeks high prediction error can be drawn toward noise, stochastic distractors, and dynamics that are hard to predict for reasons that have nothing to do with learnable structure or future value. This is the classical intuition behind the noisy-TV problem in curiosity-driven reinforcement learning: a random television may remain endlessly surprising without teaching the agent anything useful.</p>
+<p>This does not mean prediction error is useless. It means we should be careful about the role it plays.</p>
+<p>A good way to say it is:</p>
+<blockquote>
+<p><strong>Prediction error is often a good local control signal, but a poor global objective.</strong></p>
+</blockquote>
+<p>It is excellent for triggering things such as:</p>
+<ul>
+<li>memory write decisions,</li>
+<li>event boundary detection,</li>
+<li>anomaly detection,</li>
+<li>replay prioritization,</li>
+<li>context shift alerts.</li>
+</ul>
+<p>But if we promote it directly to the top-level utility of the agent, we risk confusing “what is currently hard to predict” with “what is worth organizing the whole system around.”</p>
+<p>That distinction turns out to be crucial.</p>
+<hr />
+<h2>4. Four signals that should not be conflated</h2>
+<p>A lot of conceptual confusion disappears once we separate four different kinds of internal signal.</p>
+<h3>4.1 Prediction error</h3>
+<p>This is retrospective. It asks:</p>
+<blockquote>
+<p><em>Where was the current model wrong?</em></p>
+</blockquote>
+<p>Prediction error is about mismatch between expectation and outcome. It is immediate and local. It tells the agent that its present model failed somewhere.</p>
+<h3>4.2 Anticipated information gain</h3>
+<p>This is prospective. It asks:</p>
+<blockquote>
+<p><em>If I take action a now, how much uncertainty do I expect to reduce?</em></p>
+</blockquote>
+<p>Anticipated information gain is not about the past error itself, but about the <strong>expected epistemic value</strong> of an action. It makes action selection look like experiment design.</p>
+<h3>4.3 Learning progress / compression progress</h3>
+<p>This is developmental. It asks:</p>
+<blockquote>
+<p><em>Am I still becoming more predictive here? Is this region still learnable?</em></p>
+</blockquote>
+<p>This signal is central to Schmidhuber-style curiosity. The claim is not that novelty itself is valuable, but that data is interesting insofar as it supports <strong>improved prediction or compression</strong>. In that picture, the most interesting regions are neither perfectly predictable nor permanently chaotic; they are regions where the learning curve still has positive slope.</p>
+<h3>4.4 Pragmatic or hazard-relevant value</h3>
+<p>This is the signal most closely tied to task success, control, or survival. It asks:</p>
+<blockquote>
+<p><em>Which futures actually matter for what the agent is trying to preserve, reach, or avoid?</em></p>
+</blockquote>
+<p>This may include ordinary task reward, but also hazard relevance, resource constraints, viability, social consequences, and time pressure.</p>
+<p>These four signals are related, but they are not the same. If we collapse them into one scalar too early, we lose the architecture of the problem.</p>
+<hr />
+<h2>5. What meta-control is</h2>
+<p>My proposal is to think of meta-control as the mechanism that decides how much weight each of these signals should have, in context, at a given time.</p>
+<p>A very simple toy sketch is:</p>
+<pre><code class="language-text">Choose action a_t to maximize
+
+Q_prag(a_t | b_t)
++ λ_t · EIG(a_t | b_t)
+- c(a_t)
+</code></pre>
+<p>where:</p>
+<ul>
+<li><code>b_t</code> is the current belief state or internal summary,</li>
+<li><code>Q_prag</code> measures expected pragmatic value,</li>
+<li><code>EIG</code> is anticipated information gain,</li>
+<li><code>c(a_t)</code> is resource or risk cost,</li>
+<li>and <code>λ_t</code> is not fixed by hand forever.</li>
+</ul>
+<p>The key move is that <code>λ_t</code> itself is produced by a higher-level controller:</p>
+<pre><code class="language-text">(λ_t, mode_t) = M(z_t)
+</code></pre>
+<p>where <code>z_t</code> is a low-dimensional telemetry vector that may include things like:</p>
+<ul>
+<li>uncertainty,</li>
+<li>current prediction error,</li>
+<li>learning progress,</li>
+<li>hazard estimate,</li>
+<li>time pressure,</li>
+<li>memory pressure,</li>
+<li>compute budget,</li>
+<li>recent improvement rate.</li>
+</ul>
+<p>In other words, <strong>meta-control is not just another policy over external actions</strong>. It is a policy over <strong>how the system should learn and deliberate</strong>.</p>
+<p>This is why I think “meta-control = maximize information gain” is too simple. Meta-control is better understood as:</p>
+<blockquote>
+<p><strong>the control plane that decides when information gain should matter, when exploitation should dominate, when memory should be written or replayed, and when internal simulation should replace external action.</strong></p>
+</blockquote>
+<hr />
+<h2>6. Why active inference is relevant</h2>
+<p>The active inference literature gives one of the cleanest existing mathematical languages for this discussion. In expected free energy formulations, action selection is often decomposed into:</p>
+<ul>
+<li>an <strong>epistemic component</strong>, which encourages uncertainty reduction or information-seeking,</li>
+<li>and a <strong>pragmatic / extrinsic component</strong>, which encourages preferred outcomes.</li>
+</ul>
+<p>This is valuable because it shows that exploration and exploitation need not be treated as two unrelated drives patched together afterward. They can be understood as two terms within a single action-evaluation scheme.</p>
+<p>However, the point I want to emphasize goes one step beyond that. In many realistic agents, the trade-off between epistemic and pragmatic value should itself be <strong>context dependent</strong>. The work by Marković, Goschke, and Kiebel is especially relevant here: they introduce explicit <strong>meta-control states</strong> that modulate the exploration–exploitation balance depending on beliefs about context across a hierarchy of timescales.</p>
+<p>That is close to the view developed here. Meta-control is not merely “choose the action with the best fixed epistemic/pragmatic trade-off.” It is “<strong>infer which trade-off is appropriate now</strong>.”</p>
+<hr />
+<h2>7. Why Schmidhuber's compression-progress idea is still important</h2>
+<p>Schmidhuber's long-running curiosity program remains important because it gets one crucial distinction right: interestingness is not raw surprise. It is more like <strong>improvable structure</strong>.</p>
+<p>A world full of pure noise may remain surprising forever, but it offers no compression progress. A world that is already perfectly understood offers no surprise, but also no further growth. The interesting region lies between these extremes.</p>
+<p>This matters for meta-control because it suggests that the controller should not only ask:</p>
+<ul>
+<li><em>Where am I wrong?</em></li>
+</ul>
+<p>but also:</p>
+<ul>
+<li><em>Where is the system still becoming less wrong over time?</em></li>
+</ul>
+<p>That second question is much closer to a curriculum signal. It helps the agent avoid wasting effort on either trivial regions or hopelessly stochastic regions.</p>
+<p>So I would place compression progress and learning progress one level above raw prediction error. Prediction error says “something unexpected happened.” Learning progress says “this direction is still worth developmental investment.”</p>
+<hr />
+<h2>8. Why recent autonomous-learning proposals matter</h2>
+<p>The recent A/B/M proposal by Dupoux, LeCun, and Malik is one of the clearest signs that the field is starting to converge on this missing control-plane view.</p>
+<p>Their decomposition says, roughly:</p>
+<ul>
+<li><strong>System A</strong> learns from observation,</li>
+<li><strong>System B</strong> learns from action,</li>
+<li><strong>System M</strong> decides how to switch among learning modes using internally generated meta-signals.</li>
+</ul>
+<p>What matters here is not only the modules themselves, but the architecture-level admission that current AI is missing a mechanism that organizes learning from the inside. Their paper explicitly highlights signals such as uncertainty and prediction error, but the most important contribution is the move from “one more objective” to “<strong>a controller over learning modes</strong>.”</p>
+<p>My reading is that this paper does not yet solve System M. But it makes the right missing piece visible.</p>
+<hr />
+<h2>9. A synthesis: four levels, one control plane</h2>
+<p>The most useful synthesis I can currently see is the following.</p>
+<ul>
+<li><strong>Prediction error</strong> is best treated as a local signal for writing, replay, and event segmentation.</li>
+<li><strong>Anticipated information gain</strong> is best treated as a prospective signal for choosing informative interventions.</li>
+<li><strong>Learning progress / compression progress</strong> is best treated as a developmental signal for curriculum and developmental exploration.</li>
+<li><strong>Pragmatic / hazard value</strong> is best treated as the signal that keeps the whole system grounded in what matters for task success, safety, or viability.</li>
+</ul>
+<p>Then <strong>meta-control</strong> sits above these, arbitrating among them.</p>
+<p>This architecture gives a more structured answer to the exploration–exploitation problem. Instead of asking for one scalar that solves everything, it asks:</p>
+<blockquote>
+<p><em>What should the agent care about right now, at this timescale, under this context, with this amount of uncertainty, memory pressure, and hazard?</em></p>
+</blockquote>
+<p>That is a harder question, but also a more realistic one.</p>
+<hr />
+<h2>10. A concrete research proposal</h2>
+<p>A plausible route forward is to design agents with four explicitly separated layers:</p>
+<ol>
+<li><p><strong>World-model / representation layer</strong></p>
+<ul>
+<li>predicts state transitions or latent futures,</li>
+<li>supports imagination and replay,</li>
+<li>exposes calibrated uncertainty estimates.</li>
+</ul>
+</li>
+<li><p><strong>Memory layer</strong></p>
+<ul>
+<li>stores episodic traces,</li>
+<li>supports surprise-triggered writes,</li>
+<li>supports event segmentation,</li>
+<li>supports replay and consolidation.</li>
+</ul>
+</li>
+<li><p><strong>Task / safety value layer</strong></p>
+<ul>
+<li>estimates pragmatic value,</li>
+<li>includes ordinary task reward,</li>
+<li>may also include hazard relevance or viability constraints.</li>
+</ul>
+</li>
+<li><p><strong>Meta-control layer</strong></p>
+<ul>
+<li>observes low-dimensional internal telemetry,</li>
+<li>sets epistemic/pragmatic balance,</li>
+<li>switches among observe / act / replay / imagine modes,</li>
+<li>allocates compute and memory budgets.</li>
+</ul>
+</li>
+</ol>
+<p>The point is not that this is the final architecture. The point is that such a design makes the <strong>object of study</strong> explicit. Instead of burying all the control logic in one loss function or one opaque recurrent state, it surfaces the question we actually want to answer.</p>
+<hr />
+<h2>11. Four experiments that would teach us something real</h2>
+<p>A good theory should suggest experiments. Here are four that I think would be genuinely informative.</p>
+<h3>11.1 Context-switching POMDP or restless-bandit test</h3>
+<p>Build an environment with hidden contexts. In some contexts, exploratory actions are useful; in others, exploitation is correct. Compare:</p>
+<ul>
+<li>a fixed exploration coefficient,</li>
+<li>a raw prediction-error bonus,</li>
+<li>an anticipated-information-gain policy,</li>
+<li>a learning-progress heuristic,</li>
+<li>and a learned or inferred meta-controller.</li>
+</ul>
+<p>The key metric is not just reward. It is how quickly and cleanly the agent <strong>changes how it learns</strong> when context shifts.</p>
+<h3>11.2 Noisy-TV or stochastic distractor test</h3>
+<p>Place the agent in an environment containing a highly stochastic but strategically irrelevant distractor. This is a direct test of whether the system confuses surprise with value.</p>
+<p>A healthy result would show that:</p>
+<ul>
+<li>raw prediction error is attracted to the distractor,</li>
+<li>while learning-progress-sensitive or meta-controlled agents recover a better balance.</li>
+</ul>
+<h3>11.3 Long-horizon memory-gating test</h3>
+<p>Give the agent a limited memory budget in long-form sensory streams. Compare write policies based on:</p>
+<ul>
+<li>uniform sampling,</li>
+<li>raw surprise,</li>
+<li>anticipated information gain,</li>
+<li>and hybrid surprise + task/hazard relevance.</li>
+</ul>
+<p>Measure not just retrieval accuracy, but downstream planning quality and memory efficiency.</p>
+<h3>11.4 Observe / Act / Replay / Imagine switching test</h3>
+<p>Force the system to decide not only <em>what</em> external action to take, but also <em>which mode</em> to enter next:</p>
+<ul>
+<li>observe,</li>
+<li>act,</li>
+<li>replay,</li>
+<li>imagine.</li>
+</ul>
+<p>This directly tests whether a meta-controller can improve sample efficiency and long-horizon performance by routing computation among learning modes rather than always acting in the environment.</p>
+<hr />
+<h2>12. What this note claims — and what it does not claim</h2>
+<p>This note makes three positive claims.</p>
+<ol>
+<li><strong>Meta-control should be treated as a first-class architectural object.</strong></li>
+<li><strong>Prediction error, information gain, learning progress, and pragmatic value should not be collapsed into one undifferentiated curiosity signal.</strong></li>
+<li><strong>The main missing piece in autonomous learning may be a control plane over learning itself.</strong></li>
+</ol>
+<p>But it does <strong>not</strong> claim that:</p>
+<ul>
+<li>there is one final scalar objective that solves everything,</li>
+<li>prediction error should be discarded,</li>
+<li>active inference already gives the complete engineering answer,</li>
+<li>or current autonomous-learning blueprints have already solved System M.</li>
+</ul>
+<p>The proposal is more modest. It says: the field may be closest to progress when it stops asking for a single magic curiosity bonus and starts asking how a system should govern its own learning dynamics.</p>
+<hr />
+<h2>13. Conclusion</h2>
+<p>The most important question is no longer merely how to make models larger, or how to give them more data, or how to add one more online update rule. The deeper question is this:</p>
+<blockquote>
+<p><strong>What kind of architecture would allow a system to decide how to learn while alive in the world?</strong></p>
+</blockquote>
+<p>My answer, at least provisionally, is that such an architecture will need:</p>
+<ul>
+<li>a world model,</li>
+<li>a structured memory system,</li>
+<li>pragmatic and safety-sensitive evaluation,</li>
+<li>and above all a meta-controller that arbitrates among epistemic and pragmatic drives across time.</li>
+</ul>
+<p>If that is right, then prediction error is not the whole story, information gain is not the whole story, and exploration–exploitation is not merely a bandit trick. All of them become pieces of a larger problem:</p>
+<blockquote>
+<p><strong>the architecture of autonomous learning.</strong></p>
+</blockquote>
+<hr />
+<h2>Selected references</h2>
+<ol>
+<li>Emmanuel Dupoux, Yann LeCun, Jitendra Malik. <em>Why AI systems don't learn and what to do about it: Lessons on autonomous learning from cognitive science</em> (2026). arXiv:2603.15381. https://arxiv.org/abs/2603.15381</li>
+<li>Dimitrije Marković, Thomas Goschke, Stefan J. Kiebel. <em>Meta-control of the exploration-exploitation dilemma emerges from probabilistic inference over a hierarchy of time scales</em> (2021). https://pubmed.ncbi.nlm.nih.gov/33372237/</li>
+<li>Noor Sajid et al. <em>Active inference: demystified and compared</em> (2020/2021). https://activeinference.github.io/papers/sajid.pdf</li>
+<li>Alexander Tschantz et al. <em>Learning action-oriented models through active inference</em> (2020). https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007805</li>
+<li>Jürgen Schmidhuber. <em>Formal Theory of Creativity, Fun, and Intrinsic Motivation (1990–2010)</em> (2010). https://people.idsia.ch/~juergen/ieeecreative.pdf</li>
+<li>Yuri Burda et al. <em>Large-Scale Study of Curiosity-Driven Learning</em> (2018). https://arxiv.org/abs/1808.04355</li>
+<li>Deepak Pathak et al. <em>Curiosity-driven Exploration by Self-supervised Prediction</em> (2017). https://arxiv.org/abs/1705.05363</li>
+<li><em>Cambrian-S: Towards Spatial Supersensing in Video</em> (2025). https://arxiv.org/abs/2511.04670</li>
+</ol>
+
+  </main>
+</body>
+</html>
