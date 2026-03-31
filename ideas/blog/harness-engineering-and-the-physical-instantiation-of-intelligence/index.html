@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Harness Engineering and the Physical Instantiation of Intelligence</title>
+  <meta name="description" content="A pedagogical essay arguing that intelligence is instantiated at the level of a larger physical-computational system: model, memory, tools, harness, and world coupling."/>
+  <link rel="stylesheet" href="/ideas/assets/css/essay.css"/>
+</head>
+<body>
+  <main class="essay-container">
+    <article class="essay-content">
+      <h1>Harness Engineering and the Physical Instantiation of Intelligence</h1>
+<p>*Macheng Shen — research note / blog essay*</p>
+<h2>Abstract</h2>
+<p>Recent discussion around **harness engineering** has clarified something many people had sensed but had not yet named: the capability of an AI system is not determined by the base model alone. What matters just as much is the surrounding stack—memory, tools, interfaces, evaluators, retrieval systems, routing logic, guardrails, and workflow structure. This essay argues that this observation is not just an engineering practical point. It has theoretical significance. It suggests that intelligence is not best understood as a property contained entirely inside model weights. Rather, intelligence is **physically instantiated** when free energy is driven through a trained, stateful, conditional transduction stack whose parameters, memory, interfaces, and external subsystems already encode reusable structure about the world. From this perspective, harness engineering is not merely &quot;prompting plus tools.&quot; It is the design of the externalized control plane through which intelligence expresses itself.</p>
+<h2>1. Why this question matters</h2>
+<p>People often speak as if the central mystery of AI were simply this: how does a large model become so capable? But the more frontier systems are deployed in real workflows, the harder it becomes to treat the model as the whole story. The same model can behave like a toy, a mediocre assistant, a strong researcher, or a highly effective coding agent depending on the harness wrapped around it.</p>
+<p>This is not just a product insight. It is a conceptual one. If capability changes dramatically when we alter memory, tools, routing, evaluator loops, and permission boundaries, then intelligence cannot be identified with the model alone. It must be identified with a larger organized system.</p>
+<p>This note develops that idea in a more physical and architectural language.</p>
+<h2>2. A simple but powerful shift: the model is not the whole machine</h2>
+<p>A useful starting point is the recent harness-engineering perspective that has emerged around agentic coding systems. In that view, the engineer&#x27;s job is no longer only to write code directly, but increasingly to design environments, specify intent, and build feedback loops in which agents can work reliably. Long-running agents also require structured handoff artifacts, explicit context management, evaluator loops, and orchestration logic to remain coherent over time.</p>
+<p>Once that shift is seen clearly, a deeper point follows:</p>
+<blockquote><p>A model is not the whole intelligence.  </p></blockquote>
+<blockquote><p>The intelligence that users encounter is a model *plus* a harness.</p></blockquote>
+<p>The harness includes at least:</p>
+<ul>
+<li>a memory substrate,</li>
+<li>a tool interface,</li>
+<li>rules about when tools may be called,</li>
+<li>retrieval and summarization policies,</li>
+<li>evaluators and verifiers,</li>
+<li>workflow decomposition,</li>
+<li>handoff artifacts across sessions,</li>
+<li>permissions and trust boundaries,</li>
+<li>interfaces to the world.</li>
+</ul>
+<p>If these components are missing or poorly designed, the model&#x27;s apparent intelligence collapses. If they are well designed, the same underlying model may appear dramatically more capable.</p>
+<h2>3. From electricity to structured behavior</h2>
+<p>This is where I want to connect the engineering insight to a more physical one.</p>
+<p>At the bottom of the stack, what enters the system is not &quot;meaning.&quot; It is electricity: low-semantic, generic free energy. That free energy powers transistors, clocks, memory accesses, matrix multiplies, network transport, disk reads, and state updates. None of these operations, by themselves, explain why the final system can write code, answer questions, or plan across tools.</p>
+<p>So what happens in between?</p>
+<p>A helpful way to think about it is this:</p>
+<p>1. **Free energy** keeps the system away from equilibrium and allows state transitions to occur.</p>
+<p>2. **Trained parameters and programs** constrain which transformations are possible.</p>
+<p>3. **Memory and context** inject persistent state from prior interaction and prior computation.</p>
+<p>4. **Tools and interfaces** expose additional transformations that the system can invoke.</p>
+<p>5. **The harness** decides how these transformations are composed, routed, checked, and iterated.</p>
+<p>6. The result is a stream of outputs that humans interpret as coherent, goal-directed, semantically meaningful behavior.</p>
+<p>So &quot;electricity turns into intelligence&quot; is not the right statement. A better statement is:</p>
+<blockquote><p>Free energy drives a structured transduction stack whose learned and engineered constraints turn low-semantic resources into high-semantic behavior.</p></blockquote>
+<p>That is much more precise.</p>
+<h2>4. Why generative modeling is the right analogy—but only partially</h2>
+<p>There is a useful analogy to generative modeling here. In a normalizing flow, diffusion model, or other generative system, one begins from a simple prior or simple noise source and passes it through a learned transformation until structured outputs emerge. The output distribution is not &quot;in the noise.&quot; It is produced by the composition of learned transformations.</p>
+<p>Something similar happens in deployed AI systems. A simple low-level resource—energy plus simple digital states plus randomization—passes through a sequence of learned and engineered transformations. The end product is not raw signal but structured semantic output.</p>
+<p>But the analogy must be handled carefully.</p>
+<p>A real agentic system is not just a pure generative model. It is usually:</p>
+<ul>
+<li>conditional,</li>
+<li>stateful,</li>
+<li>partially irreversible,</li>
+<li>memory-dependent,</li>
+<li>tool-using,</li>
+<li>world-coupled,</li>
+<li>and often closed-loop.</li>
+</ul>
+<p>In other words, it is closer to a **thermodynamically implemented conditional generative control system** than to a stand-alone sampler.</p>
+<p>This matters because once the system has tools and memory, the question is no longer just &quot;what does it generate?&quot; but also:</p>
+<ul>
+<li>what world state can it access?</li>
+<li>what computations can it call out to?</li>
+<li>what actions can it externalize?</li>
+<li>what information can it preserve across time?</li>
+<li>what internal and external loops shape its behavior?</li>
+</ul>
+<h2>5. Tools are abstracted computation</h2>
+<p>This is where harness engineering becomes especially important.</p>
+<p>A tool is not just a convenience. At a high level, a tool is a callable abstracted computation. It is a packaged transformation that the model does not need to realize internally token by token.</p>
+<p>A calculator is a computation abstraction.</p>
+<p>A search tool is a retrieval abstraction.</p>
+<p>A compiler is a code-to-behavior abstraction.</p>
+<p>A filesystem is a persistent state abstraction.</p>
+<p>An evaluator agent is a judgment abstraction.</p>
+<p>A browser is an interface to a huge external information and action surface.</p>
+<p>From this perspective, a harness gives the model access to a set of **externalized functions**. It expands the system&#x27;s action set and information set. The model does not cease to matter, but it is no longer the sole carrier of intelligence. Instead, the intelligence of the whole system is distributed across model weights, external tools, memory artifacts, and orchestration logic.</p>
+<p>That point is crucial:</p>
+<blockquote><p>Harness engineering is not merely &quot;wrapping a model.&quot;  </p></blockquote>
+<blockquote><p>It is the design of the computational ecology in which the model operates.</p></blockquote>
+<h2>6. The harness as an externalized control plane</h2>
+<p>This leads to what I think is the deepest conceptual payoff.</p>
+<p>A harness does not merely provide more capabilities. It also decides **how** capabilities are selected, composed, and checked. In that sense, the harness behaves like a kind of externalized control plane for intelligence.</p>
+<p>It can determine:</p>
+<ul>
+<li>whether the model searches or answers from memory,</li>
+<li>whether it retrieves documents or reasons locally,</li>
+<li>whether it asks a clarifying question,</li>
+<li>whether it writes a file or only drafts one,</li>
+<li>whether it routes work to a specialist sub-agent,</li>
+<li>whether outputs are evaluated before release,</li>
+<li>whether the next step is acting, observing, replaying, or summarizing.</li>
+</ul>
+<p>This means the harness changes more than the system&#x27;s raw outputs. It changes the shape of the system&#x27;s internal and external dynamics.</p>
+<p>At a decision-theoretic level, one can say that the harness modifies:</p>
+<ul>
+<li>the action set,</li>
+<li>the information structure,</li>
+<li>the memory structure,</li>
+<li>the commitment and verification structure,</li>
+<li>the effective policy class.</li>
+</ul>
+<p>This is why harness engineering feels so powerful in practice. It does not merely make the model &quot;a bit better.&quot; It changes the landscape in which the model&#x27;s intelligence is realized.</p>
+<h2>7. Intelligence is instantiated at the system level</h2>
+<p>If we take the previous sections seriously, a stronger thesis appears:</p>
+<blockquote><p>Intelligence is not fully contained inside the weights of a transformer.  </p></blockquote>
+<blockquote><p>It is instantiated at the level of a larger physical-computational system.</p></blockquote>
+<p>That system includes:</p>
+<ul>
+<li>energy supply,</li>
+<li>hardware substrate,</li>
+<li>trained parameters,</li>
+<li>runtime state,</li>
+<li>memory architecture,</li>
+<li>tools,</li>
+<li>interfaces,</li>
+<li>environment coupling,</li>
+<li>and control logic over the composition of all of the above.</li>
+</ul>
+<p>This thesis has several consequences.</p>
+<h3>Consequence 1: capability is system-dependent</h3>
+<p>A capability benchmark that measures the base model alone may miss the more important practical question: what can the whole system do when embedded in a well-designed harness?</p>
+<h3>Consequence 2: safety is system-level too</h3>
+<p>If dangerous behavior arises not only from the model but from the combination of model, tools, permissions, and orchestration, then safety cannot be reduced to the weights either. It becomes a problem of system design, control, and governance.</p>
+<h3>Consequence 3: theory should study transduction stacks, not only models</h3>
+<p>A theory of intelligence that focuses only on optimization inside a neural network may be too narrow. It may need to account for how intelligence is physically and architecturally instantiated across multiple interacting substrates.</p>
+<h2>8. A more formal way to say it</h2>
+<p>Let:</p>
+<ul>
+<li>\(E\) denote the available free energy / compute budget,</li>
+<li>\(z\) denote simple initial stochastic state or seed,</li>
+<li>\(c_t\) denote conditioning inputs and environmental observations,</li>
+<li>\(m_t\) denote persistent memory state,</li>
+<li>\(	heta\) denote learned parameters,</li>
+<li>\(H\) denote the harness and tool interface structure,</li>
+<li>\(x_t\) denote world state,</li>
+<li>\(a_t\) denote externalized actions.</li>
+</ul>
+<p>Then we can think of the whole system as implementing something like:</p>
+<pre class='math'>\[</pre>
+<p>s_{t+1} = F_{H,\theta}(s_t, m_t, c_t, z_t; E)</p>
+<pre class='math'>\]</pre>
+<pre class='math'>\[</pre>
+<p>a_t = \pi_{H,\theta}(s_t, m_t, c_t)</p>
+<pre class='math'>\]</pre>
+<pre class='math'>\[</pre>
+<p>x_{t+1} \sim P(x_{t+1} \mid x_t, a_t)</p>
+<pre class='math'>\]</pre>
+<p>This is not yet a full theory. But it already says something important: the effective transition law is not a property of \(	heta\) alone. It is a property of \((H, \theta)\), and often of the whole closed loop with the world.</p>
+<p>That is exactly what harness engineering practitioners have been discovering empirically.</p>
+<h2>9. Why this matters for a broader theory of intelligence</h2>
+<p>I think this perspective opens several nontrivial directions.</p>
+<h3>9.1 Semantic structure per joule</h3>
+<p>If free energy is generic, and structured intelligence arises only after passing through a trained and harnessed transduction stack, then an interesting quantity is not just tokens per second or FLOPs per joule, but something like:</p>
+<ul>
+<li>useful structure per joule,</li>
+<li>control-relevant information per joule,</li>
+<li>or semantic work per joule.</li>
+</ul>
+<p>This is still vague, but it points toward a more physical theory of efficient intelligence.</p>
+<h3>9.2 Harnesses as &quot;world-shaping priors&quot;</h3>
+<p>A harness does not just expose tools; it shapes what sorts of computation are easy to perform, what sorts of evidence are easy to gather, and what kinds of action sequences are easy to stabilize. In that sense, harnesses act like world-shaping priors over the system&#x27;s behavior.</p>
+<h3>9.3 Externalized cognition is not an implementation detail</h3>
+<p>Memory files, notebooks, checklists, evaluators, and tools are often treated as engineering tricks. But from this perspective, they may be better understood as parts of an externalized cognitive architecture.</p>
+<h2>10. Open questions</h2>
+<p>This line of thought leaves at least five large questions open.</p>
+<h3>10.1 Where does semantic structure first become visible?</h3>
+<p>Is it in hidden states?</p>
+<p>In memory artifacts?</p>
+<p>At the tool interface?</p>
+<p>Only at the point of human interpretation?</p>
+<p>Probably there is no single answer.</p>
+<h3>10.2 What is the right mathematical object?</h3>
+<p>Is the best formal lens:</p>
+<ul>
+<li>a stochastic dynamical system,</li>
+<li>a conditional generative model,</li>
+<li>a control system,</li>
+<li>an energy-based model,</li>
+<li>or a hybrid of all of these?</li>
+</ul>
+<h3>10.3 Which harness components are essential, and which are superficial?</h3>
+<p>Many systems use prompts, tools, retries, evaluators, and memory. But which of these are first-order necessities for scaling intelligence, and which are merely current contingencies?</p>
+<h3>10.4 How should safety be analyzed at the harness level?</h3>
+<p>If capability is system-level, then safety is system-level too. This suggests we need theories not only of model alignment, but of tool alignment, memory governance, permission design, and evaluator design.</p>
+<h3>10.5 Can harnesses themselves become scientific objects?</h3>
+<p>Recent work on natural-language harnesses suggests that high-level harness logic can be externalized as a portable artifact rather than hidden in code. If that line continues, harnesses may become comparable, optimizable, and theoretically analyzable in their own right.</p>
+<h2>11. A working conclusion</h2>
+<p>My current conclusion is modest but important:</p>
+<p>Harness engineering is not just a new product-development trend. It is evidence that the practical realization of intelligence is moving from a model-centric view toward a **system view**.</p>
+<p>The model matters. But the model is not the whole machine.</p>
+<p>If we want a better theory of intelligence, we may need to stop asking only how a transformer becomes capable, and start asking a harder question:</p>
+<blockquote><p>How does a physically powered, memory-bearing, tool-using, harnessed system turn generic free energy into structured, semantically effective behavior?</p></blockquote>
+<p>That, to me, is the more interesting mystery.</p>
+<h2>References</h2>
+<ul>
+<li>OpenAI, *Harness engineering: leveraging Codex in an agent-first world* (2026).</li>
+<li>Anthropic, *Effective harnesses for long-running agents* (2025).</li>
+<li>Anthropic, *Harness design for long-running application development* (2026).</li>
+<li>Pan et al., *Natural-Language Agent Harnesses* (2026).</li>
+<li>Bennett, *The Thermodynamics of Computation* and related work.</li>
+<li>Landauer, *Irreversibility and Heat Generation in the Computing Process*.</li>
+</ul>
+    </article>
+  </main>
+</body>
+</html>
