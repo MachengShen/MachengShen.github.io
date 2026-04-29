@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macheng Shen | Locality as Protocol</title>
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.65;
+}
+.container { max-width: 820px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 600; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.75rem; line-height: 1.25; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.2rem; margin: 1.4rem 0 0.4rem; padding-bottom: 0.2rem; border-bottom: 1px solid var(--border); }
+.kicker { color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1rem 0; border-radius: 0 4px 4px 0; }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul { padding-left: 1.4rem; }
+ul li { margin-bottom: 0.35rem; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/ideas/">Research Essays</a>
+      <a href="/research/">Wave / Credit Transport</a>
+      <a href="/substrate.html">User-Agency Substrate</a>
+      <a href="/locality-as-protocol.html" class="active">Locality as Protocol</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">Governance theory · v0 · 2026-04-29</div>
+<h1>Locality as Protocol</h1>
+<p class="note-small">v0 — published for critique and engagement. External calibration pending. Full artifact: <a href="https://github.com/MachengShen/system-evolution-public/blob/main/LOCALITY-AS-PROTOCOL.md">system-evolution-public</a>.</p>
+
+<div class="callout">
+  <strong>The core claim.</strong> Governance systems can evolve from organism-substrate (human institutions that enforce rules) toward rule-substrate (protocols that make violation architecturally costly). The organizing unit shifts from the nation-state toward the local rule-set, selected among by global resource flow. Four principles; five unresolved design problems.
+</div>
+
+<h2>Four Principles (summary)</h2>
+
+<p><strong>A — Rule-as-substrate, not organism-as-substrate.</strong> The core product of governance is rules with high violation costs, not human institutions. Some rules no longer require human enforcement: smart contracts auto-execute. The frontier is shifting from organism-enforced to protocol-enforced governance, though organism-enforcement remains essential for physical-world interactions.</p>
+
+<p><strong>B — Locality-bound, not nation-bound.</strong> Nation-states bundle a rule-set with a territorial monopoly on force. These are separable. Each locality can have a local rule-set, but the boundary that matters is participation, not geography: who has voluntarily engaged. Estonia e-residency, Próspera, Zuzalu — each partially decouples rule-set from territorial exclusive jurisdiction.</p>
+
+<p><strong>C — Global resource flow as evolutionary signal.</strong> "Voting with your feet" (Tiebout, 1956) upgrades to "voting with capital, time, talent, and endorsement" across territorial boundaries. Rule-systems that attract global resource flow are fitter; those that lose it must adapt. Gitcoin Grants and Optimism RPGF are early experiments in cross-territorial selection mechanisms.</p>
+
+<p><strong>D — Coupled co-evolution.</strong> Individuals selecting rule-systems changes both parties over time. No stable equilibrium; ongoing optimization. The design of the selection mechanism (Buterin/Weyl quadratic funding) is itself a design problem — what properties should the mechanism that selects among rule-systems have?</p>
+
+<h2>Academic lineage</h2>
+
+<p>This framework extends: Tiebout (1956) on competitive local provision; Hirschman (1970) on exit vs. voice; Romer's charter cities (2009-); Buterin + Weyl's quadratic mechanism design (2019-); Srinivasan's Network State (2022); Estonia e-residency (2014-); Zuzalu and Cabin (2022-). The extension: global resource flow (not just local mobility) as the evolutionary signal, and treating the selection mechanism itself as a design object.</p>
+
+<h2>Five design problems (not solved)</h2>
+
+<ul>
+  <li><strong>Race-to-bottom equilibrium.</strong> Capital-flow selection historically rewards reducing protections. Counter-mechanisms (reputation layers, multi-dimensional signals, minimum standards coalitions) remain unimplemented at scale.</li>
+  <li><strong>Capital-weighted ≠ person-weighted.</strong> Global resource flow is structurally capital-concentrated. The normative difference from democratic majority rule must be acknowledged explicitly, not obscured. Those who advocate capital-weighted selection mechanisms tend to be structural net beneficiaries — a known bias that should inform mechanism design.</li>
+  <li><strong>Physical enforcement gap.</strong> Protocol governance works for digital-native assets. Property, bodily security, and physical-world contract enforcement still require organism-state capacity. Full decoupling is a multi-decade horizon.</li>
+  <li><strong>Free-rider during transition.</strong> Actors exiting organism-states continue to consume their services. The transition-period dual obligation — building toward exit while fulfilling current governance obligations — is a feature, not a contradiction.</li>
+  <li><strong>Cross-cutting public goods.</strong> Defense, pandemic response, climate, basic research have strong free-rider dynamics. Competing local rule-systems are historically weak on these verticals. Partial answers (quadratic funding, RPGF) are not complete. The central unsolved design problem.</li>
+</ul>
+
+<h2>Connection to software-layer governance</h2>
+
+<p>Open-source software projects are miniature rule-systems: governance documents define the rule-set; contributor and user engagement constitutes the resource flow; forks are exit. The design problems are structurally analogous: race-to-bottom (license minimization), capital-weighted selection (VC-backed forks), enforcement gap (license compliance), free-rider (infrastructure consumption without contribution), cross-cutting goods (security, accessibility, foundational tooling). Software governance iterates faster and generates design knowledge relevant to the harder physical-layer problems.</p>
+
+<h2>Full artifact</h2>
+
+<p>The complete version (2,800+ words, with full academic citations, extended counter-mechanism discussion, and versioning notes) is in <a href="https://github.com/MachengShen/system-evolution-public/blob/main/LOCALITY-AS-PROTOCOL.md"><code>system-evolution-public/LOCALITY-AS-PROTOCOL.md</code></a>.</p>
+
+<p>Related: <a href="/substrate.html">User-Agency Substrate</a> — the personal cognition substrate as one software-layer instance of this broader framing.</p>
+
+<div class="callout">
+  <strong>Closing.</strong> The artifact is the ask. Critique, fork the vision, build instances, silence, or nothing — is yours to choose.
+</div>
+
+<div class="footer">© 2026 Macheng Shen. Locality as Protocol is v0, pre-calibration. The argument is incomplete; the design problems are genuinely hard. External review pending; v0.1 will incorporate feedback.</div>
+
+</main>
+</body>
+</html>
