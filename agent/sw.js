@@ -1,4 +1,4 @@
-const CACHE_NAME = 'macheng-agent-pwa-v2'
+const CACHE_NAME = 'macheng-agent-pwa-v1'
 const APP_SHELL = ['./', './manifest.webmanifest', './pwa-icon.svg']
 
 self.addEventListener('install', (event) => {
