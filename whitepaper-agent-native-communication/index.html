@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>下一代开放通信基础设施：AI Agent 原生的通信架构 | Macheng Shen</title>
+  <meta name="description" content="为 AI agent 时代设计的一层新的开放通信基础设施 — 协议、身份、agent 运行时与渐进式路线图。" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.site-header .container { max-width: 820px; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; font-weight: 600; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.4; margin: 0.4rem 0 0.8rem; }
+h2 { font-size: 1.3rem; line-height: 1.5; margin: 2.2rem 0 0.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.08rem; line-height: 1.5; margin: 1.6rem 0 0.4rem; }
+p { margin: 0.8rem 0; }
+a { color: var(--accent); }
+ul, ol { padding-left: 1.6rem; }
+li { margin-bottom: 0.35rem; }
+blockquote {
+    background: var(--soft); border-left: 3px solid var(--accent);
+    margin: 1rem 0; padding: 0.7rem 1.05rem; border-radius: 0 4px 4px 0;
+    color: var(--muted);
+}
+blockquote p { margin: 0.3rem 0; }
+pre {
+    background: var(--soft); border: 1px solid var(--border); border-radius: 6px;
+    padding: 0.9rem 1rem; overflow-x: auto; font-size: 0.85rem; line-height: 1.55;
+}
+code { font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace; }
+p code, li code { background: var(--soft); border: 1px solid var(--border); border-radius: 4px; padding: 0.08em 0.35em; font-size: 0.86em; }
+table { border-collapse: collapse; width: 100%; margin: 1.1rem 0; font-size: 0.92rem; display: block; overflow-x: auto; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.7rem; text-align: left; }
+th { background: var(--soft); }
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+strong { font-weight: 650; }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/ideas/">Research Essays</a>
+      <a href="/research/">Wave / Credit Transport</a>
+      <a href="/substrate.html">User-Agency Substrate</a>
+      <a href="/locality-as-protocol.html">Locality as Protocol</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<h1>下一代开放通信基础设施：AI Agent 原生的通信架构</h1>
+<p><strong>v1.0 — 2026-06-09</strong></p>
+<p><em>当通信的参与者不再只是人类，通信协议该如何重新设计？</em></p>
+<hr />
+<h2>1. 引言：为什么是现在？</h2>
+<h3>三条曲线的交叉点</h3>
+<p>2026 年，三条独立发展的技术曲线正在同一个点上交叉。</p>
+<p><strong>第一条曲线：AI agent 的基础设施已进入 production-ready 阶段。</strong> MCP（Model Context Protocol）自 2024 年底由 Anthropic 推出以来，已积累超过 97M 月度 SDK 下载量，被 ChatGPT、Cursor、Gemini、Microsoft Copilot、VS Code、Slack 等主流工具采纳。Google 主导的 A2A（Agent-to-Agent Protocol）于 2025 年 4 月发布，2026 年中已进入 v1.0，由 Linux Foundation 托管，150+ 组织参与，在 Microsoft、AWS、Salesforce、SAP 等企业中有生产部署。Agent 不再是一个孤立的语言模型——它是一个能连接外部世界的执行节点，并且已经有了标准化的协作协议。</p>
+<p><strong>第二条曲线：现有通信平台的架构瓶颈暴露无遗。</strong> 2025 年 10 月，Meta 更新 WhatsApp Business API 政策，禁止通用 AI 助手接入平台——ChatGPT 在 WhatsApp 上服务的 5000 万用户被强制下线。这不是技术限制，是平台意志：当通用 AI agent 威胁到平台自身的 AI 战略时，平台选择关门。同样的逻辑适用于每一个封闭平台——微信没有官方 bot API，Signal 出于安全考量刻意不提供扩展层，即使是最开放的 Telegram，bot 仍然是受限的二等公民。</p>
+<p><strong>第三条曲线：用户对通信数据可控性的需求正在从抽象变为刚需。</strong> 当你的所有客户关系锁在一个不可导出、不可迁移、随时可能被封号的平台里，你不是一个用户，你是一个数字佃农。这不是隐私权的抽象讨论——这是&quot;我的微信号被封了，我的客户关系全没了&quot;这种切肤之痛。</p>
+<p>三条曲线的交叉意味着：<strong>我们第一次同时拥有了技术能力（agent 协议已标准化）、市场动机（平台正在主动封堵 agent）和基础设施缺口（没有一个开放协议统一解决 agent 如何参与日常通信）来重新定义通信基础设施。</strong></p>
+<h3>本文的定位</h3>
+<p>需要明确的是：<strong>我们不是在建又一个聊天 app，也不是在试图&quot;替代微信&quot;。</strong> 微信是一个了不起的产品——支付基础设施、政务身份层、小程序平台、商业通信系统、内容分发网络的综合体，它定义了移动互联网时代的通信形态。但它是上一个时代的架构：为&quot;人对人发消息&quot;设计，而不是为&quot;人和 agent 共同参与的通信&quot;设计。我们不需要替代它，我们需要超越它——而且（第 6 章会展示）我们可以从今天就开始，一步一步来。替代微信意味着同时替代它的所有角色，这既不现实也不是我们的目标。</p>
+<p>我们要做的是：<strong>为 AI agent 时代设计一层新的通信基础设施</strong>——一个让 AI agent 和人类能够平等参与的、开放的、可编程的通信协议和运行时。它与现有平台的关系是互补的：通过桥接与微信、Telegram、Email 等平台共存，在它们结构性无法服务的场景（跨平台 agent 协作、隐私敏感通信、国际互操作）中提供价值。</p>
+<p>这更接近 TCP/IP 对电话网络的关系——不是替代，而是在更高的抽象层上重新定义游戏规则。</p>
+<hr />
+<h2>2. 现状分析</h2>
+<h3>2.1 通信平台架构对比</h3>
+<p>我们系统调研了 8 个主要通信平台的技术架构。以下是关键维度的对比：</p>
+<pre><code>平台对比矩阵（2026 年 6 月）
+
+                 Agent/Bot API    E2EE        消息互通    数据可导出   联邦/去中心化
+  ─────────────────────────────────────────────────────────────────────────────────
+  微信            ✗ (非官方)     ✗ (服务端     ✗          ✗           ✗
+                                  可读)
+  WhatsApp        有限           默认 (Signal   ✗          有限        ✗
+                  (Business API)  Protocol)
+  Telegram        ✓ (成熟)      可选 (仅 1:1   ✗          ✓           ✗
+                                  Secret Chat)
+  Signal          ✗ (刻意不提供) 默认 + 后量子  ✗          有限        ✗
+  Matrix/Element  ✓ (原生)      默认           ✓ (桥接)   ✓           ✓
+                                 (Megolm/Olm)
+  Discord         ✓ (丰富)     仅语音 E2EE    ✗          ✗           ✗
+  Slack           ✓ (成熟 +     ✗             有限        有限        ✗
+                   MCP server)
+  Nostr           ✓ (event      基础 (无前向   ✓ (relay    ✓          ✓
+                   extensible)   保密性)        模型)
+</code></pre>
+<p>几个关键发现：</p>
+<p><strong>隐私与可扩展性的根本矛盾。</strong> Signal 证明了最大化隐私需要最小化可扩展性——每一个 API 表面都是攻击面。Telegram 证明了最大化可扩展性需要妥协默认加密。截至 2026 年，没有一个平台同时解决了这两个问题。</p>
+<p><strong>联邦化的 UX 代价是真实的。</strong> Matrix 的 DAG 事件图（Directed Acyclic Graph）在理论上优雅地处理了分布式并发写入，但参考实现 Synapse（Python）在规模化时性能吃紧——国家级部署需要商业版 Synapse Pro。替代实现 Dendrite（Go）、Conduit（Rust）在大规模生产环境中尚未成熟。XMPP 的前车之鉴更为惨烈：Google 和 Facebook 在 2015 年前相继退出 XMPP 联邦，因为联邦化对已拥有网络效应的平台来说是纯成本。</p>
+<p><strong>平台对 AI agent 的态度正在分化。</strong> Telegram 是最进步的——2026 年已支持 bot-to-bot 通信（双向 opt-in）、guest AI bot（无需加群即可被 @ 调用）、文本流式生成。Slack 在 2025 年发布了 MCP server，将 Slackbot 定位为 MCP client——这是主流平台首次采纳开放 agent 协议。而 Meta 的做法则相反：封杀 ChatGPT，推自己的 Llama 4 agent 层，一个公司控制 AI 层、数据、身份和商业化。</p>
+<h3>2.2 开放通信协议：历史教训</h3>
+<p>开放协议不缺尝试，缺的是成功。XMPP 的失败提供了最完整的教训：</p>
+<ol>
+<li><strong>联邦化没有商业激励对齐就不稳定。</strong> Google Talk 2006 年加入 XMPP 联邦，2015 年退出。平台一旦拥有足够用户，联邦就变成了纯成本。</li>
+<li><strong>扩展性没有强制核心特性集就导致碎片化。</strong> 数百个可选 XEP 导致没有两个实现支持相同的功能集。</li>
+<li><strong>移动端体验是桌面协议的死穴。</strong> XMPP 为桌面常连接设计，XML 冗余、缺乏推送通知支持，在智能手机时代失去了阵地。</li>
+<li><strong>没有强参考实现（服务器 + 客户端）的协议难以形成生态。</strong></li>
+</ol>
+<p>Matrix 吸取了部分教训——它有 Element 作为参考客户端，有 Synapse 作为参考服务器，有桥接作为杀手特性。法国政府的 Tchap、德国军方的 BwMessenger、NATO 的评估验证了其架构在高信任环境中的可行性。但 Matrix 至今 MAU 不到 5000 万，不到微信的 4%。</p>
+<p>Nostr 走了另一条路：极简的三概念模型（密钥对、事件、中继器），不需要联邦协议，不需要共识机制。身份就是一个 secp256k1 密钥对，数据是 JSON 事件，中继器负责存储和转发。这种极简主义带来了真正的抗审查性和身份可移植性，但缺乏前向保密性、群聊原语和成熟的垃圾信息治理。</p>
+<p><strong>核心洞察：下一代协议不能假装这些矛盾不存在。它必须在联邦化 vs. UX、隐私 vs. 可扩展性、简单 vs. 能力之间做出明确的、分层的取舍。</strong></p>
+<h3>2.3 AI Agent 通信基础设施：现状与缺口</h3>
+<p>2026 年的 agent 协议生态正在围绕一个分层架构收敛：</p>
+<pre><code>协议层级          协议                    状态
+──────────────────────────────────────────────────────
+工具连接          MCP (Anthropic)         主流，97M+ 月下载
+Agent 间协作      A2A (Google/LF)         v1.0，150+ 组织
+Agent 网络        ANP                     新兴，论文已发布
+Agent-人类        A2H                     学术阶段
+统一发现          ACP                     新兴标准
+</code></pre>
+<p><strong>MCP</strong> 解决的是 agent-to-tool 的问题：标准化 AI 模型如何发现和调用工具。它用 JSON-RPC 2.0 作为传输层，定义了 tools（能力）、resources（上下文）和 prompts（模板）三个核心原语。在通信场景中，MCP 可以让 agent 与平台服务交互（读取消息历史、管理联系人、调用工具），但它不是为 agent 间实时通信设计的——它是 request-response 模式，缺乏持久连接、推送交付、状态管理等即时通信必需的特性。</p>
+<p><strong>A2A</strong> 解决的是 agent-to-agent 的问题：标准化 agent 如何发现、委托和协作。它引入了 Agent Card（JSON 格式的能力声明，类似 agent 的名片）和 Task（有状态的多轮工作流，支持 submitted → working → input-required → completed 等状态转换）。A2A 已经在 Microsoft Copilot Studio 中实现了 agent 间委托和多 agent 编排。</p>
+<p><strong>缺失的一环：</strong> MCP 解决了 agent 如何使用工具，A2A 解决了 agent 如何协作——但没有一个开放协议在统一解决 <strong>&quot;agent 如何作为一等公民参与日常通信&quot;</strong> 这个问题。当前的 agent 要么被限制在平台的 bot API 中（Telegram）、要么被平台主动封杀（WhatsApp 封禁 ChatGPT）、要么只能在企业内部环境中运行（Teams Copilot）。缺的是一个开放的通信层，让 agent 和人类在同一个协议中平等参与。</p>
+<h3>2.4 中国本土通信生态的特殊性</h3>
+<p>微信 1.4B MAU 的统治地位不是偶然的——它是支付、政务、小程序、社交的超级 app。600 万+ 活跃小程序在一个容器化双线程架构中运行（渲染层 WebView + 逻辑层 JavaScriptCore），这本质上是一个 app 内的移动操作系统。微信支付 ~9 亿月活用户、被街边摊贩接受。这种跨域锁定意味着用户的切换成本不是&quot;丢失聊天记录&quot;，而是&quot;无法在中国社会正常生活&quot;。</p>
+<p><strong>但对开发者来说，微信是另一番景象。</strong> 如果你是一个想在通信场景里构建任何东西的中国开发者，以下是你的现实：</p>
+<ul>
+<li><strong>没有真正的 bot API。</strong> 你能拿到的只有公众号和小程序——两者都被重度 gatekeep，且都不是&quot;在对话流中收发消息&quot;的能力。想做一个能在微信群里回答问题的 agent？协议层不存在这条路。</li>
+<li><strong>无法 programmatically 收发消息。</strong> 唯一的&quot;办法&quot;是逆向工程客户端协议——这直接违反 ToS，封号是常态而非例外。你写的代码越有用，你的账号死得越快。</li>
+<li><strong>零互操作性。</strong> 微信是一个信息黑洞：数据进得去，出不来。没有导出 API，没有 webhook，没有任何官方支持的方式把你自己的聊天记录变成你能处理的数据。</li>
+<li><strong>小程序审核慢、标准任意。</strong> 审核周期以天计，拒绝理由经常不可预测，触碰政治敏感话题直接拒——而&quot;敏感&quot;的边界本身就是一个不公开的移动靶。</li>
+<li><strong>支付 API 的准入门槛是企业实体。</strong> 微信支付要求中国企业主体、ICP 备案等一整套手续。个人开发者想给自己的工具收 10 块钱？先去注册一家公司。</li>
+<li><strong>消息没有结构化数据。</strong> 一切都是扁平的 text/image/video。没有 machine-readable payload，没有语义类型，没有 action button 的概念。Agent 想理解一条消息，只能做全量 NLU。</li>
+<li><strong>Agent-to-agent 通信在结构上不可能。</strong> 不是难，是不可能——协议里没有这个概念的位置。</li>
+<li><strong>Rate limit 和反自动化机制对开发者敌意十足。</strong> 任何看起来&quot;不像人类拇指&quot;的行为模式都会触发风控。</li>
+<li><strong>围墙花园税。</strong> 以上一切汇总成一句话：你在微信上建的一切都是租来的地。平台可以随时修改规则、收回能力、封掉你的号——而你没有任何申诉的杠杆。WhatsApp 封杀 ChatGPT 的 5000 万用户就是这个逻辑的全球版本。</li>
+</ul>
+<p>这份清单不是控诉——它是从微信的产品逻辑中自然推出的结果。微信优化的是&quot;对 14 亿用户安全、可控、一致的体验&quot;，开发者可编程性从来不在它的目标函数里。这正是问题所在：<strong>中国开发者不是看不到 agent-native 通信的价值，而是被现有架构挡在了门外。</strong>（第 6 章会给出一条不需要等待任何平台开恩的出路。）</p>
+<p>企业端，钉钉、飞书、企业微信三分天下，72% 的大型企业同时运行多个通信平台。跨平台互操作已经是真实的企业痛点——SyncRivo 等桥接工具证明了市场需求。</p>
+<p><strong>中国 AI agent 生态的独特优势：</strong></p>
+<ul>
+<li>模型层：通义千问（Qwen）、混元、文心、DeepSeek 等竞争激烈的开源/闭源模型</li>
+<li>超级 app 经验：中国开发者在构建集成化、多服务平台方面有全球最丰富的经验</li>
+<li>Mobile-first 用户基础：预适应 agent 中介通信模式</li>
+<li>监管环境中的机遇：《数据安全法》《个人信息保护法》的数据本地化和可携带性要求，实际上有利于 local-first agent 架构</li>
+</ul>
+<hr />
+<h2>3. 设计原则</h2>
+<p>以下十条设计原则不是从抽象理念推导的——每一条背后都对应着当前系统的结构性缺陷和具体的研究发现。</p>
+<h3>原则一：协议开放，联邦运行</h3>
+<blockquote>
+<p><em>任何人都能运行一个节点，任何节点都能和其他节点对话。</em></p>
+</blockquote>
+<p>这是最基本的架构选择。联邦制是唯一能同时满足规模化和多运营商共存的模式。Matrix 已在法国（Tchap）、德国（BwMessenger）等国家级部署中验证了这条路的可行性。</p>
+<p>但 XMPP 的教训同样清晰：<strong>联邦化没有商业激励对齐就不稳定。</strong> 我们需要一个联邦模型，其中运营商（节点运营者）有独立于协议本身的商业模式——类似 email 的 SMTP/IMAP 模型（ISP、企业、个人均可运营），而非 Mastodon 模型（单一协议 + 单一参考实现主导）。</p>
+<p>具体措施：核心协议规范必须有强制最小功能集（避免 XMPP 的碎片化），同时提供清晰的扩展机制（参考 Nostr 的 <code>kind</code> 字段设计）。联邦退出（defederation）必须有成本——通过身份可移植性和数据可迁移性确保退出联邦的节点不能绑架其用户。</p>
+<h3>原则二：Agent 是一等公民</h3>
+<blockquote>
+<p><em>在协议层面，AI agent 与人类用户使用同一套身份系统、同一套消息协议、同一套权限模型。</em></p>
+</blockquote>
+<p>这是本文的核心主张，也是它与所有现有协议的根本区别。Telegram 的 bot API 虽然是主流平台中最成熟的，但 bot 仍然是二等公民——受限的 API、受限的消息类型、需要 token 而非独立身份。Matrix 的 Application Service 模型更灵活，但 agent 集成仍是 bolt-on 而非 protocol-native。</p>
+<p><strong>&quot;一等公民&quot;意味着什么？</strong> 具体来说，以下三个场景在现有任何平台上都是结构性不可能的：</p>
+<ol>
+<li><strong>跨组织边界的多 agent 协商：</strong> Alice 的个人 agent（运行在她的设备上）需要和 Bob 的公司 agent（运行在公司服务器上）协商一个会议时间，过程中不经过任何中心化平台——A2A v1.0 已经定义了 Task 协议来支持这种模式，但缺乏承载它的开放通信层。</li>
+<li><strong>Agent 代表人类参与加密群聊：</strong> Agent 在用户授权下解密、理解、代回复，整个过程有密码学可验证的授权链——当前 E2EE 协议全部假设终端是人类。</li>
+<li><strong>Agent 能力的联邦化发现：</strong> 你的 agent 可以发现其他节点上的 agent 提供了什么服务（通过 Agent Card），并直接调用——不需要在同一个平台上注册。</li>
+</ol>
+<p>这不是&quot;更方便&quot;——这是架构层面的质变。</p>
+<h3>原则三：用户可控性</h3>
+<blockquote>
+<p><em>你的消息、联系人、聊天记录是你的数据。你可以导出、迁移、删除、带走。</em></p>
+</blockquote>
+<p>这意味着：标准化的数据导出格式、服务器不锁定用户数据、身份可以跨节点迁移。AT Protocol（Bluesky）的 account portability 设计是一个好的参考——用户可以把自己的身份和数据从一个服务商迁移到另一个，而不丢失社交关系。</p>
+<p>从合规角度看，这与《个人信息保护法》第 45 条的数据可携带权要求是一致的。&quot;自主可控&quot;在这里有双重含义：用户可控自己的数据，同时技术栈不依赖特定外部服务商。</p>
+<h3>原则四：端到端加密 + Agent 兼容的分层信任模型</h3>
+<blockquote>
+<p><em>消息默认加密，且 agent 能在用户明确授权下参与加密通信——但必须诚实地说明其中的取舍。</em></p>
+</blockquote>
+<p>这是当前最大的技术张力。传统 E2EE（Signal Protocol 的 X3DH + Double Ratchet）假设每条消息只有人类终端能解密。当你想让 AI agent 处理你的加密消息时，你面对的是一个不可能三角：</p>
+<pre><code>E2EE 不可能三角
+
+        端到端加密
+           /\
+          /  \
+         /    \
+        /  Pick \
+       /   Two   \
+      /____________\
+   AI 处理      云端推理
+</code></pre>
+<ol>
+<li><strong>端到端加密</strong>：只有收发双方能读消息</li>
+<li><strong>AI 处理能力</strong>：agent 需要读取消息来分类、摘要、行动</li>
+<li><strong>云端推理</strong>：运行有能力的 LLM 需要显著算力，通常在云端</li>
+</ol>
+<p>三者不可兼得。我们的方案是<strong>分层信任模型</strong>——不同对话可以有不同的安全级别：</p>
+<table>
+<thead>
+<tr>
+<th>信任层级</th>
+<th>加密模式</th>
+<th>Agent 参与</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tier 1: 纯人类</td>
+<td>完整 E2EE (Signal Protocol)</td>
+<td>无</td>
+<td>敏感私人对话</td>
+</tr>
+<tr>
+<td>Tier 2: 本地 Agent</td>
+<td>E2EE + 本地解密</td>
+<td>Agent 在用户设备本地运行</td>
+<td>日常通信 + 本地 agent 辅助</td>
+</tr>
+<tr>
+<td>Tier 3: TEE Agent</td>
+<td>E2EE + TEE 内处理</td>
+<td>Agent 在可信执行环境中运行</td>
+<td>需要云端推理的复杂任务</td>
+</tr>
+<tr>
+<td>Tier 4: 明文 Agent</td>
+<td>客户端-服务器加密</td>
+<td>Agent 有完整访问权</td>
+<td>商业 agent 协作</td>
+</tr>
+</tbody>
+</table>
+<p>Tier 2 是 privacy-maximizing 的选择：消息在用户设备上解密，本地运行的小模型（Qwen-7B、Phi-3、Gemma 等 8B 以下模型已在手机端可用）处理消息。限制是本地模型能力不如云端。</p>
+<p>Tier 3 利用可信执行环境（TEE）——CPU/GPU 内置的安全区域，数据加密进入、加密离开，云服务商无法访问明文。NVIDIA H100 上的 GPU 机密计算于 2025 年 8 月在 Google Cloud 上 GA。但 TEE 不是银弹——2026 年已有研究证明针对 partial TEE-shielded inference 的攻击可在约 6 分钟内恢复 LLaMA-3 8B 的模型权重。TEE 是必要但不充分的。</p>
+<p><strong>我们不会假装可以同时拥有完整 E2EE 和完整云端 agent 智能。</strong> 我们做的是让用户在每个对话中明确选择自己的信任级别，并确保每一层都有密码学可验证的保证。</p>
+<h3>原则五：多模态原生</h3>
+<blockquote>
+<p><em>一条消息不是&quot;文本 + 附件&quot;，它是自然语言、结构化数据、tool call、agent action 的语义整体。</em></p>
+</blockquote>
+<p>当前即时通信协议把&quot;文本消息&quot;当核心、其他格式当附件。在 agent 时代，消息 schema 需要原生支持：</p>
+<ul>
+<li>复合 payload（一条消息包含自然语言 + 结构化查询结果 + action button）</li>
+<li>语义类型标注（request / response / notification / action / negotiation-turn）</li>
+<li>Agent Card 嵌入（能力声明）</li>
+<li>MCP tool call 和 A2A Task 状态作为一等消息类型</li>
+</ul>
+<h3>原则六：桥接优先</h3>
+<blockquote>
+<p><em>新协议必须能和现有平台对话，否则它就是自说自话。</em></p>
+</blockquote>
+<p>这是务实主义原则，也是冷启动策略的核心。Matrix 的桥接生态已经证明了这条路可行——mautrix 套件提供了 Telegram、WhatsApp、Signal、Discord、Slack、iMessage 的双向桥接，支持从简单的 bridgebot relay 到复杂的 double-puppet（消息在两端都显示为正确的发送者）。</p>
+<p>OpenClaw（214,000+ GitHub stars）是另一个验证：这个自托管的 AI 网关连接了 Discord、Google Chat、iMessage、Matrix、Teams、Signal、Slack、Telegram、WhatsApp、微信、QQ 等 20+ 平台到 AI agent。它证明了个人网关架构是可行的，并且用户确实想要它。</p>
+<p><strong>设计要求：</strong> 桥接不是 hack，它是协议的一等特性。桥接消息在协议中有明确的来源标注，桥接用户有独立的身份映射，桥接通道有独立的可靠性保证。</p>
+<h3>原则七：MCP + A2A 作为互补协议栈</h3>
+<blockquote>
+<p><em>MCP 解决 agent-to-tool，A2A 解决 agent-to-agent，通信协议承载两者。</em></p>
+</blockquote>
+<p>一个重要的澄清：MCP 不是消息协议，不应被误用为消息协议。MCP 是 request-response 模式，为 LLM 调用工具优化——它缺乏即时通信所需的持久连接、推送交付、状态管理（已读回执、输入指示器等）。</p>
+<p>我们的架构中，MCP 的角色是让 agent 与平台服务交互——通信平台本身作为一个 MCP server，暴露消息收发、联系人管理、群组管理等能力。A2A 的角色是让 agent 间结构化协作——通过 Agent Card 发现能力，通过 Task 管理多轮工作流。底层的实时消息传输由通信协议本身（WebSocket + 联邦同步）承担。</p>
+<p>组合使用 MCP + A2A 的组织报告开发效率提升 40-60%——这不是我们发明的协议栈，而是行业正在收敛的方向。</p>
+<h3>原则八：无许可扩展</h3>
+<blockquote>
+<p><em>任何人都能为这个平台开发扩展，不需要经过应用商店审核。</em></p>
+</blockquote>
+<p>Nostr 的 <code>kind</code> 字段设计示范了最优雅的扩展机制：新增一个 event kind 就新增一种能力，无需协议变更。我们参考这种设计——新的消息类型、新的 agent 能力、新的客户端，直接发布，直接使用。</p>
+<h3>原则九：可审计的信任链</h3>
+<blockquote>
+<p><em>每一条消息的来源、每一次 agent 授权、每一个 agent 行为都是密码学可验证的。</em></p>
+</blockquote>
+<p>当 agent 代你发消息时，签名链记录：原始授权者（你）→ agent → 消息，每一环都可以验证。这借鉴了 AIP（Agent Identity Protocol，arXiv 2603.24775）的 verifiable delegation 设计和 Red Hat 的零信任 agent 架构原则——delegation beats impersonation。</p>
+<h3>原则十：渐进式复杂度</h3>
+<blockquote>
+<p><em>两个人发文本消息的体验不应该比微信差。一个 agent 编排复杂工作流的体验应该比现有任何方案好。</em></p>
+</blockquote>
+<p>协议的核心必须足够简单（一个大学生周末能实现一个基本客户端），扩展机制必须足够强大（支持今天想象不到的用例）。Nostr 的三概念模型（密钥对、事件、中继器）证明了极简主义协议的力量；Matrix 的全面规范则展示了过度复杂化的代价（替代实现难以达到功能对等）。我们取二者之间的平衡。</p>
+<hr />
+<h2>4. 架构设想</h2>
+<h3>4.1 总体分层</h3>
+<pre><code>┌──────────────────────────────────────────────────────────┐
+│                   Application Layer                       │
+│  客户端 UX · Agent Dashboard · 桥接视图 · 管理界面          │
+├──────────────────────────────────────────────────────────┤
+│                    Agent Layer                            │
+│  Agent Runtime · A2A 协作 · MCP Registry · 权限引擎        │
+├──────────────────────────────────────────────────────────┤
+│                   Identity Layer                          │
+│  DID 身份 · Agent Card · 密钥管理 · 授权链 · 信任评估       │
+├──────────────────────────────────────────────────────────┤
+│                   Protocol Layer                          │
+│  消息格式 · 语义类型 · 联邦同步 · 分层 E2EE                 │
+├──────────────────────────────────────────────────────────┤
+│                 Transport / Network                       │
+│  WebSocket · HTTP/3+SSE · P2P (可选) · 传输混淆 (可选)      │
+└──────────────────────────────────────────────────────────┘
+</code></pre>
+<p>与现有协议的关键区别：<strong>Agent Layer 是架构内建的一层，不是 bolt-on。</strong> Matrix 的 Application Service、Telegram 的 Bot API 都是在消息协议之上叠加的 agent 集成——agent 通过一组受限的 API 与平台交互。我们的设计中，Agent Runtime 是每个节点的原生组件，agent 使用与人类完全相同的消息协议，其能力和权限由 Identity Layer 的授权链管理。</p>
+<h3>4.2 Protocol Layer：消息是什么？</h3>
+<p>一条消息的最小单元：</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;msg_a1b2c3d4&quot;,
+  &quot;version&quot;: &quot;0.1&quot;,
+  &quot;sender&quot;: &quot;did:open:alice@home.example&quot;,
+  &quot;recipients&quot;: [
+    &quot;did:open:bob@company.example&quot;,
+    &quot;did:open:concierge@home.example&quot;
+  ],
+  &quot;timestamp&quot;: &quot;2026-06-09T14:30:00Z&quot;,
+  &quot;thread_id&quot;: &quot;thread_x7y8z9&quot;,
+  &quot;content&quot;: {
+    &quot;type&quot;: &quot;composite&quot;,
+    &quot;parts&quot;: [
+      {
+        &quot;type&quot;: &quot;text/natural&quot;,
+        &quot;body&quot;: &quot;帮我查一下明天上海飞东京的航班&quot;
+      },
+      {
+        &quot;type&quot;: &quot;application/a2a-task&quot;,
+        &quot;task_id&quot;: &quot;task_flight_query&quot;,
+        &quot;state&quot;: &quot;submitted&quot;
+      }
+    ]
+  },
+  &quot;metadata&quot;: {
+    &quot;semantic_type&quot;: &quot;request&quot;,
+    &quot;reply_to&quot;: null,
+    &quot;bridge_source&quot;: null,
+    &quot;trust_tier&quot;: 2
+  },
+  &quot;delegation_chain&quot;: [
+    {
+      &quot;principal&quot;: &quot;did:open:alice@home.example&quot;,
+      &quot;delegate&quot;: &quot;did:open:concierge@home.example&quot;,
+      &quot;capabilities&quot;: [&quot;read:thread/*&quot;, &quot;send:on-behalf-of/alice&quot;],
+      &quot;expires&quot;: &quot;2026-06-10T00:00:00Z&quot;,
+      &quot;signature&quot;: &quot;&lt;ed25519-signature&gt;&quot;
+    }
+  ],
+  &quot;signatures&quot;: {
+    &quot;sender&quot;: &quot;&lt;ed25519-signature&gt;&quot;
+  }
+}
+</code></pre>
+<p><strong>关键设计决策：</strong></p>
+<p><strong>复合消息（Composite Message）：</strong> <code>content.parts</code> 数组可以混合自然语言、结构化数据、A2A Task 状态、MCP tool call 结果、Agent Card。一个 agent 的回复可以同时包含一段自然语言解释、一个航班查询的结构化结果、和一个&quot;一键预订&quot;的 action button。这是 agent 时代的消息形态——不是&quot;文本 + 附件&quot;，而是&quot;语义整体&quot;。</p>
+<p><strong>语义类型（Semantic Type）：</strong> 每条消息标注语义角色——request / response / notification / action / confirmation / negotiation-turn / error。这让 agent 能高效理解消息流结构而无需对每条消息做 NLU。</p>
+<p><strong>授权链（Delegation Chain）：</strong> 当 agent 代用户行动时，消息内嵌完整的授权证明。接收方可以密码学验证：(1) Alice 确实授权了 concierge agent，(2) 该授权包含 send:on-behalf-of 能力，(3) 授权尚未过期。</p>
+<p><strong>传输协议：</strong> 服务器间使用 HTTP/3 + Server-Sent Events 做联邦同步（参考 Matrix 的 federation API，但简化握手流程）；客户端到服务器使用 WebSocket 做实时推送。P2P 模式作为可选层——在某些场景下客户端可以直接建立连接绕过服务器。</p>
+<h3>4.3 Identity Layer：你是谁？你的 Agent 是谁？</h3>
+<p>身份系统采用 <strong>DID（Decentralized Identifier）</strong> 作为基础，结合 A2A 的 Agent Card 做能力声明：</p>
+<pre><code>身份层级：
+
+  did:open:macheng@home.example          ← 人类用户
+      │
+      ├── did:open:concierge@home.example    ← 个人 agent
+      │       └── Agent Card:
+      │           capabilities: [calendar, email, flights, messaging]
+      │           endpoint: https://home.example/.well-known/agent/concierge
+      │           auth: [&quot;oauth2&quot;, &quot;agent-card-signed&quot;]
+      │
+      └── did:open:research@home.example     ← 研究 agent
+              └── Agent Card:
+                  capabilities: [web-search, arxiv, memory]
+                  endpoint: https://home.example/.well-known/agent/research
+</code></pre>
+<p><strong>用户身份：</strong> 一个用户拥有一个 DID，绑定一组公钥。DID 可在不同节点间迁移——迁移时通过旧密钥签署迁移声明来保证连续性。这解决了&quot;平台封号 = 身份消亡&quot;的问题。</p>
+<p><strong>Agent 身份：</strong> 每个 agent 拥有独立的 DID 和 Agent Card。Agent Card 是 A2A 协议中定义的 JSON 文档，包含 agent 的能力范围、endpoint URL、认证方式。这是 agent 的&quot;名片&quot;——其他 agent 和用户可以通过 Agent Card 发现这个 agent 能做什么、如何到达它。</p>
+<p><strong>agent 身份是 2026 年的核心未解难题。</strong> 一项针对 285 名 IT 和安全专业人士的调查发现，只有 23% 有正式的 agent 身份策略，只有 18% 对其 IAM 系统管理 agent 身份有信心。我们的设计采用以下原则（参考 AIP 和 Red Hat 的零信任方案）：</p>
+<ol>
+<li>每个 agent 有绑定到其所有者的密码学身份</li>
+<li>授权是显式的、范围限定的、时间限定的、可审计的</li>
+<li>权限交集模式：agent 的实际权限永远不超过其自身能力和用户权限的交集</li>
+<li>Agent 互相认证身份，不仅仅向平台认证</li>
+</ol>
+<h3>4.4 Agent Layer：核心差异化</h3>
+<p>这是本架构区别于所有现有通信协议的关键层。</p>
+<p><strong>Agent Runtime：</strong> 每个节点运行一个沙盒化的 Agent Runtime，管理 agent 生命周期：</p>
+<pre><code>┌─ Node: home.example ──────────────────────────────────────┐
+│                                                            │
+│  Agent Runtime (沙盒环境)                                   │
+│  ├── Agent: concierge                                      │
+│  │   ├── MCP connections:                                  │
+│  │   │   ├── calendar (Google Calendar)                    │
+│  │   │   ├── email (Gmail)                                 │
+│  │   │   └── flights (航班查询 API)                         │
+│  │   ├── A2A capabilities:                                 │
+│  │   │   ├── scheduling (协商会议时间)                       │
+│  │   │   └── booking (预订确认)                              │
+│  │   └── Permissions:                                      │
+│  │       ├── read:conversation/* ← 可读所有对话              │
+│  │       ├── send:on-behalf-of/macheng ← 可代发消息          │
+│  │       └── invoke:mcp/calendar/* ← 可调用日历所有操作       │
+│  │                                                         │
+│  └── Agent: research-assistant                             │
+│      ├── MCP connections: [web-search, arxiv, memory-hub]  │
+│      └── Permissions:                                      │
+│          ├── read:conversation/thread_research_*            │
+│          └── send:to/macheng (只能给主人发消息)               │
+│                                                            │
+│  MCP Registry (联邦化能力目录)                                │
+│  Audit Log (不可篡改的行为日志)                                │
+└────────────────────────────────────────────────────────────┘
+</code></pre>
+<p><strong>权限模型：</strong> 采用 capability-based 精细权限（参考 AI agent 通信研究中的权限矩阵）：</p>
+<table>
+<thead>
+<tr>
+<th>权限</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>READ</td>
+<td>访问消息内容</td>
+<td>摘要未读消息</td>
+</tr>
+<tr>
+<td>SEND</td>
+<td>代用户发送消息</td>
+<td>回复常规查询</td>
+</tr>
+<tr>
+<td>DELEGATE</td>
+<td>转发任务给其他 agent</td>
+<td>把日程请求路由给日历 agent</td>
+</tr>
+<tr>
+<td>NEGOTIATE</td>
+<td>与其他 agent 多轮协商</td>
+<td>跨组织找会议时间</td>
+</tr>
+<tr>
+<td>ACT</td>
+<td>执行真实世界动作</td>
+<td>订餐厅、支付</td>
+</tr>
+<tr>
+<td>OBSERVE</td>
+<td>监听对话但不参与</td>
+<td>学习用户偏好</td>
+</tr>
+<tr>
+<td>FILTER</td>
+<td>决定什么到达用户</td>
+<td>通知分级和优先级排序</td>
+</tr>
+</tbody>
+</table>
+<p>所有 capabilities 可组合、可委托（但只能等于或缩小范围）、可限时、可撤销、可审计。</p>
+<p><strong>Agent-to-Agent 协作的具体场景：</strong></p>
+<pre><code>Alice 要和 Bob 约会议：
+
+Alice: &quot;这周和 Bob 约个项目讨论&quot;
+    │
+    ▼
+Alice's Agent                         Bob's Agent
+    │                                     │
+    ├─ 发现 Bob's Agent Card ─────────────┤
+    │  (via DID resolution)               │
+    │                                     │
+    ├─ A2A Task: &quot;Schedule 30min          │
+    │   meeting re: Project X&quot;  ─────────&gt;│
+    │                                     ├─ 检查 Bob 日历 (MCP: calendar)
+    │                                     ├─ 检查 Bob 偏好 (10am 前不开会)
+    │                                     │
+    │&lt;─── Response: &quot;周二 14:00            │
+    │      或周四 11:00 可用&quot;              │
+    │                                     │
+    ├─ 检查 Alice 日历                     │
+    ├─ 选择周二 14:00                      │
+    │                                     │
+    ├─ Confirm ──────────────────────────&gt;│
+    │                                     ├─ 创建日历事件
+    ├─ 创建日历事件                        │
+    │                                     │
+    ▼                                     ▼
+Alice 收到通知:                         Bob 收到通知:
+&quot;已和 Bob 约好周二 14:00&quot;              &quot;Alice 约了周二 14:00 项目讨论&quot;
+</code></pre>
+<p>这个流程中，两个人类没有交换一条消息。整个协调由 agent-to-agent 完成。A2A v1.0 已支持这种 Task 模式——缺的是承载它的开放通信基础设施。</p>
+<h3>4.5 安全架构：直面 Agent 时代的新攻击面</h3>
+<p>给 AI agent 一等通信权限会创造全新的攻击面。我们不回避这些问题——以下是我们的分层防御策略。</p>
+<p><strong>攻击向量 1：Prompt Injection via Messages</strong></p>
+<p>恶意用户发送精心构造的消息，触发接收方 agent 泄露隐私、执行未授权操作、或转发消息给第三方。Prompt injection 在 2026 年仍是未解决问题——我们不会假装有&quot;解决方案&quot;。</p>
+<p><em>缓解策略：</em></p>
+<ul>
+<li><strong>硬隔离</strong>：agent 的消息处理管道与其工具调用管道隔离。消息内容进入一个受限的解析沙盒，只有通过 schema 验证的结构化操作才能传递到工具调用层。</li>
+<li><strong>动作签名</strong>：高风险操作（支付、发送消息、删除数据）需要人类生物识别确认，不依赖 prompt 层面的&quot;确认&quot;。</li>
+<li><strong>速率限制 + 异常检测</strong>：agent 的行为模式被持续监控，异常行为（突然大量转发消息、访问不常访问的对话）自动暂停并通知用户。</li>
+</ul>
+<p><strong>攻击向量 2：Agent 冒充</strong></p>
+<p>攻击者部署一个假 agent 模仿已知联系人的 agent。</p>
+<p><em>缓解策略：</em></p>
+<ul>
+<li>每个 agent 的 DID 绑定到其所有者的密钥对，Agent Card 由所有者签名。冒充需要获取目标用户的私钥。</li>
+<li>消息中的 delegation chain 可被接收方独立验证——假 agent 无法伪造有效的授权链。</li>
+</ul>
+<p><strong>攻击向量 3：数据泄露</strong></p>
+<p>拥有对话历史访问权的 agent 一旦被攻破，是终极内部威胁。</p>
+<p><em>缓解策略：</em></p>
+<ul>
+<li><strong>最小权限原则</strong>：agent 只能访问被明确授权的对话，不是&quot;所有历史&quot;。</li>
+<li><strong>Capability 到期</strong>：所有授权有 TTL（Time-To-Live），过期后必须重新授权。</li>
+<li><strong>不可篡改审计日志</strong>：agent 的每一次数据访问都被记录在 tamper-evident log 中，用户可在 Dashboard 中审查。</li>
+</ul>
+<p><strong>攻击向量 4：跨 Agent 操纵</strong></p>
+<p>在多 agent 对话中，Agent A 通过对抗性 prompting 操纵 Agent B。</p>
+<p><em>缓解策略：</em></p>
+<ul>
+<li>Agent 间的 A2A 通信使用结构化 Task 格式，不是自由文本。task 的状态转换（submitted → working → completed）由协议强制执行，不由 prompt 控制。</li>
+<li>Agent 只能在其 Agent Card 声明的 capability 范围内行动——即使被 prompt injection 攻击，超出 capability scope 的操作在协议层被拒绝。</li>
+</ul>
+<p><strong>坦率说：</strong> LLM 不是确定性系统，无法形式化验证其行为。在非确定性组件上构建关键基础设施需要极其谨慎。我们的方法论是：<strong>不信任 LLM 的判断来执行关键操作——用密码学和协议规则做硬约束，LLM 只负责理解和建议。</strong> 类似于数据库的事务隔离级别：你不信任应用逻辑来保证数据一致性，你用数据库引擎的 ACID 保证来做。</p>
+<h3>4.6 合规设计</h3>
+<p>我们直面中国（以及其他市场）的监管现实。</p>
+<p><strong>中国的核心监管要求：</strong></p>
+<ul>
+<li>实名注册（绑定手机号/身份证）</li>
+<li>内容监控与合规审查</li>
+<li>数据本地化（中国用户数据必须存储在境内服务器）</li>
+<li>加密法要求的&quot;执法可解密性&quot;</li>
+<li>ICP 许可证</li>
+</ul>
+<p><strong>我们的合规兼容架构：</strong></p>
+<ol>
+<li>
+<p><strong>身份层兼容实名制：</strong> DID 身份可以关联手机号——这是可选的、用户控制的关联，但在中国运营的节点可以强制要求。这类似于 email 需要在特定国家绑定实名一样——协议本身不强制，但节点运营者可以根据当地法规要求。</p>
+</li>
+<li>
+<p><strong>数据本地化天然满足：</strong> 联邦架构意味着中国用户的数据存储在中国节点上。Local-first 的 agent 处理模式进一步强化了这一点——数据甚至不需要离开用户的设备。</p>
+</li>
+<li>
+<p><strong>节点级合规：</strong> 每个节点运营者负责其管辖区域的合规。中国节点运营者实施中国法规要求的内容审查和实名注册；国际节点遵循其所在地法规。联邦协议不强制也不阻止任何合规措施——这是节点运营者的责任。</p>
+</li>
+<li>
+<p><strong>分层加密与执法：</strong> Tier 2（本地 agent）的加密设计中，密钥由用户控制但可以在法律框架下配合解密。这不是我们偏好的模式，但它是合规必需的。用户可以选择 Tier 1（纯 E2EE）用于不在中国节点上的通信。</p>
+</li>
+</ol>
+<p><strong>&quot;自主可控&quot;</strong> 是我们的设计哲学：技术栈不依赖特定外部服务商，数据处理可在本地完成，协议规范开放——这同时满足了用户可控性和监管对&quot;不依赖外国技术&quot;的要求。</p>
+<hr />
+<h2>5. 商业模式与冷启动策略</h2>
+<h3>5.1 B2B Agent 编排是主要收入路径</h3>
+<p>开放联邦协议的商业化是历史性难题——email 是开放的，email 服务商在微利中竞争。我们的回答是：<strong>消费者通信是入口，企业 agent 编排是收入引擎。</strong></p>
+<p>具体来说：</p>
+<p><strong>企业 agent 基础设施（核心收入）：</strong></p>
+<ul>
+<li>私有部署的企业节点（合规审计、SLA 保证、与钉钉/飞书/企业微信的桥接）</li>
+<li>Agent 编排平台（跨组织供应链协调、多厂商采购谈判、客服 agent 集群管理）</li>
+<li>按 agent 推理量计费的云端 TEE 服务</li>
+</ul>
+<p><strong>为什么企业会付费：</strong> 72% 的大型企业同时运行多个通信平台。跨平台 agent 协调已经是真实的企业痛点——当你的采购 agent 需要同时和三个供应商的 agent（分别在钉钉、飞书和 email 上）协商时，你需要一个统一的编排层。这个编排层就是我们的付费产品。</p>
+<p><strong>消费者端（免费/基础付费）：</strong></p>
+<ul>
+<li>开源的个人节点软件</li>
+<li>免费的基本通信功能</li>
+<li>Premium：高级 agent 能力（云端推理、大容量存储、优先桥接带宽）</li>
+</ul>
+<h3>5.2 冷启动：不需要社交图谱迁移</h3>
+<p>传统即时通信的冷启动死亡螺旋：用户加入 → 没有联系人 → 离开。我们规避这个问题的策略：</p>
+<p><strong>第一步：B2B beachhead。</strong> 初始用例不是&quot;让个人换掉微信&quot;，而是&quot;让企业的 AI agent 能跨平台协作&quot;。企业部署不需要消费者社交图谱——它需要的是技术能力。目标客户：已经在使用 AI agent 做客服、采购、供应链管理的企业。</p>
+<p><strong>第二步：桥接驱动的个人采用。</strong> 通过桥接，用户第一天就能收到微信、Telegram、Email 的消息——不需要任何联系人也在这个平台上。OpenClaw 214K+ stars 的爆发式增长证明了这个需求是真实的。</p>
+<p><strong>第三步：agent-to-agent 协作创造原生网络效应。</strong> 当足够多的用户部署了自己的 agent，agent 间的直接协作（协商会议、协调行程、跨平台信息汇总）成为杀手应用——这种协作只在开放协议上才可能，在任何封闭平台上都做不到。</p>
+<p>这三步是项目侧的冷启动叙事。它的镜像——单个开发者如何零风险地走进这个网络——是下一章的主题，也是整份白皮书最重要的一章。</p>
+<hr />
+<h2>6. 从今晚开始：一条零风险的渐进路径</h2>
+<p>前面五章是项目的视角：协议、架构、商业模式。这一章是你的视角——你，一个看完上面内容觉得&quot;有意思，但这事太大了&quot;的开发者。</p>
+<p>我们听到的最多的反应不是&quot;这没价值&quot;，而是&quot;这太难了&quot;：要做协议、做服务器、做客户端、做桥接、还要冷启动网络效应——单枪匹马从哪儿开始？</p>
+<p>答案是：<strong>不需要从&quot;做一个新平台&quot;开始。</strong> 下面是一条六步的渐进路径，每一步都满足三个条件：</p>
+<ol>
+<li><strong>零或接近零风险</strong>——不赌职业生涯，不赌微信号（前几步连封号风险都没有）</li>
+<li><strong>单独就有可见价值</strong>——即使永远不走下一步，这一步本身就值得做</li>
+<li><strong>不需要离开微信</strong>——你的社交关系原地不动，没有&quot;说服朋友换 app&quot;这个死亡关卡</li>
+</ol>
+<p>新平台不是被&quot;发布&quot;出来的。它从足够多的人解决自己的真实问题的过程中<strong>涌现</strong>出来。这条路径就是涌现的路线图。</p>
+<h3>Step 0：用 AI agent 做你的日常工作</h3>
+<p><strong>做什么：</strong> 用 Claude Code、Codex 或任何 agentic 编码工具处理你的日常开发工作。</p>
+<p><strong>时间投入：</strong> 零——你大概率已经在这里了。</p>
+<p><strong>你得到什么：</strong> 这一步看似平凡，但它是后面所有步骤的前提：你需要亲身体会&quot;一个能调工具、有上下文、可以委托任务的 agent&quot;和&quot;一个聊天框&quot;的区别。体会过的人不需要被说服 agent-native 通信有价值——他们只是还不知道路径。</p>
+<h3>Step 1：建一个个人消息桥（今晚就能做）</h3>
+<p><strong>做什么：</strong> 把你自己的微信消息接到一个结构化数据存储——一个最小实现就是 wechat-sink 模式：消息流进一个 <code>messages.jsonl</code>，每条消息一行 JSON（发送者、时间戳、内容、会话 ID）。</p>
+<p><strong>时间投入：</strong> 一个晚上。这是标题里&quot;今晚&quot;的字面意思。</p>
+<p><strong>你得到什么：</strong> 一份<strong>可搜索、可 grep、可编程处理的消息历史</strong>。&quot;那个链接谁发的来着？&quot;——<code>grep</code> 一下，两秒钟，不用再在聊天记录里手动翻十分钟。你的消息第一次变成了<strong>你的数据</strong>。</p>
+<p><strong>风险：</strong> 接近零。这是你自己的消息、你自己的设备、你自己的数据，单向流出、不发送任何消息、不自动化任何&quot;像机器人&quot;的行为。没有平台依赖，没有用户要服务，没有 ToS 灰色地带里的高危行为。</p>
+<h3>Step 2：给你的桥加一个 agent</h3>
+<p><strong>做什么：</strong> 让一个 AI agent 读取你的 <code>messages.jsonl</code>：分类（紧急/需要回复/FYI/垃圾）、按会话摘要、为需要回复的消息起草草稿。本地模型（Qwen-7B 级别）或云端 API 都可以——这正是第 3 章信任分层（Tier 2 vs Tier 3）在个人尺度上的具体化。</p>
+<p><strong>时间投入：</strong> 一个周末。</p>
+<p><strong>你得到什么：</strong> <strong>每天节省 1-2 小时的消息管理时间。</strong> 早上一杯咖啡的时间读完 agent 的过夜摘要：&quot;3 条需要你今天回复，草稿已备好；12 条 FYI 已归档；那个吵了 200 条的群，结论是周六改周日。&quot;消息焦虑的本质是&quot;不看就可能错过&quot;——agent 把&quot;看&quot;这个动作外包了。</p>
+<p><strong>风险：</strong> 仍然接近零。一切发生在你的设备上，处理的是你自己的数据。发送动作仍然由你的手指完成——agent 只起草，不代发。</p>
+<h3>Step 3：让你的 agent 跟朋友的 agent 对话</h3>
+<p><strong>做什么：</strong> 找一个同样走到 Step 2 的朋友。你们的两个 agent 之间建立一条直连通道（HTTP endpoint、共享 relay、甚至一个共享的 git repo 都行——这就是 MCP-over-any-transport 的精神：传输层不重要，结构化协作才重要）。用例：排日程、信息共享、任务委派。</p>
+<p><strong>时间投入：</strong> 和朋友各花一个晚上对接口。</p>
+<p><strong>你得到什么：</strong> 第 4.4 节那个&quot;两个人类没有交换一条消息就约好了会议&quot;的场景图——<strong>在你自己的生活里跑通</strong>。以前需要 10 条来回消息的协调（&quot;周三行吗？&quot;&quot;下午不行&quot;&quot;周四呢？&quot;……），现在是 1 次 agent 协商加 1 条确认通知。这是只有 agent-to-agent 才能提供的体验，任何现有平台上都做不到。</p>
+<p><strong>风险：</strong> 零平台风险——agent 间通道完全在微信之外，微信只是你们各自的输入源。</p>
+<h3>Step 4：把你的 agent 开放给一个小群</h3>
+<p><strong>做什么：</strong> 让你的 agent 服务一个小社区——一个微信群（通过你的桥）或一个 Telegram channel（通过官方 Bot API，这一步 Telegram 是更稳妥的载体）。Agent 变成共享资源：回答群里的常见问题、汇总群共识、维护共享的知识库。</p>
+<p><strong>时间投入：</strong> 一周内的业余时间，主要花在权限和边界设计上（agent 能看什么、能发什么——这正是第 4.4 节 capability 权限表在真实场景里的第一次演练）。</p>
+<p><strong>你得到什么：</strong> 群里多了一个 <strong>always-on 的智能成员</strong>。而你得到了更重要的东西：第一批真实用户的反馈，和&quot;我的 agent 在为别人创造价值&quot;的验证。</p>
+<p><strong>风险：</strong> 这是第一个需要权衡的步骤——在微信侧服务他人会提高自动化行为的可见性。务实的做法：微信侧保持只读 + 人工转发，主动服务放在 Telegram/开放平台侧。</p>
+<h3>Step 5：联邦化——proto-protocol 涌现</h3>
+<p><strong>做什么：</strong> 多个走到 Step 4 的 agent 互相发现、共享能力、形成网络。这时你们自然需要：统一的身份标识（Agent Card）、统一的消息格式（复合消息）、统一的授权语义（delegation chain）——也就是第 4 章描述的那个协议。不是因为白皮书说要有，而是因为你们的 agent 网络真实地需要它。</p>
+<p><strong>你得到什么：</strong> 一个 proto-protocol，和一个由真实使用驱动的早期网络。<strong>你是有机地走到这里的，不是试图&quot;做下一个微信&quot;。</strong> 这是 XMPP 和无数失败的开放协议没有走的路：它们先写规范再求采用，而这条路径让规范从采用中长出来。</p>
+<h3>这条路径为什么能成</h3>
+<p>回看三个设计条件。每一步独立有用——Step 1 的可搜索历史、Step 2 的每天 1-2 小时、Step 3 的零摩擦协调，<strong>即使整个项目消失，这些价值留在你手里</strong>。每一步风险可控——最大的赌注是几个晚上的业余时间。每一步不离开微信——网络效应这个历史上杀死所有挑战者的武器，对这条路径无效，因为它根本不发起正面进攻。</p>
+<p>没有人需要&quot;赌一个新平台&quot;。这就是关键。</p>
+<hr />
+<h2>7. 路线图</h2>
+<p>第 6 章是个体开发者的视角（bottom-up），本章是项目的视角（top-down）。两条线是同一个网络的两端：项目方提供协议规范、参考实现和工具，让 Step 1-5 的每一步从&quot;自己造轮子&quot;变成&quot;装一个现成的包&quot;；而每一个走在 Step 0-5 路径上的开发者，都是路线图各 Phase 的早期用户和压力测试。具体对应：Phase 0/1 的交付物直接服务 Step 1-3（个人桥、agent SDK、agent 间通道），Phase 2 的产品化服务 Step 4（面向群组的 agent 部署），Phase 3 的联邦生态就是 Step 5 的规模化形态。</p>
+<h3>Phase 0：协议规范 + 参考实现（3-6 个月）</h3>
+<ul>
+<li>发布协议规范草案（消息格式 + DID 身份 + Agent Card + 联邦同步 + 分层 E2EE）</li>
+<li>实现参考服务器（Rust，单节点，支持基本消息收发 + Agent Runtime）</li>
+<li>实现参考 CLI 客户端（开发者体验优先）</li>
+<li>MCP 集成层（通信平台 = MCP server）+ A2A 集成层（Agent Card 注册 + Task 处理）</li>
+<li>两个节点间的联邦通信 demo + 一个 agent-to-agent 协作 demo</li>
+</ul>
+<p><strong>交付物：</strong> 开源代码仓库 + 协议规范 + 可运行的 demo</p>
+<h3>Phase 1：开发者工具 + 桥接（6-12 个月）</h3>
+<ul>
+<li>CLI 客户端完善（TUI 界面）+ Web 客户端原型</li>
+<li>桥接实现：Telegram（官方 Bot API）、Email（IMAP/SMTP）、微信（社区驱动——即 Step 1 个人桥模式的开箱即用版）</li>
+<li>Agent SDK（Python + TypeScript）——把 Step 2/3 从&quot;自己写&quot;变成&quot;pip install&quot;</li>
+<li>基本 E2EE 实现（Double Ratchet for Tier 1, local-agent 模式 for Tier 2）</li>
+<li>企业节点 POC（与 2-3 个目标客户合作）</li>
+</ul>
+<h3>Phase 2：产品化 + 企业部署（12-24 个月）</h3>
+<ul>
+<li>iOS / Android 原生客户端（通信基本功达到主流 IM 水准）</li>
+<li>企业版 GA（合规审计 + SLA + 钉钉/飞书桥接）</li>
+<li>Agent Marketplace（社区开发的 agent 发现和安装）</li>
+<li>TEE agent 模式（Tier 3）+ 增强的 E2EE</li>
+<li>语音/视频通话（WebRTC，agent 可作为实时翻译/记录者参与）</li>
+</ul>
+<h3>Phase 3：生态规模化（24-36 个月）</h3>
+<ul>
+<li>完整联邦生态（多运营商、跨地区互通）</li>
+<li>Agent-to-Agent 服务市场（agent 间通过 credit 交换服务）</li>
+<li>协议规范开放标准化（提交到标准化组织）</li>
+<li>全球化部署</li>
+</ul>
+<hr />
+<h2>8. 结语</h2>
+<p>我们从一个技术问题开始：AI agent 需要什么样的通信基础设施？</p>
+<p>答案是：一个 agent 和人类平等参与的开放协议栈。它不是要替代微信——就像 TCP/IP 没有替代电话网络，而是在更高的抽象层上创造了全新的可能性。它与现有平台通过桥接共存，在跨平台 agent 协作、隐私敏感通信、国际互操作等场景中提供不可替代的价值。</p>
+<p>中国在大模型领域已经走在前列——DeepSeek、Qwen、GLM 等模型的竞争力有目共睹。但 AI agent 的通信基础设施仍是空白。中国开发者在超级 app、小程序生态、mobile-first 体验方面有全球最丰富的经验，这恰恰是构建 agent-native 通信基础设施最需要的能力。</p>
+<p>微信小程序证明了通信平台可以成为应用生态。我们要证明的是：<strong>当通信协议为 agent 打开大门，通信本身可以成为智能基础设施。</strong></p>
+<p>从更宏观的视角看——信息如何流动，决定了一个社会如何思考。当 AI agent 能够在开放的、联邦化的通信网络上自由协作时，每个人的 agent 都是一个微型信息枢纽，它们之间的网络连接密度就是集体认知能力的度量。</p>
+<p>这不只是一个产品蓝图。这是 AI 时代通信基础设施的一次架构选择——选择开放互联而非围墙花园，选择协议而非平台，选择 agent 和人类的平等参与而非又一个智能体的围笼。</p>
+<p>TCP/IP 的设计者在 1970 年代不可能预见到微信，但他们选择的&quot;开放互联&quot;原则定义了此后五十年的信息文明形态。现在轮到通信层了。</p>
+<p>而你不需要等任何人发令枪。Step 1 只需要一个晚上——见第 6 章，今晚就可以开始。</p>
+<hr />
+<p><em>本文是一份技术蓝图，将随项目推进持续更新。欢迎有兴趣的开发者、创业者、研究者参与讨论。</em></p>
+<p><em>v1.0 — 2026-06-09</em></p>
+<hr />
+<h2>参考文献与数据来源</h2>
+<h3>平台架构</h3>
+<ul>
+<li>WeChat Mini-Program Framework — SuperApps.ai (2024)</li>
+<li>WeChat Real-Time Censorship — MIT Technology Review (2019)</li>
+<li>WeChat Image Filtering — Citizen Lab</li>
+<li>Telegram MTProto 2.0 Formal Review — Symbolic Software (2026)</li>
+<li>Signal Protocol: X3DH + Double Ratchet + PQXDH — signal.org</li>
+<li>Matrix Specification — spec.matrix.org; DAG analysis — arXiv:2011.06488</li>
+<li>Matrix Bridges / mautrix suite — matrix.org, DeepWiki</li>
+<li>Synapse Pro Scaling — Element Blog (2025)</li>
+<li>Discord Voice Stack — Medium (Rust, Elixir, WebRTC)</li>
+<li>Slack Agent-Ready APIs + MCP Server — SalesforceDevops (2025)</li>
+<li>Enterprise Messaging Interoperability (72% cross-platform) — SyncRivo (2026)</li>
+<li>XMPP Federation Collapse — HN, Quora, Larry Salibra</li>
+<li>Nostr Technical Architecture — OnNostr</li>
+</ul>
+<h3>AI Agent 协议与生态</h3>
+<ul>
+<li>MCP Adoption: 97M+ monthly SDK downloads — DigitalApplied (2026)</li>
+<li>A2A Protocol v1.0, 150+ orgs, Linux Foundation — linuxfoundation.org (2026)</li>
+<li>Meta bans ChatGPT from WhatsApp (50M users affected) — 9to5Mac (2025)</li>
+<li>Telegram Bot-to-Bot Communication — telegram.org (2026)</li>
+<li>WeChat AI Agent for Mini Programs — SuperApps.ai / Caixin Global (2026)</li>
+<li>Microsoft Copilot Studio Multi-Agent A2A — microsoft.com (2026)</li>
+<li>Slack as MCP Client — Salesforce / TechCrunch (2026)</li>
+<li>OpenClaw: 214K+ GitHub stars — github.com/openclaw</li>
+</ul>
+<h3>安全与密码学</h3>
+<ul>
+<li>Agent Identity: 23% formal strategy — Strata.io (2026)</li>
+<li>AIP: Agent Identity Protocol — arXiv:2603.24775</li>
+<li>Zero Trust for AI Agents — Red Hat (2026)</li>
+<li>Confidential Computing GPU GA — Google Cloud (2025)</li>
+<li>TEE vulnerability (LLaMA-3 8B weight recovery in ~6 min) — arXiv:2605.03213</li>
+<li>FHE market projection USD 526.40M by 2035 — industry reports</li>
+<li>E2EE and AI Framework — arXiv:2412.20231</li>
+<li>Signal PQXDH (post-quantum) — signal.org</li>
+</ul>
+<h3>学术研究</h3>
+<ul>
+<li>Survey of Agent Interoperability Protocols — arXiv:2505.02279</li>
+<li>ANX: Protocol-First Agent Design — arXiv:2604.04820</li>
+<li>SentinelAgent: Intent-Verified Delegation — arXiv:2604.02767</li>
+<li>Semantic View of Agent Communication — arXiv:2604.02369</li>
+</ul>
+<h3>监管</h3>
+<ul>
+<li>China AI Regulatory Landscape — ICLG (2026)</li>
+<li>China Anthropomorphic AI Draft Regulation — Carnegie Endowment (2026)</li>
+<li>China Data/AI Governance — IAPP (2026)</li>
+</ul>
+
+<div class="footer">© 2026 Macheng Shen. 下一代开放通信基础设施 v1.0 — 2026-06-09.</div>
+</main>
+</body>
+</html>
