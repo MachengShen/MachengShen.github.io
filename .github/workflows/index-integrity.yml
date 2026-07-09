@@ -29,13 +29,23 @@ jobs:
       - name: Internal links in llms.txt resolve on the deployed site
         if: github.event_name == 'push'
         run: |
-          # External links are checked by hand; hammering github.com from CI
-          # earns a 429 and tells us nothing. Only our own paths are asserted.
+          # This job races the Pages deployment of the very commit that
+          # triggered it, so a fresh path 404s for a minute or two before it
+          # goes live. Each URL is retried with backoff; only a path still
+          # failing after the window is a real failure. External links are
+          # checked by hand -- hammering github.com from CI earns a 429 and
+          # tells us nothing.
+          DEADLINE=$(( SECONDS + 600 ))
           fail=0
           while read -r path; do
             [ -z "$path" ] && continue
-            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 \
-                   "https://machengshen.github.io${path}")
+            url="https://machengshen.github.io${path}"
+            code=""
+            while [ "$SECONDS" -lt "$DEADLINE" ]; do
+              code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 "$url" || echo 000)
+              [ "$code" = "200" ] && break
+              sleep 20
+            done
             if [ "$code" != "200" ]; then
               echo "  ${code}  ${path}"
               fail=1
@@ -44,7 +54,8 @@ jobs:
                    | sed 's|https://machengshen.github.io||' | sort -u)
           if [ "$fail" = "1" ]; then
             echo
-            echo "llms.txt points at paths the deployed site does not serve."
+            echo "llms.txt points at paths the deployed site does not serve,"
+            echo "and they were still missing after a 10-minute grace window."
             echo "Either the page failed to deploy, or the index is wrong."
             exit 1
           fi
