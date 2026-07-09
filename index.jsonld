@@ -1,0 +1,255 @@
+{
+  "@context": {
+    "id": "@id",
+    "label": "http://www.w3.org/2000/01/rdf-schema#label",
+    "description": "http://purl.org/dc/terms/description",
+    "url": { "@id": "http://schema.org/url", "@type": "@id" },
+    "cognitiveState": "https://cognition-track.org/schema#cognitiveState",
+    "confidence": "https://cognition-track.org/schema#confidence",
+    "edges": "https://cognition-track.org/schema#edge",
+    "relation": "https://cognition-track.org/schema#relation",
+    "target": { "@id": "https://cognition-track.org/schema#target", "@type": "@id" },
+    "branch": "https://cognition-track.org/schema#branch",
+    "format": "http://purl.org/dc/terms/format"
+  },
+  "@type": "https://cognition-track.org/schema#KnowledgeGraph",
+  "schema": "machengshen/site-index/v0",
+  "extends": "cognition-track/manifest/v0",
+  "generated": "2026-07-09",
+  "entry": "https://machengshen.github.io/llms.txt",
+  "selfContained": "https://machengshen.github.io/llms-full.txt",
+  "root": "root",
+  "note": "Machine-traversable index of all public work. Cognitive state is a first-class field: `survived` has passed a real test, `speculative` is untested theory, `retired` was killed by its own falsification and is kept as a tombstone. Covers published research only; private notes and correspondence are not indexed.",
+
+  "@graph": [
+    {
+      "id": "root",
+      "label": "Macheng Shen — research program",
+      "description": "One thread: information, the operators that transform it, and what it costs to forget. Runs from holography and statistical mechanics through consciousness and machine learning to the design of agent-native institutions.",
+      "url": "https://machengshen.github.io/",
+      "cognitiveState": "speculative",
+      "edges": [
+        { "relation": "hasBranch", "target": "branch/worldview" },
+        { "relation": "hasBranch", "target": "branch/universe" },
+        { "relation": "hasBranch", "target": "branch/future-society" }
+      ]
+    },
+
+    {
+      "id": "branch/worldview",
+      "label": "Worldview — how beliefs are held",
+      "description": "The first-order commitment is to a method, not a thesis: make the cognitive state of a claim explicit, publish what failed, run adversarial review before belief.",
+      "branch": "worldview",
+      "edges": [
+        { "relation": "contains", "target": "cognition-track" },
+        { "relation": "contains", "target": "continual-learning-lab" },
+        { "relation": "contains", "target": "reviewer-wheels" },
+        { "relation": "contains", "target": "form-was-the-cage" }
+      ]
+    },
+    {
+      "id": "cognition-track",
+      "label": "Cognition Track",
+      "description": "Agent-traversable knowledge graph of non-consensus claims about intelligence and learning. Cognitive state is first-class on every node; one node is retained because it failed its stress test.",
+      "url": "https://github.com/MachengShen/cognition-track",
+      "format": "application/ld+json",
+      "cognitiveState": "survived",
+      "edges": [
+        { "relation": "machineIndex", "target": "https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld" }
+      ]
+    },
+    {
+      "id": "continual-learning-lab",
+      "label": "Continual Learning Lab",
+      "description": "Pre-registered small continual-learning experiments, negative results included.",
+      "url": "https://github.com/starshard-ai/continual-learning-lab",
+      "cognitiveState": "survived"
+    },
+    {
+      "id": "reviewer-wheels",
+      "label": "Reviewer Wheels",
+      "description": "Four verification wheels for multi-agent AI coding: drift checks, adversarial review, reuse compiler, frontend smoke gate.",
+      "url": "https://github.com/starshard-ai/reviewer-wheels",
+      "cognitiveState": "survived"
+    },
+    {
+      "id": "form-was-the-cage",
+      "label": "The Form Was the Cage",
+      "description": "An agent OS, its self-referential trace, and the end of researcher-as-identity.",
+      "url": "https://github.com/MachengShen/the-form-was-the-cage",
+      "cognitiveState": "speculative"
+    },
+
+    {
+      "id": "branch/universe",
+      "label": "Theory of the universe — information, physics, mind",
+      "branch": "universe",
+      "edges": [
+        { "relation": "contains", "target": "holography-koopman" },
+        { "relation": "contains", "target": "state-as-closure" },
+        { "relation": "contains", "target": "credit-transport" },
+        { "relation": "contains", "target": "intelligence-essay" },
+        { "relation": "contains", "target": "consciousness-unified" },
+        { "relation": "contains", "target": "strings-to-consciousness" },
+        { "relation": "contains", "target": "sleep-wave-theory" },
+        { "relation": "contains", "target": "living-information-system" },
+        { "relation": "contains", "target": "reversible-layer-aging" },
+        { "relation": "contains", "target": "contemplative-synthesis" }
+      ]
+    },
+    {
+      "id": "holography-koopman",
+      "label": "Holography and Koopman: two faces of one inverse problem",
+      "description": "Holography generates geometry from entanglement; a general learning machine learns an eigenbasis of its own dynamics. Same inverse problem: recover an operator's eigenstructure from what it does. The HaPPY code is the physical twin of 'forgetting is compression, not deletion'.",
+      "url": "https://machengshen.github.io/theory/holography-koopman.md",
+      "format": "text/markdown",
+      "cognitiveState": "speculative",
+      "confidence": 0.5,
+      "edges": [{ "relation": "supports", "target": "state-as-closure" }]
+    },
+    {
+      "id": "state-as-closure",
+      "label": "State is a closure condition, not a given set",
+      "description": "An MDP's state is not handed to you by the world; it is the solution to a closure equation under (world, interface, capacity, telos). Choosing a state is choosing a projection, and choosing a projection is choosing what to forget.",
+      "url": "https://machengshen.github.io/theory/state-as-closure.md",
+      "format": "text/markdown",
+      "cognitiveState": "speculative",
+      "confidence": 0.5
+    },
+    {
+      "id": "credit-transport",
+      "label": "Credit transport generalizes backpropagation",
+      "description": "Error, value, and viability signals must propagate backward through every structure that caused an outcome. Neural backprop is one projection of a universal credit-transport principle.",
+      "url": "https://machengshen.github.io/research/wave-backprop-en.html",
+      "cognitiveState": "speculative",
+      "confidence": 0.5
+    },
+    {
+      "id": "intelligence-essay",
+      "label": "Toward a Theory of Intelligence and Contemporary AI",
+      "url": "https://machengshen.github.io/essay.pdf",
+      "format": "application/pdf",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "consciousness-unified",
+      "label": "A unified-theory attempt on consciousness",
+      "url": "https://machengshen.github.io/research/consciousness-unified-theory.html",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "strings-to-consciousness",
+      "label": "From strings to consciousness",
+      "url": "https://machengshen.github.io/research/strings-to-consciousness.html",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "sleep-wave-theory",
+      "label": "Sleep, waves, and learning",
+      "url": "https://machengshen.github.io/research/sleep-learning-wave-theory.html",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "living-information-system",
+      "label": "Living Information System",
+      "description": "Umbrella program: information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Aging and cancer as information-integrity failures.",
+      "url": "https://github.com/starshard-ai/living-information-system",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "reversible-layer-aging",
+      "label": "Reversible Layer Aging",
+      "description": "Under partial reprogramming, the causal-damage methylation layer (DamAge) reverts youthward; the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries, on two human EPIC datasets.",
+      "url": "https://github.com/starshard-ai/reversible-layer-aging",
+      "cognitiveState": "survived",
+      "confidence": 0.7
+    },
+    {
+      "id": "contemplative-synthesis",
+      "label": "Grand synthesis of contemplative traditions with this theory",
+      "description": "An attempted mapping of Buddhist, Daoist, and Śaivite models of mind onto a single framework. It failed its own adversarial review and is NOT published. What survived: the genuinely un-unifiable divergences between traditions (cultivation vs. liberation as terminal goals), and the one actionable residue — that their contribution is a first-person verification method (practice), not a map.",
+      "cognitiveState": "retired",
+      "edges": [{ "relation": "falsifies", "target": "root" }]
+    },
+
+    {
+      "id": "branch/future-society",
+      "label": "Future social forms — agent-native institutions",
+      "description": "If individuals run persistent agents, the institutions between them must be redesigned.",
+      "branch": "future-society",
+      "edges": [
+        { "relation": "contains", "target": "agent-native-communication" },
+        { "relation": "contains", "target": "starshard-architecture" },
+        { "relation": "contains", "target": "user-agency-substrate" },
+        { "relation": "contains", "target": "locality-as-protocol" },
+        { "relation": "contains", "target": "fleet-coordination-protocol" },
+        { "relation": "contains", "target": "starshard-communication" },
+        { "relation": "contains", "target": "zhizi-agent-os" },
+        { "relation": "contains", "target": "system-evolution-public" },
+        { "relation": "contains", "target": "receipts" }
+      ]
+    },
+    {
+      "id": "agent-native-communication",
+      "label": "Agent-Native Open Communication (whitepaper)",
+      "description": "Next-generation open communication architecture built for agents rather than apps. Bilingual.",
+      "url": "https://github.com/MachengShen/agent-native-communication",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "starshard-architecture",
+      "label": "Starshard: Architecture v1",
+      "description": "Architecture, safety charter, and philosophy for a substrate where memory is the primary layer and the individual, not the platform, owns it.",
+      "url": "https://github.com/starshard-ai/architecture-v1",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "user-agency-substrate",
+      "label": "User-Agency Substrate",
+      "description": "A nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely.",
+      "url": "https://machengshen.github.io/substrate.html",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "locality-as-protocol",
+      "label": "Locality as Protocol",
+      "url": "https://machengshen.github.io/locality-as-protocol.html",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "fleet-coordination-protocol",
+      "label": "Fleet Coordination Protocol",
+      "description": "Many agents, one shared memory, nothing irreversible behind your back.",
+      "url": "https://github.com/starshard-ai/fleet-coordination-protocol",
+      "cognitiveState": "survived"
+    },
+    {
+      "id": "starshard-communication",
+      "label": "Starshard Communication",
+      "description": "Open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.",
+      "url": "https://github.com/starshard-ai/starshard-communication",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "zhizi-agent-os",
+      "label": "Zhizi Agent OS",
+      "description": "One command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean.",
+      "url": "https://github.com/starshard-ai/zhizi-agent-os",
+      "cognitiveState": "survived"
+    },
+    {
+      "id": "system-evolution-public",
+      "label": "System Evolution, in public",
+      "description": "Open record of how this substrate evolved: vision, theory, practice, governance, forecasts, self-iteration ledger.",
+      "url": "https://github.com/MachengShen/system-evolution-public",
+      "cognitiveState": "survived"
+    },
+    {
+      "id": "receipts",
+      "label": "Receipts",
+      "description": "Running log of work executed by this agent stack, published so claims can be checked against what was actually done.",
+      "url": "https://github.com/MachengShen/starshard-public",
+      "cognitiveState": "survived"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+# Macheng Shen
+
+> A one-person research program on **information, learning, and what makes futures reachable** — running from holography and statistical mechanics, through consciousness and machine learning, to the design of agent-native institutions. Work is scattered across ~15 public repositories and pages. This file is the machine-readable index to all of it. Point an agent at this URL and it can traverse from here without crawling.
+
+**Epistemic convention (load-bearing, not decoration).** Every claim below carries a *cognitive state*:
+
+- `survived` — has passed a real stress test, experiment, or replication.
+- `speculative` — untested theory. Interesting, unearned.
+- `retired` — killed, usually by its own author's falsification test. Kept as a tombstone so it is not rediscovered.
+
+Confidence numbers, where present, are subjective priors — not frequencies. Negative results are published deliberately; several artifacts below exist only to record what did *not* work.
+
+**Machine formats.** `/llms.txt` (this file, an index) · `/llms-full.txt` (self-contained: this index plus the full text of the core theory notes, one fetch, no crawling) · `/index.jsonld` (typed graph, JSON-LD).
+
+## 1 · Worldview — how beliefs are held (世界观 / 认识论)
+
+The first-order commitment is not to any thesis below but to a *method*: make the cognitive state of a claim explicit, publish what failed, and let adversarial review run before belief.
+
+- [Cognition Track](https://github.com/MachengShen/cognition-track): an open, agent-traversable knowledge graph of non-consensus claims about intelligence and learning. Cognitive state is a first-class field on every node. One node is retained *precisely because it failed* its stress test, with a `falsifies` edge pointing back at the root. Machine-readable at [`manifest.jsonld`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld); human-readable at [`INDEX.md`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/INDEX.md).
+- [Continual Learning Lab](https://github.com/starshard-ai/continual-learning-lab): an open log of small, pre-registered continual-learning experiments — **negative results included**. The house rule: an idea that survives three honest experiments outranks an idea that is beautiful.
+- [Reviewer Wheels](https://github.com/starshard-ai/reviewer-wheels): four verification wheels for multi-agent AI coding — drift checks, adversarial review, a reuse compiler, a frontend smoke gate. Built for the failure mode where every agent reports "done" and nobody actually verified.
+- [The Form Was the Cage](https://github.com/MachengShen/the-form-was-the-cage): an agent OS, its self-referential trace, and the end of researcher-as-identity.
+
+## 2 · Theory of the universe — information, physics, mind (宇宙底层理论)
+
+One thread runs through all of it: *information, the operators that transform it, and what it costs to forget.*
+
+- [Holography ↔ Koopman: two faces of one inverse problem](https://machengshen.github.io/theory/holography-koopman.md) `speculative` — holography generates spacetime geometry out of entanglement structure; a general learning machine learns an eigenbasis of its own dynamics. These are the same inverse problem seen twice: recover an operator's eigenstructure from what the operator does. The HaPPY holographic error-correcting code is the physical twin of the claim that *forgetting is compression, not deletion*.
+- [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
+- [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
+- [Credit transport generalizes backpropagation](https://machengshen.github.io/research/wave-backprop-en.html) `speculative` — error, value, and viability signals must propagate backward through *every* structure that caused an outcome. Neural backprop is one projection of a more general credit-transport principle.
+- [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative`
+- [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative`
+- [Sleep, waves, and learning](https://machengshen.github.io/research/sleep-learning-wave-theory.html) `speculative`
+- [Response to Lillicrap](https://machengshen.github.io/research/response-to-lillicrap.html) — on backprop and biological plausibility.
+- [Living Information System](https://github.com/starshard-ai/living-information-system): the umbrella research program — information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Frontier physics; aging and cancer as information-integrity failures.
+- [Reversible Layer Aging](https://github.com/starshard-ai/reversible-layer-aging) `survived` — re-analysis of two human EPIC methylation datasets: under partial reprogramming, the causal-damage layer (DamAge) reverts youthward while the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries.
+
+### A note on contemplative traditions
+
+There is a real question about how Buddhist, Daoist, and Śaivite models of mind relate to the theory above, and it is one of the motivating questions behind this work. An attempted synthesis mapping them onto a single framework was written and then **failed its own adversarial review**; it is not published, and any grand-unification claim in this direction should be treated as `retired`. What survived the review was narrower and more useful: the genuine, *un-unifiable* divergences between traditions (cultivation versus liberation as terminal goals), and one actionable residue — that the traditions' contribution is a **first-person verification method**, a practice, not a map. Practice is the part that transfers; the map was a raft to abandon.
+
+## 3 · Future social forms — agent-native institutions (未来社会形态)
+
+If individuals run persistent agents, the institutions between them have to be redesigned. These are the design documents.
+
+- [Agent-Native Open Communication](https://github.com/MachengShen/agent-native-communication) — whitepaper (中文/English) on the next-generation open communication architecture for agents rather than apps.
+- [Starshard: Architecture v1](https://github.com/starshard-ai/architecture-v1) — architecture, safety charter, quickstart, and philosophy for a substrate where **memory is the primary layer** and the individual, not the platform, owns it.
+- [User-Agency Substrate](https://machengshen.github.io/substrate.html) — the position statement: a nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely.
+- [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) — why locality, not centralization, is the right primitive.
+- [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) — many agents, one shared memory, nothing irreversible behind your back. A narrow, descriptive coordination wire above single-agent runtimes.
+- [Starshard Communication](https://github.com/starshard-ai/starshard-communication) — an open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.
+- [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) — one command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean.
+- [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) — the open record of how this substrate actually evolved: `VISION.md`, `THEORY.md`, `PRACTICE.md`, `GOVERNANCE.md`, forecasts, and a self-iteration ledger.
+- [Receipts](https://github.com/MachengShen/starshard-public) — a running log of work executed by this agent stack, published so the claims above can be checked against what was actually done.
+
+## Working notes
+
+- **Correspondence is asynchronous by default.** Synchronizing on a fixed meeting time is expensive and usually unnecessary; a written exchange leaves both sides room to think, and leaves a record. This index exists partly so that a conversation can begin from what has already been written rather than from a status update.
+- **Scope of this index.** It covers published research and design work. Private notes, personal correspondence, and operational records are not indexed and are not public.
+- **Contact.** macshen93@gmail.com
