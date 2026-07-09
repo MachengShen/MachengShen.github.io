@@ -178,6 +178,7 @@
       "description": "If individuals run persistent agents, the institutions between them must be redesigned.",
       "branch": "future-society",
       "edges": [
+        { "relation": "contains", "target": "coordination-structures" },
         { "relation": "contains", "target": "agent-native-communication" },
         { "relation": "contains", "target": "starshard-architecture" },
         { "relation": "contains", "target": "user-agency-substrate" },
@@ -188,6 +189,26 @@
         { "relation": "contains", "target": "system-evolution-public" },
         { "relation": "contains", "target": "receipts" }
       ]
+    },
+    {
+      "id": "coordination-structures",
+      "label": "Coordination structures as resource-scheduling architectures",
+      "description": "Polity, firm, market, commons, and protocol as five instances of one object: an architecture for scheduling scarce resources under distributed, private information. Descriptive throughout: it ranks nothing, names no culprits, recommends nothing. Contains the Hayek/Scott information constraint, transaction-cost boundaries, Ostrom's commons, the protocol's three documented failure modes, and three falsifiers.",
+      "url": "https://machengshen.github.io/theory/coordination-structures.md",
+      "format": "text/markdown",
+      "cognitiveState": "speculative",
+      "confidence": 0.45,
+      "edges": [
+        { "relation": "rhymesWith", "target": "credit-transport" },
+        { "relation": "contains", "target": "credit-routing-scalar" }
+      ]
+    },
+    {
+      "id": "credit-routing-scalar",
+      "label": "Ranking institutions by a scalar credit-transport fidelity score",
+      "description": "A tempting move: assign each institution one scalar credit-routing fidelity number, by analogy to a loss gradient, and rank institutions by it. Rejected in the essay. Credit in a social structure is multi-dimensional, the backward pass is not differentiable, and collapsing it to one number is the formalism smuggling in structure the domain does not have.",
+      "cognitiveState": "retired",
+      "edges": [{ "relation": "falsifies", "target": "coordination-structures" }]
     },
     {
       "id": "agent-native-communication",
