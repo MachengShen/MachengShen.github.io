@@ -1,0 +1,56 @@
+# robots.txt — Robots Exclusion Protocol.
+#
+# This file controls WHICH PATHS a crawler may fetch. It does not describe what
+# the site is about. Three other files do that, and they are the ones worth
+# reading:
+#
+#   Agent index (curated, three branches, cognitive state on every claim):
+#     https://machengshen.github.io/llms.txt
+#   Self-contained bundle (index + full text, one fetch, no crawling required):
+#     https://machengshen.github.io/llms-full.txt
+#   Typed knowledge graph (JSON-LD):
+#     https://machengshen.github.io/index.jsonld
+#
+# Everything here is public and intended to be read, by people and by agents
+# alike. Nothing is disallowed. If you are an agent, prefer llms-full.txt over
+# crawling — it is cheaper for both of us.
+
+User-agent: *
+Allow: /
+
+# Named AI crawlers. The default above already permits them; these stanzas are
+# explicit so that the intent is unambiguous rather than merely inherited.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://machengshen.github.io/sitemap.xml

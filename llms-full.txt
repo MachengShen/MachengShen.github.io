@@ -28,13 +28,30 @@ One thread runs through all of it: *information, the operators that transform it
 - [Holography ↔ Koopman: two faces of one inverse problem](https://machengshen.github.io/theory/holography-koopman.md) `speculative` — holography generates spacetime geometry out of entanglement structure; a general learning machine learns an eigenbasis of its own dynamics. These are the same inverse problem seen twice: recover an operator's eigenstructure from what the operator does. The HaPPY holographic error-correcting code is the physical twin of the claim that *forgetting is compression, not deletion*.
 - [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
-- [Credit transport generalizes backpropagation](https://machengshen.github.io/research/wave-backprop-en.html) `speculative` — error, value, and viability signals must propagate backward through *every* structure that caused an outcome. Neural backprop is one projection of a more general credit-transport principle.
 - [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative`
 - [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative`
 - [Sleep, waves, and learning](https://machengshen.github.io/research/sleep-learning-wave-theory.html) `speculative`
 - [Response to Lillicrap](https://machengshen.github.io/research/response-to-lillicrap.html) — on backprop and biological plausibility.
 - [Living Information System](https://github.com/starshard-ai/living-information-system): the umbrella research program — information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Frontier physics; aging and cancer as information-integrity failures.
 - [Reversible Layer Aging](https://github.com/starshard-ai/reversible-layer-aging) `survived` — re-analysis of two human EPIC methylation datasets: under partial reprogramming, the causal-damage layer (DamAge) reverts youthward while the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries.
+
+### Credit transport — and a claim that was retired
+
+This branch is worth reading in the order below, because it is a worked example of an idea being narrowed under pressure rather than defended.
+
+- [Hebbian appearance, instructive signals, and physical credit transport](https://machengshen.github.io/research/hebbian-wave-interference.html) `speculative` — the current working note. Why local plasticity can look Hebbian while still carrying task-dependent update information, and where wave/adjoint language genuinely helps.
+- [Backpropagation, adjoint fields, and physical transport constraints](https://machengshen.github.io/research/wave-backprop-full.html) `speculative` — the exploratory note. Carries its own title correction: what physical systems actually show, and what they do not yet show.
+- [Deriving backpropagation from wave equations](https://machengshen.github.io/research/wave-backprop-en.html) `retired` — the original, stronger claim: that wave reflection already supplies a first-principles derivation of backpropagation. It does not. The page is kept as an archive notice at its original URL so that the retraction is as reachable as the claim was.
+- [Research overview](https://machengshen.github.io/research/) — the branch index.
+
+### Essays
+
+- [Harness engineering and the physical instantiation of intelligence](https://machengshen.github.io/essays/harness-engineering-and-the-physical-instantiation-of-intelligence/)
+- [Meta-control, information gain, and the architecture of autonomous learning](https://machengshen.github.io/essays/meta-control-information-gain-and-the-architecture-of-autonomous-learning/)
+- [Where objectives come from — and why solutions become strategic assets](https://machengshen.github.io/essays/where-objectives-come-from-and-why-solutions-become-strategic-assets/)
+- [Why distributed memory matters for lifelong agents](https://machengshen.github.io/essays/why-distributed-memory-matters-for-lifelong-agents/)
+
+Older essays live on a separate site at [/ideas/](https://machengshen.github.io/ideas/), including [Line loss for intelligence](https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/), [From mutual information to endogenous viability](https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/), and [Safety in a computational universe](https://machengshen.github.io/ideas/blog/safety-in-a-computational-universe/).
 
 ### A note on contemplative traditions
 
@@ -44,7 +61,7 @@ There is a real question about how Buddhist, Daoist, and Śaivite models of mind
 
 If individuals run persistent agents, the institutions between them have to be redesigned. These are the design documents.
 
-- [Agent-Native Open Communication](https://github.com/MachengShen/agent-native-communication) — whitepaper (中文/English) on the next-generation open communication architecture for agents rather than apps.
+- [Agent-Native Open Communication](https://machengshen.github.io/whitepaper-agent-native-communication/) — the whitepaper, on the next-generation open communication architecture built for agents rather than apps. [Source repository](https://github.com/MachengShen/agent-native-communication) (中文/English).
 - [Starshard: Architecture v1](https://github.com/starshard-ai/architecture-v1) — architecture, safety charter, quickstart, and philosophy for a substrate where **memory is the primary layer** and the individual, not the platform, owns it.
 - [User-Agency Substrate](https://machengshen.github.io/substrate.html) — the position statement: a nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely.
 - [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) — why locality, not centralization, is the right primitive.

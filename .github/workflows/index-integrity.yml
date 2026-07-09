@@ -1,0 +1,51 @@
+name: index integrity
+
+# Enforces the rule that everything published here is reachable from /llms.txt.
+# A page that ships without an index entry is a silent publication: a human who
+# stumbles on the URL can read it, an agent handed the index cannot see it. This
+# job fails the build rather than let that happen quietly.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # gen_sitemap reads git log for lastmod
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Every artifact is indexed, or excluded with a reason
+        run: python3 scripts/check_index.py
+
+      - name: Internal links in llms.txt resolve on the deployed site
+        if: github.event_name == 'push'
+        run: |
+          # External links are checked by hand; hammering github.com from CI
+          # earns a 429 and tells us nothing. Only our own paths are asserted.
+          fail=0
+          while read -r path; do
+            [ -z "$path" ] && continue
+            code=$(curl -s -o /dev/null -w '%{http_code}' -L --max-time 20 \
+                   "https://machengshen.github.io${path}")
+            if [ "$code" != "200" ]; then
+              echo "  ${code}  ${path}"
+              fail=1
+            fi
+          done < <(grep -oE 'https://machengshen\.github\.io[^ )"]*' llms.txt \
+                   | sed 's|https://machengshen.github.io||' | sort -u)
+          if [ "$fail" = "1" ]; then
+            echo
+            echo "llms.txt points at paths the deployed site does not serve."
+            echo "Either the page failed to deploy, or the index is wrong."
+            exit 1
+          fi
+          echo "All internal links in llms.txt serve 200."
