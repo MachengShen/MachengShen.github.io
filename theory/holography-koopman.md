@@ -1,122 +1,125 @@
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
 
-# 理论笔记:全息原理、Koopman 反问题与"最优遗忘"
-*一条正在迭代的理论线 · 2026-07-06 · 供外部 AI reviewer 使用的完整 context*
+# Theory note: holography, the Koopman inverse problem, and "optimal forgetting"
+*A theory line still under iteration · 2026-07-06 · full context, written for external AI reviewers*
 
-## 给 reviewer 的 context(先读这段)
+## Context for the reviewer (read this first)
 
-这是一条个人理论线("通用学习机 / General Learning Machine, GLM"视角)的一次迭代记录。该线的既有立场:**知识 = 生成器(种子),不是事实列表(落叶);记忆 = 动力学;遗忘 = 压缩而非删除**。本次迭代起点是一篇讨论全息原理与因陀罗网的科普文章,终点是一道我们认为文献中尚无人正面回答的 open 题。
+This records one iteration of a personal theory line, taken from the "general learning machine" (GLM) point of view. The line's standing position: **knowledge = a generator (a seed), not a list of facts (fallen leaves); memory = dynamics; forgetting = compression, not deletion**. This iteration starts from a popular-science article about holography and Indra's net, and ends at an open question we believe nobody in the literature has answered head-on.
 
-研究纪律(请 reviewer 也遵守这个框架):
-- 以下全部为**理解性探索**,不含任何"据此去构建新架构"的工程承诺;
-- 所有论断按四档诚实度标注:**[定理]**(原文定理级)/ **[实证]**(论文实验或明确陈述级)/ **[推断]**(我们基于文献的推断)/ **[韵脚]**(结构类比,明确不主张真值传递);
-- 我们主动防两类错误:把漂亮的类比当证据("韵脚偷渡真值"),以及把一切强行统一进单一框架的反射。
+Research discipline (reviewers, please hold to this frame too):
 
-**最有价值的 review**:指出哪个 [推断] 其实已有文献正面回答(给出处)、哪个 [韵脚] 在偷渡真值、哪个 [定理] 被我们用错了适用范围。页尾附具体 review 问题清单。
+- Everything below is **exploratory understanding**. It carries no engineering commitment to go build a new architecture on top of it.
+- Every assertion is tagged at one of four honesty levels: **[theorem]** (theorem-grade in the source) / **[empirical]** (at the level of an experiment or an explicit statement in a paper) / **[inference]** (our own inference from the literature) / **[rhyme]** (a structural analogy, explicitly *not* claiming that truth transfers).
+- We are actively defending against two errors: taking a beautiful analogy for evidence ("a rhyme smuggling in truth"), and the reflex of forcing everything into a single unified framework.
+
+**The most valuable review** would point out which **[inference]** has in fact already been answered head-on in the literature (with the citation), which **[rhyme]** is smuggling in truth, and which **[theorem]** we have applied outside its domain of validity. A specific list of review questions is at the end.
 
 ---
 
-## 一、全息侧:纠缠怎么"长出"几何(四块砖)
+## 1. The holography side: how entanglement "grows" geometry (four bricks)
 
-**第一块:Ryu–Takayanagi 公式(2006)——词典本身。** 贝肯斯坦"黑洞信息∝表面积"原本是特例。RT 公式把它升级成通用词典:边界上任一区域的纠缠熵 = 体内某张最小曲面的面积。左边纯信息量,右边纯几何,一个等号焊死 **[定理,AdS/CFT 框架内]**。
+**Brick one: the Ryu–Takayanagi formula (2006) — the dictionary itself.** Bekenstein's "black-hole information ∝ surface area" was originally a special case. RT upgrades it into a general dictionary: the entanglement entropy of any region on the boundary = the area of some minimal surface in the bulk. Pure information on the left, pure geometry on the right, welded together by one equals sign **[theorem, within the AdS/CFT framework]**.
 
-**第二块:Van Raamsdonk 思想实验(2010)——纠缠是时空的胶水。** 把边界两半之间的纠缠调小,对应体内几何拉细,纠缠归零时时空断成两截。空间的连通性 = 纠缠的存在;"关系先于实体"的严格版 **[实证级论证]**。
+**Brick two: Van Raamsdonk's thought experiment (2010) — entanglement is the glue of spacetime.** Dial down the entanglement between the two halves of the boundary and the bulk geometry stretches thin; take the entanglement to zero and spacetime snaps into two pieces. Connectivity of space = the existence of entanglement; the rigorous version of "relations precede entities" **[empirical-grade argument]**.
 
-**第三块:MERA 张量网络(Vidal 2007;Swingle 2012 发现其几何≈AdS)——种子怎么 unroll 出空间。** 张量网络是一张"生成流水线图":从小种子出发一层层织出量子态,每层对应一个观察尺度(重整化)。Swingle 注意到:这张流水线图自身的形状就是一片离散双曲空间,与 AdS 截面同构状 **[实证级对应,非定理]**。即:体内"多出来的一维"= 生成器 unroll 的层数 = 尺度本身。空间不是舞台,是 unroll 的痕迹——"种子生现行"的物理版 **[韵脚]**。
+**Brick three: the MERA tensor network (Vidal 2007; Swingle 2012 noticed its geometry ≈ AdS) — how a seed unrolls into space.** A tensor network is a "generator pipeline diagram": starting from a small seed, it weaves out a quantum state layer by layer, each layer corresponding to one observation scale (renormalization). Swingle noticed that the shape of the pipeline diagram *itself* is a patch of discrete hyperbolic space, isomorphic-looking to a slice of AdS **[empirical-grade correspondence, not a theorem]**. That is: the "extra dimension" in the bulk = the number of layers the generator unrolls = scale itself. Space is not a stage; it is the trace left by unrolling — the physics version of "the seed gives rise to the manifest" **[rhyme]**.
 
-**第四块:HaPPY 全息纠错码(Pastawski–Yoshida–Harlow–Preskill 2015)——"局部含全体"的定理版。** 全息词典的数学结构就是一个量子纠错码:体内信息冗余编码在边界上,任何足够大的边界碎片都能重建体内深处;碎片越小看得越浅——丢的是分辨率,不是信息 **[定理,玩具模型内]**。这是"遗忘 = 压缩非删除"立场在物理侧的孪生结构 **[韵脚]**。
+**Brick four: the HaPPY holographic error-correcting code (Pastawski–Yoshida–Harlow–Preskill 2015) — the theorem-grade version of "the local contains the whole".** The mathematical structure of the holographic dictionary just *is* a quantum error-correcting code: bulk information is redundantly encoded on the boundary, and any sufficiently large boundary fragment can reconstruct the deep bulk; the smaller the fragment, the shallower it can see — what is lost is resolution, not information **[theorem, within the toy model]**. This is the twin structure, on the physics side, of the position that **forgetting = compression, not deletion** **[rhyme]**.
 
-彩蛋:量子极值面/岛屿公式(2019–2020)在半经典层面算出了 Page 曲线——黑洞信息守恒有账可查了 **[实证/定理级进展]**。
+Bonus: the quantum extremal surface / island formula (2019–2020) computed the Page curve at the semiclassical level — black-hole information conservation now has a ledger you can audit **[empirical/theorem-grade progress]**.
 
-**诚实边界:** ①以上严格数学全部生活在 AdS 宇宙,我们的宇宙是 dS(加速膨胀),推广是 open problem;②MERA≈AdS 是"惊人地像",不是同构定理;③"古代经文早已理解全息"这类方向我们明确不采纳——共享数学骨架 ≠ 源头认领。
+**Honest boundaries:** (i) all the rigorous mathematics above lives in an AdS universe, ours is dS (accelerating expansion), and the generalization is an open problem; (ii) MERA ≈ AdS is "strikingly alike", not an isomorphism theorem; (iii) we explicitly do not take up directions of the form "the ancient scriptures already understood holography" — a shared mathematical skeleton ≠ a claim on the source.
 
-## 二、Koopman 反问题:没人送对称性时,本征基要自己学
+## 2. The Koopman inverse problem: when nobody hands you a symmetry, you have to learn the eigenbasis yourself
 
-**第一步:有对称性 = 本征基白送。** 傅里叶模、球谐函数都不是学出来的,是对称性(群论)送的:系统对某变换不变,对应本征基自动到手。历法系统(如六十干支)可视为把**已知**天文周期手工编码成 Z/60 的谐波本征基——同样属于"给定结构→基白送"这一格 **[数学事实 + 推断性刻画]**。
+**Step one: having a symmetry = the eigenbasis is free.** Fourier modes and spherical harmonics are not learned; they are handed to you by symmetry (group theory): a system is invariant under some transformation, and the corresponding eigenbasis arrives automatically. A calendrical system (such as the sixty-term ganzhi cycle) can be viewed as hand-encoding **already known** astronomical periods into a Z/60 harmonic eigenbasis — the same cell of the table: given structure → free basis **[mathematical fact + an inferential characterization]**.
 
-**第二步:Koopman 的移位(1931)。** 非线性动力系统,改盯"关于状态的所有观测函数"怎么演化——该演化算子**永远线性**(代价:无穷维)**[定理]**。Koopman 本征函数 = 每步只乘一个固定数的"最省心观测";找到一组,就等于找到一组坐标,让纠缠的动力学拆成互不干扰的匀速表盘。
+**Step two: Koopman's shift (1931).** For a nonlinear dynamical system, switch to watching how *all observation functions of the state* evolve — that evolution operator is **always linear** (at the price of being infinite-dimensional) **[theorem]**. A Koopman eigenfunction = the "most carefree observable", one that merely gets multiplied by a fixed number at each step; find a set of them and you have found a set of coordinates in which the entangled dynamics decomposes into non-interacting dials turning at constant rates.
 
-**第三步(命门):反问题。** 对称性不在手时——真实世界几乎总是如此——这组本征基只能从轨迹数据里学:DMD → extended DMD → 深度 Koopman(Lusch–Kutz–Brunton 2018,autoencoder 端到端学线性化坐标)**[实证]**。GLM 命门的表述:**通用学习机的核心任务 = 从经验流学出让世界动力学变简单的坐标;记忆 = 该坐标下的种子态;理解 = 本征基找对了** **[立场/推断]**。
+**Step three (the crux): the inverse problem.** When the symmetry is not in hand — which is almost always the case in the real world — this eigenbasis can only be learned from trajectory data: DMD → extended DMD → deep Koopman (Lusch–Kutz–Brunton 2018, an autoencoder learning linearizing coordinates end to end) **[empirical]**. The GLM crux, stated: **the core task of a general learning machine = learn, from the stream of experience, the coordinates in which the world's dynamics becomes simple; memory = the seed state in those coordinates; understanding = having found the right eigenbasis** **[position/inference]**.
 
-诚实短板:真混沌 → Koopman 谱变连续 → 不存在有限表盘化简,再多数据也学不出干净本征基 **[定理级图景,Mezić 谱理论]**。命门是必答题,不是已答题。
+The honest shortcoming: genuine chaos → the Koopman spectrum becomes continuous → no finite set of dials can simplify it, and no amount of data will yield a clean eigenbasis **[theorem-grade picture, Mezić spectral theory]**. The crux is a question that must be answered, not one that has been answered.
 
-## 三、SSM(HiPPO/S4/Mamba)↔ Koopman:桥的勘测(文献挖掘 digest)
+## 3. SSMs (HiPPO/S4/Mamba) ↔ Koopman: surveying the bridge (literature-mining digest)
 
-*本节为专项文献挖掘的成果,四问四答。*
+*This section is the output of a dedicated literature dig: four questions, four answers.*
 
-### Q1. HiPPO 的本征基是拿什么"给定结构"换来的?
+### Q1. What "given structure" does HiPPO trade for its eigenbasis?
 
-拿**遗忘测度**换来的:先声明"过去每一刻对我多重要"(测度 μ(t)),该测度下的正交多项式族**唯一确定** **[定理]**。三个变体对应三种遗忘表盘:LegT(滑窗均匀→平移 Legendre)、LagT(指数衰减→Laguerre)、LegS(整段历史均匀→缩放 Legendre)。投影系数演化压成 ODE:dc/dt = Ac + Bf,A、B 闭式推导、非学得 **[定理]**。《How to Train Your HiPPO》(2022)推到底:每个 SSM 状态都可解读为"输入历史在某组基上的投影系数",每组基对应一个测度 **[实证]**。S4 只是给固定 A 找了个数值稳定坐标(DPLR 分解)**[实证]**。
+It trades a **forgetting measure** for it: first declare "how much each past moment matters to me" (a measure μ(t)), and the family of orthogonal polynomials under that measure is **uniquely determined** **[theorem]**. The three variants correspond to three forgetting dials: LegT (uniform sliding window → translated Legendre), LagT (exponential decay → Laguerre), LegS (uniform over the whole history → scaled Legendre). The evolution of the projection coefficients compresses into an ODE: dc/dt = Ac + Bf, with A and B derived in closed form, not learned **[theorem]**. *How to Train Your HiPPO* (2022) pushes this all the way: every SSM state can be read as "the projection coefficients of the input history onto some basis", with each basis corresponding to a measure **[empirical]**. S4 merely finds a numerically stable coordinate system for a fixed A (the DPLR decomposition) **[empirical]**.
 
-LegS 有真正群论意义的协变性:时间缩放下输出同步缩放(timescale 不变性)**[定理]**。关键差异 **[推断]**:历法码的对称性来自**世界**(天文周期外部给定),HiPPO 的测度来自 **agent 自己的选择**(我决定怎么遗忘)。同是"送基",送礼的人不同——这是第四节 open 题的种子。
+LegS has a covariance with genuine group-theoretic meaning: under a rescaling of time the output rescales in step (timescale invariance) **[theorem]**. The key difference **[inference]**: the symmetry of the calendrical code comes from **the world** (astronomical periods, given externally), whereas HiPPO's measure comes from **the agent's own choice** (I decide how to forget). Both are "free bases", but the giver is different — and that is the seed of the open question in section 4.
 
-### Q2. Mamba 的 selectivity 学到了什么、没学到什么?
+### Q2. What does Mamba's selectivity learn, and what does it not learn?
 
-原文事实 **[实证]**:input-dependent 的是 Δ、B、C;**A 保持固定**(对角、实数)。离散化 Ā = exp(ΔA):每步有效衰减率 = 固定谱 × 输入决定的时间步长。Theorem 1:N=1 时恰好退化为 RNN 遗忘门 **[定理]**。
+Facts from the paper **[empirical]**: what is input-dependent is Δ, B, C; **A stays fixed** (diagonal, real). Discretization Ā = exp(ΔA): the effective decay rate at each step = a fixed spectrum × an input-determined time step. Theorem 1: at N=1 it degenerates exactly into the RNN forget gate **[theorem]**.
 
-测度语言翻译 **[推断]**:Δ 是**时间流速旋钮**。selectivity 没换基——本征方向从头到尾焊死——只是逐 token 调"时间过多快"+ B/C 决定读写方向。**Mamba 是"学测度"的第一个大规模成功实例,不是"学基"的。**
+Translated into the language of measures **[inference]**: Δ is a **knob on the rate of time**. Selectivity does not change the basis — the eigendirections are welded in place from beginning to end — it only tunes "how fast time passes" per token, with B/C determining the read/write directions. **Mamba is the first large-scale success at "learning the measure", not at "learning the basis".**
 
-定理级佐证:《The Illusion of State in State-Space Models》(ICML 2024)证明对角/可交换转移的 SSM 全部困在 TC⁰ 复杂度类,连置换合成都做不了;要越线,转移矩阵必须**非对角地**依赖输入 **[定理]**。"学测度 vs 学基"的分界线,恰好同时是这条复杂度边界 **[推断]**。
+Theorem-grade corroboration: *The Illusion of State in State-Space Models* (ICML 2024) proves that SSMs with diagonal/commuting transitions are all trapped in the complexity class TC⁰ and cannot even compose permutations; to cross that line, the transition matrix must depend on the input **non-diagonally** **[theorem]**. The dividing line between "learning the measure" and "learning the basis" happens to coincide with this complexity boundary **[inference]**.
 
-### Q3. "记忆衰减的本征基" vs "世界动力学的本征基":gap 长什么样?
+### Q3. "The eigenbasis of memory decay" vs "the eigenbasis of world dynamics": what does the gap look like?
 
-- SSM 的基是 **input-generic** 的:Legendre 多项式不关心信号由什么世界产生,只对"给定遗忘测度下压缩任意信号"最优。状态 = 我过去的压缩包。
-- Koopman 的基是 **system-specific** 的:本征函数长在世界的状态空间上,本征值是**这个世界**的固有频率。状态 = 世界在其本征坐标下的位置。
+- An SSM's basis is **input-generic**: Legendre polynomials do not care what world produced the signal; they are optimal for compressing an *arbitrary* signal under a given forgetting measure. State = the compressed archive of my past.
+- Koopman's basis is **system-specific**: the eigenfunctions live on the state space of the world, and the eigenvalues are the natural frequencies of **this particular world**. State = the world's position in its own eigencoordinates.
 
-两者仅在一种情形重合 **[推断]**:输入恰好由纯点谱动力学生成时,最优压缩基 = Koopman 模态(这正是 DMD 合法性的来源)。一般情形不重合:记忆基压得动信号,不知道信号背后的因果结构。
+The two coincide in exactly one case **[inference]**: when the input happens to be generated by purely point-spectrum dynamics, the optimal compression basis = the Koopman modes (this is precisely where DMD gets its legitimacy). In the general case they do not coincide: a memory basis can compress the signal without knowing the causal structure behind it.
 
-文献侧写(无一篇正面命名该 gap,三篇侧面刻画):①受控系统的 Koopman 形式必然含**双线性项**(状态×输入),Mamba 递归对隐状态纯线性、缺此项,补上后乘性记忆任务提升数倍至百倍(2026,玩具规模)**[实证,小规模]**;②Illusion of State:SSM 的"状态"作为 world-state 是复杂度下界意义上的幻觉 **[定理]**;③MamKO:反向用 Mamba 架构在线生成时变 Koopman 算子做控制——两头动工,桥未合龙 **[实证]**。
+How the literature circles it (not one paper names the gap head-on; three characterize it from the side): (i) the Koopman form of a *controlled* system necessarily contains a **bilinear term** (state × input), and the Mamba recursion is purely linear in the hidden state and lacks that term; adding it improves multiplicative-memory tasks by factors of several to a hundred (2026, toy scale) **[empirical, small scale]**; (ii) *Illusion of State*: an SSM's "state", taken as a world-state, is an illusion in the sense of a complexity lower bound **[theorem]**; (iii) MamKO: running it the other way, using the Mamba architecture to generate a time-varying Koopman operator online for control — both ends are under construction, the bridge has not met in the middle **[empirical]**.
 
-### Q4. 连续谱/真混沌:诚实边界
+### Q4. Continuous spectrum / genuine chaos: the honest boundary
 
-Mezić 谱理论图景 **[定理]**:准周期/趋吸引子系统有纯点谱,"学本征基"是 well-posed;混沌/mixing 系统在吸引子上出现**连续谱**——没有可数本征函数集能张成动力学,任何有限基都只是截断,预测视界被 Lyapunov 时间钉死。连续谱部分对应非平凡记忆效应(Mori–Zwanzig 记忆核)。
+Mezić's spectral picture **[theorem]**: quasiperiodic / attractor-approaching systems have a pure point spectrum, and "learning the eigenbasis" is well-posed; chaotic/mixing systems develop a **continuous spectrum** on the attractor — no countable set of eigenfunctions can span the dynamics, any finite basis is only a truncation, and the prediction horizon is nailed down by the Lyapunov time. The continuous-spectrum part corresponds to nontrivial memory effects (the Mori–Zwanzig memory kernel).
 
-深度 Koopman 的务实变通:把本征值参数化为状态的函数 λ(x)——用滑动指针替代固定表盘,仅在小系统上验证 **[实证,小规模]**。
+The pragmatic workaround in deep Koopman: parameterize the eigenvalues as functions of the state, λ(x) — a sliding pointer instead of a fixed dial — verified only on small systems **[empirical, small scale]**.
 
-对 GLM 论题的边界 **[推断]**:"必须学本征基"在纯点谱世界是精确论题;混沌世界降格为"学够用的截断 + 承认残差"。残差恰以记忆核形式回来——而 SSM 的卷积核天生是表示记忆核的机器。这可能是两座塔真正的深层焊点。
+The boundary this puts on the GLM thesis **[inference]**: "you must learn the eigenbasis" is an exact thesis in a pure-point-spectrum world; in a chaotic world it is demoted to "learn a good-enough truncation and own the residual". And the residual comes back precisely in the form of a memory kernel — while an SSM's convolution kernel is by birth a machine for representing memory kernels. This may be the genuinely deep weld between the two towers.
 
-## 四、Open 题:遗忘测度该不该由世界的谱决定?
+## 4. The open question: should the forgetting measure be determined by the spectrum of the world?
 
-桌上两个自由度:**μ(遗忘测度)**= 我对过去"每一刻在乎多少"的打分曲线(HiPPO 中自由选);**世界的谱** = 世界自己的表盘清单(哪些模式转多快、相关性拖多长)。问题:μ 是先验自由选择,还是应当被世界谱(近)唯一决定的导出量?存在"最优遗忘定理"吗?
+Two degrees of freedom on the table: **μ (the forgetting measure)** = my scoring curve for "how much I care about each past moment" (freely chosen in HiPPO); and **the world's spectrum** = the world's own list of dials (which modes turn how fast, how long correlations drag on). The question: is μ an a priori free choice, or should it be a derived quantity, (near-)uniquely determined by the world's spectrum? Is there an "optimal forgetting theorem"?
 
-**定向直觉:这是率失真常识的动力学版。** 记忆 = 对过去的有损压缩;率失真第一课:最优码由信源统计 + 失真度量定,不由编码者品味定 **[定理]**。信源换成世界动力学、失真换成未来预测误差,方向上答案是"该"——open 的是定理的精确形状。
+**Orienting intuition: this is the dynamical version of a rate-distortion commonplace.** Memory = lossy compression of the past; and lesson one of rate-distortion theory is that the optimal code is fixed by the source statistics + the distortion measure, not by the coder's taste **[theorem]**. Swap the source for the world's dynamics and the distortion for future prediction error, and directionally the answer is "it should be" — what is open is the precise shape of the theorem.
 
-**支持耦合的四个锚点(由硬到软):**
-1. **线性特区里这根梁已存在 = 平衡截断/Hankel 理论 [定理]**:给定线性世界,"N 维记忆最优记什么"由 Hankel 算子 SVD 唯一给出,误差界闭式;最优记忆的时间尺度直接由世界本征值决定。线性已知世界内,"遗忘由世界谱决定"是定理,不是猜想。
-2. **人脑实证 = Anderson & Schooler 1991 [实证]**:人类幂律遗忘曲线精确匹配环境中事物的复现概率统计——进化已把 μ 调成环境统计的镜像。
-3. **S4 的成功可反读为自然实验 [实证+推断]**:三个 HiPPO 变体中大规模赢的是 LegS——恰好是 timescale 不变的测度;而自然信号普遍近似 scale-free(1/f 谱)。S4 没学 μ,但碰巧选中了与世界对称性匹配的 μ,然后赢了。
-4. **预测信息瓶颈 [半定理]**:"压缩过去、只留对未来有信息量的部分"在线性高斯情形有解析解,结构完全跟世界谱走;一般情形只有变分近似。
+**Four anchors supporting the coupling (hard to soft):**
 
-**通用定理难产的三只拦路虎:**
-1. 混沌连续谱先砸掉"世界谱"这一头。降格版耦合 **[推断,两半各有实锤]**:混沌系统常有亚稳结构(慢模式/准不变集,转移算子谱隙),Lyapunov 视界外细节无价值 → "快的连续谱部分尽快忘,慢的准点谱部分重点记"——遗忘该跟的是**谱里活得下来的那部分**。
-2. **鸡生蛋**:agent 不知世界谱,得学;学谱靠记忆;记忆的 μ 又该由谱定。真定理不会是静态公式,而是这个循环的**不动点**——μ 与被 μ 支撑着学出的谱互相一致 **[推断]**。
-3. **telos 不只预测**:平衡截断平衡的是两个 Gramian——可观性(过去哪些事影响未来)与可控性(我能对哪些事做什么)。μ 应是世界谱与价值函数的合谋 **[推断]**。
+1. **In the linear special zone this beam already exists = balanced truncation / Hankel theory [theorem]**: given a linear world, "what an N-dimensional memory should optimally remember" is uniquely given by the SVD of the Hankel operator, with closed-form error bounds; the timescales of the optimal memory are determined directly by the world's eigenvalues. Inside a known linear world, "forgetting is determined by the world's spectrum" is a theorem, not a conjecture.
+2. **Human empirics = Anderson & Schooler 1991 [empirical]**: the human power-law forgetting curve precisely matches the statistics of how often things recur in the environment — evolution has already tuned μ into a mirror of environmental statistics.
+3. **S4's success can be read backwards as a natural experiment [empirical + inference]**: of the three HiPPO variants, the one that won at scale is LegS — exactly the timescale-invariant measure; and natural signals are broadly approximately scale-free (1/f spectra). S4 did not learn μ, but it happened to pick a μ matched to the world's symmetry, and then it won.
+4. **The predictive information bottleneck [semi-theorem]**: "compress the past, keep only what carries information about the future" has an analytic solution in the linear-Gaussian case, and its structure follows the world's spectrum exactly; in the general case there are only variational approximations.
 
-**诚实的反方(为什么不该全由世界谱决定):** 非平稳/黑天鹅世界里,μ 锁死当前谱最脆弱——鲁棒的 μ 应比世界相关衰减留更厚的尾(保险)**[推断]**;罕见事件价值在"改模型的量"(贝叶斯惊奇)而非相关权重,纯二阶谱会把它冲掉。精化命题:**μ 该跟的是"世界的可预测结构 + 我对该结构的不确定性";谱只是前者的线性影子** **[推断]**。
+**Three obstacles blocking a general theorem:**
 
-**猜想中的定理形状 [推断]:** 给定容量 N、平稳世界谱测度 ρ、telos(失真度量),最优遗忘测度 μ\* 的时间尺度分布 = ρ 的主导时间尺度经 telos 加权后的重排;线性高斯情形退化为平衡截断;在线版:μ 与所学谱互为不动点,不确定性高时 μ 自动增厚尾部。可证伪小推论:同一架构下,把 μ 的衰减分布调成训练数据自相关衰减的镜像,长程任务应系统性变好(此为推演,非工程提案)。
+1. Chaotic continuous spectra demolish the "world's spectrum" end first. The demoted version of the coupling **[inference, with hard evidence on each half]**: chaotic systems often have metastable structure (slow modes / almost-invariant sets, a spectral gap of the transfer operator), and detail beyond the Lyapunov horizon is worthless → "forget the fast continuous-spectrum part as soon as possible, remember the slow, near-point-spectrum part" — what forgetting should track is **the part of the spectrum that survives**.
+2. **The chicken and the egg**: the agent does not know the world's spectrum and has to learn it; learning the spectrum relies on memory; and memory's μ is supposed to be set by the spectrum. The real theorem will not be a static formula but a **fixed point** of this loop — μ and the spectrum learned under μ's support being mutually consistent **[inference]**.
+3. **Telos is not only prediction**: balanced truncation balances two Gramians — observability (which past events affect the future) and controllability (which things I can do anything about). μ should be a conspiracy between the world's spectrum and the value function **[inference]**.
 
-**韵脚(明确标注为韵脚):** 这道题是"压缩码是世界的镜像"的定理化——一个 agent 的遗忘曲线,是它所居世界的谱的倒影。
+**The honest opposition (why it should *not* be fully determined by the world's spectrum):** in a nonstationary / black-swan world, a μ locked onto the current spectrum is the most fragile — a robust μ should keep a fatter tail than the world's correlation decay (insurance) **[inference]**; the value of a rare event lies in "how much it changes the model" (Bayesian surprise), not in its correlational weight, and a purely second-order spectrum would wash it out. The refined proposition: **what μ should track is "the predictable structure of the world + my uncertainty about that structure"; the spectrum is only the linear shadow of the former** **[inference]**.
 
-## 给 reviewer 的具体问题
+**Conjectured shape of the theorem [inference]:** given a capacity N, a stationary world-spectrum measure ρ, and a telos (a distortion measure), the distribution of timescales of the optimal forgetting measure μ\* = a rearrangement of ρ's dominant timescales, weighted by the telos; in the linear-Gaussian case it degenerates to balanced truncation; in the online version, μ and the learned spectrum are each other's fixed point, and when uncertainty is high μ automatically fattens its tail. A small falsifiable corollary: within a fixed architecture, tuning μ's decay distribution into a mirror of the autocorrelation decay of the training data should systematically improve long-range tasks (this is a deduction, not an engineering proposal).
 
-1. 平衡截断/Hankel 理论作为"线性特区定理"的引用是否恰当?有没有更强或更贴切的既有结果(如 AAK 理论、预测状态表示)?
-2. "记忆衰减基 vs 世界动力学基"这个 gap,是否真的没有文献正面命名与处理?请尽力找反例(关键词提示:predictive state representations, observable operator models, Wiener/Kalman 与在线基学习的交叉)。
-3. "μ 与所学谱互为不动点"式的最优遗忘定理,是否已有人在 predictive coding / free energy / meta-learning 文献中写过?
-4. 混沌情形的降格版耦合(只跟亚稳/慢模式)在转移算子谱隙、Mori–Zwanzig 约化文献中是否已有接近的定式化?
-5. 第三节 Q2 对 Mamba"学测度非学基"的刻画,与 Illusion of State 的 TC⁰ 结果、受控 Koopman 双线性项的对齐,是否存在我们没看到的漏洞?
-6. 全息侧作为"同族反问题"的类比(第一、四节),哪里有偷渡真值的风险?
+**The rhyme (flagged explicitly as a rhyme):** this question is the theorem-ification of "the compression code is a mirror of the world" — an agent's forgetting curve is the reflection of the spectrum of the world it inhabits.
 
-## 文献
+## Specific questions for the reviewer
+
+1. Is the citation of balanced truncation / Hankel theory as the "linear special-zone theorem" appropriate? Is there a stronger or more apt existing result (AAK theory, predictive state representations)?
+2. Is the gap between "the memory-decay basis" and "the world-dynamics basis" really unnamed and unaddressed in the literature? Please try hard to find counterexamples (keyword hints: predictive state representations, observable operator models, the intersection of Wiener/Kalman with online basis learning).
+3. Has an optimal-forgetting theorem of the form "μ and the learned spectrum are each other's fixed point" already been written down in the predictive-coding / free-energy / meta-learning literature?
+4. In the chaotic case, has the demoted coupling (tracking only the metastable / slow modes) already been given a close formalization in the transfer-operator spectral-gap or Mori–Zwanzig reduction literature?
+5. In section 3, Q2's characterization of Mamba as "learning the measure, not the basis", and its alignment with the TC⁰ result of *Illusion of State* and with the bilinear term of controlled Koopman — is there a hole in it we have not seen?
+6. Where does the analogy on the holography side (sections 1 and 4) as a "same-family inverse problem" risk smuggling in truth?
+
+## Literature
 
 1. HiPPO — Gu, Dao, Ermon, Rudra, Ré 2020, arXiv:2008.07669
 2. S4 — Gu, Goel, Ré 2021, arXiv:2111.00396
 3. How to Train Your HiPPO — Gu et al. 2022, arXiv:2206.12037
 4. Mamba — Gu & Dao 2023, arXiv:2312.00752
 5. Deep Koopman — Lusch, Kutz, Brunton 2018, arXiv:1712.09707 (Nature Comm.)
-6. Mezić Koopman 谱理论 — arXiv:1702.07597;Annu. Rev. Fluid Mech. (annurev-fluid-011212-140652)
+6. Mezić Koopman spectral theory — arXiv:1702.07597; Annu. Rev. Fluid Mech. (annurev-fluid-011212-140652)
 7. Bilinear Input Modulation for Mamba: Koopman Bilinear Forms — arXiv:2604.17221
 8. The Illusion of State in State-Space Models — Merrill, Petty, Sabharwal, ICML 2024, arXiv:2404.08819
 9. MamKO: Mamba-based Koopman operator — OpenReview hNjCVVm0EQ
-10. Ryu & Takayanagi 2006 (hep-th/0603001);Van Raamsdonk 2010 (arXiv:1005.3035);Swingle 2012 (arXiv:0905.1317);Pastawski–Yoshida–Harlow–Preskill 2015 (arXiv:1503.06237)
+10. Ryu & Takayanagi 2006 (hep-th/0603001); Van Raamsdonk 2010 (arXiv:1005.3035); Swingle 2012 (arXiv:0905.1317); Pastawski–Yoshida–Harlow–Preskill 2015 (arXiv:1503.06237)
 11. Anderson & Schooler 1991, "Reflections of the environment in memory", Psychological Science

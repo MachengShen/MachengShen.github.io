@@ -7,8 +7,15 @@
 # The theory notes are NOT translated per bundle -- an artifact has one text, in
 # whichever language it was written in. Only the index wrapped around them
 # changes language. The `language:` field in each Source marker says which, so a
-# reader is never surprised. That is the case that actually bites here: two of
-# the three notes are Chinese and the English index never said so.
+# reader is never surprised. That is the case that actually bites here: the
+# English index used to inline Chinese bodies without ever saying so.
+#
+# Two of the notes now exist as a pair -- an English canonical plus the Chinese
+# original it was translated from, at the same base name with a `.zh.` infix.
+# BOTH members of the pair are inlined, into BOTH bundles: the bundle mirrors
+# theory/ as it is, it does not filter by locale. So /llms-full.txt legitimately
+# carries Chinese bodies and /llms-full.zh.txt legitimately carries English ones.
+# The language field on each marker is what makes that honest rather than sloppy.
 #
 # Each Source marker carries a sha256 of the file it inlines. check_index.py
 # recomputes those hashes. Before, CI only checked that the marker string

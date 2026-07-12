@@ -1,11 +1,19 @@
 # What language each published artifact is actually written in.
 #
 # Why this file exists: llms.txt is an English index, and it used to imply the
-# work behind it was English too. It is not. Two of the three theory notes -- the
-# payload inlined into /llms-full.txt -- are written in Chinese, as are four of
+# work behind it was English too. It was not. Two of the three theory notes -- the
+# payload inlined into /llms-full.txt -- were written in Chinese, as are four of
 # the research pages. An agent told "the canonical index is English", handed the
-# self-contained bundle, and given no inLanguage anywhere, gets two thirds
-# Chinese prose and no warning. That is the gap this closes.
+# self-contained bundle, and given no inLanguage anywhere, got two thirds Chinese
+# prose and no warning. That is the gap this closes.
+#
+# Both of those theory notes now have an English canonical edition, translated
+# from the Chinese original, which is kept alongside it at the same base name
+# with a `.zh.` infix. The bundle inlines BOTH editions of each -- a note is not
+# translated to match the index it happens to be linked from, so the language of
+# each inlined body is stated in its Source marker and is load-bearing. The four
+# Chinese research pages are still Chinese-only, and are still marked `· 中文` in
+# both indexes; do not let that marker rot into a decoration.
 #
 # Rules, in precedence order:
 #
@@ -33,7 +41,9 @@
 # Format: <path>  <bcp47 tag>  # note
 # Checked by scripts/check_index.py, enforced in CI.
 
-theory/coordination-structures.md   en       # written in English
-theory/holography-koopman.md        zh-Hans  # Chinese prose, English technical terms retained
-theory/state-as-closure.md          zh-Hans  # Chinese prose, English technical terms retained
-essay.pdf                           en
+theory/coordination-structures.md    en       # written in English
+theory/holography-koopman.md         en       # English canonical; translated from the Chinese original
+theory/holography-koopman.zh.md      zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
+theory/state-as-closure.md           en       # English canonical; translated from the Chinese original
+theory/state-as-closure.zh.md        zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
+essay.pdf                            en

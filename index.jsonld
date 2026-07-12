@@ -29,7 +29,7 @@
 
   "note": "Machine-traversable index of all public work. Cognitive state is a first-class field: `survived` has passed a real test, `speculative` is untested theory, `retired` was killed by its own falsification and is kept as a tombstone. Covers published research only; private notes and correspondence are not indexed.",
 
-  "languageNote": "One graph carries both languages; there is no second Chinese graph, because a second graph is a second thing to rot. `label` and `description` are language-tagged maps (JSON-LD @container: @language) and may be partial -- an English-only label means no Chinese title has been written, not that one is missing by error. `inLanguage` states what language the ARTIFACT is written in, which is not the language of the index pointing at it: two of the three theory notes are Chinese while llms.txt is English. `cognitiveState` and `confidence` are deliberately single-valued and untranslated: the epistemic layer is not a property of a language. A claim retired in English is retired in Chinese.",
+  "languageNote": "One graph carries both languages; there is no second Chinese graph, because a second graph is a second thing to rot. `label` and `description` are language-tagged maps (JSON-LD @container: @language) and may be partial -- an English-only label means no Chinese title has been written, not that one is missing by error. `inLanguage` states what language the ARTIFACT is written in, which is not the language of the index pointing at it -- four of the research pages are Chinese-only while llms.txt is English. Where a work exists in both languages, the node carries the English canonical in `url` and points at its Chinese edition with `workTranslation`; the pairing is also visible in the filename, which takes a `.zh.` infix. Two of the three theory notes were written in Chinese first and translated afterwards, so their Chinese editions are originals rather than derivatives -- `workTranslation` records which URL is canonical for agents, not which text came first. `cognitiveState` and `confidence` are deliberately single-valued and untranslated: the epistemic layer is not a property of a language. A claim retired in English is retired in Chinese.",
 
   "schemaNote": "v1 breaks v0 consumers that expected `label`/`description` to be plain strings; they are now language maps. v0 also silently renamed the vocabulary it claimed to extend. The mapping is now stated explicitly in `stateVocabulary` instead of being folklore.",
 
@@ -58,6 +58,7 @@
       },
       "url": "https://machengshen.github.io/",
       "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/index.zh.html",
       "cognitiveState": "speculative",
       "edges": [
         { "relation": "hasBranch", "target": "branch/worldview" },
@@ -159,7 +160,8 @@
       },
       "url": "https://machengshen.github.io/theory/holography-koopman.md",
       "format": "text/markdown",
-      "inLanguage": "zh-Hans",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/holography-koopman.zh.md",
       "cognitiveState": "speculative",
       "confidence": 0.5,
       "edges": [{ "relation": "supports", "target": "state-as-closure" }]
@@ -176,7 +178,8 @@
       },
       "url": "https://machengshen.github.io/theory/state-as-closure.md",
       "format": "text/markdown",
-      "inLanguage": "zh-Hans",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/state-as-closure.zh.md",
       "cognitiveState": "speculative",
       "confidence": 0.5
     },

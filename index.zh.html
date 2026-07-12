@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Macheng Shen | Featured Essay</title>
+  <title>Macheng Shen | 精选长文</title>
 
   <link rel="canonical" href="https://machengshen.github.io/" />
   <link rel="alternate" hreflang="en" href="https://machengshen.github.io/" />
@@ -256,28 +256,26 @@ hr {
     .embed-wrap embed { min-height: 650px; }
 }
 </style>
+  <!-- 中文机器索引优先列在前面。这四条 link 上故意不加 hreflang:hreflang 会宣称
+       「本页的中文版是 /llms.zh.txt」,那是假的 —— 它们是机器索引的另一种*表示*,
+       不是本页的*翻译*。本页真正的翻译是英文主页 /,hreflang 指的是那里。
+       /llms.txt 永远是 canonical 入口,永不重定向:agent 按 URL 抓它拿到的一定是英文。 -->
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent 索引,中文 (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent 索引,中文,自包含" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
   <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
-  <!-- Chinese editions of the two text indexes: same artifact set, same cognitive
-       states, enforced by CI. Deliberately NO hreflang on THESE four links, and the
-       distinction is load-bearing: hreflang here would say "the Chinese version of
-       this page is /llms.zh.txt", which is false — these are alternate machine
-       *representations* of the index, not *translations* of the homepage. The real
-       translation of this page is /index.zh.html, and that is where the hreflang
-       links above point. /llms.txt stays the canonical entry and never redirects:
-       an agent fetching it by exact URL always gets English. -->
-  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
-  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "url": "https://machengshen.github.io/",
+    "url": "https://machengshen.github.io/index.zh.html",
+    "inLanguage": "zh-Hans",
     "name": "Macheng Shen",
-    "description": "A one-person research program on information, learning, and what makes futures reachable — from holography and statistical mechanics through consciousness and machine learning to the design of agent-native institutions.",
+    "description": "一个人的研究计划:信息、学习,以及什么让未来变得可达 —— 从全息原理与统计力学,穿过意识与机器学习,落到 agent-native 制度的设计上。",
+    "translationOfWork": "https://machengshen.github.io/",
     "significantLink": [
-      "https://machengshen.github.io/llms.txt",
+      "https://machengshen.github.io/llms.zh.txt",
       "https://machengshen.github.io/research/",
       "https://machengshen.github.io/ideas/"
     ],
@@ -286,16 +284,16 @@ hr {
       "name": "Macheng Shen",
       "email": "macshen93@gmail.com",
       "url": "https://machengshen.github.io/",
-      "jobTitle": "Independent researcher",
+      "jobTitle": "独立研究者",
       "knowsAbout": [
-        "Information dynamics",
-        "Credit assignment and credit transport",
-        "Continual and lifelong learning",
-        "Koopman operator theory",
-        "Holography and entanglement entropy",
-        "Theories of consciousness",
-        "Multi-agent systems and agent-native protocols",
-        "Mechanism design"
+        "信息动力学",
+        "Credit assignment / credit transport",
+        "Continual learning",
+        "Koopman 算子理论",
+        "全息原理与纠缠熵",
+        "意识理论",
+        "多智能体系统与 agent-native 协议",
+        "机制设计"
       ],
       "sameAs": [
         "https://github.com/MachengShen",
@@ -309,16 +307,16 @@ hr {
 <header class="site-header">
   <div class="container nav">
     <div class="left">
-      <a href="/" class="active">Home</a>
-      <a href="/ideas/" class="">Research Essays</a>
+      <a href="/index.zh.html" class="active">首页</a>
+      <a href="/ideas/" class="">研究文章</a>
       <a href="/research/" class="">Wave / Credit Transport</a>
       <a href="/substrate.html" class="">User-Agency Substrate</a>
       <a href="/locality-as-protocol.html" class="">Locality as Protocol</a>
-      <a href="/llms.txt" class="">For agents</a>
+      <a href="/llms.zh.txt" class="">给 agent 看</a>
     </div>
     <div class="right">
-      <a href="/?lang=en" hreflang="en" class="active">EN</a>
-      <a href="/index.zh.html?lang=zh" hreflang="zh-Hans">中</a>
+      <a href="/?lang=en" hreflang="en">EN</a>
+      <a href="/index.zh.html?lang=zh" hreflang="zh-Hans" class="active">中</a>
       <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
     </div>
   </div>
@@ -330,73 +328,73 @@ hr {
   <div class="hero-flex">
     <img src="WechatIMG1106.jpeg" alt="Macheng Shen" class="profile" />
     <div>
-      <div class="kicker">Featured essay + research map</div>
+      <div class="kicker">精选长文 + 研究地图</div>
       <h1>Macheng Shen</h1>
-      <p class="subtitle">Researcher, builder, and explorer of intelligence and human transition.</p>
+      <p class="subtitle">研究者、builder,探索智能与人类转型。</p>
       <div class="button-row">
-        <a class="button" href="/ideas/">Read essays</a>
-        <a class="button secondary" href="/research/">Open wave / credit-transport notes</a>
+        <a class="button" href="/ideas/">读文章</a>
+        <a class="button secondary" href="/research/">打开 wave / credit-transport 笔记</a>
       </div>
     </div>
   </div>
 </section>
 
 <div class="callout note">
-  <strong>Current framing.</strong> The main thesis lives in the featured essay and the ideas page. The wave-backprop work is now treated as a narrower research branch about <em>credit transport</em> and physical implementations of learning, not as a finished total theory.
+  <strong>当前的框架。</strong> 主论点在精选长文和 ideas 页里。wave-backprop 那条线现在被当作一个更窄的研究分支来处理 —— 关于 <em>credit transport</em>、以及学习在物理上怎么被实现 —— 而不是一套已经完成的总体理论。
 </div>
 
 <div class="callout note">
-  <strong>Reading this with an agent?</strong> The work is spread across roughly fifteen repositories and pages. <a href="/llms.txt">/llms.txt</a> is a curated index of all of it, organised into three branches — how beliefs are held, theory of the universe, and future social forms — with the cognitive state of every claim marked (<em>survived</em>, <em>speculative</em>, <em>retired</em>). For a single fetch with no crawling, use <a href="/llms-full.txt">/llms-full.txt</a>; for a typed graph, <a href="/index.jsonld">/index.jsonld</a>.
+  <strong>在用 agent 读这个站?</strong> 这些工作散在大约十五个 repo 和页面里。<a href="/llms.zh.txt">/llms.zh.txt</a> 是它们的完整索引(英文版:<a href="/llms.txt">/llms.txt</a>),按三条分支组织 —— 信念是怎么被持有的、宇宙底层理论、未来社会形态 —— 并且每一条主张都标了认知状态(<em>survived</em> / <em>speculative</em> / <em>retired</em>)。想一次抓完、不爬站,用 <a href="/llms-full.zh.txt">/llms-full.zh.txt</a>;想要带类型的图,用 <a href="/index.jsonld">/index.jsonld</a>(单张图同时承载两种语言)。
 </div>
 
-<h2>Featured Essay (Full Text)</h2>
-<p>This PDF is the current overview of the broader agenda: intelligence as a finite physical system that builds, updates, and deploys internal structure sufficient for prediction, intervention, and control.</p>
+<h2>精选长文(全文)</h2>
+<p>这份 PDF 是目前对整个 agenda 的总览:把智能看成一个有限的物理系统,它构建、更新并调用内部结构,以支撑预测、干预与控制。文章是英文的。</p>
 
 <div class="embed-wrap">
   <embed src="essay.pdf" type="application/pdf" />
 </div>
 
-<p>If the embedded viewer does not load in your browser, open the PDF directly: <a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>.</p>
+<p>如果浏览器里的内嵌阅读器加载不出来,直接打开 PDF:<a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>。</p>
 
-<h2>Research Map</h2>
+<h2>研究地图</h2>
 <div class="card-grid">
   <div class="card">
-    <div class="tag">Main thesis</div>
-    <h3>Toward a theory of intelligence</h3>
-    <p>The core question is what sort of object intelligence is. The working answer is not “static function approximation,” but multiscale closed-loop competence under physical, informational, and control constraints.</p>
+    <div class="tag">主论点</div>
+    <h3>朝向一套智能的理论</h3>
+    <p>核心问题是:智能到底是个什么样的对象。目前的工作答案不是「静态的函数逼近」,而是在物理、信息与控制约束下的多尺度闭环胜任力。</p>
   </div>
   <div class="card">
-    <div class="tag">Ideas page</div>
-    <h3>Line loss, viability, and distributed cognition</h3>
-    <p>These essays develop the higher-level language: physical budgets, coordination costs, endogenous viability, and why multiscale organization keeps appearing in biological and artificial systems.</p>
+    <div class="tag">Ideas 页</div>
+    <h3>线损、viability,与分布式认知</h3>
+    <p>这些文章发展的是更高一层的语言:物理预算、协调成本、内生 viability,以及为什么多尺度组织会在生物系统和人工系统里反复出现。</p>
   </div>
   <div class="card">
-    <div class="tag">Research branch</div>
-    <h3>Credit transport and wave-inspired learning</h3>
-    <p>This branch asks a narrower question: how does task-relevant update information move inside a learning system? Some physical media can compute with fields and even measure gradients in situ; cortex may use its own cousin of this idea.</p>
+    <div class="tag">研究分支</div>
+    <h3>Credit transport 与波启发的学习</h3>
+    <p>这条分支问的是一个更窄的问题:与任务相关的更新信息,在一个学习系统内部是怎么流动的?某些物理介质可以用场来计算,甚至原位测量梯度;皮层可能有它自己的一个远亲版本。</p>
   </div>
   <div class="card">
-    <div class="tag">Governance theory</div>
+    <div class="tag">治理理论</div>
     <h3><a href="/locality-as-protocol.html" style="color:inherit;text-decoration:none;">Locality as Protocol</a></h3>
-    <p>A framework for rule-system competition and co-evolution: what happens when governance decouples from the nation-state and rule-systems compete for global resource flow. Four principles, five unresolved design problems, v0.</p>
+    <p>一个关于规则系统竞争与协同演化的框架:当治理与民族国家解耦、规则系统开始为全球资源流动而竞争时,会发生什么。四条原则,五个尚未解决的设计问题,v0。</p>
   </div>
 </div>
 
-<h2>Original Raw Prompt</h2>
-<p class="small">I am still sharing the original prompt for reproducibility. It was useful as a seed, but several claims on the site have since been revised into a more careful layered framing.</p>
-<p><a href="assets/original_raw_prompt.txt" target="_blank" rel="noopener">View raw prompt (.txt)</a></p>
+<h2>最初的原始 prompt</h2>
+<p class="small">为了可复现,我仍然把最初那份 prompt 公开出来。它作为一个种子是有用的,但站上的好几条主张此后已经被改写成更小心的分层表述。</p>
+<p><a href="assets/original_raw_prompt.txt" target="_blank" rel="noopener">查看原始 prompt(.txt)</a></p>
 
-<h2>About</h2>
-<p>I was trained as an engineer and researcher, earning a PhD at MIT and working on algorithmic research both in Silicon Valley startups and at the Shanghai Qi Zhi Institute, where I focused on foundational algorithms for embodied intelligence.</p>
-<p>I am trying to find a language that can describe intelligent behavior across biology and AI without collapsing everything into current engineering jargon. That means connecting learning, control, multiscale feedback, physical implementation, and safety.</p>
-<p>Recently, I’ve become less interested in being defined by any single credential, institution, or prior role. I want to spend my life working on questions and systems that can genuinely change how humans understand intelligence, navigate transition, and shape the future.</p>
-<p>Right now, my work is centered around three long-term directions:</p>
-<p><strong>Theories of intelligence</strong> — exploring the deeper structure, limits, and dynamics of intelligence itself.</p>
-<p><strong>Frontier Transition Lab</strong> — studying how AI-native individuals, one-person companies, and new human institutions may reshape society.</p>
-<p><strong>Personal cognition systems</strong> — building agents and frameworks that can help people think more clearly, make better long-term decisions, and live with greater internal coherence.</p>
-<p>That’s the cleanest description I have for now. The rest is still being built.</p>
+<h2>关于</h2>
+<p>我受的是工程师和研究者的训练,在 MIT 读完博士,先后在硅谷的创业公司和上海期智研究院做算法研究,在后者的重点是具身智能的基础算法。</p>
+<p>我想找到一种语言,它能同时描述生物和 AI 里的智能行为,而不必把一切都塌缩进当下的工程黑话。这意味着要把学习、控制、多尺度反馈、物理实现和安全性连起来。</p>
+<p>最近,我越来越不愿意被任何单一的头衔、机构或过往角色所定义。我想把一生花在那些真正能改变人类如何理解智能、如何穿越转型、如何塑造未来的问题和系统上。</p>
+<p>眼下,我的工作围绕三条长期方向:</p>
+<p><strong>智能的理论</strong> —— 探索智能本身更深的结构、边界与动力学。</p>
+<p><strong>Frontier Transition Lab</strong> —— 研究 AI-native 的个体、一个人的公司,以及新的人类制度,会怎样重塑社会。</p>
+<p><strong>个人认知系统</strong> —— 构建 agent 和框架,帮助人想得更清楚、做出更好的长期决策、活得更内在一致。</p>
+<p>这是我目前能给出的最干净的描述。剩下的还在建。</p>
 
-<div class="footer">© 2026 Macheng Shen. This site is under active revision. Strong claims are being separated from working hypotheses and open questions.</div>
+<div class="footer">© 2026 Macheng Shen. 本站正在持续修订。强主张正在被从工作假设和开放问题里分离出来。</div>
 
 </main>
 </body>

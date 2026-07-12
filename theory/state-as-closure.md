@@ -1,64 +1,64 @@
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
 
-# State 是什么?——从 MDP 的状态概念到"闭包"本体论
+# What is a state? — from the MDP notion of state to a "closure" ontology
 
-*一次讨论的整理 · Macheng × agent · 2026-07-09*
+*Notes from one discussion · Macheng × agent · 2026-07-09*
 
-## 起点的问题
+## The question we started from
 
-我们常说"信息决定未来的 reachability"。套用强化学习 / 决策论的 MDP 框架,里面需要一个 state——那这个 state 到底是什么?是时空这个大舞台,还是"所有东西互相依赖"的那张关系网?而且 state 所指的那个集合似乎一直在变,没有恒定不变的东西;可能结构层面不变,但具体表现形式一直在改变。
+We often say "information determines the reachability of futures". Put that inside the MDP framework of reinforcement learning / decision theory and you need a state — so what *is* that state? Is it spacetime, the big stage? Or is it the web of relations in which "everything depends on everything else"? And the set that "state" refers to seems to keep changing; there is nothing that stays fixed. Perhaps the structural level is invariant while the concrete form keeps being rewritten.
 
-下面是沿这个问题挖出来的六层。论断按诚实度标注:**[定理]**(有定理级文献)/ **[框架]**(成熟理论框架)/ **[推断]**(我们的综合)/ **[韵脚]**(结构类比,不主张真值传递)。
+Below are the six layers we dug out along this question. Assertions are tagged by honesty level: **[theorem]** (there is theorem-grade literature) / **[framework]** (a mature theoretical framework) / **[inference]** (our own synthesis) / **[rhyme]** (a structural analogy; no claim that truth transfers).
 
-## 一、MDP 的定义自己已经泄密:state 不是东西,是商空间
+## 1. The MDP definition already gives the game away: a state is not a thing, it is a quotient space
 
-教科书说 state 要满足 Markov 性:给定 s,未来与过去条件独立。注意这句话的形状——它不是在描述世界里的某个东西,而是在提一个**条件**:凡是能"屏蔽"过去的,就配叫 state。Crutchfield 的 causal states 定理把这一步走完了 **[定理]**:把所有可能的历史,按"对未来的条件分布无差别"取等价类,这些等价类就是最小充分的 state(computational mechanics 中的 ε-machine)。
+The textbook says a state must satisfy the Markov property: given s, the future is conditionally independent of the past. Notice the shape of that sentence — it is not describing some thing in the world, it is *imposing a condition*: whatever can "screen off" the past deserves to be called a state. Crutchfield's causal-states theorem carries this step to completion **[theorem]**: take all possible histories, form equivalence classes under "indistinguishable with respect to the conditional distribution over futures", and those equivalence classes are the minimal sufficient states (the ε-machine of computational mechanics).
 
-所以 state 的本体论地位是:**历史空间除以"对我关心的事无差别"这个等价关系,得到的商空间**。它不是世界的家具,是一次除法的结果——而除数里写着三样东西:动力学、观测接口、你关心什么(telos)。任何一样变,商就得重算。
+So the ontological status of a state is: **the quotient space you get by dividing the space of histories by the equivalence relation "makes no difference to what I care about"**. It is not furniture of the world; it is the result of one division — and written into the divisor are three things: the dynamics, the observation interface, and what you care about (telos). Change any one of them and the quotient has to be recomputed.
 
-## 二、Mori–Zwanzig 视角:状态 = 你决定停止携带记忆的地方
+## 2. The Mori–Zwanzig view: the state is where you decide to stop carrying memory
 
-统计力学的 Mori–Zwanzig 形式主义给出一个恒等式 **[定理]**:对任何动力系统,任选一组"保留变量"(一个投影),完整动力学都可以精确改写为三项之和——保留变量上的马尔可夫项 + 对历史的记忆核卷积 + 与保留变量正交的噪声。这是恒等式,不是近似:**被投影丢掉的自由度不会消失,必然以记忆核和噪声的形式回来**。
+The Mori–Zwanzig formalism of statistical mechanics gives an identity **[theorem]**: for any dynamical system, pick any set of "retained variables" (a projection), and the full dynamics can be rewritten *exactly* as a sum of three terms — a Markov term on the retained variables + a memory-kernel convolution over history + noise orthogonal to the retained variables. This is an identity, not an approximation: **the degrees of freedom you project away do not disappear; they necessarily come back as a memory kernel and as noise**.
 
-反过来读:**Markov 性从来不是发现的,是购买的**——要么多带变量把记忆核压到可忽略,要么认下一个核和一团噪声。"state"就是你在这笔交易里签字的位置。所以"世界的真实 state 是什么"这个问题本身不适定;适定的问题是:**在我的容量和目的下,哪个商空间的记忆核最小**。选 state = 选投影 = 选怎么遗忘。
+Read it in reverse: **the Markov property is never discovered, it is purchased** — either you carry more variables until the memory kernel is negligible, or you accept a kernel and a cloud of noise. The "state" is where you sign your name on that transaction. Which makes the question "what is the true state of the world" ill-posed in itself; the well-posed question is: **under my capacity and my purpose, which quotient space has the smallest memory kernel**. Choosing a state = choosing a projection = choosing how to forget.
 
-## 三、舞台还是关系网?两个都不是原初——但关系网里藏着让 state 可能的东西
+## 3. Stage or web of relations? Neither is primitive — but the web hides what makes a state possible
 
-- **舞台不是原初**:全息原理一线的现代结果(Ryu–Takayanagi 的纠缠熵=最小曲面面积、Van Raamsdonk 的"解除纠缠→时空断裂"、张量网络 MERA)指向:空间连通性由纠缠结构生成,"舞台"自己是从关联结构里展开出来的 **[框架,严格数学在 AdS 内]**。所谓"时空这个 state",是物理学迄今造出的最深的一套记账商空间——极其成功,但仍是商,不是底。
-- **但"一切互相依赖"如果说满了,有限 state 就根本不可能**——严格的全依赖意味着任何有限截断都漏。有限 state 之所以可行,是因为关系网**有结构**:相互作用局域、关联随距离/时间衰减、存在屏蔽面(图模型语言里的 Markov blanket)**[框架]**。一句话:关系为先,但关系有纹理;**state 是纹理允许的近似闭包**。没有屏蔽结构的宇宙里不存在 agent。
+- **The stage is not primitive**: modern results along the holography line (Ryu–Takayanagi's entanglement entropy = minimal surface area; Van Raamsdonk's "disentangle → spacetime tears apart"; the MERA tensor network) point to this: the connectivity of space is generated by entanglement structure, and the "stage" itself unfolds out of the structure of correlations **[framework; the rigorous mathematics is inside AdS]**. "Spacetime as a state" is the deepest accounting quotient physics has built so far — extremely successful, but still a quotient, not a floor.
+- **But if "everything depends on everything else" is said in full, then a finite state is simply impossible** — strict total dependence means any finite truncation leaks. Finite states are workable because the web of relations **has structure**: interactions are local, correlations decay with distance/time, and screening surfaces exist (in the language of graphical models, the Markov blanket) **[framework]**. In one line: relations come first, but relations have texture; **a state is the approximate closure that the texture permits**. In a universe with no screening structure there are no agents.
 
-## 四、"信息决定 reachability"的严格版
+## 4. The rigorous version of "information determines reachability"
 
-随机控制里这句话有精确形体 **[框架]**:agent 随时间累积的信息是一个**滤波(filtration)**,任何策略都必须适应于它——你不能依据你不知道的东西行动。于是:**可达集随滤波变细而单调增大**;知道得越细,可区分的未来越多,可执行的策略类越大。
+In stochastic control this sentence has a precise body **[framework]**: the information an agent accumulates over time is a **filtration**, and any policy must be adapted to it — you cannot act on what you do not know. Hence: **the reachable set increases monotonically as the filtration gets finer**; the more finely you know, the more futures you can distinguish, and the larger the class of policies you can execute.
 
-POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信息态**(belief state);"state"在决策论里本来就住在 agent 这一侧。还有一个现成的量化:empowerment(Klyubin–Polani)= 从动作到未来观测的信道容量——**用 bit 度量的 reachability** **[框架]**。
+The core lesson of POMDPs has the same source: what a decision is really conditioned on is never the world state but the **information state** (the belief state); in decision theory, "state" has always lived on the agent's side. And there is a ready-made quantification: empowerment (Klyubin–Polani) = the channel capacity from actions to future observations — **reachability measured in bits** **[framework]**.
 
-## 五、"集合一直变、结构不变"这个直觉的三个数学的家
+## 5. Three mathematical homes for the intuition "the set keeps changing, the structure does not"
 
-1. **学习 = 重新取商**:模型变了,"无差别"的划分就变了,state 集随之重划。belief 空间的数学外壳不变,agent 实际用的坐标卡一直在换。
-2. **图册,不是单一坐标系**:开放世界里任何固定 state 集都只是临时 chart;持久的是 chart 之间的**变换规则**。这个立场在科学哲学里有名字——结构实在论(structural realism):跨理论更替存活下来的是关系结构,不是对象清单。
-3. **重整化群**:每个尺度有每个尺度的 state 集,谁也不是"真的";不变的是连接各层的**流**和它的不动点。
+1. **Learning = re-taking the quotient**: when the model changes, the partition of "makes no difference" changes, and the state set gets re-divided accordingly. The mathematical shell of belief space stays put; the coordinate chart the agent actually uses keeps getting swapped.
+2. **An atlas, not a single coordinate system**: in an open world any fixed state set is only a temporary chart; what persists are the **transformation rules** between charts. This position has a name in the philosophy of science — structural realism: what survives theory change is relational structure, not the inventory of objects.
+3. **The renormalization group**: each scale has its own state set, and none of them is "the real one"; what is invariant is the **flow** connecting the levels, and its fixed points.
 
-收束成一句 **[推断]**:**不变的是"闭包条件"那个方程,态集只是方程在当前(世界,接口,容量,telos)下的解**。环境、容量、目的变了,解就重算——本征方程不动,本征向量随算子变。
+Collapsed into one sentence **[inference]**: **what is invariant is the equation of the closure condition; the state set is merely that equation's solution under the current (world, interface, capacity, telos)**. Change the environment, the capacity, or the purpose, and the solution is recomputed — the eigenvalue equation does not move, the eigenvectors change with the operator.
 
-顺带一个我们最近在小合成系统上做的数值观察 **[实证,初步]**:把"表示"与"用该表示活出的统计"接成自洽循环(表示定投影→投影定闭合模型→闭合模型生成轨迹→轨迹统计更新表示),在拟合容量充分的区域,这个循环存在唯一不动点、几何速率收敛——即"state 表示自我再生"的条件在最简单情形下是良定的。真正有趣的 open 区域是容量受限(欠拟合)时:不动点是否仍唯一,直接关系到"同一世界里是否存在多种互不相同但各自自洽的表示方式"。
+Incidentally, a numerical observation we made recently on small synthetic systems **[empirical, preliminary]**: wire "the representation" and "the statistics you live out under that representation" into a self-consistent loop (representation fixes the projection → projection fixes the closed model → the closed model generates trajectories → trajectory statistics update the representation), and in the region where fitting capacity is sufficient, this loop has a unique fixed point and converges at a geometric rate — i.e. the condition for "a state representation regenerating itself" is well-posed in the simplest case. The genuinely interesting open region is when capacity is limited (underfitting): whether the fixed point is still unique bears directly on whether "several mutually different but individually self-consistent ways of representing the same world" can exist.
 
-## 六、真 open 的三处
+## 6. The three genuinely open places
 
-1. **没有设计者时,谁来选商?** "自洽不动点"是候选答案(商由"用它活出来的统计"自我确认),但目前是数值观察+猜想,不是定理。
-2. **态空间的生长没有好数学**:世界冒出新变量(新实体、新博弈)时,商空间要加维而不只是重划——continual learning 的核心 open 问题。
-3. **Bootstrap 循环**:取商要统计,攒统计要先有临时的商。这个鸡生蛋结构反复出现(表示↔统计,记忆测度↔世界模型),它的不动点理论似乎还没人正面写。
+1. **With no designer, who chooses the quotient?** The "self-consistent fixed point" is a candidate answer (the quotient is self-confirmed by the statistics lived out under it), but at present that is a numerical observation plus a conjecture, not a theorem.
+2. **There is no good mathematics for the growth of a state space**: when the world throws up new variables (new entities, new games), the quotient space has to gain dimensions rather than merely be re-divided — the core open problem of continual learning.
+3. **The bootstrap loop**: taking a quotient requires statistics, and accumulating statistics requires a provisional quotient first. This chicken-and-egg structure keeps reappearing (representation ↔ statistics, memory measure ↔ world model), and a fixed-point theory for it does not seem to have been written down head-on by anyone yet.
 
-## 附:一个佛学韵脚(明确标注为韵脚)
+## Appendix: a Buddhist rhyme (flagged explicitly as a rhyme)
 
-上面的结论用中观的话说就是:state 无自性,是**假名安立**的商,随缘重立。"缘起性空"对 state 这个概念的适用度,比对多数概念都字面——但这是结构上的押韵,不是论证。
+Said in the language of Madhyamaka, the conclusion above is: a state has no self-nature; it is a **conventionally designated** (假名安立) quotient, re-established as conditions require. The doctrine of dependent origination and emptiness (缘起性空) applies to the concept of "state" more literally than it does to most concepts — but this is a structural rhyme, not an argument.
 
-## 主要文献指针
+## Main literature pointers
 
 - Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics
 - Zwanzig (2001) *Nonequilibrium Statistical Mechanics*; Lin & Lu, arXiv:1908.07725 — Koopman–Mori–Zwanzig
 - Åström (1965); Kaelbling, Littman & Cassandra (1998) — POMDP / information state
 - Klyubin, Polani & Nehaniv (2005) — empowerment
-- Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — 纠缠与时空
-- Ladyman & Ross (2007) *Every Thing Must Go* — 结构实在论
-- Pearl (1988) — Markov blanket / 图模型屏蔽
+- Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — entanglement and spacetime
+- Ladyman & Ross (2007) *Every Thing Must Go* — structural realism
+- Pearl (1988) — Markov blanket / screening in graphical models

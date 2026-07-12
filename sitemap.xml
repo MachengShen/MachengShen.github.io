@@ -37,6 +37,10 @@
     <lastmod>2026-07-13</lastmod>
   </url>
   <url>
+    <loc>https://machengshen.github.io/index.zh.html</loc>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
     <lastmod>2026-07-13</lastmod>
   </url>
@@ -117,8 +121,16 @@
     <lastmod>2026-07-09</lastmod>
   </url>
   <url>
+    <loc>https://machengshen.github.io/theory/holography-koopman.zh.md</loc>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
     <loc>https://machengshen.github.io/theory/state-as-closure.md</loc>
     <lastmod>2026-07-09</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/theory/state-as-closure.zh.md</loc>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/whitepaper-agent-native-communication/</loc>
