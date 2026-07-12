@@ -1,0 +1,39 @@
+# What language each published artifact is actually written in.
+#
+# Why this file exists: llms.txt is an English index, and it used to imply the
+# work behind it was English too. It is not. Two of the three theory notes -- the
+# payload inlined into /llms-full.txt -- are written in Chinese, as are four of
+# the research pages. An agent told "the canonical index is English", handed the
+# self-contained bundle, and given no inLanguage anywhere, gets two thirds
+# Chinese prose and no warning. That is the gap this closes.
+#
+# Rules, in precedence order:
+#
+#   1. A `.zh.` infix in a filename means zh-Hans. It is the ONLY locale marker a
+#      filename carries, and it always sits immediately before the final suffix:
+#      `research/wave-backprop-en.zh.html`. The canonical sibling of any `.zh.`
+#      file is its path with `.zh.` removed -- that one-line rule is what lets CI
+#      check the two language editions of the index for set equality.
+#
+#      Note the awkward case, and do not "fix" it: `-en` in `wave-backprop-en` is
+#      NOT a locale marker. It is a legacy part of that artifact's base name, and
+#      it stays, because llms.txt promises in prose that the retracted claim is
+#      kept "at its original URL". Renaming it to satisfy a naming scheme would
+#      make the index lie about the one thing the tombstone exists to guarantee.
+#      Hence its Chinese alternate is `wave-backprop-en.zh.html`.
+#
+#   2. An .html file already declares its language in <html lang>. That attribute
+#      is authoritative. CI checks it agrees with rule 1 wherever both apply, and
+#      with index.jsonld's inLanguage always.
+#
+#   3. .md and .pdf have nowhere to carry a language, so they are declared below.
+#      A publishable .md or .pdf missing from this list fails CI -- same doctrine
+#      as .llms-exclude: silence is not an option.
+#
+# Format: <path>  <bcp47 tag>  # note
+# Checked by scripts/check_index.py, enforced in CI.
+
+theory/coordination-structures.md   en       # written in English
+theory/holography-koopman.md        zh-Hans  # Chinese prose, English technical terms retained
+theory/state-as-closure.md          zh-Hans  # Chinese prose, English technical terms retained
+essay.pdf                           en

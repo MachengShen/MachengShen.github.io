@@ -1,16 +1,21 @@
 # Artifacts deliberately absent from llms.txt, each with a reason.
 #
-# The rule: anything served from this site is indexed in llms.txt, or it is
-# listed here. Silence is not an option -- an unindexed page is invisible to an
-# agent handed the index, and that breaks the contract llms.txt makes.
+# The rule: anything served from this site is indexed in llms.txt (or its
+# Chinese counterpart llms.zh.txt), or it is listed here. Silence is not an
+# option -- an unindexed page is invisible to an agent handed the index, and
+# that breaks the contract llms.txt makes.
 #
 # Format: <glob>  # reason
 # Checked by scripts/check_index.py, enforced in CI.
+#
+# Language is declared in .llms-i18n, not here. A page is never excluded for
+# being written in Chinese: `research/wave-backprop.html` used to be listed here
+# as a "Chinese-language duplicate", which was wrong -- it is the zh alternate of
+# the wave-backprop-en archive notice, and now lives at wave-backprop-en.zh.html.
 
 README.md                              # repo housekeeping, not a publication
 *_draft.md                             # superseded drafts of the essay; the PDF is the published form
 agent/index.html                       # PWA application shell, not prose
 research/sleep-wave-theory.md          # markdown source of sleep-learning-wave-theory.html
 research/papers/SUBMISSION_GUIDE.md    # internal note on journal submission mechanics
-research/wave-backprop.html            # Chinese-language duplicate of the wave-backprop-en.html archive notice
 ideas/index.html                       # DEAD PATH: the separate repo MachengShen/ideas has its own GitHub Pages site mounted at /ideas/, which shadows this folder entirely. Nothing under ideas/ in this repo is ever served. Kept only so the shadowing is documented rather than rediscovered; new essays go in essays/.

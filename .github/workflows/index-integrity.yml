@@ -26,9 +26,13 @@ jobs:
       - name: Every artifact is indexed, or excluded with a reason
         run: python3 scripts/check_index.py
 
-      - name: Internal links in llms.txt resolve on the deployed site
+      - name: Internal links in both index editions resolve on the deployed site
         if: github.event_name == 'push'
         run: |
+          # Both language editions are checked. The Chinese index is the only
+          # place a zh alternate is linked, so checking llms.txt alone would
+          # leave every translated page unverified on the deployed site.
+          #
           # This job races the Pages deployment of the very commit that
           # triggered it, so a fresh path 404s for a minute or two before it
           # goes live. Each URL is retried with backoff; only a path still
@@ -50,13 +54,13 @@ jobs:
               echo "  ${code}  ${path}"
               fail=1
             fi
-          done < <(grep -oE 'https://machengshen\.github\.io[^ )"]*' llms.txt \
+          done < <(grep -ohE 'https://machengshen\.github\.io[^ )"]*' llms.txt llms.zh.txt \
                    | sed 's|https://machengshen.github.io||' | sort -u)
           if [ "$fail" = "1" ]; then
             echo
-            echo "llms.txt points at paths the deployed site does not serve,"
+            echo "An index points at paths the deployed site does not serve,"
             echo "and they were still missing after a 10-minute grace window."
             echo "Either the page failed to deploy, or the index is wrong."
             exit 1
           fi
-          echo "All internal links in llms.txt serve 200."
+          echo "All internal links in llms.txt and llms.zh.txt serve 200."

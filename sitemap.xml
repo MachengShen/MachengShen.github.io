@@ -30,19 +30,27 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/llms.zh.txt</loc>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -58,7 +66,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/research/</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/research/papers/SUBMISSION_GUIDE.md</loc>
@@ -86,14 +94,14 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/research/wave-backprop-en.html</loc>
-    <lastmod>2026-03-13</lastmod>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/research/wave-backprop-en.zh.html</loc>
+    <lastmod>2026-07-13</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/research/wave-backprop-full.html</loc>
-    <lastmod>2026-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://machengshen.github.io/research/wave-backprop.html</loc>
     <lastmod>2026-03-13</lastmod>
   </url>
   <url>

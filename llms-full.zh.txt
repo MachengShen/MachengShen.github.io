@@ -1,52 +1,52 @@
 # Macheng Shen
 
-> A one-person research program on **information, learning, and what makes futures reachable** — running from holography and statistical mechanics, through consciousness and machine learning, to the design of agent-native institutions. Work is scattered across ~15 public repositories and pages. This file is the machine-readable index to all of it. Point an agent at this URL and it can traverse from here without crawling.
+> 一个人的研究计划,主题是**信息、学习,以及什么让某些未来变得可达**——从全息原理与统计力学出发,穿过意识与机器学习,落到 agent-native 制度的设计上。这些工作散落在约 15 个公开仓库与页面里。本文件是它们的机器可读索引。把一个 agent 指向这个 URL,它无需爬站就能从这里遍历全部内容。
 
-**Epistemic convention (load-bearing, not decoration).** Every claim below carries a *cognitive state*:
+**认识论约定(承重结构,不是装饰)。** 下面每一条主张都带一个*认知状态*:
 
-- `survived` — has passed a real stress test, experiment, or replication.
-- `speculative` — untested theory. Interesting, unearned.
-- `retired` — killed, usually by its own author's falsification test. Kept as a tombstone so it is not rediscovered.
+- `survived` —— 通过了真实的压力测试、实验或复现。
+- `speculative` —— 未经检验的理论。有意思,但还没挣到信任。
+- `retired` —— 已被杀死,通常死于作者自己的证伪测试。作为墓碑保留,以免被重新发现一遍。
 
-Confidence numbers, where present, are subjective priors — not frequencies. Negative results are published deliberately; several artifacts below exist only to record what did *not* work.
+出现 confidence 数字时,它们是主观先验,不是频率。负面结果是刻意公开的;下面有若干 artifact 存在的唯一理由,就是记录什么*没有*奏效。
 
-**Machine formats.** `/llms.txt` (this file, an index) · `/llms-full.txt` (self-contained: this index plus the full text of the core theory notes, one fetch, no crawling) · `/index.jsonld` (typed graph, JSON-LD).
+**机器格式。** `/llms.txt`(英文索引,canonical 入口)· `/llms-full.txt`(自包含:索引加上核心理论笔记全文,一次抓取,无需爬站)· `/index.jsonld`(带类型的图,JSON-LD)。
 
-**Chinese editions.** `/llms.zh.txt` · `/llms-full.zh.txt` — the same artifact set with the same cognitive states, indexed in Chinese. They are held to that by CI: a claim cannot be retired in one language and left alive in the other, and an artifact cannot be added to one index and forgotten in the other. `/index.jsonld` stays a *single* graph carrying both languages rather than a second graph that would rot; a second graph is a second thing to keep in sync. This file is the canonical entry point and never redirects — an agent fetching `/llms.txt` always gets English.
+**中文版。** `/llms.zh.txt`(本文件)· `/llms-full.zh.txt` —— 与英文版是同一个 artifact 集合、同一套认知状态,只是索引用中文写。这一点由 CI 强制:一条主张不可能在一个语言里被 retire、在另一个语言里还活着;一个 artifact 也不可能只加进一个索引而在另一个里被忘掉。`/index.jsonld` 保持为**单张图**同时承载两种语言,而不是分裂成第二张会腐烂的图——多一张图就是多一个要同步的东西。canonical 入口始终是 `/llms.txt`,它永不重定向:agent 抓 `/llms.txt` 拿到的永远是英文。
 
-**Language of the work itself.** This index is in English; the work it indexes is not all in English. Artifacts written in Chinese are marked `· 中文` below, and unmarked artifacts are in English. This matters most for `/llms-full.txt`: two of the three theory notes inlined into it are Chinese prose (with English technical terms), so a bundle fetched on the assumption that "the index is English, therefore the corpus is English" will surprise you. Per-artifact language is a first-class field (`inLanguage`) in `/index.jsonld`. Cognitive state, by contrast, is *not* translated: an artifact has one state, and it is the same state in every language.
+**被索引的工作本身用什么语言写。** 索引是一回事,工作是另一回事。用中文写的 artifact 在下面标 `· 中文`,没标的是英文。这一点对 `/llms-full.txt` 最要紧:被内联进去的三篇核心理论笔记里有两篇是中文(技术术语保留英文)。每个 artifact 的语言是 `/index.jsonld` 里的一等字段 `inLanguage`。认知状态则**不翻译**:一个 artifact 只有一个状态,在任何语言里都是同一个。
 
-## 1 · Worldview — how beliefs are held (世界观 / 认识论)
+## 1 · 世界观 —— 信念是怎么被持有的(Worldview / 认识论)
 
-The first-order commitment is not to any thesis below but to a *method*: make the cognitive state of a claim explicit, publish what failed, and let adversarial review run before belief.
+第一序的承诺不是下面任何一条论点,而是一套*方法*:把一条主张的认知状态显式标出来、把失败的东西也发表出来、让对抗性评审先于相信发生。
 
-- [Cognition Track](https://github.com/MachengShen/cognition-track): an open, agent-traversable knowledge graph of non-consensus claims about intelligence and learning. Cognitive state is a first-class field on every node. One node is retained *precisely because it failed* its stress test, with a `falsifies` edge pointing back at the root. Machine-readable at [`manifest.jsonld`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld); human-readable at [`INDEX.md`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/INDEX.md).
-- [Continual Learning Lab](https://github.com/starshard-ai/continual-learning-lab): an open log of small, pre-registered continual-learning experiments — **negative results included**. The house rule: an idea that survives three honest experiments outranks an idea that is beautiful.
-- [Reviewer Wheels](https://github.com/starshard-ai/reviewer-wheels): four verification wheels for multi-agent AI coding — drift checks, adversarial review, a reuse compiler, a frontend smoke gate. Built for the failure mode where every agent reports "done" and nobody actually verified.
-- [The Form Was the Cage](https://github.com/MachengShen/the-form-was-the-cage): an agent OS, its self-referential trace, and the end of researcher-as-identity.
+- [Cognition Track](https://github.com/MachengShen/cognition-track):一张开放的、agent 可遍历的知识图谱,收录关于智能与学习的非共识主张。认知状态是每个节点上的一等字段。其中一个节点被保留下来,*恰恰因为它没通过*自己的压力测试,并带一条指回根节点的 `falsifies` 边。机器可读:[`manifest.jsonld`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld);人类可读:[`INDEX.md`](https://raw.githubusercontent.com/MachengShen/cognition-track/master/INDEX.md)。
+- [Continual Learning Lab](https://github.com/starshard-ai/continual-learning-lab):小型、预注册的持续学习实验的公开日志——**负面结果照发**。房规:一个熬过三次诚实实验的想法,压过一个漂亮的想法。
+- [Reviewer Wheels](https://github.com/starshard-ai/reviewer-wheels):面向多 agent AI 编码的四个验证轮子——drift 检查、对抗性评审、复用编译器、前端冒烟门。为这样一种失败模式而造:每个 agent 都报告"done",而没有人真的验证过。
+- [The Form Was the Cage](https://github.com/MachengShen/the-form-was-the-cage):一个 agent OS、它的自指轨迹,以及"研究者作为身份"的终结。
 
-## 2 · Theory of the universe — information, physics, mind (宇宙底层理论)
+## 2 · 宇宙底层理论 —— 信息、物理、心智(Theory of the universe)
 
-One thread runs through all of it: *information, the operators that transform it, and what it costs to forget.*
+一条线索贯穿始终:*信息、变换信息的算子,以及遗忘要付出什么代价。*
 
-- [Holography ↔ Koopman: two faces of one inverse problem](https://machengshen.github.io/theory/holography-koopman.md) `speculative` · 中文 — holography generates spacetime geometry out of entanglement structure; a general learning machine learns an eigenbasis of its own dynamics. These are the same inverse problem seen twice: recover an operator's eigenstructure from what the operator does. The HaPPY holographic error-correcting code is the physical twin of the claim that *forgetting is compression, not deletion*.
-- [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` · 中文 — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
-- [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
-- [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
-- [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
-- [Sleep, waves, and learning](https://machengshen.github.io/research/sleep-learning-wave-theory.html) `speculative`
-- [Response to Lillicrap](https://machengshen.github.io/research/response-to-lillicrap.html) · 中文 — on backprop and biological plausibility.
-- [Living Information System](https://github.com/starshard-ai/living-information-system): the umbrella research program — information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Frontier physics; aging and cancer as information-integrity failures.
-- [Reversible Layer Aging](https://github.com/starshard-ai/reversible-layer-aging) `survived` — re-analysis of two human EPIC methylation datasets: under partial reprogramming, the causal-damage layer (DamAge) reverts youthward while the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries.
+- [全息 ↔ Koopman:同一个反问题的两副面孔](https://machengshen.github.io/theory/holography-koopman.md) `speculative` · 中文 —— 全息原理从纠缠结构里生成时空几何;一台通用学习机学习它自身动力学的一组本征基。这是同一个反问题被看了两遍:从算子做了什么,反推它的本征结构。HaPPY 全息纠错码是"遗忘是压缩、不是删除"这一主张的物理孪生。
+- [State 是一个闭包条件,不是给定的集合](https://machengshen.github.io/theory/state-as-closure.md) `speculative` · 中文 —— 马尔可夫决策过程的"状态"不是世界递给你的。它是一个闭包方程在四重约束(world、interface、capacity、telos)下的*解*。选 state 就是选投影,而选投影就是选遗忘什么。含一个 projection-consistency 实验(自洽解在所测区间内存在且唯一;容量过剩时会容许平凡分量)。
+- [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) —— 长文。也在[主页](https://machengshen.github.io/)上。
+- [一次关于意识的统一理论尝试](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
+- [从弦到意识](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
+- [睡眠、波与学习](https://machengshen.github.io/research/sleep-learning-wave-theory.html) `speculative`
+- [回应 Lillicrap](https://machengshen.github.io/research/response-to-lillicrap.html) · 中文 —— 关于反向传播与生物学合理性。
+- [Living Information System](https://github.com/starshard-ai/living-information-system):总纲研究计划——信息、它的未来可达性,以及它如何在物理、生命与认知系统中被保存或被摧毁。前沿物理;把衰老与癌症当作信息完整性的失效。
+- [Reversible Layer Aging](https://github.com/starshard-ai/reversible-layer-aging) `survived` —— 对两个人类 EPIC 甲基化数据集的重新分析:在部分重编程下,因果损伤层(DamAge)向年轻方向回退,而适应层(AdaptAge)不回退。在两个实验室、两套重编程化学条件下均得到复现。
 
-### Credit transport — and a claim that was retired
+### Credit transport —— 以及一条被撤回的主张
 
-This branch is worth reading in the order below, because it is a worked example of an idea being narrowed under pressure rather than defended.
+这一支值得按下面的顺序读,因为它是一个"想法在压力下被收窄、而不是被辩护"的完整实例。
 
-- [Hebbian appearance, instructive signals, and physical credit transport](https://machengshen.github.io/research/hebbian-wave-interference.html) `speculative` — the current working note. Why local plasticity can look Hebbian while still carrying task-dependent update information, and where wave/adjoint language genuinely helps.
-- [Backpropagation, adjoint fields, and physical transport constraints](https://machengshen.github.io/research/wave-backprop-full.html) `speculative` — the exploratory note. Carries its own title correction: what physical systems actually show, and what they do not yet show.
-- [Deriving backpropagation from wave equations](https://machengshen.github.io/research/wave-backprop-en.html) `retired` — the original, stronger claim: that wave reflection already supplies a first-principles derivation of backpropagation. It does not. The page is kept as an archive notice at its original URL so that the retraction is as reachable as the claim was.
-- [Research overview](https://machengshen.github.io/research/) — the branch index.
+- [Hebbian 的外观、instructive signal,与物理的 credit transport](https://machengshen.github.io/research/hebbian-wave-interference.html) `speculative` —— 当前的主工作笔记。为什么局部可塑性可以看上去像 Hebbian、同时仍携带任务相关的更新信息,以及 wave/adjoint 语言在哪里是真的有帮助的。
+- [反向传播、伴随场,与物理传输约束](https://machengshen.github.io/research/wave-backprop-full.html) `speculative` —— 探索性笔记。它自带标题更正:物理系统实际展示了什么,以及还没有展示什么。
+- [从波动方程推导反向传播](https://machengshen.github.io/research/wave-backprop-en.zh.html) `retired` —— 原来那条更强的主张:波反射已经提供了反向传播的第一性原理推导。它没有。该页面作为存档说明保留在它原来的 URL 上,好让这次撤回和当初那条主张一样可达。
+- [研究总览](https://machengshen.github.io/research/) —— 本支的索引页。
 
 ### Essays
 
@@ -55,42 +55,40 @@ This branch is worth reading in the order below, because it is a worked example 
 - [Where objectives come from — and why solutions become strategic assets](https://machengshen.github.io/essays/where-objectives-come-from-and-why-solutions-become-strategic-assets/)
 - [Why distributed memory matters for lifelong agents](https://machengshen.github.io/essays/why-distributed-memory-matters-for-lifelong-agents/)
 
-Older essays live on a separate site at [/ideas/](https://machengshen.github.io/ideas/), including [Line loss for intelligence](https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/), [From mutual information to endogenous viability](https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/), and [Safety in a computational universe](https://machengshen.github.io/ideas/blog/safety-in-a-computational-universe/).
+更早的文章在一个独立站点 [/ideas/](https://machengshen.github.io/ideas/) 上,包括 [Line loss for intelligence](https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/)、[From mutual information to endogenous viability](https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/)、以及 [Safety in a computational universe](https://machengshen.github.io/ideas/blog/safety-in-a-computational-universe/)。
 
-### A note on contemplative traditions
+### 关于禅修传统的一则说明
 
-There is a real question about how Buddhist, Daoist, and Śaivite models of mind relate to the theory above, and it is one of the motivating questions behind this work. An attempted synthesis mapping them onto a single framework was written and then **failed its own adversarial review**; it is not published, and any grand-unification claim in this direction should be treated as `retired`. What survived the review was narrower and more useful: the genuine, *un-unifiable* divergences between traditions (cultivation versus liberation as terminal goals), and one actionable residue — that the traditions' contribution is a **first-person verification method**, a practice, not a map. Practice is the part that transfers; the map was a raft to abandon.
+佛家、道家与湿婆派的心智模型,与上面的理论究竟是什么关系,这是一个真问题,也是这条工作线背后的动机之一。一份试图把它们映射到单一框架上的综合稿被写了出来,然后**没能通过它自己的对抗性评审**;它没有发表,而这个方向上的任何"大一统"主张都应当被当作 `retired`。评审之后活下来的东西更窄,也更有用:传统之间那些真实的、*不可统一*的分歧(以修养为终点,还是以解脱为终点),以及一条可操作的残余——这些传统的贡献是一套**第一人称的验证方法**,是行,不是图。能迁移的是行;那张图是渡河后要弃的筏。
 
-## 3 · Future social forms — agent-native institutions (未来社会形态)
+## 3 · 未来社会形态 —— agent-native 制度(Future social forms)
 
-If individuals run persistent agents, the institutions between them have to be redesigned. One theory piece, then the design documents.
+如果每个个体都跑着常驻 agent,那么人与人之间的制度就必须重新设计。先一篇理论,然后是设计文档。
 
-- [Coordination structures as resource-scheduling architectures](https://machengshen.github.io/theory/coordination-structures.md) — a deliberately descriptive theory. A polity, a firm, a market, a self-governed commons, and a protocol are five instances of one object: an architecture for scheduling scarce resources under distributed, private information. Capitalism and socialism are two algorithms over that problem, and mechanism design long ago placed both inside one formal space, which makes "which is right" the wrong question and "what mixture, given the domain's information structure" the right one. Includes the Hayek/Scott information constraint, the transaction-cost account of why boundaries exist at all, Ostrom's commons as a documented fourth structure, the protocol's three known failure modes, and three falsifiers. The essay states mechanisms and their measurable proxies; it ranks nothing, names no culprits, and recommends nothing. Its use of credit-transport language from learning theory is marked, explicitly and at length, as a structural rhyme rather than a derivation.
-- [Agent-Native Open Communication](https://machengshen.github.io/whitepaper-agent-native-communication/) · 中文 — the whitepaper, on the next-generation open communication architecture built for agents rather than apps. [Source repository](https://github.com/MachengShen/agent-native-communication) (中文/English).
-- [Starshard: Architecture v1](https://github.com/starshard-ai/architecture-v1) — architecture, safety charter, quickstart, and philosophy for a substrate where **memory is the primary layer** and the individual, not the platform, owns it.
-- [User-Agency Substrate](https://machengshen.github.io/substrate.html) — the position statement: a nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely.
-- [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) — why locality, not centralization, is the right primitive.
-- [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) — many agents, one shared memory, nothing irreversible behind your back. A narrow, descriptive coordination wire above single-agent runtimes.
-- [Starshard Communication](https://github.com/starshard-ai/starshard-communication) — an open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.
-- [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) — one command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean.
-- [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) — the open record of how this substrate actually evolved: `VISION.md`, `THEORY.md`, `PRACTICE.md`, `GOVERNANCE.md`, forecasts, and a self-iteration ledger.
-- [Receipts](https://github.com/MachengShen/starshard-public) — a running log of work executed by this agent stack, published so the claims above can be checked against what was actually done.
+- [作为资源调度架构的协调结构](https://machengshen.github.io/theory/coordination-structures.md) —— 一篇刻意保持描述性的理论。政体、企业、市场、自治共同体、协议,是同一个对象的五个实例:一种在分布式私有信息下调度稀缺资源的架构。资本主义与社会主义是这个问题上的两种算法,而机制设计早已把两者放进了同一个形式空间——这使得"哪个是对的"成为错误的问题,而"给定该领域的信息结构,什么样的混合"才是对的问题。含 Hayek/Scott 的信息约束、关于边界为何存在的交易成本解释、Ostrom 记录下来的第四种结构、协议的三种已知失效模式,以及三条 falsifier。文章陈述机制及其可测代理量;它不排名、不点名、不建议。它对学习理论中 credit-transport 语言的使用,被显式地、且用了相当篇幅地标注为结构性的押韵,而不是推导。
+- [Agent-Native Open Communication](https://machengshen.github.io/whitepaper-agent-native-communication/) · 中文 —— 白皮书,关于为 agent 而非为 app 构建的下一代开放通信架构。[源仓库](https://github.com/MachengShen/agent-native-communication)(中文/English)。
+- [Starshard: Architecture v1](https://github.com/starshard-ai/architecture-v1) —— 一个底座的架构、安全章程、快速上手与哲学:在那里**记忆是第一层**,并且归个体所有,而不归平台。
+- [User-Agency Substrate](https://machengshen.github.io/substrate.html) —— 立场陈述:在前沿模型提供方与个体用户之间,一层非营利的开源底座,不攫取任何经济上行;用户完整拥有自己的衍生物。
+- [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) —— 为什么正确的原语是局部性,而不是中心化。
+- [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) —— 多个 agent、一份共享记忆、任何不可逆的事都不在你背后发生。一条窄的、描述性的协调线,架在单 agent 运行时之上。
+- [Starshard Communication](https://github.com/starshard-ai/starshard-communication) —— 面向个人 agent 用户的开放通信底座:收件箱、寻址、信任层级、策略、receipts。
+- [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) —— 一条命令把 Claude Code 变成个人助理。自带 key,隐私干净。
+- [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) —— 这个底座究竟是怎么演化过来的公开记录:`VISION.md`、`THEORY.md`、`PRACTICE.md`、`GOVERNANCE.md`、预测,以及一份自迭代账本。
+- [Receipts](https://github.com/MachengShen/starshard-public) —— 这套 agent 栈实际执行过的工作的流水日志,公开出来,好让上面那些主张能对着"实际做了什么"被核对。
 
-## Working notes
+## 工作方式
 
-- **Correspondence is asynchronous by default.** Synchronizing on a fixed meeting time is expensive and usually unnecessary; a written exchange leaves both sides room to think, and leaves a record. This index exists partly so that a conversation can begin from what has already been written rather than from a status update.
-- **Scope of this index.** It covers published research and design work. Private notes, personal correspondence, and operational records are not indexed and are not public.
-- **Contact.** macshen93@gmail.com
+- **通信默认异步。** 为了一个固定的会议时间去同步,成本很高,而且通常没必要;书面往来给双方留出思考的余地,也留下记录。这份索引存在的部分理由,就是让一次对话可以从已经写下来的东西开始,而不是从一次状态汇报开始。
+- **本索引的范围。** 它覆盖已发表的研究与设计工作。私人笔记、个人通信与运营记录不在索引之内,也不公开。
+- **联系方式。** macshen93@gmail.com
 
 ---
 
-# Appendix — full text of the core theory notes
+# 附录 —— 核心理论笔记全文
 
-The index above links these; they are inlined here so that a single fetch of
-/llms-full.txt is sufficient and no crawling is required. Each Source marker
-carries the sha256 of the file it inlines and the language that file is
-actually written in — the notes are not translated to match the index, and
-not every note is in English.
+上面的索引链接了这些笔记;它们被内联在这里,好让一次对 /llms-full.zh.txt 的抓取
+就已足够,无需爬站。每条 Source 标记带上该文件的 sha256,以及它实际使用的语言
+——笔记本身不随索引翻译,一个 artifact 只有一份正文。
 
 ---
 

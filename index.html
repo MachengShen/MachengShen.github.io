@@ -220,6 +220,14 @@ hr {
   <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
   <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+  <!-- Chinese editions of the two text indexes: same artifact set, same cognitive
+       states, enforced by CI. Deliberately NO hreflang here. hreflang would say
+       "the Chinese version of THIS PAGE is /llms.zh.txt", which is false — these
+       are alternate representations of the machine index, not translations of the
+       homepage. /llms.txt stays the canonical entry and never redirects: an agent
+       fetching it by exact URL always gets English. -->
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
