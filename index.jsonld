@@ -136,6 +136,7 @@
       "edges": [
         { "relation": "contains", "target": "holography-koopman" },
         { "relation": "contains", "target": "state-as-closure" },
+        { "relation": "contains", "target": "odd-relational-core" },
         { "relation": "contains", "target": "intelligence-essay" },
         { "relation": "contains", "target": "consciousness-unified" },
         { "relation": "contains", "target": "strings-to-consciousness" },
@@ -182,6 +183,24 @@
       "workTranslation": "https://machengshen.github.io/theory/state-as-closure.zh.md",
       "cognitiveState": "speculative",
       "confidence": 0.5
+    },
+    {
+      "id": "odd-relational-core",
+      "label": {
+        "en": "The odd relational core: anti-bipartiteness as the minimal structure",
+        "zh": "奇关系核:反二分作为最小结构"
+      },
+      "description": {
+        "en": "Why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on small, odd, centered, ever-turning relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an us-vs-them binary terminus, while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: 'odd' is demoted to a corollary of 'anti-binary', two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion.",
+        "zh": "为什么文明的压缩图式(三相神、五行、七脉轮)反复落到小、奇、有心、不停转的关系核。一个硬的图论内核——二染色当且仅当无奇环,所以奇环是最省的、拓扑上拒绝「我们vs他们」二分终局的结构,而二元图式天然提供一个最终敌人——外面包着一个四股压力框架,然后被 note 自己的对抗自审拆掉:「奇」被降级为「反二元」的 corollary、四股里两股被重读成 exaptation、道德读法只是假设不是结论。"
+      },
+      "url": "https://machengshen.github.io/theory/odd-relational-core.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/odd-relational-core.zh.md",
+      "cognitiveState": "speculative",
+      "confidence": 0.4,
+      "edges": [{ "relation": "supports", "target": "state-as-closure" }]
     },
     {
       "id": "intelligence-essay",

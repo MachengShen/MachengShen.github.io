@@ -44,6 +44,8 @@
 theory/coordination-structures.md    en       # written in English
 theory/holography-koopman.md         en       # English canonical; translated from the Chinese original
 theory/holography-koopman.zh.md      zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
+theory/odd-relational-core.md        en       # English canonical; translated from the Chinese original
+theory/odd-relational-core.zh.md     zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
 theory/state-as-closure.md           en       # English canonical; translated from the Chinese original
 theory/state-as-closure.zh.md        zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
 essay.pdf                            en

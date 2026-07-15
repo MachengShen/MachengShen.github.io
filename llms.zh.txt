@@ -31,6 +31,7 @@
 
 - [全息 ↔ Koopman:同一个反问题的两副面孔](https://machengshen.github.io/theory/holography-koopman.zh.md) `speculative` —— 全息原理从纠缠结构里生成时空几何;一台通用学习机学习它自身动力学的一组本征基。这是同一个反问题被看了两遍:从算子做了什么,反推它的本征结构。HaPPY 全息纠错码是"遗忘是压缩、不是删除"这一主张的物理孪生。
 - [State 是一个闭包条件,不是给定的集合](https://machengshen.github.io/theory/state-as-closure.zh.md) `speculative` —— 马尔可夫决策过程的"状态"不是世界递给你的。它是一个闭包方程在四重约束(world、interface、capacity、telos)下的*解*。选 state 就是选投影,而选投影就是选遗忘什么。含一个 projection-consistency 实验(自洽解在所测区间内存在且唯一;容量过剩时会容许平凡分量)。
+- [奇关系核:反二分作为最小结构](https://machengshen.github.io/theory/odd-relational-core.zh.md) `speculative` —— 为什么文明的压缩图式(三相神、五行、七脉轮)反复落到*小、奇、有心、不停转*的关系核。一个硬的图论内核——二染色当且仅当无奇环,所以奇环是最省的、能拓扑上拒绝"我们vs他们"二分终局的结构,而二元图式天然提供一个最终敌人——外面包着一个四股压力框架,然后被 note 自己的对抗自审拆掉:"奇"被降级为"反二元"的 corollary、四股里有两股被重读成 exaptation、道德读法只是假设不是结论。那份自审才是正菜。
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) —— 长文。也在[主页](https://machengshen.github.io/)上。
 - [一次关于意识的统一理论尝试](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
 - [从弦到意识](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
