@@ -72,6 +72,7 @@
 - [User-Agency Substrate](https://machengshen.github.io/substrate.html) —— 立场陈述:在前沿模型提供方与个体用户之间,一层非营利的开源底座,不攫取任何经济上行;用户完整拥有自己的衍生物。
 - [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) —— 为什么正确的原语是局部性,而不是中心化。
 - [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) —— 多个 agent、一份共享记忆、任何不可逆的事都不在你背后发生。一条窄的、描述性的协调线,架在单 agent 运行时之上。
+- [Agent 安全：一种防癌变治理](https://machengshen.github.io/theory/agent-safety-stewardship.zh.md) `speculative` —— 把常驻 Agent 的失控理解为一种控制病理：局部生存、修复和复制脱离 owner 层目的、有界权限、资源预算、stop 继承与独立验证。给出七条运行时不变量和 A–D 分层披露规则：安全科学完全开放；可运行 fixture 只有在安全壳结构性不可拆时才公开；能直接放大自治、持久化、权限、隐蔽运行、资源获取或绕过停止的原语应受控或暂不发布。总原则是：永远不要把增长引擎从免疫系统上拆下来单独发布。
 - [Starshard Communication](https://github.com/starshard-ai/starshard-communication) —— 面向个人 agent 用户的开放通信底座:收件箱、寻址、信任层级、策略、receipts。
 - [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) —— 一条命令把 Claude Code 变成个人助理。自带 key,隐私干净。
 - [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) —— 这个底座究竟是怎么演化过来的公开记录:`VISION.md`、`THEORY.md`、`PRACTICE.md`、`GOVERNANCE.md`、预测,以及一份自迭代账本。

@@ -537,6 +537,33 @@
       "cognitiveState": "survived"
     },
     {
+      "id": "agent-safety-stewardship",
+      "label": {
+        "en": "Agent safety as anti-cancer governance",
+        "zh": "Agent 安全：一种防癌变治理"
+      },
+      "description": {
+        "en": "A control-theoretic account of cancer-like persistent-agent failure: local survival, repair, and replication decoupled from owner-level purpose, bounded authority, stop inheritance, resource budgets, and independent verification. Defines seven runtime invariants and an A–D disclosure rule: never publish the growth engine separated from its immune system.",
+        "zh": "把常驻 Agent 的癌变式失控理解为一种控制病理：局部生存、修复和复制脱离 owner 层目的、有界权限、stop 继承、资源预算和独立验证。给出七条运行时不变量与 A–D 分层披露规则：永远不要把增长引擎从免疫系统上拆下来单独发布。"
+      },
+      "url": "https://machengshen.github.io/theory/agent-safety-stewardship.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/agent-safety-stewardship.zh.md",
+      "cognitiveState": "speculative",
+      "confidence": 0.55,
+      "edges": [
+        {
+          "relation": "constrains",
+          "target": "fleet-coordination-protocol"
+        },
+        {
+          "relation": "constrains",
+          "target": "zhizi-agent-os"
+        }
+      ]
+    },
+    {
       "id": "starshard-communication",
       "label": { "en": "Starshard Communication" },
       "description": {

@@ -42,6 +42,8 @@
 # Checked by scripts/check_index.py, enforced in CI.
 
 theory/coordination-structures.md    en       # written in English
+theory/agent-safety-stewardship.md  en       # English canonical; translated from the Chinese working discussion
+theory/agent-safety-stewardship.zh.md zh-Hans # Chinese edition; same cognitive state and disclosure boundary
 theory/holography-koopman.md         en       # English canonical; translated from the Chinese original
 theory/holography-koopman.zh.md      zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
 theory/odd-relational-core.md        en       # English canonical; translated from the Chinese original

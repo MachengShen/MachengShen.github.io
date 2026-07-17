@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
@@ -42,19 +42,19 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-07-15</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -111,6 +111,14 @@
   <url>
     <loc>https://machengshen.github.io/substrate.html</loc>
     <lastmod>2026-04-28</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/theory/agent-safety-stewardship.md</loc>
+    <lastmod>2026-07-17</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/theory/agent-safety-stewardship.zh.md</loc>
+    <lastmod>2026-07-17</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/theory/coordination-structures.md</loc>

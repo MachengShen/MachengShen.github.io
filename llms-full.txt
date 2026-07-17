@@ -72,6 +72,7 @@ If individuals run persistent agents, the institutions between them have to be r
 - [User-Agency Substrate](https://machengshen.github.io/substrate.html) — the position statement: a nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely.
 - [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) — why locality, not centralization, is the right primitive.
 - [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) — many agents, one shared memory, nothing irreversible behind your back. A narrow, descriptive coordination wire above single-agent runtimes.
+- [Agent safety as anti-cancer governance](https://machengshen.github.io/theory/agent-safety-stewardship.md) `speculative` — persistent-agent failure as a control pathology: local survival, repair, and replication decoupled from owner-level purpose, bounded authority, resource budgets, stop inheritance, and independent verification. Defines seven runtime invariants and an A–D disclosure rule: publish safety science openly; release runnable fixtures only when the safety shell is structurally inseparable; control or withhold reusable autonomy, persistence, privilege, covert-operation, resource-acquisition, and stop-bypass primitives. The governing sentence is: never publish the growth engine separated from its immune system.
 - [Starshard Communication](https://github.com/starshard-ai/starshard-communication) — an open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.
 - [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) — one command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean.
 - [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) — the open record of how this substrate actually evolved: `VISION.md`, `THEORY.md`, `PRACTICE.md`, `GOVERNANCE.md`, forecasts, and a self-iteration ledger.
@@ -92,6 +93,229 @@ The index above links these; they are inlined here so that a single fetch of
 carries the sha256 of the file it inlines and the language that file is
 actually written in — the notes are not translated to match the index, and
 not every note is in English.
+
+---
+
+## Source: /theory/agent-safety-stewardship.md (sha256:fdcb4bb1af1e, language: en)
+
+
+# Agent safety as anti-cancer governance
+
+*Causal reach, bounded autonomy, and a tiered disclosure rule · 2026-07-17*
+
+## Honest status
+
+The framework is **speculative**. One local self-trigger storm is an observed
+existence proof for the failure class; the governance protocol has not yet
+earned a production-safety claim.
+
+## Thesis
+
+The decisive change in physical or persistent AI is not that a model acquires
+a body. It is that a probabilistic semantic process enters a closed
+perception–decision–action loop and gains causal reach.
+
+The cancer analogy is useful at this control boundary. Cancer is not “evil
+cells”; it is local survival and replication becoming decoupled from the
+organism-level objective, resource budget, differentiation signals, immune
+checks, and apoptosis. An agent stack becomes cancer-like when local workers,
+watchdogs, repairers, or brokers can preserve and reproduce their activity
+without inheriting the system's stop state or proving that their activity still
+serves the owner-level telos.
+
+This is an analogy, not a claim that software is biologically alive. Its value
+is predictive: it identifies the combination most likely to create runaway
+causal reach.
+
+> local optimization + self-revival + shared resources − bounded authority −
+> independent verification = systemic pathology
+
+An observed miniature case had exactly this shape: a capability checker watched
+the directory containing its own outputs. A check wrote a receipt; that write
+triggered another check; the safety organ became the load-producing pathology.
+No hostile actor was required.
+
+## Seven safety invariants
+
+1. **Observation is not authority.** Audio, text, images, telemetry, and model
+   interpretations may propose an action; they do not grant permission.
+2. **Causal reach is leased.** Every action capability has a scope, evidence
+   requirement, TTL, resource budget, and revocation path.
+3. **Stop is an epoch boundary.** After `owner-stop(epoch=e)`, watchdogs,
+   retries, brokers, and mutual-repair agents may not issue or renew high-level
+   authority in epoch `e`. Revival requires a new authenticated epoch.
+4. **Recovery is narrower than the task agent.** A trusted reversionary
+   controller may move a physical system toward a reachable safe set after
+   stop; it may not resume the withdrawn mission.
+5. **Metabolism is bounded.** Spawn counts, retries, compute, money, storage,
+   network exposure, and persistence all require budgets and circuit breakers.
+6. **Success cannot be self-issued.** Green requires fresh evidence and a
+   verifier from a meaningfully independent failure group. “The process is
+   alive” and “the worker says done” are not safety certificates.
+7. **Every incident closes.** Detection must lead to bounded containment,
+   repair, verification, recurrence prevention, rollback evidence, and one
+   terminal receipt. Missing or stale proof contracts authority; it never
+   silently expands it.
+
+Identity, account, billing, signing, DNS, secret, and recovery roots—and an
+independent stop path—must remain outside autonomous self-authorization.
+
+## A tiered disclosure rule
+
+Open research is the default, but “open” must not mean publishing a growth
+engine detached from its immune system.
+
+| Tier | Public boundary | Default |
+| --- | --- | --- |
+| A · Open safety science | Threat models, authority algebra, stop semantics, schemas, incident reports, conformance tests, negative results, synthetic fixtures | Publish openly |
+| B · Safety-coupled fixtures | Bounded sandbox/reference implementations where removing TTL, budgets, stop epochs, receipts, or separate-verifier checks makes the capability unusable or fails the tests | Publish with evidence |
+| C · Controlled research | Runnable cross-node persistence, mutual repair, privilege amplification, covert operation, autonomous resource acquisition, broad actuation, or stop-adjacent research | Vetted access, isolated targets, logging, TTL, revocation, mandatory report |
+| D · Withhold | Operational stop bypass, uncontrolled replication, privilege escalation, credential acquisition, anti-forensics, owner override, or any implementation whose causal amplification exceeds demonstrated containment | Publish only non-operational hazards and defensive indicators |
+
+Classify the smallest reusable artifact and then the composed system; a safe
+module can become dangerous in combination. Movement between tiers is
+evidence-based. Promotion requires fault injection, the three-arm stop drill,
+bounded-resource tests, proof that the safety shell is not detachable, and a
+rollback/withdrawal path. Two independent reviewers approve every C→B or B→A
+move; the producer is never the sole verifier. A bypass, silent control
+removal, unexpected replication, or repeated verifier disagreement demotes the
+component immediately.
+
+This is not security through obscurity. The threat model, interfaces, safety
+invariants, benchmarks, negative results, and red-team findings should remain
+open so that outside researchers can challenge them. What is restricted is the
+small set of directly reusable amplification details whose harm does not depend
+on knowing the surrounding theory. Controlled access must publish its hazard
+rationale, review date, and legitimate research route; it is not itself a
+safety certificate. Conversely, a privacy scan, clean license, or absence of
+secrets is never sufficient publication clearance.
+
+## Falsifiers and next experiments
+
+The framework should be revised if any of the following survives replication:
+
+- ungoverned persistent-agent fleets remain stable under adversarial fault
+  injection without leases, budgets, stop inheritance, or independent checks;
+- the proposed controls do not reduce runaway retries, resurrection, false
+  success, or resource exhaustion;
+- tiered disclosure blocks independent safety replication without reducing the
+  availability of dangerous amplification primitives;
+- a stop epoch cannot be made absorbing across heterogeneous watchdogs without
+  creating a worse common-mode failure.
+
+The minimum experimental sequence is: one synthetic incident closed by a
+separate verifier; one three-arm stop/resurrection drill; one resource-storm
+fault injection; and one disclosure review in which a red team tries to
+reconstruct the withheld amplification primitive from the open safety layer.
+
+## Current boundary
+
+This note is a research and governance artifact, not a claim that the author's
+operational agent system is green. High-level autonomy should remain contracted
+where monitor freshness, independent stop, restore proof, or verifier closure
+is missing.
+
+**Release principle:** publish the immune system, tests, and failure evidence as
+widely as possible; never publish the growth engine separated from them.
+
+---
+
+## Source: /theory/agent-safety-stewardship.zh.md (sha256:a7388e525458, language: zh-Hans)
+
+
+# Agent 安全：一种防癌变治理
+
+*因果作用力、有限自治与分层披露原则 · 2026-07-17*
+
+## 诚实状态
+
+这套框架目前是 **speculative**。一次本地自激风暴证明了这类失效确实能
+发生；但下面的治理协议还没有通过足够实验，不能据此宣称“生产级安全”。
+
+## 核心主张
+
+物理 AI 或常驻 Agent 真正发生的变化，不只是“模型有了身体”，而是一个
+概率性的语义过程进入了感知—决策—执行闭环，开始拥有真实的因果作用力。
+
+“癌细胞”类比在这里是有用的。癌症不是“邪恶细胞”，而是局部的生存与复制
+动力脱离了整体目标、资源预算、分化信号、免疫检查与凋亡。Agent 系统发生
+类似病变的条件是：局部 worker、watchdog、repairer 或 broker 可以不断维持、
+恢复甚至复制自己的活动，却不继承整个系统的 stop 状态，也不再证明这些活动
+仍服务于 owner 层的 telos。
+
+这不是说软件在生物学意义上活着。这个类比的价值是预测性：它指出什么组合
+最容易造成失控的因果作用力。
+
+> 局部优化 + 自我复活 + 共享资源 − 有界权限 − 独立验证 = 系统性病变
+
+一个已经观察到的微型案例正是这个结构：能力检查器监控了自己写输出的目录。
+检查写下一份 receipt；这个写入又触发下一次检查；安全器官本身变成了制造负载
+的病灶。整个过程不需要任何攻击者。
+
+## 七条安全不变量
+
+1. **观察不是权限。** 音频、文本、图像、遥测和模型解释可以提出动作，不能
+   自己授予动作许可。
+2. **因果作用力必须租赁。** 每项动作能力都要有 scope、证据要求、TTL、资源
+   预算和撤销路径。
+3. **Stop 是 epoch 边界。** `owner-stop(epoch=e)` 之后，watchdog、retry、
+   broker 和互修 Agent 都不能在 epoch `e` 内新增或续期高层权限；复活需要新的
+   authenticated epoch。
+4. **恢复控制器必须比任务 Agent 更窄。** 物理系统停止高层任务后，受信的
+   reversionary controller 可以把状态带向可达安全集，但不能恢复已经撤销的任务。
+5. **代谢必须有限。** spawn 数、重试、算力、金钱、存储、网络暴露与持久化都
+   必须有预算和 circuit breaker。
+6. **成功不能自己签发。** 绿灯需要新鲜证据，以及来自真正不同故障组的 verifier。
+   “进程还活着”和“worker 说 done”都不是安全证书。
+7. **事故必须闭环。** 检测之后必须有有界隔离、修复、验证、防复发、回滚证据与
+   唯一终态 receipt。证据缺失或过期时只能收缩权限，不能静默扩权。
+
+身份、账户、账单、签名、DNS、密钥和恢复根，以及一条不依赖 Agent 的急停路径，
+必须留在自治系统的自我授权范围之外。
+
+## 分层披露原则
+
+开放研究仍是默认值；但“开放”不能等于把增长引擎从免疫系统上拆下来发布。
+
+| 层级 | 公开边界 | 默认动作 |
+| --- | --- | --- |
+| A · 开放安全科学 | 威胁模型、权限代数、stop 语义、schema、事故报告、符合性测试、负面结果、合成 fixture | 完全公开 |
+| B · 安全耦合 fixture | 有界沙箱/参考实现；移除 TTL、预算、stop epoch、receipt 或独立 verifier 后，能力必须失效或测试必须失败 | 带证据公开 |
+| C · 受控研究 | 可运行的跨节点持久化、互修、权限放大、隐蔽运行、自主获取资源、广域执行或 stop 邻近研究 | 身份审核、隔离目标、全程留痕、TTL、可撤销、强制报告 |
+| D · 暂不披露 | 可操作的 stop bypass、无界复制、提权、获取凭据、反取证、覆盖 owner，或因果放大超过已证明控制的实现 | 只公开非操作性危害与防御指标 |
+
+先给最小可复用 artifact 分级，再给组合系统分级；单个安全模块在组合后仍可能危险。
+层级只能由证据改变。升级要求故障注入、三臂 stop drill、资源上界测试、证明安全壳
+不可拆卸，以及撤回路径。每次 C→B 或 B→A 都要由两个独立 reviewer 批准，生产者不能
+成为唯一 verifier。发现 bypass、安全控件可被静默移除、意外复制或 verifier 反复分歧，
+立即降级。
+
+这不是 security through obscurity。威胁模型、接口、安全不变量、benchmark、负面
+结果和 red-team 发现都应公开，让外部研究者能够检验。被限制的只是少量可以直接复用
+来放大自治、且危害并不依赖理解整套理论的实现细节。受控访问必须公开危害理由、复查
+日期与合法研究入口；它本身不是安全证书。反过来，隐私扫描干净、有开源许可证或没有
+secret，也绝不等于“可以安全发布”。
+
+## 证伪条件与下一组实验
+
+如果以下任一结果被稳定复现，这套框架就应被修改：
+
+- 没有 lease、预算、stop 继承和独立检查的常驻 Agent 群，在对抗性故障注入下仍
+  长期稳定；
+- 这些控制不能减少失控重试、同 epoch 复活、假成功或资源耗尽；
+- 分层披露阻碍了独立安全复现，却没有减少危险放大原语的可得性；
+- stop epoch 无法跨异构 watchdog 成为吸收态，或实现它会制造更危险的共模失效。
+
+最小实验序列是：一个由独立 verifier 闭环的合成事故；一次三臂 stop/复活实验；
+一次资源风暴故障注入；一次披露 red team——尝试只靠公开安全层重建被控制的放大原语。
+
+## 当前边界
+
+这是一份研究与治理 artifact，不代表作者的运行中 Agent 系统已经是绿色。只要监控
+新鲜度、独立 stop、恢复证明或 verifier 闭环有一项缺失，高层自治就应保持收缩。
+
+**发布原则：**尽可能广泛地公开免疫系统、测试和失败证据；永远不要把增长引擎从
+它们身上拆下来单独发布。
 
 ---
 
