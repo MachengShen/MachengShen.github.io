@@ -203,6 +203,22 @@
       "edges": [{ "relation": "supports", "target": "state-as-closure" }]
     },
     {
+      "id": "two-body-karma",
+      "label": {
+        "en": "Two-body karma: three modes of relational inertia",
+        "zh": "两体业力:关系里的三种惯性"
+      },
+      "description": {
+        "en": "Extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: the inertia lives in the coupling itself, not in either person. Shared mud is scene-keyed sedimentation of default scripts; the mutual spring is the model of you stored in the other's head, an external memory of your old pattern that makes unilateral self-reform systematically fail until it is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state with hysteresis that flips only when both sides cross the threshold together. Goal is not zero coupling but a negotiable spring. The dynamical-systems language is marked as structural rhyme, not derivation; the note closes with the observations that would break it.",
+        "zh": "把单人版的习气-惯性三模式(泥、弹簧、卡扣)扩展到两个人的关系:惯性存在耦合本身,不在任何一方体内。共泥=双侧沉积、场景键控的默认脚本;互弹簧=对方脑中那个「你的模型」,是你旧模式的外部存储器,让单方面修行系统性失效,直到用明说加反复演把它重训;互锁卡扣=关系状态的双稳加滞回,只有双方同时跨阈才翻转。目标不是零耦合,而是可协商的弹簧。动力学语言被标注为结构性押韵而非推导;文末给出能拆掉框架的可观察证据。"
+      },
+      "url": "https://machengshen.github.io/theory/two-body-karma.md",
+      "format": "text/markdown",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative",
+      "confidence": 0.35
+    },
+    {
       "id": "intelligence-essay",
       "label": { "en": "Toward a Theory of Intelligence and Contemporary AI" },
       "url": "https://machengshen.github.io/essay.pdf",

@@ -50,4 +50,5 @@ theory/odd-relational-core.md        en       # English canonical; translated fr
 theory/odd-relational-core.zh.md     zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
 theory/state-as-closure.md           en       # English canonical; translated from the Chinese original
 theory/state-as-closure.zh.md        zh-Hans  # the Chinese original: Chinese prose, English technical terms retained
+theory/two-body-karma.md             zh-Hans  # Chinese original; no English edition yet
 essay.pdf                            en

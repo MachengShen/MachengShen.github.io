@@ -32,6 +32,7 @@ One thread runs through all of it: *information, the operators that transform it
 - [Holography ↔ Koopman: two faces of one inverse problem](https://machengshen.github.io/theory/holography-koopman.md) `speculative` — holography generates spacetime geometry out of entanglement structure; a general learning machine learns an eigenbasis of its own dynamics. These are the same inverse problem seen twice: recover an operator's eigenstructure from what the operator does. The HaPPY holographic error-correcting code is the physical twin of the claim that *forgetting is compression, not deletion*.
 - [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
 - [The odd relational core: anti-bipartiteness as the minimal structure](https://machengshen.github.io/theory/odd-relational-core.md) `speculative` — why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on *small, odd, centered, ever-turning* relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an "us vs. them" binary terminus while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: "odd" is demoted to a corollary of "anti-binary", two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion. The self-audit is the payload.
+- [Two-body karma: three modes of relational inertia](https://machengshen.github.io/theory/two-body-karma.md) `speculative` · 中文 — extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: once two people are coupled, the inertia lives in neither person but in the coupling itself, and each mode gains a property the single-body version lacks. Shared mud is scene-keyed sedimentation of default scripts, cheapest to rewrite off the old scene; the mutual spring is the model of you stored in the other's head — an external memory of your old pattern that keeps predicting the old you, which is why unilateral self-reform systematically fails in relationships until that model is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state (cold war/reconciliation, pursue/withdraw) with hysteresis, which snaps back under any sub-threshold unilateral effort and flips only when both sides cross the threshold together. The stated goal is not zero coupling — that is the death of the relationship, not liberation — but migrating the coupling into a negotiable spring. Diagnose the mode before choosing the remedy; the dynamical-systems language is marked as structural rhyme, not derivation, and the note closes with the observations that would break it.
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
 - [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
 - [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
@@ -1499,6 +1500,87 @@ POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信�
 - Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — 纠缠与时空
 - Ladyman & Ross (2007) *Every Thing Must Go* — 结构实在论
 - Pearl (1988) — Markov blanket / 图模型屏蔽
+
+---
+
+## Source: /theory/two-body-karma.md (sha256:a554abc2cfa3, language: zh-Hans)
+
+
+# 两体业力:关系里的三种惯性
+
+*一次讨论的整理 · 2026-07-20*
+
+## 诚实的题头(先读这段)
+
+这篇 note 把"业力"当一个动力学词来用:**过去的交互留下的、会继续塑造未来的惯性**——不含任何超自然承诺。它先给单人版的三种惯性(泥、弹簧、卡扣)一个极简回顾,然后做真正的主题:把这套三模式从"一个人"扩展到"两个人的关系"。扩展之后每一种模式都长出了单人版没有的新性质,而且各自要用不同的解法。
+
+全文没有定理内核。动力学语言(attractor、双稳态、滞回)是**结构性押韵**,不是推导;例子(老同学、爸妈、牌友、伴侣)是类型化的,不指任何具体的人。认知状态:**speculative**。
+
+## 0. 一句话版本
+
+两个人一旦长期相处,惯性就不再只存在两个人各自身上,而是存在第三处——**关系本身**。它有三种形态:**泥**(一起踩出来的老轨道)、**弹簧**(对方心里那个旧版本的你)、**卡扣**(两个人一起卡进去的双稳死循环)。三种形态,三种解法;先诊断,再下药,用错了白费力气。
+
+## 1. 极简回顾:一个人的三种惯性
+
+- **泥**:习气。每走一遍老路,路就更深一分;不需要选择,情境一到,脚自动踩进去。解法是"让它干涸"——不再喂它。
+- **弹簧**:旧的稳定状态(attractor)把你往回拉。你已经决定改了,它还在拉。解法是撑过回拉期,让新状态自己稳住。
+- **卡扣**:双稳结构。进去容易、出来难,出来要过一个明显更高的门槛——像卡扣"咔哒"一声扣上。解法不是慢慢磨,是一次性过阈。
+
+## 2. 共泥:关系的惯用轨道
+
+老同学十年没见,坐下三句话,两个人就自动回到了十年前的角色分工——谁损谁、谁捧哏,剧本自己加载。这不是谁选择的,是**每一次交互都在双方身上各沉了一层泥**:聊天的老路径、见面的默认脚本、"我们俩就是这样"。
+
+单人的泥是习气,两人的泥是**关系的惯用轨道**。它有一个可利用的特点:**泥是被场景唤起的**——老地方、老媒介、老时段,唤起老脚本。
+
+**解法**:干涸照旧(不再喂老脚本),但多了一个杠杆——**想谈出新模式,换介质、换场景去谈**。散步的时候谈,写信谈,在一个陌生的地方谈。在粘滞最低的地方写新轨,比在老场景里硬拗省力得多。
+
+## 3. 互弹簧:对方心里存着一个旧版本的你
+
+这是两体系统真正的新东西。爸妈眼里你可能永远是那个孩子;牌友眼里你永远是那个一输就上头的人。原因很具体:**对方脑子里装着一个"你的模型",它是你旧模式的外部存储器。**
+
+你内部清算得再干净,对方仍按旧的你来预测你、按旧的你来接你的话——而他每一次"按旧你响应",都是一次回拉。这就是为什么**单方面修行在关系里常常失效**:你拆掉了自己内部的弹簧,外部还挂着一根。
+
+**解法**:消解必须包含**更新对方的模型**。关键是:对方的模型是个生成器,**只吃真实样本**——光宣告没有用,演示才有用。最快的组合是"**明说 + 反复演**":先说"我在改这个,别按旧的我接话"(给对方一个允许更新的许可),然后用足够多次的新行为,把他心里那个预测器重新训练出来。
+
+## 4. 互锁卡扣:两个人一起卡进去的死循环
+
+关系里很多状态是**双稳**的:冷战/和好、照顾者/被照顾者、追/逃。它们可怕在**互锁**:任何一方单独的努力,只要不过阈值,系统就弹回原态——而且**对方的回应本身就构成回拉力**。一方先软下来,另一方冷着接,软的那方立刻被弹回去;反过来也一样。
+
+**解法只有一个**:**两个人同时投入、同时跨阈。**所以明确的"我们现在切换"时刻——一次明示的和解、一个共同的仪式、一句"这页翻过去了"——远比各自默默渐变有效;渐变几乎注定被回拉。
+
+再加一条滞回的不对称:**进错态容易,出错态贵一个量级。**滑进冷战只要一句话,爬出来要一个仪式。所以在"进入"处设岗——察觉到要滑进冲突态时,晚走那一步——比事后消解便宜得多。**前置刹车永远比事后拆卡扣省。**
+
+## 5. 两条整体性的话
+
+- **消解的目标不是零耦合。**零耦合是关系的死亡,不是解脱。目标是把耦合从泥和卡扣**迁移到"可协商的弹簧"**:仍然互相成形,但弹性系数是活的、可以两个人一起调的。换句话说:在场,而不是记账。
+- **一个工程习惯:共同凭据。**两个人对关系的记忆是两份各自有偏的副本,漂移会自我强化——各记各的版本,越记越理直气壮,这是新惯性的主要来源之一。重要的共识,落一句共同的外部记录(一条两人都看得见的消息、一页共享的纸)。成本是一句话,省掉的是复利级的误会。
+
+## 6. 用法:先诊断,再下药
+
+| 模式 | 症状 | 解法 |
+| --- | --- | --- |
+| 共泥 | 一进老场景就自动回到老脚本 | 干涸 + 换场景写新轨 |
+| 互弹簧 | 自己已经改了,对方还按旧的你接话 | 明说 + 反复演,重训对方的模型 |
+| 互锁卡扣 | 双稳死循环,单方努力总被弹回 | 同时投入、同时跨阈的明示切换 |
+
+误诊用错药是白费力气:对卡扣用泥的方法,等于往双稳态里撒沙子。
+
+---
+
+## 附录 · 理论骨架
+
+给用模型读这篇的读者,把上文压成结构化的几条。
+
+**核心命题**:两个意识体一旦耦合,历史依赖(惯性/"业力")不再只驻留在各自内部,而是驻留在**耦合本身**。单体三模式各有两体版本,且两体版本各有单体没有的新性质。
+
+1. **共泥 = 双侧的、场景键控的路径沉积。**每次交互在双方各沉积一层默认脚本;加载由 context 触发(场景/媒介/时段),不经选择。消解 = 停止喂养 + **在低粘滞 context 写新轨**(换场景的杠杆来自场景键控这一性质本身)。
+2. **互弹簧 = 对方内部的"你"的预测模型,作为你旧模式的外部 attractor。**单侧内部清算不改变外部模型,对方每次按旧模型响应构成回拉,故单方面修行在耦合系统中系统性失效。该模型是生成器,**只被真实样本更新**:重训 = 显式许可(宣告"我在改,别按旧的我预测")+ 足量的新行为样本(演示)。宣告单独无效,演示是必要条件。
+3. **互锁卡扣 = 关系状态空间中的双稳 + 滞回。**冷战/和好、照顾/被照顾、追/逃为双稳态;任一方的亚阈值努力被系统弹回,且对方的响应本身是回拉力的一部分。翻转条件 = **双侧同时过阈**(明示的切换时刻/共同仪式),渐变路径几乎必然被回拉。滞回不对称:进入阈低、退出阈高一个量级 ⟹ 入口监测(前置刹车)在成本上严格优于事后消解。
+4. **目标函数**:不是解耦(耦合归零 = 关系死亡),而是把耦合从泥/卡扣**迁移到弹性系数可协商的弹簧**——仍互相成形,但刚度是双方可共同调节的参数。
+5. **记忆卫生**:两体记忆是两份各自有偏的副本,回溯性编辑使漂移自我强化,构成新惯性的主要来源之一;对策 = 重要共识落**共同的外部记录**。
+6. **操作顺序**:先诊断模式再选解法;三种解法互不通用,误配无效。
+
+**这套框架最可能错在哪**:如果关系状态实测不呈双稳(拿不出滞回证据——进入阈与退出阈无可测差异),"卡扣"就退化为深一点的"泥",第 4 节的"同时跨阈"就失去它相对渐变的优势;如果单方面的持续新行为在多数耦合里就足以翻转状态,"互锁"假设被削弱。这两条都是可观察的,欢迎用它们来拆这篇。
 
 ---
 

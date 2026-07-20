@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
@@ -42,19 +42,19 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-07-15</lastmod>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -147,6 +147,10 @@
   <url>
     <loc>https://machengshen.github.io/theory/state-as-closure.zh.md</loc>
     <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/theory/two-body-karma.md</loc>
+    <lastmod>2026-07-20</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/whitepaper-agent-native-communication/</loc>
