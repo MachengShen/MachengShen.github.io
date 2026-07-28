@@ -137,6 +137,8 @@
         { "relation": "contains", "target": "holography-koopman" },
         { "relation": "contains", "target": "state-as-closure" },
         { "relation": "contains", "target": "odd-relational-core" },
+        { "relation": "contains", "target": "learning-the-self-boundary" },
+        { "relation": "contains", "target": "learning-the-self-boundary-log" },
         { "relation": "contains", "target": "intelligence-essay" },
         { "relation": "contains", "target": "consciousness-unified" },
         { "relation": "contains", "target": "strings-to-consciousness" },
@@ -217,6 +219,46 @@
       "inLanguage": "zh-Hans",
       "cognitiveState": "speculative",
       "confidence": 0.35
+    },
+    {
+      "id": "learning-the-self-boundary",
+      "label": {
+        "en": "Learning where the self ends",
+        "zh": "学习「我到哪里为止」"
+      },
+      "description": {
+        "en": "A proposal that a robot should learn the agent/environment boundary rather than be handed it by an engineer, and the one-day campaign in which three of its four supporting claims were destroyed, every one of them by the authors' own simulator or own re-analysis. Survived: hysteresis in the boundary emerges from a self-reinforcing precision loop with no hand-installed non-linearity, and survives extrapolation to zero sweep rate at 24-35x the resolution floor. Died: self-specificity, because raising one free amplitude makes a wind-blown ball's boundary stick digit-for-digit identically, so hysteresis is a generic property of any gated slow variable; the signature prediction that release is slower than incorporation, falsified in both implementations with the asymmetry reversed in the second for a computable reason, namely that precision amplifies the evidence against a channel just as much; and the claim that any of it falls out of the proposed objective, which in fact requires a cost/benefit ratio hand-tuned to about 2% and places every channel 2-420 window-widths outside it. The human-side motivation rested on an unreferenced claim of empirical establishment; two independent public datasets re-analysed here both point to adaptation, the opposite sign. Written in two layers: a jargon-free narrative, then the full measured record. Not ratified, not a result.",
+        "zh": "一个提案:机器人应该学出 agent/环境边界,而不是被工程师递给它;以及一天之内四条支撑主张倒掉三条的过程,每一条都是被自己的仿真器或自己的重分析打倒的。活下来:边界的滞回确实能从自我强化的精度回路里涌现,不需手装非线性,且通过零扫速外推,达分辨底的 24-35 倍。死掉:自我特异性,因为把一个自由幅度拧大,一个被风吹的球的边界卡得逐位相同,所以滞回是任何带门控慢变量的通用性质;「释放比并入更慢」这条签名预测在两种实现下都被证伪,第二种里方向还反了,原因可算,即精度同样放大反对该通道的证据;以及「这一切从提出的目标函数里自然长出」,实际需要手调到约 2% 的成本收益比,而目标函数把每条通道放在窗口外 2 到 420 个窗口宽。人类侧动机压在一句无出处的「经验上确凿」上;本文重分析的两份独立公开数据都指向适应,即相反符号。双层写作:先无术语叙事,再完整实测记录。未 ratify,不是结论。"
+      },
+      "url": "https://machengshen.github.io/theory/learning-the-self-boundary.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary.zh.md",
+      "cognitiveState": "speculative",
+      "confidence": 0.15,
+      "edges": [
+        { "relation": "supports", "target": "state-as-closure" }
+      ]
+    },
+    {
+      "id": "learning-the-self-boundary-log",
+      "label": {
+        "en": "Stage log - the self-boundary line, in order",
+        "zh": "阶段日志 - 自我边界这条线,按顺序"
+      },
+      "description": {
+        "en": "The audit trail for the self-boundary note: one row per stage (specification, prior-art audit, evidence audits, three rounds of data hunting, two human re-analyses, three simulation stages), each stating what it overturned or established. Mostly a record of self-inflicted damage, including three reusable mistakes: reading a probe's signal-to-noise as the system's coupling strength and then shipping that misdiagnosis downstream as a premise; believing three separate trial-level-data-available statements that all turned out to be aggregates with no trial index; and letting an unreferenced claim of empirical establishment carry an architectural conclusion.",
+        "zh": "自我边界那篇的审计留痕:每个阶段一行(规格、prior-art 审计、证据审计、三轮数据搜寻、两次人类数据重分析、三个仿真阶段),各自说明它推翻或确立了什么。主要是一份自伤记录,含三条可复用的错误:把探针的信噪比读成系统的耦合强度并把误诊当前提发给下一棒;连着相信三份「逐试次数据公开」的声明,打开全是没有试次序号的聚合表;以及让一句无出处的「经验上确凿」承载了一整条架构结论。"
+      },
+      "url": "https://machengshen.github.io/theory/learning-the-self-boundary-log.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary-log.zh.md",
+      "cognitiveState": "speculative",
+      "confidence": 0.15,
+      "edges": [
+        { "relation": "supports", "target": "learning-the-self-boundary" }
+      ]
     },
     {
       "id": "intelligence-essay",

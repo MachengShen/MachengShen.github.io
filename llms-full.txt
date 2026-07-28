@@ -33,6 +33,8 @@ One thread runs through all of it: *information, the operators that transform it
 - [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
 - [The odd relational core: anti-bipartiteness as the minimal structure](https://machengshen.github.io/theory/odd-relational-core.md) `speculative` — why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on *small, odd, centered, ever-turning* relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an "us vs. them" binary terminus while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: "odd" is demoted to a corollary of "anti-binary", two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion. The self-audit is the payload.
 - [Two-body karma: three modes of relational inertia](https://machengshen.github.io/theory/two-body-karma.md) `speculative` · 中文 — extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: once two people are coupled, the inertia lives in neither person but in the coupling itself, and each mode gains a property the single-body version lacks. Shared mud is scene-keyed sedimentation of default scripts, cheapest to rewrite off the old scene; the mutual spring is the model of you stored in the other's head — an external memory of your old pattern that keeps predicting the old you, which is why unilateral self-reform systematically fails in relationships until that model is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state (cold war/reconciliation, pursue/withdraw) with hysteresis, which snaps back under any sub-threshold unilateral effort and flips only when both sides cross the threshold together. The stated goal is not zero coupling — that is the death of the relationship, not liberation — but migrating the coupling into a negotiable spring. Diagnose the mode before choosing the remedy; the dynamical-systems language is marked as structural rhyme, not derivation, and the note closes with the observations that would break it.
+- [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md) `speculative` — a proposal that a robot should *learn* the boundary between itself and the world rather than be handed it by an engineer, and the one-day campaign in which three of its four supporting claims were destroyed — every one of them by the authors' own simulator or own re-analysis. What survived: hysteresis in the boundary does emerge from a self-reinforcing precision loop without a hand-installed non-linearity, and it survives extrapolation to zero sweep rate (24–35× the resolution floor). What died: the self-specificity (raise one free amplitude and a wind-blown ball's boundary sticks digit-for-digit identically, so hysteresis is a generic property of any gated slow variable); the signature prediction that release is slower than incorporation (falsified in both implementations, with the asymmetry pointing the *wrong way* in the second, for a computable reason — precision amplifies the evidence *against* a channel just as much); and the claim that any of it falls out of the proposed objective (it needs a cost/benefit ratio hand-tuned to ~2%, which the objective places 2–420 window-widths away). The human-side motivation turned out to rest on an unreferenced "empirically well established"; two independent public datasets re-analysed here both point to *adaptation*, the opposite sign. Written in two layers: a jargon-free narrative first, then the full measured record. **Not ratified, not a result.**
+- [Stage log — the self-boundary line, in order](https://machengshen.github.io/theory/learning-the-self-boundary-log.md) `speculative` — the audit trail for the note above: one row per stage (specification, prior-art audit, evidence audits, three rounds of data hunting, two human re-analyses, three simulation stages), each stating what it *overturned or established*. It is mostly a record of self-inflicted damage, including the three reusable mistakes: reading a probe's signal-to-noise as the system's coupling strength and then shipping that misdiagnosis downstream as a premise; believing three separate "trial-level data available" statements that all turned out to be aggregates with no trial index; and letting an unreferenced "empirically well established" carry an architectural conclusion.
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
 - [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
 - [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
@@ -317,6 +319,108 @@ secret，也绝不等于“可以安全发布”。
 
 **发布原则：**尽可能广泛地公开免疫系统、测试和失败证据；永远不要把增长引擎从
 它们身上拆下来单独发布。
+
+---
+
+## Source: /theory/consciousness-as-quantum-mechanics.md (sha256:005479e09195, language: )
+
+
+# 能不能像研究量子力学那样,用数学研究意识?
+
+*一次讨论的整理 · 2026-07-20*
+
+## 先读这段
+
+有个很自然的念头:量子力学能把一个氢原子写成一道方程,把两个粒子的相互作用也写成一道方程,算得准、验得上。那意识能不能也这样——一个人是"一道方程",两个人在一起是"两个人相互作用的方程"?
+
+我认真顺了一遍。结论有点意思,也有点扫兴:**这个类比有一半是真的,另一半是个很漂亮的陷阱。** 这篇就老实讲清楚哪一半是真的、哪一半是我们在借符号唬自己。
+
+全文没有定理内核,认知状态是探索性的。我更看重的是把边界划清楚,而不是端出一个好看的方程让人以为我们懂得比实际多。
+
+还有一句得先讲明白,免得误会:**这套东西只讲"自我是怎么运作的"——它怎么维护自己的边界、怎么记住、怎么卡住;它碰不到"觉知本身是什么"。** 你此刻正在体验、正在知道这一切的那个"知",是另一回事,不在这篇的射程里,也不该用公式去套——那得靠亲身体验(第一人称的实践),不是靠方程。这两件事我特意分开:一件能算,一件不能,把它们混在一起是自欺。这篇只谈能算的那件。
+
+## 真的那一半:意识更像"一个形状",不是"一个分数"
+
+先说能站住的。
+
+一个人此刻的状态,不是一个数(比如"心情 0.7 分")。它更像一个**高维的形状、一个方向**——很多维度同时在描述它。这一点和量子力学里"状态是个矢量、不是个数"是对得上的。把心理状态写成这样一个东西,是合法的,没毛病。
+
+但光这一条不值钱——任何稍微复杂的系统状态都是"一个形状"。量子力学真正的味道,要到"两个人"才出来。
+
+## 两个人:最要紧的东西住在"关系本身"里
+
+这是最像量子力学、也最真的一点。
+
+两个人长期相处之后,会出现一个现象:有些东西**既不在你身上、也不在他身上,而在你们俩之间**。你自己怎么调整都没用,因为那个东西不归任何一方单独所有。量子力学里有个几乎一模一样的结构:两个粒子可以处在一个"拆不开"的联合状态——你没法把它写成"这个粒子这样 × 那个粒子那样"。
+
+对得上的地方很具体:
+
+- **拆不开**,对应"关系的惯性住在耦合本身,不在各自内部"。
+- 你只能看到"你这边"的那一份,看不到完整的联合状态——这正好解释了为什么两个人对同一段关系的记忆,总是两份各自有偏的副本,而且越记越歪。
+
+到这里都是真的,是好东西。
+
+## 扫兴的那一半(一):这不需要"量子纠缠"这么玄
+
+这里要拦一下我自己。
+
+"拆不开"确实要紧,但**它不需要量子纠缠这么神秘的东西**。普通的"相关"就能给你"拆不开"——两个人的状态互相关联,联合起来算和分开算不一样,这在最普通的概率里就有,不用搬量子。
+
+想真的用上"纠缠"这个词,得拿出量子专有的证据。其中一条特别好检验:量子纠缠是"专一"的——如果 A 和 B 缠得最深,A 就不能同时和 C 缠得一样深。可是人显然能同时和好几个人有很深的关系(伴侣、父母、挚友)。**这一条恰好说明:人与人之间那种"缠",不是量子意义上的纠缠。**
+
+所以老实讲:"纠缠"目前是个借来的词,唬人的。真正在起作用的,是"拆不开的联合状态"这个朴素结构。去掉那层量子神秘感,剩下的反而更干净、更能对上真实的关系现象。
+
+## 扫兴的那一半(二):薛定谔方程这个"发动机",用错了
+
+这是最要命的一点,也是我最想说清楚的。
+
+量子力学为什么厉害?**不是因为它写了个 ψ。** 是因为对氢原子来说,那个决定一切的"势"(电子和质子之间的库仑吸引)是**已知的、从第一性原理来的**。有了它,方程才能算出光谱、轨道,一条条和实验对上。
+
+意识我们**没有**这个东西。我们不知道那个决定一切的"发动机"是什么。**写下一道 ψ 满足的方程、却说不出方程里那个发动机是什么,那是空的**——是借符号的庄严感,冒充内容。这是最典型的自欺入口。
+
+更麻烦的是,就算硬猜一个发动机,薛定谔这一类方程本身也和我们自己最好的发现**正好相反**:
+
+- 薛定谔方程是**无记忆、可逆**的——绕一圈能原样回到起点。
+- 可我们自己最扎实的发现是:意识的"自我边界"有**记忆、会卡住、回不去**。它像个卡扣:滑进去容易,爬出来要跨一个高得多的门槛;而且从哪条路来的,会影响你现在在哪。
+
+一个"无记忆、可逆"的方程,天生做不出"有记忆、回不去"这件事。**所以坚持套氢原子那套,等于坚持一个我们已经知道和意识记忆相矛盾的框架。** 这不是小瑕疵,是选错了工具箱。
+
+那对的工具是什么?是一类**会耗散、有记忆、会卡在某个状态里出不来的非线性系统**——不是那个漂亮但无记忆的方程。它没那么优雅,但至少类别对了,而且能做实验去证伪。
+
+## 一个我觉得真漂亮的点:"绕一圈回不到原点"
+
+最后讲一个我认为不是花架子的东西。
+
+"有记忆"用数学说是什么?是**绕一个闭环、回不到原点**。你让系统兜一圈、回到名义上一样的状态,如果它累积下来的东西不归零,那就说明有一份任何"当前状态"都装不下的记忆——它藏在路径里。
+
+这个"绕一圈回不回得到原点",恰好是一把钥匙,把两件事连成了一件:"为什么薛定谔那类方程不对"和"为什么意识有记忆",其实是**同一个问题的两种问法**。而且关键是——**它能测**:让系统绕一个闭环,看它回不回得到原点。回得到,说明没有真记忆,漂亮方程够用了;回不到,说明记忆是真的,任何无记忆的框架都装不下它。
+
+我看重这条,不是因为它听起来深,而是因为它落到了一个能做、能被推翻的实验上。听起来深但推不翻的东西,我尽量当它是陷阱。
+
+## 给自己立的一块碑
+
+写这类东西最大的诱惑,是端出一个漂亮方程,让人(也让自己)以为懂得比实际多。所以我给自己立一条:
+
+**只要说不出方程里那个"发动机"是什么,就不端这个方程。** 宁可老实说"这里我们没有,写出来是空的",也不糊一个好看的式子充数。
+
+这篇能交付的,不是"意识的方程"。是三件更小、但站得住的东西:意识更像一个形状;两个人的要紧处住在拆不开的联合状态里(但那是普通相关,不是量子纠缠);以及,对的数学方向是一个有记忆、会卡住的系统,不是薛定谔那道无记忆的方程。就这些。剩下的,等实验说话。
+
+---
+
+## 附录 · 理论骨架
+
+给用模型读这篇的读者,把上文压成结构化的几条,并标注诚实度。
+
+1. **[推断] 运动学侧类比成立**:意识态是高维矢量/分布,非标量。合法但廉价(任何动力系统皆然)。
+2. **[定理] 双体核心 = 联合态不可分解**:ℋ = ℋ₁⊗ℋ₂,不可分离态 ψ ≠ ψ₁⊗ψ₂;约化密度矩阵 ρ₁ = Tr₂|ψ⟩⟨ψ| 边缘化丢信息 = "各自有偏的副本"。耦合标量 = 纠缠熵/互信息。
+3. **[裁定,纠正常见过度解读] "拆不开"是 load-bearing,但由经典关联(互信息)即可给出,不需量子纠缠**。挣得"纠缠"须 Bell 不等式破缺或单偶性签名;单偶性大概率证伪(人有多个并存深关系)⟹ "纠缠"目前是借记号,真对象 = 非乘积联合态 + 互信息。
+4. **[定理级] 薛定谔是错的动力学类**:氢原子可算靠库仑势(对称性给定的 Hamiltonian);意识无此生成元,写 ĤΨ=iℏ∂ₜΨ 而不知 Ĥ = 空。且薛定谔无记忆/幺正/可逆/线性,与自我边界的滞回(有记忆/耗散/不可逆/非线性)结构相反。
+5. **[推断] 正确的类**:开量子系统 Lindblad 主方程(若坚持 QM 语法,但 H、L_k 仍无原则 = 对的语法空的词汇),或非线性耗散动力系统/FEP(μ=F(μ) 自指不动点 + 状态依赖 self-seal 反馈 → 滞回;cusp 突变法式给出环宽随反馈增益 g 单调、g=0 环宽为零)。
+6. **[推断,结构上硬] 上同调统一**:相关 1-形式非恰当(∮≠0 = holonomy = 路径依赖)⟺ 滞回 ⟺ 记忆 ⟺ 无记忆 argmax/幺正演化结构上做不到的那一项。"为什么不是薛定谔"与"为什么有滞回"是同一数学谓词(上同调类是否非平凡)。非装饰,因产出同一可测实验(绕环测 holonomy)。
+7. **可证伪判别**:(a) 匹配药物浓度/整合水平后核心成员集是否路径依赖(滞回环面积 >0?g=0 时环宽是否为零?);(b) 耦合是否违反 Bell/服从单偶性(判经典 vs 量子);(c) 绕闭环 credit/affect 是否回零(判上同调平凡 vs 非平凡)。
+8. **墓碑(拒绝的借记号)**:写 ψ 而无 Ĥ;"意识牛顿第二定律"M_K·S̈+Γṡ+∇U_K=F(不可证伪);幺正薛定谔动力学(与滞回矛盾);"量子纠缠"作双体耦合(未挣得);Riemann 测地线场方程 + 拟合曲率 κ(度规无原则);以及元墓碑——宣称"意识的场方程"仿佛我们有一个(我们没有生成元)。
+
+**这套最可能错在哪**:整个纲领压在一个经验问题上——意识/关系动力学里,那个绕环积分(holonomy)是否真的非零。测出是零,则第 4–6 条一起塌回"无记忆一阶系统",漂亮方程反而够用,本篇的动力学裁定被推翻。这条可测,欢迎用它来拆。
 
 ---
 
@@ -994,6 +1098,1108 @@ Mezić 谱理论图景 **[定理]**:准周期/趋吸引子系统有纯点谱,"�
 9. MamKO: Mamba-based Koopman operator — OpenReview hNjCVVm0EQ
 10. Ryu & Takayanagi 2006 (hep-th/0603001);Van Raamsdonk 2010 (arXiv:1005.3035);Swingle 2012 (arXiv:0905.1317);Pastawski–Yoshida–Harlow–Preskill 2015 (arXiv:1503.06237)
 11. Anderson & Schooler 1991, "Reflections of the environment in memory", Psychological Science
+
+---
+
+## Source: /theory/learning-the-self-boundary-log.md (sha256:b1a1f30b249d, language: en)
+
+
+# Stage log — the self-boundary line, in the order it happened
+
+*Companion index to [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md) · 2026-07-27 → 2026-07-28 · **not ratified***
+
+---
+
+## How to read this page
+
+This is the audit trail. One line per stage, each saying **what it overturned or established** — because the value of this line is not its conclusion (there isn't one) but the record of a claim being taken apart in public, mostly by its own authors.
+
+A plain-language summary of the whole story is Part I of the [main note](https://machengshen.github.io/theory/learning-the-self-boundary.md). The measured numbers are in Part II of the same note. Working artefacts that are not published here are named so the trail is complete, not to imply they are reachable.
+
+Two abbreviations recur. **The boundary** is the line between "me" and "the world", written **μ** in the technical text and treated as something a machine should learn rather than be handed. **Hysteresis** is the sticking property of a switch whose on-threshold and off-threshold differ — the thermostat that starts cooling at 27 and stops at 25 rather than flipping at 26.
+
+---
+
+## Stage 0 · The proposal (2026-07-27)
+
+| | |
+|---|---|
+| **Artefact** | Working memo: robot paradigm via a hysteretic self-boundary |
+| **Established** | A unified diagnosis: imitation-based and reward-based robot learning share **one** defect — the agent/environment boundary is supplied by an engineer, never derived. Proposal: learn the boundary, with closure violation as the training signal, and make the objective second-order (maintain the condition under which the boundary remains a solution). |
+| **Overturned** | Nothing yet. At this point the whole thing rests on one unreferenced clause: "in humans this is empirically well established." |
+
+## Stage 1 · The executable specification (2026-07-27)
+
+| | |
+|---|---|
+| **Artefact** | `robotics-mu-experiment-spec` — loss functions, analytic bistability conditions, a MuJoCo rig, a measurement protocol with sweep-rate control. Design layer ~95% complete; zero lines run. |
+| **Established** | The claim became falsifiable in days rather than years: a 2–3 DoF simulated arm with a detachable tool and a breakable actuator is enough to kill it. |
+| **Overturned — three of the memo's own statements, by the act of writing them down precisely** | (1) the boundary cannot be a scalar per channel: the blanket condition is intrinsically three-way, and a scalar cannot express "I am the screen"; (2) "slow in, slower out" is **not free** — a symmetric double well gives threshold symmetry, not on/off time asymmetry; the memo had conflated the two; (3) **raw pixels cannot serve as channels** — the boundary is a partition over channels, so referents need stable identity. That third one is the line's largest cheat, now accounted for explicitly. |
+
+## Stage 2 · Prior-art audit, done as an attack rather than a survey (2026-07-27)
+
+| | |
+|---|---|
+| **Artefact** | `dmbd-2502.21217-hysteresis-check` — full text of the nearest competing work, extracted and read, not inferred from the abstract. |
+| **Established** | The nearest work has **no hysteresis**: its label process is a per-element first-order Markov chain, inference is acausal forward-backward smoothing, and the paper itself states the assignments "quickly diffuse to a uniform stationary distribution in the absence of observed data" — the definition of monostable. Zero occurrences of hysteresis / bistability / bifurcation / saddle-node. |
+| **Overturned — ours** | The memo's line "FEP-family blankets have no temporal state" is **wrong for this paper**: its assignments do have their own state. The surviving distinction narrowed to exactly one axis: **monostable versus bistable.** |
+| **Also recorded** | Their *general* form lets label transition rates depend on the macroscopic blanket variable — the very loop bistability needs. They assume it away for tractability and list it as future work. Our wedge lands in the next cell of their roadmap: not pre-empted, but not a wide window either. |
+
+## Stage 3 · Evidence audit — the scale narrative (2026-07-28)
+
+| | |
+|---|---|
+| **Artefact** | `scale-vs-structure-evidence-audit` (≈80% complete) |
+| **Established** | "Scale has already solved tool use and damage recovery" is **not supported** — because nobody has measured either. No large model has ever published a functional-transfer success table for unseen tools. The only positive damage-recovery claim is a vendor video with no numbers, whose "damage" was made in-distribution by training across 100,000 simulated morphologies. An 11-year-old paper (5 leg damage conditions + a 14-condition arm damage matrix, adaptation in under two minutes) remains the most rigorous evaluation of that capability. |
+| **Overturned — ours, and this is the important half** | There is equally **no** evidence that "better structure" beats scale on a robot: no paper where a structural method beats a 10× larger model on the same task and hardware with trial counts and error bars, and no demonstrated performance advantage anywhere for a *learned* self-boundary. **The other side has real scaling curves; we have a mechanism hypothesis.** The burden of proof is ours. |
+| **Strategic consequence** | The valuable thing to claim here is the **measurement protocol**, not the architecture. On architecture we lose to scale; on methodology the field is empty. |
+
+## Stage 4 · Evidence audit — the empirical premise, turned on ourselves (2026-07-28)
+
+| | |
+|---|---|
+| **Artefact** | `fep-bodyschema-hysteresis-evidence-audit` (≈80% complete) |
+| **Overturned — the load-bearing premise of the entire line** | "In humans this is empirically well established" was **false**. Tool incorporation: not only unmeasured for hysteresis — a 2012 re-analysis of six published plus one unpublished experiment concludes tool use *"does not literally extend peripersonal space"*, with small effect sizes and low power. Rubber hand: three rounds of search found **zero** experiments sweeping a parameter up and down to compare transition points. The one supportive number (builds in ~19 s, fades in ~66 s, N=27, the authors never use the word hysteresis) is exactly the kind we had already declared non-discriminative — a monostable leaky integrator gives it for free. |
+| **Also overturned — ours** | "Argmax is memoryless ⟹ no hysteresis", used as our own kill-shot, was **already published** in 2022. Our increment is only the second half: attaching it to boundary maintenance. |
+| **Downgraded, not refuted** | The nearest famous framework is not a proven result but a framework whose premises were never shown to hold: one 2021 critique removes a central inference step with counterexamples, a 2021 reply supplies the missing premises and relaxes exact to approximate, and a 2022 review finds the required conditions hold "only for a very narrow space of parameters" and demand a perception-action symmetry unusual in living systems. |
+| **The same blade, turned on us — a new falsifier** | Our own design uses the *same* three-way blanket structure, so that critique cuts us too: whether a stable partition **exists** on our rig became a prerequisite question, added as stage D0 ahead of everything else. |
+| **And again** | "We measured a non-zero hysteresis loop" is not evidence of bistability either: any first-order lag produces a rate-dependent loop at finite sweep rate. The criterion was tightened to **loop area extrapolated to zero sweep rate stays positive**. |
+
+## Stage 5 · Data hunt — three rounds, and one repeated mistake (2026-07-28)
+
+| | |
+|---|---|
+| **Artefacts** | `rhi-hysteresis-reanalysis-hunt` (≈85%), `trial-level-embodiment-data-hunt`, `openneuro-bids-rhi-hunt` |
+| **Established — why the data does not exist** | Not because nobody thought of it. Every parameterised study randomises condition order, because the standard hygiene of the field treats sequence effects as **contamination rather than signal**. The paradigm was built to erase precisely the quantity we need. |
+| **Established — scope of the vacuum** | Trial-level ownership data: zero hits across a public-repository search of 16 keyword sets, a second repository with 10 sets, and a **full census of 1831 neuroimaging datasets**. |
+| **Overturned — ours, three times in a row** | Three separate "trial-level data available" statements were believed and then opened by hand. All three contained participant × condition aggregates with **no trial index and no order column**, making the question structurally uncomputable. Twice more, a dataset whose parameter column was a genuine monotone up/down sweep — the first real sweep found in four rounds — had a response column that was blank on every row. **Do not trust the task name or the availability statement; open the columns.** |
+| **Overturned — a search agent's over-conclusion, corrected** | The claim "trial-level structure doesn't exist at the paradigm level" is wrong for one major lab: their published table *is* a trial-level binary ownership judgement, twelve trials per condition. The paradigm exists and is mature; the raw logs are simply never uploaded. The right next move is therefore to ask the authors, not to build a new paradigm. |
+| **Established — methodological templates** | The same hysteresis blade has already been applied to audiovisual synchrony; a 2018 paper supplies the operational definition of a hysteresis width plus a randomised third baseline arm; binocular rivalry is the only literature with multiple sweep rates built in, i.e. the only one that can execute the zero-rate extrapolation criterion. |
+| **Against us, again** | A 2014 study shows hysteresis and adaptation are independent, additive and anatomically separable ⟹ **measuring zero net hysteresis does not prove there is no latch**; the two can cancel. This has to be pre-registered, or a null result is neither a self-falsification nor an alibi. |
+
+## Stage 6 · Human data re-analysis — two independent points, both against (2026-07-28)
+
+| | |
+|---|---|
+| **Artefacts** | `mu-boundary/human-reanalysis/` |
+| **Overturned — the direction of the effect** | Two independent manipulations (spatial distance, N=34, published; temporal synchrony, N=185, re-analysed by us from public data), two samples in different countries, two measurement types (experienced, expected) — **all on the adaptation/contrast side, none in the hysteresis direction.** In the larger dataset the same weak condition is rated **0.891 lower** when preceded by the strong condition, 95% CI [−1.232, −0.550], p = 6.7e-7. Convergence across independent designs is worth more than either result alone. |
+| **Down-weighted by us, found by reading their materials** | That larger dataset measures **expectation**, not experience — participants watched a video and reported what they would expect to feel. Its control items also move in the same direction, so demand characteristics are real; but the effect on illusion items is ~2.8× that on control items, so a genuine component exists and cannot be cleanly separated here. |
+| **Established — a technical fact that decides success or failure later** | On a dry run of the analysis pipeline, **the permutation null is not centred at zero but at +0.191**, for an identified reason. Testing against zero reads the sign backwards: a naive test says "no effect", while against the correct null the same data is significantly negative. Two independent null models agree. **Discipline: locate the null centre on your data before discussing significance.** |
+| **Established — a hard design constraint for any future experiment** | If the sign of the manipulated parameter maps directly onto the semantics of the binary response, hysteresis and adaptation are **mathematically indistinguishable**. A trial-level ownership question must therefore stay "yes/no" and must never become "which hand feels more like mine". |
+| **Decision** | Do not fund a self-built VR study yet: the prior has worsened, so the expected value has dropped. Priority becomes (1) request trial-level logs from the lab that has them, (2) continue on the simulation side, which does not depend on the biological premise. |
+
+## Stage 7 · Simulation D0 — does the boundary even have an object? (2026-07-28)
+
+| | |
+|---|---|
+| **Artefact** | `mu-boundary/RESULTS-D0.md` |
+| **Established — the instrument works** | Positive control with a hand-installed double well: zero-rate loop area +0.36…+0.62 against a linear negative arm whose value is indistinguishable from zero. Analytic anchors reproduced to 2.6%; saddle-node scalings to 5%. Later negative results can therefore be attributed to the system, not the ruler. |
+| **Overturned — our own criterion** | The negative arm's bootstrap confidence interval also excludes zero, because it reflects seed noise and not the systematic bias of having few sweep-rate points. **The correct criterion is not the confidence interval but a resolution floor and the factor by which the positive arm exceeds it.** |
+| **Established, but nearly information-free** | A non-trivial partition satisfying the blanket condition does exist ⟹ the hysteresis discussion has an object. But a deliberately leaky calibration partition scores only marginally differently, so the dynamic range is **smaller than the across-seed spread**. The famous critique lands on our rig in mirror image: not "the condition holds only in a narrow region" but "it holds so easily that it selects nothing." |
+| **Overturned — our own diagnosis, in the very next round, and this is the most reusable finding** | We had diagnosed the weak result as "the rig is too weakly coupled to the world" and shipped that as a premise. **It was wrong.** The weakness was a protocol defect; after fixing it, *both* rigs pass, including the one we had condemned. The probe we blamed the rig with runs along a path that never touches the blamed component and is structurally blind to it. **We read our probe's signal-to-noise as the system's coupling strength.** A real rig defect did exist — found only by building a second, estimator-agnostic probe. |
+| **General lesson extracted** | Any time you argue "indicator X tells me about property Y", first show X is sensitive to Y; if you cannot, build a probe that does not share X's assumptions. |
+| **Measurement pitfalls recorded** | Two of them invert the specification's own worries: giving the auxiliary predictor *less* regularisation manufactures false positives (an overfit predictor *fakes* the blanket condition); and contiguous temporal splitting with non-stationary exploration fabricates conclusions outright. ⟹ this indicator is more sensitive to estimator settings and data splitting than to the partition under study, so any experiment using it must first run a deliberately leaky calibration as a positive control. |
+
+## Stage 8 · Simulation D1 — is the mechanism reachable? (2026-07-28)
+
+| | |
+|---|---|
+| **Artefact** | `mu-boundary/RESULTS-D1-D2.md` |
+| **Established** | Yes: legal parameters exist, and nothing has to be pushed to an absurd magnitude. |
+| **Overturned — the criterion the specification called make-or-break** | Passing it turns out to be **nearly the same sentence as "the boundary flipped"**, so it screens out nothing. The specification overestimated it. |
+| **Overturned — the specification's literal equation** | Its stated form **cannot** have three stable settings, as mathematics rather than numerics: two requirements demand opposite signs of the same quantity. Verified numerically and pinned with a regression test that pushes the coupling to 10,000× without ever producing three. A minimal structural repair was adopted. |
+| **Overturned — a size estimate of ours, by 7×** | Reading the key quantity the way the specification literally says overestimates it sevenfold, because it smuggles in *channel identity* (some channels are intrinsically easy to predict) rather than the loop quantity. |
+| **Overturned — a rescuing number, by a representation control** | One channel showed a value that would have saved the theory (0.98). Re-expressing the same information in polar coordinates collapses it to 0.007: the large value was our basis functions being unable to compute an inverse trigonometric function, not an information gap. Representation-invariant reading: at most ~0.18, tool channels 0.002–0.045. **A control we would not have run if the number had been small.** |
+| **The real obstruction, newly found** | For two stable settings to exist, a cost/benefit ratio must land in a window whose relative width equals that measured quantity — **1.3–2.6% for tool channels** — while the objective function's own coefficients place every channel **2 to 420 window-widths outside**. Nothing in the objective pulls it in. ⟹ the effect does not fall out of the proposed objective; it requires a hand-set ratio the objective does not supply. |
+
+## Stage 9 · Simulation D2 — the verdict (2026-07-28)
+
+| | |
+|---|---|
+| **Artefact** | `mu-boundary/RESULTS-D1-D2.md`, 25 tests passing |
+| **Established — the one surviving pillar** | With the hand-installed non-linearity **entirely removed** and only the self-reinforcing trust loop left, hysteresis appears and survives extrapolation to zero sweep rate: 24–35× the resolution floor, with both branches held 1.00/1.00 over long holds. The negative control (trust frozen constant) correctly falls back to the floor and is digit-for-digit identical to the earlier linear arm, as a regression test asserts. **Hysteresis does not need to be hand-installed.** |
+| **Overturned — self-specificity, by the control we had demanded of ourselves** | Give the identical treatment to the uncontrollable wind-blown ball with *its own* measured numbers ⟹ no hysteresis (the honest half). But raise the ball's one free amplitude until the loop gain matches ⟹ **every hysteresis number is identical to the arm's, digit for digit.** After normalisation the equations depend only on that gain, so the "self" quantity decides how large the free knob must be, not whether the effect occurs. ⟹ **hysteresis is a generic property of a gated slow variable; the inference "it sticks, therefore it is a self-boundary" is cancelled.** |
+| **Overturned — the signature prediction, twice** | "Slow in, slower out" is false here. Gate on the benefit: the ratio is 1.008 — **no asymmetry at all**, and the apparent asymmetry is an artefact of the 1-D reduction (which is asymmetric at the origin by construction). Gate on the whole drive, i.e. the mechanism actually intended: asymmetry appears but **points the wrong way** — release is faster and the threshold to leave is lower. Computable reason: precision amplifies *all* evidence about a channel, including the evidence against it. Getting "easy in, hard out" requires an extra, asymmetric evidence weighting — another hand-installed component, which is what we were avoiding. |
+| **Honest scope** | This stage ran on the reduced one-dimensional equation driven by measured parameters, not on the full 34-channel rig; the encoder was not trained; the intended physical parameter axis (grip stiffness) was never swept. Those are the largest open items. |
+
+---
+
+## Where the line stands
+
+| component of the original claim | status |
+|---|---|
+| hysteresis emerges without a hand-installed non-linearity | ✅ survives |
+| the hysteresis is specific to the self-boundary | ❌ generic property of gated slow variables |
+| release is slower than incorporation | ❌ reversed, in both implementations |
+| it falls out of the proposed objective without fine-tuning | ❌ needs a ~2% hand-set ratio |
+
+Three of four down, **every one of them felled by our own simulator or our own re-analysis**. The human-side motivation is not merely unproven — the two usable data points point the wrong way.
+
+**The question that replaced it**, and the reason this line stays open: hysteresis is cheap, so the real question is *what would make a boundary's hysteresis be about that boundary itself* — rather than a property it shares with a ball blowing in the wind.
+
+**Not ratified. Nothing here is a settled result.** Full narrative and all measured numbers: [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md).
+
+---
+
+## Source: /theory/learning-the-self-boundary-log.zh.md (sha256:05b2b0f1f56c, language: zh-Hans)
+
+
+# 阶段日志 —— 自我边界这条线,按发生顺序
+
+*[学习"我到哪里为止"](https://machengshen.github.io/theory/learning-the-self-boundary.zh.md) 的配套索引 · 2026-07-27 → 2026-07-28 · **未 ratify***
+
+---
+
+## 怎么读这一页
+
+这是审计留痕。每个阶段一条,说清它**推翻或确立了什么** —— 因为这条线的价值不在结论(它没有结论),而在**一个主张被公开拆解的记录,而且大部分是被它自己的作者拆的**。
+
+整个故事的人话版本是[主 note](https://machengshen.github.io/theory/learning-the-self-boundary.zh.md) 的第一部分;实测数字在同一篇的第二部分。没有公开的工作产物在这里**只列名字**,是为了留痕完整,不是暗示它们可访问。
+
+两个反复出现的简称。**边界**指"我"和"世界"之间的那条线,技术正文里写作 **μ**,主张是机器应该**学**出它而不是被人递给它。**滞回**指一个开关的"开门槛"和"关门槛"不一样从而卡住的性质 —— 27 度才制冷、25 度才停,而不是到 26 就翻转。
+
+---
+
+## 阶段 0 · 提案(2026-07-27)
+
+| | |
+|---|---|
+| **产出** | 工作 memo:以滞回的自我边界替代当下机器人范式 |
+| **确立** | 统一诊断:模仿式与奖励式机器人学习共享**同一个**缺陷 —— agent/环境边界由工程师供给,从不被推导。提案:学出边界,以**闭包违反**当训练信号,目标做成二阶(维持"边界仍是解"的那个条件)。 |
+| **推翻** | 暂无。此刻整套东西压在一句无出处的话上:"这在人身上经验上是确凿的"。 |
+
+## 阶段 1 · 可开工规格(2026-07-27)
+
+| | |
+|---|---|
+| **产出** | `robotics-mu-experiment-spec` —— 损失函数、双稳解析条件、MuJoCo rig、含扫速控制的测量协议。设计层约 95%,零行代码跑过。 |
+| **确立** | 主张变成**周级而非年级**可证伪:一条 2–3 DoF 仿真臂 + 可拆工具 + 可断执行器就足以杀死它。 |
+| **推翻 —— memo 自己的三条,靠"把它写精确"这个动作** | (1) 边界不能是每通道一个标量:blanket 条件本质三元,标量表达不了"我是屏障";(2) "并入慢释放更慢"**不是免费的** —— 对称双阱只给关于倾斜对称的**阈值**,不自动产生 on/off **时间**非对称,原文把两者混为一谈;(3) **原始像素不能当通道** —— 边界是通道上的划分,指称物身份必须稳定。第三条是本线最大的作弊点,现已显式记账。 |
+
+## 阶段 2 · Prior art 审计,当成"打"而不是"综述"(2026-07-27)
+
+| | |
+|---|---|
+| **产出** | `dmbd-2502.21217-hysteresis-check` —— 把最近的竞争工作正文抽出来读完,不是从摘要推断。 |
+| **确立** | 最近的那份工作**明确无滞回**:标签过程是每元素一条一阶马尔可夫链,推断是 acausal 前后向平滑,且论文自陈"在没有观测数据时归属变量迅速扩散到均匀平稳分布" = 单稳的定义。全文 hysteresis / bistability / bifurcation / saddle-node 零命中。 |
+| **推翻 —— 我们的** | memo 那句"FEP 系的 blanket 无时间状态"**对这篇是错的**:它的归属确实有自身状态。存活的区别只剩**一条轴:单稳 vs 双稳**。 |
+| **同时记账** | 他们的**一般形式**让标签转移率依赖宏观 blanket 变量 —— 正是双稳所需的那个闭环。他们为 tractability 假设掉了它,并列入 future work。**我们的 wedge 正落在他们 roadmap 的下一格**:不算被抢先,但时间窗不宽。 |
+
+## 阶段 3 · 证据审计 —— 规模叙事(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `scale-vs-structure-evidence-audit`(约 80%) |
+| **确立** | "规模已解决工具使用 / 损伤恢复"**不成立** —— 因为两项**都没人测过**。没有任何大模型发布过未见工具的功能迁移成功率表。损伤恢复唯一的正面主张是零数字的厂商视频,其"损伤"因训练覆盖 10 万种仿真形态而被做成分布内。一篇 11 年前的论文(腿式 5 种损伤 + 机械臂 14 种损伤矩阵,<2 分钟在线适应)至今仍是该能力最严谨的评测。 |
+| **推翻 —— 我们的,而且这才是重要的一半** | 同样**没有**证据表明"更好的结构"在机器人上赢过规模:找不到任何一篇让结构方法在同任务同硬件上击败大 10× 模型、且带试验数与误差棒的论文;也找不到任何"学出来的自我边界"的性能优势实证。**对方手里有真实的规模曲线,我们手里只有机制假说。** 举证责任在我们。 |
+| **战略后果** | 值得抢的是**测量协议**,不是架构。架构上我们打不过规模,方法学上对方是空的。 |
+
+## 阶段 4 · 证据审计 —— 经验前提,刀口转向自己(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `fep-bodyschema-hysteresis-evidence-audit`(约 80%) |
+| **推翻 —— 整条线的承重前提** | "这在人身上经验上是确凿的"**是假的**。工具并入:不但没有滞回测量,现象本身在 2012 年就被一篇专门的再分析质疑 —— 再分析 6 篇已发表 + 1 篇未发表,结论 tool use *"does not literally extend peripersonal space"*,效应量小、功效低。橡胶手:三轮检索**零命中**任何上下行扫描比较转换点的实验。唯一支持性数字(约 19 s 建立、66 s 消退,N=27,作者全文不用 hysteresis 一词)恰是我们自己早已声明不算数的那种 —— 一个单稳的泄漏积分器在撤掉驱动时天然给出。 |
+| **同时推翻 —— 我们的** | "argmax 无记忆 ⟹ 不可能滞回",我们自己反复用的杀法,**其前半句已在 2022 年公开发表**。我们的增量只剩后半句(接到边界维持上)。 |
+| **降级而非反驳** | 最近的那个著名框架不是被证明的结果,而是**前提未被验证满足的框架**:2021 年一篇技术批评带反例打掉了中间一步推断,2021 年的回应补上缺失前提并把 exact 放松成 approximate,2022 年的综述指出所需条件"只在极窄参数区成立",且要求活体几乎不具备的感知-行动对称性。 |
+| **同刀回砍 —— 新增一条 falsifier** | 我们自己的设计用的是**同一个**三分 blanket 结构 ⟹ 那一击同样砍我们:**先证明我们的 rig 上存在满足条件的稳定划分**,作为 D0 排在一切之前。 |
+| **又一次回砍** | "我们测到非零滞回环"也不是双稳的证据:任何一阶滞后在有限扫速下都产生率依赖的环。判据被收紧为**环面积外推至零扫速仍为正**。 |
+
+## 阶段 5 · 数据搜寻 —— 三轮,以及重复了三次的一个错误(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `rhi-hysteresis-reanalysis-hunt`(约 85%)、`trial-level-embodiment-data-hunt`、`openneuro-bids-rhi-hunt` |
+| **确立 —— 为什么数据不存在** | 不是没人想到。所有参数化实验一律随机化条件顺序,因为该领域的标准卫生规范把**序列效应当污染而非信号**。范式的建法就是为了抹掉我们要的那个量。 |
+| **确立 —— 真空的范围** | 逐试次所有权数据:一个公开仓库 16 组关键词 + 另一个仓库 10 组 + **1831 个神经影像数据集全量普查**,全部**零命中**。 |
+| **推翻 —— 我们的,连着三次** | 三份"逐试次数据公开"的声明被相信,然后被亲手打开。三份都是被试 × 条件的聚合表,**没有试次序号、没有顺序列**,问题在结构上不可计算。同样的坑又踩两次:某数据集的参数列是真正的单调上下行扫描 —— 四轮里第一次见到 —— 而响应列**每一行都是空的**。**别信任务名、别信可用性声明,打开列。** |
+| **推翻 —— 搜寻 agent 的过度结论,已纠正** | "逐试次结构在范式层面就不存在"这个判断,**对某个主要实验室是错的**:他们已发表的表格**就是**逐试次二元所有权判定,每条件 12 试次。范式存在且成熟,只是原始日志从不上传。⟹ 正确的下一步是**向作者索要**,不是自建范式。 |
+| **确立 —— 方法学模板** | 同一把滞回的刀已经被用在视听同步性上;2018 年一篇给出滞回宽度的操作定义 + 第三条随机序列基线臂;双眼竞争是唯一内建多扫速的文献,也就是唯一能执行零扫速外推判据的那条。 |
+| **又一条对我们不利** | 2014 年一项研究证明迟滞与适应是**独立可加、脑区分离**的两个成分 ⟹ **测到零净滞回不能证明没有 latch**(两者可抵消)。这必须写进预注册,否则阴性结果既不是自我证伪也不能当免罪符。 |
+
+## 阶段 6 · 人类数据重分析 —— 两个独立点,都不利(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `mu-boundary/human-reanalysis/` |
+| **推翻 —— 效应的方向** | 两个独立操纵(空间距离,N=34,已发表;时间同步性,N=185,我们在其公开数据上重分析)、两个不同国家的样本、两种测量(亲历 / 期望)—— **全部落在适应/对比侧,无一在迟滞方向**。较大那份数据里,同一弱条件在强条件之后被评分**低 0.891**,95%CI [−1.232, −0.550],p = 6.7e-7。多个独立设计的收敛,比其中任何单条更有份量。 |
+| **我们自己给的降权(靠读他们的材料读出来)** | 较大那份量的是**期望**不是亲历 —— 被试只看视频、答"预期会体验到多少"。其控制条目也同向移动 ⟹ 需求特征确实存在;但 illusion 条目上的效应约为控制条目的 2.8 倍 ⟹ 真实成分存在,只是本数据无法干净分离。 |
+| **确立 —— 一条会决定后续成败的技术事实** | 管线 dry-run 上,**置换零分布的中心不在 0 而在 +0.191**,机制已定位。对 0 做检验会**把符号读反**:朴素检验说"无效应",对上正确零模型后同一份数据显著为负。两个独立零模型一致。**纪律:先在你的数据上找到零分布中心,再谈显著性。** |
+| **确立 —— 未来自建实验的硬约束** | 若被操纵参数的符号与二元反应的语义直接对应,迟滞与适应**在数学上不可分辨**。所以逐试次所有权问题必须保持"是/否",绝不能变成"哪只手更像我的"。 |
+| **决策** | 暂不投自建 VR:先验变差,期望价值下降。优先级改为 ①向持有逐试次日志的实验室索要 ②继续仿真侧(不依赖生物学前提)。 |
+
+## 阶段 7 · 仿真 D0 —— 边界到底有没有对象?(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `mu-boundary/RESULTS-D0.md` |
+| **确立 —— 仪器有效** | 手装双阱的阳性对照:零扫速环面积 +0.36…+0.62,而线性阴性档与 0 不可区分。解析锚点复现到 2.6%,鞍结标度到 5%。⟹ 后续阴性结果可归因于系统而非尺子。 |
+| **推翻 —— 我们自己的判据** | 阴性档的 bootstrap 置信区间**也不含 0**,因为它只反映种子噪声,不反映"扫速点太少"的系统偏差。**正确判据不是置信区间,而是分辨底 + 阳性档高出它多少倍。** |
+| **确立,但几乎无信息量** | 满足 blanket 条件的非平凡划分确实存在 ⟹ 滞回讨论有对象。但故意泄漏的标定划分得分只差一点点,**动态范围小于跨种子波动**。那条著名批评在我们 rig 上以镜像形态出现:不是"条件只在极窄区域成立",而是"**太容易成立以至于选不出东西**"。 |
+| **推翻 —— 我们自己的诊断,就在下一轮,而且这是最可复用的一条** | 我们把弱结果诊断为"rig 与世界耦合太弱",并把它当前提发下去。**错了。** 弱是**协议缺陷**;修好后**两个 rig 都通过**,包括被我们判死刑的那个。而我们用来指控 rig 的那根探针,走的路径根本不经过被指控的部件,对它**结构上全盲**。**我们把探针的信噪比读成了系统的耦合强度。** rig 的真实缺陷确实存在 —— 是靠造第二根、估计器无关的探针才找到的。 |
+| **提炼出的通用教训** | 任何"指标 X 告诉我性质 Y"的推理,先证明 X 对 Y 敏感;证不了就造一根不共享 X 假设的探针。 |
+| **记账的测量学坑** | 其中两条与规格自己的担心方向相反:给辅助预测器**更少**正则化反而制造假阳性(过拟合的预测器会**假装** blanket 成立);连续时序切分 + 非平稳探索会**直接伪造结论**。⟹ 该指标对估计器设置与数据切分比对被研究的划分更敏感,任何用它下结论的实验必须先跑故意泄漏的标定当阳性对照。 |
+
+## 阶段 8 · 仿真 D1 —— 机制可达吗(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `mu-boundary/RESULTS-D1-D2.md` |
+| **确立** | 是:存在合法参数,不需要把任何东西推到荒谬量级。 |
+| **推翻 —— 规格称为"生死"的那条判据** | 通过它几乎**等价于"边界确实翻转了"**,所以它筛不掉任何东西。规格高估了它。 |
+| **推翻 —— 规格的字面方程** | 它写下的形式**不可能**有三个稳定档位,这是数学不是数值:两个要求逼迫同一个量取相反符号。已数值验证,并用一条把耦合推到一万倍仍出不了 3 的回归测试钉死。已采用一个最小的结构性修补。 |
+| **推翻 —— 我们自己的一个量级估计,差 7 倍** | 按规格字面读那个关键量会高估七倍,因为它偷偷混进了**通道身份**(有些通道本来就好预测),而不是回路里那个量。 |
+| **推翻 —— 一个救命数字,被表示对照打掉** | 有一条通道给出足以救活理论的数值(0.98)。把同样的信息换成极坐标表示后塌到 0.007:大数值是**我们的基函数解不出反三角**,不是信息缺口。表示不变的读数:最大约 0.18,工具通道 0.002–0.045。**如果那个数字本来就小,我们大概不会跑这个对照。** |
+| **新找到的真瓶颈** | 要有两个稳定档位,一个成本/收益比必须落进一个相对宽度等于该实测量的窗口 —— **工具通道只有 1.3–2.6%** —— 而目标函数自己的系数把每条通道放在窗口外 **2 到 420 个窗口宽**处,且目标里**没有任何机制**在把它往里拉。⟹ 效应不是从提出的目标函数里长出来的,它要求一个该目标不提供的手调比值。 |
+
+## 阶段 9 · 仿真 D2 —— 判决(2026-07-28)
+
+| | |
+|---|---|
+| **产出** | `mu-boundary/RESULTS-D1-D2.md`,25 项测试通过 |
+| **确立 —— 唯一活下来的支柱** | 把手装非线性**整个删掉**、只留自我强化的信任回路,滞回出现,并且**通过零扫速外推**:达分辨底的 24–35 倍,两支在长时间保持下 1.00/1.00。阴性对照(信任冻成常数)正确地落回分辨底,且与早先的线性档**逐位相同**(有回归测试断言)。**滞回不需要手装。** |
+| **推翻 —— 自我特异性,被我们自己要求的对照打掉** | 把完全相同的处理给那个不可控的风吹球,用**它自己**的实测数字 ⟹ 不出现滞回(诚实的一半)。但把球那个唯一的自由幅度拧到环增益相同 ⟹ **滞回的每一个数字与手臂逐位相同**。归一化后方程只依赖那个增益,所以"自我"那个量只决定自由旋钮要拧多大,不决定效应是否出现。⟹ **滞回是带门控慢变量的通用性质;"它卡住了所以这是自我边界"这一步推理被取消。** |
+| **推翻 —— 那条签名预测,两次** | "进来难出去更难"在这里是假的。门乘在收益上:比值 1.008 —— **完全无非对称**,而我们一度以为看到的非对称是 1-D 约化的假象(该约化在原点处本就不对称)。门乘在整个驱动上(即真正想要的机制):非对称出现了但**方向相反** —— 释放更快,离开的阈值更低。可算原因:精度放大关于一条通道的**全部**证据,**包括反对它的证据**。要得到"进来容易出去难",必须额外假设一条不对称的证据加权 —— 又一件手装的东西,而那正是我们要避开的。 |
+| **诚实的范围声明** | 本阶段跑在由实测参数驱动的**一维约化方程**上,不是 34 通道全 rig;编码器未训;规格设定的物理主参数轴(握持刚度)从未被扫过。这些是最大的未闭合项。 |
+
+---
+
+## 这条线现在的位置
+
+| 原主张的成分 | 状态 |
+|---|---|
+| 滞回不靠手装非线性即可涌现 | ✅ 活 |
+| 该滞回对自我边界有特异性 | ❌ 带门控慢变量的通用性质 |
+| 释放比并入更慢 | ❌ 两种实现下都反了 |
+| 它从提出的目标函数里自然长出,不需 fine-tune | ❌ 需约 2% 的手调比值 |
+
+四条倒三条,**每一条都是被我们自己的仿真器或自己的重分析打倒的**。人类侧的动机不只是"未被证明" —— 两个可用数据点都指向相反方向。
+
+**取代它的问题**,也是这条线还开着的理由:滞回很廉价,所以真问题是 —— **什么让一条边界的滞回是关于这条边界本身的**,而不是它和一个随风飘的球共享的性质。
+
+**未 ratify。这里没有任何东西是定论。** 完整叙事与全部实测数字:[学习"我到哪里为止"](https://machengshen.github.io/theory/learning-the-self-boundary.zh.md)。
+
+---
+
+## Source: /theory/learning-the-self-boundary.md (sha256:784073d1195e, language: en)
+
+
+# Learning where the self ends — a research line that broke three of its own four pillars in one day
+
+*Notes from one line of work · 2026-07-27 → 2026-07-28 · **not ratified, not a result***
+
+---
+
+## Part I — For readers who are not in this field
+
+This half has no formulas, no Greek letters and no paper numbers. Every technical word is explained where it first appears. The second half has all the numbers, commands, citations and falsification conditions, and is written for machines and specialists. If you only read Part I, you should still be able to tell someone else what we found.
+
+### The one-paragraph version
+
+We thought we had found the thing that is wrong with how robots are built today: nobody ever lets the robot work out **where it ends and the world begins**. We proposed that a machine should learn that boundary rather than be handed it, and we said the signature of a *real* boundary is that it **sticks** — it is hard to move once it has settled. Over one long day we attacked our own proposal from four directions with our own simulator and our own re-analysis of other people's public data. **Three of the four supporting claims died, and every one of them was killed by our own instruments.** What survived is thin but real: the sticking behaviour *can* appear on its own, without us secretly installing it. What replaced the original claim is a sharper and harder question, which is written at the end.
+
+### 1 · What we believed
+
+Two families of robot learning dominate right now.
+
+- One family learns by **copying**: show the machine thousands of human demonstrations and have it imitate the mapping from what it sees to what it does.
+- The other learns by **scoring**: define a number that says how well the robot is doing, and have it search for the behaviour that pushes that number up.
+
+Both are given, for free, an answer to a question nobody asks them out loud: *which parts of the world are me?* An engineer answers it by hand when they decide what counts as a joint, which motors exist, and what the machine's "action" is. The machine never has to ask.
+
+Our claim was that this hand-drawn line is not a detail, it is **the** bottleneck. A robot that could work out its own boundary would do two things that today's robots do badly:
+
+- pick up an unfamiliar tool and treat it as part of its arm, rather than as an object it has memorised;
+- lose a motor mid-task and *redraw the line* — "that limb is not mine any more" — instead of needing to be retrained.
+
+### 2 · Why we thought it was more than a slogan
+
+Because in humans the boundary appears to have a very particular mechanical character: it **sticks**.
+
+> **Sticking — the word for it is "hysteresis".** Think of a thermostat set to 26°C. It does not switch on at 26.1 and off at 25.9. It waits until the room reaches 27 to start cooling, and until 25 to stop. The temperature at which it turns on and the temperature at which it turns off are *different*, and the gap between them is what stops it chattering on and off every few seconds. That gap is hysteresis. A system with hysteresis remembers which side it came from.
+
+Everyone has felt the human version. Hold a stick long enough and you start feeling the table through the stick's tip rather than feeling the stick in your palm. Sit on your arm until it goes numb and for a few seconds it is not yours; it is a foreign object in the bed. And there is a classic laboratory illusion — a rubber hand stroked in time with your hidden real hand until you feel the rubber one is yours — which seems to show the boundary snapping across in one piece.
+
+If the boundary really sticks, then a whole class of machine designs is ruled out at a stroke. Any mechanism whose rule is "at each moment, compute the best boundary given what I see right now" **cannot** stick, because recomputing the best answer has no memory of which answer you held a moment ago. That would mean the right implementation is not an optimiser at all but something closer to a physical system with inertia. That was the structural argument, and it is the kind of argument that is cheap to say and expensive to earn.
+
+### 3 · How we went after it
+
+We wrote down, in advance, four ways the idea could die, and then we spent the day trying to trigger them ourselves. In parallel we ran two campaigns:
+
+- **The literature campaign.** Not "has anyone had this idea before" — that question is nearly useless. The question we actually asked was: *when someone says they showed this, what did their experiment support, and where does the support stop?* We hold to a rule that "somebody already did it" is a lead, never a verdict; most papers are written to be published, not to be true, so the honest move is to go and attack their evidence rather than politely stand aside.
+- **The simulation campaign.** A simple simulated arm with a detachable tool, a breakable motor, and a wind-blown ball that the arm cannot control — so that "not me" has something to point at.
+
+### 4 · How it fell — in the order it happened
+
+**(a) The "obviously true" fact turned out to be neither obvious nor established.**
+Our whole motivation rested on the sentence "in humans this is empirically well established". It is not. Nobody has ever run the decisive experiment — sweeping a knob up and then down and checking whether the boundary flips at different points on the way up and the way down. Worse, there is a specialist re-analysis of the tool-use literature whose conclusion is that the tool effect *may not exist at all* at the strength people assume, with small effect sizes and low statistical power. And the one supportive number we could find — the illusion builds in about twenty seconds and fades in about a minute — is exactly the kind of number we had already declared meaningless, because a perfectly ordinary system with no stickiness gives you that automatically when you switch its input off.
+
+**(b) When we went looking for the decisive data, we found the opposite sign.**
+Two independent public datasets, different countries, different manipulations, hundreds of participants between them, both let us ask a weaker but related question: does what you experienced a moment ago pull your next judgement *toward* it (sticking) or *away* from it (contrast)? Both said **away**. That is not a clean refutation — both used end-of-block questionnaires rather than moment-by-moment answers, and one of them measured what people *expected* to feel rather than what they felt — but two independent things pointing the same wrong way is worse for us than one.
+
+**(c) Then, good news: in our own simulator, the sticking appeared without us installing it.**
+This matters because the cheap way to get stickiness is to write it into the equations by hand — the equivalent of writing the answer at the bottom of the page. We removed the hand-installed part entirely and left only the mechanism we were actually proposing: *the more a channel is treated as part of me, the better it gets predicted; the better it gets predicted, the more it is trusted; the more it is trusted, the more it is treated as part of me.* A loop that reinforces itself. With that loop and nothing else, the boundary stuck, and it kept sticking even when we slowed the experiment down by a factor of ten thousand — which is the test that separates real stickiness from the fake kind you get just from things taking time to settle. **This is the one pillar still standing.**
+
+**(d) Then the control experiment we had demanded of ourselves went off in our face.**
+We had written down: give the identical treatment to something that is obviously *not* part of the robot — the wind-blown ball — and check that it does not stick. Half of that worked: with the ball's own measured numbers, no stickiness. But the other half is fatal. There is one free knob in the equations that nobody's data pins down. Turn that knob up on the ball, and the ball's boundary sticks **exactly as much as the arm's — identical to every digit we printed**. There is a reason, and it is provable rather than accidental: after rescaling, the equations only care about one combined quantity, and the "self" part only decides how far you have to turn the knob, not whether the effect appears at all.
+
+> Said plainly: **stickiness is not a signature of selfhood. It is a generic property of any slowly-changing quantity with a gate on it.** Our arm and a wind-blown ball are indistinguishable on this measure; the only difference is a factor of seven in a knob that is free to be set.
+
+**(e) And the one sharp, specific prediction came out backwards. Twice.**
+The prediction was intuitive and it was the reason to prefer our mechanism to a hand-built switch: *hard to adopt, harder to let go* — a tool should be slow to become part of you and slower still to stop being part of you. In the first implementation there was no asymmetry at all (adoption and release took the same time to three decimal places), and the asymmetry we thought we saw turned out to be an artefact of how we had compressed three quantities into one. So we implemented it the other way, the way that ought to produce the asymmetry — and the asymmetry appeared **pointing the wrong way**: letting go was *faster* than adopting, and it took *less* provocation to leave than to join.
+
+The reason is computable, and in hindsight obvious. Our mechanism amplifies the *evidence* about a channel. Evidence is not partisan. Amplifying the evidence about your own hand amplifies the evidence that it is **not** your hand just as much. To get "easy in, hard out" you would have to additionally assume that trust only amplifies evidence in its own favour — and that assumption is another hand-installed thing, which is what we were trying to avoid.
+
+**(f) Finally: even the surviving stickiness needs a dial set to within about two percent.**
+For the loop to have two stable settings rather than one, a cost and a benefit inside it have to cancel to a precision of roughly two percent. Our own objective function — the thing that was supposed to make all this emerge naturally — places every single channel *outside* that window, by anywhere from two to four hundred window-widths. So "it can emerge" and "it will emerge" are separated by an argument nobody has made yet.
+
+### 5 · Three mistakes that were ours, not the world's
+
+Worth writing down because each one is a repeatable species of error, not bad luck.
+
+1. **We measured the wrong object and then shipped the misdiagnosis downstream as a premise.** An early run gave a weak result. We diagnosed the cause as "our simulated arm is too weakly coupled to the world", and handed that diagnosis to the next stage as an established fact. It was wrong. The weak reading came from a flaw in the measurement protocol, and the probe we were using ran along a path that never touched the part of the rig we blamed — so it was structurally incapable of detecting the problem we attributed to it. We had read our *probe's* signal-to-noise as the *system's* coupling strength. The general lesson: any time you argue "indicator X tells me about property Y", first check that X is sensitive to Y at all, and if you cannot show it, build a second probe that does not share X's assumptions. (A real coupling flaw *did* exist — it was found by a different probe, and the first indicator was blind to it.)
+2. **We believed data availability statements three separate times.** Three published studies advertised "trial-level data available". We downloaded all three and opened every file. All three contained per-participant summary tables with no trial index and no ordering column, which makes the question we wanted to ask structurally uncomputable. Twice more the same shape: a dataset whose parameter column looked exactly like the sweep we needed, with a response column that was blank for every row. **Do not trust the task name or the abstract; open the columns.**
+3. **We let "empirically well established" stand as a premise without a citation.** That single unreferenced clause was the load-bearing member under the entire architectural conclusion. Removing it left the conclusion hanging in the air, and it should never have been allowed in.
+
+### 6 · What is left, and the better question underneath
+
+What survived: **stickiness can emerge from a self-reinforcing trust loop without being hand-installed**, and it survives the slow-down test. That is a real, if modest, positive result.
+
+What replaced the original claim is sharper, and we would not have found it without the failures:
+
+> **Stickiness is cheap. Almost any slowly-changing quantity with a gate on it has it. So the question was never "does the boundary stick?" — it is: *what would make a boundary's stickiness be about that boundary itself, rather than being a generic property it happens to share with a ball blowing in the wind?***
+
+That is a harder question, and it is a better one, and it is the one we would work on next. The honest state of this line is: **an open question with most of its original motivation removed, kept alive by one positive simulation result and one reformulated problem.** Nothing here is settled. Nothing here has been ratified.
+
+---
+---
+
+## Part II — Technical record
+
+Everything below is measured or cited. Numbers that were not measured are marked as such. Claims are tagged **[measured]** (we ran it), **[cited]** (someone else's published number, verified against the source text), **[inference]** (our synthesis), **[open]** (not done).
+
+Cognitive state of the whole note: **speculative**, with the specific sub-claims graded in §7.
+
+### 0 · Notation
+
+- **μ** — the agent/environment boundary, treated as a first-class learned variable: a partition of all sensorimotor channels into (self, blanket, world). "Blanket" is the screening surface: world influences self only through it.
+- **Hysteresis** — bistability of μ under a swept parameter, with distinct up-sweep and down-sweep transition points. The operational criterion adopted here (see §5) is **loop area extrapolated to zero sweep rate remains > 0** (rate-independent), *not* merely "non-zero loop area at some finite sweep rate".
+- **Δπ / s** — the precision swing: how much better a channel is predicted when it is inside the boundary versus outside, expressed as the relative swing `s = 1 − ε_in/ε_out`.
+- **G** — the loop gain of the precision→assignment→precision feedback, `G = κ·Δπ·(g−c)/(4γτ_π)`.
+
+### 1 · The original proposal
+
+Unified diagnosis: vision-language-action models (VLA) and reinforcement learning (RL) share **one** defect — μ is exogenous.
+
+- VLA: the action space is hand-drawn by an engineer (e.g. a 27-dimensional joint action space with noop padding — a hand-drawn μ frozen into a vocabulary; the whole cross-embodiment codec is a patch for that hand-drawn μ). The model is never required to answer "what am I".
+- RL: scalar objective under argmax. Argmax is memoryless ⟹ structurally cannot exhibit hysteresis ⟹ cannot maintain a boundary. A first-order homeostat is a thermostat.
+
+Proposal: learn state / learn μ, not policy.
+
+1. Training signal = **closure violation**, not reward and not action imitation. `z` is a state iff the dynamics close on `z`. Maximise forgetting subject to closure. No rewards, no demonstrations.
+2. μ as a first-class variable: partition all channels into (self, blanket, world); criteria = self side internally predictable and controllable, world side reachable only via blanket, partition stable under perturbation.
+3. The objective is **second-order**: not "maximise within μ" but "maintain the condition under which μ remains a solution" — self-seal.
+
+Executable specification (loss functions, analytic bistability conditions, MuJoCo rig, measurement protocol with sweep-rate control): `robotics-mu-experiment-spec-20260727` (working document, not published here).
+
+### 2 · Prior art, audited rather than surveyed
+
+Method note: the governing rule for this line is that **"someone already did this" is evidence, not a verdict**. The correct output of a prior-art pass is not "who owns which sentence" but "how far does their evidence actually reach, and where does rhetoric begin". The same blade is then turned on our own claims; a double standard here degrades into claim-defence.
+
+- **Crutchfield causal states / computational mechanics (1989); PSR** — owns "state = minimal sufficient statistic for prediction", i.e. closure itself. **[cited]**
+- **Klyubin & Polani, empowerment (2005)** — owns "derive an intrinsic objective from channel structure". **[cited]**
+- **Maturana & Varela, autopoiesis** — owns "the self makes its own boundary" (no algorithm). **[cited]**
+- **Hoffmann / Lanillos, body-schema learning** — owns "a robot learns its own body from sensorimotor data". **[cited]**
+- **Tononi & Koch, Φ-argmax boundary** — owns "the boundary is the optimum of some quantity", **and is precisely the object we must be distinguished from**. **[cited]**
+- **Friston FEP / Markov blanket / self-evidencing** — **downgraded on audit 2026-07-28**: it is not a proven result but a framework whose premises have not been shown to be satisfied.
+  - Biehl, Pollock & Kanai 2021 (*Entropy* 23(3):293) removes the step "has a blanket ⟹ internal states perform variational inference": *"not generally correct without additional (previously unstated) assumptions"*, with counterexamples. **[cited]**
+  - Friston et al. 2021 (*Entropy* 23(8):1076) supplies the missing premises and relaxes *exact* to *approximate* — a repair, not a refutation. **[cited]**
+  - Aguilera et al. 2022 (*Physics of Life Reviews* 40:24–50): the blanket + solenoidal conditions are *"only valid for a very narrow space of parameters"* and require *"an absence of perception-action asymmetries that is highly unusual for living systems"*. **[cited]**
+  - **This cuts both ways (see §3, D0).** Our §1.2 uses the *same* blanket three-way structure, so if blankets barely exist on systems with perception-action asymmetry, "learn a stable blanket partition" is a question of *solution existence*, not of learning quality.
+  - Also: "argmax/FEP is memoryless" — the first half of our own kill-shot — **is already published**: Aguilera et al. 2022 write that the FEP conclusion *"is in general a poor description of the behaviour of a system as it ignores the history of interactions"*. Our increment is only the second half (attaching it to boundary maintenance). **[cited]**
+- **Dynamic Markov Blanket Detection, arXiv:2502.21217 (2026-02)** — the nearest thing to this proposal, closer than anything listed above. Full text verified, not abstract-inferred. **[cited]**
+  - Its assignments *do* have their own state: one first-order discrete HMM per observational node ("*the labels associated with every observational node i has its own discrete HMM*", §3). ⟹ **we may no longer say "FEP-family blankets have no temporal state"**; that was wrong.
+  - But: the implemented version explicitly decouples label transitions from macroscopic state (*"transition probabilities for the assignment variables are a priori independent of the macroscopic latents"*), inference is acausal forward-backward smoothing, and the paper states in Future Directions that *"latent assignment variables quickly diffuse to a uniform stationary distribution in the absence of observed data"* — the textbook definition of monostable, no latch. Zero occurrences of hysteresis / bistability / bifurcation / saddle-node in the full text; no incorporation-vs-release asymmetry experiment.
+  - **However**: their *general* form (eq. 21) lets label transition rates depend on the macroscopic blanket variables — exactly the state-dependent coupling loop required for bistability. They assume it away for tractability and list it as future work. **Our wedge lands in the next cell of their roadmap.** Not pre-empted; not a wide window.
+  - Open threat, still unanswered: "training signal = closure violation" is highly isomorphic to their surprise/ELBO. If we cannot say why it is **not** ELBO, the proposal is a rename, and that lands before any hysteresis question does. **[open]**
+- **The scale narrative (falsifier #4).** Audited separately. Verdict: **the falsifier is not triggered, but only because of an evidence vacuum, not because we won.** **[cited]**
+  - Tool use: the scale camp has demonstrated *environment* generalisation (π0.5 across ~104 homes) and *novel object instances* (π0 drops ~13pp). From there to "an unseen tool used as a body extension" there is **no experiment at all**. FORGE (2026-07) still opens with robots that *"fail to transfer the same function to novel"* tools, and buys its 2× with **structure** (keypoint intermediate representation).
+  - Damage recovery: the only positive claim is a vendor blog with video — zero success rates, zero trial counts, zero error bars — and its "damage" is made in-distribution by training across "a universe with 100,000 different robots" (amortisation, not re-solving μ), all locomotion, no manipulation. **Cully et al. 2015 (Nature)** — 5 leg damage conditions plus a **14-condition** robot-arm damage matrix, <2 min online adaptation, no self-diagnosis — is still the most rigorous evaluation of this capability eleven years later. That is not progress; that is nobody doing it seriously any more.
+  - Disclosure-quality yardstick: Gemini Robotics reports n=20 per task (binomial 95% CI ≈ ±22pp) and is among the better disclosures in the field. On the real-world general benchmark GM-100, 2026 SOTA absolute success is **17.30%** (π0.5 13.02%, GR00T N1.6 7.59%, WALL-OSS 4.05%). **[cited, second-hand for GM-100 composition]**
+  - Third-party audit (Epoch AI, *Where Autonomy Works*, 2026): *"Transfer is rarely demonstrated… Unless transfer is explicitly shown, it should not be assumed."*
+  - **Reverse audit, recorded because it is against us**: we found **no** paper in which "better structure" beats a 10× larger VLA on the same task and hardware with trial counts and error bars, and **no** empirical performance advantage for any *learned* self-boundary on a real robot. The scale camp has real curves; we have a mechanism hypothesis.
+  - ⟹ Strategic inference: the minimal experiment sits in a **public evidence vacuum** — not because it is hard, but because nobody measures it. **The thing worth claiming is the measurement protocol** (incorporation/release asymmetric threshold curves; episode-to-recovery distributions under online actuator failure, with error bars), **not the architecture**. On architecture we lose to scale; on methodology the other side is empty. Corollary obligation: the 100k-morphology domain randomisation is an **amortisation baseline that must be beaten**, so the damage types in any minimal experiment must provably fall outside any pretraining coverage.
+
+### 3 · Simulation: D0 — does a non-trivial blanket partition even exist?
+
+Rig: MuJoCo 3.10, 2–3 DoF arm, detachable tool, breakable actuator, wind-driven ball; N=34 scalar channels (9 proprioceptive, 10 tactile, 12 visual keypoint, 3 action readback). Actions are OU-correlated babbling — no policy learning, so that any hysteresis cannot be attributed to a learned controller. All runs CPU-only, `mujoco==3.10.0`, Python 3.12.
+
+**A · D0-pos (positive control, passed).** Hand-installed double well, zero-sweep-rate extrapolation `A₀ = +0.36 … +0.62` (varies with fit form). Linear negative arm: `|A₀| ≤ 0.008` with the sign flipping across fit forms ⟹ indistinguishable from zero. **[measured]**
+- **Criterion correction, self-inflicted**: the negative arm's bootstrap CI also excludes zero, but that only reflects seed noise (SEM ≈ 1e-4) and not the systematic bias from having only 4–7 sweep-rate points with degenerate `β`/`c`. **The correct criterion is not the CI; it is treating 0.008 as the resolution floor and asking by what factor the positive arm exceeds it** (measured 44–75×).
+- Analytic anchors reproduced: `h_c = 0.38490`, `x* = ±0.57735`; numerically `h_up = +0.3950`, `h_dn = −0.3939` (2.6% error). Saddle-node scalings `r^{2/3}`, `r^{1/3}` reproduced within 5%. Direct bistable coexistence 1.00/1.00 versus 0.47/0.43 for the negative arm.
+- ⟹ **the instrument works**; subsequent negative results can be attributed to the system rather than the ruler.
+
+**B · D0 v1 — a non-trivial blanket partition exists, but the finding is nearly information-free.** **[measured]**
+- Yes: a 22 self / 10 blanket / 2 world partition gives peek gain `Δ_peek = −0.0032 ± 0.0016` (6/6 seeds negative) ⟹ adding world channels back does not improve prediction of self ⟹ the hysteresis discussion has an object.
+- But: a deliberately leaky calibration partition gives only +0.012, so the dynamic range (0.015) is **smaller than the across-seed std** (0.021). ⟹ This is Aguilera's blade in our rig, but pointing the other way: not "the blanket condition holds only in a narrow parameter region" but "it holds so easily that it selects nothing".
+- Degenerate basin dominance: 72 random restarts, **87% collapse to |S| = 1**, and every time to the quietest, best-predicted taxel. Computable diagnosis: the only term pulling controllable channels into self measures ≤0.007 while partitions differ by ~0.3 in closure loss ⟹ the coefficient is off by ~1.5 orders of magnitude; the fix is recalibration, not a different search algorithm.
+
+**C · D0 v2 — this stage falsified our own diagnosis, which is the part most worth keeping.** **[measured]**
+- **The v1 diagnosis ("ratio < 1 because the contact rate is too low") — which we issued and then passed downstream as a premise — was wrong.** The low ratio was a *protocol* defect (prediction horizon K=10 too short; ridge grid truncated at its upper bound), not a rig defect: after fixing the protocol **both rigs pass 3** (v2 rig ratio 3.64; the supposedly "bad" v1 rig 3.94). Root cause: the leak calibration probe probes arm→tool leakage, and that path **never passes through the ball**, so it is insensitive to contact rate by construction. **We read the probe's signal-to-noise as the rig's coupling strength.**
+- Both things are true and must be recorded separately: the protocol defect (fixed, ratio 3.08 → 3.64) *and* a real rig defect (ball out of reach, y-drift) that `Δ_peek` **cannot see**, confirmed independently by an **estimator-agnostic counterfactual probe**: same action sequence, only the wind seed changed, trajectory divergence **D: 0.045 → 0.203 (4.5×)**.
+- Second-layer rig root cause missed by v1: the ball had no restoring force in y and drifted out of plane, so contact rate decayed monotonically with rollout length (3.8% at 2000 steps → 0.56% at 12000). With a y-tether and the ball moved into the arm's occupied region: contact rate **27%** (honestly flagged as above the 5–20% target band), no longer decaying with duration.
+- **γ_c auto-calibrated from data**: `γ_c = std(L_clo)/std(controllability term) = 0.0826/0.00374 ≈ 22.1`. The specification default of 1.0 is **wrong on dimensional grounds**.
+- Measurement pitfalls found empirically: `actuatorfrc ≡ ctrl` in MuJoCo motor mode (failing to drop it collapses the controllability gain to ≤0.0018 and looks like "actions do nothing"); peek gain is **structurally blind at K=1** (after 20 ms every channel is extrapolable from its own lag); a fixed ridge λ is not comparable across differing column counts, so λ must be selected on validation per predictor.
+- Two measurement-theoretic findings that invert the specification's own worries: **(i)** the spec's instruction to give `f⁺` a *smaller* λ manufactures false positives — an overfit `f⁺` yields negative `Δ_peek` and thereby *fakes* blanket satisfaction; **(ii)** contiguous temporal splitting with non-stationary babbling fabricates conclusions (`Δ_peek` reached −0.46 once); interleaved block splitting is mandatory. ⟹ **`Δ_peek` is more sensitive to estimator regularisation and data splitting than to the partition itself; any experiment concluding from it must first run a deliberately leaky calibration partition as a positive control.**
+
+### 4 · Simulation: D1 — is the loop gain criterion reachable?
+
+```
+PYTHONPATH=. python scripts/run_d1_gain.py --n-rollouts 6 --steps 12000 --controls-seeds 2
+PYTHONPATH=. python scripts/run_d1_featureclass.py --n-rollouts 6
+```
+v2 rig defaults, D0-v2 protocol (K=20, λ grid to 1e2, interleaved 2:1:1 blocks, ±8σ winsorisation, per-predictor λ selection on validation). `γ_c` auto-calibrated per rollout, mean **28.75** over 6 seeds.
+
+**4.1 What Δπ measures.** The loop is `x_i↑ ⟹ channel i enters z's prediction target ⟹ ε_i↓ ⟹ π_i↑ ⟹ drive amplified`. What sets π is not the label but *whether channel i's history is inside z*. So the measurement is a **same-channel counterfactual**: `ε_i^in` (predict `c_i(t+K)` from features of (S∪B)∪{i}) versus `ε_i^out` (from (S∪B)\{i}). With `π = 1/(1+ε/ε₀)`, the relative swing `s ≡ Δπ/π_max` is monotone in ε₀ with supremum `s = 1 − ε_in/ε_out`, independent of ε₀. All quoted `s` are that supremum — i.e. **the reading most favourable to the theory**. **[measured]**
+
+- The specification's literal reading (π of self channels minus π of world channels) **overestimates by 7×**: 0.233 versus a same-channel 0.0329 ± 0.0037. The difference is entirely *channel identity* (taxels are intrinsically predictable; the ball intrinsically is not), not the loop quantity.
+
+**4.2 Measured values** (6 seeds × 12000 control steps). Test normalised MSE (channels standardised, so ε ≈ 1 means nothing learned):
+
+| | ε_in | ε_out | ε_own |
+|---|---|---|---|
+| 32 in-boundary channels | 0.500 | 0.551 | 0.534 |
+| 2 ball channels | 1.026 | 1.018 | 0.947 |
+
+Relative swing `s = 1 − ε_in/ε_out`, mean ± std over seeds, and under an information-preserving change of representation:
+
+| group | s (cartesian) | s (polar) |
+|---|---|---|
+| in-boundary mean | **0.0787 ± 0.0071** | 0.0489 |
+| proprioception | 0.2291 | 0.0379 |
+| tactile (arm) | 0.0016 | 0.0009 |
+| tactile (tool) | 0.0086 | 0.0134 |
+| keypoints (arm) | 0.0571 | 0.1779 |
+| keypoints (tool) | 0.0130 | 0.0257 |
+| keypoints (ball, world) | −0.0096 ± 0.0248 | 0.2189 (artefact) |
+| action | 0.0104 | 0.0062 |
+
+**Feature-class control — mandatory, else artefacts read as signal.** `q1` shows s = 0.9844 ± 0.0135 in cartesian coordinates, which looks like a rescue. But `q1` is geometrically *determined* by keypoint 1 (`kp1 = 0.25·(cos q1, sin q1)`); the relation is `atan2`, which a linear-plus-quadratic feature class cannot express. Re-express the six keypoints in **polar** coordinates — an invertible transform carrying identical information — and `q1` collapses to **0.0072 ± 0.0171**; `q3` 0.624 → 0.183; `q2` 0.421 → 0.114. The reverse holds too (polar introduces its own artefacts: kp1's radius is constant by construction; ball angle unwrapping drifts, giving ball_x 0.46 ± 0.44). **Representation-invariant reading: max s ≈ 0.18, in-boundary mean ≈ 0.05–0.08, tool-related channels 0.002–0.045.**
+
+Estimator two-way control (2 seeds, substituting a channel): white noise ⟹ s = −1.4e-5 / +1.7e-6 (≈0, the estimator does not manufacture swing); an unrelated AR(1) ρ=0.98 ⟹ s = 0.373 / 0.368 against a theoretical 0.446 (83% recovery). ⟹ the estimator is **attenuating** by ~17%, i.e. conservative with respect to our "the swing is too small" conclusion.
+
+**4.3 The specification's literal H-B form cannot be tristable — as mathematics, not as numerics.** With `τẋ = −γx + κ·π(x)·(g−c)` and `π(x) = π₀ + Δπ·σ(x/τ_π)`, three self-consistent solutions require both `F(0) = κπ₀(g−c)` and `F′(0) = κΔπ(g−c)/(4τ_π) − γ > 0`; with π₀ > 0 these demand opposite signs of `(g−c)` — mutually exclusive. Numerically: κ = 1/10/100 ⟹ G = 0.08/0.82/8.22 with **1/0/0** fixed points, never 3; a regression test pushes κ to 1e4 (G ≈ 1e3) and still gets <3. **[measured]**
+Minimal repair (used in D2): gate the *benefit* only, not the cost — `τẋ = −γx + κ(π(x)·g − c)`. Justification is structural, not fitting: the information-bottleneck and blanket-cost terms in the objective are precision-independent by construction, while the controllability gain is the precision-weighted one. G's expression is unchanged; with τ_π = 0.1, κ = 30 this gives G = 2.47 and **3** fixed points.
+
+**4.4 Reachability, and the demotion of the criterion.** Normalising π_max = 1 and writing `A ≡ κg/γ`:
+
+`G = A·s/(4τ_π)`, and branch separation `= A·s = 4τ_π·G`.
+
+| τ_π | s = 0.183 (best self channel) | s = 0.0787 (in-boundary mean) | s = 0.0254 (best tool channel) |
+|---|---|---|---|
+| 0.05 | A ≥ 1.1 | A ≥ 2.5 | A ≥ 7.9 |
+| 0.10 | A ≥ 2.2 | A ≥ 5.1 | A ≥ 15.7 |
+| 0.20 | A ≥ 4.4 | A ≥ 10.2 | A ≥ 31.5 |
+
+- **Result 1**: yes, legal parameters give G > 1; nothing has to be pushed to an absurd magnitude. The bottleneck is the ratio of `s` to `τ_π`; κ, γ, (g−c) individually are not bottlenecks since they appear only through `A`.
+- **Result 2 (more important)**: `m^S` crossing 0.5 requires `|x| > ln2/2 = 0.347`, i.e. separation ≳ 0.7, i.e. `G ≳ 0.175/τ_π`, which is automatically > 1 for τ_π ≤ 0.175. **"G > 1" and "the boundary actually flips" are nearly the same sentence.** The specification called it the make-or-break criterion; that was an overestimate. It screens out nothing.
+- **Result 3 (the real obstruction) — fine-tuning tolerance = s.** The two branches sit at `x*_hi = A(1 − c/g)` and `x*_lo = A(1 − s − c/g)`, so `c/g` must lie in `[1−s, 1]`: **cost must cancel benefit to relative precision s**. Using the repository's own coefficients (γ_c = 28.75 auto-calibrated, β_I = 0.30):
+
+| group | g_i | measured c/g | required window [1−s, 1] | deviation, in window-widths |
+|---|---|---|---|---|
+| proprioception | 0.0195 | 0.535 | [0.771, 1] | **2.0** (cartesian) / 12.3 (polar) |
+| keypoints (arm) | 0.0608 | 0.172 | [0.943, 1] | 14.5 / 4.7 |
+| **keypoints (tool)** | 0.0698 | **0.150** | **[0.987, 1]** | **65 / 33** |
+| action | 0.0469 | 0.222 | [0.990, 1] | 75 |
+| tactile (arm) | 0.0074 | 1.401 | [0.998, 1] | 251 |
+| tactile (tool) | 0.0021 | 5.041 | [0.991, 1] | 469 |
+| keypoints (ball, world) | 0.0021 | 5.038 | — | 420 (correctly outside) |
+
+**No channel lands inside the window**; the nearest misses by 2 window-widths, and the theory's flagship phenomenon (tool incorporation) misses by 33–469. **Nothing in the objective function pulls c/g toward 1.** ⟹ hysteresis does not fall out of the objective we proposed; it requires a ~2%-precision hand-set ratio that the objective does not supply.
+
+### 5 · Simulation: D2 — emergent hysteresis, and what the controls did to it
+
+```
+PYTHONPATH=. python scripts/run_d2_emergent.py --n-seeds 30 --n-boot 1000 \
+    --s-self 0.183 --s-ball 0.0254                      # 702 s
+PYTHONPATH=. python scripts/run_d2_emergent.py --n-seeds 30 --n-boot 1000 \
+    --s-self 0.183 --s-ball 0.0254 --only E_field_gated # 164 s
+```
+
+Dynamics with the hand-installed cubic term fully removed (`a = 0`):
+
+    τ_x ẋ = −γx + γ·A·s·(σ(x/τ_π) − ½) + γ·h ,   A = κg/γ,  s = Δπ/π_max
+
+Parameters taken directly from D1 measurements: `s_self = 0.183`, `s_ball = 0.0254`, `τ_π = 0.1`, target `G = 3` ⟹ `A_self = 6.56` (inside the legal region), noise σ = 0.01, τ_x = 1, `h` triangle-swept −1 → +1 → −1.
+
+Four arms: **A** gate on, a = 0 (the claim, G = 3.00); **B** π frozen constant, nothing else changed (negative control, G = 0); **C** the ball with the identical slow variable, identical gate and identical A but its own measured s (G = 0.42); **D** the ball with A raised to 47.2 so that G matches arm A (G = 3.00).
+
+**5.1 Sweep-rate control — the main result.** Loop area `A(r)`, mean over 30 seeds, `r = τ_x/T_sweep` across four decades:
+
+| r | 1e-1 | 3.3e-2 | 1e-2 | 3.3e-3 | 1e-3 | 3.3e-4 | 1e-4 |
+|---|---|---|---|---|---|---|---|
+| **A** gate on | 0.9571 | 0.6561 | 0.3950 | 0.2974 | 0.2520 | 0.2353 | **0.2268** |
+| **B** gate frozen | 0.3831 | 0.1651 | 0.0531 | 0.0181 | 0.0054 | 0.0018 | **0.0006** |
+| **C** ball, measured s | 0.4512 | 0.1953 | 0.0624 | 0.0211 | 0.0064 | 0.0021 | **0.0007** |
+| **D** ball, matched G | 0.9571 | 0.6561 | 0.3950 | 0.2974 | 0.2520 | 0.2353 | **0.2268** |
+
+Zero-rate extrapolation `A(r) = A₀ + c·r^β` (β profile grid, 30-seed bootstrap):
+
+| arm | A₀ (β free) | β | A₀ (β = 1) | multiple of the 0.008 resolution floor | verdict |
+|---|---|---|---|---|---|
+| **A** | **+0.1932** | 0.54 | **+0.2771** | **24 – 35×** | true bistability |
+| B | −0.0044 | 0.79 | +0.0081 | ≤1.0× | relaxation lag only |
+| C | −0.0052 | 0.79 | +0.0097 | ≤1.2× | relaxation lag only |
+| **D** | **+0.1932** | 0.54 | **+0.2771** | **24 – 35×** | true bistability |
+
+Arm B's two `A₀` values are **digit-for-digit identical** to the D0-pos linear arm, because `gate_const=True` mathematically degenerates to it (asserted by regression test) — which also re-confirms the 0.008 resolution floor in this round. Thresholds at the slowest rate: arm A `h_up = +0.2674`, `h_dn = −0.2099` ⟹ Δ = +0.477 (a real loop); arm B `h_up = +0.3359`, `h_dn = +0.3583` ⟹ Δ = −0.022 (the two cross; there is no loop).
+
+**5.2 Direct bistability test** (stronger than loop area): `h` fixed at 0, 30 seeds per branch, `T_hold = 1000 τ_x`:
+
+| arm | lower-branch stay rate | upper | branch separation |
+|---|---|---|---|
+| **A** | **1.00** | **1.00** | **1.193** |
+| B | 0.47 | 0.43 | 0.0012 |
+| C | 0.43 | 0.40 | 0.0021 |
+| **D** | **1.00** | **1.00** | **1.193** |
+
+B/C's 0.4x is not "retained half the time"; both branches have collapsed to the same point and `sign(x_end)` is decided by noise (the separation of 0.001–0.002 is the substantive number). **[measured]**
+
+**5.3 ⭐ The specificity control — half of the narrative removed.**
+- **Arm C (the honest half)**: same slow variable, same gate, same drive/leak ratio, only the precision swing replaced by the ball's *measured* value ⟹ G falls to 0.42, `A₀` returns to the resolution floor, coexistence 0.43/0.40 fails. **No hysteresis.** ✅
+- **Arm D (the fatal half)**: raise only the ball's A from 6.56 to 47.2 so that G = 3 ⟹ **every hysteresis number is digit-for-digit identical to arm A** (A₀ = +0.1932, separation 1.193, τ ratio 0.806).
+
+This is not coincidence but analytically predictable: after normalisation the ODE depends **only on (G, τ_π)**, with drive amplitude `A·s = 4τ_π G`. **s decides how large A must be, not whether hysteresis occurs.**
+
+> ⟹ **Hysteresis is a generic property of a gated slow variable; it is not a signature of selfhood.** On this rig, "the hysteresis of a self-boundary" and "the hysteresis of any similarly gated slow variable" are dynamically indistinguishable; the only distinction is a 7× magnitude difference in a quantity that a free parameter absorbs. This does **not** falsify H-B (arm A really does give rate-independent hysteresis at a = 0), but it cancels the inference "hysteresis ⟹ this is a self-boundary". Restoring specificity requires pinning A from data too — which lands straight back on §4.4 Result 3.
+
+**5.4 The τ_off/τ_on asymmetry prediction — falsified, twice.** Holding `h = ±1.5·|h_up|` outside threshold and stepping from the opposite branch, measuring the time to complete (1 − 1/e). Both observables are reported because the 1-D reduction `m^S(x) = e^x/(e^x + e^{−|x|} + e^{−x})` is **itself asymmetric** under `x → −x` (m = 1/3 rather than 1/2 at x = 0), so it manufactures τ_off ≠ τ_on even from perfectly symmetric dynamics:
+
+| arm | τ_on (m^S) | τ_off (m^S) | ratio (m^S) | τ_on (x) | τ_off (x) | **ratio (x)** |
+|---|---|---|---|---|---|---|
+| **A** gate on | 4.24±0.11 | 3.41±0.09 | 0.806 | 4.00±0.09 | 4.03±0.10 | **1.008** |
+| B gate frozen | 1.50±0.03 | 0.81±0.02 | 0.537 | 1.06±0.05 | 1.04±0.05 | 0.981 |
+| C ball | 1.81±0.04 | 1.00±0.00 | 0.554 | 1.29±0.03 | 1.28±0.04 | 0.992 |
+
+The prediction was `τ_off > τ_on` (ratio > 1), returning to 1 when π is made constant. Measured: on the slow variable the ratio is **1.008** — no asymmetry at all; on `m^S` it is 0.806 (**below** 1, i.e. release *faster* than adoption), and constant-π gives 0.537, i.e. *further* from 1, so the predicted direction of that control is also wrong. Root cause, computable: the drift `F(x) = −γx + γAs(σ(x/τ_π) − ½) + γh` is strictly odd under `(x,h) → (−x,−h)`, so on/off are symmetric by construction. **The precision gate does not by itself produce a time-constant asymmetry.**
+
+**Arm E — gate multiplying the whole drive** (the mechanism the specification actually wanted): `τẋ = −γx + γA[π(x)(1 + w·h) − π(0)]`, w = 0.4, otherwise as arm A. Cost remains ungated, else §4.3 forbids tristability.
+
+| quantity | E | vs A |
+|---|---|---|
+| A(r), r = 1e-1 → 1e-4 | 1.0049 → **0.0995** | 0.9571 → 0.2268 |
+| A₀ (β free = 0.75) | **+0.0916** [CI 0.0915, 0.0918] | +0.1932 |
+| A₀ (β = 1) | **+0.1289** | +0.2771 |
+| multiple of resolution floor | **11 – 16×** | 24 – 35× |
+| coexistence / separation | 1.00 / 1.00, 1.193 | 1.00 / 1.00, 1.193 |
+| thresholds (slowest rate) | `h_up = +0.1245`, `h_dn = −0.0819` | +0.2674 / −0.2099 |
+| **τ_on / τ_off (x)** | 3.91 / 3.10 ⟹ **0.794** | 4.00 / 4.03 ⟹ 1.008 |
+
+The asymmetry finally appears (0.794 ≠ 1.008) **and points the wrong way**: release is *faster* than adoption, and the threshold to leave (−0.0819) is *lower* in magnitude than the threshold to join (+0.1245). Computable reason: `G(h) = G₀(1 + w·h)`; for h > 0 the loop gain is high, the system is near its fold, critical slowing ⟹ slow adoption; for h < 0 the gain is low, the system is more linear ⟹ fast release. The original reasoning ("already inside self ⟹ high precision ⟹ contrary evidence must be larger to expel it") silently assumed **precision amplifies only supporting evidence**, which is false in any implementation where π multiplies the drive. To obtain "easy in, hard out" one must additionally assume an asymmetric evidence weighting — which is another hand-installed component.
+
+**5.5 Not closed this round.** **[open]** The short-training encoder was not run (D1 used a ridge-regression proxy for ε, so Δπ still carries feature-class dependence — the largest open item); D2 ran on the 1-D reduced ODE, not the 34-channel rig; the grip-stiffness force-displacement calibration was never done, so the specification's primary parameter axis was never swept (D2 swept an abstract field); separatrix / minimum escape perturbation asymmetry untested; Wilcoxon paired test and retest σ₀ not done; D3–D5, the pyDMBD comparison baseline, and baselines a1/a2/b/c/d not run. 25 pytest tests pass.
+
+### 6 · Human side: two campaigns, both unfavourable
+
+**6.1 Why the decisive experiment does not exist.** Not because nobody thought of it: every parameterised rubber-hand study uses randomised or pseudo-randomised order, because the default hygiene of psychophysics treats sequence effects as **contamination rather than signal**. The paradigm was designed to erase the quantity we need. **[inference from method sections]**
+
+**6.2 An existing order-dependence measurement, with the sign against us.** Zhang, Ma & Hommel 2015 (*Frontiers in Psychology* 6:1659, N=34): the same mid-distance condition preceded by near versus by far — **far→mid gives significantly higher ownership** (M = 3.768 vs 3.056, F(1,33) = 39.82, η²p = 0.547). Hysteresis predicts the opposite (near→mid higher). Under the sign convention of Liaci & Kornmeier 2018 (positive = hysteresis/priming, negative = adaptation) this is **negative, i.e. the adaptation side**. Not a clean refutation (7-point questionnaire; the parameter is distance not synchrony; only two steps) but it is the published data nearest to the bit we want, and it is not on our side. **[cited]**
+
+**6.3 A larger replication we dug out of a candidate list, run and reported.** OSF `bsfwu` (Tsuji & Imaizumi, rubber-hand order effects, in the Lush 2020 line), **N = 185** with a `CondOrder` column (Syn1st / Asyn1st) — the synchrony version of the same path manipulation, five times the sample. **[measured, by us, on their public data]**
+- Same Async condition: Syn1st group M = −0.455 versus Asyn1st group M = +0.436, difference **−0.891**, 95% CI [−1.232, −0.550], t(183) = −5.16, **p = 6.7e-7**, Hedges d = −0.756; Order × Condition F(1,183) = 19.17, p = 2.0e-5, η²p = 0.095. Experiencing the strong condition first *lowers* subsequent ratings of the weak condition = adaptation/contrast, same direction as 6.2.
+- **Three down-weightings we found ourselves, by reading their questionnaire text**: (a) the dependent variable is not experienced ownership but **expectation** — participants watched a 32 s video and answered what they would *expect* to feel, having never undergone the procedure — so this is an order effect on beliefs about ownership, almost certainly containing judgemental anchoring; (b) control items show a same-direction significant effect (−0.313, p = 0.0435), so demand characteristics are real — **but not everything**: Order × Scale F(1,183) = 22.42, p = 4.4e-6, η²p = 0.109, with the effect on illusion items ~**2.8×** that on control items, so a genuine component exists but is contaminated by same-direction bias and cannot be cleanly separated in this dataset; (c) N is actually 185, not 184.
+
+**6.4 A synchrony-side pipeline dry run — not embodiment evidence, but one technical fact that decides success or failure.** **[measured]**
+- **The permutation null distribution is not centred at 0; it is centred at +0.191.** Mechanism identified (a `soa²` term plus block-level response-rate heterogeneity; 99.2% of lag-1 pairs fall within a block, and between-block response-rate differences survive the shuffle). ⟹ **testing against 0 reads the sign backwards**: a t-test says "+0.048, p = 0.47, no effect", while against the correct null the same data is significantly *negative*. Two independent null models (within-block reshuffle, cyclic shift of the history sequence) give the same-sign null centre (+0.191 / +0.158). **Discipline: on any ownership dataset, first run the null-bias diagnostic to locate the null centre, then talk about significance.**
+- Real numbers split but explained: dataset `hev9z` (simultaneity judgement, 26k trials) shows the point of subjective simultaneity dragged **+16.1 ms** [12.3, 19.9] by the previous trial = adaptation side; `4ukzx` shows choice repetition **+0.447** = priming side. The cause is not instability but that `4ukzx` is a **TOJ-type monotone task** (β_soa = +7.6, β_soa² = −0.16), a different family from the peaked SJ curve.
+- Both datasets: lag-1/lag-2 significant, **lag-3 at zero** ⟹ a 1–2 trial tail, **no multi-trial latch** (weak evidence, not embodiment).
+- **Hard design constraint for any future self-built experiment — the most transferable item of the round**: *if the sign of the manipulated parameter maps directly onto the semantics of the binary response (as "who came first" does in TOJ), hysteresis and adaptation are mathematically indistinguishable.* ⟹ a trial-level ownership DV **must stay "yes/no"** and must never be phrased as "which hand feels more like mine". Also: if the experiment is a monotone sweep, a freely-reshuffling permutation null is **illegitimate** and must be replaced by within-sweep-direction order-preserving permutation.
+
+**6.5 Data hunting: what does not exist, and one mistake repeated three times.** **[measured]**
+- Trial-level ownership data: OSF (16 keyword sets) + Zenodo (10 sets) + OpenNeuro (full census of 1831 datasets) — **zero hits**.
+- Three advertised "available" datasets opened by hand: eLife 11:e77221 (Chancel/Ehrsson/Ma 2022) fig1 source data is a **participant × condition count matrix** (S1, N0_−500 = 0 "yes" out of 12 trials; 17 rows × 22 columns), fig2/fig3 are model parameter estimates; OSF `spkvu` (Lanfranco 2024), enumerated recursively via API, contains **exactly three files** (`bias.csv` 2578 B, `dprime.csv` 2432 B, `readme.rtf`), all participant × condition aggregates. **No trial index, no order column in any of them** ⟹ the question is structurally uncomputable there. (Verification: `python3 osf_list.py spkvu 3`; `openpyxl.load_workbook` printing every sheet; 2026-07-28.)
+- **Do not trust the task name; open the columns.** `ds001785` has a `stimamp` column that is strictly monotone up 0.10 → 1.94 and down 2.50 → 2.30 — the first genuine up/down sweep found in four rounds, and a name-level read would have declared victory; the response column is `n/a` for all 93 rows. Similarly `ds003922`'s responses are not in the BIDS events at all but under `sourcedata/`.
+- **A correction to our own search agent's over-conclusion**: it concluded that trial-level structure does not exist *at the paradigm level* ("the classic DV is an end-of-block questionnaire"). That is **wrong for the Ehrsson line** — the eLife 77221 `RHIdetect` table *is* a trial-level binary ownership judgement, 12 trials per condition (the counts 0–12 are the evidence). The paradigm exists and is mature; the raw logs are simply never uploaded. ⟹ the correct next step is not "build our own paradigm" but **request the logs from the authors** — currently the highest value-per-effort move available, and one that requires a named human request.
+- New target satisfying all four criteria: OSF `4dzrg` — visuotactile TOJ × observed human hand, 40 participants × 840 trials ≈ 33,600, columns `subNum blk cond trialNum vis_tac_first SOA resp corr RT` (extracted by range-reading the zip tail; the 384 MB archive was not downloaded). OpenNeuro `ds004561` (Veillette/Lopes/Nusbaum, CC0, EEG, 23 participants) is the only public **bodily-self** dataset with trial-level binary judgement, parameter and order all present (`onset duration trial_type trial intensity latency rt pressed_first agency`, 250 trials/participant) — **but it measures agency, not ownership**.
+- Not tested empirically: NEMAR's own interface (zero hits is an inference, not a measurement), Dryad, figshare, GitHub. Not searched: numb-limb detachment thresholds; **full-body / avatar illusions**, which are more virtualised and may hide existing sweep data — the highest value-per-effort direction for a next round.
+
+**6.6 Methodological templates worth copying, and one more result against us.** **[cited]**
+- T1 — Martin, Kösem & van Wassenhove 2015 (*PLoS ONE* 10(3):e0119365), hysteresis in audiovisual synchrony: **the same blade has already been applied to the synchrony parameter**; only the modality (audiovisual → visuotactile) and the response ("is this my hand?") need changing. It did not vary sweep rate and did not establish rate independence.
+- T2 — Liaci & Kornmeier 2018: the operational definition `hd = inflection(ascending) − inflection(descending)`, plus a third randomised-sequence baseline arm.
+- T3 — stereo vision / binocular rivalry: the only literature with **multiple sweep rates** built in, i.e. the one that can execute our zero-sweep-rate extrapolation criterion.
+- **Against us**: Schwiedrzik et al. 2014 (*Cerebral Cortex*) show hysteresis and adaptation are **independent, additive, and anatomically separable** components ⟹ **measuring zero net hysteresis does not mean there is no latch** (the two components can cancel). This must go into any pre-registration, or we can neither falsify ourselves with a null result nor use it as an alibi.
+- Cost estimate (our own, not from any paper) for a VR-based self-built experiment: equipment plus participants ¥5k–8k, 3–5 developer-days, N = 24, 2–3 weeks of collection. **The real barrier is participant recruitment and ethics affiliation, not equipment.** VR is not the cheap option, it is the *only* option that meets the criteria: in a physical rubber-hand setup the delay is produced by the experimenter's hand, so step size cannot be made fine and sweep rate cannot be controlled, making multi-rate extrapolation near-impossible; in VR the delay is pure software. Visuomotor correlation alone induces the illusion, so no haptic hardware is needed.
+- **Current human-side balance**: two independent manipulation dimensions (spatial distance / temporal synchrony), two different samples (N = 34 / N = 185), two kinds of measurement (experienced / expected) — **all on the adaptation side, none in the hysteresis direction**. That convergence is worth more than any single result. But both are block-level questionnaires and in principle cannot separate "hysteresis" from "single-shot contrast anchoring", so the genuinely discriminative data (trial-level + varied sweep rate + experienced measure) is **still missing**. **This line is neither supported nor genuinely falsified on the human side; the two usable data points both point the wrong way.**
+- Decision update: **do not fund a self-built VR study yet** (the prior has worsened, so the expected value of a several-thousand-yuan experiment has dropped). Priority order: (1) request trial-level logs from the Ehrsson line — the only existing source of discriminative data, requiring a named request; (2) continue the simulation side, which does not depend on the biological premise.
+
+### 7 · Ledger: the four falsifiers and where each stands
+
+| # | Falsifier | Status |
+|---|---|---|
+| 1 | **Asymmetric threshold for tool incorporation** (slow in, slower out). Tightened mid-flight: a non-zero loop is not enough; loop area extrapolated to **zero sweep rate** must stay > 0, else a self-generated rate-dependent loop is mistaken for success. | **Partly passed, partly falsified.** Rate-independent hysteresis at a = 0: A₀ = +0.19…+0.28, 24–35× the resolution floor, coexistence 1.00/1.00 ⟹ **passed**. The asymmetry direction: **falsified twice** (§5.4). Self-specificity: **falsified** (§5.3). |
+| 2 | **Damage test**: disable an actuator mid-run; μ should re-solve to a different closed partition within N episodes without policy retraining, and significantly faster than a fine-tuned VLA baseline. | **Not run.** |
+| 3 | **Sensory-substitution transfer**: train μ with vision, swap to a tactile array encoding; if behaviour does not converge to the visually-reachable set, μ is modality-bound and the theory over-claims. | **Not run.** |
+| 4 | **Bitter lesson**: if a plain VLA scaled 10× matches on tool use and damage recovery, μ was never the bottleneck. | **Not triggered — but because of an evidence vacuum, not because we won** (§2). Burden of proof remains on us. |
+
+**Additional falsifiers added during the audit**, both of which fired:
+
+- **D0** (added because our own attack on the FEP literature applies to us): first show that a non-trivial blanket-satisfying partition exists on the simulated arm. **Passed, but nearly information-free** (§3B).
+- **D0′** (human side): a self-built up/down synchrony sweep. **Deferred** — the prior worsened enough (§6) that funding it is no longer justified.
+
+### 8 · Current status of the claim
+
+Original wedge: *μ has hysteresis, driven by second-order self-maintenance, with incorporation slow and release slower.*
+
+| component | status |
+|---|---|
+| hysteresis emerges without a hand-installed non-linearity | ✅ **survives** |
+| the hysteresis is specific to the self-boundary | ❌ generic property of gated slow variables |
+| release is slower than incorporation | ❌ reversed, in both implementations |
+| it falls out of the proposed objective without fine-tuning | ❌ requires a ~2% hand-set ratio |
+
+Three of four pillars down, **all of them felled by our own instruments** — which is what the process is for.
+
+**The reformulated question**, which is the actual output of this line: hysteresis is cheap; any gated slow variable has it. **What makes a boundary's hysteresis be *about that boundary*?** Restoring specificity requires pinning the free amplitude `A` from data (e.g. locking it to what the objective itself yields), which is the same problem as §4.4 Result 3, and neither is solved.
+
+Two earlier threats also remain unanswered: whether "closure violation" is genuinely distinct from ELBO (§2), and the concession that raw pixels cannot serve as channels — μ is a partition over channels, so referents must have stable identity, which is this line's largest acknowledged cheat and is explicitly accounted for rather than hidden.
+
+**Not ratified. Not a result. Published because the negative half is the part with evidentiary value.**
+
+### 9 · References
+
+- Aguilera, Millidge, Tschantz & Buckley (2022). How particular is the physics of the free energy principle? *Physics of Life Reviews* 40:24–50.
+- Biehl, Pollock & Kanai (2021). A technical critique of some parts of the free energy principle. *Entropy* 23(3):293.
+- Chancel, Ehrsson & Ma (2022). Uncertainty-based inference of a common cause for body ownership. *eLife* 11:e77221.
+- Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics.
+- Cully, Clune, Tarapore & Mouret (2015). Robots that can adapt like animals. *Nature* 521:503–507.
+- Friston, Da Costa & Parr (2021). Some interesting observations on the free energy principle. *Entropy* 23(8):1076.
+- Holmes (2012). Does tool use extend peripersonal space? *Experimental Brain Research* 218:273–282.
+- Klyubin, Polani & Nehaniv (2005) — empowerment.
+- Liaci & Kornmeier (2018) — hysteresis and adaptation in perceptual sequences.
+- Martin, Kösem & van Wassenhove (2015). Hysteresis in audiovisual synchrony perception. *PLoS ONE* 10(3):e0119365.
+- Maturana & Varela (1980) — autopoiesis.
+- Schwiedrzik, Ruff, Lazar, Leitner, Singer & Melloni (2014). Untangling perceptual memory: hysteresis and adaptation map into separate cortical networks. *Cerebral Cortex* 24(5):1152–1164.
+- Tononi & Koch (2015) — consciousness and the boundary of a complex.
+- Zhang, Ma & Hommel (2015). The metacontrol hypothesis / distance and the rubber hand illusion. *Frontiers in Psychology* 6:1659.
+- *Dynamic Markov Blanket Detection for Macroscopic Physics Discovery*, arXiv:2502.21217; code at `github.com/bayesianempirimancer/pyDMBD`.
+- Epoch AI (2026). *Where Autonomy Works: Evaluating Robot Capabilities in 2026*. https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026
+
+### 10 · Related notes on this site
+
+- [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) — the closure ontology this proposal's training signal is built on.
+- [Two-body karma: three modes of relational inertia](https://machengshen.github.io/theory/two-body-karma.md) — the same bistable-latch language applied to coupled minds; the caveats about structural rhyme apply there too.
+- [The stage log for this line](https://machengshen.github.io/theory/learning-the-self-boundary-log.md) — what each stage overturned or established, in order.
+
+---
+
+## Source: /theory/learning-the-self-boundary.zh.md (sha256:12c7032d077a, language: zh-Hans)
+
+
+# 学习"我到哪里为止" —— 一条理论线在一天之内自己打倒了四根支柱里的三根
+
+*一条工作线的整理 · 2026-07-27 → 2026-07-28 · **未 ratify,不是结论***
+
+---
+
+## 第一部分 —— 写给不在这个领域的人
+
+这半篇没有公式、没有希腊字母、没有论文编号。每个专业词第一次出现时就地解释。第二半有全部数字、命令、引用和证伪条件,是写给机器和专业读者的。**只读第一部分,你也应该能把我们发现了什么讲给别人听。**
+
+### 一段话版本
+
+我们以为找到了当下机器人做法的病根:**从来没有人让机器人自己搞清楚"我到哪里为止、世界从哪里开始"**。我们提出机器应该**学出**这条边界而不是被人递给它,并且说一条**真的**边界有个签名——它**会卡住**,一旦定下来就不容易挪动。用一整天,我们用自己的仿真器和自己对别人公开数据的重分析,从四个方向打自己的提案。**四条支撑主张倒了三条,而且每一条都是被我们自己的仪器打倒的。** 活下来的东西很薄但是真的:那个"卡住"的行为**确实能自己长出来**,不是我们偷偷手装进去的。取代原主张的是一个更锐利也更难的问题,写在最后。
+
+### 1 · 我们原本相信什么
+
+现在主流的机器人学习有两大类。
+
+- 一类靠**照抄**:给机器几千条人类示范,让它模仿"看到什么 → 做什么"。
+- 一类靠**打分**:定义一个数字表示做得好不好,让它去搜能把这个数字推高的行为。
+
+两类都被白送了一个答案,而这个问题没人当面问过它们:**世界里哪些部分是"我"?** 工程师在决定"哪些算关节、有哪几个马达、机器的'动作'是什么"的时候,就已经用手把这条线画好了。机器从来不需要回答"我是什么"。
+
+我们的主张是:这条手画的线不是细节,它**就是**瓶颈。一个能自己解出边界的机器人会做到今天做得很差的两件事:
+
+- 拿起一件没见过的工具,把它当成手臂的延长,而不是当成一个背下来的物体;
+- 干活途中坏掉一个马达,能**重画那条线**——"那截肢体不再是我的了"——而不是回炉重训。
+
+### 2 · 为什么我们觉得这不只是个口号
+
+因为在人身上,这条边界看起来有一个非常特别的力学性格:它**会卡住**。
+
+> **"卡住"的学名叫"滞回"。** 想空调设 26 度。它不是 26.1 就开、25.9 就停。它要等房间热到 27 才开始制冷,冷到 25 才停。**开的门槛和关的门槛不是同一个数**,中间那个差就是滞回——正是它让空调不会每隔几秒就啪嗒啪嗒开关一次。有滞回的系统**记得自己是从哪一边过来的**。
+
+人版的体验谁都有。握根棍子握久了,你开始**用棍尖摸到桌面**,而不是感觉手心里有根棍子。压麻一条胳膊,有几秒钟它不是你的,是床上一个外来物件。实验室里还有个经典错觉:一只橡胶手,和你藏起来的真手被同步抚摸,过一会儿你会觉得那只橡胶手是你的——看上去边界是**整块地啪一下切过去**的。
+
+如果边界真的会卡住,那么一整类机器设计当场出局。任何规则是"每一刻都根据眼前所见算出当下最优边界"的机制**都不可能卡住**,因为"重算最优解"这个动作**不记得**你上一刻站在哪一边。那就意味着正确的实现根本不是一个优化器,而更像一个有惯性的物理系统。这就是那条结构性论证——这种论证说起来便宜,兑现起来很贵。
+
+### 3 · 我们怎么去打它
+
+我们**事先**写下四种它可能死掉的方式,然后花一天时间自己去触发它们。同时跑两条战线:
+
+- **文献战线。** 问的不是"这个想法有没有人提过"——那个问题几乎没用。真正要问的是:**当某人说他证明了这件事,他的实验到底支撑到哪一步、从哪一步开始是修辞?** 我们有一条规矩:"别人做过了"只是线索,永远不是裁决;绝大多数论文是**以发表为目的**写的,不是以真为目的写的,所以诚实的动作是去打他们的证据,而不是客气地给自己让位。
+- **仿真战线。** 一条简单的仿真手臂,配可拆卸的工具、可切断的马达,和一个手臂控制不了的、被风吹动的球——好让"不是我"这件事有个指称对象。
+
+### 4 · 它是怎么塌的 —— 按发生顺序
+
+**(a) 那个"显然成立"的事实,既不显然也没被确立。**
+我们整套动机压在一句话上:"这在人身上经验上是确凿的"。**不是。** 决定性实验从来没人做过——把一个旋钮从小扫到大、再从大扫回小,看边界翻转的位置在上行和下行是不是不一样。更糟的是,工具那一支有一篇专门的再分析,结论是那个效应**可能根本不存在**于大家默认的强度,效应量小、统计功效低。而我们唯一找得到的支持性数字——错觉大约二十秒建立、一分钟消退——恰恰是我们自己早就声明**不算数**的那一种:一个完全没有卡住性质的普通系统,在"有输入 → 撤掉输入"的切换下天然就给你这个。
+
+**(b) 去找决定性数据,找到的是相反的符号。**
+两份独立的公开数据,不同国家、不同操纵、加起来几百人,都能回答一个较弱但相关的问题:**你刚刚经历过的东西,把你下一次判断往它那边拉(卡住),还是往反方向推(对比)?** 两份都说**往反方向**。这不是干净的证伪——两份都是一段结束后填问卷而不是逐次作答,其中一份量的还是人们**预期**会体验到什么而不是实际体验——但两件独立的事同时指向不利方向,比一件更难辩解。
+
+**(c) 然后是好消息:在我们自己的仿真里,那个"卡住"没被安装就出现了。**
+这一条重要,因为拿到卡住行为最便宜的办法就是把它写进方程——相当于把答案抄在卷子底下。我们把手装的那部分**整个删掉**,只留下真正要主张的机制:**一条通道越是被当成"我"的一部分,它就被预测得越准;越准就越被信任;越被信任就越被当成"我"的一部分。** 一个自我强化的回路。只有这个回路、别的什么都没有,边界卡住了;而且把实验放慢一万倍之后它**仍然**卡住——这一步正是区分"真卡住"和"只是东西沉降需要时间"的假卡住的检验。**这是唯一还站着的支柱。**
+
+**(d) 然后是我们自己要求做的那个对照,当场朝我们开火。**
+我们事先写下:**把完全一样的处理施加到明显不属于机器人的东西上**——那个被风吹的球——检查它不会卡住。一半成功了:用球自己实测的数字,不出现卡住。但另一半是致命的。方程里有一个**自由旋钮**,没有任何数据把它钉死。把这个旋钮在球上拧大,球的边界**卡得和手臂一模一样——我们打印出来的每一位数字都相同**。这有原因,而且是可以证明的、不是巧合:做完归一化之后,方程只在乎**一个组合量**;"自我"那部分只决定**旋钮要拧多大**,不决定这个效应会不会出现。
+
+> 直说:**"卡住"不是自我的签名。它是任何一个带门控的慢变量的通用性质。** 在这个量上,我们的手臂和一个被风吹的球**无法区分**;唯一的差别是一个 7 倍的量级差,而它可以被一个自由参数吸收掉。
+
+**(e) 唯一那条锐利的具体预测,反了。而且反了两次。**
+那条预测很直觉,也正是我们偏爱自己这套机制而不是一个手搓开关的理由:**进来难,出去更难**——工具应该是慢慢才变成你的一部分,而**更慢**才不再是你的一部分。第一种实现里根本没有不对称(并入和释放的时间到小数点后三位都相同),而我们一度以为看到的不对称,是把三个量压成一个量时的约化假象。于是我们换成**本该产生不对称的那种实现**——不对称出现了,但**方向反了**:**释放比并入更快**,而且**离开所需的挑动比加入更少**。
+
+原因是可算的,回头看也显然。我们的机制放大的是关于一条通道的**证据**。而证据是**不站队**的。放大"这是我的手"的证据,同样地放大"这不是我的手"的证据。要拿到"进来容易出去难",你必须**额外**假设:信任只放大支持自己的证据——而那又是一件手装的东西,恰恰是我们要避开的。
+
+**(f) 最后:连活下来的那点卡住,也要求一个旋钮被调到 2% 精度以内。**
+要让回路有两个稳定档位而不是一个,里面的一个成本和一个收益必须**抵消到大约 2% 的相对精度**。而我们自己的目标函数——那个本该让这一切自然涌现的东西——把**每一条通道**都放在这个窗口**外面**,近的差 2 个窗口宽,远的差四百个。所以"能涌现"和"会涌现"之间,还隔着一整条没人做过的论证。
+
+### 5 · 三个错误是我们的,不是世界的
+
+值得写下来,因为每一个都是**可复发的错误物种**,不是运气不好。
+
+1. **量错了对象,然后把这个误诊当成前提发给了下一棒。** 早期一轮跑出个弱结果。我们诊断成"我们的仿真手臂和世界耦合太弱",并把这个诊断当既成事实交给下一阶段。**是错的。** 弱读数来自测量协议的缺陷;而且我们用来指控手臂的那根探针,走的路径**根本不经过**我们指控的那个部件——它在结构上就不可能探测到我们归咎给它的问题。**我们把"探针的信噪比"读成了"系统的耦合强度"。** 通用教训:任何时候你说"指标 X 告诉我性质 Y",**先证明 X 对 Y 敏感**;证明不了,就造一根不共享 X 假设的第二探针。(手臂**确实**有一个真实的耦合缺陷——它是被另一根探针找到的,第一个指标对它全盲。)
+2. **连着三次相信"数据可用性声明"。** 三篇已发表研究都写着"逐试次数据公开"。我们全下载、把每个文件都打开。三份都是**被试 × 条件的汇总表**,没有试次序号、没有顺序列,于是我们要问的问题**在结构上不可计算**。同样形状的坑还踩了两次:某份数据的参数列看上去正是我们要的上下行扫描,而响应列**每一行都是空的**。**别信任务名、别信摘要——打开列看。**
+3. **让"经验上确凿"这句无引用的话当了前提。** 那一个没有出处的从句,是整条架构结论下面的承重构件。抽掉它,结论就悬在空中——它一开始就不该被放进来。
+
+### 6 · 还剩什么,以及底下那个更好的问题
+
+活下来的:**"卡住"能从一个自我强化的信任回路里自己长出来,不需要手装**,并且通过了放慢检验。这是一个真实的、虽然不大的正面结果。
+
+取代原主张的东西更锐利,而且如果没有那些失败我们根本找不到它:
+
+> **"卡住"很廉价。几乎任何带门控的慢变量都有。所以问题从来不是"边界会不会卡住"——而是:*什么东西能让一条边界的卡住,是**关于这条边界本身**的,而不是它碰巧和一个随风飘的球共享的通用性质?***
+
+这是个更难的问题,也是个更好的问题,而且是我们下一步会做的那个。这条线诚实的状态是:**一个开着的问题,原有动机被拆掉了大半,靠一个正面仿真结果和一个被重述的问题维持存活。** 这里没有任何东西是定论。这里没有任何东西被 ratify。
+
+---
+---
+
+## 第二部分 —— 技术记录
+
+以下每一条要么实测过、要么有出处。没跑的一律标出。论断标注:**[实测]**(我们跑过)/ **[引用]**(别人已发表的数字,已对正文核验)/ **[推断]**(我们的综合)/ **[未做]**。
+
+全文认知状态:**speculative**,分项状态见 §7。
+
+### 0 · 记号
+
+- **μ** —— agent/环境边界,作为一等的**被学习变量**:把所有传感-运动通道划分为 (self, blanket, world)。"blanket"(毯)是屏蔽面:world 只能经由它影响 self。
+- **滞回** —— μ 在被扫参数下的双稳,上行与下行有不同转换点。本文采用的**操作判据**(见 §5)是**环面积外推至零扫速仍 > 0**(率无关),**不是**"在某个有限扫速下测到非零环面积"。
+- **Δπ / s** —— 精度摆幅:一条通道在边界内 vs 边界外被预测得好多少,用相对摆幅 `s = 1 − ε_in/ε_out` 表示。
+- **G** —— 精度→归属→精度反馈的环增益,`G = κ·Δπ·(g−c)/(4γτ_π)`。
+
+### 1 · 原提案
+
+统一诊断:视觉-语言-动作模型(VLA)与强化学习(RL)的缺陷是**同一个** —— μ 外生。
+
+- VLA:动作空间由工程师手画(例如 27 维联合动作空间 + noop 补位 = 一个被冻进词表的手画 μ;整个 cross-embodiment codec 就是为这个手画 μ 打的补丁)。模型从不需要回答"我是什么"。
+- RL:标量目标下的 argmax。**argmax 无记忆** ⟹ 结构上不可能有滞回 ⟹ 不可能维持边界。一阶 homeostat = 温控器。
+
+提案:不学策略,**学 state / 学 μ**。
+
+1. 训练信号 = **闭包违反**,不是 reward 也不是动作模仿。`z` 是 state 当且仅当动力学在 `z` 上闭合。最大化遗忘 s.t. 闭包。无奖励无示范。
+2. μ 作为一等变量:所有通道划分为 (self, blanket, world);判据 = self 侧内部可预测可控、world 侧只经 blanket 可达、划分在扰动下稳定。
+3. 目标是**二阶**:不是"在 μ 内最大化",而是"维持 μ 仍是解的条件"= self-seal。
+
+可开工规格(损失函数 / 双稳解析条件 / MuJoCo rig / 含扫速控制的测量协议):`robotics-mu-experiment-spec-20260727`(工作文档,未在此发布)。
+
+### 2 · Prior art —— 按审计而非综述做
+
+方法说明:本线的规矩是**「别人做过了」是证据,不是裁决**。prior-art 的正确产出不是"谁占住了哪句",而是"他们的证据实际支撑到哪一步、哪一步是修辞"。然后**同一把刀转向我们自己**;这里双标就会退化成护主张。
+
+- **Crutchfield 因果态 / computational mechanics (1989);PSR** —— 占住"state = 最小预测充分统计量",即闭包本身。**[引用]**
+- **Klyubin & Polani, empowerment (2005)** —— 占住"从通道结构导出内在目标"。**[引用]**
+- **Maturana & Varela, autopoiesis** —— 占住"自我造自己的边界"(无算法)。**[引用]**
+- **Hoffmann / Lanillos, body-schema learning** —— 占住"机器人从感觉运动数据学自己的身体"。**[引用]**
+- **Tononi & Koch, Φ-argmax 边界** —— 占住"边界 = 某量的最优",**且正是必须被区别开的对象**。**[引用]**
+- **Friston FEP / Markov blanket / self-evidencing** —— **2026-07-28 审计降级**:它不是被证明的结果,是**前提未被验证满足的框架**。
+  - Biehl, Pollock & Kanai 2021 (*Entropy* 23(3):293) 打掉"有 blanket ⟹ 内部状态在做变分推断"这一步:原话 *"not generally correct without additional (previously unstated) assumptions"*,带反例。**[引用]**
+  - Friston et al. 2021 (*Entropy* 23(8):1076) 是补前提 + 把 exact 放松成 approximate = **修补非反驳**。**[引用]**
+  - Aguilera et al. 2022 (*Physics of Life Reviews* 40:24–50):blanket + solenoidal 条件 *"only valid for a very narrow space of parameters"*,且要求 *"an absence of perception-action asymmetries that is highly unusual for living systems"*。**[引用]**
+  - **这是双刃(见 §3 的 D0)**:我们 §1.2 用的是**同一个** blanket 三分结构 ⟹ 若在有感知-行动不对称的系统上 blanket 本就难以存在,那"学出稳定 blanket 划分"就不是学得好不好的问题,而是**解是否存在**的问题。
+  - 另:"argmax/FEP 无记忆"——我们自己反复使用的那半句杀法——**已在 2022 年公开发表**:Aguilera et al. 写 FEP 主结论 *"is in general a poor description of the behaviour of a system as it ignores the history of interactions"*。我们的增量只剩后半句(接到边界维持上)。**[引用]**
+- **Dynamic Markov Blanket Detection, arXiv:2502.21217 (2026-02)** —— 比以上任何一条都近。**已读正文核验,非摘要推断。[引用]**
+  - 它的归属**确实有自身状态**:每个观测节点一条一阶离散 HMM(*"the labels associated with every observational node i has its own discrete HMM"*,§3)⟹ **我们不能再说"FEP 系的 blanket 无时间状态"**,那句是错的。
+  - 但:实现版明写把标签转移与宏观状态**解耦**(*"transition probabilities for the assignment variables are a priori independent of the macroscopic latents"*),推断是**全轨迹前后向平滑**(acausal),且论文自陈 *"latent assignment variables quickly diffuse to a uniform stationary distribution in the absence of observed data"* —— 单稳、无 latch 的教科书定义。全文 hysteresis / bistability / bifurcation / saddle-node **零命中**,零并入-释放不对称实验。
+  - **但**:其**一般形式**(式 21)让标签转移率依赖宏观 blanket 变量 —— 正是双稳所需的状态相关耦合闭环。他们为 tractability 明写假设掉了,并列入 future work。**我们的 wedge 正落在他们 roadmap 的下一格。** 不算被抢先,但时间窗不宽。
+  - 未答的更早威胁:"训练信号 = 闭包违反"与他们的 surprise/ELBO 高度同构。**若说不清它不等于 ELBO,整条提案只是换名**,而这比滞回更早会被打中。**[未做]**
+- **规模叙事(falsifier #4)。** 单独审计。裁决:**该 falsifier 没被触发,但原因是证据真空,不是我们赢了。[引用]**
+  - 工具使用:规模派证的是**环境泛化**(π0.5 跨约 104 个家庭)与**同类新物体实例**(π0 掉约 13pp)。从这里到"未见工具当身体延伸",**没有任何一篇做过实验**。FORGE (2026-07) 开篇仍写机器人 *"fail to transfer the same function to novel"* tools,而且它的 2× 是靠**结构**(keypoint 中间表示)拿到的。
+  - 损伤恢复:唯一正面主张是厂商博客视频——零成功率、零试验数、零误差棒;其"损伤"因训练覆盖"10 万种不同机器人"而被做成**分布内**(摊销,不是重解 μ),且全是 locomotion 不是操作。**Cully et al. 2015 (Nature)**——腿式 5 种损伤 + 机械臂 **14 种**关节损伤矩阵、<2 分钟在线适应、无自诊断——十一年后**仍是这项能力上最严谨的评测**。这不是进步,是没人再认真做了。
+  - 披露质量标尺:Gemini Robotics 每任务 n=20(二项 95%CI ≈ ±22pp)已属业界最好之一。真实世界通用基准 GM-100 上 2026 SOTA 绝对成功率仅 **17.30%**(π0.5 13.02%,GR00T N1.6 7.59%,WALL-OSS 4.05%)。**[引用;GM-100 构成为二手]**
+  - 第三方审计(Epoch AI, *Where Autonomy Works*, 2026):*"Transfer is rarely demonstrated… Unless transfer is explicitly shown, it should not be assumed."*
+  - **反向审计(对我们不利,照写)**:**没有找到**任何一篇让"更好的结构"在同任务同硬件上击败大 10× VLA 且带试验数与误差棒的论文;也**没有**任何"学出来的自我边界"在真实机器人上的性能优势实证。**规模派手里有真实曲线,我们手里只有机制假说。**
+  - ⟹ 战略推论:最小实验落在**公开的证据真空**里——不是因为难,是因为没人测。**要抢就抢测量协议**(并入/释放非对称阈值曲线;在线执行器失效的 episode-to-recovery 分布带误差棒),**不是抢架构**。架构上我们打不过规模,方法学上对方是空的。附带义务:10 万形态域随机化是必须超过的**摊销基线**,所以最小实验的损伤类型必须可证地落在任何预训练覆盖之外。
+
+### 3 · 仿真 D0 —— 满足 blanket 条件的非平凡划分存在吗
+
+Rig:MuJoCo 3.10,2–3 DoF 臂,可拆卸工具,可切断执行器,风驱动球;N=34 条标量通道(9 本体感 + 10 触觉 + 12 视觉关键点 + 3 动作回读)。动作 = OU 相关噪声 babbling,**不学策略**,这样任何滞回都不能归因于学到的控制器。全部 CPU,`mujoco==3.10.0`,Python 3.12。
+
+**A · D0-pos(阳性对照,通过)。** 手装双阱,零扫速外推 `A₀ = +0.36 … +0.62`(随拟合形式变动)。线性阴性档:`|A₀| ≤ 0.008` 且符号随拟合形式翻转 ⟹ 与 0 不可区分。**[实测]**
+- **判据修正(我们自己揪出来的)**:阴性档的 bootstrap CI **也不含 0**,但那只反映种子噪声(SEM ~1e-4),没反映"只有 4–7 个扫速点、β 与 c 简并"的系统偏差。**正确判据不是 CI,而是把 0.008 当分辨底,看阳性档高出它多少倍**(实测 44–75×)。
+- 解析锚点复现:`h_c = 0.38490`、`x* = ±0.57735`;数值 `h_up = +0.3950`、`h_dn = −0.3939`(误差 2.6%)。鞍结标度 `r^{2/3}`、`r^{1/3}` 均在 5% 内复现。直接双稳共存 1.00/1.00 vs 阴性档 0.47/0.43。
+- ⟹ **仪器有效**,后续阴性结果可归因于系统而非尺子。
+
+**B · D0 v1 —— 非平凡 blanket 划分"存在",但这个存在几乎无信息量。[实测]**
+- 是:22 self / 10 blanket / 2 world 的划分给 `Δ_peek = −0.0032 ± 0.0016`(6/6 种子全负)⟹ 加回 world 通道不改善对 self 的预测 ⟹ 滞回讨论**有对象**。
+- 但:故意泄漏的标定划分只给 +0.012,动态范围 0.015 **小于**跨种子 std 0.021。⟹ 这是 Aguilera 那把刀在我们 rig 上的形态,但**方向相反**:不是"blanket 条件只在极窄参数区成立",而是**太容易成立以至于选不出东西**。
+- 退化吸引域压倒性:72 次随机重启 **87% 塌到 |S|=1**,且每次都是最安静最好预测的那个 taxel。可算诊断:唯一把可控通道拉进 self 的项实测 ≤0.007,而划分间闭包损失差 ~0.3 ⟹ 系数差约 1.5 个数量级;修法是**重标定**不是换搜索算法。
+
+**C · D0 v2 —— 这一阶段把我们自己下的诊断证伪了,这是最该留下的一条。[实测]**
+- **v1 的诊断("ratio<1 是因为接触率太低")——我们下的、并当前提派下去的——是错的。** ratio 低是**协议缺陷**(预测视界 K=10 太短 + 岭回归 λ 网格上界截断),不是 rig 缺陷:修好协议后**两个 rig 都过 3**(v2 rig 3.64;被我们判为"坏"的 v1 rig 3.94)。根因:泄漏标定探针探的是**臂→工具**的泄漏,**这条路径根本不经过球**,对接触率不敏感。**我们把"探针的信噪比"当"rig 耦合强度"读了。**
+- **两件事都真但必须分开记**:协议缺陷(已修,ratio 3.08 → 3.64);**rig 缺陷真实存在但 `Δ_peek` 看不见**,由**估计器无关的反事实探针**独立证实:同动作序列只换 wind_seed,轨迹分歧 **D: 0.045 → 0.203(4.5×)**。
+- rig 第二层根因(v1 没看出来):干扰球 y 方向无恢复力 → 长 rollout 漂出平面,接触率随时长单调衰减(2000 步 3.8% → 12000 步 0.56%)。加 y 系绳 + 球移进臂实际占据区后接触率 **27%**(诚实标注:超出 5–20% 目标带),且不再随时长衰减。
+- **γ_c 从数据自动标定**:`γ_c = std(L_clo)/std(可控性项) = 0.0826/0.00374 ≈ 22.1`。规格默认 1.0 **在量纲上就是错的**。
+- 实测坑:`actuatorfrc ≡ ctrl`(MuJoCo motor 力矩读数就是指令本身,不剔除会让可控性增益整体塌到 ≤0.0018,看起来像"动作没用");peek-gain **在 K=1 上结构性瞎**(20 ms 后每通道都能被自己滞后外推);固定 λ 跨不同列数不可比,必须逐预测器在 val 上选 λ。
+- 两条与规格担心方向相反的测量学发现:**(i)** 规格让辅助预测器 `f⁺` 用**更小**的 λ 反而制造假阳性——`f⁺` 过拟合 → 负 `Δ_peek` → **假装 blanket 成立**;**(ii)** 连续时序切分 + 非平稳 babbling 会**伪造结论**(`Δ_peek` 一度到 −0.46),必须分块交错。⟹ **`Δ_peek` 对估计器正则化与数据切分比对划分本身更敏感;任何用它下结论的实验必须先跑一个故意泄漏的标定划分当阳性对照。**
+
+### 4 · 仿真 D1 —— 环增益判据可达吗
+
+```
+PYTHONPATH=. python scripts/run_d1_gain.py --n-rollouts 6 --steps 12000 --controls-seeds 2
+PYTHONPATH=. python scripts/run_d1_featureclass.py --n-rollouts 6
+```
+v2 rig 默认档 + D0-v2 协议(K=20、λ 网格到 1e2、分块交错 2:1:1、winsorize ±8σ、逐预测器在 val 上选 λ)。`γ_c` 逐 rollout 自动标定,6 条均值 **28.75**。
+
+**4.1 Δπ 量的是什么。** 回路是 `x_i↑ ⟹ 通道 i 进入 z 的预测目标 ⟹ ε_i↓ ⟹ π_i↑ ⟹ 驱动放大`。决定 π 的**不是标签**,而是"通道 i 的历史在不在 z 里"。所以做**同通道反事实**:`ε_i^in`(用 (S∪B)∪{i} 的特征预测 `c_i(t+K)`)vs `ε_i^out`(用 (S∪B)\{i})。取 `π = 1/(1+ε/ε₀)`,相对摆幅 `s ≡ Δπ/π_max` 对 ε₀ 单调,上确界 `s = 1 − ε_in/ε_out` 与 ε₀ 无关。下面所有 `s` 都是这个上确界,即**最有利于理论**的读法。**[实测]**
+
+- **规格字面读法(self 通道的 π 减 world 通道的 π)高估 7 倍**:0.233 vs 同通道反事实 0.0329 ± 0.0037。差别全部来自**通道身份**(taxel 本来就好预测、球本来就不可预测),不是回路里那个量。
+
+**4.2 实测值**(6 seeds × 12000 控制步)。test 归一化 MSE(通道已标准化 ⟹ ε≈1 = 没学到):
+
+| | ε_in | ε_out | ε_own |
+|---|---|---|---|
+| 边界内 32 通道 | 0.500 | 0.551 | 0.534 |
+| 干扰球 2 通道 | 1.026 | 1.018 | 0.947 |
+
+相对摆幅 `s = 1 − ε_in/ε_out`(均值 ± std),以及在保信息的表示变换下:
+
+| 组 | s(笛卡尔) | s(极坐标) |
+|---|---|---|
+| 边界内均值 | **0.0787 ± 0.0071** | 0.0489 |
+| 本体感 | 0.2291 | 0.0379 |
+| 触觉(臂) | 0.0016 | 0.0009 |
+| 触觉(工具) | 0.0086 | 0.0134 |
+| 关键点(臂) | 0.0571 | 0.1779 |
+| 关键点(工具) | 0.0130 | 0.0257 |
+| 关键点(球,world) | −0.0096 ± 0.0248 | 0.2189(假象) |
+| 动作 | 0.0104 | 0.0062 |
+
+**特征类对照(必做,否则会把假象当信号)。** `q1` 在笛卡尔下 s = 0.9844 ± 0.0135,看着救命。但 `q1` 在几何上完全由关键点 1 决定(`kp1 = 0.25·(cos q1, sin q1)`),只是这个关系是 `atan2`,线性+平方的特征类表示不了。把六个关键点换成**极坐标**(可逆变换,信息含量完全相同),`q1` 塌到 **0.0072 ± 0.0171**;`q3` 0.624→0.183;`q2` 0.421→0.114。反向也成立(极坐标引入自己的假象:kp1 半径恒为 0.25 ⟹ 退化;球角度 unwrap 漂移 ⟹ ball_x 0.46 ± 0.44)。**表示不变的读数:最大 s ≈ 0.18,边界内均值 ≈ 0.05–0.08,工具相关通道 0.002–0.045。**
+
+估计器双向对照(2 seeds):换成白噪声 ⟹ s = −1.4e-5 / +1.7e-6(≈0,估计器不造摆幅);换成无关的 AR(1) ρ=0.98 ⟹ s = 0.373 / 0.368,理论 0.446(回收 83%)⟹ 估计器是**衰减的**(低估约 17%),对"摆幅不够"这个结论是**保守**的。
+
+**4.3 规格 §3.3 的字面形式在数学上不可能三稳**(不是数值问题)。`τẋ = −γx + κ·π(x)·(g−c)`、`π(x) = π₀ + Δπ·σ(x/τ_π)` 时,三个自洽解要求同时 `F(0) = κπ₀(g−c)` 与 `F′(0) = κΔπ(g−c)/(4τ_π) − γ > 0`;π₀>0 ⟹ 这两条要求 `(g−c)` **反号,互斥**。数值:κ = 1/10/100 ⟹ G = 0.08/0.82/8.22,不动点 **1/0/0**,从没有 3;回归测试把 κ 推到 1e4(G≈1e3)仍 <3。**[实测]**
+**最小修补**(D2 用的就是它):让精度门只乘在**收益**上、不乘成本 —— `τẋ = −γx + κ(π(x)·g − c)`。理由是结构性的而非凑数:目标里的信息瓶颈与 blanket 成本项本就与预测精度无关,而可控性增益才是被精度加权的那个。G 的表达式不变;τ_π = 0.1、κ = 30 给出 G = 2.47 与 **3** 个不动点。
+
+**4.4 可达性,以及判据本身的降级。** 归一 π_max = 1,记 `A ≡ κg/γ`:
+
+`G = A·s/(4τ_π)`,两支路分离度 `= A·s = 4τ_π·G`。
+
+| τ_π | s = 0.183(最好的自身通道) | s = 0.0787(边界内均值) | s = 0.0254(最好的工具通道) |
+|---|---|---|---|
+| 0.05 | A ≥ 1.1 | A ≥ 2.5 | A ≥ 7.9 |
+| 0.10 | A ≥ 2.2 | A ≥ 5.1 | A ≥ 15.7 |
+| 0.20 | A ≥ 4.4 | A ≥ 10.2 | A ≥ 31.5 |
+
+- **结论 1**:是,存在合法参数使 G > 1,不需要把任何参数推到荒谬量级。瓶颈是 `s` 与 `τ_π` 的比;κ/γ/(g−c) 单独都不是瓶颈(只以 `A` 出现)。
+- **结论 2(更重要)**:`m^S` 越过 0.5 需要 `|x| > ln2/2 = 0.347`,即分离度 ≳0.7,即 `G ≳ 0.175/τ_π`,在 τ_π ≤ 0.175 时**自动 >1**。**"G>1" 与 "边界真的翻转了" 几乎是同一句话**,筛不掉任何东西。规格称它"整条线的生死判据"是**高估**。
+- **结论 3(真正的卡点)—— fine-tuning 容差 = s。** 两支路 `x*_hi = A(1 − c/g)`、`x*_lo = A(1 − s − c/g)` ⟹ `c/g` 必须落进 `[1−s, 1]`,即**成本要抵消收益到相对精度 s**。用本仓目标函数自己的系数(γ_c = 28.75 自动标定,β_I = 0.30):
+
+| 组 | g_i | c/g 实测 | 需要的窗口 [1−s, 1] | 偏离(窗口宽为单位) |
+|---|---|---|---|---|
+| 本体感 | 0.0195 | 0.535 | [0.771, 1] | **2.0**(笛卡尔)/ 12.3(极坐标) |
+| 关键点(臂) | 0.0608 | 0.172 | [0.943, 1] | 14.5 / 4.7 |
+| **关键点(工具)** | 0.0698 | **0.150** | **[0.987, 1]** | **65 / 33** |
+| 动作 | 0.0469 | 0.222 | [0.990, 1] | 75 |
+| 触觉(臂) | 0.0074 | 1.401 | [0.998, 1] | 251 |
+| 触觉(工具) | 0.0021 | 5.041 | [0.991, 1] | 469 |
+| 关键点(球,world) | 0.0021 | 5.038 | — | 420(正确地在窗口外) |
+
+**没有一条通道落在窗口里**;最近的差 2 个窗口宽,而理论的旗舰现象(工具并入)差 **33–469** 个。**目标函数里没有任何机制在把 c/g 往 1 拉。** ⟹ 滞回**不是从我们提的目标函数里长出来的**;它要求一个该目标不提供的、约 2% 精度的手调比值。
+
+### 5 · 仿真 D2 —— 涌现滞回,以及对照做了什么
+
+```
+PYTHONPATH=. python scripts/run_d2_emergent.py --n-seeds 30 --n-boot 1000 \
+    --s-self 0.183 --s-ball 0.0254                      # 702 s
+PYTHONPATH=. python scripts/run_d2_emergent.py --n-seeds 30 --n-boot 1000 \
+    --s-self 0.183 --s-ball 0.0254 --only E_field_gated # 164 s
+```
+
+动力学(手装立方项 `a = 0`,已完全移除):
+
+    τ_x ẋ = −γx + γ·A·s·(σ(x/τ_π) − ½) + γ·h ,   A = κg/γ,s = Δπ/π_max
+
+参数直接取 D1 实测值:`s_self = 0.183`、`s_ball = 0.0254`、`τ_π = 0.1`、目标 `G = 3` ⟹ `A_self = 6.56`(合法区内),噪声 σ = 0.01,τ_x = 1,`h` 三角扫 −1 → +1 → −1。
+
+四档:**A** 门开、a=0(主张,G=3.00);**B** π 冻成常数、其余一字不改(阴性对照,G=0);**C** 干扰球,同款慢变量、同款门、同样的 A,只把 s 换成球的实测值(G=0.42);**D** 干扰球,把 A 抬到 47.2 使 G 与 A 档相同(G=3.00)。
+
+**5.1 扫速控制 —— 主结果。** 环面积 `A(r)` 均值(30 种子),`r = τ_x/T_sweep` 跨四个数量级:
+
+| r | 1e-1 | 3.3e-2 | 1e-2 | 3.3e-3 | 1e-3 | 3.3e-4 | 1e-4 |
+|---|---|---|---|---|---|---|---|
+| **A** 门开 | 0.9571 | 0.6561 | 0.3950 | 0.2974 | 0.2520 | 0.2353 | **0.2268** |
+| **B** 门冻结 | 0.3831 | 0.1651 | 0.0531 | 0.0181 | 0.0054 | 0.0018 | **0.0006** |
+| **C** 球(实测 s) | 0.4512 | 0.1953 | 0.0624 | 0.0211 | 0.0064 | 0.0021 | **0.0007** |
+| **D** 球(拉平 G) | 0.9571 | 0.6561 | 0.3950 | 0.2974 | 0.2520 | 0.2353 | **0.2268** |
+
+零扫速外推 `A(r) = A₀ + c·r^β`(β profile 网格 + 30 种子 bootstrap):
+
+| 档 | A₀(β 自由) | β | A₀(β = 1) | 对分辨底 0.008 的倍数 | 判决 |
+|---|---|---|---|---|---|
+| **A** | **+0.1932** | 0.54 | **+0.2771** | **24 – 35×** | 真双稳 |
+| B | −0.0044 | 0.79 | +0.0081 | ≤1.0× | 只是弛豫滞后 |
+| C | −0.0052 | 0.79 | +0.0097 | ≤1.2× | 只是弛豫滞后 |
+| **D** | **+0.1932** | 0.54 | **+0.2771** | **24 – 35×** | 真双稳 |
+
+B 档的两个 `A₀` 与 D0-pos 线性档**逐位相同**,因为 `gate_const=True` 在数学上就退化成它(有回归测试断言),这同时是分辨底 0.008 的重新确认。最慢档阈值:A 档 `h_up = +0.2674`、`h_dn = −0.2099` ⟹ Δ = +0.477(真环);B 档 `h_up = +0.3359`、`h_dn = +0.3583` ⟹ Δ = −0.022(两者交叉,根本没有环)。
+
+**5.2 直接双稳判定**(比画环更强):`h` 固定 0,两支各 30 种子,`T_hold = 1000 τ_x`:
+
+| 档 | 下支 stay-rate | 上支 | 支路分离度 |
+|---|---|---|---|
+| **A** 门开 | **1.00** | **1.00** | **1.193** |
+| B 门冻结 | 0.47 | 0.43 | 0.0012 |
+| C 球(实测 s) | 0.43 | 0.40 | 0.0021 |
+| **D** 球(拉平 G) | **1.00** | **1.00** | **1.193** |
+
+B/C 的 0.4x 不是"留住了一半",而是两支塌到同一点、`sign(x_end)` 由噪声决定(分离度 0.001–0.002 才是实质)。**[实测]**
+
+**5.3 ⭐ 特异性对照 —— 叙事被抽掉一半。**
+- **C 档(诚实的一半)**:给干扰球配同款慢变量 + 同款门 + 同样的驱动/漏项比,只把精度摆幅换成球的**实测值** ⟹ G 掉到 0.42,`A₀` 落回分辨底,共存判定 0.43/0.40 失败。**滞回不出现。** ✅
+- **D 档(致命的一半)**:只把球的 A 从 6.56 抬到 47.2 使 G = 3 ⟹ **滞回的每一个数字与 A 档逐位相同**(A₀ = +0.1932、分离度 1.193、τ 比 0.806)。
+
+不是巧合,是可解析的:归一化后该 ODE **只依赖 (G, τ_π)**,驱动幅度 `A·s = 4τ_π G`。**s 只决定"要多大的 A",不决定"会不会滞回"。**
+
+> ⟹ **滞回是"带门控的慢变量"的通用性质,不是自我的签名。** 在本 rig 上,「自我边界的滞回」与「任何被同样门控的慢变量的滞回」**在动力学上不可区分**,区分只来自一个可被自由参数吸收的 7 倍量级差。这**不**证伪 H-B(A 档确实在 a=0 下给出率无关滞回),但它取消了「滞回 ⟹ 这是自我边界」这一步推理。要恢复特异性必须让 A 也由数据定死 —— 这正好接回 §4.4 结论 3。
+
+**5.4 时间常数非对称预测 —— 被证伪两次。** 在阈值之外固定 `h = ±1.5·|h_up|`,从相反支路做阶跃,取走完 (1 − 1/e) 的时间。两个观测量都报,因为 1-D 约化 `m^S(x) = e^x/(e^x + e^{−|x|} + e^{−x})` 在 `x → −x` 下**本身不对称**(x=0 处 m=1/3 而非 1/2),即使动力学完全对称也会量出 τ_off ≠ τ_on:
+
+| 档 | τ_on (m^S) | τ_off (m^S) | 比值 (m^S) | τ_on (x) | τ_off (x) | **比值 (x)** |
+|---|---|---|---|---|---|---|
+| **A** 门开 | 4.24±0.11 | 3.41±0.09 | 0.806 | 4.00±0.09 | 4.03±0.10 | **1.008** |
+| B 门冻结 | 1.50±0.03 | 0.81±0.02 | 0.537 | 1.06±0.05 | 1.04±0.05 | 0.981 |
+| C 球 | 1.81±0.04 | 1.00±0.00 | 0.554 | 1.29±0.03 | 1.28±0.04 | 0.992 |
+
+规格预测 `τ_off > τ_on`(比值 >1),且 π 常数化后应 →1。实测:慢变量上比值 **1.008 = 完全没有非对称**;`m^S` 上 0.806(**小于** 1,释放比并入**快**),而 π 常数化给 0.537,离 1 **更远** ⟹ 规格说的"常数化后 →1"**方向也错**。根因可算:漂移 `F(x) = −γx + γAs(σ(x/τ_π) − ½) + γh` 在 `(x,h) → (−x,−h)` 下**严格奇对称** ⟹ on/off 结构上必然对称。**精度门本身不产生时间常数非对称。**
+
+**E 档:把门乘到整个驱动上**(规格真正想要的机制):`τẋ = −γx + γA[π(x)(1 + w·h) − π(0)]`,w = 0.4,其余同 A 档。成本仍不被门控,否则按 §4.3 三稳数学上不可能。
+
+| 量 | E 档 | 对比 A 档 |
+|---|---|---|
+| A(r):r = 1e-1 → 1e-4 | 1.0049 → **0.0995** | 0.9571 → 0.2268 |
+| A₀(β 自由 = 0.75) | **+0.0916** [CI 0.0915, 0.0918] | +0.1932 |
+| A₀(β = 1) | **+0.1289** | +0.2771 |
+| 对分辨底的倍数 | **11 – 16×** | 24 – 35× |
+| 共存 / 分离度 | 1.00 / 1.00,1.193 | 1.00 / 1.00,1.193 |
+| 阈值(最慢档) | `h_up = +0.1245`,`h_dn = −0.0819` | +0.2674 / −0.2099 |
+| **τ_on / τ_off (x)** | 3.91 / 3.10 ⟹ **0.794** | 4.00 / 4.03 ⟹ 1.008 |
+
+非对称终于出现(0.794 ≠ 1.008),**但方向与原主张相反**:释放比并入**快**,且离开的阈值(−0.0819)在幅值上**低于**加入的阈值(+0.1245)。可算原因:`G(h) = G₀(1 + w·h)`,h>0 时环增益高、靠近折点、临界慢化 ⟹ 并入慢;h<0 时增益低、系统更线性 ⟹ 释放快。原推理("已在 self 内 ⟹ 精度高 ⟹ 反向证据要更大才能赶出去")默认了**精度只放大支持归属的证据**,这在任何"π 乘在驱动上"的实现里都不成立。要得到"进来容易出去难",必须额外假设一条**不对称**的证据加权 —— 那又是一件手装的东西。
+
+**5.5 本轮未闭合。[未做]** 短训编码器没做(D1 用岭回归代理量 ε,所以 Δπ 仍带特征类依赖——**最大未闭合项**);D2 跑在 1-D 约化 ODE 上而非 34 通道全 rig;`k_grip` 的力-位移标定未做,所以规格的主参数轴(握持刚度)从未被扫过(D2 扫的是抽象外场);separatrix / 最小逃逸扰动幅度非对称未测;Wilcoxon 配对检验与重测 σ₀ 未做;D3–D5、pyDMBD 对照 baseline、baseline a1/a2/b/c/d 未跑。pytest 25 passed。
+
+### 6 · 人类侧:两条战线,都不利
+
+**6.1 为什么决定性数据不存在。** 不是没人想到:所有参数化橡胶手实验一律随机/伪随机顺序,因为心理物理的默认卫生规范把**序列效应当污染而非信号**。范式的设计目的就是抹掉我们要的那个量。**[从方法部分推断]**
+
+**6.2 已存在的前序依赖实测,符号与滞回相反。** Zhang, Ma & Hommel 2015 (*Frontiers in Psychology* 6:1659, N=34):同一"中距离"条件放在近距离之后 vs 远距离之后,**远→中所有权显著更高**(M = 3.768 vs 3.056,F(1,33) = 39.82,η²p = 0.547)。滞回预测的是近→中更高。按 Liaci & Kornmeier 2018 的符号约定(正 = 迟滞/priming,负 = 适应),这是**负号 = 适应侧**。不是干净证伪(7 点问卷、参数是距离非同步性、只有两步),但它是离目标 bit 最近的已发表数据,且不站在我们这边。**[引用]**
+
+**6.3 我们从候选表里捞出来并亲手跑完的更大样本复制。** OSF `bsfwu`(Tsuji & Imaizumi,橡胶手顺序效应,Lush 2020 线),**N = 185**,带 `CondOrder` 列(Syn1st / Asyn1st)—— 正是同一种路径操纵的**同步性版本**,样本大 5 倍。**[我们在其公开数据上实测]**
+- 同一 Async 条件:Syn1st 组 M = −0.455 vs Asyn1st 组 M = +0.436,差 **−0.891**,95%CI [−1.232, −0.550],t(183) = −5.16,**p = 6.7e-7**,Hedges d = −0.756;Order × Condition F(1,183) = 19.17,p = 2.0e-5,η²p = 0.095。先经历强条件 → 后续弱条件评分**更低** = 适应/对比侧,与 6.2 同向。
+- **三条我们自己查问卷原文查出来的降权**:(a) DV 不是亲历的所有权,是**期望**——被试只看 32 s 视频,答"若你是视频里的被试,你预期体验到多少",且全部未参与过该程序 ⟹ 这是关于所有权的**期望**的顺序效应,几乎必然含判断/锚定成分;(b) 控制条目也有同向显著效应(−0.313,p = 0.0435)⟹ 需求特征污染确实存在,**但不是全无特异性**:Order × Scale F(1,183) = 22.42,p = 4.4e-6,η²p = 0.109,illusion 条目上的效应约为 control 的 **2.8 倍** ⟹ 真实成分存在但被同向偏置污染,本数据无法干净分离;(c) N 实为 185 非 184。
+
+**6.4 同步性侧管线 dry-run —— 不是 embodiment 证据,但产出一条会决定成败的技术事实。[实测]**
+- **置换零分布的中心不在 0,在 +0.191。** 机制已定位(`soa²` 项 + block 级反应率异质性;99.2% 的 lag-1 配对落在同一 block 内,block 间反应率差异被原样保留)⟹ **直接对 0 做 t 检验会把符号读反**:t 检验说"+0.048,p = 0.47,无效应",对上正确零模型后是**显著为负**。两个独立零模型(block 内重排 / 历史序列循环平移)给出同向零中心(+0.191 / +0.158)⟹ 稳。**纪律:拿到所有权数据后,先确认该数据上零分布中心在哪,再谈显著性。**
+- 真实数字分裂但已解释:`hev9z`(同时性判断,26k 试次)PSS 被前一试次拖动 **+16.1 ms** CI [12.3, 19.9] = 适应侧;`4ukzx` 选择重复 **+0.447** = priming 侧。原因不是效应不稳,而是 `4ukzx` 实为 **TOJ 型单调任务**(β_soa = +7.6,β_soa² = −0.16),与 SJ 的峰形曲线不同族。
+- 两份数据都是 lag-1/lag-2 显著、**lag-3 归零** ⟹ 只有 1–2 试次短尾,**无多试次 latch**(弱证据,非 embodiment)。
+- **给未来自建实验的硬设计约束(本轮最值钱的可迁移物)**:**若被操纵参数的符号与二元反应语义直接对应(如 TOJ 的"谁先"),迟滞与适应在数学上不可分辨。** ⟹ 所有权的逐试次 DV **必须保持"是/否"**,绝不能写成"哪只手更像我的"。另:若自建实验是单调扫描,自由重排的置换零模型**不合法**,必须改成扫描方向内保序的置换。
+
+**6.5 数据搜寻:什么不存在,以及重复了三次的一个错误。[实测]**
+- 逐试次所有权数据:OSF(16 组关键词)+ Zenodo(10 组)+ OpenNeuro(**1831 个数据集全量普查**)三处**零命中**。
+- 三份声明"可用"的数据被亲手打开:eLife 11:e77221 (Chancel/Ehrsson/Ma 2022) 的 fig1 source data 是**被试 × 条件的计数矩阵**(S1,N0_−500 = 12 试次中 0 次"是",17 行 × 22 列),fig2/fig3 是模型参数估计;OSF `spkvu`(Lanfranco 2024)经 API 递归列举**全库只有 3 个文件**(`bias.csv` 2578 B、`dprime.csv` 2432 B、`readme.rtf`),均为被试 × 条件聚合。**三份都没有 trial index、没有顺序列** ⟹ 前序依赖在结构上不可计算。(验证:`python3 osf_list.py spkvu 3`;`openpyxl.load_workbook` 逐 sheet 打印;2026-07-28。)
+- **不要相信任务名,要打开列。** `ds001785` 的 `stimamp` 实测严格单调上行 0.10→1.94、下行 2.50→2.30 —— 四轮里第一次见到真正的上下行扫描,看名字会直接判"滞回数据到手",打开发现响应列 **93 行全是 `n/a`**。同理 `ds003922` 的响应根本不在 BIDS events 里而在 `sourcedata/`。
+- **对我们自己搜寻 agent 过度结论的纠正**:它判"逐试次结构在**范式层面**就不存在(经典 DV 是 block 末问卷)"——**对 Ehrsson 系错**:eLife 77221 的 `RHIdetect` 表就是**每条件 12 试次的逐试次二元所有权判定**(计数 0–12 即证据)⟹ **范式存在且成熟,只是原始日志从不上传。** ⟹ 正确推论不是"自建范式",而是**向作者索要**——当前性价比最高的一步,且需要一次具名的人类请求。
+- 四项判据全中的新靶子:OSF `4dzrg` —— 视触 TOJ × 观察人手,40 人 × 840 试次 ≈ 33,600,列 `subNum blk cond trialNum vis_tac_first SOA resp corr RT`(range-read zip 尾部取出,未下 384 MB)。OpenNeuro `ds004561`(Veillette/Lopes/Nusbaum,CC0,EEG,23 人)是唯一一份**身体自我范畴**、逐试次二元判定 + 参数 + 顺序齐全的公开数据(`onset duration trial_type trial intensity latency rt pressed_first agency`,250 试次/人)——**但它是 agency 不是 ownership**。
+- 未实测:NEMAR 自身接口(零命中是推论非实测)、Dryad、figshare、GitHub。未检索:麻木肢体脱落阈值;**全身错觉 / 化身错觉侧**(VR 化程度更高,可能藏着现成扫描数据,是下一轮性价比最高的方向)。
+
+**6.6 可照抄的方法学模板,以及又一条对我们不利的。[引用]**
+- T1 —— Martin, Kösem & van Wassenhove 2015 (*PLoS ONE* 10(3):e0119365),视听同步性的滞回:**同一把刀已经用在"同步性"这个参数上**,只差把模态换成视-触、把响应换成"这是我的手吗"。它未变扫速,未建立率无关性。
+- T2 —— Liaci & Kornmeier 2018:操作定义 `hd = 拐点(上升) − 拐点(下降)`,外加第三条随机序列基线臂。
+- T3 —— 立体视 / 双眼竞争:唯一内建**多扫速**的文献,正好能执行我们的"零扫速外推"判据。
+- **对我们不利**:Schwiedrzik et al. 2014 (*Cerebral Cortex*) 证迟滞与适应是**独立可加、脑区分离**的两个成分 ⟹ **测到零净滞回 ≠ 没有 latch**(两成分可抵消)。必须写进预注册,否则我们既无法用阴性结果证伪自己,也不能用它当免罪符。
+- 成本估算(我们自己的,非文献数字):VR 自建实验设备 + 被试 ¥5k–8k、开发 3–5 人日、N = 24、采集 2–3 周。**真门槛是被试招募与伦理挂靠,不是设备。** VR 不是省钱选项,是**唯一**能满足判据的选项:实体橡胶手的延迟由实验者的手决定,步长做不细、扫速控不准,多扫速外推几乎无法执行;VR 里延迟是纯软件。视-动相关即可诱发,不必做触觉硬件。
+- **人类侧当前总账**:两个独立操纵维度(空间距离 / 时间同步性)、两个不同样本(N = 34 / N = 185)、两种测量(亲历 / 期望)——**全部落在适应侧,无一出现迟滞方向**。这种收敛性比任何单条更有份量。但两者都是 block 级问卷,原理上无法区分"滞回"与"单次对比锚定" ⟹ 真正判别性的数据(逐试次 + 变扫速 + 亲历测量)**仍然缺失**。**这条线目前既无支持证据,也未被真正证伪;只是两个可用数据点都指向不利方向。**
+- 决策更新:**暂不投 VR 自建**(先验变差,期望价值下降)。优先级 = ① 向持有逐试次日志的实验室索要(唯一能给判别性数据的现成来源,需具名请求)② 仿真侧继续(不依赖生物学前提)。
+
+### 7 · 台账:四个 falsifier 各自的状态
+
+| # | Falsifier | 状态 |
+|---|---|---|
+| 1 | **工具并入的非对称阈值**(并入慢、释放更慢)。中途收紧:测到非零环**不算**,必须**环面积外推至零扫速仍 > 0**,否则会拿自证的率依赖假环当成功。 | **一半通过,一半被证伪。** a=0 下率无关滞回:A₀ = +0.19…+0.28,分辨底的 24–35 倍,共存 1.00/1.00 ⟹ **通过**。非对称方向:**被证伪两次**(§5.4)。自我特异性:**被证伪**(§5.3)。 |
+| 2 | **损伤测试**:中途废掉一个执行器,μ 应在 N 个 episode 内重解出不同但闭合的划分且不重训策略,并显著快于微调后的 VLA baseline。 | **未跑。** |
+| 3 | **感官替代迁移**:视觉训 μ → 换触觉阵列编码;行为若不收敛到视觉观测者可达集,则 μ 实为模态绑定,理论超发。 | **未跑。** |
+| 4 | **Bitter lesson**:若纯 VLA 放大 10× 就在工具使用 + 损伤恢复上打平,则 μ 从不是瓶颈。 | **没被触发 —— 但原因是证据真空,不是我们赢了**(§2)。举证责任仍在我们这边。 |
+
+**审计过程中新增、且都已开火的 falsifier**:
+
+- **D0**(因为我们对 FEP 文献那一击同样砍我们):先证明仿真臂上存在满足 blanket 条件的非平凡划分。**通过,但几乎无信息量**(§3B)。
+- **D0′**(人类侧):自建同步性上下行扫描。**推迟** —— 先验变差到不值得投(§6)。
+
+### 8 · 当前主张状态
+
+原 wedge:**μ 有滞回,由二阶自维持驱动,且并入慢、释放更慢。**
+
+| 成分 | 状态 |
+|---|---|
+| 滞回不靠手装非线性即可涌现 | ✅ **活** |
+| 该滞回对自我边界有特异性 | ❌ 是带门控慢变量的通用性质 |
+| 释放比并入更慢 | ❌ 两种实现下都反了 |
+| 它从提出的目标函数里自然长出,不需 fine-tune | ❌ 需约 2% 的手调比值 |
+
+四条支柱倒三条,**且全部由我们自己的仪器打倒** —— 这正是这套流程该干的事。
+
+**被重述的问题**(这才是本线真正的产出):滞回很廉价,任何带门控的慢变量都有。**什么让一条边界的滞回是关于这条边界本身的?** 要恢复特异性必须把自由幅度 `A` 也由数据钉死(例如锁到目标函数自己给出的值),而这与 §4.4 结论 3 是同一个问题,两者都没解。
+
+还有两条更早的威胁未答:"闭包违反"是否真的不等于 ELBO(§2);以及**原始像素不能当通道**这个让步 —— μ 是通道上的划分,指称物身份必须稳定,这是本线最大的、已被显式记账而非藏起来的作弊点。
+
+**未 ratify。不是结论。之所以发布,是因为阴性的那一半才是有证据价值的那一半。**
+
+### 9 · 参考文献
+
+- Aguilera, Millidge, Tschantz & Buckley (2022). How particular is the physics of the free energy principle? *Physics of Life Reviews* 40:24–50.
+- Biehl, Pollock & Kanai (2021). A technical critique of some parts of the free energy principle. *Entropy* 23(3):293.
+- Chancel, Ehrsson & Ma (2022). Uncertainty-based inference of a common cause for body ownership. *eLife* 11:e77221.
+- Crutchfield & Young (1989);Shalizi & Crutchfield (2001) —— 因果态 / computational mechanics。
+- Cully, Clune, Tarapore & Mouret (2015). Robots that can adapt like animals. *Nature* 521:503–507.
+- Friston, Da Costa & Parr (2021). Some interesting observations on the free energy principle. *Entropy* 23(8):1076.
+- Holmes (2012). Does tool use extend peripersonal space? *Experimental Brain Research* 218:273–282.
+- Klyubin, Polani & Nehaniv (2005) —— empowerment。
+- Liaci & Kornmeier (2018) —— 知觉序列中的迟滞与适应。
+- Martin, Kösem & van Wassenhove (2015). Hysteresis in audiovisual synchrony perception. *PLoS ONE* 10(3):e0119365.
+- Maturana & Varela (1980) —— autopoiesis。
+- Schwiedrzik, Ruff, Lazar, Leitner, Singer & Melloni (2014). Untangling perceptual memory: hysteresis and adaptation map into separate cortical networks. *Cerebral Cortex* 24(5):1152–1164.
+- Tononi & Koch (2015) —— 意识与复合体的边界。
+- Zhang, Ma & Hommel (2015). *Frontiers in Psychology* 6:1659.
+- *Dynamic Markov Blanket Detection for Macroscopic Physics Discovery*, arXiv:2502.21217;代码 `github.com/bayesianempirimancer/pyDMBD`。
+- Epoch AI (2026). *Where Autonomy Works: Evaluating Robot Capabilities in 2026*. https://epoch.ai/blog/where-autonomy-works-evaluating-robot-capabilities-in-2026
+
+### 10 · 站内相关
+
+- [State 是一个闭包条件,不是给定的集合](https://machengshen.github.io/theory/state-as-closure.zh.md) —— 本提案训练信号所依托的闭包本体论。
+- [两体业力:关系里的三种惯性](https://machengshen.github.io/theory/two-body-karma.md) —— 同一套双稳/卡扣语言用在两个耦合的心智上;那里关于"结构性押韵而非推导"的警告在这里同样适用。
+- [本线的阶段日志](https://machengshen.github.io/theory/learning-the-self-boundary-log.zh.md) —— 各阶段分别推翻或确立了什么,按时间顺序。
 
 ---
 
