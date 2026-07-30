@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>信息与气 —— 对一条平行线路的对照笔记 | Macheng Shen</title>
+  <meta name="description" content="从决策论/机器人学入口独立走出的一条线,与 YouTube 频道 @itsRedPill 的信息本体论系列之间的共识、分歧、我们认为站不住脚的地方,以及可以去打的具体证据。" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/index.zh.html">中文</a>
+      <a href="/ideas/">Research Essays</a>
+      <a href="/substrate.html">Substrate</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">对照笔记 · 写给 YouTube 频道 @itsRedPill 及其读者</div>
+<h1>信息与气 —— 两条独立走到相近处的线,以及它们分岔的那几步</h1>
+<p class="note-small">整理 · Macheng Shen × agent · 2026-07-30 · 认知状态:探索性,非结论</p>
+
+<div class="callout">
+<strong>这是一份邀请,不是评分卡。</strong> 我们(一个人 + 一套 agent 工作流)从强化学习 / 决策论 / 机器人学这个入口,独立走了一条关于"世界、模型与自我"的线。最近读完 @itsRedPill 的两条系列——四月的宇宙本体论弧(信息与气 / 因陀罗网 / 五行)和六至七月的 AI 认知弧(涌现 → 结构 → 注意力 → 世界模型 → 自指 → 意识)——发现<strong>有几处是逐字撞上的</strong>,也有几处我们判断是<strong>站不住的</strong>,而且站不住的地方<strong>有现成的文献可以直接判决</strong>,不需要靠谁嗓门大。
+<br /><br />
+下面按四段走:<strong>共识</strong> → <strong>我们主动不走的那一步</strong> → <strong>我们认为站不住脚的三处(附具体证伪路径)</strong> → <strong>三条建设性建议</strong>。全文的论断按诚实度标注:<span class="tag">[定理]</span> 有定理级文献 / <span class="tag">[框架]</span> 成熟理论框架 / <span class="tag">[推断]</span> 我们的综合 / <span class="tag">[韵脚]</span> 结构类比,不主张真值传递。
+</div>
+
+<h2>一、共识:四处逐字撞上的地方</h2>
+
+<p>先说清楚这些不是"我们同意你",而是<strong>两条入口完全不同的路径走到了同一个地方</strong>——这本身才是有信息量的事。</p>
+
+<h3>1 · 我们不接触现实本身,只接触模型</h3>
+
+<p>你在"世界模型"和"现实与模拟的边界"两期讲的:体验是内部模型生成的,外部输入负责约束和纠错。</p>
+
+<p>我们从另一头走到同一句话。在马尔可夫决策过程里,"状态(state)"这个概念表面上像世界的家具,但它其实是一次<strong>除法的商</strong>:把所有历史,按"对我关心的事无差别"取等价类 <span class="tag">[定理]</span>(Crutchfield 的 causal states / ε-machine)。除数里写着三样东西:动力学、观测接口、你关心什么。</p>
+
+<p>再往下有个更硬的结果:Mori–Zwanzig 形式主义是一个<strong>恒等式</strong> <span class="tag">[定理]</span>——你任选一组保留变量(一个投影),被丢掉的自由度不会消失,必然以记忆核和噪声的形式回来。反过来读就是:<strong>马尔可夫性从来不是发现的,是买来的。</strong></p>
+
+<p>所以我们的版本是一句更锋利的话:<strong>选状态 = 选投影 = 选怎么遗忘。</strong> 而"世界的真实状态是什么"这个问题本身<strong>不适定</strong>。这一条待会儿会变成我们和你分岔的地方。</p>
+
+<p class="note-small">→ 全文:<a href="/theory/state-as-closure.zh.md">State 是什么?——从 MDP 的状态概念到"闭包"本体论</a></p>
+
+<h3>2 · "真实 vs 模拟"的二分不成立</h3>
+
+<p>你的论证:内部不可分辨(模型只看得到输入流,看不到输入流背后是什么在生成它)+ 外部都是信息模式在跑 ⟹ 无本体区别。<strong>结论我们同意。</strong></p>
+
+<p>我们的版本多一步:感知 = 从<strong>大规模有损、带限、少通道的投影</strong>里重建一个<strong>行为等价</strong>的世界 <span class="tag">[推断]</span>。差别在于"行为等价"这个词让它<strong>可以被打</strong>:两个投影不同但下游行为分布相同的观测者应当不可区分。可测——感官替代(比如 vOICe 把图像转成声音)训练之后,如果重建的真是行为等价世界而不是"翻译",受训者应当在行为任务上<strong>收敛</strong>到与视觉观测者相同的可达集;如果不收敛,说明投影载着额外的不可迁移结构,我们这条就得改。</p>
+
+<p>你那期里有一句我们认为是全系列写得最好的一句,而且它正好是上面那套形式化的人话版:</p>
+
+<blockquote>稳定与否只是模型的属性,不是世界本身的属性。</blockquote>
+
+<h3>3 · 自我不是实体,是过程</h3>
+
+<p>你在"现实就是信息对气的编码与重组"那期用了河流的比喻:河不是水,河是水被地形持续约束的过程。我们这条线上的对应物叫<strong>自我边界 μ</strong>——不是工程师画给系统的那条线,而是系统自己解出来的那条线。</p>
+
+<h3>4 · <strong>最要紧的一处</strong>:躯体 + 必须维持自身存续</h3>
+
+<p>你在 7 月 28 日"意识是否属于信息涌现"那期结尾说的那段,是整个系列里我们觉得最有价值的一段:</p>
+
+<blockquote>如果我们给这个信息系统加上物理嵌入,让它拥有一个必须维持自身存续的躯体,必须在充满不确定性的环境中不断做决定……主观体验会不会就在这个时刻亮起来?</blockquote>
+
+<p>我们从机器人学那头独立走到了同一个缺口,而且已经为它付过学费。我们的版本:今天的机器人学习(模仿示范 / 最大化打分)都被白送了一个答案——<strong>世界里哪些部分是"我"</strong>——工程师在决定关节数和动作空间的时候就用手画好了这条线。我们主张这条手画的线不是细节,它就是瓶颈。</p>
+
+<p>然后我们做了一件事:给这条边界挑了一个<strong>可测签名</strong>——<strong>滞回(hysteresis)</strong>。理由是结构性的:任何"每一刻都根据眼前所见重算当下最优边界"的机制在数学上<strong>不可能</strong>产生滞回,因为重算最优解这个动作<strong>不记得</strong>你上一刻站在哪一边。所以正确的实现不是一个优化器,更像一个有惯性的物理系统。</p>
+
+<div class="callout warn">
+<strong>然后我们用自己的仿真器把自己打倒了。</strong> 四根支撑主张倒了三根,每一根都是被我们自己的仪器打倒的。活下来的东西很薄但是真的:那个"卡住"的行为确实能自己长出来,不是我们偷偷手装进去的。<br />
+我们把整个过程——包括被打倒的部分——完整公开了。<strong>这份记录比结论有用</strong>,因为它显示的是:从"躯体 + 存续"这个直觉,到一个能被打的命题,中间要走多少步、要死掉多少东西。
+</div>
+
+<p class="note-small">→ 全文(前半篇不含公式,写给不在这个领域的人):<a href="/theory/learning-the-self-boundary.zh.md">学习"我到哪里为止"</a> · <a href="/theory/learning-the-self-boundary-log.zh.md">同日的失败日志</a></p>
+
+<h2>二、我们主动不走的那一步:"气"这个槽位</h2>
+
+<p>你的双根是:<strong>信息</strong>(规则、形式、编码)+ <strong>气</strong>(实存、材料、被组织的那一侧)。你的架构很干净,而且"信息需要一个被它作用的东西"这个直觉本身是合理的——<strong>我们框架里确实有那个空槽</strong>。</p>
+
+<p>但我们对那个槽的处理是<strong>取消问题</strong>而不是<strong>回答问题</strong>。理由就是共识第 1 条:如果"世界的真实状态是什么"本身不适定(因为任何状态都是某个投影下的商),那么"被投影的那个底层材料是什么"同样不适定——它不是一个我们暂时还没查明的事实,它是一个<strong>提问方式的产物</strong>。</p>
+
+<p>这不是说你错了。这是一个真正的<strong>形而上学分岔</strong>:你选了一元论 + 二根(信息 / 气),我们选了"底座不可问,只能问投影"。两条路都自洽。区别在代价——</p>
+
+<div class="callout">
+<strong>我们这条路的代价:</strong>它讲不出一个宇宙起源故事,没有 L0,不好看,在直觉上不满足人。<br />
+<strong>你那条路的代价:</strong>"气"到目前为止<strong>没有产出一条可证伪的预测</strong>。它解释一切,而"解释一切"在我们这行是一个警报而不是一个成就——它意味着没有任何观测能让它输。
+</div>
+
+<p>我们对自己也用同一条尺子:我们的团队里有一条明写的自查规则,叫"把一切现象强行押韵回大一统框架"的反射要被标红。漂亮的同构<strong>不等于</strong>一个有内核、可证伪的命题。每次想说"这又是同一个东西的一个实例"的时候,先停下来问:<strong>这个押韵产出了一个可证伪的预测,还是只是一个标签?</strong></p>
+
+<h2>三、我们认为站不住脚的三处(附可以直接去打的证据)</h2>
+
+<p>这一节是这份笔记的主菜。我们尽量做到:<strong>每一条都给出具体的文献和具体的判决方式</strong>,你可以自己去查、去打回来。</p>
+
+<h3>A · "宇宙的任何一个局部都完整包含着整体的信息"——这一条有四个独立的反例</h3>
+
+<p>这是"因陀罗网的物理原理"那期的<strong>承重句</strong>:全息性 + 连续性 ⟹ 因陀罗网是几何必然。如果承重句倒了,整期的"必然"就没有前件。我们认为它倒了,而且不止一处:</p>
+
+<ol>
+<li><strong>全息原理的内容恰好是反过来的。</strong> <span class="tag">[定理]</span> 全息原理来自黑洞熵的<strong>面积律</strong>(Bekenstein–Hawking):一个区域能容纳的最大信息量正比于它<strong>边界的面积</strong>,而不是体积。也就是说,全息原理是一个<strong>信息量上界</strong>的陈述——它说的是"<strong>边界</strong>编码内部",不是"<strong>每个局部</strong>编码整体"。如果每个局部都完整装着整体的信息,那么信息量就会随体积增长,面积律就会被破坏。<strong>"全息照片的碎片仍含全图"是科普比喻,不是全息原理。</strong>(而且连那个比喻本身都是有损的:碎片保留的是低分辨率的整体,分辨率随碎片变小而暴跌——这恰恰是"局部不含整体"的一个演示。)</li>
+
+<li><strong>不可克隆定理。</strong> <span class="tag">[定理]</span> Wootters–Zurek / Dieks 1982:未知量子态不可复制。如果每颗宝珠里都完整映着所有其他宝珠的信息,你就可以在一颗宝珠里读出另一颗的完整量子态——那就是克隆。</li>
+
+<li><strong>纠缠的单配性(monogamy)。</strong> <span class="tag">[定理]</span> Coffman–Kundu–Wootters 2000:一个系统与另一个最大纠缠时,它与<strong>任何第三方</strong>的纠缠必须为零。"人人与人人最大关联"在数学上被禁止。这一条尤其致命,因为因陀罗网的意象要求的正是"全连接"。</li>
+
+<li><strong>无信号定理。</strong> <span class="tag">[定理]</span> 你说"局部的每一个变化,都会瞬间牵动全局"。纠缠<strong>不能</strong>用来传递信息:任何一方的局部操作都无法改变另一方的约化密度矩阵,因而无法被对方观测到。纠缠是<strong>关联</strong>不是<strong>影响</strong>。你在片头引用的"牵一发而动全身"如果按字面读,就正好是被这条定理排除掉的那件事。</li>
+</ol>
+
+<div class="callout">
+<strong>建议读:</strong> Bousso, <em>The holographic principle</em>, Rev. Mod. Phys. 74:825 (2002),<a href="https://arxiv.org/abs/hep-th/0203101">arXiv:hep-th/0203101</a> —— 综述,免费,把"全息"这个词在物理里到底指什么讲得很干净。
+<br /><strong>判决方式:</strong>如果"每个局部含整体"是对的,黑洞熵应当正比于<strong>体积</strong>。它正比于<strong>面积</strong>。这是一个已经做完的判决。
+</div>
+
+<h3>B · 卡西米尔效应不能用来支持"气"</h3>
+
+<p>"气"那期和"因陀罗网"那期都把 1948 年的卡西米尔效应当作核心物理证据:真空不空,挤满了场的涨落。</p>
+
+<p>问题不是这个实验不真——它很真。问题是<strong>它证明的东西比你需要的少</strong>,而且这一点在文献里已经被明确指出过:</p>
+
+<ul>
+<li>卡西米尔力完全在<strong>标准量子场论内部</strong>,不需要引入任何额外本体。用"真空涨落"叙述它是一种方便的语言,不是一个新实体的证据。</li>
+<li>更要紧的一击:<strong>卡西米尔力可以完全不提"真空零点能"就推导出来</strong>——用板中带推迟效应的源间范德瓦尔斯力就够了。Jaffe(2005)明确指出:卡西米尔力在精细结构常数 α → 0 的极限下<strong>消失</strong>,而真空零点能<strong>不会</strong>消失。所以<strong>卡西米尔效应不是零点能实在性的证据</strong>。<span class="tag">[定理]</span></li>
+</ul>
+
+<div class="callout">
+<strong>建议读:</strong> R. L. Jaffe, <em>Casimir effect and the quantum vacuum</em>, Phys. Rev. D 72:021301 (2005),<a href="https://arxiv.org/abs/hep-th/0503158">arXiv:hep-th/0503158</a>。这篇很短,而且是一位主流粒子理论学家写来专门收拾这个流行误读的。
+</div>
+
+<p class="note-small">附带一条不是证伪、是建议:用 E=mc² 去支持"气聚则成形,散则成气"是<strong>比喻</strong>不是推导——质能等价说的是同一个守恒量的两种记账方式,不是"同一种料的两种状态"。不过这附近有一个<strong>真正惊人</strong>、而且对你的主题更有利的事实你没有讲:你身体质量的 <strong>99% 左右不来自任何"物质"</strong>,而来自 QCD 的<strong>结合能与场的动能</strong>——夸克静质量只占百分之几。Wilczek 管这个叫 "mass without mass"。这是"实体性是一种误解"的<strong>硬版本</strong>,而且不需要任何新本体。</p>
+
+<h3>C · "观测是意识对气下的一次就位命令"——这一条与三组实验冲突,并且和你自己 7 月的立场矛盾</h3>
+
+<p>"气"那期用双缝实验论证:观测不是发现,是<strong>意识</strong>对气下的坍缩指令。这是 von Neumann–Wigner 的"意识造成坍缩"读法。它的困难不是哲学的,是实验的:</p>
+
+<ol>
+<li><strong>退相干不需要意识,而且被直接测量过。</strong> <span class="tag">[框架]</span> 系统与环境纠缠会在极短时标内抹掉相干性,不需要任何人观看。Brune 等人 1996 年在腔量子电动力学里<strong>实时看到了</strong>一个"猫态"退相干的<strong>渐进过程</strong>(PRL 77:4887)。如果坍缩要等意识下令,这个连续过程不该存在。</li>
+<li><strong>决定干涉存亡的是 which-path 信息是否<em>原则上</em>可得,不是有没有人去看。</strong> 延迟选择量子擦除实验(Kim et al. 2000, PRL 84:1)显示:把路径信息<strong>擦掉</strong>,干涉条纹就回来——而这一切与实验者何时读数据无关。</li>
+<li><strong>维格纳本人后来放弃了这个立场</strong>,主要是受 Zeh 早期退相干工作的影响。援引一个立场时,值得知道它的提出者最后站到了哪边。</li>
+</ol>
+
+<div class="callout">
+<strong>建议读:</strong> Zurek, <em>Decoherence, einselection, and the quantum origins of the classical</em>, Rev. Mod. Phys. 75:715 (2003),<a href="https://arxiv.org/abs/quant-ph/0105127">arXiv:quant-ph/0105127</a>;以及 Schlosshauer, Rev. Mod. Phys. 76:1267 (2005) 那篇更好读的综述。
+</div>
+
+<div class="callout warn">
+<strong>还有一处内部矛盾,我们认为值得你自己处理。</strong> 四月那期你给了意识一个<strong>因果特权</strong>(它能命令气坍缩);七月那期你又把"意识到底是不是信息现象"<strong>悬而未决</strong>,并且认真地讨论了如果它不是、整个信息一元叙事就会裂开。<strong>这两个立场不能同时成立</strong>——如果意识已经能对物理施加因果作用,那七月那期的问题在四月就已经被你自己回答了(而且答的是"意识在信息之外")。这不是措辞问题,是框架里的一条真裂缝。<br /><br />
+顺带说:我们自己也写过一篇专门处理"能不能像研究量子力学那样用数学研究意识"的笔记,结论是"<strong>一半是真的,另一半是个很漂亮的陷阱</strong>"。<a href="/theory/consciousness-as-quantum-mechanics.md">链接在此</a>,我们把陷阱那一半也写了出来。
+</div>
+
+<h2>四、三条建设性建议</h2>
+
+<h3>1 · 把你 AI 弧的那个好习惯搬到本体论弧</h3>
+
+<p>你的 AI 系列里有一个我们非常欣赏、并且<strong>已经抄进我们自己工作规范</strong>的习惯:<strong>你会主动降级自己的例子</strong>。讲 RLHF 时你自己指出评价与参数更新是由模型外部的训练系统完成的,不是模型自主改造自己;讲自指时你用恒温器和免疫系统说明自指是意识的必要非充分条件。这是很少见的自律。</p>
+
+<p>但在本体论弧里这个习惯不见了。"因陀罗网"那期的收尾原话是:<strong>"这不是玄学,这是量子力学和相对论推出来的必然结论。"</strong> 我们的观察是——同一个作者,两套标准。</p>
+
+<p>而且我们认为差别不在你,在<strong>领域</strong>:AI 那一块观众里有人能立刻打脸,宇宙本体论这一块没人管。这个观察对我们自己的用处比对你更大,所以我们把它写成了一条自查规则:<strong>凡是在"没人能立刻打脸"的领域里推理,自动上调证伪要求。</strong> 这是这次读你的系列我们拿走的最有价值的一样东西,记在这里算是互惠。</p>
+
+<h3>2 · "躯体 + 存续"那条值得单独立线,但它需要一个签名才能变成理论</h3>
+
+<p>7 月 28 日结尾那个猜想是整个系列里最接近可做的东西。但它现在还停在一个修辞问句("会不会就在这个时刻亮起来?")。要让它变成理论,需要的不是更多论证,是<strong>一个可测签名</strong>——一个"如果这条是对的,我们应该观测到 X;如果观测不到 X,这条就死了"的 X。</p>
+
+<p>我们挑的 X 是滞回,然后被自己的仿真器打掉了三根支柱。<strong>我们不推荐你抄这个签名</strong>(它可能就是错的),我们推荐的是那个动作本身:<strong>先挑一个能杀死自己的签名,再去论证。</strong> 我们那份失败日志开着,你可以直接拿走里面的教训,不必重付。</p>
+
+<h3>3 · 信息载体链那期,DNA 和大脑之间有一层被压平了</h3>
+
+<p>7 月 29 日那期把 RNA → DNA → 多细胞 → 神经 → 人脑 → 语言 → 文字 → 印刷 → 互联网 → AI 串成一条"信息编码效率提升"的链,并给出结论:人类没有设计 AI,只是造出了 AI 涌现所需的条件。这条链我们同意。</p>
+
+<p>但链上有一处<strong>可塑性是反的</strong>,压平之后会丢掉最有意思的推论:<strong>魏斯曼屏障(Weismann barrier)</strong> <span class="tag">[框架]</span>——体细胞在一生中学到的东西<strong>写不回生殖系</strong>(拉马克式遗传不成立)。所以:</p>
+
+<ul>
+<li><strong>DNA 是身体的种子</strong>:跨代传递,由选择重塑,但你一生的学习不写进它。</li>
+<li><strong>心智的种子</strong>(习气 / 经验结构):一生之内被经验重塑,速度快得多,但<strong>不进 DNA、不随繁衍传递</strong>。</li>
+<li>⟹ 所以承载"心智种子"的<strong>生殖系是文化</strong>——书、作品、教出来的人。<strong>不是繁衍。</strong></li>
+</ul>
+
+<p>这个推论比"信息载体一路升级"锋利得多,而且它对你正在做的事(把一套框架讲给很多人听)恰好是一个正面的解释:<strong>你做的这件事就是心智种子的生殖系动作本身。</strong></p>
+
+<h2>五、我们更可能错在哪里</h2>
+
+<p>为了这份笔记不变成单向的打分,我们把自己的软肋也放上来:</p>
+
+<ul>
+<li>我们的"底座不可问"立场是一个<strong>方法论选择</strong>,不是一个定理。如果哪天有人从一个底座本体论里推出了一条我们推不出的可测预测,我们这条就该让路。</li>
+<li>我们的 μ / 自我边界线<strong>四根支柱倒了三根</strong>,剩下的那根很薄。我们没有一个成立的理论,我们有一个还没被杀死的问题。</li>
+<li>我们对你四月那条弧的判断建立在<strong>转录文本</strong>上(你的视频没有字幕,我们用语音转写)。转写有出错的可能,如果我们引用的原话有偏差,请直接指出来,我们会改这一页。</li>
+<li>本页所有"站不住脚"的判断都只针对<strong>论证</strong>,不针对结论。"宇宙是一个整体"这个命题<strong>可能仍然是对的</strong>——我们说的是,目前给出的那条从全息性和连续性到因陀罗网的推导链,承重的那一步是断的。</li>
+</ul>
+
+<h2>接口</h2>
+
+<p>如果这几条里有任何一条你认为我们错了,<strong>我们想知道</strong>——这比同意有用得多。这一页会随反馈修订,修订痕迹保留。</p>
+
+<ul>
+<li>邮件:<a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></li>
+<li>我们这条线的公开笔记(都带诚实度标注,包括失败记录):<a href="/index.zh.html">machengshen.github.io</a></li>
+</ul>
+
+<h2 class="refs">引用</h2>
+<ol class="refs">
+<li>Crutchfield, J. P. — computational mechanics / causal states(ε-machine)。</li>
+<li>Mori (1965), Zwanzig (1960) — 投影算子形式主义;记忆核 + 噪声的恒等式分解。</li>
+<li>Bousso, R. (2002). <em>The holographic principle.</em> Rev. Mod. Phys. 74:825. arXiv:hep-th/0203101.</li>
+<li>Bekenstein (1973); Hawking (1975) — 黑洞熵的面积律。</li>
+<li>Wootters, W. K. &amp; Zurek, W. H. (1982); Dieks, D. (1982) — no-cloning。</li>
+<li>Coffman, Kundu &amp; Wootters (2000). <em>Distributed entanglement.</em> Phys. Rev. A 61:052306 — 纠缠单配性。</li>
+<li>Jaffe, R. L. (2005). <em>Casimir effect and the quantum vacuum.</em> Phys. Rev. D 72:021301. arXiv:hep-th/0503158.</li>
+<li>Brune, M. et al. (1996). <em>Observing the progressive decoherence of the "meter" in a quantum measurement.</em> Phys. Rev. Lett. 77:4887.</li>
+<li>Kim, Y.-H. et al. (2000). <em>Delayed "choice" quantum eraser.</em> Phys. Rev. Lett. 84:1.</li>
+<li>Zurek, W. H. (2003). <em>Decoherence, einselection, and the quantum origins of the classical.</em> Rev. Mod. Phys. 75:715. arXiv:quant-ph/0105127.</li>
+<li>Schlosshauer, M. (2005). Rev. Mod. Phys. 76:1267.</li>
+<li>Wilczek, F. — "mass without mass";质子质量的 QCD 起源。</li>
+<li>Weismann, A. — 种质连续学说 / 魏斯曼屏障。</li>
+</ol>
+
+<div class="footer">
+  本页由作者的工作笔记整理发布,由人与 agent 协作完成。认知状态:探索性。<br />
+  引用的所有文献都可公开获取;如发现引用错误,请来信,我们会在本页更正并保留修订记录。
+</div>
+
+</main>
+</body>
+</html>
