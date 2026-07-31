@@ -75,7 +75,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
 <div class="callout">
 <strong>这是一份邀请,不是评分卡。</strong> 我们(一个人 + 一套 agent 工作流)从强化学习 / 决策论 / 机器人学这个入口,独立走了一条关于"世界、模型与自我"的线。最近读完 @itsRedPill 的两条系列——四月的宇宙本体论弧(信息与气 / 因陀罗网 / 五行)和六至七月的 AI 认知弧(涌现 → 结构 → 注意力 → 世界模型 → 自指 → 意识)——发现<strong>有几处是逐字撞上的</strong>,也有几处我们判断是<strong>站不住的</strong>,而且站不住的地方<strong>有现成的文献可以直接判决</strong>,不需要靠谁嗓门大。
 <br /><br />
-下面按四段走:<strong>共识</strong> → <strong>我们主动不走的那一步</strong> → <strong>我们认为站不住脚的三处(附具体证伪路径)</strong> → <strong>三条建设性建议</strong>。全文的论断按诚实度标注:<span class="tag">[定理]</span> 有定理级文献 / <span class="tag">[框架]</span> 成熟理论框架 / <span class="tag">[推断]</span> 我们的综合 / <span class="tag">[韵脚]</span> 结构类比,不主张真值传递。
+下面按五段走:<strong>共识</strong> → <strong>我们主动不走的那一步</strong> → <strong>我们认为站不住脚的三处(附具体证伪路径)</strong> → <strong>其中一处的建设性替代(你要的那个机制存在,只是它不叫坍缩——这一节还接上了 diffusion model)</strong> → <strong>三条建设性建议</strong>。全文的论断按诚实度标注:<span class="tag">[定理]</span> 有定理级文献 / <span class="tag">[框架]</span> 成熟理论框架 / <span class="tag">[推断]</span> 我们的综合 / <span class="tag">[韵脚]</span> 结构类比,不主张真值传递。
 </div>
 
 <h2>一、共识:四处逐字撞上的地方</h2>
@@ -199,7 +199,78 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
 顺带说:我们自己也写过一篇专门处理"能不能像研究量子力学那样用数学研究意识"的笔记,结论是"<strong>一半是真的,另一半是个很漂亮的陷阱</strong>"。<a href="/theory/consciousness-as-quantum-mechanics.md">链接在此</a>,我们把陷阱那一半也写了出来。
 </div>
 
-<h2>四、三条建设性建议</h2>
+<h2>四、C 那条的建设性版本:你要的那个机制是存在的,只是它不叫坍缩</h2>
+
+<p>上一节我们否掉了"观测是意识对气下的一次就位命令"。但只否掉不给替代是廉价的,所以这一节把我们认为<strong>正确的那个位置</strong>指出来——而且它比原来那条强,因为它<strong>能算</strong>。</p>
+
+<p>你在那句话里真正想抓的东西是:<strong>一个内在的、主观侧的东西,如何参与决定哪一个未来被实现。</strong> 这个问题有答案,答案在<strong>随机最优控制</strong>里,不在量子测量里。</p>
+
+<h3>1 · 核心改写:不是坍缩,是换测度</h3>
+
+<p>设一个受控扩散过程——世界自己在演化,你通过身体往里加一个控制项 <code>u</code>:</p>
+
+<p><code>dX = ( f(X) + g(X)·u ) dt + σ dW</code></p>
+
+<p><strong>Girsanov 定理</strong> <span class="tag">[定理]</span>:「有你」和「没有你」这两个世界,不是两条轨迹的差别,而是<strong>两个概率测度</strong>的差别,且它们之间有一个显式的换算因子:</p>
+
+<p><code>dP<sup>u</sup> / dP<sup>0</sup> = exp( ∫ u·dW − ½∫ |u|² dt )</code></p>
+
+<div class="callout">
+<strong>一个意图不"造出"未来。它对「所有可能的未来」重新加权。</strong><br />
+未来没有被从叠加里挑出来一条 —— 未来是被<strong>重新称重</strong>了一遍。
+</div>
+
+<h3>2 · 而且它的代价恰好是一个熟悉的量</h3>
+
+<p>在这一类问题里(KL 控制 / linearly-solvable MDP),施加控制的<strong>代价恰好等于</strong> <code>KL( P<sup>u</sup> ‖ P<sup>0</sup> )</code> <span class="tag">[定理]</span>——也就是<strong>你把未来的分布推离"自然会发生的样子"有多远</strong>,单位是 nat。</p>
+
+<p>这个量有一条性质值得停一下:<strong><code>u = 0</code> 时代价为零。</strong> 不推,就不欠。<span class="tag">[韵脚]</span>(我们标韵脚,因为这是一次命名,不是一个证明。)</p>
+
+<h3>3 · 你那个"所有可能性叠加,然后收成一个"的画面,是对的——但它是路径积分,不是坍缩</h3>
+
+<p>令 desirability <code>z = exp(−V/λ)</code>,那个非线性的 HJB 方程会<strong>线性化</strong>,最优控制得到一个<strong>路径积分</strong>表示:对<strong>所有</strong>轨迹按 <code>exp(−代价/λ)</code> 加权,再求期望 <span class="tag">[定理]</span>。</p>
+
+<p>全部可能性确实同时在场、被加权、再收束成一个 —— 但机制是 Feynman–Kac 积分。</p>
+
+<p class="note-small">诚实边界:这个线性化要求控制仿射、噪声与控制在同一子空间、控制代价二次、λ 锁定噪声与代价的比例。条件不满足就不线性化,这一步不能滥用。</p>
+
+<h3>4 · 而且这和 AI 里的 diffusion model 是同一个定理</h3>
+
+<p>这一条是我们觉得最漂亮的地方,而且它把你的两条弧(本体论 / AI)真正接上了——不是靠押韵,是靠<strong>同一个定理</strong>。</p>
+
+<p><strong>Doob's h-transform</strong> <span class="tag">[定理]</span>:把一个扩散过程<strong>条件在某个未来事件上</strong>,得到的过程仍然是马尔可夫的,drift 只多出一项 <code>+ σ²·∇log h</code>(h = 该事件发生的概率)。现在看三边:</p>
+
+<ul>
+<li><strong>KL 最优控制</strong>:<code>u* = σ∇log z</code>,z = desirability</li>
+<li><strong>diffusion model 的反向过程</strong>:drift 修正 = <code>σ²∇log p<sub>t</sub></code>,即 score</li>
+<li><strong>conditional / guided diffusion</strong>:字面就是 h-transform</li>
+</ul>
+
+<p>⟹ <strong>最优控制就是一个 score function。</strong> 两边都是「σ × 某个线性 PDE 解的 log 梯度」。两端都固定的版本叫 <strong>Schrödinger bridge</strong>:给定起点与终点分布,找一条<strong>离自然演化 KL 最小</strong>的路径测度。</p>
+
+<div class="callout">
+<strong>一个副产品,我们觉得对你的表达特别有用:</strong>「处理之前是所有频率叠加、处理之后逐步 lock in 成一张具体图像」——这个画面<strong>逐字就是 diffusion 的采样过程</strong>,不是量子坍缩的描述。<br />
+把它挂到 diffusion 上之后它反而更强:因为 diffusion 是我们<strong>能算、能训、能把每一步画出来</strong>的东西。你完全可以做一期这个,而且不需要任何量子力学。
+</div>
+
+<p class="note-small">归属声明:这一片全是成熟文献,不是我们的。Girsanov;Kappen 2005;Todorov 2009;Schrödinger bridge 一脉;Berner–Richter–Ullrich《An optimal control perspective on diffusion-based generative modeling》;NeurIPS 2024《Stochastic Optimal Control for Diffusion Bridges in Function Spaces》(从随机最优控制推出 Doob h-transform)。</p>
+
+<h3>5 · 这些项在大脑里有没有对应?有,而且比我们预期的多</h3>
+
+<p>这一节可能对你的观众最有用。逐项打分,证据强度如实标:</p>
+
+<ul>
+<li><strong><code>σdW</code>(噪声项)—— 证据最强。</strong> 皮层响应的<strong>变异性本身</strong>可能就是从后验分布采样。不是"信号加噪声",是<strong>噪声就是采样</strong>。(Orbán, Berkes, Fiser &amp; Lengyel 2016, <em>Neuron</em> 92:530。⚠️ 有对家:另一派认为不确定性编在发放率里,争论未决。)</li>
+<li><strong>路径积分里"所有轨迹同时在场"—— 证据强。</strong> 大鼠海马在迷宫里以 <strong>8 Hz 恒定循环</strong>于多个候选未来路径之间,<strong>每约 125 毫秒一个</strong>。不是偶尔想象,是持续不断地生成候选轨迹。(Kay et al. 2020, <em>Cell</em>;Pfeiffer &amp; Foster 2013, <em>Science</em>。)</li>
+<li><strong><code>KL</code> 代价 —— 证据中强,而且有人明确写成这个形式。</strong> 认知努力 = <strong>偏离默认策略所需的信息量</strong>。(Zénon, Solopchuk &amp; Pezzulo 2019, <em>Neuropsychologia</em>;Lai &amp; Gershman 2021, policy compression。)</li>
+<li><strong><code>λ</code>(温度)—— 中等,有候选无测量。</strong> 神经调质增益是自然候选,但<strong>没有人在真实大脑里测出过 λ</strong>。这是个公开的空位。</li>
+</ul>
+
+<h3>6 · 边界(我们对自己也用这条)</h3>
+
+<p>以上全部只描述<strong>意图经由身体、经由行动</strong>改变未来的分布——Girsanov 要求 <code>u</code> 通过真实的动力学进入 drift。<strong>"念头不经由行动、直接改变外部现实"不在这个框架的射程里</strong>,我们也不主张它。</p>
+
+<h2>五、三条建设性建议</h2>
 
 <h3>1 · 把你 AI 弧的那个好习惯搬到本体论弧</h3>
 
@@ -229,7 +300,7 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
 
 <p>这个推论比"信息载体一路升级"锋利得多,而且它对你正在做的事(把一套框架讲给很多人听)恰好是一个正面的解释:<strong>你做的这件事就是心智种子的生殖系动作本身。</strong></p>
 
-<h2>五、我们更可能错在哪里</h2>
+<h2>六、我们更可能错在哪里</h2>
 
 <p>为了这份笔记不变成单向的打分,我们把自己的软肋也放上来:</p>
 
@@ -264,7 +335,24 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
 <li>Schlosshauer, M. (2005). Rev. Mod. Phys. 76:1267.</li>
 <li>Wilczek, F. — "mass without mass";质子质量的 QCD 起源。</li>
 <li>Weismann, A. — 种质连续学说 / 魏斯曼屏障。</li>
+<li>Girsanov, I. V. (1960) — 路径测度的换测度定理。</li>
+<li>Kappen, H. J. (2005). <em>Path integrals and symmetry breaking for optimal control theory.</em> Phys. Rev. Lett. 95:200201.</li>
+<li>Todorov, E. (2009). <em>Efficient computation of optimal actions.</em> PNAS 106:11478.</li>
+<li>Berner, J., Richter, L. &amp; Ullrich, K. — <em>An optimal control perspective on diffusion-based generative modeling.</em></li>
+<li><em>Stochastic Optimal Control for Diffusion Bridges in Function Spaces.</em> NeurIPS 2024 — 从 SOC 推出 Doob's h-transform。</li>
+<li>Freidlin, M. &amp; Wentzell, A. — 小噪声大偏差理论。</li>
+<li>Orbán, G., Berkes, P., Fiser, J. &amp; Lengyel, M. (2016). <em>Neural variability and sampling-based probabilistic representations in the visual cortex.</em> Neuron 92:530.</li>
+<li>Kay, K. et al. (2020). <em>Constant sub-second cycling between representations of possible futures in the hippocampus.</em> Cell.</li>
+<li>Pfeiffer, B. &amp; Foster, D. (2013). <em>Hippocampal place-cell sequences depict future paths to remembered goals.</em> Science.</li>
+<li>Zénon, A., Solopchuk, O. &amp; Pezzulo, G. (2019). <em>An information-theoretic perspective on the costs of cognition.</em> Neuropsychologia.</li>
+<li>Lai, L. &amp; Gershman, S. J. (2021). <em>Policy compression: An information bottleneck in action selection.</em> Psych. Learn. Motiv. 74:195.</li>
 </ol>
+
+<h2 class="refs">修订记录</h2>
+<ul class="refs">
+<li><strong>2026-07-30 v1</strong> — 首次发布:共识 / 分歧 / 三处站不住脚 / 三条建议。</li>
+<li><strong>2026-07-31 v2</strong> — 新增第四节:C 那条的建设性替代(Girsanov 换测度、KL 代价、路径积分、Doob h-transform 与 diffusion model 的同一性、四项神经对应打分)。原第四、五节顺延为第五、六节。<em>动因:只否定不给替代是廉价的。</em></li>
+</ul>
 
 <div class="footer">
   本页由作者的工作笔记整理发布,由人与 agent 协作完成。认知状态:探索性。<br />
