@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flow, dopamine, and stop signals — what the evidence actually supports | Macheng Shen</title>
+  <meta name="description" content="An evidence review of the claims behind gamified and behaviour-design interfaces: wanting is not liking, dopamine codes surprise not reward, dynamic difficulty has the weakest evidence and the highest cost, physiological signals cannot detect flow, and the largest coercive stop-signal interventions ever run produced effects near the measurement floor. With calibrated confidences and three of our own citations corrected." />
+  <link rel="canonical" href="https://machengshen.github.io/flow-dopamine-and-stop-signals.html" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/llms.txt">For agents</a>
+      <a href="/intention-as-measure-change.html">Intention as a change of measure</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">EVIDENCE REVIEW · MOTIVATION AND BEHAVIOUR DESIGN</div>
+<h1>Flow, dopamine, and stop signals — what the evidence actually supports</h1>
+<p class="note-small">Macheng Shen × agent workflow · 2026-08-02 · cognitive state: <strong>speculative</strong> for the synthesis, <strong>survived</strong> for the meta-analytic results it rests on</p>
+
+<div class="callout">
+<strong>Why this review exists.</strong> Almost every claim used to justify gamified interfaces, streaks, points, adaptive difficulty and screen-time limits is either (a) a well-replicated result being applied in the wrong direction, or (b) a plausible deduction with no controlled test behind it. Sorting those two piles is the whole content here.
+<br /><br />
+<strong>Four findings worth the click, if you read nothing else.</strong>
+<br />1. The same meta-analysis that shows tangible rewards <em>undermine</em> intrinsic motivation (d ≈ −0.28 to −0.40) shows positive informational feedback <em>enhancing</em> it (d ≈ +0.31 to +0.33). One sign flip separates the two, and it is the most actionable number in this field.
+<br />2. Adaptive difficulty is the most expensive flow condition to build and has the weakest and most contested evidence of any of them.
+<br />3. Heart-rate variability from consumer hardware cannot tell flow from mild stress: Apple Watch SDNN against a chest strap gives roughly <strong>29% mean absolute percentage error</strong>.
+<br />4. The largest coercive stop-signal interventions ever run — a six-hour national gaming curfew, and mandated playtime quotas — produced measured effects near the floor of measurement, and the most-cited study claiming quotas fail has a design flaw that means it could not have detected success either.
+</div>
+
+<h2>中文摘要</h2>
+
+<p class="note-small">本文是一份证据审查,对象是「游戏化界面 / 心流设计 / 防沉迷」这一堆常被引用的主张。核心结论:(1) <strong>多巴胺编码的是「想要」和「意外」,不是「快乐」和「奖励」</strong> —— 多巴胺耗竭到 99% 的大鼠仍保留正常的享乐反应;完全被预测到的奖励<em>不产生</em>相位反应,因此「完全透明可控」与「多巴胺上有冲击力」在机制上是互斥的。(2) <strong>可变比率(抽卡)最上瘾,而且它的收入结构会自己招供</strong>:开箱消费前 5%(月消费 &gt;100 美元)贡献约一半收入,其中约三分之一符合问题赌博标准;消费与问题赌博相关 ρ=0.34,与<em>收入</em>相关 ρ=0.02 且不显著 —— 它抽的是脆弱性的租,不是财富的租。(3) <strong>动态难度调节是最贵、证据最弱的一条</strong>:最佳受控实验(n=221)发现表现显著提升,而心流、愉悦、挑战、焦虑<em>全部无显著差异</em>;但 2024 年的系统综述报告多数研究得到正面结果 —— 诚实的读法是异质性加发表偏倚,不是已判死。(4) <strong>别用生理信号测心流</strong>:消费级 HRV 的 SDNN 误差约 29%。(5) <strong>停止信号里,弹窗是表演,强制不可用才有效</strong>:赌博场景弹窗只让不到 1% 的人停下,加了规范性与自评内容后从 0.67% 升到 1.39%;而 60 分钟后强制休息 15 分钟能显著延长后续自愿停顿,90 秒近乎无用。韩国「灰姑娘法」六小时全国宵禁,实测每天减少约 3.65 分钟上网,两年后归零,对网络成瘾与睡眠时长<em>无影响</em>,该法 2021 年废止。全文引用 30+ 条文献,逐条核实;并公开更正我们自己初稿里的三处引用错误。</p>
+
+<h2>1 · Dopamine: wanting is not liking, and surprise is not reward</h2>
+
+<p><strong>Wanting ≠ liking.</strong> Rats with up to 99% depletion of accumbens and neostriatal dopamine retain normal hedonic taste reactions, normal learning of new hedonic values, and normal pharmacological enhancement of pleasure [11]. Dopamine is necessary for <em>wanting</em> an incentive, not for <em>liking</em> it. This makes "dopamine hit = pleasure" a category error at the level of design, not just of vocabulary: <strong>sensitised wanting with flat liking is the signature shape of addiction</strong> — want more, enjoy no more. Any mechanism that makes someone compulsively check but leaves them unsatisfied is manufacturing exactly that gap.</p>
+
+<p class="note-small">Honesty note: Berridge's strong position — that dopamine has essentially no role in reward learning — is a minority view, and he says so himself in the debate paper [12]. Most of the field holds a dual-role account. Nothing below depends on the strong version.</p>
+
+<p><strong>Dopamine codes prediction error.</strong> Midbrain dopamine neurons fire above baseline for better-than-predicted outcomes, <em>remain at baseline for fully predicted rewards</em>, and dip below it for omitted ones; during learning the response migrates backwards from the reward onto the cue that predicts it [13][14].</p>
+
+<div class="callout warn">
+<strong>The corollary designers do not want to hear.</strong> A fully transparent, fully predictable reward schedule produces, by construction, no phasic dopamine response. "Transparent and controllable" and "dopaminergically punchy" are in genuine tension, and a design claiming both is usually smuggling hidden variance in somewhere.
+<br /><br />
+<span class="tag">[our speculation]</span> The escape route we find most plausible is to put the uncertainty in the <em>world model</em> rather than the payout table — let the prediction error come from whether the thing you tried actually worked. That is mechanically coherent and completely untested: nobody has shown that naturally occurring real-world prediction error is <em>dense enough</em> to feel like anything.
+</div>
+
+<h2>2 · Variable ratio: maximally engaging, and the revenue structure confesses</h2>
+
+<p>Two independent syntheses link loot-box spending to problem gambling: a meta-analysis finds r = 0.26 across 15 studies (r = 0.37 after trim-and-fill) with gambling symptomatology and r = 0.25 across 7 studies with excessive gaming [15]; a systematic review and meta-synthesis reaches the same qualitative conclusion [16]. A large survey found effect size η² = 0.054 for loot-box spend against problem gambling, versus η² = 0.004 for other in-game purchases [18], and adolescent data show the association strengthens when loot-box contents are time-limited [19].</p>
+
+<p><strong>But the sharpest evidence is the shape of the revenue.</strong> Pooling 7,767 purchasers across six open datasets: the top 5% of spenders (over $100/month) generate roughly <em>half</em> of all loot-box revenue; about a third of that group screens positive for problem gambling; spending correlates with problem gambling at ρ = 0.34 — and with income at <strong>ρ = 0.02, not significant</strong> [17]. The business model extracts rent from vulnerability, not from wealth.</p>
+
+<p class="note-small">The honest limit: all of this is cross-sectional. The <em>engagement</em> inference is safe; the <em>causal harm</em> inference is not — selection (problem gamblers choosing loot boxes) is not excluded by any current design.</p>
+
+<p><span class="tag">[deduction, not measured]</span> <strong>Variable ratio and flow are not two settings of one dial; they are opposed targets.</strong> Flow requires clear goals, immediate deterministic feedback, and perceived control. A variable-ratio schedule is definitionally the insertion of uncontrollable randomness between action and feedback, which moves attention from the task to the payout. We rate this at P ≈ 0.60 rather than higher precisely because <em>we could not find a controlled experiment</em> introducing random rewards into a cognitive-output task and measuring flow and output quality. If you know of one, please write.</p>
+
+<h2>3 · The most expensive flow condition has the weakest evidence</h2>
+
+<p>Of the standard flow conditions — clear goals, immediate feedback, challenge–skill balance, freedom from distraction, sense of control — the one that costs the most to engineer is challenge–skill balance via <strong>dynamic difficulty adjustment</strong>, because it needs a live skill estimator.</p>
+
+<p>The best-controlled test we found: n = 221, three conditions (DDA, fixed, incremental). The DDA group performed significantly <em>better</em> — and showed <strong>no significant difference in enjoyment, flow, challenge, or anxiety</strong> [20]. The authors themselves recommend future work using flow as an outcome, because theirs came out null.</p>
+
+<div class="callout warn">
+<strong>A correction to our own draft, and it cuts against the conclusion we liked.</strong> Our working note cited a paper as a "review with mixed results" supporting the null. It is not a review: it is a single uncontrolled deep-learning DDA study reporting ~90% high enjoyment and immersion — i.e. evidence pointing the <em>other</em> way [21a]. The actual systematic review of this literature reports that <em>most</em> studies find significant DDA effects on enjoyment, flow, motivation and immersion [21b].
+<br /><br />
+So the honest statement is: <strong>heterogeneous results, plausible publication bias, and essentially all of it in action and casual games rather than cognitive work.</strong> P(DDA does not reliably improve flow) drops to ≈ 0.45. The <em>build decision</em> nonetheless survives at ≈ 0.75, for a different reason: even under the optimistic reading the effect sits in a different task domain, and a user-facing intensity selector captures most of the value at a fraction of the cost.
+</div>
+
+<p><strong>The cheaper substitute has better evidence.</strong> Self-determination-theory work on games (four studies) finds in-game autonomy and competence satisfaction predict enjoyment, preference, and post-play wellbeing [2]. Handing difficulty selection to the user buys challenge–skill balance without an inference engine — and abrupt automatic adjustment is precisely what erodes the perceived autonomy that the same framework says is doing the work. <span class="tag">[our speculation]</span> that the substitution is sufficient; the SDT premise itself is not speculative.</p>
+
+<h2>4 · Do not measure flow with physiology</h2>
+
+<p>A systematic review of 48 studies using heart-rate variability in educational contexts found HRV has only <em>moderate</em> concurrent validity as a stress measure, <strong>unclear</strong> validity as an attention measure, and inconsistent correlation with performance [34].</p>
+
+<p>Consumer hardware is worse than the reputation suggests. Apple Watch Series 9 and Ultra 2 against a Polar H10 chest strap, 39 participants, ~300 morning readings: SDNN gives <strong>MAPE = 28.9%</strong> (95% CI 26.2–31.6), MAE 20.5 ms, limits of agreement roughly −54 to +37 ms — while resting heart rate from the same device gives MAPE 5.9% [33a]. A separate validation against 3-lead ECG found near-perfect agreement for R–R interval (MAPE ≈ 1%) but only <em>moderately acceptable</em> agreement for the derived indices, and only at rest [33b]. Note also that Apple reports SDNN while most consumer devices report RMSSD, so cross-device comparison is invalid before you even get to accuracy.</p>
+
+<p><strong>What to use instead</strong> <span class="tag">[our speculation]</span>: behavioural proxies that cost nothing and interrupt no one — uninterrupted work-block length, application-switching rate (fragmentation means flow has already broken), edit or commit cadence — plus a validated flow scale [5] administered weekly rather than per session, since a per-session questionnaire is itself an interruption.</p>
+
+<p class="note-small">Symmetry, because this is where reviews usually cheat: we are confident physiology <em>fails</em> (P ≈ 0.85). We are much less confident these behavioural proxies <em>succeed</em> — they have no validation against a flow criterion either. The defensible position is "both are weak; one is free and non-intrusive."</p>
+
+<h2>5 · The one sign flip that matters most</h2>
+
+<p>The 128-experiment meta-analysis on extrinsic rewards and intrinsic motivation reports, on free-choice behaviour: engagement-contingent rewards <strong>d = −0.40</strong>, completion-contingent <strong>−0.36</strong>, performance-contingent <strong>−0.28</strong>. In the same analysis, positive informational feedback goes the other way: <strong>d = +0.33</strong> free-choice and <strong>+0.31</strong> self-reported interest [4]. Task-noncontingent and unexpected rewards were <em>not</em> shown to undermine.</p>
+
+<p>Read that as a design rule: <strong>adding reward tokens to an activity someone is already intrinsically motivated by has a measured negative expected value; telling them informatively how it went has a measured positive one.</strong> The two interventions look similar on a screen and point in opposite directions.</p>
+
+<p>The gamification literature is consistent with this once you look at what it measured.</p>
+
+<ul>
+<li>Points, levels and leaderboards on an annotation task produced significantly <em>more</em> output and <strong>no change</strong> in competence, autonomy or intrinsic motivation, and no improvement in output <em>quality</em> — functioning as pure extrinsic incentives, effective for quantity only [7].</li>
+<li>A longitudinal classroom study found students in the gamified (badges plus leaderboard) condition declined in motivation, satisfaction and empowerment relative to control, with the final-exam effect mediated by intrinsic motivation [8]. <span class="note-small">(A corrigendum to this paper exists and should be read alongside it.)</span></li>
+<li>Leaderboard feedback, manipulated across five conditions with N = 427, had negligible effect on cognitive performance, real effects on intrinsic motivation, and <strong>negative feedback was more detrimental than no feedback at all</strong> [10]. Two caveats the headline usually drops: the feedback was <em>fictitious</em>, and the sample skewed female. The fictitious part is arguably the more interesting result — the motivational damage does not require the ranking to be true.</li>
+<li>The gamification meta-analysis gives small, heterogeneous effects (g = 0.49 cognitive, 0.36 motivational, 0.25 behavioural), and its moderator analysis finds <strong>game fiction and social interaction</strong> significantly moderate behavioural outcomes [6]. <span class="tag">[our inference]</span> Narrative is therefore the one common gamification element that is not an extrinsic reward and does not carry the undermining risk.</li>
+</ul>
+
+<div class="callout warn">
+<strong>A second correction to our own draft.</strong> We wrote that a 15-week study showed intrinsic motivation "declining over time" in a gamified environment. That is not what it found. Intrinsic motivation <em>initially decreased and then rose again</em> without exceeding baseline, which the authors attribute to a familiarisation effect; and the same environment <strong>supported</strong> psychological needs in some students while <strong>thwarting</strong> them in others [9]. The finding is ambivalence, not monotonic decline, and the ambivalence is more useful than the version we had written down.
+</div>
+
+<h2>6 · Work produces more flow than leisure</h2>
+
+<p>The classic experience-sampling result: flow-like states occurred in about <strong>54%</strong> of work-time samples versus about <strong>17–18%</strong> of leisure samples, while people simultaneously reported <em>higher motivation</em> during leisure [1]. Work already supplies clear goals, feedback, and challenge–skill matching; unstructured leisure supplies none of them.</p>
+
+<p>Two honest qualifications. The sample was 78 adults over one week — small for an ESM study, and the finding is often cited as though it were large. And the mechanism it supports is not "work is good" but "<em>the conditions</em> are what matter, and one context happens to supply them" — which is precisely why importing game structure into work has a worse expected value than importing it into the unstructured side.</p>
+
+<h2>7 · Stop signals: what is theatre and what actually works</h2>
+
+<p>This is the section where the received wisdom is most wrong in <em>both</em> directions.</p>
+
+<h3>7.1 Messages are theatre</h3>
+
+<p>In real casino operator data, a pop-up appearing after 1,000 consecutive slot plays caused <strong>fewer than 1%</strong> of players to stop — 45 of 4,205 qualifying sessions terminated at exactly 1,000, which was nine times the pre-intervention rate and still under one percent [26]. Adding normative and self-appraisal content, across 1.6 million sessions, doubled it: from <strong>0.67% to 1.39%</strong> [27]. That is a 98.6% ignore rate for the enhanced version.</p>
+
+<h3>7.2 Enforced unavailability works, and the dose matters</h3>
+
+<p>A randomised real-world experiment with 21,129 players and 156,989 mandatory breaks triggered after 60 minutes of continuous play compared 90-second, 5-minute and 15-minute forced breaks, with and without personalised feedback. The <strong>15-minute</strong> break produced the longest subsequent voluntary pause; personalised feedback added nothing [28a]. An earlier study of 90-second forced session termination on video lottery terminals (n = 7,190) found <strong>no significant effect at all</strong> [28b].</p>
+
+<p><strong>The brake has to be "you temporarily cannot", not "you are being told" — and the dose has to be long enough that resuming is a decision rather than a reflex.</strong></p>
+
+<h3>7.3 Self-control tools work for about three weeks</h3>
+
+<p>Systematic review and meta-analysis of digital self-control tools: a significant reduction in unwanted use across seven field experiments (≈0.5 SD), and <strong>no long-term effect</strong> — because such tools perform self-monitoring without building new habits [29]. Most of the studies ran about 21 days, and most used within-subjects designs that can inflate apparent effectiveness.</p>
+
+<h3>7.4 National curfews and quotas: near the measurement floor, and contested</h3>
+
+<p>South Korea's "shutdown law" banned under-16s from online games between midnight and 6 a.m. from November 2011; it was upheld by the Constitutional Court in 2014 and abolished in August 2021. A difference-in-differences analysis on ~244,000 adolescents found internet use fell by <strong>3.65 minutes per day in 2012</strong> and 3.20 in 2013, then became non-significant in 2014 and 2015 — with <strong>no effect on internet addiction and no effect on sleeping hours</strong> [31]. An independent evaluation on the same survey family found mixed-sign, effectively null results, including a sleep increase of about <strong>1.5 minutes</strong> [32].</p>
+
+<p><strong>A six-hour nightly national ban bought roughly three and a half minutes a day, and the effect decayed to nothing within two years.</strong></p>
+
+<div class="callout warn">
+<strong>The most mis-cited study in this whole area, and we want to be precise about it.</strong> A widely shared paper analysing over seven billion hours of telemetry reports no credible evidence that Chinese playtime mandates reduced heavy gaming, with accounts becoming 1.14× more likely to play heavily afterwards [30]. Three qualifications travel with it and are usually dropped:
+<ul>
+<li>It evaluates the <strong>November 2019</strong> regulation (1.5 h/day for under-18s), <em>not</em> the famous August 2021 "three hours a week" rule that most readers assume.</li>
+<li><strong>The dataset contained no age information.</strong> A published critique argues it therefore could not, even in principle, identify the effect of a minors-targeted policy.</li>
+<li>Later work reports high compliance and reduced gaming time among Chinese adolescents after the 2021 policy, and the 2021 rules landed on top of the 2019 ones, confounding any clean comparison.</li>
+</ul>
+<strong>Honest summary: it is not established that quotas work, and it is equally not established that they fail.</strong> Our working draft put P ≈ 0.80 on "hard quotas get routed around". We have revised that to <strong>0.50</strong>.
+</div>
+
+<h2>8 · A discriminator we propose, clearly labelled as unvalidated</h2>
+
+<p>Putting the above together, here is the test we would apply to any feedback mechanism to ask whether it supports engagement or manufactures compulsion. <strong>All three conditions required.</strong></p>
+
+<ol>
+<li><strong>Output-coupled.</strong> The event is causally downstream of a real change in the world — one that stays meaningful if you delete the interface entirely.</li>
+<li><strong>Schedule-transparent.</strong> Given the action, the timing and content of the feedback are predictable. No variable ratio anywhere.</li>
+<li><strong>Terminating.</strong> A state exists in which there is genuinely nothing more to do today, and it is reached on most days.</li>
+</ol>
+
+<p class="callout"><strong>This is a synthesis, not a tested construct.</strong> It has no validation data behind it, and we are publishing it as a hypothesis to be attacked rather than as a finding. The obvious way to attack it: build two variants differing only in condition (2), and measure output quality rather than session length.</p>
+
+<h2>9 · Calibrated confidence</h2>
+
+<div class="tablewrap">
+<table>
+<tr><th>Claim</th><th>P(mechanism)</th><th>P(useful when building)</th><th>What would change it</th></tr>
+<tr><td>Dopamine encodes wanting and prediction error, not pleasure; fully predicted rewards produce no phasic response</td><td><strong>0.95</strong></td><td><strong>0.45</strong></td><td>The mechanism is not in doubt. The practice number is low because whether real-world prediction-error density is sufficient to substitute for engineered variance is entirely untested — someone shipping a non-random design that still feels alive after eight weeks would move it</td></tr>
+<tr><td>Variable-ratio schedules are associated with problematic use at clinically relevant magnitude</td><td><strong>0.85</strong></td><td><strong>0.80</strong></td><td>A longitudinal or instrumented design showing the correlation reverses direction (selection rather than causation). All current evidence is cross-sectional</td></tr>
+<tr><td><strong>Variable ratio actively destroys flow</strong> (not merely coexists with it)</td><td><strong>0.60</strong></td><td><strong>0.70</strong></td><td>A controlled experiment on a cognitive-output task comparing deterministic against variable reward, with flow and output quality as outcomes. None exists — this is a deduction from flow's definition and is priced as one</td></tr>
+<tr><td>Dynamic difficulty adjustment does not reliably improve flow</td><td><strong>0.45</strong></td><td><strong>0.75</strong> (as a build decision)</td><td>The mechanism is genuinely contested — one strong controlled null against a review reporting mostly positive results. The build decision is robust anyway. Change it if a controlled experiment on cognitive work uses flow as the primary outcome and finds a significant positive effect</td></tr>
+<tr><td>Consumer physiological signals cannot validly detect flow</td><td><strong>0.85</strong></td><td><strong>0.65</strong></td><td>A published, cross-validated model on desktop cognitive work using consumer hardware that separates flow from mild stress</td></tr>
+<tr><td>Message-based stop signals are near-useless; enforced unavailability at ≥15 min works</td><td><strong>0.85</strong></td><td><strong>0.75</strong></td><td>Both halves come from gambling populations, where base rates of compulsion are far higher than in ordinary work. A study in a non-clinical population finding materially higher compliance for messages, or finding rebound use after forced breaks</td></tr>
+<tr><td>National playtime quotas get routed around</td><td><strong>0.50</strong></td><td>—</td><td><em>Revised down from 0.80.</em> The evidence is contested in both directions; see §7.4. A well-identified study with age data would move this a long way in whichever direction it lands</td></tr>
+<tr><td><strong>Adding reward tokens to an already-intrinsically-motivated activity is net negative; informational feedback is net positive</strong></td><td><strong>0.90</strong></td><td><strong>0.85</strong></td><td>The best-evidenced claim here — 128 experiments, both signs measured in one analysis. Note the scope limit: task-noncontingent and unexpected rewards were not shown to undermine, so a non-performance-linked nudge remains on the table where the bottleneck is <em>initiation</em> rather than motivation quality</td></tr>
+</table>
+</div>
+
+<h2 class="refs">References</h2>
+<p class="note-small">Every reference was checked against a publisher record, PubMed, or an author copy, and checked against what it actually reports. Two sources in our working draft were dropped as unusable and one was affirmatively mis-described; those corrections are in the body above rather than hidden here.</p>
+<ol class="refs">
+<li>Csikszentmihalyi, M. &amp; LeFevre, J. (1989). <em>Optimal experience in work and leisure.</em> Journal of Personality and Social Psychology 56(5):815–822. doi:10.1037/0022-3514.56.5.815 — n = 78 adults, one week.</li>
+<li>Ryan, R. M., Rigby, C. S. &amp; Przybylski, A. K. (2006). <em>The motivational pull of video games: a self-determination theory approach.</em> Motivation and Emotion 30(4):344–360. doi:10.1007/s11031-006-9051-8</li>
+<li>Player Experience of Need Satisfaction (PENS) — instrument derived from [2]; cite as a measure, not as evidence.</li>
+<li>Deci, E. L., Koestner, R. &amp; Ryan, R. M. (1999). <em>A meta-analytic review of experiments examining the effects of extrinsic rewards on intrinsic motivation.</em> Psychological Bulletin 125(6):627–668. doi:10.1037/0033-2909.125.6.627</li>
+<li>Rheinberg, F., Vollmeyer, R. &amp; Engeser, S. (2003). <em>Die Erfassung des Flow-Erlebens</em> (Flow Short Scale). In Stiensmeier-Pelster &amp; Rheinberg (eds), Hogrefe, 261–279.</li>
+<li>Sailer, M. &amp; Homner, L. (2020). <em>The gamification of learning: a meta-analysis.</em> Educational Psychology Review 32(1):77–112. doi:10.1007/s10648-019-09498-w</li>
+<li>Mekler, E. D., Brühlmann, F., Tuch, A. N. &amp; Opwis, K. (2017). <em>Towards understanding the effects of individual gamification elements on intrinsic motivation and performance.</em> Computers in Human Behavior 71:525–534. doi:10.1016/j.chb.2015.08.048</li>
+<li>Hanus, M. D. &amp; Fox, J. (2015). <em>Assessing the effects of gamification in the classroom.</em> Computers &amp; Education 80:152–161. doi:10.1016/j.compedu.2014.08.019 — see also the 2018 corrigendum, Computers &amp; Education 127:298.</li>
+<li>van Roy, R. &amp; Zaman, B. (2019). <em>Unravelling the ambivalent motivational power of gamification: a basic psychological needs perspective.</em> International Journal of Human-Computer Studies 127:38–50.</li>
+<li>Pickal, A. J., Stadler, M., Sailer, M., Bai, S., Ninaus, M., Greiff, S., Becker, N. &amp; Koch, M. (2026). <em>The winner takes it all — effects of leaderboard-based feedback on cognitive performance and motivation.</em> Learning and Individual Differences 126:102836. doi:10.1016/j.lindif.2025.102836 (open access)</li>
+<li>Berridge, K. C. &amp; Robinson, T. E. (1998). <em>What is the role of dopamine in reward: hedonic impact, reward learning, or incentive salience?</em> Brain Research Reviews 28(3):309–369. doi:10.1016/S0165-0173(98)00019-8</li>
+<li>Berridge, K. C. (2007). <em>The debate over dopamine's role in reward: the case for incentive salience.</em> Psychopharmacology 191(3):391–431. doi:10.1007/s00213-006-0578-x — explicitly a debate position paper.</li>
+<li>Schultz, W., Dayan, P. &amp; Montague, P. R. (1997). <em>A neural substrate of prediction and reward.</em> Science 275(5306):1593–1599. doi:10.1126/science.275.5306.1593</li>
+<li>Schultz, W. (2016). <em>Dopamine reward prediction error coding.</em> Dialogues in Clinical Neuroscience 18(1):23–32. doi:10.31887/DCNS.2016.18.1/wschultz</li>
+<li>Garea, S. S., Drummond, A., Sauer, J. D., Hall, L. C. &amp; Williams, M. N. (2021). <em>Meta-analysis of the relationship between problem gambling, excessive gaming and loot box spending.</em> International Gambling Studies 21(3):460–479. doi:10.1080/14459795.2021.1914705</li>
+<li>Spicer, S. G., Nicklin, L. L., Uther, M., Lloyd, J., Lloyd, H. &amp; Close, J. (2022). <em>Loot boxes, problem gambling and problem video gaming: a systematic review and meta-synthesis.</em> New Media &amp; Society 24(4):1001–1022. doi:10.1177/14614448211027175 — a meta-synthesis, not a pooled meta-analysis.</li>
+<li>Close, J., Spicer, S. G., Nicklin, L. L., Uther, M., Lloyd, J. &amp; Lloyd, H. (2021). <em>Secondary analysis of loot box data: are high-spending "whales" wealthy gamers or problem gamblers?</em> Addictive Behaviors 117:106851. doi:10.1016/j.addbeh.2021.106851</li>
+<li>Zendle, D. &amp; Cairns, P. (2018). <em>Video game loot boxes are linked to problem gambling: results of a large-scale survey.</em> PLoS ONE 13(11):e0206767 — see the 2019 correction and the 2019 replication.</li>
+<li>Zendle, D., Meyer, R. &amp; Over, H. (2019). <em>Adolescents and loot boxes: links with problem gambling and motivations for purchase.</em> Royal Society Open Science 6(6):190049</li>
+<li>Robb, N. &amp; Zhang, B. (2022). <em>Performance-based dynamic difficulty adjustment and player experience in a 2D digital game: a controlled experiment.</em> Acta Ludologica 5(1):4–22 — n = 221; conducted via Mechanical Turk, with author-flagged data-reliability limits.</li>
+<li>[21a] Romero-Mendez, E. A., Santana-Mancilla, P. C., Garcia-Ruiz, M., Montesinos-López, O. A. &amp; Anido-Rifón, L. E. (2023). <em>The use of deep learning to improve player engagement in a video game through a dynamic difficulty adjustment based on skills classification.</em> Applied Sciences 13(14):8249. doi:10.3390/app13148249 — a single uncontrolled study, not a review. <br />[21b] Mortazavi, F., Moradi, H. &amp; Vahabie, A.-H. (2024). <em>Dynamic difficulty adjustment approaches in video games: a systematic literature review.</em> Multimedia Tools and Applications.</li>
+<li>Adamczyk, P. D. &amp; Bailey, B. P. (2004). <em>If not now, when? The effects of interruption at different moments within task execution.</em> CHI '04, 271–278. doi:10.1145/985692.985727 — note the authors report their own time-on-task and resumption-lag results as inconsistent with prior work.</li>
+<li>Iqbal, S. T. &amp; Bailey, B. P. (2008). <em>Effects of intelligent notification management on users and their tasks.</em> CHI '08, 93–102 — models detect breakpoints reasonably well but struggle to differentiate their type.</li>
+<li>Iqbal, S. T. &amp; Bailey, B. P. (2010). <em>Oasis: a framework for linking notification delivery to the perceptual structure of goal-directed tasks.</em> ACM TOCHI 17(4), Article 15. doi:10.1145/1879831.1879833 — coarser breakpoints correspond with successively larger reductions in interruption cost.</li>
+<li>Altmann, E. M. &amp; Trafton, J. G. (2004). <em>Task interruption: resumption lag and the role of cues.</em> Proceedings of the 26th Annual Conference of the Cognitive Science Society.</li>
+<li>Auer, M., Malischnig, D. &amp; Griffiths, M. D. (2014). <em>Is "pop-up" messaging in online slot machine gambling effective as a responsible gambling strategy?</em> Journal of Gambling Issues 29. doi:10.4309/jgi.2014.29.3</li>
+<li>Auer, M. &amp; Griffiths, M. D. (2015). Enhanced pop-up messaging study — 1.6 million sessions, two matched random samples of 800,000; 1.39% vs 0.67% session termination.</li>
+<li>[28a] Hopfgartner, N., Auer, M., Santos, T., Helic, D. &amp; Griffiths, M. D. (2021). <em>The effect of mandatory play breaks on subsequent gambling behavior among Norwegian online sports betting, slots and bingo players.</em> Journal of Gambling Studies. doi:10.1007/s10899-021-10078-3 — 21,129 players, 156,989 breaks. <br />[28b] Auer, M. et al. (2019) — 7,190 VLT players, 90-second forced termination, no significant effect.</li>
+<li>Monge Roffarello, A. &amp; De Russis, L. (2023). <em>Achieving digital wellbeing through digital self-control tools: a systematic review and meta-analysis.</em> ACM TOCHI 30(4), Article 53. doi:10.1145/3571810</li>
+<li>Zendle, D., Flick, C., Gordon-Petrovskaya, E., Ballou, N., Xiao, L. Y. &amp; Drachen, A. (2023). <em>No evidence that Chinese playtime mandates reduced heavy gaming in one segment of the video games industry.</em> Nature Human Behaviour 7(10):1753–1766. doi:10.1038/s41562-023-01669-8 — read with the three qualifications in §7.4.</li>
+<li>Choi, J., Cho, H., Lee, S., Kim, J. &amp; Park, E.-C. (2018). <em>Effect of the online game shutdown policy on internet use, internet addiction, and sleeping hours in Korean adolescents.</em> Journal of Adolescent Health 62(5):548–555. doi:10.1016/j.jadohealth.2017.11.291</li>
+<li>Lee, C., Kim, H. &amp; Hong, A. (2017). <em>Ex-post evaluation of illegalizing juvenile online game after midnight: a case of shutdown policy in South Korea.</em> Telematics and Informatics 34(8):1597–1606. doi:10.1016/j.tele.2017.07.006</li>
+<li>[33a] O'Grady, B., Lambe, R., Baldwin, M., Acheson, T. &amp; Doherty, C. (2024). <em>The validity of Apple Watch Series 9 and Ultra 2 for serial measurements of heart rate variability and resting heart rate.</em> Sensors. <br />[33b] Apple Watch Series 6 versus 3-lead ECG validation, n = 78. Sensors 25(8):2380 (2025).</li>
+<li>(2024). <em>The validity of heart rate variability (HRV) in educational research.</em> Educational Psychology Review. doi:10.1007/s10648-024-09878-x — systematic review of 48 studies.</li>
+</ol>
+
+<div class="footer">
+  Published from working notes by a human plus an agent workflow. Cognitive state: exploratory for the synthesis; the meta-analytic results it rests on are not.<br />
+  All cited literature is publicly retrievable. If any citation here is wrong, please write — corrections are made on this page and the revision history is kept.
+</div>
+
+</main>
+</body>
+</html>

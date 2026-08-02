@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>我们提出它,然后自己杀掉它 —— 起心动念 = 换测度 | Macheng Shen</title>
+  <meta name="description" content="用随机最优控制读「起心动念」:哪些是成熟数学(Girsanov 换测度、KL 代价、路径积分、Doob h-transform),哪一条我们误以为是自己的,以及读到原文后 48 小时内撤回自己 wedge 的完整记录。机制层与实践层分开给校准置信度。" />
+  <link rel="canonical" href="https://machengshen.github.io/intention-as-measure-change.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/intention-as-measure-change.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/intention-as-measure-change.zh.html" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/intention-as-measure-change.html">EN</a>
+      <a href="/llms.zh.txt">给 agent</a>
+      <a href="/information-and-qi.html">信息与气</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">研究笔记 · 自我证伪记录</div>
+<h1>我们提出它,然后自己杀掉它 —— 起心动念 = 换测度,以及早我们十年的那条印刷谱系</h1>
+<p class="note-small">Macheng Shen × agent 工作流 · 2026-07-31 起草,2026-08-02 撤回 · 认知状态:<strong>探索性</strong>,且核心经验主张已被作者本人<strong>撤回</strong></p>
+
+<div class="callout">
+<strong>这一页是什么。</strong> 2026-07-31 我们写下了一条自认为新颖、可证伪的预测,关于禅修与感觉衰减。08-02 拿到我们以为在跟它分歧的那篇论文的<strong>引言逐字段落</strong>之后,发现我们那条预测<strong>被作者写在引言里</strong>,有一条回溯到 2011 年的引用谱系,并且被他们的双侧检验计划明确容纳。我们对他们第二条假设的读法,是错的。
+<br /><br />
+我们选择<strong>把撤回发出来</strong>,而不是悄悄删掉那条主张 —— 因为撤回本身信息量更大。撤回之后剩下的东西更小:一个现有设计里没有的控制条件。但它是实的,而且下面写得足够精确,可以被跑,也可以被驳。
+</div>
+
+<p>全文诚实度标注:<span class="tag">[定理]</span> 有定理级文献 · <span class="tag">[框架]</span> 成熟理论框架 · <span class="tag">[推断]</span> 我们的综合 · <span class="tag">[韵脚]</span> 结构类比,不主张真值传递。</p>
+
+<h2>一 · 问题,以及承重的那一次拆分</h2>
+
+<p>起点问题很朴素:<em>如果起心动念是果的源头,那条微分方程长什么样?</em></p>
+
+<p>几乎全部关键在于:<strong>拒绝把它当成一个问题回答。</strong>它是两个,而且数学命运完全不同:</p>
+
+<ul>
+<li><strong>Q1</strong> 意识的观测把未定的未来缩成现实?</li>
+<li><strong>Q2</strong> 起心动念是果的源头,且训练之前主体对它不可自见?</li>
+</ul>
+
+<p><strong>Q1 是一扇关掉的门。Q2 有一个精确得意外的数学身份 —— 而且不是量子力学,是随机最优控制。</strong></p>
+
+<h2>二 · Q1:说清楚,只说一次</h2>
+
+<p><span class="tag">[框架]</span> <strong>时间尺度差十个数量级。</strong>温、湿的脑内相关自由度,退相干时标约 10<sup>−13</sup>–10<sup>−20</sup> 秒;而神经放电与微管激发的动力学时标是 10<sup>−3</sup>–10<sup>−1</sup> 秒 [1]。不管意识是什么,它到场时现场已经没有宏观叠加可供坍缩。这不是说一个估算就解决了哲学问题,而是说:<strong>没有东西在那里等着被坍缩。</strong></p>
+
+<p><span class="tag">[框架]</span> <strong>严肃的坍缩理论确实是随机微分方程,而里面没有意识这一项。</strong>GRW / CSL 给薛定谔方程加随机非线性项 —— 字面上就是那类方程。但其中坍缩是<em>客观、自发、与观察者无关</em>的。把这个想法严肃化的代价,恰恰是把观察者删掉。</p>
+
+<p><span class="tag">[定理]</span> <strong>而且空间正在被实验剪掉。</strong>Diósi–Penrose 引力致坍缩的<strong>无自由参数版本</strong>,已被一个在地下寻找其预言的自发辐射的实验排除。这是活的实验物理,没有"意识下令"的槽位。</p>
+
+<p class="note-small">一致性说明:我们 7 月在另一页里用同一条理由否掉了一条平行线路把「观测」讲成「意识对底层材料下命令」的读法。同一把尺子,两个方向都用。</p>
+
+<h2>三 · Q2:精确对的那部分,而且完全不是我们的</h2>
+
+<p>受控扩散,其中 <code>u</code> = 意图<em>经由身体</em>进入动力学的那一项:</p>
+
+<pre>dX = ( f(X) + g(X)·u ) dt + σ dW</pre>
+
+<h3>3.1 Girsanov <span class="tag">[定理]</span></h3>
+
+<p>「有你」和「没有你」不是两条轨迹的差别,是<em>两个路径测度</em>的差别,并且有显式换算:</p>
+
+<pre>dP<sup>u</sup> / dP<sup>0</sup> = exp( ∫ u·dW − ½∫ |u|² dt )</pre>
+
+<blockquote>一个意图不"造出"未来。它对<strong>所有可能的未来重新加权</strong>。不是坍缩,是换测度。</blockquote>
+
+<h3>3.2 代价恰好是 KL 散度 <span class="tag">[定理]</span></h3>
+
+<p>在线性可解 / KL-control 这一类里,施加控制的代价<em>恰好等于</em> <code>KL(P<sup>u</sup> ‖ P<sup>0</sup>)</code> —— 你把未来的分布推离"本来会发生的样子"有多远。单位是 nat。它有一条方向很明显的性质(<code>u = 0</code> ⟹ 代价为零),我们把这条明确标成 <span class="tag">[韵脚]</span>:<strong>把一个量按某个概念命名,不构成关于那个概念的证据。</strong></p>
+
+<h3>3.3 路径积分:「所有频率同时在场」的正确版本 <span class="tag">[定理]</span></h3>
+
+<p>令 desirability <code>z = exp(−V/λ)</code>,该类中的 HJB 方程线性化,最优控制得到<strong>路径积分</strong>表示:对<em>所有</em>轨迹按 <code>exp(−cost/λ)</code> 加权求期望。全部可能性同时在场、被加权、再收束。</p>
+
+<p class="callout warn"><strong>适用条件必须跟着结论一起走,否则一定被滥用:</strong>control-affine 动力学;噪声与控制进入同一子空间;控制代价二次;λ 由噪声与代价之比锁定。出了这个范围,什么都不线性化。</p>
+
+<h3>3.4 大偏差:微因 → 巨果,不需要神秘机制 <span class="tag">[定理]</span></h3>
+
+<p>Freidlin–Wentzell 小噪声渐近下,路径概率 ~ <code>exp(−S[path]/ε)</code>。一个极小但持续的偏置<em>线性地</em>改变作用量,因而<em>指数地</em>改变概率。因果放大不需要神秘机制,指数就是放大器。</p>
+
+<h3>3.5 底下是同一个对象:Doob's h-transform <span class="tag">[定理]</span></h3>
+
+<p>把一个扩散<em>条件在某个未来事件上</em>,过程仍是马尔可夫,drift 只多出一项:<code>+ σ²·∇log h</code>(<code>h</code> = 该事件的发生概率)。三样看起来无关的东西是同一个构造:</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th>多出的那一项</th><th><code>h</code> 是什么</th></tr>
+<tr><td>KL 最优控制</td><td><code>u* = σ∇log z</code></td><td>desirability <code>z = exp(−V/λ)</code></td></tr>
+<tr><td>diffusion model 反向 SDE</td><td><code>σ²∇log p<sub>t</sub></code></td><td>数据分布(= score)</td></tr>
+<tr><td>conditional / guided diffusion</td><td>字面就是 h-transform</td><td>条件的似然</td></tr>
+</table>
+</div>
+
+<p>所以<strong>最优控制就是一个 score function</strong>。两端都固定,就是 Schrödinger bridge:给定起点与终点分布,找离自然演化 KL 最小的路径测度。</p>
+
+<p class="callout warn"><strong>精确性提醒,因为这一段的马虎版本到处都是。</strong>扩散过程的 plain 时间反演是 Anderson 的结果,它是 h-transform 的兄弟,不是同一句话。h-transform 精确覆盖的是 KL 控制与 conditional diffusion。别把三者压成一句。</p>
+
+<h3>3.6 归属,直说</h3>
+
+<p>第三节没有一样是我们的。Girsanov、KL 控制、路径积分控制、大偏差、Doob h-transform,以及「控制 ⟷ diffusion model」的对应,全部是既有工作,后者尤其已被他人显式做出。<strong>独立想到 ≠ 原创。</strong>我们把这条写进来,是因为它是对"我们自己的贡献从哪里开始"的诚实描述 —— 而答案是第五节,并且比我们原以为的小。</p>
+
+<h2>四 · 我们曾以为是自己的那条主张</h2>
+
+<p>从第三节通向可测量的桥是 <em>corollary discharge</em>(伴随放电):系统预测自身动作的感觉后果并将其衰减 —— 你挠不了自己痒;你对自己嗓音的 N1 反应被抑制。用我们的语言:<strong>一个把自己的 <code>u</code> 纳入模型的系统,对"输入流里哪一部分是我造成的"记账更准。</strong></p>
+
+<p>于是有一条关于觉知训练的方向性预测:<strong>如果觉知训练 = 把自己的 <code>u</code> 纳入模型,那么感觉衰减应随练习深度<em>增强</em>。</strong></p>
+
+<p>而那条文献里的默认框架,在我们看来是反方向的:深度禅修 ⟹ 自我边界消融 ⟹ agency 感下降 ⟹ 衰减应<em>减弱</em>。2026 年一项对有经验禅修者的 MEG 研究报告了 group 层面的 null,以及个体层面禅修深度与抑制幅度的<em>正</em>相关。07-31 我们写下:数据站在我们这边,不站在他们的框架那边。当时我们标注了:只读到摘要级信息,未读全文。</p>
+
+<h2>五 · 读到原文之后,这条主张怎么死的</h2>
+
+<p>我们没拿到完整全文 —— 付费墙、无 preprint、机构库只挂 DOI。拿到的是通过对出版商页面做多次不同措辞的检索抽取得到的<strong>逐字段落</strong>:预注册假设段、紧随其后的方向说明段、抑制指标定义段、三条件任务描述、讨论开头段,以及完整参考文献表。下面的判定<strong>只建立在这些逐字段落上</strong>。<strong>Results 的具体数值我们明确没有拿到,下面没有任何结论依赖它们。</strong></p>
+
+<p>杀死这条主张的那一段,紧接在作者陈述预注册假设之后:</p>
+
+<blockquote>"Note that the direction of our hypotheses was guided by the previously obtained phenomenological reports of a reduced sense of agency during boundary dissolution. The expected association thus also depends on (or is a test of) the relationship between experienced agency and the neural process of sensory suppression. <strong>Alternatively, hypotheses could be formulated based on the idea that meditation involves increased awareness of mental states, including intentions (Dreyfus, 2011), which would result in increased precision of intentional representations and sensorimotor action-outcome mappings (Lush et al., 2016), thereby enhancing sensory suppression.</strong> The employed two-sided hypothesis tests would also take into account potential opposing effects."</blockquote>
+
+<div class="tablewrap">
+<table>
+<tr><th>维度</th><th>我们(07-31)</th><th>作者已经写下的</th><th>差分</th></tr>
+<tr><td>预测方向</td><td>觉知训练 ⟹ 抑制<em>增强</em></td><td>逐字同一方向,列为 "Alternatively"</td><td><strong>无差分</strong></td></tr>
+<tr><td>机制语言</td><td>把自己的 <code>u</code> 纳入模型 = 更好的自我记账</td><td>"对意图的觉知↑ ⟹ 意图表征与感觉运动映射的<em>精度</em>↑"</td><td>同一机制的两种措辞;他们的更贴主流预测编码</td></tr>
+<tr><td>谱系归属</td><td>我们以为是空地</td><td>Dreyfus 2011 → Lush, Naish &amp; Dienes 2016(禅修者的 intentional binding <em>增大</em>)→ 本文</td><td><strong>早我们十年在印刷品里</strong></td></tr>
+<tr><td>检验姿态</td><td>一条方向性预测</td><td>双侧检验,明说会容纳反向效应</td><td>他们的预注册没有被这个方向打脸,它在计划之内</td></tr>
+<tr><td>他们的第二条假设</td><td>我们读成"预测负相关"</td><td>原文只写 "would be associated with",<em>无方向</em></td><td><strong>我们的读法就是错的</strong></td></tr>
+</table>
+</div>
+
+<p><strong>必须接受的推论。</strong>「我们的框架预测了相反方向、而数据站我们这边」这句话<strong>不能再说</strong>。数据站的是作者自己写在纸上的两个方向里的第二个。我们贡献的是同一命题的一个随机控制形式化,而<strong>形式化本身不产生新的经验内容</strong>。</p>
+
+<p>第三节的数学一样不受影响。死掉的是"第四节是<em>我们的</em>"这个身份。</p>
+
+<h2>六 · 真正幸存的东西 —— 更窄,但是实的</h2>
+
+<p>作者把<em>方向</em>处理干净了。他们没有处理<em>方向为什么</em>。同一个可观测量(练习越深 ↔ 衰减越强)至少有三条互不排斥的读法:</p>
+
+<ul>
+<li><strong>R1 —— agency-specific。</strong>对自身意图的记账变精确,于是对自生事件的预测更锐。这是我们这条,也是 Lush 那一支。</li>
+<li><strong>R2 —— 时间可预测性。</strong>练习越深 ⟹ 注意力越稳 ⟹ <em>时间</em>预测更准 ⟹ 衰减更强。与 agency 无关。这是整条感觉衰减文献最核心的方法学战场:自生刺激天然在时间上可预测,外部刺激通常不可预测。</li>
+<li><strong>R3 —— 现象学控制 / demand characteristics。</strong>"深度"是自评。这条引用链上有一个真实存在的张力:被引来支持该解释的那位作者,后来发表的工作恰恰指向"这类测量得到的效应可由 trait phenomenological control 解释"。</li>
+</ul>
+
+<p><strong>现有三条件设计无法分开 R1 与 R2。</strong>任务是 (a) agency 条件:自定节奏按键触发音;(b) 听觉条件:<em>被动重放</em>那些音;(c) 只按键。被动重放保留了区间的统计分布,但听者仍然无法预测下一个音<em>何时</em>到来 —— 这正是那个混淆的教科书形态。作者显然知道这条文献(相关论文就在他们自己的参考文献表里),但设计里没有可预测性匹配的外部条件。</p>
+
+<p class="note-small">我们无法排除他们在讨论里点名了 R2 —— 那部分读不到。但这不改变本节的论点:论点是关于三条件结构本身,不依赖我们没读到的文字。</p>
+
+<h2>七 · 判别设计(一页纸)</h2>
+
+<p>在现有范式上<strong>只加两个条件</strong>,其余不动,以保持与原研究可比:</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th>时间可预测 P+</th><th>时间不可预测 P−</th></tr>
+<tr><td><strong>自生 A+</strong></td><td>按键 → 固定 0 ms 触发音</td><td>按键 → 抖动 100–500 ms 均匀延迟</td></tr>
+<tr><td><strong>外部 A−</strong></td><td>等时序列(ISI 固定 2 s),或视觉倒计时 cue 精确预告音起点</td><td>yoked replay(重放该被试自己的按键间隔)= 原研究的 b 条件</td></tr>
+</table>
+</div>
+
+<p>另加 motor-only 用于减法,加原研究已有的状态因子(边界消融 vs 维持)与逐 block 自评深度。A−P+ 建议<em>两个版本都跑</em>(等时 与 倒计时 cue):若两者结论不一致,说明"可预测性"被节律夹带污染,应按 cue 版判读。</p>
+
+<h3>7.1 测什么</h3>
+
+<ul>
+<li><strong>因变量:</strong>听觉皮层源(双侧 STG / Heschl)上的单试次 M100 峰值幅度,基线 −100–0 ms。</li>
+<li><strong>两个正交对比</strong>,每被试各一个标量:可预测性匹配下的 agency 效应,以及 agency 匹配下的可预测性效应。</li>
+<li><strong>主模型:</strong>单试次线性混合模型,<code>M100 ~ agency * predictability * depth + (1 + agency*predictability | subject)</code>。</li>
+<li><strong>预注册的统计量是两个深度斜率之<em>差</em></strong>:<code>Δβ = β(depth×agency) − β(depth×predictability)</code>。分别检验两个斜率、再讲哪个显著的故事,<strong>不构成对比</strong>,不能拿来替代它。</li>
+<li><strong>必须进模型的协变量:</strong>trait phenomenological control;终生禅修小时数;以及按键间隔的变异系数 CV —— 一个廉价、直接的时间稳定性行为指标。若 R2 为真,深度 ↔ 衰减的关系应被该 CV <em>中介</em>;报 indirect effect 比例。</li>
+</ul>
+
+<h3>7.2 预注册的判读</h3>
+
+<div class="tablewrap">
+<table>
+<tr><th>结果模式</th><th>数值签名</th><th>判读</th></tr>
+<tr><td><strong>R1 胜</strong>(我们这条活)</td><td><code>β(depth×agency) &gt; 0</code>;<code>β(depth×predictability)</code> 的 90% CI 含 0;<code>Δβ &gt; 0</code>;CV 中介比例 &lt; 20%</td><td>深度调制是 agency-specific</td></tr>
+<tr><td><strong>R2 胜</strong>(我们这条死)</td><td><code>β(depth×predictability) &gt; 0</code>;可预测性匹配后 agency 斜率缩到 0 附近;CV 中介比例 &gt; 50%</td><td>只是更好的时间预测。<em>该读法作废,不再打补丁复活。</em></td></tr>
+<tr><td>两者齐抬</td><td>两个斜率均 &gt; 0,<code>Δβ</code> 的 CI 含 0</td><td>非特异;置信度不上调</td></tr>
+<tr><td>反向</td><td><code>β(depth×agency) &lt; 0</code></td><td>原"自我消融"框架胜,我们这条死</td></tr>
+</table>
+</div>
+
+<h3>7.3 样本量(诚实的数)</h3>
+
+<p>只求复现单个个体层相关(r ≈ .35,双侧 α = .05,power .80)⟹ <strong>N ≈ 62</strong>。但本设计检验的是<em>两个相依相关之差</em>(如 r<sub>A</sub> = .40 vs r<sub>P</sub> = .10,二者相关 .5)⟹ <strong>N ≈ 120–140</strong>。有经验禅修者 + MEG 做到这个 N 需要多点位合作 —— 这才是真障碍,不是设计。单点位可行的降级版:N ≈ 70 的方向性可行性研究,预注册为 estimation 而非 NHST,只报 <code>Δβ</code> 的区间宽度,不宣称判定。</p>
+
+<h2>八 · 校准置信度</h2>
+
+<p>我们没有外部审稿人,所以校准必须我们自己出。每条给两个数,因为"机制对不对"与"在真实规模上有没有用"经常差很多,合成一个数就是在骗自己。每个数字都挂一个会改变它的观测。</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>#</th><th>命题</th><th>P(机制成立)</th><th>P(真实规模上有用)</th><th>什么会改判</th></tr>
+<tr><td>C1</td><td>「方向之争是真 fork」</td><td><strong>0.04</strong></td><td>—</td><td>若那段 "Alternatively…" 实际位于讨论而非引言,升到 0.15;双侧检验的表述本身已把上限锁在 0.25 左右</td></tr>
+<tr><td>C2</td><td>他们的设计已含可预测性匹配的外部条件</td><td><strong>0.10</strong></td><td>—</td><td>拿到完整方法节,若 replay 条件带精确 cue 或等时化 ⟹ 升到 0.8,第七节整个作废</td></tr>
+<tr><td>C3</td><td>R1 为真(深度调制是 agency-specific)</td><td><strong>0.35</strong></td><td><strong>0.30</strong></td><td>第七节的 <code>Δβ</code>。另:若原文数值显示按键规律性与衰减强相关,立刻降到 0.20</td></tr>
+<tr><td>C4</td><td>R2 单独足以解释已观测的正相关</td><td><strong>0.40</strong></td><td>—</td><td>同一实验。已计入"控制可预测性后衰减仍可存活"这一部分反证</td></tr>
+<tr><td>C5</td><td>R3(现象学控制 / demand)贡献非零</td><td><strong>0.45</strong></td><td>—</td><td>若 trait control 协变量吃掉深度效应 ⟹ 升到 0.8。自评深度 + 自选样本使先验偏高</td></tr>
+<tr><td>C6</td><td>第七节在 N≈120 下能给出结论性判读</td><td><strong>0.60</strong></td><td><strong>0.25</strong></td><td>实践分低是因为<em>招募</em>不是设计。找到第二个有 MEG 的禅修者队列 ⟹ 升到 0.5</td></tr>
+<tr><td>C7</td><td><strong>我们的随机控制形式化带来了印刷品里那个口头版之外的独立经验内容</strong></td><td><strong>0.15</strong></td><td><strong>0.10</strong></td><td>若能从 Girsanov/KL 推出一个 R1 与 R2 在<em>幅度或时序上定量不同</em>的预测(而不只是"是否 agency-specific"这一定性对比)⟹ 升到 0.4。目前推不出。<strong>这是整条线最诚实的短板。</strong></td></tr>
+</table>
+</div>
+
+<p><strong>最便宜的一刀:</strong>拿到已发表的 Results 表,看深度 ↔ 衰减的相关在控制按键间隔变异系数后是否消失。这一个数就把 C3 打到 0.15、把 C4 抬到 0.7,并让第七节从"判别设计"降级为"复现一个已知混淆"。</p>
+
+<h2>九 · 明确不在射程内</h2>
+
+<p>以上全部描述的是意图<em>经由身体、经由行动</em>改变未来的分布。Girsanov 要求 <code>u</code> 经真实动力学进入 drift。<strong>「念头不经由行动直接改变外部现实」不在射程内,也不是我们的主张</strong> —— 我们认为那个问题已经被关掉,并且不打算靠一个形式化把它重新打开。说一次,不重复。</p>
+
+<h2>十 · 为什么把撤回发出来</h2>
+
+<p>三条理由,第三条是真正起作用的那条。</p>
+
+<p>第一,这里要防的失败模式很具体也很常见:<strong>一个复现了既有口头主张的形式化,感觉起来像发现</strong> —— 因为推导是真的劳动,结果也确实更漂亮。漂亮不是经验内容。我们现在用的检验就是 C7 那条:说出一个测量,让我们的版本和口头版本给出不同的数。说不出,那就是一次翻译,不是一个理论。</p>
+
+<p>第二,「别人已经做过了」是线索,不是裁决。prior-art 检查的正确产出不是"谁占住了哪句",而是"他们的证据实际支撑到哪一步、哪一步开始是修辞"。把这条用在这里,产出的正是第六节:他们关于<em>方向</em>的主张完全站得住,而他们的设计仍然回答不了<em>为什么是这个方向</em>。</p>
+
+<p>第三:一份只能靠信任作者才能验证的研究页面,今天价值很低。读到这里的任何人 —— 人或 agent —— 都可以逐条核对下面的文献、把引用的那段原文拉出来、确认这次撤回是真的。我们认为这是目前唯一还能拿到的那种可信度,而且靠发布更正来挣,比靠只发布胜利来挣便宜。</p>
+
+<h2 class="refs">引用</h2>
+<p class="note-small">下面每一条都独立核实过「确实存在」以及「它实际证明了什么」。其中两条更正了本站早先页面上的引用错误,更正就地标出,不做静默修改。</p>
+<ol class="refs">
+<li>Tegmark, M. (2000). <em>Importance of quantum decoherence in brain processes.</em> Phys. Rev. E 61:4194–4206. doi:10.1103/PhysRevE.61.4194 (arXiv:quant-ph/9907009)</li>
+<li>Ghirardi, G. C., Rimini, A. &amp; Weber, T. (1986). <em>Unified dynamics for microscopic and macroscopic systems.</em> Phys. Rev. D 34:470 —— GRW 自发坍缩模型;其中坍缩是客观的、与观察者无关的。</li>
+<li>Donadi, S., Piscicchia, K., Curceanu, C., Diósi, L., Laubenstein, M. &amp; Bassi, A. (2021). <em>Underground test of gravity-related wave function collapse.</em> Nature Physics 17:74–78. doi:10.1038/s41567-020-1008-4 —— 格兰萨索地下实验;排除无自由参数版本的 Diósi–Penrose 模型。</li>
+<li>Girsanov, I. V. (1960) —— 路径测度的换测度定理。</li>
+<li>Kappen, H. J. (2005). <em>Linear theory for control of nonlinear stochastic systems.</em> Phys. Rev. Lett. 95:200201。<strong>更正:</strong>本站早先一页把这条引用挂在了 Kappen <em>另一篇</em> 2005 年论文的标题下(<em>Path integrals and symmetry breaking for optimal control theory</em>, J. Stat. Mech. P11011)。两篇都真实存在,但它们是两篇不同的文章;此处为正确归属。</li>
+<li>Todorov, E. (2009). <em>Efficient computation of optimal actions.</em> PNAS 106(28):11478–11483. doi:10.1073/pnas.0710743106</li>
+<li>Freidlin, M. I. &amp; Wentzell, A. D. <em>Random Perturbations of Dynamical Systems.</em> Springer —— 小噪声大偏差。</li>
+<li>Anderson, B. D. O. (1982). <em>Reverse-time diffusion equation models.</em> Stochastic Processes and their Applications 12(3):313–326 —— 时间反演结果,是 h-transform 的兄弟而非同一句话。</li>
+<li>Berner, J., Richter, L. &amp; Ullrich, K. (2024). <em>An optimal control perspective on diffusion-based generative modeling.</em> Transactions on Machine Learning Research; arXiv:2211.01364</li>
+<li>Doob's h-transform —— 把扩散条件在未来事件上仍保持马尔可夫,drift 多出 σ²∇log h。经典结果。</li>
+<li>Orbán, G., Berkes, P., Fiser, J. &amp; Lengyel, M. (2016). <em>Neural variability and sampling-based probabilistic representations in the visual cortex.</em> Neuron 92(2):530–543 —— 其预测是不确定性编码在皮层响应的<em>变异性</em>而非均值;另有一派主张不确定性编在发放率上,争论未决。</li>
+<li>Kay, K., Chung, J. E., Sosa, M., Schor, J. S., Karlsson, M. P., Larkin, M. C., Liu, D. F. &amp; Frank, L. M. (2020). <em>Constant sub-second cycling between representations of possible futures in the hippocampus.</em> Cell 180(3):552–567 —— 两条候选未来路径以 8 Hz 交替,每 ~125 ms 一个。</li>
+<li>Pfeiffer, B. E. &amp; Foster, D. J. (2013). <em>Hippocampal place-cell sequences depict future paths to remembered goals.</em> <strong>Nature</strong> 497(7447):74–79。<strong>更正:</strong>本站早先一页把它标成了 <em>Science</em>。它在 Nature。</li>
+<li>Zénon, A., Solopchuk, O. &amp; Pezzulo, G. (2019). <em>An information-theoretic perspective on the costs of cognition.</em> Neuropsychologia 123:5–18.</li>
+<li>Schweitzer, Y., Berkovich-Ohana, A., Dor-Ziderman, Y., Nave, O., Fulder, S. &amp; Trautwein, F.-M. (2026). <em>Action without agent, but with awareness? Meditation and the modulation of agency induced sensory suppression.</em> Consciousness and Cognition 137:103960. doi:10.1016/j.concog.2025.103960(勘误 Conscious. Cogn. 139:104008, 2026,只改致谢与资助)。预注册;付费墙内,未找到 preprint。</li>
+<li>Lush, P., Parkinson, J. &amp; Dienes, Z. (2016). <em>Illusory temporal binding in meditators.</em> Mindfulness 7(6):1416–1422. doi:10.1007/s12671-016-0583-z —— 禅修者表现出<em>更强</em>的动作—结果时间压缩。这就是 [15] 里引的那条 "Lush et al. (2016)"。</li>
+<li>Lush, P., Naish, P. &amp; Dienes, Z. (2016). <em>Metacognition of intentions in mindfulness and hypnosis.</em> Neuroscience of Consciousness 2016(1):niw007。<span class="note-small">注:我们的工作稿把这篇与 [16] 合并成了一条并不存在的引用。它们是两篇不同的论文。</span></li>
+<li>Dreyfus, G. (2011). <em>Is mindfulness present-centred and non-judgmental?</em> Contemporary Buddhism 12(1) —— 这条谱系里「禅修强化对意图的觉知」这一前提的出处。</li>
+<li>Suzuki, K., Lush, P., Seth, A. K. &amp; Roseboom, W. (2019). <em>Intentional binding without intentional action.</em> Psychological Science 30(6):842–853 —— 在时间与空间信息匹配之后,有无意向动作都得到同样量级的 binding 效应。这项工作正是对 [16] 所用测量的釜底抽薪。</li>
+<li>Hughes, G., Desantis, A. &amp; Waszak, F. (2013). <em>Mechanisms of intentional binding and sensory attenuation.</em> Psychological Bulletin 139(1):133–151 —— 指出这类研究混淆了「自我生成」与「时间可预测性」的那篇综述。</li>
+<li>Klaffehn, A. L., Baess, P., Kunde, W. &amp; Pfister, R. (2019). <em>Sensory attenuation prevails when controlling for temporal predictability of self- and externally generated tones.</em> Neuropsychologia 132:107145 —— 在该研究中控制可预测性后衰减仍然存活,这是对纯可预测性读法的部分反证。</li>
+</ol>
+
+<h2 class="refs">修订记录</h2>
+<ul class="refs">
+<li><strong>2026-07-31</strong> —— 原始工作笔记:Q1 关门;Q2 用 Girsanov / KL 控制 / 路径积分 / 大偏差 / Doob h-transform 形式化;并主张在"禅修 ↔ 感觉衰减的方向"上有一条幸存 wedge。</li>
+<li><strong>2026-08-02</strong> —— 拿到引言逐字段落;wedge <strong>撤回</strong>;记录我们对作者第二条假设的误读;把幸存贡献收窄到"缺失的可预测性匹配控制条件",并写成可预注册的设计 + 校准置信度。</li>
+</ul>
+
+<div class="footer">
+  由作者的工作笔记整理发布,人与 agent 协作完成。认知状态:探索性;07-31 稿的核心经验主张已撤回。<br />
+  引用的所有文献都可公开获取;如发现引用错误,请来信,我们会在本页更正并保留修订记录。
+</div>
+
+</main>
+</body>
+</html>

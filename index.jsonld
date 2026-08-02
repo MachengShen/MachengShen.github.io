@@ -937,6 +937,86 @@
       },
       "url": "https://github.com/MachengShen/starshard-public",
       "cognitiveState": "survived"
+    },
+    {
+      "id": "intention-as-measure-change",
+      "label": {
+        "en": "We proposed it, then we killed it — intention as a change of measure",
+        "zh": "我们提出它,然后自己杀掉它 —— 起心动念 = 换测度"
+      },
+      "description": {
+        "en": "Intention formalised as a change of path measure (Girsanov) rather than a collapse, with the KL-control cost, the path-integral form, large deviations, and Doob's h-transform as the single object underlying KL-optimal control, the diffusion-model reverse SDE and conditional diffusion — all attributed explicitly to others. Closes the quantum-collapse question once, on decoherence timescales and the underground exclusion of the parameter-free Diosi-Penrose model. The payload is a retraction: a directional prediction about meditation and sensory attenuation, claimed on 31 July 2026 as a surviving wedge, was found on 2 August written verbatim in the introduction of the paper it was meant to contradict, with a lineage back to 2011 and a two-sided statistical plan built to accommodate it; the authors' reading of that paper's second hypothesis was wrong. What survives is a missing predictability-matched control condition, written up as a preregisterable 2x2 with a discriminating statistic, covariates, four preregistered read-outs (two of which kill the authors' own reading) and N approximately 120-140. Confidence that the formalisation carries independent empirical content beyond the verbal version already in print: 0.15.",
+        "zh": "把意图形式化为路径测度的改变(Girsanov)而非坍缩,连同 KL 控制代价、路径积分表示、大偏差,以及 Doob's h-transform 作为 KL 最优控制 / diffusion 反向 SDE / conditional diffusion 底下的同一个对象 —— 并明确归属他人。量子坍缩只关一次,依据退相干时标与地下实验对无自由参数 Diosi-Penrose 模型的排除。载荷是一次撤回:07-31 提出的关于禅修与感觉衰减方向的预测,08-02 在它本该反对的论文引言里被逐字找到,谱系回溯到 2011 年,且对方的双侧检验本就为容纳它而设计;作者对该文第二条假设的读法是错的。幸存的是一个缺失的可预测性匹配控制条件,写成可预注册的 2x2,含判别统计量、协变量、四条预注册判读(其中两条会杀死作者自己的读法)与 N 约 120-140。'形式化带来独立经验内容'的置信度:0.15。"
+      },
+      "url": "https://machengshen.github.io/intention-as-measure-change.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.15
+    },
+    {
+      "id": "cancer-is-not-cells-waking-up",
+      "label": {
+        "en": "We thought cancer was cells waking up. The evidence says the opposite.",
+        "zh": "我们以为癌是细胞觉醒。证据说正好相反。"
+      },
+      "description": {
+        "en": "A negative result published deliberately. The hypothesis that a body over-domesticates its cells until they revolt is about 60% a re-invention of Levin's cognitive-light-cone contraction and about 40% wrong with the sign reversed: immunosuppression, germline TP53 loss, gap-junction uncoupling and chronic inflammation all run control-down-therefore-cancer-up, and the most completely domesticated cells in the body are essentially the ones that do not get cancer. There is no self inside a tumour, only clonal war; the roughly eight transmissible cancer lineages that escaped their hosts are the exception that fixes the rule. Includes an unsoftened maturity assessment of re-align-rather-than-kill: one clean win in sixty years whose own leading authority attributes the cure to degrading a ligandable fusion protein, a phase-3-negative second place, bioelectric normalisation with the sign reversed in mammals, and re-coupling being actively harmful in glioma. What survived is one distinction with its own kill condition: coercion imposes selection and breeds escape, alignment does not.",
+        "zh": "刻意公开的负面结果。'身体驯化过头导致细胞造反'这一假说约六成是在重新发明 Levin 的认知光锥收缩,约四成符号是反的:免疫抑制、TP53 胚系缺失、缝隙连接解偶联与慢性炎症全都指向控制下降导致癌症上升,而体内被驯化得最彻底的细胞基本就是不得癌的那些。肿瘤内部没有自我,只有克隆战争;逃出宿主的约八条可传播癌谱系恰好把规则钉死。含不打折的 re-align 成熟度评估:六十年一个干净胜利而其权威把治愈归因于降解可成药融合蛋白、三期阴性的第二名、在哺乳动物里符号反转的生物电正常化、以及在胶质瘤里帮倒忙的重新耦合。幸存的只有一条带自杀判据的区分:强制施加选择压因而催生逃逸,对齐不施加。"
+      },
+      "url": "https://machengshen.github.io/cancer-is-not-cells-waking-up.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "retired",
+      "confidence": 0.07
+    },
+    {
+      "id": "photographs-and-the-memory-generator",
+      "label": {
+        "en": "A photograph is an external fixed point",
+        "zh": "照片是一个被注入的外部不动点"
+      },
+      "description": {
+        "en": "If recall is generation rather than playback, a photograph is a low-dimensional projection that, unlike the memory it cues, does not change when accessed. Three mechanisms are separated and scored: post-retrieval modifiability (solid in rodents, contested in humans, with ten failed replication attempts of the flagship human demonstration and two failed registered replications of retrieval-extinction), reinterpretation by a changed generator, and the authors' own latch claim at P approximately 0.20 with a stated transfer experiment that would kill it. Corrects its own draft in the body: photographs are not a stronger false-memory vector than text, and the disciplined implantation rate is 30.4% rather than the headline 50%.",
+        "zh": "若回忆是生成而非回放,照片就是一个低维投影,且与它唤起的记忆不同,它在被访问时不改变自己。三条机制分开打分:取回后可修改性(啮齿类很硬、人类有争议,旗舰实验十次复现失败、retrieval-extinction 两次注册复现失败)、被改变了的生成器重读、以及作者自己的 latch 主张(P 约 0.20,并写明什么迁移实验会杀死它)。正文更正自己初稿:照片并不比文字更容易植入假记忆,且应使用 30.4% 的元分析植入率而非流传的 50%。"
+      },
+      "url": "https://machengshen.github.io/photographs-and-the-memory-generator.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.2
+    },
+    {
+      "id": "what-a-family-transmits",
+      "label": {
+        "en": "What a family actually transmits",
+        "zh": "一个家族到底传下来了什么"
+      },
+      "description": {
+        "en": "Shared family environment explains close to zero of the variance in adult personality, while latent social status persists at about 0.79 per generation across 422,374 people and four centuries. The reconciliation is mostly non-genetic: measurement error attenuates single-generation correlations without accumulating along a lineage, and assortative mating amplifies cultural and genetic transmission symmetrically so it cannot arbitrate between them. The contested step is scored separately from the finding, at 0.70 and 0.20 respectively, with both sides of the live 2025 exchange linked. Argues the Chinese lineage record is the under-used arbitrator, while devoting a full section to why those genealogies are constructed social documents rather than pedigrees.",
+        "zh": "共享家庭环境对成年人格变异的解释力接近零,而潜在社会地位在 422,374 人、四个世纪里每代只衰减到 0.79。调和的主体不需要基因:测量误差把单代相关衰减掉却不沿世系累积,择偶同质性对文化与遗传传递对称放大因而不能仲裁二者。有争议的那一步与发现本身分开打分,分别为 0.70 与 0.20,并把 2025 年那场仍活着的交锋双方都挂上。主张中国世系记录是被低估的仲裁者,同时用整整一节说明这些家谱是被建构的社会文书而非血统档案。"
+      },
+      "url": "https://machengshen.github.io/what-a-family-transmits.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.3
+    },
+    {
+      "id": "flow-dopamine-and-stop-signals",
+      "label": {
+        "en": "Flow, dopamine, and stop signals",
+        "zh": "心流、多巴胺与停止信号"
+      },
+      "description": {
+        "en": "An evidence review sorting behaviour-design claims into well-replicated-but-misapplied and plausible-but-untested. Dopamine mediates wanting and codes prediction error, so a fully transparent schedule produces no phasic response. Loot-box revenue correlates with problem gambling at rho 0.34 and with income at rho 0.02, not significant. Adaptive difficulty is the most expensive flow condition with the weakest evidence, and the note corrects its own draft here. Consumer HRV cannot separate flow from mild stress. The most actionable number is a sign flip inside one meta-analysis: tangible rewards undermine intrinsic motivation while positive informational feedback enhances it. On stop signals, messages move under 1% of players while enforced 15-minute unavailability works, a six-hour national curfew bought about 3.65 minutes a day and decayed to nothing, and the most-cited study claiming playtime quotas failed had no age data.",
+        "zh": "一份证据审查,把行为设计主张分成'复现良好但用反了'与'看似合理但没检验'。多巴胺介导想要、编码预测误差,因此完全透明的奖励表不产生相位反应。开箱消费与问题赌博相关 0.34、与收入相关 0.02 且不显著。动态难度是最贵、证据最弱的心流条件,笔记在此更正了自己的初稿。消费级 HRV 无法把心流与轻度压力分开。最可操作的数字是同一元分析里的符号翻转:实物奖励削弱内在动机,正向信息性反馈提升它。停止信号方面,消息只让不到 1% 的人停下,而强制 15 分钟不可用有效;六小时全国宵禁只买到每天约 3.65 分钟并很快归零;最常被引来证明时长配额失败的研究没有年龄数据。"
+      },
+      "url": "https://machengshen.github.io/flow-dopamine-and-stop-signals.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.35
     }
   ]
 }

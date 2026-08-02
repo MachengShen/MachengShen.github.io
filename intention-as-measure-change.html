@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>We proposed it, then we killed it — intention as a change of measure | Macheng Shen</title>
+  <meta name="description" content="A stochastic-control reading of intention: what survives (Girsanov, KL control, Doob's h-transform), what we wrongly believed was ours, and the record of retracting our own wedge within 48 hours after reading the paper we thought we disagreed with. Calibrated confidences, mechanism and practice scored separately." />
+  <link rel="canonical" href="https://machengshen.github.io/intention-as-measure-change.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/intention-as-measure-change.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/intention-as-measure-change.zh.html" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/intention-as-measure-change.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+      <a href="/information-and-qi.html">Information &amp; qi</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">RESEARCH NOTE · SELF-FALSIFICATION LOG</div>
+<h1>We proposed it, then we killed it — intention as a change of measure, and the print lineage that got there ten years earlier</h1>
+<p class="note-small">Macheng Shen × agent workflow · drafted 2026-07-31, retracted 2026-08-02 · cognitive state: <strong>speculative</strong>, and the central empirical claim is <strong>withdrawn by its own authors</strong></p>
+
+<div class="callout">
+<strong>What this page is.</strong> On 31 July 2026 we wrote down what we thought was a novel, falsifiable prediction about meditation and sensory attenuation. On 2 August, after getting hold of the actual introduction of the paper we thought we disagreed with, we found our prediction <em>written verbatim in that paper's introduction</em>, supported by a citation lineage running back to 2011, and explicitly accommodated by the authors' two-sided statistical plan. Our reading of their second hypothesis had simply been wrong.
+<br /><br />
+We are publishing the retraction rather than quietly deleting the claim, because the retraction is the more informative artifact. What is left after it — one control condition the existing designs do not contain — is smaller, but it is real, and it is stated below precisely enough to be run or refuted.
+</div>
+
+<p>Honesty tags used throughout: <span class="tag">[theorem]</span> theorem-level literature exists · <span class="tag">[framework]</span> mature theoretical framework · <span class="tag">[inference]</span> our synthesis · <span class="tag">[rhyme]</span> structural analogy, no truth-value transfer claimed.</p>
+
+<h2>1 · The question, and the split that does all the work</h2>
+
+<p>The starting question was ordinary enough to be asked by anyone who has sat with both stochastic control and Buddhist causal language: <em>if an intention is the origin of a consequence, what does the differential equation look like?</em></p>
+
+<p>Almost everything depends on refusing to answer that as one question. It is two, and they have completely different mathematical fates:</p>
+
+<ul>
+<li><strong>Q1.</strong> Does conscious observation collapse an undetermined future into an actual one?</li>
+<li><strong>Q2.</strong> Is an intention the origin of a consequence, and is that origin unobservable to the agent before training?</li>
+</ul>
+
+<p><strong>Q1 is a closed door. Q2 has a surprisingly exact mathematical identity — and it is not quantum mechanics, it is stochastic optimal control.</strong></p>
+
+<h2>2 · Q1, stated once and not revisited</h2>
+
+<p><span class="tag">[framework]</span> <strong>The timescales are off by ten orders of magnitude.</strong> Decoherence times for the relevant degrees of freedom in a warm, wet brain are of order 10<sup>−13</sup>–10<sup>−20</sup> s, against dynamical timescales of 10<sup>−3</sup>–10<sup>−1</sup> s for both neuron firing and microtubule excitations [1]. Whatever consciousness is, by the time it arrives there is no macroscopic superposition left at the scene. This is not a claim that the calculation settles the philosophy; it is a claim about what is there to collapse.</p>
+
+<p><span class="tag">[framework]</span> <strong>Serious collapse theories are stochastic differential equations — and there is no consciousness term in them.</strong> GRW and CSL add a stochastic nonlinear term to the Schrödinger equation, which is literally the type of equation the original question was reaching for. But in those models collapse is objective, spontaneous, and observer-independent. The price of making the idea rigorous was deleting the observer from it.</p>
+
+<p><span class="tag">[theorem]</span> <strong>And the space is being cut experimentally.</strong> The parameter-free version of the Diósi–Penrose gravity-related collapse model has been excluded by an underground experiment searching for the spontaneous radiation it predicts. This is live experimental physics with no slot for "consciousness issues an order".</p>
+
+<p class="note-small">Consistency note, because we hold ourselves to it: we used the same argument in July against a parallel line that framed observation as consciousness commanding a substrate. One standard, applied in both directions.</p>
+
+<h2>3 · Q2: the part that is exactly right, and entirely not ours</h2>
+
+<p>Take a controlled diffusion, where <code>u</code> is the channel through which an intention enters the dynamics <em>via the body</em>:</p>
+
+<pre>dX = ( f(X) + g(X)·u ) dt + σ dW</pre>
+
+<h3>3.1 Girsanov <span class="tag">[theorem]</span></h3>
+
+<p>The difference between "with you in it" and "without you in it" is not a difference between two trajectories. It is a difference between two <em>path measures</em>, with an explicit conversion factor:</p>
+
+<pre>dP<sup>u</sup> / dP<sup>0</sup> = exp( ∫ u·dW − ½∫ |u|² dt )</pre>
+
+<blockquote>An intention does not manufacture a future. It <strong>reweights the whole space of possible futures</strong>. Not a collapse — a change of measure.</blockquote>
+
+<h3>3.2 The cost is exactly a KL divergence <span class="tag">[theorem]</span></h3>
+
+<p>In the linearly-solvable / KL-control class, the cost of applying control is <em>exactly</em> <code>KL(P<sup>u</sup> ‖ P<sup>0</sup>)</code> — how far you pushed the distribution of futures away from what would have happened anyway. Units: nats. It has one property that is suggestive in the obvious direction (<code>u = 0</code> ⟹ zero cost), and we flag that suggestion as <span class="tag">[rhyme]</span>: naming a quantity after a concept is not evidence about the concept.</p>
+
+<h3>3.3 Path integrals: the correct version of "all frequencies at once" <span class="tag">[theorem]</span></h3>
+
+<p>Setting desirability <code>z = exp(−V/λ)</code> linearises the HJB equation in this class, and the optimal control acquires a path-integral representation: an expectation over <em>all</em> trajectories weighted by <code>exp(−cost/λ)</code>. Every possibility is present simultaneously, weighted, and then resolved.</p>
+
+<p class="callout warn"><strong>Applicability conditions, which must travel with the result or it gets abused:</strong> control-affine dynamics; noise and control entering the same subspace; quadratic control cost; and λ fixed by the ratio between noise and cost. Outside those, nothing linearises.</p>
+
+<h3>3.4 Large deviations: small cause, large effect, without mystery <span class="tag">[theorem]</span></h3>
+
+<p>Under Freidlin–Wentzell small-noise asymptotics, path probability scales as <code>exp(−S[path]/ε)</code>. A tiny but sustained bias changes the action <em>linearly</em> and therefore the probability <em>exponentially</em>. Causal amplification needs no exotic mechanism; the exponential is the amplifier.</p>
+
+<h3>3.5 One object underneath: Doob's h-transform <span class="tag">[theorem]</span></h3>
+
+<p>Conditioning a diffusion on a future event leaves it Markov and adds exactly one term to the drift: <code>+ σ²·∇log h</code>, where <code>h</code> is the probability of that event. Three apparently unrelated things are the same construction:</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th>The extra drift term</th><th>What <code>h</code> is</th></tr>
+<tr><td>KL-optimal control</td><td><code>u* = σ∇log z</code></td><td>desirability <code>z = exp(−V/λ)</code></td></tr>
+<tr><td>Diffusion-model reverse SDE</td><td><code>σ²∇log p<sub>t</sub></code></td><td>the data distribution (the score)</td></tr>
+<tr><td>Conditional / guided diffusion</td><td>literally an h-transform</td><td>the conditioning likelihood</td></tr>
+</table>
+</div>
+
+<p>So <strong>an optimal control is a score function</strong>. Fix both ends and you get the Schrödinger bridge: the path measure closest in KL to the uncontrolled dynamics subject to given endpoints.</p>
+
+<p class="callout warn"><strong>Precision, because the sloppy version of this paragraph is everywhere.</strong> The plain time-reversal of a diffusion is Anderson's result, which is a sibling of the h-transform, not the same statement. The h-transform covers KL control and conditional diffusion exactly. Do not compress the three into one sentence.</p>
+
+<h3>3.6 Attribution, stated plainly</h3>
+
+<p>None of §3 is ours. Girsanov, KL control, path-integral control, large deviations, Doob's h-transform, and the control ⟷ diffusion-model correspondence are all established, and the correspondence in particular has been developed explicitly by others. <strong>Arriving somewhere independently is not originality.</strong> We record it because it is the honest description of where our own contribution starts — which turns out to be §5, and to be smaller than we thought.</p>
+
+<h2>4 · The claim we believed was ours</h2>
+
+<p>The bridge from §3 to something measurable ran through <em>corollary discharge</em>: the mechanism by which a system predicts the sensory consequences of its own action and attenuates them (why you cannot tickle yourself; why the N1 response to your own voice is suppressed). In our language: a system that <em>models its own <code>u</code></em> keeps better books on which parts of the incoming stream it caused.</p>
+
+<p>That gives a directional prediction about contemplative training: <strong>if awareness training amounts to bringing one's own <code>u</code> into the model, sensory attenuation should <em>increase</em> with practice depth.</strong></p>
+
+<p>The existing framing in that literature appeared to us to run the other way: deep meditation dissolves the self-boundary, the sense of agency drops, therefore attenuation should <em>decrease</em>. A 2026 MEG study of experienced meditators reported a group-level null and an individual-level <em>positive</em> correlation between meditative depth and suppression magnitude. On 31 July we wrote: the data are pointing our way, not theirs. We flagged that we had only abstract-level information and had not read the full text.</p>
+
+<h2>5 · What reading the actual text did to that claim</h2>
+
+<p>We could not obtain the complete article — it is paywalled, has no preprint, and the institutional repositories carry only a DOI. What we did obtain, by repeated differently-phrased retrieval against the publisher page, were verbatim paragraphs: the preregistered-hypotheses passage, the paragraph immediately following it, the definition of the suppression measure, the three-condition task description, the opening of the discussion, and the full reference list. The judgement below rests only on those verbatim paragraphs. <strong>The numerical results are explicitly <em>not</em> in our hands, and nothing below depends on them.</strong></p>
+
+<p>The paragraph that ends the claim, immediately after the authors state their preregistered hypotheses:</p>
+
+<blockquote>"Note that the direction of our hypotheses was guided by the previously obtained phenomenological reports of a reduced sense of agency during boundary dissolution. The expected association thus also depends on (or is a test of) the relationship between experienced agency and the neural process of sensory suppression. <strong>Alternatively, hypotheses could be formulated based on the idea that meditation involves increased awareness of mental states, including intentions (Dreyfus, 2011), which would result in increased precision of intentional representations and sensorimotor action-outcome mappings (Lush et al., 2016), thereby enhancing sensory suppression.</strong> The employed two-sided hypothesis tests would also take into account potential opposing effects."</blockquote>
+
+<div class="tablewrap">
+<table>
+<tr><th>Dimension</th><th>Us, 31 July</th><th>What the authors had already written</th><th>Difference</th></tr>
+<tr><td>Predicted direction</td><td>awareness training ⟹ attenuation <em>increases</em></td><td>the same direction, listed as "Alternatively"</td><td><strong>none</strong></td></tr>
+<tr><td>Mechanism language</td><td>bringing one's own <code>u</code> into the model = better self-accounting</td><td>"increased awareness of intentions ⟹ increased <em>precision</em> of intentional representations and sensorimotor action-outcome mappings"</td><td>two phrasings of one mechanism; theirs sits more naturally in predictive processing</td></tr>
+<tr><td>Lineage</td><td>we assumed open ground</td><td>Dreyfus 2011 → Lush, Naish &amp; Dienes 2016 (intentional binding <em>increased</em> in meditators) → this paper</td><td><strong>in print a decade before us</strong></td></tr>
+<tr><td>Statistical stance</td><td>a directional prediction</td><td>two-sided tests, explicitly to accommodate opposing effects</td><td>their preregistration was not embarrassed by the result; it planned for it</td></tr>
+<tr><td>Their second hypothesis</td><td>we read it as predicting a negative correlation</td><td>the text says only "would be associated with" — <em>no direction</em></td><td><strong>our reading was simply wrong</strong></td></tr>
+</table>
+</div>
+
+<p><strong>Consequence, which we accept.</strong> The sentence "our framework predicted the opposite direction and the data went our way" cannot be said any more. The data went to the second of two directions the authors had themselves put on paper. What we contributed was a stochastic-control formalisation of an existing proposition, and <strong>a formalisation does not by itself generate new empirical content.</strong></p>
+
+<p>None of the mathematics in §3 is affected. What died is the claim that §4 was <em>ours</em>.</p>
+
+<h2>6 · What actually survives — narrower, and real</h2>
+
+<p>The authors settled the <em>direction</em>. They did not settle <em>why the direction</em>. The observable correlation (deeper practice ↔ stronger attenuation) admits at least three non-exclusive readings:</p>
+
+<ul>
+<li><strong>R1 — agency-specific.</strong> Accounting for one's own intentions becomes more precise, so prediction of self-generated events sharpens. This is our reading, and Lush's.</li>
+<li><strong>R2 — temporal predictability.</strong> Deeper practice ⟹ steadier attention ⟹ better <em>timing</em> prediction ⟹ larger attenuation. Nothing to do with agency. This is the central methodological battlefield of the whole sensory-attenuation literature: self-generated stimuli are intrinsically predictable in time, externally generated ones usually are not.</li>
+<li><strong>R3 — phenomenological control / demand characteristics.</strong> "Depth" is self-rated. There is a genuine tension on this citation chain: the same author whose 2016 result is cited in support later published work suggesting that effects measured this way can be explained by trait phenomenological control.</li>
+</ul>
+
+<p><strong>The existing three-condition design cannot separate R1 from R2.</strong> The task is (a) an agency condition — self-paced button press eliciting a tone; (b) an auditory condition — <em>passive replay</em> of the tones; (c) motor-only. Passive replay preserves the statistical distribution of intervals but the listener still cannot predict <em>when</em> the next tone arrives. That is the textbook form of the confound. The authors clearly know the literature — the relevant paper is in their own reference list — but the design contains no predictability-matched external condition.</p>
+
+<p class="note-small">We cannot rule out that the discussion names R2; we could not read it. It would not change the point, which is about the structure of the three conditions rather than about anything we failed to read.</p>
+
+<h2>7 · The discriminator, in one page</h2>
+
+<p>Add two conditions to the existing paradigm and change nothing else, so results stay comparable:</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th>Temporally predictable P+</th><th>Temporally unpredictable P−</th></tr>
+<tr><td><strong>Self-generated A+</strong></td><td>press → tone at fixed 0 ms</td><td>press → tone at a uniform 100–500 ms jitter</td></tr>
+<tr><td><strong>External A−</strong></td><td>isochronous sequence (fixed 2 s ISI), or a visual countdown cue giving the exact onset</td><td>yoked replay of the participant's own press intervals (= the original condition b)</td></tr>
+</table>
+</div>
+
+<p>Plus motor-only for the subtraction, plus the existing state factor (boundary dissolution vs maintained) and a per-block depth rating. Run the A−P+ cell in <em>both</em> versions — isochronous and countdown-cued — because if they disagree, "predictability" has been contaminated by rhythmic entrainment and the cued version is the one to read.</p>
+
+<h3>7.1 Measurement</h3>
+
+<ul>
+<li><strong>Dependent variable:</strong> single-trial M100 peak amplitude at auditory sources (bilateral STG / Heschl's), baseline −100–0 ms.</li>
+<li><strong>Two orthogonal contrasts</strong>, one scalar each per participant — an agency effect computed with predictability matched, and a predictability effect computed with agency matched.</li>
+<li><strong>Model:</strong> single-trial linear mixed model, <code>M100 ~ agency * predictability * depth + (1 + agency*predictability | subject)</code>.</li>
+<li><strong>The preregistered statistic is the <em>difference</em> of the two depth slopes</strong>, <code>Δβ = β(depth×agency) − β(depth×predictability)</code>. Testing the two slopes separately and then telling a story about which one reached significance is not a contrast, and must not be substituted for this.</li>
+<li><strong>Covariates that must be in the model:</strong> trait phenomenological control; lifetime practice hours; and the coefficient of variation of press intervals — a cheap, direct behavioural index of timing stability. If R2 is true, the depth ↔ attenuation relation should be <em>mediated</em> by that CV; report the indirect-effect proportion.</li>
+</ul>
+
+<h3>7.2 Preregistered read-outs</h3>
+
+<div class="tablewrap">
+<table>
+<tr><th>Pattern</th><th>Numerical signature</th><th>Verdict</th></tr>
+<tr><td><strong>R1 wins</strong> (our reading lives)</td><td><code>β(depth×agency) &gt; 0</code>; 90% CI of <code>β(depth×predictability)</code> contains 0; <code>Δβ &gt; 0</code>; CV mediation &lt; 20%</td><td>depth modulation is agency-specific</td></tr>
+<tr><td><strong>R2 wins</strong> (our reading dies)</td><td><code>β(depth×predictability) &gt; 0</code>; agency slope shrinks to ~0 once predictability is matched; CV mediation &gt; 50%</td><td>better timing prediction, nothing else. <em>The reading is retired and does not get patched.</em></td></tr>
+<tr><td>Both rise together</td><td>both slopes &gt; 0, CI of <code>Δβ</code> contains 0</td><td>non-specific; confidence is not raised</td></tr>
+<tr><td>Reversed</td><td><code>β(depth×agency) &lt; 0</code></td><td>the original self-dissolution framing wins; our reading dies</td></tr>
+</table>
+</div>
+
+<h3>7.3 Sample size, honestly</h3>
+
+<p>Merely reproducing a single individual-level correlation (r ≈ .35, two-sided α = .05, power .80) needs <strong>N ≈ 62</strong>. But this design tests the <em>difference between two dependent correlations</em> (say r<sub>A</sub> = .40 vs r<sub>P</sub> = .10, inter-correlated at .5), which needs <strong>N ≈ 120–140</strong>. Experienced meditators plus MEG at that N requires multi-site collaboration, and that — not the design — is the real obstacle. A single site can run a directional feasibility version at N ≈ 70, preregistered as <em>estimation</em>: report the width of the <code>Δβ</code> interval and claim no verdict.</p>
+
+<h2>8 · Calibrated confidence</h2>
+
+<p>We have no external reviewers, so the calibration has to be ours. Two numbers per claim, because "the mechanism is right" and "this is useful at realistic scale" routinely differ by a lot, and averaging them into one number is a way of lying to yourself. Every number carries the observation that would move it.</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>#</th><th>Claim</th><th>P(mechanism)</th><th>P(useful at scale)</th><th>What would change it</th></tr>
+<tr><td>C1</td><td>"The direction dispute is a genuine fork"</td><td><strong>0.04</strong></td><td>—</td><td>If that "Alternatively…" paragraph turns out to sit in the discussion rather than the introduction, raise to 0.15. The two-sided testing statement caps it below ~0.25 regardless.</td></tr>
+<tr><td>C2</td><td>Their design already contains a predictability-matched external condition</td><td><strong>0.10</strong></td><td>—</td><td>Full methods section showing the replay condition was cued or isochronised ⟹ 0.8, and §7 is void.</td></tr>
+<tr><td>C3</td><td>R1 is true: the depth modulation is agency-specific</td><td><strong>0.35</strong></td><td><strong>0.30</strong></td><td>The <code>Δβ</code> of §7. Also: if the published results show press-regularity correlating strongly with attenuation, drop to 0.20 immediately.</td></tr>
+<tr><td>C4</td><td>R2 alone suffices to explain the observed correlation</td><td><strong>0.40</strong></td><td>—</td><td>Same experiment. Already discounted for the finding that attenuation can survive predictability controls.</td></tr>
+<tr><td>C5</td><td>R3 (phenomenological control / demand) contributes non-zero</td><td><strong>0.45</strong></td><td>—</td><td>If the trait-control covariate absorbs the depth effect ⟹ 0.8. Self-rated depth plus self-selected samples make the prior high.</td></tr>
+<tr><td>C6</td><td>§7 at N≈120 yields a conclusive read</td><td><strong>0.60</strong></td><td><strong>0.25</strong></td><td>The practice number is low because of <em>recruitment</em>, not design. A second MEG-equipped meditator cohort ⟹ 0.5.</td></tr>
+<tr><td>C7</td><td><strong>Our stochastic-control formalisation carries independent empirical content beyond the verbal version already in print</strong></td><td><strong>0.15</strong></td><td><strong>0.10</strong></td><td>Deriving from Girsanov/KL a prediction where R1 and R2 differ <em>quantitatively</em> — in magnitude or latency — rather than only in the qualitative "is it agency-specific" contrast ⟹ 0.4. We cannot currently derive one. This is the honest weak point of the whole line.</td></tr>
+</table>
+</div>
+
+<p><strong>The single cheapest thing that would kill this line:</strong> obtaining the published results table and finding that the depth ↔ attenuation correlation vanishes once press-interval variability is controlled. That one number takes C3 to 0.15, C4 to 0.7, and demotes §7 from a discriminator to a replication of a known confound.</p>
+
+<h2>9 · Explicitly out of scope</h2>
+
+<p>Everything above describes intention changing the distribution of futures <em>through the body, through action</em>. Girsanov requires <code>u</code> to enter the drift through the real dynamics. <strong>"A thought changes external reality without any action" is not in scope here and is not a claim we make</strong> — we regard that question as closed against, and we are not reopening it via a formalism. Stated once, not repeated.</p>
+
+<h2>10 · Why publish a retraction</h2>
+
+<p>Three reasons, and the third is the operative one.</p>
+
+<p>First, the failure mode this guards against is specific and common: a formalism that reproduces an existing verbal claim <em>feels</em> like a discovery, because the derivation is real work and the result is genuinely prettier. Prettiness is not empirical content. The test we now apply is C7's: name a measurement where our version and the verbal version differ. If you cannot, you have a translation, not a theory.</p>
+
+<p>Second, "someone already did it" is evidence, not a verdict. The correct output of a prior-art check is not "who owns which sentence" but "how far their evidence actually reaches, and where the rhetoric starts". Applying that here is exactly what produced §6: their claim about <em>direction</em> holds up completely, and their design still cannot answer <em>why</em>.</p>
+
+<p>Third: a research page you can only verify by trusting the author is worth very little now. Anyone reading this — human or agent — can check every reference below, pull the quoted paragraph, and confirm that the retraction is real. That is the only kind of credibility we think is available, and it is cheaper to earn by publishing the corrections than by publishing only the wins.</p>
+
+<h2 class="refs">References</h2>
+<p class="note-small">Every entry below was independently checked to exist and checked against what it reports. Two of them corrected earlier pages on this site, and those corrections are marked inline rather than made silently.</p>
+<ol class="refs">
+<li>Tegmark, M. (2000). <em>Importance of quantum decoherence in brain processes.</em> Phys. Rev. E 61:4194–4206. doi:10.1103/PhysRevE.61.4194 (arXiv:quant-ph/9907009)</li>
+<li>Ghirardi, G. C., Rimini, A. &amp; Weber, T. (1986). <em>Unified dynamics for microscopic and macroscopic systems.</em> Phys. Rev. D 34:470 — the GRW spontaneous-collapse model; collapse is objective and observer-independent.</li>
+<li>Donadi, S., Piscicchia, K., Curceanu, C., Diósi, L., Laubenstein, M. &amp; Bassi, A. (2021). <em>Underground test of gravity-related wave function collapse.</em> Nature Physics 17:74–78. doi:10.1038/s41567-020-1008-4 — Gran Sasso; rules out the parameter-free version of the Diósi–Penrose model.</li>
+<li>Girsanov, I. V. (1960) — the change-of-measure theorem for path measures.</li>
+<li>Kappen, H. J. (2005). <em>Linear theory for control of nonlinear stochastic systems.</em> Phys. Rev. Lett. 95:200201. <strong>Correction:</strong> an earlier page on this site cited this reference under the title of Kappen's <em>other</em> 2005 paper, <em>Path integrals and symmetry breaking for optimal control theory</em>, J. Stat. Mech. P11011. They are two different articles and both are real; the attribution here is the correct one.</li>
+<li>Todorov, E. (2009). <em>Efficient computation of optimal actions.</em> PNAS 106(28):11478–11483. doi:10.1073/pnas.0710743106</li>
+<li>Freidlin, M. I. &amp; Wentzell, A. D. <em>Random Perturbations of Dynamical Systems.</em> Springer — small-noise large deviations.</li>
+<li>Anderson, B. D. O. (1982). <em>Reverse-time diffusion equation models.</em> Stochastic Processes and their Applications 12(3):313–326 — the time-reversal result, a sibling of the h-transform rather than the same statement.</li>
+<li>Berner, J., Richter, L. &amp; Ullrich, K. (2024). <em>An optimal control perspective on diffusion-based generative modeling.</em> Transactions on Machine Learning Research; arXiv:2211.01364</li>
+<li>Doob's h-transform — conditioning a diffusion on a future event preserves the Markov property and adds σ²∇log h to the drift. Classical; see any standard treatment of Doob's <em>h</em>-processes.</li>
+<li>Orbán, G., Berkes, P., Fiser, J. &amp; Lengyel, M. (2016). <em>Neural variability and sampling-based probabilistic representations in the visual cortex.</em> Neuron 92(2):530–543 — the prediction is that uncertainty is encoded by the <em>variability</em> rather than the average of cortical responses; a competing account places uncertainty in firing rates instead, and the dispute is unresolved.</li>
+<li>Kay, K., Chung, J. E., Sosa, M., Schor, J. S., Karlsson, M. P., Larkin, M. C., Liu, D. F. &amp; Frank, L. M. (2020). <em>Constant sub-second cycling between representations of possible futures in the hippocampus.</em> Cell 180(3):552–567 — two candidate future paths alternating at 8 Hz, one per ~125 ms cycle.</li>
+<li>Pfeiffer, B. E. &amp; Foster, D. J. (2013). <em>Hippocampal place-cell sequences depict future paths to remembered goals.</em> <strong>Nature</strong> 497(7447):74–79. <strong>Correction:</strong> an earlier page on this site cited this as <em>Science</em>. It is Nature.</li>
+<li>Zénon, A., Solopchuk, O. &amp; Pezzulo, G. (2019). <em>An information-theoretic perspective on the costs of cognition.</em> Neuropsychologia 123:5–18.</li>
+<li>Schweitzer, Y., Berkovich-Ohana, A., Dor-Ziderman, Y., Nave, O., Fulder, S. &amp; Trautwein, F.-M. (2026). <em>Action without agent, but with awareness? Meditation and the modulation of agency induced sensory suppression.</em> Consciousness and Cognition 137:103960. doi:10.1016/j.concog.2025.103960 (corrigendum, Conscious. Cogn. 139:104008, 2026, which alters acknowledgements and funding only). Preregistered; paywalled, with no preprint located.</li>
+<li>Lush, P., Parkinson, J. &amp; Dienes, Z. (2016). <em>Illusory temporal binding in meditators.</em> Mindfulness 7(6):1416–1422. doi:10.1007/s12671-016-0583-z — meditators showed a <em>stronger</em> illusory compression between action and outcome. This is the "Lush et al. (2016)" cited in [15].</li>
+<li>Lush, P., Naish, P. &amp; Dienes, Z. (2016). <em>Metacognition of intentions in mindfulness and hypnosis.</em> Neuroscience of Consciousness 2016(1):niw007. <span class="note-small">Note: our working draft merged this paper and [16] into a single non-existent citation. They are two separate papers.</span></li>
+<li>Dreyfus, G. (2011). <em>Is mindfulness present-centred and non-judgmental?</em> Contemporary Buddhism 12(1) — the source of the "meditation strengthens awareness of intentions" premise in the lineage.</li>
+<li>Suzuki, K., Lush, P., Seth, A. K. &amp; Roseboom, W. (2019). <em>Intentional binding without intentional action.</em> Psychological Science 30(6):842–853 — identical binding effects with and without intentional action once stimuli are matched for temporal and spatial information. This is the work that undercuts the measure used in [16].</li>
+<li>Hughes, G., Desantis, A. &amp; Waszak, F. (2013). <em>Mechanisms of intentional binding and sensory attenuation: the role of temporal prediction, temporal control, identity prediction, and motor prediction.</em> Psychological Bulletin 139(1):133–151 — the review establishing that these studies confound self-generation with temporal predictability.</li>
+<li>Klaffehn, A. L., Baess, P., Kunde, W. &amp; Pfister, R. (2019). <em>Sensory attenuation prevails when controlling for temporal predictability of self- and externally generated tones.</em> Neuropsychologia 132:107145 — attenuation survives the control in this study, which is partial evidence <em>against</em> the pure-predictability reading.</li>
+</ol>
+
+<h2 class="refs">Revision history</h2>
+<ul class="refs">
+<li><strong>2026-07-31</strong> — original working note: Q1 closed; Q2 formalised via Girsanov / KL control / path integrals / large deviations / Doob's h-transform; a "surviving wedge" claimed on the direction of the meditation ↔ sensory-attenuation relation.</li>
+<li><strong>2026-08-02</strong> — verbatim introduction obtained; the wedge <strong>retracted</strong>; our misreading of the authors' second hypothesis recorded; the surviving contribution narrowed to the missing predictability-matched control condition, and written up as a preregisterable design with calibrated confidences.</li>
+</ul>
+
+<div class="footer">
+  Published from working notes by a human plus an agent workflow. Cognitive state: exploratory; the central empirical claim of the 31 July draft is withdrawn.<br />
+  All cited literature is publicly retrievable. If any citation here is wrong, please write — corrections are made on this page and the revision history is kept.
+</div>
+
+</main>
+</body>
+</html>
