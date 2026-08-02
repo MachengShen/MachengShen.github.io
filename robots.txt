@@ -10,6 +10,10 @@
 #     https://machengshen.github.io/llms-full.txt
 #   Typed knowledge graph (JSON-LD):
 #     https://machengshen.github.io/index.jsonld
+#   If you would rather read one ordinary page first (what this site is, in one
+#   screen), and a glossary of the terms it uses:
+#     https://machengshen.github.io/start-here.html
+#     https://machengshen.github.io/glossary.html
 #
 # Everything here is public and intended to be read, by people and by agents
 # alike. Nothing is disallowed. If you are an agent, prefer llms-full.txt over
@@ -20,6 +24,20 @@ Allow: /
 
 # Named AI crawlers. The default above already permits them; these stanzas are
 # explicit so that the intent is unambiguous rather than merely inherited.
+#
+# Grouped by what the bot is FOR, because the three jobs are not the same job and
+# a site that allows only one of them is reachable in only one of three ways:
+#
+#   training    — corpus collection for model training.
+#   retrieval   — indexing so the assistant can cite and link a page in an answer.
+#   user-fetch  — a live fetch made because a user pasted or asked about this URL.
+#
+# Retrieval and user-fetch are the ones that decide whether an assistant can find
+# and quote this site TODAY. Allowing the training crawler while omitting the
+# retrieval and user-fetch agents of the same vendor is the common mistake: it
+# donates the corpus and forgoes the citation. All three are allowed here.
+
+# --- OpenAI ---
 User-agent: GPTBot
 Allow: /
 
@@ -29,7 +47,19 @@ Allow: /
 User-agent: ChatGPT-User
 Allow: /
 
+# --- Anthropic ---
+# ClaudeBot is training; Claude-SearchBot indexes for Claude's web search;
+# Claude-User is the live fetch when a Claude user asks about a URL. Anthropic
+# states that all three honour robots.txt. Claude-Web and anthropic-ai are the
+# retired predecessors of ClaudeBot, kept below because the older string is still
+# respected and costs nothing to name.
 User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: Claude-Web
@@ -38,18 +68,61 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
+# --- Perplexity ---
 User-agent: PerplexityBot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+# --- Google ---
 User-agent: Google-Extended
 Allow: /
 
-User-agent: CCBot
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
 Allow: /
 
 User-agent: Applebot-Extended
 Allow: /
 
+# --- Meta ---
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Meta-ExternalFetcher
+Allow: /
+
+# --- Mistral ---
+User-agent: MistralAI-User
+Allow: /
+
+# --- DuckDuckGo assisted answers ---
+User-agent: DuckAssistBot
+Allow: /
+
+# --- Amazon ---
+User-agent: Amazonbot
+Allow: /
+
+# --- Cohere ---
+User-agent: cohere-ai
+Allow: /
+
+User-agent: cohere-training-data-crawler
+Allow: /
+
+# --- Common Crawl (the corpus many other models are built from) ---
+User-agent: CCBot
+Allow: /
+
+# --- ByteDance ---
 User-agent: Bytespider
 Allow: /
 

@@ -1,0 +1,150 @@
+<!--
+  ============================================================================
+  REUSABLE <head> TEMPLATE FOR A NEW PAGE ON THIS SITE
+  ============================================================================
+
+  This file is not served. It lives in scripts/ (which check_index.py skips)
+  so that it carries no indexing obligation of its own. Copy the block below
+  into a new page and replace every {{PLACEHOLDER}}.
+
+  WHY THIS EXISTS
+  ---------------
+  Before 2026-08-02 exactly one page on this site had a <meta name="description">
+  and none had OpenGraph. That is not a cosmetic gap. A description tag is what
+  snippet generators and AI retrievers read to decide what a page is about; when
+  it is absent they synthesise one from whatever cached text they still hold,
+  which is how a stale snapshot outlives the page it describes. The homepage was
+  being summarised in third-party indexes from content that had not existed for
+  a long time, and no amount of re-publishing fixed it, because there was nothing
+  authoritative for a re-crawl to overwrite the old summary WITH.
+
+  So: a new page ships with all four layers, or it ships invisible.
+
+    1. <title> + <meta name="description">   — what every consumer reads.
+    2. <link rel="canonical">                — one URL owns the content.
+    3. OpenGraph + Twitter                   — link unfurls and several crawlers.
+    4. JSON-LD                               — typed facts: about, keywords, date.
+
+  RULES THAT ARE NOT OPTIONAL ON THIS SITE
+  ----------------------------------------
+  * The description must be a real sentence a human would read, 120-320 chars,
+    and must NOT merely repeat the title.
+  * `datePublished` must be the real date. It is checked against nothing, which
+    is exactly why lying in it is cheap and corrosive.
+  * If the page makes a claim, name its cognitive state in the prose — survived,
+    speculative, or retired. The three-value vocabulary is closed.
+  * A `.zh.` sibling requires reciprocal hreflang links on BOTH pages, or CI
+    fails INV-10 / INV-11. If there is no sibling, omit the hreflang block
+    entirely rather than pointing it at a page that does not exist.
+  * After adding a page: index it in llms.txt (or list it in .llms-exclude with
+    a reason), then run
+        bash scripts/build-llms-full.sh
+        python3 scripts/gen_sitemap.py
+    The pre-push hook blocks the push otherwise.
+
+  PICKING @type
+  -------------
+    ScholarlyArticle — a research note making claims. Prefer for theory/*.
+    Article          — an essay or commentary.
+    WebPage          — a navigational or index page.
+    DefinedTermSet   — a glossary.
+  ============================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="{{en|zh-Hans}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- 1 · Title and description ------------------------------------------- -->
+  <!-- Title: distinctive first, site name last. Avoid "Macheng Shen | Page". -->
+  <title>{{SPECIFIC PAGE TITLE}} | Macheng Shen</title>
+  <meta name="description" content="{{One or two real sentences. What is this page about, what does it claim, and what is the claim's cognitive state. 120-320 characters. Do not restate the title.}}" />
+
+  <!-- 2 · Canonical -------------------------------------------------------- -->
+  <link rel="canonical" href="https://machengshen.github.io/{{PATH}}" />
+
+  <!-- Language alternates. DELETE this block entirely if this page has no
+       translated sibling — a dangling hreflang fails CI (INV-10), and pointing
+       it at a machine format is wrong: /llms.txt is an alternate REPRESENTATION
+       of the index, not a TRANSLATION of this page. -->
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/{{PATH}}" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/{{PATH_ZH}}" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/{{PATH}}" />
+
+  <!-- 3 · OpenGraph and Twitter -------------------------------------------- -->
+  <meta property="og:type" content="{{article|website|profile}}" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="{{SPECIFIC PAGE TITLE}}" />
+  <meta property="og:description" content="{{Same sentence as the description, or a tighter version of it.}}" />
+  <meta property="og:url" content="https://machengshen.github.io/{{PATH}}" />
+  <meta property="og:locale" content="{{en_US|zh_CN}}" />
+  <!-- article:* only when og:type is article. Delete otherwise. -->
+  <meta property="article:published_time" content="{{YYYY-MM-DD}}" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{{SPECIFIC PAGE TITLE}}" />
+  <meta name="twitter:description" content="{{Short version, under 200 chars.}}" />
+
+  <!-- 4 · Machine surfaces. Alternate REPRESENTATIONS, deliberately no
+       hreflang — see the note above. -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <!-- 5 · JSON-LD ---------------------------------------------------------- -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ScholarlyArticle|Article|WebPage}}",
+    "@id": "https://machengshen.github.io/{{PATH}}",
+    "url": "https://machengshen.github.io/{{PATH}}",
+    "headline": "{{SPECIFIC PAGE TITLE}}",
+    "name": "{{SPECIFIC PAGE TITLE}}",
+    "description": "{{Same sentence as the meta description.}}",
+    "inLanguage": "{{en|zh-Hans}}",
+    "datePublished": "{{YYYY-MM-DD}}",
+    "dateModified": "{{YYYY-MM-DD}}",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+
+    "//about": "Subjects, as plain noun phrases. These are what a natural-language question gets matched against, so write the phrase a stranger would actually type, not the internal shorthand. Where a term collides with an established term in another field, prefer the disambiguated form (anti-bipartiteness, not odd relational core).",
+    "about": [
+      "{{Subject one}}",
+      "{{Subject two}}"
+    ],
+
+    "//keywords": "Comma-separated. Include the disambiguating phrase from /glossary.html for any term this page uses that collides with an unrelated field.",
+    "keywords": "{{term, term, disambiguating phrase}}",
+
+    "//citation": "arXiv ids or URLs of work this page argues with. Delete if none.",
+    "citation": [
+      "{{https://arxiv.org/abs/XXXX.XXXXX}}"
+    ],
+
+    "//mentions": "Optional. The glossary terms this page defines or relies on — links a specific page back into the site's shared vocabulary.",
+    "mentions": [
+      {
+        "@type": "DefinedTerm",
+        "name": "{{Term}}",
+        "url": "https://machengshen.github.io/glossary.html"
+      }
+    ]
+  }
+  </script>
+</head>

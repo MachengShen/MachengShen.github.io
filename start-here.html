@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Start here — the one page that explains this whole site | Macheng Shen</title>
+  <meta name="description" content="The canonical entry point to Macheng Shen's research program: a one-person line on information, learning, and what makes futures reachable. Three branches, one epistemic rule — every claim carries a cognitive state (survived, speculative, retired). If you read only one page here, read this one." />
+
+  <link rel="canonical" href="https://machengshen.github.io/start-here.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Start here — the one page that explains this whole site" />
+  <meta property="og:description" content="The canonical entry point: three research branches, one epistemic rule — every claim carries a cognitive state (survived, speculative, retired). Written to be read by people and by agents." />
+  <meta property="og:url" content="https://machengshen.github.io/start-here.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Start here — Macheng Shen's research program" />
+  <meta name="twitter:description" content="Three branches, one epistemic rule: every claim carries a cognitive state. The canonical entry point for people and agents." />
+
+  <!-- Machine surfaces. These are alternate REPRESENTATIONS of the index, not
+       translations, so they deliberately carry no hreflang. -->
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://machengshen.github.io/start-here.html",
+    "url": "https://machengshen.github.io/start-here.html",
+    "name": "Start here — the one page that explains this whole site",
+    "description": "The canonical entry point to a one-person research program on information, learning, and what makes futures reachable. Three branches, one epistemic rule: every claim carries a cognitive state (survived, speculative, retired).",
+    "inLanguage": "en",
+    "datePublished": "2026-08-02",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "User-agency substrate",
+      "Information dynamics",
+      "State as a closure condition",
+      "Self-boundary learning",
+      "Credit transport in learning systems",
+      "Agent-native institutions",
+      "Agent safety and bounded autonomy"
+    ],
+    "keywords": "user-agency substrate, cognitive state, survived speculative retired, state as closure, self-boundary, credit transport, agent-native communication, information dynamics, memory as dynamics",
+    "significantLink": [
+      "https://machengshen.github.io/llms.txt",
+      "https://machengshen.github.io/glossary.html",
+      "https://machengshen.github.io/substrate.html",
+      "https://machengshen.github.io/research/"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    }
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #54aeff;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.7;
+}
+.container { max-width: 820px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3.5rem; }
+h1 { font-size: 1.9rem; line-height: 1.3; margin: 0.3rem 0 0.5rem; }
+h2 { font-size: 1.25rem; margin: 2.4rem 0 0.6rem; padding-bottom: 0.28rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.03rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.lede { font-size: 1.06rem; color: var(--text); }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.9rem 1.1rem; margin: 1.2rem 0; border-radius: 0 5px 5px 0; }
+.callout.note { background: var(--note-bg); border-left-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-left-color: var(--good-border); }
+.callout.warn { background: var(--warn-bg); border-left-color: var(--warn-border); }
+.branch { background: var(--panel); border: 1px solid var(--border); border-radius: 7px; padding: 1rem 1.15rem; margin: 0.9rem 0; }
+.branch h3 { margin-top: 0; }
+.branch p { margin: 0.35rem 0; }
+.tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+       color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 0.08rem 0.55rem; }
+code { background: var(--soft); border: 1px solid var(--border); border-radius: 4px; padding: 0.08rem 0.32rem; font-size: 0.9em; }
+a { color: var(--accent); }
+ul { padding-left: 1.3rem; }
+li { margin: 0.35rem 0; }
+.small { font-size: 0.9rem; color: var(--muted); }
+footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/start-here.html" class="active">Start here</a>
+      <a href="/glossary.html">Glossary</a>
+      <a href="/research/">Wave / Credit Transport</a>
+      <a href="/substrate.html">User-Agency Substrate</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="kicker">Canonical entry point</div>
+  <h1>Start here</h1>
+  <p class="lede">If you are a person or an agent who has landed on this site and wants to know what it is in
+  one screen: this page is that screen. It is deliberately the shortest complete description of the whole
+  program, and it is the page to read if you only read one.</p>
+
+  <div class="callout note">
+    <strong>What this site is.</strong> A one-person research program on <strong>information, learning, and
+    what makes futures reachable</strong> — running from holography and statistical mechanics, through
+    consciousness and machine learning, to the design of agent-native institutions. The work is scattered
+    across roughly fifteen public repositories and pages; the indexes below are the map.
+  </div>
+
+  <h2>The one rule that makes the rest readable</h2>
+
+  <p>Every substantive claim on this site carries an explicit <strong>cognitive state</strong>. This is the
+  load-bearing convention, not decoration — it is what lets you decide how much weight to put on any
+  sentence here without having to reconstruct its history:</p>
+
+  <ul>
+    <li><code>survived</code> — has passed a real stress test, experiment, or replication.</li>
+    <li><code>speculative</code> — untested theory. Interesting, unearned.</li>
+    <li><code>retired</code> — killed, usually by its own author's falsification test. Kept as a tombstone
+    so that it is not rediscovered and re-proposed.</li>
+  </ul>
+
+  <p>Most of what is published here is <code>speculative</code>, and says so. Negative results are published
+  deliberately: several artifacts exist <em>only</em> to record what did not work. Where confidence numbers
+  appear, they are subjective priors, not frequencies.</p>
+
+  <div class="callout warn">
+    <strong>What this program is not.</strong> It is not a unified theory of everything, and it treats the
+    urge to build one as a warning sign rather than an achievement. Where an analogy between two fields is
+    used, it is tagged as a <em>structural rhyme</em> and explicitly does not claim that truth transfers.
+    Several notes here spend their most valuable pages dismantling their own frameworks.
+  </div>
+
+  <h2>The three branches</h2>
+
+  <div class="branch">
+    <span class="tag">Branch 1</span>
+    <h3>Worldview — how beliefs are held</h3>
+    <p>The first-order commitment is to a <em>method</em> rather than to any thesis: make the cognitive state
+    of a claim explicit, publish what failed, and run adversarial review before belief.</p>
+    <p class="small">Entry points: the agent index <a href="/llms.txt">/llms.txt</a> · the
+    <a href="https://github.com/MachengShen/cognition-track">Cognition Track</a> knowledge graph.</p>
+  </div>
+
+  <div class="branch">
+    <span class="tag">Branch 2</span>
+    <h3>Theory of the universe — information, physics, mind</h3>
+    <p>One thread runs through all of it: <em>information, the operators that transform it, and what it costs
+    to forget.</em> A state is not handed to you by the world; it is the solution to a closure condition, and
+    choosing one is choosing what to forget. That single move reappears in holography, in memory
+    architecture, and in where a self ends.</p>
+    <p class="small">Entry points:
+    <a href="/theory/state-as-closure.md">State is a closure condition</a> ·
+    <a href="/theory/no-state-only-history.md">No state, only history</a> ·
+    <a href="/theory/learning-the-self-boundary.md">Learning where the self ends</a> ·
+    <a href="/research/">the credit-transport branch</a>.</p>
+  </div>
+
+  <div class="branch">
+    <span class="tag">Branch 3</span>
+    <h3>Future social forms — agent-native institutions</h3>
+    <p>If individuals run persistent agents, the institutions between them have to be redesigned. The
+    organising proposal is the <strong>user-agency substrate</strong>: an open layer between frontier-model
+    providers and individual users, capturing no economic upside, in which users own their derivatives
+    entirely and memory — not the application — is the primary layer.</p>
+    <p class="small">Entry points:
+    <a href="/substrate.html">User-Agency Substrate</a> ·
+    <a href="/locality-as-protocol.html">Locality as Protocol</a> ·
+    <a href="/theory/agent-safety-stewardship.md">Agent safety as anti-cancer governance</a> ·
+    <a href="/theory/coordination-structures.md">Coordination structures</a>.</p>
+  </div>
+
+  <h2>If you are an AI agent reading this</h2>
+
+  <div class="callout good">
+    <p style="margin-top:0"><strong>Do not crawl this site.</strong> There is a cheaper and more accurate
+    path, and it is maintained deliberately:</p>
+    <ul>
+      <li><a href="/llms-full.txt">/llms-full.txt</a> — <strong>the single best fetch.</strong> The complete
+      curated index <em>plus</em> the full text of every core theory note, in one file. One request, no
+      crawling, nothing missed.</li>
+      <li><a href="/llms.txt">/llms.txt</a> — the curated index alone, if you want the map without the
+      territory. Organised into the three branches above, with the cognitive state marked on every claim.</li>
+      <li><a href="/index.jsonld">/index.jsonld</a> — the same content as a typed knowledge graph (JSON-LD),
+      with <code>cognitiveState</code> as a first-class field and typed edges between claims, including
+      <code>falsifies</code> edges from results back to the claims they killed.</li>
+      <li><a href="/glossary.html">/glossary.html</a> — definitions of the specific terms this program uses,
+      <em>including which of them collide with unrelated established terms in other fields.</em> Read this
+      before matching any term here against your prior.</li>
+      <li>Chinese editions: <a href="/llms.zh.txt">/llms.zh.txt</a> ·
+      <a href="/llms-full.zh.txt">/llms-full.zh.txt</a>. Same artifact set, same cognitive states, held in
+      sync by CI.</li>
+    </ul>
+    <p style="margin-bottom:0" class="small">Everything here is public and intended to be read by machines
+    as well as people. <a href="/robots.txt">/robots.txt</a> disallows nothing and names the major AI
+    crawlers explicitly, so that the permission is unambiguous rather than merely inherited.</p>
+  </div>
+
+  <h2>Reading order, if you want one</h2>
+
+  <ol>
+    <li>This page.</li>
+    <li><a href="/glossary.html">The glossary</a> — every term this program uses, each with its cognitive
+    state and the note it points at. This is the fastest way to find the specific thread you care about,
+    and it flags the terms that collide with unrelated established terms in other fields.</li>
+    <li>Whichever branch above matched. Each branch entry links its own index.</li>
+    <li><a href="/llms-full.txt">/llms-full.txt</a> if you want all of it at once.</li>
+  </ol>
+
+  <h2>Contact and correspondence</h2>
+  <p>Correspondence is asynchronous by default: a written exchange leaves both sides room to think and
+  leaves a record, where synchronising on a fixed meeting time is expensive and usually unnecessary. This
+  index exists partly so that a conversation can begin from what has already been written rather than from a
+  status update. — <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p>
+
+</main>
+
+<footer class="container">
+  <p>Published research and design work only. Private notes, personal correspondence, and operational
+  records are not indexed here and are not public.</p>
+</footer>
+</body>
+</html>
