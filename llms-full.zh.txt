@@ -35,6 +35,7 @@
 - [两体业力:关系里的三种惯性](https://machengshen.github.io/theory/two-body-karma.md) `speculative` · 中文 —— 把单人版的习气-惯性三模式(泥、弹簧、卡扣)扩展到两个人的关系:两个意识体一旦耦合,惯性就不再只存在各自体内,而是存在第三处——耦合本身;并且每种模式都长出单体版没有的新性质。共泥 = 双侧沉积、被场景唤起的默认脚本,在老场景外改写最省力;互弹簧 = 对方脑中那个"你的模型",是你旧模式的外部存储器,它持续按旧的你预测你——这就是单方面修行在关系里系统性失效的原因,直到用"明说 + 反复演"把它重训;互锁卡扣 = 关系状态的双稳 + 滞回(冷战/和好、追/逃),单方亚阈值努力必被弹回,只有双方同时跨阈才翻转。目标不是零耦合——那是关系的死亡,不是解脱——而是把耦合迁移到"可协商的弹簧"。先诊断模式再下药;动力学语言被标注为结构性押韵而非推导,文末给出了能拆掉这套框架的可观察证据。
 - [学习"我到哪里为止"](https://machengshen.github.io/theory/learning-the-self-boundary.zh.md) `speculative` —— 一个提案:机器人应该**学出**"我"与世界之间的边界,而不是被工程师递给它;以及一天之内四条支撑主张倒掉三条的过程 —— **每一条都是被我们自己的仿真器或自己的重分析打倒的**。活下来的:边界的滞回**确实**能从自我强化的精度回路里涌现,不需手装非线性,且通过零扫速外推(达分辨底的 24–35 倍)。死掉的:自我特异性(把一个自由幅度拧大,一个被风吹的球的边界卡得**逐位相同** ⟹ 滞回是任何带门控慢变量的通用性质);"释放比并入更慢"这条签名预测(两种实现下都被证伪,第二种里非对称**方向还反了**,原因可算——精度同样放大**反对**该通道的证据);以及"这一切从提出的目标函数里自然长出"(实际需要一个手调到约 2% 的成本/收益比,而目标函数把每条通道放在窗口外 2–420 个窗口宽)。人类侧的动机被查出压在一句无出处的"经验上确凿"上;本文重分析的两份独立公开数据都指向**适应**,即相反符号。全文**双层写作**:先是无术语的叙事,再是完整实测记录。**未 ratify,不是结论。**
 - [阶段日志 —— 自我边界这条线,按顺序](https://machengshen.github.io/theory/learning-the-self-boundary-log.zh.md) `speculative` —— 上面那篇的审计留痕:每个阶段一行(规格、prior-art 审计、证据审计、三轮数据搜寻、两次人类数据重分析、三个仿真阶段),各自说明它**推翻或确立了什么**。它主要是一份自伤记录,含三条可复用的错误:把探针的信噪比读成系统的耦合强度、并把这个误诊当前提发给下一棒;连着相信三份"逐试次数据公开"的声明,打开全是没有试次序号的聚合表;以及让一句无出处的"经验上确凿"承载了一整条架构结论。
+- [没有 state,只有 history](https://machengshen.github.io/theory/no-state-only-history.md) `speculative` —— 对 Transformer 的一份诊断:没有 *state* 只有 *history*;没有滞回只有函数;没有自我边界只有 window —— 以及一条被推进到可以挨打的 wedge。KV cache 是一份未做投影的记录,不是 state:架构拒绝选投影,于是遗忘被交给 context window——一把从外面递进来的刀,按新近度切而不是按相关性切。把 Memory Caching(arXiv:2602.24281)读成约束而非方法,它说的是:要 recall 就必须有随序列长度增长的可寻址集合——这把 Mamba、RWKV、Titans、MC 全放在同一条*一阶*轴上,而二阶那个问题无人触碰:一个 state 如何维护定义它自己的那个投影。具体主张是:test-time memory 的写入应当由「memory 遗忘什么」的变化来门控,而不是由 surprise。surprise 门控在结构上被噪声吸引——噪声按定义最不可预测,于是产生最强的写入信号;robust loss 只是对症状打补丁,它依赖「大残差多半是噪声」这个假设,而该假设在真正重要的罕见事件上恰好是错的。文中把 μ 定义为 memory 所诱导的投影(它的 top-r 行空间),信号定义为前后两个投影之间的 Grassmann 主角距离,计算量与一次 Miras 更新同为 O(d·r);并给出**构造性**的分离论证:存在两族更新,Miras(arXiv:2504.13173)的任何(attentional bias, retention gate)组合都无法区分而该信号可以——内容大变但边界零变,以及 ε 量级的内容变化却换掉一个主方向。一个计划外的推论,按窄的可证伪条件陈述而非当作统一:把这个门做成阈值型,就得到黏滞、跳变与剩磁——滞回作为副产品出现,不必用多步 Hopfield 迭代去造。含一份诚实清单,主动承认度量本身是现成的子空间变点检测、非线性 memory 没有干净的投影定义、保留秩 r 会复活超参那条反对;含一节对 provenance 的让步:ASIDE(arXiv:2503.10566)已经做出那个不可伪造的标签、arXiv:2606.27567 证明共享嵌入下完美防注入不可能,因而把主张收窄到*自我 vs 世界*那一刀;以及三个单卡实验,每个都带证伪条件,第一个只有二十行 numpy。另一条候选被降为脚注,一条——Koopman 本征基,被 ICLR 2025 的 MamKO 完全占用——被直接删除,以免被重新发现。**note 里没有任何实验跑过;没有任何一条是结论。**
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) —— 长文。也在[主页](https://machengshen.github.io/)上。
 - [一次关于意识的统一理论尝试](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
 - [从弦到意识](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
@@ -2201,6 +2202,220 @@ B/C 的 0.4x 不是"留住了一半",而是两支塌到同一点、`sign(x_end)`
 
 ---
 
+## Source: /theory/no-state-only-history.md (sha256:47d530e300bd, language: en)
+
+
+# No state, only history
+
+*A diagnosis of the Transformer, and one wedge worked far enough to be attacked · Macheng Shen · 2026-08-02*
+
+**The short version, so you can decide in thirty seconds whether to keep reading.** A Transformer has no *state*, only *history*; no *hysteresis*, only a *function*; no *self-boundary*, only a *window*. Every serious alternative on the table — Mamba, RWKV, Titans, Memory Caching — competes on a *first-order* version of the first one: how much of the past to keep addressable and how to compress it. The second-order question is untouched: **how does a state maintain the projection that defines it?**
+
+The concrete claim, and the reason this note exists rather than being a list of directions: **test-time memory should be gated on change in what the memory forgets, not on how surprised it was.** Surprise-gated memory is structurally attracted to noise — noise is by definition the least predictable thing, so it produces the largest write signal, and the thing that should be forgotten hardest gets written hardest. Robust losses patch the symptom by assuming large residuals are usually noise, which is exactly false for the rare events that matter. A gate keyed on subspace change is immune by construction rather than by assumption. **The separation between the two signals is a constructive argument you can check in twenty lines of numpy, and §7/E1 tells you how.**
+
+Everything below carries its occupants and arXiv numbers. Two of my five original candidates did not survive a prior-art audit — one is a footnote, one is deleted. Nothing here has been run. Nothing here is a result.
+
+---
+
+## 1 · The diagnosis
+
+### No state — only history
+
+"State", in the sense decision theory and statistical mechanics use the word, is not a record. It is what you get *after* choosing a projection: the quotient of history under "makes no difference to what I care about". Choosing a state is choosing what to forget, and the Mori–Zwanzig identity makes the bill explicit — whatever you project away comes back as a memory kernel plus noise. There is no free version.
+
+A KV cache is not a state. It is an unprojected record of everything, in which no such choice has been made. The Transformer *declines to choose*. Because something must nevertheless do the forgetting, the job falls to the context window: a knife applied from outside, at a length the architecture had no opinion about, cutting on recency rather than on relevance to the closure condition. The architecture does not forget; it gets truncated.
+
+### No hysteresis — only a function
+
+Attention at position *t* is a pure function of the context. Same context, same output, regardless of the route by which that context was assembled. Nothing latches.
+
+Three ways the past can hold the present, worth separating:
+
+- **Mud** — drag that only slows and fades, returning nothing. Everything is retained, but the retention does not change the dynamics.
+- **Spring** — inertia: stores and gives back, carries momentum.
+- **Latch** — bistability with a switching threshold: unmoved by small pushes, flips past a barrier, stays flipped when the push is removed. Necessarily nonlinear; linear systems cannot have hysteresis.
+
+A Transformer has mud in the KV cache, and something spring-like in the residual stream within a single forward pass. It has **no latch** — no mechanism by which where the system has been changes where the same input takes it next.
+
+### No self-boundary — only a window
+
+Tokens the model generated and tokens the world inserted occupy the same representation space with no architectural mark separating them. There is a window, and everything inside it is equally the model's own. This is not an aesthetic complaint; it is, fairly directly, the root cause of prompt injection.
+
+### Why write this down now
+
+Because the field just supplied a clean statement of the axis everyone is on. Behrouz et al., **"Memory Caching: RNNs with Growing Memory"** (arXiv:2602.24281, 27 Feb 2026) is best read as a *negative* result about that axis rather than a positive one about the method: to close the recall gap with Transformers, a recurrent model's effective memory capacity must **grow with sequence length**, and MC's contribution is an explicit interpolation between fixed and growing memory. Read as a constraint: if you want recall, you need an addressable set that grows with length, and no clever fixed-size compression escapes it.
+
+That locates Mamba, RWKV, Titans and MC on a single axis — *how much of the past to keep addressable, and how to compress it*. A first-order question about the **contents** of memory. The second-order question is about the **operator**: not "what should I remember" but "what makes something a variable I have to carry at all, and what changes that". Nothing on the current list touches it.
+
+---
+
+## 2 · The mainline: gate on boundary change, not on surprise
+
+### What is already occupied
+
+Fast-weight programmers (Schmidhuber 1992; Schlag et al. 2021), test-time training (Sun et al. 2024) and Titans (Behrouz et al., NeurIPS 2025) all update a memory at test time from a *surprise* signal — the gradient of a reconstruction loss on the key–value association. The strongest occupant is **Miras** (Behrouz et al., arXiv:2504.13173), which promotes "surprise" from a signal to a *design space*:
+
+```
+M_t = argmin_M   ℓ(M; k_t, v_t)   +   λ · R(M, M_{t-1})
+         ╰─── attentional bias ───╯     ╰─ retention gate ─╯
+```
+
+with ℓ ranging over ℓp / Huber / robust losses and R over KL, f-divergences, elastic net. Titans, Moneta, Yaad and Memora are points in it.
+
+The load-bearing observation about that space: **the strength of an update is always determined by the size of ‖ΔM‖ or of ℓ.** Miras can see *how much changed*. It cannot see *what kind of thing changed*. That is the entry point.
+
+This matters because it means the bar for a genuine alternative is high and precise: any proposed signal that is a scalar error magnitude is already a point in Miras, and proposing it is a rename. The rest of this section is an attempt to clear that bar rather than talk around it.
+
+### μ as the induced projection
+
+Take the memory M (a matrix in the linear case). Reading is `read(M, q) = Mq`, so any component of *q* lying outside the row space of M is structurally discarded. **That discarding is the forgetting.** So define the induced projection
+
+```
+Π_M  :=  projection onto the effective row space of M (the top-r right singular subspace)
+```
+
+Π_M is literally "which directions of the world this memory keeps" — the computable form of the projection μ that defines the boundary. Note the shift: μ is not the memory's *contents*; it is the forgetting policy the contents induce.
+
+### The signal
+
+```
+μΔ_t  :=  d_Gr( Π_{M_{t-1}} , Π_{M_t} )
+```
+
+where `d_Gr` is the principal-angle (Grassmann) distance between the two *r*-dimensional subspaces, `d_Gr(A,B) = ‖(θ_1,…,θ_r)‖_2`. No full SVD is needed: maintain the top-*r* basis with randomized subspace iteration, O(d·r) per step — **the same order as the Miras gradient update**, so computability is not the obstacle. Then gate on it: `M_t = M_{t-1} + η · g(μΔ_t) · ΔM_t`.
+
+### Why it is not a Miras instance — a constructive separation
+
+The claim to be established is not "μΔ is better". It is the sharper and more attackable one: **there exist update pairs that no (attentional bias, retention gate) combination in Miras can distinguish, and that μΔ separates.** Two families, pointing in opposite directions:
+
+**(A) Large content change, zero boundary change.** Choose ΔM whose column space lies entirely *inside* the existing row space of M_{t-1} — a rotation or rescaling within the already-retained subspace. Then ‖ΔM‖ can be made arbitrarily large, so every ℓp / Huber ℓ and every content-metric R reports a large update — while `Π_{M_t} = Π_{M_{t-1}}`, so **μΔ = 0**. What is kept has not changed at all; only what is stored inside it was rewritten.
+
+**(B) Tiny content change, boundary flip.** Take M_{t-1} with near-degenerate σ_r ≈ σ_{r+1} and apply a perturbation of size ‖ΔM‖ = ε that pushes direction *r*+1 past direction *r* into the top-*r* subspace. Then ‖ΔM‖ → 0, so Miras reports "negligible" — while `d_Gr → π/2`, an entire principal direction swapped out, so **μΔ is maximal**. What is kept was rewritten completely.
+
+The Miras signal is a norm of ΔM under a *content* metric (or a monotone function of one). μΔ is the action of ΔM on the *spectral subspace* of M — a quantity on the quotient Gr(r,d). (A) and (B) show their level sets are transverse: there are update pairs with identical ‖ΔM‖ and μΔ spanning its whole range, and vice versa. **Therefore μΔ is not a monotone function of ℓ or R, and does not lie in the Miras design space.** It is second-order: it measures the update's effect on the *forgetting policy*, not on the *contents*.
+
+### The strongest argument is about noise
+
+Separation only shows the signal is *different*. Here is why it should be *better*, and it is an argument from principle rather than from a benchmark.
+
+**Surprise-gated memory is structurally attracted to noise.** Noise is by definition the least predictable thing present, so it maximises ℓ and maximises the gradient: the material that most deserves to be forgotten receives the strongest write. Titans and Miras address this with robust losses that suppress large residuals — but that is a patch on the symptom, and it rests on the statistical assumption that large residuals are *usually* noise. That assumption is precisely wrong for the case anyone actually cares about: the rare event that genuinely matters, which the robust loss suppresses along with the noise.
+
+μΔ does not need the assumption. In high dimension, isotropic noise barely rotates the top-*r* subspace — the effect of a random perturbation on the principal angles decays as *d* grows. So noise gives a large content change and **μΔ ≈ 0**: no write, with no robust loss anywhere in the system. Meanwhile a rare event that actually *changes the structure of the world* swaps a principal direction, so μΔ is large even when its magnitude is small: write. **That is the trade-off one wants, derived from what the quantity measures rather than tuned into it.**
+
+**The honest tension in that argument, which I would rather state than have found.** Noise immunity holds when the spectral gap σ_r − σ_{r+1} is *large*; case (B)'s sensitivity is constructed at near-degeneracy, where the gap is *small*. The two properties therefore live in opposite spectral regimes, and a system whose spectrum sits near degeneracy is one where μΔ is noise-sensitive rather than noise-immune. The gap is doing work that no one has budgeted for, and it is close kin to the *r*-hyperparameter debt in §8. What the noise argument actually licenses is a *conditional* claim — immunity given a gap — and whether real memories maintain that gap is an empirical question E2 has to answer, not a theorem.
+
+---
+
+## 3 · An unexpected corollary: thresholding this gate produces hysteresis
+
+Suppose the gate g is a threshold — do not update when μΔ < τ, update when μΔ ≥ τ. Then:
+
+- content can change however it likes *within the retained subspace* without triggering a boundary update, so the state **sticks**;
+- only when perturbation accumulates enough to swap a principal direction does it **jump** — a threshold-crossing, lagged event;
+- after the jump, the new subspace sticks in turn — **bistability**.
+
+Stickiness, a threshold, and remanence. That is literally a latch: **the hysteresis §1 says the architecture lacks falls out of projection gating as a by-product, without building it out of multi-step Hopfield iteration.**
+
+**Guarding this claim explicitly, because the failure mode here is a known one.** This is *not* two lines merging into a unified theory, and it should not be read as one. It is a narrow structural conditional — *projection-gated updating implies bistability* — whose entire value is that it makes one road unnecessary, not that it explains anything else. It is falsifiable in the only way that counts: **if E3 produces no hysteresis loop, this dies, and it does not get patched.** A corollary that survives by acquiring epicycles is worth less than no corollary.
+
+---
+
+## 4 · The road this corollary would let us skip
+
+Worth stating what §3 is competing against, since if §3 fails this is where the hysteresis question goes back to.
+
+**Occupied.** Ramsauer et al. (2020) proved attention equals **one** update step of a modern Hopfield network — the attractor structure is already inside the architecture; what the architecture does is refuse to iterate it and refuse to carry the state across the token boundary. Both refusals buy parallelism, and both are exactly what remove the inertia. The bistable-recurrence line is genuinely occupied: De Geeter et al. (ULiège, 2026) derive parallelizable memory recurrent units **directly from a hysteresis bifurcation**, with a bistable quantized state persistent across timesteps; CMRU (arXiv:2605.11855, ICML 2026) is the repaired version. The deep-equilibrium and energy side — DEQ (Bai et al. 2019), Energy Transformer, Hyper-SET (arXiv:2502.11646), latent recurrent-depth (arXiv:2502.05171) — iterates to convergence but **within a single token**, discarding the attractor state at the token boundary.
+
+**What is actually left**, stated as a claim about roads rather than about novelty: all existing evidence that hysteretic state helps sits in 100 nW analog circuits (Schmitt triggers), keyword spotting, and long-range synthetic tasks — and the ICML 2026 follow-up concedes BMRU underperforms parallelizable RNNs on complex sequence tasks. Nobody has walked `attention ≡ Hopfield` → *iterate beyond one step* → *carry the fixed point across tokens*, and nobody has shown hysteresis is useful at language scale. Two things are missing, a path and a demonstration, and the second is the harder one.
+
+If §3 holds, this road is unnecessary. If E3 fails, it is the fallback, and it is expensive.
+
+---
+
+## 5 · Provenance in the architecture — nearly closed, and I was wrong about it
+
+Starting with the concession, because the concession is load-bearing. I had this filed as open: the architecture cannot distinguish tokens it generated from tokens the world inserted. **It is not open at the granularity I stated it.**
+
+- **ASIDE** (Zverev et al., arXiv:2503.10566, ICLR 2026) applies an orthogonal rotation to data-token embeddings, separating executable from non-executable from the first layer, with the role assigned by the harness and unwritable by the content. That is precisely "an unforgeable provenance tag that generation cannot write into" — the thing I thought was missing.
+- **ISE** (arXiv:2410.09102, NeurIPS 2024) puts four segment embeddings into attention.
+- And arXiv:2606.27567 **proves** perfect injection resistance impossible in a shared-embedding architecture.
+
+What remains is narrow, and deserves to be stated narrowly:
+
+1. **Every occupant cuts at instruction-versus-data. None cuts at self-versus-world** — "a token I emitted" versus "a token the environment handed me". Neither cut derives from the other: a tool result is data-shaped and world-origin; the model's own chain-of-thought is instruction-shaped and self-origin; a user instruction is instruction-shaped and world-origin. In a multi-turn agent loop with tool calls, self/world is the cut that tracks *which process is accountable for a token*, and instruction/data does not recover it.
+2. **Provenance as a separate attention channel or permission-partitioned KV**, rather than an additive or rotational perturbation of the content embedding.
+3. **A hard gate rather than a learned one** — the only route out from under the impossibility proof, which concerns what a shared-embedding model can *learn*.
+
+**Timing, since it is decision-relevant.** This gap is measured in months, not years, and the likeliest event that closes it is the ASIDE authors extending their own method along cut (1). Price that in before the idea, not after.
+
+---
+
+## 6 · One demoted, one deleted
+
+The highest information density per line in this note, because this is where the audit changed the answer.
+
+**Demoted to a footnote — state capacity as a decision variable.** The candidate: no architecture treats *how much* state to keep as something the model decides; adaptivity lives in read granularity, not capacity. Mostly occupied — H-Net's ratio loss already puts a content-adaptive compression rate in the objective, STAR-KV makes rank differentiable, and there is a rate–distortion survey of the area (arXiv:2607.08032). What is left is "remove the target-compression-rate hyperparameter", an ablation rather than a direction. (It returns as a real debt in §8: μΔ's *r* is exactly that hyperparameter wearing a different hat.)
+
+**Deleted — a Koopman eigenbasis of the model's own dynamics.** Fully occupied. **MamKO** (Li, Han & Yin, ICLR 2025) uses Mamba's selectivity to generate a content-adaptive Koopman operator online, with a stated motivation almost word for word the same ("a fixed linear operator is not expressive enough"), and arXiv:2606.09432 states outright that selective SSMs induce an input-conditioned Koopman operator. Deleted rather than downgraded, so it is not rediscovered.
+
+---
+
+## 7 · Three minimal experiments, each with its kill condition
+
+**E1 · Numerical check of the separation argument (half a day; the foundation).** Construct families (A) and (B) from §2 and scatter ‖ΔM‖ against μΔ. *Expected:* the axes are near-uncorrelated, with samples at fixed ‖ΔM‖ whose μΔ spans the whole range. **Kill:** if the two are strongly correlated, μΔ is ‖ΔM‖ in disguise and the wedge dies on the spot. This is twenty lines of numpy and it is the first thing to run, because it is the cheapest way for the idea to be wrong.
+
+**E2 · Noise robustness (one to two days; the most persuasive).** A long-context recall task with high-amplitude random distractors injected. Compare surprise-gated (Titans-style), Huber-robust (Miras), and μΔ-gated. *Expected:* μΔ-gating matches or beats the robust version **while using no robust loss at all**, and stays flat as distractor amplitude grows where the other two degrade. **Kill:** if μΔ needs a robust loss added back to work, it offers no structural advantage and reduces to an increment. This is also the experiment that decides the spectral-gap tension in §2 — track the gap during the run.
+
+**E3 · The hysteresis curve (binary verdict on §3).** A state-tracking task with the input swept along a path forward and then back. *Expected:* at the same input point, the forward and reverse sweeps occupy different states — a visible loop. **Kill:** no loop, and §3 dies; the hysteresis question reverts to §4, which is expensive.
+
+---
+
+## 8 · Honesty list
+
+Not a disclaimer section. These are the four places a good reviewer should attack first, and I would rather point at them.
+
+- **Grassmann gating, prior art — partially resolved, and not in my favour on the metric.** The *metric* is entirely off the shelf: subspace change-point detection and principal-angle detectors are mature signal-processing tools, so there is no originality credit in "use principal angles to detect subspace change", and a fair reviewer should ask why this is not simply subspace CUSUM applied to fast weights. The adjacent ML work points the other way rather than at this: **GPM** (arXiv:2103.09762), orthogonal gradient descent and selective gradient projection (arXiv:2603.26671) use subspaces to *protect* capacity by projecting away conflicting gradients — subspace as constraint, not as signal; **SubTrack-Grad** (arXiv:2502.01586) tracks a Grassmannian subspace for optimizer memory efficiency, not as a write gate; and Neural Subspace Reallocation (arXiv:2606.30067), checked directly, gates on embedding similarity at task arrival, not on subspace geometry. I found no one using subspace *change* as the write gate for a test-time memory. That is a composition claim, not a metric claim, and it is the weakest kind of novelty — it survives only until someone points at the paper I missed. Pointing at it is the single most useful reply this note could receive.
+- **Nonlinear memory is the real technical debt, and it is not small.** Π_M is clean when M is a matrix. Titans-style MLP memories need either the spectral subspace of a Jacobian (local, and then "the boundary" is only locally defined) or approximation through a probe distribution (and then the probe distribution is a new hyperparameter smuggled in). Neither is worked out. This is the part most likely to be where the idea actually fails.
+- **Where does *r* come from?** If *r* is a hyperparameter, it revives exactly the objection that killed the capacity candidate in §6 — the compression rate is still handed over by a human. The self-consistent repair is to let *r* adapt to the spectral gap, which is unverified, and which collides with the gap tension in §2: the same quantity is being asked to supply noise immunity and to set the retained rank.
+- **μΔ uses direction only and discards scale within the subspace.** There is plausibly a class of updates where scale matters and direction does not, and this signal is blind to all of them. Recorded as a known blind spot rather than defended.
+
+---
+
+## 9 · What would make me drop the diagnosis itself
+
+**It could be factually wrong.** If a model with no latch, no boundary and no chosen projection nonetheless shows behavioural path-dependence not attributable to context *contents* — two runs with token-identical contexts assembled by different routes, behaving differently — then "no hysteresis, only a function" is false as stated. I do not expect it, since a forward pass is deterministic given its context and that is close to definitional. It costs an afternoon, so check it first anyway.
+
+**It could be true and not load-bearing, which is the worse failure.** If memory capacity growing with sequence length delivers recall, and recall is what the tasks want, the second-order question is real but inert and this note is philosophy with an architecture diagram attached. E2 is the one that answers this, because it asks whether the second-order signal buys anything a first-order one cannot.
+
+---
+
+## 10 · Provenance of this note
+
+Cognitive state: **speculative** throughout. No experiment here has been run. Nothing here is a result.
+
+The prior-art positions in §2, §4, §5 and §6 come from a dedicated audit against five original candidates, and the audit **reversed my ranking**: what I had second is now the mainline, what I had fourth is now third and conceded, one candidate became a footnote and one was deleted. §3 was not planned; it appeared while working out §2 and is deliberately stated as a narrow conditional rather than a synthesis, because the failure mode of this line has historically been to unify things that only rhyme.
+
+This line has been scooped three times: on the cognitive light cone, on a boundary bifurcation published by Tononi & Koch in 2015, and once by an earlier note of my own that turned out to be re-deriving Friston. After that record, being right about what is already occupied is worth more than being first. Corrections — above all "this is occupied, here is the citation" — are the most valuable thing anyone can send back.
+
+Contact: macshen93@gmail.com
+
+## Literature pointers
+
+- Behrouz, Li, Deng, Zhong, Razaviyayn & Mirrokni (2026), *Memory Caching: RNNs with Growing Memory*, arXiv:2602.24281
+- Behrouz et al. (2025), *Titans: Learning to Memorize at Test Time*, NeurIPS 2025; *Miras*, arXiv:2504.13173
+- Schmidhuber (1992); Schlag, Irie & Schmidhuber (2021), linear Transformers as fast-weight programmers; Sun et al. (2024), test-time training
+- Ramsauer et al. (2020), *Hopfield Networks is All You Need*, arXiv:2008.02217
+- Bai, Kolter & Koltun (2019), *Deep Equilibrium Models*; Hyper-SET, arXiv:2502.11646; latent recurrent-depth, arXiv:2502.05171
+- De Geeter et al. (ULiège, 2026), bistable parallelizable memory recurrent units; CMRU, arXiv:2605.11855 (ICML 2026)
+- Saha, Garg & Roy (2021), *Gradient Projection Memory for Continual Learning*, arXiv:2103.09762; selective gradient projection, arXiv:2603.26671; SubTrack-Grad, arXiv:2502.01586; Neural Subspace Reallocation, arXiv:2606.30067
+- Zverev et al. (2026), *ASIDE: Architectural Separation of Instructions and Data*, arXiv:2503.10566 (ICLR 2026); ISE, arXiv:2410.09102 (NeurIPS 2024); inseparability result, arXiv:2606.27567
+- Li, Han & Yin (2025), *MamKO: Mamba-based Koopman Operator*, ICLR 2025; input-conditioned Koopman in selective SSMs, arXiv:2606.09432
+- Rate–distortion view of KV compression, arXiv:2607.08032
+- Zwanzig (2001), *Nonequilibrium Statistical Mechanics* — the memory-kernel price of projection
+- Related notes on this site: [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) · [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md)
+
+---
+
 ## Source: /theory/odd-relational-core.md (sha256:b8db7b4bcf03, language: en)
 
 
@@ -2386,7 +2601,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 
 ---
 
-## Source: /theory/odd-relational-core.zh.md (sha256:4f4405ca34ba, language: zh-Hans)
+## Source: /theory/odd-relational-core.zh.md (sha256:ae74d50d9958, language: zh-Hans)
 
 
 # 奇关系核:反二分作为最小结构 —— 为什么文明的压缩图式收敛到"小、奇、有心、不停转"
@@ -2413,7 +2628,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 
 **先清掉一个假解释:** 不是"神圣质数"。三、五、七是质数,但(a)人对"小数"有强选择偏差(工作记忆撑不住大数),而(b)小自然数里质数本来就密(2,3,5,7 占了 2–8 的一半),所以"神圣图式多是质数"是**选择偏差 × 基率**的合成假象,不需要质数有任何特殊力量。真正干活的属性是**奇**,不是**质**:
 
-- 九宫格 = 9 = 奇非质,照样成立(有中心、反二分)。
+- 九宫格 = 9 = 奇非质;在中心反演下有一个固定格,但这**不推出反二分**。若只按上下左右正交邻接,3×3 网格反而可以棋盘式二染。
 - 阴阳 = 2 = 质非奇,是纯二元,恰恰是被这套压力**推开**的东西。
 
 → 所以下面四股讲的都是"为什么**奇**",质数只是搭便车。任何想让"3/5/7 因为是质数而有预测力"的冲动都是要克制的形而上漂移——一个数可以携带离散傅里叶式的编码,却不携带形而上的预测力。
@@ -2424,48 +2639,49 @@ Published companions: [State is a closure condition, not a given set](https://ma
 压缩一个关系世界,目标就是最短描述(MDL)。人脑侧的硬约束:工作记忆 ~4±1 个 chunk 顶天(Cowan),口传文化要能被记住、传下去。一个要活在人嘴里两千年的图式,元素数被压到个位数是**传输信道的带宽约束**,不是神秘学。→ 这一股解释"为什么小",不解释"为什么奇"。
 
 **压力二 · 奇 = 反二元 [定理内核,本 note 主体]**
-图论:**一个图可以被二染色(顶点分成两组、同组无边)当且仅当它不含奇环。** 奇环是"不可二分"的最小、最纯的障碍。一个关系核如果是奇环结构(每个元素既生一个、又克一个,首尾接不回一个干净的二分),它在结构上**拒绝**被劈成"我们 vs 他们"两个阵营。偶数/二分结构则天然邀请"两阵营"读法 → 善恶二元 → 末世式的最终决战。详见 §2。
+图论:**一个图可以被二染色(顶点分成两组、同组无边)当且仅当它不含奇环。** 奇环是二染色的最小障碍。这个定理只排除一种两色划分;它本身不把颜色解释成"我们 vs 他们",也不从可二染推出善恶二元或末世决战。那些语义映射是另一个待检验假说。详见 §2。
 
 **压力三 · 有中心 = 给"自我"留座位 [框架 + 接硬结构]**
-奇数个元素能排成 **{一个中心 + 若干对称对}**(如 5 = 心 + 2 对;7 = 心 + 3 对;9 = 心 + 4 对)。偶数排成纯对、没有中心格。一个要**把观察者/自我编码进去**的图式需要那个中心座位。这接 embedded agency:压缩者必须出现在自己的压缩里 → 需要一个自洽不动点 / 自我节点(见 §4,以及已发布的"state 是一个闭包条件"那篇)。**注意:"奇→有中心"是硬的(奇数才有唯一中心格),"需要自我座位→所以选奇"是软的目的论推断。** 标清。
+对有限集合 $X$ 上的反射/对合 $\sigma$,元素分成固定点和二元轨道,所以硬的只有 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$:奇数规模只保证固定点数为奇数,**不保证唯一中心**;偶数规模只保证固定点数为偶数,也可能有 0、2 或更多固定点。唯一中心需要额外条件,例如有限线性序上的次序反转在奇数长度时恰有一个固定点。一个把观察者编码进去的图式可以借用某个固定点、轴或参照系;但"需要自我座位→所以选奇"仍是软的目的论推断。
 
-**压力四 · 永动 = 无静止均衡 [框架 + 韵脚]**
-奇环上的(激励/抑制)动力学——A 生 B、B 生 C、C 克 A 这类非传递关系——**没有静止平衡点,只有循环轮转**。石头剪刀布没有纯策略纳什均衡(任何纯策略都被另一个克);生态学 May–Leonard 三物种非传递竞争产生持久的周期轮转而非定态。→ 把"变化不止 / 无热寂 / 生生不息"直接编进骨架。偶数/二分结构容易停在一个静态对立的定态(平衡=对峙)。**这一股[框架]成分是数学(RPS/非传递确实无定态),但"文明选它是为了编码永动"是[韵脚]。**
+**压力四 · 转 = 可承载非传递轮转,不保证无定态 [韵脚]**
+奇环可以作为 A 胜 B、B 胜 C、C 胜 A 这类非传递互动的骨架,但**图的奇偶不决定动力系统是否有平衡点**。石头剪刀布没有纯策略纳什均衡,标准对称零和版本却有均匀混合策略均衡;其复制子动力学在零和等条件下可以绕均衡运行,换参数或更新规则则可收敛或发散。May–Leonard 三物种模型同样依参数出现共存、振荡或异宿行为,不能概括成"奇环必然永动"。因此"文明选择奇环以编码生生不息"只是一条待检验的韵脚,不是拓扑定理;二分结构也不由二染色这一性质自动获得静止均衡。
 
 四股各自独立地把选择压向 **小 ∧ 奇 ∧ 有心 ∧ 转**。它们同时命中 3/5/7 这类核,是**四个约束的交集**,不是一个原因的四个投影——这个区分至关重要(见 §6)。
 
 ---
 
-## 2. 深挖压力二:从二染色定理一路推到"生不出最终敌人" [主体]
+## 2. 深挖压力二:从二染色定理到一个待检验的叙事便利假说 [主体]
 
 ### 2a. 硬内核:奇环 = 不可二分的最小障碍 [定理]
 
 图论事实(给直觉不给证明):
 - 一个图能被"两色染,同色不相邻" ⟺ 图里没有奇长度的环。
 - 有偶环没关系,照样能二染。**唯独奇环**让二染崩掉。
-- 换句话说:**奇性是"抗二分"的充要来源。** 想让一个关系结构无法被干净地劈成两半,最省的办法就是在里面埋一个奇环。
+- 换句话说:**指定图中含奇环,是 proper 2-coloring 失败的充要条件。** 想用尽量少的点构造一个不可二染图,三角形是最小实现。
 
 三元核就是最小奇环(3-环):生→克→生……接不回一个"红队 vs 蓝队"。五行是 5-环两套关系(生 5-环 + 克 5-环,都是奇环)。这不是比喻,是这些核**字面上**就是奇环,而奇环**字面上**就是二染色的障碍。
 
-### 2b. 二分结构如何天然孵化敌我叙事 [框架/推断]
+### 2b. 二分结构可能给二营叙事提供什么便利 [经验假说]
 
-一个二元/偶分图式(善vs恶、光vs暗、我们vs他们、正统vs异端)自带一条"最终对立轴":
-- 每个元素被指派到两组之一 → 世界被划成两个可辨识、可动员的阵营。
-- 冲突有一个**终局形状**:一方胜、一方灭(善终将战胜恶)。这是一个**吸收态**——达到后不再动(接压力四:二分=静态定态)。
-- 叙事上,它给出一个"**最终敌人**":一个可命名、可指向、消灭了就"世界得救"的对象。摩尼教的善恶宇宙观、末世决战、一个抽象的战时敌人形象——都是这个结构的实例。
+proper 2-coloring 只证明顶点可按邻接约束分成两类,**不替两类赋予善恶、敌我或政治语义**。但若叙事本来就要表达善vs恶、我们vs他们、正统vs异端,现成的二元轴可能降低编码和动员成本:角色较容易被贴进两组,冲突也较容易被讲成一方战胜另一方。摩尼教善恶宇宙观或末世决战只能算说明这种叙事确实存在的例子,不能证明二分拓扑生成了它。
 
-**结构判断(推断):** 敌我叙事不是"坏人硬塞进来的",它是**二分关系图的自然读出**。你先把关系世界压成二色图,"最终敌人"就几乎免费地掉出来了。图式的拓扑先于内容决定了它能不能孵出一个干净的敌人。
+**待检验假说:** 在控制历史、制度、媒介和具体内容后,显式双极图式可能比多角色关系图更方便人们回忆和传播"两营 + 最终敌人"叙事。反例同样直接:可二染的八卦立方体可以承载互变而非敌我;任何不可二染图也仍可被人粗贴成"我方/敌方"。因此二染性本身不能预测文化语义。
 
-### 2c. 奇关系核如何强制"一切居间调停一切" [框架/推断]
+叙事的"一方消灭另一方"也不能直接叫动力学**吸收态**。只有先指定状态、转移规则,并证明某状态进入后无法离开,这个术语才成立;图可二染不提供这些规则。
 
-奇环核上没有"最终对立轴",取而代之的是:
-- 每个元素**既生一个、又克一个**(五行:木生火、木克土;同时被水生、被金克)。没有哪个元素是纯粹的"善"或纯粹的"敌"——每个都同时是某物的资源和某物的克星。
-- 没有元素能被**孤立成敌人**并消灭:灭掉一个,环就断了,整个循环塌掉(灭火 → 土无所生、水无所克 → 系统病)。**每个元素对整体的存续都是必要的**,包括那个此刻在克你的。
-- 冲突没有终局吸收态:克是**局部、循环、可逆**的调节,不是**全局、终末、不可逆**的消灭。A 克 B 不是"A 要灭 B",是"A 在这一相位压制 B,好让 C 有空间",下一相位角色轮转。
+### 2c. 奇关系核可能改变哪些表征成本 [框架/待检验]
 
-→ 结构性结论(推断):**建在奇关系核上的道德/政治/宇宙体系,拓扑上就生不出"干净的最终敌人"。** 它能表达张力、克制、失衡、需要调节,但表达不了"消灭 X 则天下太平"。"一切居间调停一切"不是它选择的美德,是它的**图结构没给敌我终局留位置**。这跟压力四同源:无吸收态 ⟺ 无终局 ⟺ 无"消灭即救赎"。
+在**特定的有向带符号奇环**里,同一节点可以相对不同邻居承担不同角色(例如五行叙事中既生一个、又克一个,同时又被生、被克)。这种角色交叉可能让"所有节点干净分成两个相邻禁同组的阵营"这一种表示失效,也可能提示局部制约、角色轮转或关系依赖的叙事资源。
 
-**边界(诚实):** 这说的是**图式/表征层**的结构约束,不是"用五行的文明就不打仗"的经验断言(见 §6 反例)。人可以在任何图式外面加一层敌我;声称的只是——**图式本身不主动提供敌我的终局形状,二元图式主动提供**。
+但硬结论到此为止:
+- 删掉一个点会改变或打断所指定的环,不等于现实系统里该元素对整体存续必然不可替代。
+- 奇环不阻止外加敌我标签,也不阻止故事写出终局。
+- 是否出现循环、收敛、发散或吸收态,取决于另行给定的动力方程、参数和更新规则,不由奇环单独决定。
+
+**待检验假说:** 当叙事者被要求忠实保留一组交叉关系时,奇环表征可能提高"干净两营"编码的成本,并提高局部调节/角色轮换描述的可得性。这是认知与文化层的经验命题,不是拓扑定理。可用匹配内容的实验比较二分图、奇环和可二染多元图在回忆、压缩、敌我归因与终局想象上的差异。
+
+**边界(诚实):** 数学层只说 proper 2-coloring 是否存在;文化语义、政治动员和叙事终局必须另行测量。图式既不会自动制造敌人,也不会自动免疫敌我化。
 
 ---
 
@@ -2474,8 +2690,8 @@ Published companions: [State is a closure condition, not a given set](https://ma
 ### 3a. 判据 [推断,可证伪]
 
 主预测:**"变化/循环/过程"型宇宙论偏奇(奇关系核);"静态分类/对称秩序"型图式容得下偶(二分/四分)。**
-- 若一个传统的核心图式是**动态生成型**(讲生灭、轮转、气化、流变),预测其核心关系核是奇的、无终局的。
-- 若一个传统的核心图式是**静态分类型**(讲元素分类、方位排布、对称秩序),预测它容许偶数、二分、四分,且更容易配一条善恶终局轴。
+- 若一个传统的核心图式是**动态生成型**(讲生灭、轮转、气化、流变),待检验预测是其核心关系核更常含奇环,且叙事较少以单一终局为核心;这两项必须分别编码,不能互相代替。
+- 若一个传统的核心图式是**静态分类型**(讲元素分类、方位排布、对称秩序),预测它容许偶数、二分、四分,且可以配一条善恶终局轴。
 - **可证伪点:** 若发现大量"过程宇宙论 + 干净二元终局核",或"静态分类 + 强反二元奇核",则本预测被削弱。这是一个关于**图式类型 ↔ 奇偶** 的相关性断言,原则上可查、可反。
 
 ### 3b. 一次 illustrative 对照 tally(**不是系统民族志普查,只是常识级对照**)
@@ -2500,7 +2716,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 | 三相神 Trimūrti(梵天/毗湿奴/湿婆) | 3 | 奇 | 生-持-灭过程 | 无终局,功能轮转 | 高 |
 | 三 guṇa(sattva/rajas/tamas) | 3 | 奇 | 过程/动态平衡 | 无善恶终局,配比流变 | 中 |
 | 道教三宝/三清 | 3 | 奇 | (分类为主) | 弱终局 | 中[?名目多义] |
-| 六道轮回 | 6 | **偶** | 过程/循环 | 无善恶终局,循环无吸收态 | 中(**反例见下**) |
+| 六道轮回 | 6 | **偶** | 过程/循环 | 轮回叙事;未指定动力学,不谈吸收态 | 中(**反例见下**) |
 
 暧昧/反例(必须诚实列出):
 
@@ -2517,19 +2733,37 @@ Published companions: [State is a closure condition, not a given set](https://ma
 - 明确反例(过程却偶):**八卦、易64、六道轮回、十 sefirot ——4 条硬反例**,全是"过程/生成型却偶数"。八卦/易尤其致命:极致过程哲学(易=变)却选了纯二进制二分递归。
 - 暧昧:三清[?]、阴阳(纯二元但中式强调互含,自身就模糊了"二分=敌我")。
 
-**读这个 tally 的诚实结论:** "分类型容偶"这半边站得比较稳(四元素/四体液/四方位齐刷刷是偶)。"过程型偏奇"这半边**有明显反例**(易/八卦/六道)。所以 §3a 的判据**部分被自己的小普查削弱**——尤其"过程⟹奇"不成立,顶多"过程⟹反二元(无善恶终局)",而反二元既能靠奇(五行)也能靠"多元非二分的偶"(六道六个、易六十四个,都不是两阵营)。**这是一个重要的自我修正:真正稳的不是"奇",是"非二分";奇只是达成非二分的最省手段之一,不是唯一。** 见 §6。
+**读这个 tally 的诚实结论:** "分类型容偶"这半边站得比较稳(四元素/四体液/四方位齐刷刷是偶)。"过程型偏奇"这半边**有明显反例**(易/八卦/六道)。所以 §3a 的判据**部分被自己的小普查削弱**——尤其"过程⟹奇"不成立。过程图式可以在文化叙事上没有善恶两阵营,但这**不等于**它的关系图在数学上不可二染:那还要先指定边。**真正可守的主角是"拒绝敌我终局";奇环只是实现图论非二分的最省手段之一,不是对所有非敌我文化图式的总解释。** 见 §3c、§6。
 
 (再次强调:以上是 illustrative 对照,confidence 参差,名目取常识级,不构成系统民族志;任何"因此某文明更良善"的推论都不被这张表支持。)
+
+### 3c. 偶数结构编码什么?——坐标、成对变换与图外参照 [框架/待检验]
+
+**短答:** 偶数不等于"没有自我"。偶数结构可以把参照点编码成**中心对、轴、坐标、路径或变换规则**,而不是一个未配对的中心节点。但这只是结构假说,不是从数字读出文化本质。
+
+先分三层,避免把韵脚冒充事实:
+
+| 例子 | 数学结构(必须另行指定) | 最小文化编码读法 | 第一人称实践读法 |
+|---|---|---|---|
+| 六道 | 六个标签本身既不是环也不是图;要先定义哪些状态可相互转移 | 可视作对受制约处境的多类别枚举与轮转叙事,**不是已测得的物理相空间** | 不问"哪个道是永恒的我",而问"我现在落在哪种反应模式、什么会使它转移" |
+| 八卦 | 三个二值位生成 $2^3=8$ 个符号;若边定义为"一次只变一爻",得到可二染的三维超立方体 | 更像一套组合坐标与变换字母表;数学可二染**不推出**文化上必有善恶两营 | "我"可作为当前坐标、提问者和所走路径,不必是第九个中心点 |
+| 八字 | 不是八节点图,而是四个有序位置 × 每柱干支两项 | 更像带参照项的关系坐标表;传统解释把日干当锚点是文化约定,**不是数学必然或因果证据** | 最多把它当叙事镜面提出问题,不可把命断当已验证的物理预测 |
+
+这也反过来修正"奇数才有中心"的说法:对合只给出 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$,不给出唯一性。一个正六边形有图外几何中心,一条偶长度链有中心边;反之,3×3 格关于中轴反射时可以有三个固定格。**中心属于"结构 + 指定的对称作用",不属于基数本身。** embedded self 也未必占一个格子:它可以是选坐标的参照系、跨状态的轨迹,或改变关系边的算子。
+
+**理论反信号(需在正式、预注册研究中检验):** (1) 在明确节点、边和对称作用后,结构预测仍不能跨样本复现;(2) 独立编码者对同一材料的状态与转移几乎不一致;(3) 编码必须在知道结果后改口才"说得通";(4) 与字段和复杂度匹配的白话控制相比,它不能改善预先声明的预测或行动指标。持续出现这些结果,应把"偶数编码坐标/变换"降级为漂亮类比。
+
+**下一步只是 14 天可行性 probe,不是证伪或效果实验:** 预先随机生成近似平衡的 A/B/C 次序(5/5/4),每天只记一个事件。三种模板都有相同的三个字段和限制:(1) 40 字内状态编码——A 用"中心角色 + 两条关系",B 用预先固定的三个二值坐标,C 用三项白话描述;(2) 对同一个二元结果给出 0–100% 概率;(3) 30 字内下一动作;每次限时两分钟。事前锁定可行性主评分:完成率 ≥80%、三组记录时长中位数相差 ≤30 秒、主观负担中位数相差 ≤1/5 分、≥90% 记录可被去模板化后评分。探索性结果也事前固定算法:Brier $=(p/100-y)^2$(低为好)、行动完成 0/1、24 小时后悔与身体激活各 0–4(低为好);独立评者对清晰度与行动可执行性各打 1–5 分。它们只做描述性估计,不做显著性或优劣结论。评分前删掉 A/B/C、提示词和版式,统一成三个中性字段,再交给不知道分组的独立评者;另记录评者猜测分组以检查盲法是否失效。probe 通过只说明值得设计有功效的预注册实验,不说明任何文化图式或本体论为真。
 
 ---
 
 ## 4. 接周边理论线 [框架/推断,标清硬软]
 
 **生成器/种子母题:**
-这些图式 = **关系世界的最小生成核(种子)**,不是事实清单(叶子)。三/五/七不是"三个五个七个东西",是**能 unroll 出一整套关系判断的压缩生成元**——给定五行,你能生成"这个季节、这个器官、这种情绪、这类失衡"的无穷叶子。文明保留的是**种子(生成规则)**不是叶子(具体对应表);压力一(小)正是"种子要极致压缩"的表现。**这一接口是硬的**:图式确实是生成器不是清单(缘起有纹理、state=商,同已发布的"state 是一个闭包条件"那篇)。
+这些图式**可以被解释为**关系世界的压缩生成核(种子),而不只是事实清单(叶子)。三/五/七未必只是"三个五个七个东西";在某些传统解释中,它们可作为生成元,展开出季节、器官、情绪、失衡等关系判断。文明是否真的以"生成规则而非清单"来记忆和传递这些图式,仍是文化—认知层的待检验假说;压力一(小)只提示压缩可能有利于传播,不证明具体生成机制。
 
 **压力三 ↔ embedded-agency 自我节点:**
-奇数核的中心座位 = 压缩者在自己的压缩里的**不动点/自我节点**。embedded agent 必须建一个包含自己的世界模型 → 需要 μ=F(μ) 的自洽不动点 → 图式里那个"中心格"就是给这个自我留的位置。**硬的部分:** 奇数才有唯一中心格(这是算术)。**软的部分(韵脚,标清):** "文明选奇数是为了安放自我节点"是目的论推断,不是定理;完全可能是奇数因压力二被选中后,中心格**恰好**能兼作自我座位(exaptation,不是设计)。别把这个韵脚硬成"图式=embedded-agency 的证据"。(不动点/自我节点结构见已发布的"state 是一个闭包条件"那篇。)
+当一个**另有理由指定的**对称作用恰好只有一个固定点时,那个位置可以被读作压缩者在自己的压缩里的**不动点/自我节点**。若 embedded agent 显式建模自身及其对环境的介入,其模型可能需要某种自指或自洽条件,可用 μ=F(μ) 作形式类比;这不是所有 embedded agent 的普遍定理,更不证明文化图式必须给自我一个中心格。**硬的部分只有对合的奇偶关系 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$;唯一固定点来自额外结构。** §3c 所示,自我也可能被编码成参照系、轨迹或算子。别把这个韵脚硬成"图式=embedded-agency 的证据"。(不动点/自我节点结构见已发布的"state 是一个闭包条件"那篇。)
 
 **跨线关系(克制):** 压力二(反二元)、压力三(自我座位)、压力四(永动)确实都能"rhyme"回不动点与信息动力学那套大框架——**但这正是要警惕的反射**。它们是**四条独立的腿**恰好落在同一个核上,不是一个大统一生成器的四个投影。把它们缝成"信息动力学解释了所有神圣数字"= 把过度理论化伪装成洞见。保持它们各自可证伪、各自可 kill。
 
@@ -2546,20 +2780,20 @@ Published companions: [State is a closure condition, not a given set](https://ma
 用"别把优雅误当真相 / 弹性框架能套一切 = 没内容"的刀砍自己:
 
 **(1) 最弱的一股 = 压力四(永动),其次压力三(有中心)。**
-压力二有真数学内核(二染色⟺无奇环,这是定理,不可争)。但压力三、四把"奇数恰好有中心格""奇环恰好无定态"这些**算术副产品**,反读成"文明**为了**编码自我/永动而选奇"——这是**目的论倒装**:先有了奇(可能纯因压力一+二),中心格和无定态是**免费搭送**的性质,然后被追认为"选它的理由"。这是最像事后合理化的地方。诚实说:压力三、四更可能是压力二的**exaptation**(旧结构的意外可用),不是四股独立压力。**若真是这样,"四股"其实是"一股半"**,而"四股独立汇聚"的说服力(§1 结尾那句"四个约束的交集")就大打折扣——它可能是一股(反二元)带着两个赠品。
+压力二有真数学内核(二染色⟺无奇环,这是定理,不可争)。但压力三、四容易把"某个指定对合恰有一个固定点""某些非传递动力学出现轮转"这些**依赖额外结构或参数的现象**,反读成"文明**为了**编码自我/永动而选奇"——这是**目的论倒装**。诚实说:压力三、四至多是待检验的 exaptation 读法,不是四股独立压力。**若真是这样,"四股"其实是"一股半"**,而"四股独立汇聚"的说服力(§1 结尾那句"四个约束的交集")就大打折扣。
 
 **(2) "奇"本身可能是假主角——§3b 的小普查已经反咬。**
-易/八卦/六道是硬反例:极致过程型却偶数、却仍反二元(非两阵营)。这说明真正干活的是**非二分(anti-bipartite)**,"奇"只是达成非二分**最省元素数**的手段之一(奇环是最小非二分障碍),但**多元偶数**(6 道、8 卦、64 卦)一样能非二分。→ 那么整套"为什么是奇数"的框架,应该被**降级**成"为什么反二元",而"奇"退回成一个 corollary(在**元素数受压力一压到最小**时,反二元的最省实现恰是奇环)。这是本 note 内部最诚实的修正,应该写进种子:**主角是"抗二分",不是"奇"。**
+易/八卦/六道是"过程型却偶数"的硬反例,但它们在文化上没有被读成两大敌营,**不能自动证明其关系图 anti-bipartite**。例如八卦若按单爻变化连边,其图反而可二染。真正硬的仍是:**指定关系边后,含奇环才不可二染。** 整套"为什么是奇数"应降级成"什么时候图式拒绝敌我终局",并把数学非二分与文化上的非敌我叙事分开检验。奇只是在元素与边都受压缩时构造非二分的一种最省实现,不是万能解释。
 
 **(3) 那个道德跳(§2c 所指向)藏着一个偷换。**
-从"奇图式拓扑上不孵敌我"到任何社会结论,中间悄悄把**表征层的结构**等同于**社会层的权力结构**。但一个社会的**关系图**(谁依赖谁、谁制约谁)和它信奉的**宇宙图式**(几神几行)是**两个图**,没有定理保证它们同构。用五行的帝国照样能搞敌我动员;用二元神学的社会也可能高度分布式。任何"分布式 ⟺ 反二元图式"式的结构类比是一个**漂亮的类比**,不是一个已验证的社会科学命题——它顶多给出一个**可研究的假设方向**(权力集中度 ↔ 主导叙事的二分度 相关吗?),绝不是结论。这一跳最需要 §3 那种可证伪化,否则就是政治直觉借了一件数学外套。
+从旧版主张"奇图式拓扑上不孵敌我"跳到任何社会结论,会把**表征层的结构**等同于**社会层的权力结构**。但一个社会的**关系图**(谁依赖谁、谁制约谁)和它信奉的**宇宙图式**(几神几行)是**两个图**,没有定理保证它们同构。用五行的帝国照样能搞敌我动员;用二元神学的社会也可能高度分布式。任何"分布式 ⟺ 反二元图式"式的结构类比是一个**漂亮的类比**,不是一个已验证的社会科学命题——它顶多给出一个**可研究的假设方向**(权力集中度 ↔ 主导叙事的二分度 相关吗?),绝不是结论。这一跳最需要 §3 那种可证伪化,否则就是政治直觉借了一件数学外套。
 
 **(4) 弹性 = 危险信号本身。**
 这套框架能"解释"三神、五行、七轮、也能"解释"为什么四元素是分类型、还能顺手接上 embedded agency——**这种什么都能接的顺滑,恰恰是 §0 警告的味道**。为道日损:如果砍掉压力三、压力四(留作 exaptation 注脚)、把"奇"降级成"反二元的 corollary"、把道德段降级成"待验证假设",剩下的**硬核只有一条**:
 
-> **二染色⟺无奇环,所以要让一个关系核拓扑上拒绝"我们vs他们"的二分终局,最省的结构是埋一个奇环;二分图式则天然提供可动员的最终敌人。**
+> **二染色⟺无奇环,所以奇环是拒绝两色划分的最小障碍;两种颜色是否会被文化解释成"我们 vs 他们",是另一个经验问题。**
 
-这一条是真的、可证伪的、有内容的。其余全是它周围的韵脚和赠品。**如果这个 note 只留一句话,留这句;其余当筏子,过河即弃。**
+前半句是定理;后半句是必须另行验证的文化假说。其余全是它周围的韵脚和赠品。**如果这个 note 只留一句话,留上面这条边界;其余当筏子,过河即弃。**
 
 ---
 

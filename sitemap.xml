@@ -34,27 +34,31 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
     <lastmod>2026-07-13</lastmod>
   </url>
   <url>
+    <loc>https://machengshen.github.io/information-and-qi.html</loc>
+    <lastmod>2026-07-31</lastmod>
+  </url>
+  <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -151,6 +155,10 @@
   <url>
     <loc>https://machengshen.github.io/theory/learning-the-self-boundary.zh.md</loc>
     <lastmod>2026-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/theory/no-state-only-history.md</loc>
+    <lastmod>2026-08-02</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/theory/odd-relational-core.md</loc>
