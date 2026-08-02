@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# Block a push that would publish an unindexed page.
+#
+# WHY THIS EXISTS (root cause, 2026-08-02)
+# ----------------------------------------
+# The CI job `.github/workflows/index-integrity.yml` already ran check_index.py
+# on every push to main. It was RED for thirteen days and nothing stopped:
+#   - information-and-qi.html            published 2026-07-31, never indexed
+#   - theory/consciousness-as-quantum-mechanics.md  published 2026-07-20, never indexed
+#
+# Nobody bypassed a gate. The gate was advisory by construction:
+#   1. work is pushed straight to main (no PR, so no merge to block),
+#   2. GitHub Pages deploys from main regardless of whether the check job passes,
+#   3. so the page is live and readable minutes before the red X appears,
+#   4. and the red X is on a page nobody opens, because the deploy succeeded.
+# A check that runs after the irreversible action is a report, not a gate.
+#
+# This hook moves the same check to the last reversible moment: before the push
+# leaves the machine. CI stays as the backstop for anything pushed from a host
+# without the hook installed.
+#
+# INSTALL (per clone -- .git/hooks is not version-controlled):
+#   ln -sf ../../scripts/pre-push .git/hooks/pre-push
+#
+# BYPASS, when you genuinely mean it:
+#   git push --no-verify
+set -euo pipefail
+
+# Resolve the repo root via git, NOT via BASH_SOURCE: when this file is invoked
+# through the .git/hooks/pre-push symlink, BASH_SOURCE points at .git/hooks and
+# "$(dirname)/.." lands in .git/ rather than the working tree.
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+echo "pre-push: checking index integrity..."
+
+if ! python3 scripts/check_index.py; then
+  cat >&2 <<'EOF'
+
+------------------------------------------------------------------
+PUSH BLOCKED: this would publish a page that no index points at.
+
+The site's contract is that everything served here is reachable from
+/llms.txt (or /llms.zh.txt), or is listed in .llms-exclude with a
+reason. A page that ships unindexed is invisible to any agent handed
+the index -- a silent publication.
+
+Fix the report above, then:
+    bash scripts/build-llms-full.sh
+    python3 scripts/gen_sitemap.py
+
+Deliberate exception:  git push --no-verify
+------------------------------------------------------------------
+EOF
+  exit 1
+fi
+
+# The bundles inline theory/*.md with a sha256 in each Source marker, and the
+# sitemap is generated. check_index.py verifies both are current, so if we got
+# here they are -- but say so, because "I forgot to re-run the build script"
+# was the other way this file set used to drift.
+echo "pre-push: index integrity OK (bundles and sitemap current)."

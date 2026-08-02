@@ -377,14 +377,46 @@
         "zh": "没有 state,只有 history"
       },
       "description": {
-        "en": "A diagnosis of the Transformer: no state, only history; no hysteresis, only a function; no self-boundary, only a window. A KV cache is an unprojected record, so forgetting is delegated to the context window rather than chosen by the architecture. Memory Caching (arXiv:2602.24281), read as a constraint, shows recall requires an addressable set growing with sequence length, placing the current field on one first-order axis and leaving untouched the second-order question of how a state maintains the projection defining it. The proposal: gate test-time memory on change in what the memory forgets rather than on surprise, since surprise-gated memory is structurally attracted to noise and robust losses only patch the symptom under an assumption that fails on rare important events. Defines mu as the projection a memory induces and the signal as the Grassmann distance between successive projections, computable at the same cost as a Miras update, with a constructive separation argument showing update families Miras (arXiv:2504.13173) cannot distinguish and this signal can. Unplanned corollary, stated as a narrow falsifiable conditional: thresholding the gate yields stickiness, jumps and remanence, so hysteresis appears as a by-product. Includes an honesty list conceding the metric is off-the-shelf subspace change-point detection, that nonlinear memories lack a clean projection, and that the retained rank revives the hyperparameter objection; a conceded provenance section narrowed to self-versus-world after ASIDE and an impossibility result; and three single-GPU experiments each with a kill condition. One candidate demoted to a footnote, one deleted outright. No experiment has been run.",
-        "zh": "对 Transformer 的诊断:没有 state 只有 history,没有滞回只有函数,没有自我边界只有 window。KV cache 是未做投影的记录,遗忘被交给 context window 而不是由架构选择。把 Memory Caching(arXiv:2602.24281)读作约束,它说明 recall 需要随长度增长的可寻址集合,从而把当前领域放在同一条一阶轴上,而二阶问题——state 如何维护定义自己的投影——无人触碰。主张:test-time memory 应由「遗忘什么」的变化门控而非由 surprise 门控,因为 surprise 门控在结构上被噪声吸引,而 robust loss 只是对症状打补丁,其假设在罕见重要事件上失效。把 mu 定义为 memory 诱导的投影,信号定义为前后投影的 Grassmann 距离,计算量与一次 Miras 更新相同,并给出构造性分离论证:存在 Miras(arXiv:2504.13173)无法区分而该信号可区分的更新族。计划外推论,按窄的可证伪条件陈述:阈值化该门会产生黏滞、跳变与剩磁,滞回作为副产品出现。含诚实清单,承认度量本身是现成的子空间变点检测、非线性 memory 缺少干净的投影定义、保留秩会复活超参反对;含一节对 provenance 的让步,在 ASIDE 与不可能性证明之后收窄到自我 vs 世界;以及三个单卡实验,各带证伪条件。另一条候选降为脚注,一条直接删除。没有任何实验跑过。"
+        "en": "A diagnosis of the Transformer: no state, only history; no hysteresis, only a function; no self-boundary, only a window. A KV cache is an unprojected record, so forgetting is delegated to the context window rather than chosen by the architecture. Memory Caching (arXiv:2602.24281), read as a constraint, shows recall requires an addressable set growing with sequence length, placing the current field on one first-order axis and leaving untouched the second-order question of how a state maintains the projection defining it. The proposal: gate test-time memory on change in what the memory forgets rather than on surprise, since surprise-gated memory is structurally attracted to noise and robust losses only patch the symptom under an assumption that fails on rare important events. Defines mu as the projection a memory induces and the signal as the Grassmann distance between successive projections, computable at the same cost as a Miras update, with a constructive separation argument showing update families Miras (arXiv:2504.13173) cannot distinguish and this signal can. Unplanned corollary, stated as a narrow falsifiable conditional: thresholding the gate yields stickiness, jumps and remanence, so hysteresis appears as a by-product. Includes an honesty list conceding the metric is off-the-shelf subspace change-point detection, that nonlinear memories lack a clean projection, and that the retained rank revives the hyperparameter objection; a conceded provenance section narrowed to self-versus-world after ASIDE and an impossibility result; and three single-GPU experiments each with a kill condition. One candidate demoted to a footnote, one deleted outright. E1 has been run and is measured; running it corrected the note twice against its own author. E2 and E3 are not run. Closes with a Calibration table giving each claim P(mechanism) and P(useful) separately plus the observation that would move it; the step to being outside the Miras design space is scored 0.40 and conceded as a framing dispute.",
+        "zh": "对 Transformer 的诊断:没有 state 只有 history,没有滞回只有函数,没有自我边界只有 window。KV cache 是未做投影的记录,遗忘被交给 context window 而不是由架构选择。把 Memory Caching(arXiv:2602.24281)读作约束,它说明 recall 需要随长度增长的可寻址集合,从而把当前领域放在同一条一阶轴上,而二阶问题——state 如何维护定义自己的投影——无人触碰。主张:test-time memory 应由「遗忘什么」的变化门控而非由 surprise 门控,因为 surprise 门控在结构上被噪声吸引,而 robust loss 只是对症状打补丁,其假设在罕见重要事件上失效。把 mu 定义为 memory 诱导的投影,信号定义为前后投影的 Grassmann 距离,计算量与一次 Miras 更新相同,并给出构造性分离论证:存在 Miras(arXiv:2504.13173)无法区分而该信号可区分的更新族。计划外推论,按窄的可证伪条件陈述:阈值化该门会产生黏滞、跳变与剩磁,滞回作为副产品出现。含诚实清单,承认度量本身是现成的子空间变点检测、非线性 memory 缺少干净的投影定义、保留秩会复活超参反对;含一节对 provenance 的让步,在 ASIDE 与不可能性证明之后收窄到自我 vs 世界;以及三个单卡实验,各带证伪条件。另一条候选降为脚注,一条直接删除。E1 已跑,数字为实测,且两次纠正了作者自己;E2、E3 未跑。末尾带 Calibration 表,每条主张分别给 P(机制) 与 P(有用) 及更新条件;「不在 Miras 设计空间内」只给 0.40 并明写为框架之争。"
       },
       "url": "https://machengshen.github.io/theory/no-state-only-history.md",
       "format": "text/markdown",
       "inLanguage": "en",
       "cognitiveState": "speculative",
       "confidence": 0.3
+    },
+    {
+      "id": "consciousness-as-quantum-mechanics",
+      "label": {
+        "en": "Can consciousness be studied mathematically, the way quantum mechanics is?",
+        "zh": "能不能像研究量子力学那样,用数学研究意识?"
+      },
+      "description": {
+        "en": "The note's own summary: the analogy is half true and half a pretty trap, and the piece exists to draw that line rather than to present an equation. Held genuine: a mental state is a high-dimensional shape rather than a score, and what matters between two long-coupled people lives in the coupling itself. Scope is fenced at the top to how a self operates (maintaining its boundary, remembering, getting stuck), explicitly excluding what awareness itself is, which is assigned to first-person practice rather than formalism. The author states in the text that it carries no theorem core and that its cognitive state is exploratory.",
+        "zh": "笔记自述的结论:这个类比一半是真的,另一半是漂亮的陷阱;文章目的是划清这条界而不是端出方程。站得住的:状态是高维的形状不是分数;两个长期相处的人之间最要紧的东西住在耦合本身里。射程在开头自己圈死:只讲自我如何运作,明说碰不到觉知本身是什么,后者交给第一人称实践。作者正文自述无定理内核、认知状态为探索性。"
+      },
+      "url": "https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md",
+      "format": "text/markdown",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative",
+      "confidence": 0.25
+    },
+    {
+      "id": "information-and-qi",
+      "label": {
+        "en": "Information and qi — a comparison note on a parallel line",
+        "zh": "信息与气 —— 对一条平行线路的对照笔记"
+      },
+      "description": {
+        "en": "Addressed to the YouTube channel @itsRedPill and its readers; compares a line arrived at independently from reinforcement learning, decision theory and robotics against that channel's information-ontology arcs. Framed by its author as an invitation rather than a scorecard. Five parts: four points of verbatim convergence (we touch only models; the real-versus-simulated dichotomy does not hold; the self is a process; and, flagged as most valuable, embodiment plus a requirement to maintain one's own existence); the step deliberately declined (the qi slot, dissolved rather than answered, since if the true state of the world is ill-posed so is the question of what underlies the projection); three places judged not to hold up, each with named literature and a stated way to settle it; a constructive replacement for one; and three suggestions. Applies its anti-grand-unification rule symmetrically and states the cost of its own branch. Claims tagged by honesty level. The author states the cognitive state as exploratory and non-conclusive in the text.",
+        "zh": "写给 YouTube 频道 @itsRedPill 及其读者的对照笔记,把一条从强化学习/决策论/机器人学独立走出的线与该频道的信息本体论系列对照,作者定性为邀请而非评分卡。五段:四处共识;一步主动不走的(气那个槽位,取消问题而非回答);三处判断站不住脚处,各附文献与判决方式;其中一处的建设性替代;三条建议。对自己用同一把尺子,并列出自己这条路的代价。论断按诚实度标注。作者正文自述认知状态为探索性、非结论。"
+      },
+      "url": "https://machengshen.github.io/information-and-qi.html",
+      "format": "text/html",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative",
+      "confidence": 0.25
     },
     {
       "id": "intelligence-essay",

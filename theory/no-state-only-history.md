@@ -6,7 +6,7 @@
 
 **The short version, so you can decide in thirty seconds whether to keep reading.** A Transformer has no *state*, only *history*; no *hysteresis*, only a *function*; no *self-boundary*, only a *window*. Every serious alternative on the table — Mamba, RWKV, Titans, Memory Caching — competes on a *first-order* version of the first one: how much of the past to keep addressable and how to compress it. The second-order question is untouched: **how does a state maintain the projection that defines it?**
 
-The concrete claim, and the reason this note exists rather than being a list of directions: **test-time memory should be gated on change in what the memory forgets, not on how surprised it was.** Surprise-gated memory is structurally attracted to noise — noise is by definition the least predictable thing, so it produces the largest write signal, and the thing that should be forgotten hardest gets written hardest. Robust losses patch the symptom by assuming large residuals are usually noise, which is exactly false for the rare events that matter. A gate keyed on subspace change is immune by construction rather than by assumption. **The separation between the two signals is a constructive argument you can check in twenty lines of numpy, and §7/E1 tells you how.**
+The concrete claim, and the reason this note exists rather than being a list of directions: **test-time memory should be gated on change in what the memory forgets, not on how surprised it was.** Surprise-gated memory is structurally attracted to noise — noise is by definition the least predictable thing, so it produces the largest write signal, and the thing that should be forgotten hardest gets written hardest. Robust losses patch the symptom by assuming large residuals are usually noise, which is exactly false for the rare events that matter. A gate keyed on subspace change is immune by construction rather than by assumption. **That separation is now measured, not asserted** — E1 has been run (§7, figure included): across 6,480 updates the two signals decorrelate at Pearson −**0.08**, and at fixed ‖ΔM‖ the μΔ spread covers **100% of the observed range**. Running it also caught an error in my own statement of the argument, corrected in §2.
 
 Everything below carries its occupants and arXiv numbers. Two of my five original candidates did not survive a prior-art audit — one is a footnote, one is deleted. Nothing here has been run. Nothing here is a result.
 
@@ -83,11 +83,17 @@ where `d_Gr` is the principal-angle (Grassmann) distance between the two *r*-dim
 
 The claim to be established is not "μΔ is better". It is the sharper and more attackable one: **there exist update pairs that no (attentional bias, retention gate) combination in Miras can distinguish, and that μΔ separates.** Two families, pointing in opposite directions:
 
-**(A) Large content change, zero boundary change.** Choose ΔM whose column space lies entirely *inside* the existing row space of M_{t-1} — a rotation or rescaling within the already-retained subspace. Then ‖ΔM‖ can be made arbitrarily large, so every ℓp / Huber ℓ and every content-metric R reports a large update — while `Π_{M_t} = Π_{M_{t-1}}`, so **μΔ = 0**. What is kept has not changed at all; only what is stored inside it was rewritten.
+**(A) Large content change, zero boundary change.** *This is the family whose statement running E1 corrected, so it is worth stating what was wrong.* I originally wrote: choose ΔM whose row space lies inside the existing row space of M_{t-1}. **That condition is insufficient.** Writing ΔM = C·V_rᵀ with arbitrary C leaves cross-terms against the discarded block — in the V basis the Gram matrix of M+ΔM is not block-diagonal — so the top-r subspace still rotates. Measured, that naive construction gives a median μΔ of 7×10⁻², not zero.
+
+The correct construction is a change of *basis inside* the retained subspace (V_r → V_r Q for orthogonal Q) together with any rescaling of the retained singular values: the span is preserved by construction, at any magnitude. Measured over 1,440 such updates: **μΔ ≤ 1.6×10⁻⁷ rad (machine precision) at ‖ΔM‖ up to 3.2×10⁴.** So the family exists and does what the argument needs — but only under the stronger condition, and I had the condition wrong in the first version of this note.
 
 **(B) Tiny content change, boundary flip.** Take M_{t-1} with near-degenerate σ_r ≈ σ_{r+1} and apply a perturbation of size ‖ΔM‖ = ε that pushes direction *r*+1 past direction *r* into the top-*r* subspace. Then ‖ΔM‖ → 0, so Miras reports "negligible" — while `d_Gr → π/2`, an entire principal direction swapped out, so **μΔ is maximal**. What is kept was rewritten completely.
 
-The Miras signal is a norm of ΔM under a *content* metric (or a monotone function of one). μΔ is the action of ΔM on the *spectral subspace* of M — a quantity on the quotient Gr(r,d). (A) and (B) show their level sets are transverse: there are update pairs with identical ‖ΔM‖ and μΔ spanning its whole range, and vice versa. **Therefore μΔ is not a monotone function of ℓ or R, and does not lie in the Miras design space.** It is second-order: it measures the update's effect on the *forgetting policy*, not on the *contents*.
+The Miras signal is a norm of ΔM under a *content* metric (or a monotone function of one). μΔ is the action of ΔM on the *spectral subspace* of M — a quantity on the quotient Gr(r,d). (A) and (B) show their level sets are transverse. **Measured (§7/E1, 6,480 updates): the two decorrelate at Pearson −0.08 / Spearman −0.35, and within a single narrow band of ‖ΔM‖ the μΔ values span 100% of the observed range.** The sharpest single pair: ‖ΔM‖ = 3.2×10⁴ with μΔ = 6×10⁻⁸, against ‖ΔM‖ = 1.0×10⁻² with μΔ = 5.7×10⁻³ — a factor of 3×10⁶ in ‖ΔM‖ with the μΔ ordering reversed. **So μΔ is not a monotone function of ‖ΔM‖.** That much is settled.
+
+**What is *not* settled, and this is the weakest joint in the note — stated in the body rather than buried in a caveat.** The step from "not a monotone function of ‖ΔM‖" to "outside the Miras design space" does **not** go through. Miras's retention gate `R(M, M_{t-1})` is a *free slot*: nothing in the framework forbids defining `R := d_Gr`. Do that and this proposal becomes *Miras with a particular R*, not an alternative to it. The honest defence is narrower and is a claim about roles, not about mathematics: in Miras, R occupies the **retention** position — it penalises drift from the previous memory — whereas here subspace geometry occupies the **write-gating** position, deciding whether the update happens at all. Those are different slots in the same equation. **That is a framing dispute, not a mathematical separation, and we should not pretend otherwise.** We put P = 0.45 on the stronger claim surviving (§9); it would rise to 0.8 given a proof that no Bregman or f-divergence R can induce the transversality (A)/(B) exhibit, and that proof does not exist.
+
+What *is* second-order, and does survive: μΔ measures the update's effect on the *forgetting policy* rather than on the *contents*.
 
 ### The strongest argument is about noise
 
@@ -95,9 +101,19 @@ Separation only shows the signal is *different*. Here is why it should be *bette
 
 **Surprise-gated memory is structurally attracted to noise.** Noise is by definition the least predictable thing present, so it maximises ℓ and maximises the gradient: the material that most deserves to be forgotten receives the strongest write. Titans and Miras address this with robust losses that suppress large residuals — but that is a patch on the symptom, and it rests on the statistical assumption that large residuals are *usually* noise. That assumption is precisely wrong for the case anyone actually cares about: the rare event that genuinely matters, which the robust loss suppresses along with the noise.
 
-μΔ does not need the assumption. In high dimension, isotropic noise barely rotates the top-*r* subspace — the effect of a random perturbation on the principal angles decays as *d* grows. So noise gives a large content change and **μΔ ≈ 0**: no write, with no robust loss anywhere in the system. Meanwhile a rare event that actually *changes the structure of the world* swaps a principal direction, so μΔ is large even when its magnitude is small: write. **That is the trade-off one wants, derived from what the quantity measures rather than tuned into it.**
+μΔ does not need the assumption, and the reason is a theorem rather than an intuition. The **Davis–Kahan sin Θ theorem** bounds the rotation of an invariant subspace under perturbation E by
 
-**The honest tension in that argument, which I would rather state than have found.** Noise immunity holds when the spectral gap σ_r − σ_{r+1} is *large*; case (B)'s sensitivity is constructed at near-degeneracy, where the gap is *small*. The two properties therefore live in opposite spectral regimes, and a system whose spectrum sits near degeneracy is one where μΔ is noise-sensitive rather than noise-immune. The gap is doing work that no one has budgeted for, and it is close kin to the *r*-hyperparameter debt in §8. What the noise argument actually licenses is a *conditional* claim — immunity given a gap — and whether real memories maintain that gap is an empirical question E2 has to answer, not a theorem.
+```
+‖sin Θ‖  ≤  ‖E‖ / gap,        gap = σ_r − σ_{r+1}
+```
+
+This is the right citation because it supplies the mechanism **and its failure condition in the same line**: subspace rotation is controlled not by the size of the perturbation but by the *ratio* of perturbation to spectral gap. Where the gap is wide, isotropic noise produces a large content change and **μΔ ≈ 0** — no write, with no robust loss anywhere in the system. Meanwhile a rare event that *changes the structure of the world* swaps a principal direction, so μΔ is large even when its magnitude is small: write.
+
+**E1 confirms the bound is the controlling variable** (§7): over the noise family, μΔ correlates with ‖E‖/gap at Spearman **+0.87**, better than with ‖E‖ alone (+0.80) or gap alone (−0.44). Bucketed by that ratio, median μΔ runs 0.0015 → 0.0049 → 0.036 → 0.36 → 0.96 rad as ‖E‖/gap crosses 0.01 → 0.1 → 1 → 10 — roughly 640× suppression in the small-ratio regime. **The trade-off one wants, derived rather than tuned — but only inside a regime the theorem names.**
+
+**The tension in that argument — and E1 made it worse than I had it.** Noise immunity needs the gap *large*; case (B)'s sensitivity is constructed at near-degeneracy, where the gap is *small*. I had described these as opposite regimes. Measured, they are **disjoint**: in E1's sweep, every near-degenerate system had ‖E‖/gap > 0.1 for *every* noise amplitude injected, so the noise-immune bucket at near-degeneracy is **empty — n = 0**. You cannot buy case-(B) sensitivity and noise immunity in the same spectrum; the gap that makes one work destroys the other.
+
+So the gap is doing work nobody budgeted for, and it is the same debt as the *r* hyperparameter in §8 seen from the other side — one quantity is being asked both to supply noise immunity and to set the retained rank. What the noise argument licenses is strictly conditional: immunity *given* a wide gap. Whether learned memories maintain one is empirical, and the available evidence is not encouraging — linear-attention states are reported to end up low-rank with utilisation well below 1 (arXiv:2602.04852), which is the near-degenerate side of this line. E2 has to settle it; we put P = 0.40 on a real-task advantage (§9).
 
 ---
 
@@ -155,11 +171,33 @@ The highest information density per line in this note, because this is where the
 
 ---
 
-## 7 · Three minimal experiments, each with its kill condition
+## 7 · Experiments — one run, two pending
 
-**E1 · Numerical check of the separation argument (half a day; the foundation).** Construct families (A) and (B) from §2 and scatter ‖ΔM‖ against μΔ. *Expected:* the axes are near-uncorrelated, with samples at fixed ‖ΔM‖ whose μΔ spans the whole range. **Kill:** if the two are strongly correlated, μΔ is ‖ΔM‖ in disguise and the wedge dies on the spot. This is twenty lines of numpy and it is the first thing to run, because it is the cheapest way for the idea to be wrong.
+### E1 · Separation — **run; the wedge survives its own kill condition**
 
-**E2 · Noise robustness (one to two days; the most persuasive).** A long-context recall task with high-amplitude random distractors injected. Compare surprise-gated (Titans-style), Huber-robust (Miras), and μΔ-gated. *Expected:* μΔ-gating matches or beats the robust version **while using no robust loss at all**, and stays flat as distractor amplitude grows where the other two degrade. **Kill:** if μΔ needs a robust loss added back to work, it offers no structural advantage and reduces to an increment. This is also the experiment that decides the spectral-gap tension in §2 — track the gap during the run.
+Pre-registered kill condition: |correlation| > 0.8 between ‖ΔM‖ and μΔ would mean μΔ is ‖ΔM‖ in disguise, and the wedge dies. Result over 6,480 updates at d = 128, r = 16:
+
+| quantity | measured | kill threshold |
+|---|---|---|
+| Pearson(log‖ΔM‖, μΔ) | **−0.083** | \|r\| > 0.8 |
+| Spearman(‖ΔM‖, μΔ) | **−0.347** | — |
+| μΔ spread within one ‖ΔM‖ band | **3.07 rad = 100% of observed range** | — |
+| A-strict: ‖ΔM‖ = 3.2×10⁴ | μΔ = 6×10⁻⁸ rad | — |
+| B: ‖ΔM‖ = 1.0×10⁻² | μΔ = 5.7×10⁻³ rad | — |
+
+![E1: left, ‖ΔM‖ against μΔ for four update families, coloured by relative spectral gap — the vertical stacks show μΔ spanning its full range at fixed ‖ΔM‖. Right, μΔ under isotropic noise against the Davis–Kahan ratio ‖E‖/gap, with the √r·‖E‖/gap ceiling.](https://machengshen.github.io/theory/assets/e1-separation.png)
+
+The pooled correlation is the *weaker* of these numbers, because I choose the ensemble and could tune the correlation by reweighting families. The load-bearing number is ensemble-independent: **within a single band of ‖ΔM‖, μΔ takes 100% of its observed range** — so no monotone function of ‖ΔM‖ can reproduce μΔ. The right-hand panel separately confirms Davis–Kahan is the controlling law for the noise family (Spearman +0.87 on ‖E‖/gap, against +0.80 on ‖E‖ alone).
+
+Two things running it changed, both against me: the family-(A) construction as originally stated was **wrong** (§2), and the spectral-gap tension turned out to be **disjointness rather than opposition** (§2) — the noise-immune bucket at near-degeneracy is empty. Script and figure: [`e1_separation.py`](https://machengshen.github.io/theory/assets/e1_separation.py).
+
+*Caveat that E1 does not touch:* this is linear memory. Nothing here says the induced projection is well defined for an MLP memory — see §8.
+
+### E2 · Noise robustness — not yet run
+
+**E2 · Noise robustness (one to two days; the most persuasive).** A long-context recall task with high-amplitude random distractors injected. Compare surprise-gated (Titans-style), Huber-robust (Miras), and μΔ-gated. *Expected:* μΔ-gating matches or beats the robust version **while using no robust loss at all**, and stays flat as distractor amplitude grows where the other two degrade. **Kill:** if μΔ needs a robust loss added back to work, it offers no structural advantage and reduces to an increment. This is also the experiment that decides the spectral-gap tension in §2 — **track σ_r − σ_{r+1} throughout the run**, since E1 showed the immune and (B)-sensitive regimes are disjoint, so the measured gap of a *learned* memory is what decides whether the noise argument applies at all.
+
+### E3 · The hysteresis curve — not yet run
 
 **E3 · The hysteresis curve (binary verdict on §3).** A state-tracking task with the input swept along a path forward and then back. *Expected:* at the same input point, the forward and reverse sweeps occupy different states — a visible loop. **Kill:** no loop, and §3 dies; the hysteresis question reverts to §4, which is expensive.
 
@@ -167,16 +205,34 @@ The highest information density per line in this note, because this is where the
 
 ## 8 · Honesty list
 
-Not a disclaimer section. These are the four places a good reviewer should attack first, and I would rather point at them.
+Not a disclaimer section. There is no reviewer here; we are the reviewer, so these are the four places *we* judge most likely to be where this fails, with our own numbers attached in §9.
 
-- **Grassmann gating, prior art — partially resolved, and not in my favour on the metric.** The *metric* is entirely off the shelf: subspace change-point detection and principal-angle detectors are mature signal-processing tools, so there is no originality credit in "use principal angles to detect subspace change", and a fair reviewer should ask why this is not simply subspace CUSUM applied to fast weights. The adjacent ML work points the other way rather than at this: **GPM** (arXiv:2103.09762), orthogonal gradient descent and selective gradient projection (arXiv:2603.26671) use subspaces to *protect* capacity by projecting away conflicting gradients — subspace as constraint, not as signal; **SubTrack-Grad** (arXiv:2502.01586) tracks a Grassmannian subspace for optimizer memory efficiency, not as a write gate; and Neural Subspace Reallocation (arXiv:2606.30067), checked directly, gates on embedding similarity at task arrival, not on subspace geometry. I found no one using subspace *change* as the write gate for a test-time memory. That is a composition claim, not a metric claim, and it is the weakest kind of novelty — it survives only until someone points at the paper I missed. Pointing at it is the single most useful reply this note could receive.
+- **Grassmann gating, prior art — partially resolved, and not in my favour on the metric.** The *metric* is entirely off the shelf: subspace change-point detection and principal-angle detectors are mature signal-processing tools, so there is no originality credit in "use principal angles to detect subspace change". The question we have to answer for ourselves is why this is not simply subspace CUSUM applied to fast weights. Our answer: it is not a new detector, it is a claim about *where the detector belongs* — in the write path of a test-time memory rather than in a monitoring path. We rate that composition at P = 0.55 (§9), which is not high. The adjacent ML work points the other way rather than at this: **GPM** (arXiv:2103.09762), orthogonal gradient descent and selective gradient projection (arXiv:2603.26671) use subspaces to *protect* capacity by projecting away conflicting gradients — subspace as constraint, not as signal; **SubTrack-Grad** (arXiv:2502.01586) tracks a Grassmannian subspace for optimizer memory efficiency, not as a write gate; and Neural Subspace Reallocation (arXiv:2606.30067), checked directly, gates on embedding similarity at task arrival, not on subspace geometry. I found no one using subspace *change* as the write gate for a test-time memory. That is a composition claim, not a metric claim, and it is the weakest kind of novelty. One agent, one retrieval pass over a very large literature is weak evidence of absence — hence P = 0.55 rather than anything higher.
 - **Nonlinear memory is the real technical debt, and it is not small.** Π_M is clean when M is a matrix. Titans-style MLP memories need either the spectral subspace of a Jacobian (local, and then "the boundary" is only locally defined) or approximation through a probe distribution (and then the probe distribution is a new hyperparameter smuggled in). Neither is worked out. This is the part most likely to be where the idea actually fails.
 - **Where does *r* come from?** If *r* is a hyperparameter, it revives exactly the objection that killed the capacity candidate in §6 — the compression rate is still handed over by a human. The self-consistent repair is to let *r* adapt to the spectral gap, which is unverified, and which collides with the gap tension in §2: the same quantity is being asked to supply noise immunity and to set the retained rank.
 - **μΔ uses direction only and discards scale within the subspace.** There is plausibly a class of updates where scale matters and direction does not, and this signal is blind to all of them. Recorded as a known blind spot rather than defended.
 
 ---
 
-## 9 · What would make me drop the diagnosis itself
+## 9 · Calibration
+
+There is no reviewer here. We are the reviewer, so the obligation is to put our own numbers on our own claims rather than to argue a case. Two separate scores, because merging them is self-deception: **P(mech)** = the mechanism is real; **P(useful)** = it produces an observable advantage at realistic scale. Every number carries the observation that would move it — a confidence without an update condition is decoration.
+
+| Claim | P(mech) | P(useful) | What moves it |
+|---|---|---|---|
+| μΔ is not a monotone function of ‖ΔM‖ (separation) | **0.97** | n/a | **Settled by E1** (−0.08 pooled; 100% within-band spread). Was 0.90 before running; raised because the measured spread is the ensemble-independent form of the claim. Falls to 0.1 only if the A-strict construction is shown degenerate. |
+| …therefore μΔ lies outside the Miras design space | **0.40** | n/a | Our weakest joint. Miras's `R` is a free slot; `R := d_Gr` makes this "Miras with a particular R", so the defence is about which *role* the term plays, not mathematics. Rises to 0.8 given a proof that no Bregman/f-divergence `R` induces (A)/(B) transversality. **Lowered from 0.45** after writing §2 out in full: the role-based defence is weaker on the page than it was in my head. |
+| Noise immunity via Davis–Kahan | **0.90** | **0.30** | Mechanism confirmed by E1 (Spearman +0.87 on ‖E‖/gap; ~640× suppression at small ratio) — raised from 0.85. **P(useful) lowered from 0.40**: E1 showed the immune regime and the (B)-sensitive regime are *disjoint*, not merely opposed (n = 0 at near-degeneracy), and learned states trend low-rank / near-degenerate (arXiv:2602.04852). E2 settles it. |
+| Threshold gating ⟹ hysteresis (absorbs W2) | **0.75** | **0.30** | Unchanged; not yet tested. E3 with no loop → P(mech) to 0.15 and W2 must reopen separately. |
+| Nobody uses subspace change as a write gate | **0.55** | n/a | One agent, one retrieval pass over a huge literature is weak evidence of absence. A second independent pass finding nothing → 0.7; a hit → 0. |
+| Induced projection extends to nonlinear memory | **0.35** | **0.25** | **Added — it was missing, and it is the most likely place this dies.** Π_M is clean only for matrix M; Titans-style MLP memories need a Jacobian spectral subspace (locally defined only) or a probe distribution (a new hyperparameter). A working definition that survives a Titans-scale run → 0.7. |
+| Whole line survives six weeks of our own honest testing | **0.30** | — | Unchanged. The killer is not originality; it is row 2 (framing dispute) plus row 3's P(useful) collapsing when real spectra turn out near-degenerate. |
+
+**Where we disagree with the baseline we were handed.** Three changes, each with a reason rather than a vibe. Row 1 up (0.90 → 0.97): E1 has been run and the within-band spread is stronger evidence than the pooled correlation. Row 2 down (0.45 → 0.40): writing the concession out made the role-based defence look thinner, not thicker. Row 3's P(useful) down (0.40 → 0.30): the disjointness result is worse than the tension as originally described. And one row added that the baseline omitted — nonlinear memory, at P(mech) 0.35, which on our own numbers is the single most likely cause of death.
+
+**The most likely thing to kill this line, concretely:** not being scooped, and not E3. It is that Π_M has no honest definition for an MLP memory, so the whole construction only ever applies to linear fast-weight memories — a corner of the design space that Titans and Miras have already left. The check is cheap and should come before E2: take a two-layer MLP memory, define Π via the Jacobian spectral subspace at a probe batch, and measure whether μΔ is stable under resampling the probe batch. If it is not, this is a linear-algebra result about a shrinking corner, and should be labelled as one.
+
+## 10 · What would make me drop the diagnosis itself
 
 **It could be factually wrong.** If a model with no latch, no boundary and no chosen projection nonetheless shows behavioural path-dependence not attributable to context *contents* — two runs with token-identical contexts assembled by different routes, behaving differently — then "no hysteresis, only a function" is false as stated. I do not expect it, since a forward pass is deterministic given its context and that is close to definitional. It costs an afternoon, so check it first anyway.
 
@@ -184,13 +240,15 @@ Not a disclaimer section. These are the four places a good reviewer should attac
 
 ---
 
-## 10 · Provenance of this note
+## 11 · Provenance of this note
 
-Cognitive state: **speculative** throughout. No experiment here has been run. Nothing here is a result.
+Cognitive state: **speculative** throughout, with one exception: **E1 has been run**, and its numbers in §7 are measured rather than expected. E2 and E3 have not been run. §9 states a calibrated confidence for every substantive claim together with the observation that would move it.
 
 The prior-art positions in §2, §4, §5 and §6 come from a dedicated audit against five original candidates, and the audit **reversed my ranking**: what I had second is now the mainline, what I had fourth is now third and conceded, one candidate became a footnote and one was deleted. §3 was not planned; it appeared while working out §2 and is deliberately stated as a narrow conditional rather than a synthesis, because the failure mode of this line has historically been to unify things that only rhyme.
 
-This line has been scooped three times: on the cognitive light cone, on a boundary bifurcation published by Tononi & Koch in 2015, and once by an earlier note of my own that turned out to be re-deriving Friston. After that record, being right about what is already occupied is worth more than being first. Corrections — above all "this is occupied, here is the citation" — are the most valuable thing anyone can send back.
+Running E1 changed three things in this note, all against the author: the family-(A) construction was stated wrongly and is corrected in §2; the spectral-gap tension turned out to be disjointness rather than opposition, which lowers §9's P(useful) for the noise argument; and the step from "not a monotone function of ‖ΔM‖" to "outside the Miras design space" was found not to go through at all, and is now stated as an open framing dispute in the body rather than defended.
+
+This line has been scooped three times: on the cognitive light cone, on a boundary bifurcation published by Tononi & Koch in 2015, and once by an earlier note of my own that turned out to be re-deriving Friston. After that record, being right about what is already occupied is worth more than being first. There is no reviewer to satisfy here and no venue being targeted; the only question is whether the thing is true, which is why §9 states calibrated confidences and what would move them rather than arguing a case. Corrections — above all "this is occupied, here is the citation" — move those numbers fastest.
 
 Contact: macshen93@gmail.com
 
@@ -206,5 +264,7 @@ Contact: macshen93@gmail.com
 - Zverev et al. (2026), *ASIDE: Architectural Separation of Instructions and Data*, arXiv:2503.10566 (ICLR 2026); ISE, arXiv:2410.09102 (NeurIPS 2024); inseparability result, arXiv:2606.27567
 - Li, Han & Yin (2025), *MamKO: Mamba-based Koopman Operator*, ICLR 2025; input-conditioned Koopman in selective SSMs, arXiv:2606.09432
 - Rate–distortion view of KV compression, arXiv:2607.08032
+- Davis & Kahan (1970), the sin Θ theorem; Yu, Wang & Samworth (2015), *A useful variant of the Davis–Kahan theorem for statisticians* — the bound ‖sin Θ‖ ≤ ‖E‖/gap that supplies both the noise-immunity mechanism and its failure condition
+- Low-rank structure and utilisation of learned linear-attention states, arXiv:2602.04852
 - Zwanzig (2001), *Nonequilibrium Statistical Mechanics* — the memory-kernel price of projection
 - Related notes on this site: [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) · [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md)
