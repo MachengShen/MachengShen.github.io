@@ -1,6 +1,6 @@
 """
 E1 - does mu-delta (Grassmann distance between induced projections) carry
-information that ||dM||_F (the Miras-visible content-metric norm) does not?
+information that the content-magnitude statistic ||dM||_F does not?
 
 Honesty notes baked into the design:
 
@@ -12,7 +12,7 @@ Honesty notes baked into the design:
    of ||dM|| can reproduce mu-delta. Both numbers are reported.
 
 2. The noise-immunity claim is NOT "noise never moves the boundary". It is the
-   Davis-Kahan bound ||sin Theta|| <= ||E|| / gap. So noise must be stratified
+   Wedin singular-subspace bound ||sin Theta|| = O(||E|| / gap). So noise must be stratified
    by the ratio ||E||/gap, not by amplitude alone. Conflating the two would
    flatter the claim. Panel 2 tests the bound directly.
 """
@@ -67,7 +67,7 @@ def make_M(gap_mode):
         s[:r] = np.linspace(10.0, 4.0, r)
         s[r:] = np.linspace(4.0 - 1e-3, 0.05, d - r)
     M = np.ascontiguousarray((U * s) @ V.T)
-    abs_gap = s[r - 1] - s[r]                       # Davis-Kahan denominator
+    abs_gap = s[r - 1] - s[r]                       # Wedin separation denominator
     return M, abs_gap, abs_gap / s[0], U, s, V
 
 
@@ -159,7 +159,7 @@ print(f"max within-band spread = {best:.4f} rad "
       f"(full observed range = {mud.max()-mud.min():.4f} rad, "
       f"= {100*best/(mud.max()-mud.min()):.1f}% of it)")
 
-print("\n-- Davis-Kahan test: is ||E||/gap the controlling variable for noise? --")
+print("\n-- Wedin-style test: is ||E||/gap the controlling variable for noise? --")
 mC = fam == "C  isotropic noise"
 ratio = nrm[mC] / absgap[mC]
 mudC = mud[mC]
@@ -200,7 +200,7 @@ for f, mk in (("A  in-subspace rewrite (strict)", "o"),
                     s=26, alpha=.82, linewidths=.3, edgecolors="k",
                     vmin=relgap.min(), vmax=relgap.max(), label=f)
 ax.set_xscale("log")
-ax.set_xlabel(r"$\|\Delta M\|_F$   (all that Miras can see)")
+ax.set_xlabel(r"$\|\Delta M\|_F$   (update-magnitude statistic)")
 ax.set_ylabel(r"$\mu\Delta$ = Grassmann distance (rad)")
 ax.set_title("E1: the two signals are transverse\n"
              f"Pearson$(\\log\\|\\Delta M\\|,\\ \\mu\\Delta)$ = {pear:+.3f},  "
@@ -214,9 +214,9 @@ ax2.scatter(ratio, mudC, c=relgap[mC], cmap="viridis", s=26, alpha=.85,
             edgecolors="k", linewidths=.3)
 xs = np.geomspace(max(ratio.min(), 1e-4), ratio.max(), 200)
 ax2.plot(xs, np.minimum(np.sqrt(r) * xs, np.sqrt(r) * np.pi / 2), "r--", lw=1.3,
-         label=r"Davis–Kahan ceiling $\sqrt{r}\,\|E\|/\mathrm{gap}$")
+         label=r"Wedin-style reference $\sqrt{r}\,\|E\|/\mathrm{gap}$")
 ax2.set_xscale("log"); ax2.set_yscale("log")
-ax2.set_xlabel(r"$\|E\|_F\ /\ \mathrm{gap}$   (Davis–Kahan controlling ratio)")
+ax2.set_xlabel(r"$\|E\|_F\ /\ \mathrm{gap}$   (Wedin-style ratio)")
 ax2.set_ylabel(r"$\mu\Delta$ under isotropic noise (rad)")
 ax2.set_title("Noise immunity is conditional, and the condition\n"
               "is the gap — not the noise amplitude", fontsize=10)
@@ -226,7 +226,7 @@ ax2.legend(loc="lower right", fontsize=7.5)
 ax2.grid(alpha=.25, lw=.5, which="both")
 
 fig.tight_layout()
-out = "/Users/macheng/Projects/MachengShen.github.io/theory/assets/e1-separation.png"
+out = os.path.join(os.path.dirname(__file__), "e1-separation.png")
 os.makedirs(os.path.dirname(out), exist_ok=True)
 fig.savefig(out, dpi=170, bbox_inches="tight")
 print(f"\nwrote {out}")

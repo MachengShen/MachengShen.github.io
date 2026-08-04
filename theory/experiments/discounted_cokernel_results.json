@@ -1,0 +1,105 @@
+{
+  "definition": {
+    "operator": "(D_gamma phi)_e = phi_tail - gamma*phi_head",
+    "obstruction": "W-orthogonal residual of r modulo im(D_gamma)",
+    "tolerance": 1e-10
+  },
+  "simple_cycles": {
+    "gamma_0_9": {
+      "rank": 5,
+      "residual_norm": 5.711177596445608e-15
+    },
+    "gamma_1": {
+      "rank": 4,
+      "residual_norm": 2.23606797749979
+    }
+  },
+  "partial_observability": {
+    "all_trials": {
+      "n": 3000,
+      "fraction_nonzero": 0.9363333333333334,
+      "mean_residual_norm": 0.7823706196235005,
+      "max_residual_norm": 2.7115248061526263
+    },
+    "historical_filter": {
+      "n": 1484,
+      "fraction_nonzero": 0.9305929919137467,
+      "mean_residual_norm": 0.7322812759484121,
+      "max_residual_norm": 2.3987956937673856
+    },
+    "by_unique_edge_count": {
+      "3": {
+        "n": 191,
+        "fraction_nonzero": 0.0,
+        "mean_residual_norm": 9.666317786441551e-16,
+        "max_residual_norm": 3.7072140595260096e-15
+      },
+      "5": {
+        "n": 1230,
+        "fraction_nonzero": 1.0,
+        "mean_residual_norm": 0.7085400388947427,
+        "max_residual_norm": 2.593594029182232
+      },
+      "6": {
+        "n": 1579,
+        "fraction_nonzero": 1.0,
+        "mean_residual_norm": 0.9345203363077693,
+        "max_residual_norm": 2.7115248061526263
+      }
+    }
+  },
+  "exact_alias_structure": {
+    "balanced_alias_maps": 90,
+    "conditioned_maps": 45,
+    "generic_nonexact_maps": 42,
+    "generic_nonexact_ratio": "42/45",
+    "fraction_generic_nonexact": 0.9333333333333333,
+    "by_unique_edge_count": {
+      "3": {
+        "aliases": 3,
+        "generic_nonexact": 0
+      },
+      "5": {
+        "aliases": 18,
+        "generic_nonexact": 18
+      },
+      "6": {
+        "aliases": 24,
+        "generic_nonexact": 24
+      }
+    }
+  },
+  "operator_regressions": {
+    "projector_idempotence_defect": 1.5013401033709893e-13,
+    "weighted_self_adjoint_defect": 3.718660524767377e-14,
+    "normal_equation_defect": 5.017794722471829e-16,
+    "shaping_invariance_defect": 9.18873053048877e-16
+  },
+  "two_axis_dissociation": {
+    "representation": {
+      "full": {
+        "residual_norm": 4.167405171867302e-15,
+        "relative_residual": 7.259747937451874e-16
+      },
+      "exact_alias": {
+        "residual_norm": 7.021666937153402e-16,
+        "relative_residual": 6.5002200334436535e-16
+      },
+      "overconstrained_alias": {
+        "residual_norm": 2.136384584558046,
+        "relative_residual": 0.9116137696067379
+      }
+    },
+    "strategic": {
+      "potential": {
+        "harmonic_norm": 1.0877919644084146e-15,
+        "harmonic_fraction": 2.7194799110210365e-16
+      },
+      "harmonic": {
+        "harmonic_norm": 3.9999999999999996,
+        "harmonic_fraction": 0.9999999999999999
+      }
+    },
+    "next_test": "perform both targeted repairs in one coupled learner and verify axis selectivity"
+  }
+}

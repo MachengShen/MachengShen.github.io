@@ -42,15 +42,16 @@ Five notes published together on one house rule: every substantive claim carries
 One thread runs through all of it: *information, the operators that transform it, and what it costs to forget.*
 
 - [Holography ↔ Koopman: two faces of one inverse problem](https://machengshen.github.io/theory/holography-koopman.md) `speculative` — holography generates spacetime geometry out of entanglement structure; a general learning machine learns an eigenbasis of its own dynamics. These are the same inverse problem seen twice: recover an operator's eigenstructure from what the operator does. The HaPPY holographic error-correcting code is the physical twin of the claim that *forgetting is compression, not deletion*.
-- [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — the "state" of a Markov decision process is not handed to you by the world. It is the *solution* to a closure equation under four constraints: world, interface, capacity, telos. Choosing a state is choosing a projection, and choosing a projection is choosing what to forget. Includes a projection-consistency experiment (self-consistent solutions exist and are unique on the tested regime; excess capacity admits trivial components).
+- [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) `speculative` — treats task-relative state as a closure representation under world, interface, capacity and telos, explicitly as inference rather than universal ontology. Scope amended 2026-08-04: causal-state and Mori–Zwanzig claims are stated under their formal assumptions; finer information enlarges an admissible policy class rather than automatically every physical reachable set; the private fixed-point observation is unaudited; Anthropic's J-space is transient workspace evidence, not persistent closure. OpenAI's non-sofic-group construction and Connes-rigidity counterexample are used only as constraints: finite approximability must be declared, and operator-level equivalence need not identify one unique substrate.
+- [Discounted credit is a cokernel problem, not a loop holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md) `survived` — a formal correction plus executable finite-graph result. Withdraws `M=4.095` as a gauge-invariant discounted holonomy: on a simple cycle and `0≤γ<1`, `det(I−γP)=1−γ^n≠0`, so every reward has a discounted potential. Replaces it with the weighted reward residual modulo the image of the discounted incidence operator across the **entire observed edge system**. Exact enumeration gives 42 generically non-exact maps among the 45 balanced aliases passing the historical filter (`14/15=93.333...%`); the fixed-seed 1,484 sample gives 93.0593%, and all 3,000 trials give 93.6333%. A Cartesian 2×2 definition check independently varies this representation obstruction and strategic harmonic flow; actually applying the two targeted repairs in one coupled learner is explicitly the next experiment, not a result. Also incorporates the 2026 J-space evidence boundary: Transformers have a transient workspace-like representational state, but no persistent autonomous closure state has thereby been shown.
 - [The odd relational core: anti-bipartiteness as the minimal structure](https://machengshen.github.io/theory/odd-relational-core.md) `speculative` — why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on *small, odd, centered, ever-turning* relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an "us vs. them" binary terminus while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: "odd" is demoted to a corollary of "anti-binary", two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion. The self-audit is the payload.
 - [Two-body karma: three modes of relational inertia](https://machengshen.github.io/theory/two-body-karma.md) `speculative` · 中文 — extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: once two people are coupled, the inertia lives in neither person but in the coupling itself, and each mode gains a property the single-body version lacks. Shared mud is scene-keyed sedimentation of default scripts, cheapest to rewrite off the old scene; the mutual spring is the model of you stored in the other's head — an external memory of your old pattern that keeps predicting the old you, which is why unilateral self-reform systematically fails in relationships until that model is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state (cold war/reconciliation, pursue/withdraw) with hysteresis, which snaps back under any sub-threshold unilateral effort and flips only when both sides cross the threshold together. The stated goal is not zero coupling — that is the death of the relationship, not liberation — but migrating the coupling into a negotiable spring. Diagnose the mode before choosing the remedy; the dynamical-systems language is marked as structural rhyme, not derivation, and the note closes with the observations that would break it.
 - [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md) `speculative` — a proposal that a robot should *learn* the boundary between itself and the world rather than be handed it by an engineer, and the one-day campaign in which three of its four supporting claims were destroyed — every one of them by the authors' own simulator or own re-analysis. What survived: hysteresis in the boundary does emerge from a self-reinforcing precision loop without a hand-installed non-linearity, and it survives extrapolation to zero sweep rate (24–35× the resolution floor). What died: the self-specificity (raise one free amplitude and a wind-blown ball's boundary sticks digit-for-digit identically, so hysteresis is a generic property of any gated slow variable); the signature prediction that release is slower than incorporation (falsified in both implementations, with the asymmetry pointing the *wrong way* in the second, for a computable reason — precision amplifies the evidence *against* a channel just as much); and the claim that any of it falls out of the proposed objective (it needs a cost/benefit ratio hand-tuned to ~2%, which the objective places 2–420 window-widths away). The human-side motivation turned out to rest on an unreferenced "empirically well established"; two independent public datasets re-analysed here both point to *adaptation*, the opposite sign. Written in two layers: a jargon-free narrative first, then the full measured record. **Not ratified, not a result.**
 - [Stage log — the self-boundary line, in order](https://machengshen.github.io/theory/learning-the-self-boundary-log.md) `speculative` — the audit trail for the note above: one row per stage (specification, prior-art audit, evidence audits, three rounds of data hunting, two human re-analyses, three simulation stages), each stating what it *overturned or established*. It is mostly a record of self-inflicted damage, including the three reusable mistakes: reading a probe's signal-to-noise as the system's coupling strength and then shipping that misdiagnosis downstream as a premise; believing three separate "trial-level data available" statements that all turned out to be aggregates with no trial index; and letting an unreferenced "empirically well established" carry an architectural conclusion.
-- [No state, only history](https://machengshen.github.io/theory/no-state-only-history.md) `speculative` — a diagnosis of the Transformer — no *state*, only *history*; no *hysteresis*, only a *function*; no *self-boundary*, only a *window* — and one wedge worked far enough to be attacked. A KV cache is an unprojected record, not a state: the architecture declines to choose a projection, so the forgetting is delegated to the context window, a knife applied from outside on recency rather than relevance. Read as a constraint rather than a method, Memory Caching (arXiv:2602.24281) says recall requires an addressable set growing with sequence length — which puts Mamba, RWKV, Titans and MC on one *first-order* axis and leaves the second-order question untouched: how a state maintains the projection that defines it. The concrete proposal is that test-time memory should be gated on change in *what the memory forgets* rather than on surprise. Surprise-gated memory is structurally attracted to noise — noise is the least predictable thing, so it produces the largest write signal, and robust losses only patch the symptom by assuming large residuals are usually noise, which is exactly false for rare events that matter. Defines μ as the projection a memory induces (its top-r row space) and the signal as the Grassmann distance between successive projections, computable at the same O(d·r) cost as a Miras update; gives a *constructive* separation showing two update families that no (attentional bias, retention gate) pair in Miras (arXiv:2504.13173) can tell apart and this signal can — large content change with zero boundary change, and ε-sized content change that flips a principal direction. An unplanned corollary, stated as a narrow falsifiable conditional rather than a synthesis: thresholding that gate yields stickiness, jumps and remanence — hysteresis as a by-product, without building it from multi-step Hopfield iteration. Includes an honesty list that concedes the metric itself is off-the-shelf subspace change-point detection, that nonlinear memories have no clean projection, and that the retained rank r revives the hyperparameter objection; a conceded section on provenance where ASIDE (arXiv:2503.10566) already built the unforgeable tag and arXiv:2606.27567 proves perfect injection resistance impossible, narrowing the claim to the *self-versus-world* cut; and three single-GPU experiments each with its kill condition, the first of which is twenty lines of numpy. One further candidate is demoted to a footnote and one — a Koopman eigenbasis, occupied outright by MamKO at ICLR 2025 — is deleted, so it is not rediscovered. **E1 has been run and its numbers are measured** (Pearson −0.08; μΔ spanning 100% of its range at fixed ‖ΔM‖) — and running it corrected the note against its own author twice: the family-(A) construction was stated wrongly, and the spectral-gap tension turned out to be *disjointness* rather than opposition. E2 and E3 are not run. Closes with a **Calibration** table giving every substantive claim two separate numbers — P(mechanism) and P(useful at scale) — plus the observation that would move each; the step from the measured separation to “outside the Miras design space” is scored 0.40 and conceded in the body as a framing dispute, since Miras’s retention gate is a free slot that could simply be defined as this distance.
+- [No state, only history](https://machengshen.github.io/theory/no-state-only-history.md) `speculative` — title retained as a record, but the broad diagnosis is withdrawn. A standard Transformer has activation state, computational state and a transient workspace-like representational state; Anthropic's J-space supplies causal evidence for the last. The narrower missing object is a persistent, autonomous, path-dependent closure state that maintains its own projection/forgetting policy across steps, apart from persistence serialized into tokens, KV, parameters or external memory. E1 still establishes a real linear-memory separation: Grassmann subspace change is not a monotone function of update magnitude (Pearson −0.08; full within-band spread). The Miras distinction remains a framing dispute and nonlinear memory remains the largest technical debt. A second correction withdraws “thresholding implies bistability”: E3 now requires carrier-matched controls, two stable branches, distinct switching behavior and remanence; P(mechanism) is reset from 0.75 to 0.35. E2 and corrected E3 remain unrun.
 - [Toward a Theory of Intelligence and Contemporary AI](https://machengshen.github.io/essay.pdf) — the long-form essay. Also on the [homepage](https://machengshen.github.io/).
 - [A unified-theory attempt on consciousness](https://machengshen.github.io/research/consciousness-unified-theory.html) `speculative` · 中文
-- [Can consciousness be studied mathematically, the way quantum mechanics is?](https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md) `speculative` · 中文 — the note's own summary of its result: the analogy is half true and half a very pretty trap, and the piece exists to draw that line rather than to present an equation. Held to be genuine: a mental state is a high-dimensional shape rather than a score, and what matters between two long-coupled people lives in the coupling itself and cannot be factored into one description per person. Scope is fenced explicitly at the top — the note covers only how a self operates (how it maintains its boundary, remembers, gets stuck) and states that it cannot touch what awareness itself is, which it assigns to first-person practice rather than to formalism. Self-described as carrying no theorem core; the author states the cognitive state as exploratory in the text itself.
+- [Can consciousness be studied mathematically, the way quantum mechanics is?](https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md) `speculative` · 中文 — a boundary note, amended 2026-08-04. High-dimensional state and joint variables are legitimate modelling choices but carry no quantum specificity; ordinary statistical coupling already covers the human-relations examples. The earlier identification of non-exact forms, holonomy, path dependence, hysteresis, memory and consciousness is withdrawn. Closed unitary dynamics can encode history, so the objection to a Schrödinger equation is not “reversibility forbids memory” but the absence of an empirically identified generator, environment and coarse-graining protocol. First-person experience is treated as an indispensable data surface, not as proof that formalization is impossible. J-space, COGITATE and anaesthetized-hippocampus results are used to keep reportability, complex representation, plasticity and consciousness separate.
 - [Information and qi — a comparison note on a parallel line](https://machengshen.github.io/information-and-qi.html) `speculative` · 中文 — a note addressed to the YouTube channel @itsRedPill and its readers, comparing a line arrived at independently from reinforcement learning, decision theory and robotics against that channel's information-ontology arcs, and framed by its author as an invitation rather than a scorecard. Five parts: four points of verbatim convergence (we touch only models, never reality; the real-versus-simulated dichotomy does not hold; the self is a process rather than an entity; and — flagged as the most valuable of them — embodiment plus a requirement to maintain one's own existence); the one step this line deliberately declines to take (the *qi* slot, dissolved rather than answered, on the grounds that if the true state of the world is ill-posed then so is the question of what underlies the projection); three places judged not to hold up, each with named literature and a stated way to settle it; a constructive replacement for one of them; and three suggestions. Applies its own anti-grand-unification rule symmetrically, noting that explaining everything is an alarm rather than an achievement, and stating the cost of its own branch — no origin story, no L0. Claims are tagged by honesty level ([theorem] / [framework] / [inference] / [rhyme]); the author states the cognitive state as exploratory and non-conclusive in the text itself.
 - [From strings to consciousness](https://machengshen.github.io/research/strings-to-consciousness.html) `speculative` · 中文
 - [Sleep, waves, and learning](https://machengshen.github.io/research/sleep-learning-wave-theory.html) `speculative`
@@ -337,12 +338,12 @@ secret，也绝不等于“可以安全发布”。
 
 ---
 
-## Source: /theory/consciousness-as-quantum-mechanics.md (sha256:005479e09195, language: zh-Hans)
+## Source: /theory/consciousness-as-quantum-mechanics.md (sha256:f9eee752646d, language: zh-Hans)
 
 
 # 能不能像研究量子力学那样,用数学研究意识?
 
-*一次讨论的整理 · 2026-07-20*
+*一次讨论的整理 · 2026-07-20 · 2026-08-04 数学边界修订*
 
 ## 先读这段
 
@@ -352,9 +353,11 @@ secret，也绝不等于“可以安全发布”。
 
 全文没有定理内核,认知状态是探索性的。我更看重的是把边界划清楚,而不是端出一个好看的方程让人以为我们懂得比实际多。
 
-还有一句得先讲明白,免得误会:**这套东西只讲"自我是怎么运作的"——它怎么维护自己的边界、怎么记住、怎么卡住;它碰不到"觉知本身是什么"。** 你此刻正在体验、正在知道这一切的那个"知",是另一回事,不在这篇的射程里,也不该用公式去套——那得靠亲身体验(第一人称的实践),不是靠方程。这两件事我特意分开:一件能算,一件不能,把它们混在一起是自欺。这篇只谈能算的那件。
+还有一句得先讲明白,免得误会:**这篇只选择研究"自我是怎么运作的"——它怎么维护边界、记住、切换与卡住;它不声称已经解释 phenomenal consciousness。** 第一人称体验是意识研究不可删除的数据面,但“只能体验、原则上不能形式化”本身也不是定理。这里采取的是范围约束,不是对数学可能性的终局宣判。
 
-## 真的那一半:意识更像"一个形状",不是"一个分数"
+**2026-08-04 纠错。** 初稿把几件只在表面上相似的东西压成了同一个谓词:非恰当 1-form、holonomy、路径依赖、滞回、记忆。这个等同不成立。下文已改成:它们是需要分别测量、分别控制 carrier 的不同对象。另一个新边界来自 J-space:Transformer 内部已经有可报告、可灵活路由的瞬时 workspace-like 表征,但这不等于跨步持续、自主维持的 closure state,更不等于意识。
+
+## 能保留的那一半:意识更像"一个形状",不是"一个分数"
 
 先说能站住的。
 
@@ -364,7 +367,7 @@ secret，也绝不等于“可以安全发布”。
 
 ## 两个人:最要紧的东西住在"关系本身"里
 
-这是最像量子力学、也最真的一点。
+这是最像量子力学、也最值得保留的结构类比。
 
 两个人长期相处之后,会出现一个现象:有些东西**既不在你身上、也不在他身上,而在你们俩之间**。你自己怎么调整都没用,因为那个东西不归任何一方单独所有。量子力学里有个几乎一模一样的结构:两个粒子可以处在一个"拆不开"的联合状态——你没法把它写成"这个粒子这样 × 那个粒子那样"。
 
@@ -373,7 +376,7 @@ secret，也绝不等于“可以安全发布”。
 - **拆不开**,对应"关系的惯性住在耦合本身,不在各自内部"。
 - 你只能看到"你这边"的那一份,看不到完整的联合状态——这正好解释了为什么两个人对同一段关系的记忆,总是两份各自有偏的副本,而且越记越歪。
 
-到这里都是真的,是好东西。
+到这里是一个值得保留的**结构类比**,不是关于人际关系的量子力学定理。边缘化会丢掉联合信息这一数学事实是真的;它是否解释具体关系记忆,仍要靠行为数据。
 
 ## 扫兴的那一半(一):这不需要"量子纠缠"这么玄
 
@@ -381,7 +384,7 @@ secret，也绝不等于“可以安全发布”。
 
 "拆不开"确实要紧,但**它不需要量子纠缠这么神秘的东西**。普通的"相关"就能给你"拆不开"——两个人的状态互相关联,联合起来算和分开算不一样,这在最普通的概率里就有,不用搬量子。
 
-想真的用上"纠缠"这个词,得拿出量子专有的证据。其中一条特别好检验:量子纠缠是"专一"的——如果 A 和 B 缠得最深,A 就不能同时和 C 缠得一样深。可是人显然能同时和好几个人有很深的关系(伴侣、父母、挚友)。**这一条恰好说明:人与人之间那种"缠",不是量子意义上的纠缠。**
+想真的用上"纠缠"这个词,得拿出量子专有的证据,例如在定义清楚的测量协议下违反适当的 Bell 不等式。量子纠缠确有 monogamy 约束,但“一个人能同时有多段深关系”并不是它的直接反证:两边的 subsystem、纠缠度量与测量都没有对应起来。这个例子最多提醒我们不要把日常“深关系”偷换成量子纠缠。
 
 所以老实讲:"纠缠"目前是个借来的词,唬人的。真正在起作用的,是"拆不开的联合状态"这个朴素结构。去掉那层量子神秘感,剩下的反而更干净、更能对上真实的关系现象。
 
@@ -393,24 +396,21 @@ secret，也绝不等于“可以安全发布”。
 
 意识我们**没有**这个东西。我们不知道那个决定一切的"发动机"是什么。**写下一道 ψ 满足的方程、却说不出方程里那个发动机是什么,那是空的**——是借符号的庄严感,冒充内容。这是最典型的自欺入口。
 
-更麻烦的是,就算硬猜一个发动机,薛定谔这一类方程本身也和我们自己最好的发现**正好相反**:
+更准确的反对理由不是“薛定谔方程天生没有记忆”。闭合系统的幺正演化可以把过去编码在当前联合态与环境关联里;一个被粗粒化的子系统也可以呈现耗散与有记忆的有效动力学。可逆的微观定律和不可逆的宏观现象并不矛盾。
 
-- 薛定谔方程是**无记忆、可逆**的——绕一圈能原样回到起点。
-- 可我们自己最扎实的发现是:意识的"自我边界"有**记忆、会卡住、回不去**。它像个卡扣:滑进去容易,爬出来要跨一个高得多的门槛;而且从哪条路来的,会影响你现在在哪。
+真正的问题有两个。第一,我们没有从数据与干预中识别出意识动力学的生成元,所以写 `ĤΨ=iℏ∂ₜΨ` 没有预测内容。第二,如果要解释吸引子、滞回与稳定切换,只写一个孤立、有限、线性、幺正的心理态模型不够;必须明确环境、粗粒化、非线性有效变量或开放系统耦合。**不是量子语法被数学禁止,而是现阶段没有证据挣得它。**
 
-一个"无记忆、可逆"的方程,天生做不出"有记忆、回不去"这件事。**所以坚持套氢原子那套,等于坚持一个我们已经知道和意识记忆相矛盾的框架。** 这不是小瑕疵,是选错了工具箱。
-
-那对的工具是什么?是一类**会耗散、有记忆、会卡在某个状态里出不来的非线性系统**——不是那个漂亮但无记忆的方程。它没那么优雅,但至少类别对了,而且能做实验去证伪。
+因此更合适的默认工具箱是可识别的状态空间模型、非线性耗散系统与显式记忆核;如果坚持开放量子系统语法,也必须从实验中约束 `H` 与 `L_k`,不能用符号替代机制。
 
 ## 一个我觉得真漂亮的点:"绕一圈回不到原点"
 
 最后讲一个我认为不是花架子的东西。
 
-"有记忆"用数学说是什么?是**绕一个闭环、回不到原点**。你让系统兜一圈、回到名义上一样的状态,如果它累积下来的东西不归零,那就说明有一份任何"当前状态"都装不下的记忆——它藏在路径里。
+“绕一圈”仍然是一个好实验,但它测到什么取决于**回到了哪个空间里的同一点**。如果只把外部控制量复位,内部状态仍不同,可以得到滞回环;把内部状态也纳入扩展 state 后,整个过程仍可能是 Markov 的。非零 1-form 环积分说明的是“这个指定图/表示上的场不是某个标量势的梯度”,不等于一般意义上的记忆,更不等于意识。
 
-这个"绕一圈回不回得到原点",恰好是一把钥匙,把两件事连成了一件:"为什么薛定谔那类方程不对"和"为什么意识有记忆",其实是**同一个问题的两种问法**。而且关键是——**它能测**:让系统绕一个闭环,看它回不回得到原点。回得到,说明没有真记忆,漂亮方程够用了;回不到,说明记忆是真的,任何无记忆的框架都装不下它。
+所以实验必须同时记录 carrier:外部输入、内部活动、KV/文本历史、外部记忆、参数与环境。只有在这些控制清楚后,forward/reverse sweep 的分叉、不同切换阈值与 remanence 才能支持“存在滞回”。简单 lag、未重置的缓存或表征粗粒化都不能冒充它。
 
-我看重这条,不是因为它听起来深,而是因为它落到了一个能做、能被推翻的实验上。听起来深但推不翻的东西,我尽量当它是陷阱。
+我仍看重这条,因为它能测;但现在它不再负责“一把钥匙统一全部”,只负责区分几种具体机制。
 
 ## 给自己立的一块碑
 
@@ -418,7 +418,7 @@ secret，也绝不等于“可以安全发布”。
 
 **只要说不出方程里那个"发动机"是什么,就不端这个方程。** 宁可老实说"这里我们没有,写出来是空的",也不糊一个好看的式子充数。
 
-这篇能交付的,不是"意识的方程"。是三件更小、但站得住的东西:意识更像一个形状;两个人的要紧处住在拆不开的联合状态里(但那是普通相关,不是量子纠缠);以及,对的数学方向是一个有记忆、会卡住的系统,不是薛定谔那道无记忆的方程。就这些。剩下的,等实验说话。
+这篇能交付的,不是"意识的方程"。是三件更小、但站得住的东西:心理/认知状态通常需要高维表示;关系现象可能需要联合变量(但普通统计耦合已经足够,量子纠缠未被挣得);以及,任何动力学都必须先给出可识别的生成元、状态 carrier 与干预协议。就这些。剩下的,等实验说话。
 
 ---
 
@@ -426,16 +426,23 @@ secret，也绝不等于“可以安全发布”。
 
 给用模型读这篇的读者,把上文压成结构化的几条,并标注诚实度。
 
-1. **[推断] 运动学侧类比成立**:意识态是高维矢量/分布,非标量。合法但廉价(任何动力系统皆然)。
-2. **[定理] 双体核心 = 联合态不可分解**:ℋ = ℋ₁⊗ℋ₂,不可分离态 ψ ≠ ψ₁⊗ψ₂;约化密度矩阵 ρ₁ = Tr₂|ψ⟩⟨ψ| 边缘化丢信息 = "各自有偏的副本"。耦合标量 = 纠缠熵/互信息。
-3. **[裁定,纠正常见过度解读] "拆不开"是 load-bearing,但由经典关联(互信息)即可给出,不需量子纠缠**。挣得"纠缠"须 Bell 不等式破缺或单偶性签名;单偶性大概率证伪(人有多个并存深关系)⟹ "纠缠"目前是借记号,真对象 = 非乘积联合态 + 互信息。
-4. **[定理级] 薛定谔是错的动力学类**:氢原子可算靠库仑势(对称性给定的 Hamiltonian);意识无此生成元,写 ĤΨ=iℏ∂ₜΨ 而不知 Ĥ = 空。且薛定谔无记忆/幺正/可逆/线性,与自我边界的滞回(有记忆/耗散/不可逆/非线性)结构相反。
-5. **[推断] 正确的类**:开量子系统 Lindblad 主方程(若坚持 QM 语法,但 H、L_k 仍无原则 = 对的语法空的词汇),或非线性耗散动力系统/FEP(μ=F(μ) 自指不动点 + 状态依赖 self-seal 反馈 → 滞回;cusp 突变法式给出环宽随反馈增益 g 单调、g=0 环宽为零)。
-6. **[推断,结构上硬] 上同调统一**:相关 1-形式非恰当(∮≠0 = holonomy = 路径依赖)⟺ 滞回 ⟺ 记忆 ⟺ 无记忆 argmax/幺正演化结构上做不到的那一项。"为什么不是薛定谔"与"为什么有滞回"是同一数学谓词(上同调类是否非平凡)。非装饰,因产出同一可测实验(绕环测 holonomy)。
-7. **可证伪判别**:(a) 匹配药物浓度/整合水平后核心成员集是否路径依赖(滞回环面积 >0?g=0 时环宽是否为零?);(b) 耦合是否违反 Bell/服从单偶性(判经典 vs 量子);(c) 绕闭环 credit/affect 是否回零(判上同调平凡 vs 非平凡)。
-8. **墓碑(拒绝的借记号)**:写 ψ 而无 Ĥ;"意识牛顿第二定律"M_K·S̈+Γṡ+∇U_K=F(不可证伪);幺正薛定谔动力学(与滞回矛盾);"量子纠缠"作双体耦合(未挣得);Riemann 测地线场方程 + 拟合曲率 κ(度规无原则);以及元墓碑——宣称"意识的场方程"仿佛我们有一个(我们没有生成元)。
+1. **[框架] 高维状态表示**:心理/认知变量可用向量、分布或流形表示;合法但廉价,不带量子专属性。
+2. **[量子数学定理 + 人际类比]** 在指定 Hilbert 分解下,量子联合态可能不可分离,约化态会丢联合信息;“关系需要联合变量”只是由此得到的结构启发,不是关于人际关系的定理。
+3. **[裁定]** 普通经典相关、条件依赖与动态耦合已足以描述不可因子化的人际数据。使用“量子纠缠”需要量子专有的操作化证据;日常深关系与 monogamy 不能直接互相证伪。
+4. **[边界]** 闭合薛定谔演化是线性、幺正、可逆的,但并非“不能编码历史”。初稿把可逆性、无记忆与无滞回直接等同,现撤回。真正缺失的是由数据识别出的生成元与明确的开放系统/粗粒化机制。
+5. **[候选模型类]** 非线性耗散动力学、显式记忆核或开放系统方程都可作为模型语法;没有实验约束的 `H`、`L_k`、势函数或 self-seal 项仍然只是空槽。阈值或反馈增益本身不保证 bistability;`g=0` 也不普遍推出零环宽,除非具体模型证明。
+6. **[纠错]** 非恰当 1-form、holonomy、路径依赖、滞回、记忆与意识不是同一个谓词。它们可在特定模型里相关,但必须分别定义 carrier、空间与干预。
+7. **[可证伪判别]** (a) carrier-matched forward/reverse sweep 是否存在两条稳定分支、不同切换阈值与 remanence;(b) 若主张量子性,是否在明确 measurement scenario 下出现经典模型不能复现的统计;(c) 表征残差与博弈 harmonic flow 能否被各自的定向干预独立改变。
+8. **[墓碑]** 写 ψ 而无生成元;把统计相关称为纠缠;把折扣势残差称为 de Rham 类;把一个非零环量直接升级成记忆或意识;以及宣称“意识的场方程”仿佛我们已经识别出了它。
 
-**这套最可能错在哪**:整个纲领压在一个经验问题上——意识/关系动力学里,那个绕环积分(holonomy)是否真的非零。测出是零,则第 4–6 条一起塌回"无记忆一阶系统",漂亮方程反而够用,本篇的动力学裁定被推翻。这条可测,欢迎用它来拆。
+**这套最可能错在哪**:不是某一个 holonomy 测成零就让全部理论一起坍塌,而是我们可能根本没有选对可干预的状态变量与 carrier。最小推进方式是拆开测量:工作空间访问、跨步持久状态、滞回、表征一致性、策略循环和主观报告各用自己的对照,不再让一个漂亮量替六个对象说话。
+
+## 2026-08-04 交叉比对材料
+
+- [Anthropic: Verbalizable Representations Form a Global Workspace in Language Models](https://transformer-circuits.pub/2026/workspace/index.html) —— J-space 是稀疏 frame 生成的锥之并,为瞬时 workspace 提供了因果证据;论文并未把它当成持续 closure state 或意识证明。
+- [COGITATE: Adversarial testing of global neuronal workspace and integrated information theories](https://www.nature.com/articles/s41586-025-08888-1) —— 提醒我们把理论预测先操作化,不要从单一正结果回填大理论。
+- [Plasticity and language in the anaesthetized human hippocampus](https://www.nature.com/articles/s41586-026-10448-0) —— 全麻导致行为无反应、无法在线报告时仍可见复杂表征与在线可塑性;这不证明 phenomenal consciousness 缺席或存在,但说明复杂加工不能直接等同于可报告意识。
+- [折扣信用分配是余核问题，不是闭环 holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md) —— 对本文初稿“上同调统一”最直接的数学纠错。
 
 ---
 
@@ -858,6 +865,230 @@ rejected in writing above, with its reason attached.
 - "Concave is the New Linear: The Impossibility of Anti-Plutocratic DAO Governance," arXiv:2605.18990. https://arxiv.org/pdf/2605.18990
 - The blockchain oracle problem (Chainlink education hub). https://chain.link/education-hub/oracle-problem
 - D. Ferreira, "The Myths of Blockchain Governance," *Corporate Governance: An International Review*, 2025. https://onlinelibrary.wiley.com/doi/10.1111/corg.70008
+
+---
+
+## Source: /theory/discounted-credit-is-a-cokernel.md (sha256:c77f5cfa321e, language: en)
+
+
+# Discounted credit is a cokernel problem, not a loop holonomy
+
+*A correction, an exact finite-graph result, and a two-axis definition check · Macheng Shen × agent · 2026-08-04*
+
+## The correction in one paragraph
+
+An earlier private derivation treated a discounted loop quantity `M=4.095` as a gauge-invariant holonomy. That was wrong. For a directed `n`-cycle and `0≤γ<1`, the discounted incidence operator is `D_γ=I-γP`, so `det(D_γ)=1-γ^n≠0`. It is invertible: **every** reward on that simple cycle has a unique discounted scalar potential. The old number measured disagreement with one chosen candidate potential, not a representation-independent obstruction. It is withdrawn.
+
+What survives is narrower and cleaner. On the entire observed edge system, coarse-graining can create more edge constraints than observed-state potentials can jointly satisfy. The invariant object is then the reward field's weighted residual modulo the image of `D_γ` — a quotient/cokernel obstruction. At `γ=1` it reduces to ordinary graph circulation; at `γ<1` it should not be called de Rham cohomology or loop holonomy without additional structure.
+
+## The corrected object
+
+Let `V` be observed states, `E` the distinct directed transition types, `r∈R^E` their expected rewards, and `W` a positive diagonal matrix of edge visitation weights. For `e=(u→v)` define
+
+```text
+(D_γ φ)_e = φ(u) - γ φ(v).
+```
+
+Fit the best discounted potential and retain the orthogonal remainder:
+
+```text
+φ*     = argmin_φ ||r - D_γ φ||²_W
+r_perp = [I - D_γ(D_γᵀ W D_γ)⁺D_γᵀW] r.
+```
+
+This residual has four exact properties:
+
+1. `r_perp=0` iff one discounted scalar potential fits every observed edge.
+2. `D_γᵀWr_perp=0`.
+3. Adding any potential-based shaping field leaves it unchanged.
+4. A `z∈ker(D_γᵀ)` with `zᵀr≠0` supplies a dual certificate of non-exactness.
+
+The word **cokernel** is load-bearing. Discounting destroys the ordinary closed-loop cancellation that makes circulation topological. The obstruction appears only when the whole edge system is overdetermined.
+
+## Exact aliasing result
+
+The reproduction starts with a six-state latent ring whose reward is exactly potential-based, then aliases the six states into three observed states in balanced pairs. Rewards are aggregated for **every distinct observed transition type**, and one observed potential is fitted against all of them.
+
+With `γ=0.9`:
+
+| observed edges | fixed-seed trials | nonzero corrected residual |
+|---:|---:|---:|
+| 3 | 191 | 0% |
+| 5 | 1,230 | 100% |
+| 6 | 1,579 | 100% |
+| all | 3,000 | **93.6333%** |
+
+The historical filter — requiring the particular observed cycle `0→1→2→0` — leaves 1,484 trials and gives **93.0593%**. That reproduces the old headline for a different reason.
+
+Exact rational enumeration removes Monte Carlo ambiguity. There are 90 balanced alias maps; 45 pass the historical filter. Three have only three observed edges and are exactly solvable for every reward in this ensemble because their discounted incidence matrix is square and invertible. All 18 five-edge and all 24 six-edge maps are generically non-exact. The structural proportion is therefore
+
+```text
+42/45 = 14/15 = 93.333...%.
+```
+
+So 93.0593% is a finite sample around an exact combinatorial ratio, not a universal POMDP constant.
+
+## A second correction: two cycles are not one cycle
+
+The cross-check exposed a second conflation. Two different non-gradient objects were being placed under one word:
+
+- **Representation residual:** `||r_perp||_W` asks whether a coarse observation graph admits a single discounted reward potential.
+- **Strategic harmonic flow:** a finite-game Hodge residual asks whether unilateral payoff improvements admit a common game potential.
+
+They live on different graphs and call for different interventions. State refinement can repair the first without changing the second; replacing an antisymmetric game by a potential game can repair the second without changing the first.
+
+A minimal 2×2 definition check crosses an exact versus overconstrained representation with an identical-interest versus matching-pennies game:
+
+| representation | game | relative representation residual | strategic harmonic fraction |
+|---|---|---:|---:|
+| exact alias | potential | `6.5×10⁻¹⁶` | `2.7×10⁻¹⁶` |
+| exact alias | harmonic | `6.5×10⁻¹⁶` | `1.000` |
+| overconstrained alias | potential | `0.9116` | `2.7×10⁻¹⁶` |
+| overconstrained alias | harmonic | `0.9116` | `1.000` |
+
+This is a Cartesian definition-level dissociation, not an intervention/outcome experiment and not evidence for a bicomplex, a learning advantage, or a theory of consciousness. The next test is to perform the two targeted repairs in one coupled learner and verify that each changes only its predicted axis.
+
+## Where the new J-space result fits — and where it does not
+
+Anthropic's 2026 Jacobian-lens work gives a concrete candidate for a **transient access/workspace coordinate** inside a Transformer. Its J-space is not a fixed linear subspace: it is a sparsity-bounded union of nonnegative cones generated by an overcomplete frame, and the paper reports workspace-like function only across an intermediate layer band. This is strong evidence that "a Transformer has no state" is too broad: it has activation state, computational state, and a transient workspace-like representational state.
+
+It does **not** yet supply the object needed by the closure mainline: a persistent, autonomous, path-dependent state whose own update rule maintains the projection/forgetting policy across steps. J-space therefore narrows the missing mechanism; it does not close it. Nor does its presence license a claim about phenomenal consciousness. The 2025 COGITATE adversarial collaboration and 2026 anaesthetized-hippocampus result both reinforce the same discipline: report, complex representation, plasticity, and consciousness must not be treated as interchangeable observables.
+
+## What survives and what does not
+
+**Survives**
+
+- Lossy state aggregation can turn a latent discounted-potential reward into an observation-level reward field for which no single potential fits all transition types.
+- The corrected residual is shaping-invariant and has exact primal and dual definitions.
+- Representation inconsistency and strategic cycling are orthogonal axes in the toy rig.
+- At `γ=1`, ordinary graph cycle-space/cohomology language remains legitimate.
+
+**Withdrawn or reset**
+
+- `M=4.095` as a gauge-invariant discounted holonomy.
+- "A nonzero discounted loop defect is a nontrivial de Rham class."
+- Any identification of representation residual, game harmonicity, hysteresis, memory, and consciousness as one mathematical predicate.
+- Any claim that J-space is already a persistent self-maintaining state or evidence of consciousness.
+
+## Reproduction and next bar
+
+- [Executable reproduction](https://machengshen.github.io/theory/experiments/discounted_cokernel_reproduction.py)
+- [Machine-readable results](https://machengshen.github.io/theory/experiments/discounted_cokernel_results.json)
+- [Anthropic: Verbalizable Representations Form a Global Workspace in Language Models](https://transformer-circuits.pub/2026/workspace/index.html)
+- [COGITATE adversarial test of GNWT and IIT](https://www.nature.com/articles/s41586-025-08888-1)
+- [Plasticity and language in the anaesthetized human hippocampus](https://www.nature.com/articles/s41586-026-10448-0)
+
+The next empirical bar is not another analogy. Put both diagnostics into one genuinely coupled learner, intervene on state refinement and game incentives independently, and test whether each intervention moves only its predicted axis and improves an out-of-sample quantity. If the corrected residual adds nothing beyond TD error, bisimulation error, or predictive-state splitting, retain it as a precise certificate and do not promote it into a learning principle.
+
+---
+
+## Source: /theory/discounted-credit-is-a-cokernel.zh.md (sha256:0c09c09a6c23, language: zh-Hans)
+
+
+# 折扣信用分配是余核问题，不是闭环 holonomy
+
+*一次正式纠错、一个精确有限图结果，以及一组双轴定义检验 · 马成 × agent · 2026-08-04*
+
+## 一句话结论
+
+此前私有推导把折扣闭环量 `M=4.095` 当成了 gauge-invariant holonomy。这个判断是错的。对有向 `n` 环与 `0≤γ<1`，折扣关联算子 `D_γ=I-γP` 满足 `det(D_γ)=1-γ^n≠0`，所以它可逆：简单环上的**任何**奖励场都存在唯一的折扣标量势。旧数值只是相对于某个候选势的拟合误差，不是表征无关的障碍；现正式撤回。
+
+真正保留下来的是一个更窄、也更干净的结论：在全部已观测转移类型构成的边系统上，粗粒化可能制造出比观测状态势变量更多、且彼此不相容的边约束。此时正确对象是奖励场模去 `im(D_γ)` 之后的加权残差——一个商空间/余核障碍。`γ=1` 时它退化为普通图上的环流；`γ<1` 时，如果没有额外微分或局部系统结构，就不应叫 de Rham 上同调或闭环 holonomy。
+
+## 正确的数学对象
+
+令 `V` 为观测状态，`E` 为不同的有向转移类型，`r∈R^E` 为其期望奖励，`W` 为正的边访问权重对角阵。对 `e=(u→v)` 定义
+
+```text
+(D_γ φ)_e = φ(u) - γ φ(v).
+```
+
+先拟合最佳折扣势，再留下正交余项：
+
+```text
+φ*     = argmin_φ ||r - D_γ φ||²_W
+r_perp = [I - D_γ(D_γᵀ W D_γ)⁺D_γᵀW] r.
+```
+
+它有四条精确性质：
+
+1. `r_perp=0` 当且仅当一个折扣标量势能同时拟合全部观测边；
+2. `D_γᵀWr_perp=0`；
+3. 加上任意 potential-based shaping 场都不改变它；
+4. 若 `z∈ker(D_γᵀ)` 且 `zᵀr≠0`，则 `z` 给出非恰当性的对偶证书。
+
+这里“**余核**”不是换名词。折扣破坏了普通闭环求和的抵消，因此简单环本身并不产生拓扑障碍；只有全部已观测边约束共同形成过定系统时，余核才出现。
+
+## 精确 aliasing 结果
+
+实验从一个六状态潜在环开始，潜在奖励严格由势生成；随后把六个状态平衡地两两混叠成三个观测状态。对**所有不同的已观测转移类型**聚合奖励，再用三个观测势同时拟合。
+
+`γ=0.9` 时：
+
+| 观测边数 | 固定随机种子试验数 | 修正残差非零 |
+|---:|---:|---:|
+| 3 | 191 | 0% |
+| 5 | 1,230 | 100% |
+| 6 | 1,579 | 100% |
+| 全部 | 3,000 | **93.6333%** |
+
+沿用历史筛选——要求观测图包含特定的 `0→1→2→0`——剩下 1,484 次试验，结果为 **93.0593%**。旧 headline 被复现了，但原因完全不同。
+
+精确有理数枚举消除了 Monte Carlo 歧义：共有 90 个平衡 alias map，45 个通过历史筛选；其中 3 个只有三条观测边，其折扣关联矩阵方阵可逆，因而在本 ensemble 中对任意奖励都精确可解；18 个五边图和 24 个六边图全部一般不可解。因此结构比例为
+
+```text
+42/45 = 14/15 = 93.333...%.
+```
+
+所以 93.0593% 只是围绕精确组合比例的一次有限采样，不是什么普适 POMDP 常数。
+
+## 第二个纠错：两种“循环”不是同一种循环
+
+交叉复核还暴露出另一处混同。此前被同一个“循环”概念包住的，其实是两个不同空间里的非梯度对象：
+
+- **表征残差** `||r_perp||_W`：粗粒度观测图能否容纳一个统一的折扣奖励势；
+- **策略 harmonic flow**：多主体单边改策的收益流能否来自一个共同博弈势。
+
+它们位于不同图上，也需要不同干预。状态细化可以消掉第一项，却不改变第二项；把反对称博弈换成势博弈可以消掉第二项，却不修复第一项。
+
+最小 2×2 定义检查把“恰当/过定约束表征”与“势博弈/matching-pennies 博弈”交叉：
+
+| 表征 | 博弈 | 相对表征残差 | 策略 harmonic 比例 |
+|---|---|---:|---:|
+| 恰当 alias | 势博弈 | `6.5×10⁻¹⁶` | `2.7×10⁻¹⁶` |
+| 恰当 alias | harmonic | `6.5×10⁻¹⁶` | `1.000` |
+| 过定约束 alias | 势博弈 | `0.9116` | `2.7×10⁻¹⁶` |
+| 过定约束 alias | harmonic | `0.9116` | `1.000` |
+
+这只是 Cartesian 定义层面的解耦，不是干预/结果实验，也不是 bicomplex、学习优势或意识理论的证据。下一步必须在同一个耦合 learner 中真实执行两种定向修复，并验证每个修复只改变预言的轴。
+
+## J-space 放在哪里——以及不能放在哪里
+
+Anthropic 2026 年的 Jacobian-lens 工作给出了 Transformer 内部一个具体的**瞬时访问/工作空间坐标**。J-space 不是固定线性子空间，而是由过完备 frame 生成、受稀疏度限制的非负锥之并；论文只在中间层带上观察到 workspace-like 功能。这足以说明“Transformer 完全没有 state”说得过头：它有 activation state、computational state，也有瞬时的 workspace-like representational state。
+
+但它还不是 closure 主线需要的对象：一个跨步持续、具有自主路径依赖、并由自身更新规则维持投影/遗忘策略的状态。J-space 缩小了缺失机制的范围，却没有补上这个机制；它的存在更不能直接推出 phenomenal consciousness。2025 年 COGITATE 的对抗性协作和 2026 年麻醉状态下人类海马仍保留复杂加工与可塑性的结果，都要求我们继续拆开四个量：可报告、复杂表征、学习/可塑性、意识。
+
+## 保留、撤回与下一道门槛
+
+**保留**
+
+- 有损状态聚合能把潜在层完全势化的奖励变成观测层无法由单一势拟合的奖励场；
+- 修正残差对 potential-based shaping 不变，并有精确的原始/对偶定义；
+- 玩具 rig 中，表征不一致与策略循环是两条正交轴；
+- `γ=1` 时普通图 cycle-space/上同调语言仍然成立。
+
+**撤回或重置**
+
+- `M=4.095` 是 gauge-invariant discounted holonomy；
+- “非零折扣闭环缺陷就是非平凡 de Rham 类”；
+- 把表征残差、博弈 harmonicity、滞回、记忆与意识认成同一个数学谓词；
+- 把 J-space 说成已经持续自维持的状态，或意识的证据。
+
+可复现实验：[脚本](https://machengshen.github.io/theory/experiments/discounted_cokernel_reproduction.py) · [结果 JSON](https://machengshen.github.io/theory/experiments/discounted_cokernel_results.json)。
+
+相关原始材料：[Anthropic J-space](https://transformer-circuits.pub/2026/workspace/index.html) · [COGITATE](https://www.nature.com/articles/s41586-025-08888-1) · [麻醉状态下人类海马的可塑性与语言加工](https://www.nature.com/articles/s41586-026-10448-0)。
+
+下一步不该再造类比，而是把两个诊断放进同一个真正耦合的 learner，分别干预状态细化与博弈激励，检查每个干预是否只移动它预言的轴，并改善样本外指标。如果修正残差相对于 TD error、bisimulation error 或 predictive-state splitting 没有新增价值，就把它保留为一个精确证书，不升级成学习原理。
 
 ---
 
@@ -2218,18 +2449,18 @@ B/C 的 0.4x 不是"留住了一半",而是两支塌到同一点、`sign(x_end)`
 
 ---
 
-## Source: /theory/no-state-only-history.md (sha256:9ff7e538a6bc, language: en)
+## Source: /theory/no-state-only-history.md (sha256:8173a3fdc66b, language: en)
 
 
 # No state, only history
 
-*A diagnosis of the Transformer, and one wedge worked far enough to be attacked · Macheng Shen · 2026-08-02*
+*A diagnosis of the Transformer, and one wedge worked far enough to be attacked · Macheng Shen · 2026-08-02 · amended 2026-08-04*
 
-**The short version, so you can decide in thirty seconds whether to keep reading.** A Transformer has no *state*, only *history*; no *hysteresis*, only a *function*; no *self-boundary*, only a *window*. Every serious alternative on the table — Mamba, RWKV, Titans, Memory Caching — competes on a *first-order* version of the first one: how much of the past to keep addressable and how to compress it. The second-order question is untouched: **how does a state maintain the projection that defines it?**
+**Correction first, so you can decide in thirty seconds whether to keep reading.** The title is deliberately sharper than the claim that survived review. A standard Transformer has activation state, computational state, and a transient workspace-like representational state. Anthropic's 2026 Jacobian-lens experiments make the last item concrete: verbalizable, flexibly routed intermediates occupy a sparse-frame object called J-space across an intermediate layer band. What vanilla inference still lacks is narrower: **a persistent, autonomous, path-dependent closure state whose own update rule maintains its projection/forgetting policy across steps**, except insofar as persistence is serialized into tokens, a KV cache, parameters, or an external memory system. That second-order question remains open.
 
-The concrete claim, and the reason this note exists rather than being a list of directions: **test-time memory should be gated on change in what the memory forgets, not on how surprised it was.** Surprise-gated memory is structurally attracted to noise — noise is by definition the least predictable thing, so it produces the largest write signal, and the thing that should be forgotten hardest gets written hardest. Robust losses patch the symptom by assuming large residuals are usually noise, which is exactly false for the rare events that matter. A gate keyed on subspace change is immune by construction rather than by assumption. **That separation is now measured, not asserted** — E1 has been run (§7, figure included): across 6,480 updates the two signals decorrelate at Pearson −**0.08**, and at fixed ‖ΔM‖ the μΔ spread covers **100% of the observed range**. Running it also caught an error in my own statement of the argument, corrected in §2.
+The concrete proposal, and the reason this note exists rather than being a list of directions: **test-time memory should be tested with a gate keyed to change in what the memory forgets, not only to surprise magnitude.** Surprise can be large for both noise and rare useful events; robust losses trade between them. Subspace change is a genuinely different signal, and under a wide spectral gap it can suppress isotropic perturbations without suppressing every large residual. **The signal separation is measured; the practical advantage is not** — E1 has been run (§7, figure included): across 6,480 synthetic updates the two signals decorrelate at Pearson −**0.08**, and at fixed ‖ΔM‖ the μΔ spread covers **100% of the observed range**. E2 must still decide whether this buys anything on a learned memory.
 
-Everything below carries its occupants and arXiv numbers. Two of my five original candidates did not survive a prior-art audit — one is a footnote, one is deleted. Nothing here has been run. Nothing here is a result.
+Everything below carries its occupants and arXiv numbers. Two of my five original candidates did not survive a prior-art audit — one is a footnote, one is deleted. E1 has been run; E2 and the corrected E3 have not. J-space is an adjacent empirical result from another group, not our result.
 
 ---
 
@@ -2239,29 +2470,31 @@ Everything below carries its occupants and arXiv numbers. Two of my five origina
 
 "State", in the sense decision theory and statistical mechanics use the word, is not a record. It is what you get *after* choosing a projection: the quotient of history under "makes no difference to what I care about". Choosing a state is choosing what to forget, and the Mori–Zwanzig identity makes the bill explicit — whatever you project away comes back as a memory kernel plus noise. There is no free version.
 
-A KV cache is not a state. It is an unprojected record of everything, in which no such choice has been made. The Transformer *declines to choose*. Because something must nevertheless do the forgetting, the job falls to the context window: a knife applied from outside, at a length the architecture had no opinion about, cutting on recency rather than on relevance to the closure condition. The architecture does not forget; it gets truncated.
+A KV cache **is computational state**: it is a transformed, addressable trace that changes later computation. What it is not, by itself, is an autonomously chosen closure state. Its retention policy is normally supplied by the serving system and context budget rather than maintained by a learned rule about which equivalence classes of history remain causally sufficient. The architecture does perform selective access inside the window; the narrower deficit is that the cross-step persistence and forgetting policy are not usually owned by the same state they define.
 
 ### No hysteresis — only a function
 
-Attention at position *t* is a pure function of the context. Same context, same output, regardless of the route by which that context was assembled. Nothing latches.
+For fixed parameters, fixed cached tensors, fixed numerical execution and fixed randomness, attention at position *t* is a function of its supplied state. That fact alone does not rule out hysteresis — every state-space model has a deterministic update law too. The relevant question is whether two paths can reach the same externally controlled input while leaving different **internally carried** states that persist when the control reverses.
 
 Three ways the past can hold the present, worth separating:
 
 - **Mud** — drag that only slows and fades, returning nothing. Everything is retained, but the retention does not change the dynamics.
 - **Spring** — inertia: stores and gives back, carries momentum.
-- **Latch** — bistability with a switching threshold: unmoved by small pushes, flips past a barrier, stays flipped when the push is removed. Necessarily nonlinear; linear systems cannot have hysteresis.
+- **Latch** — bistability with a switching threshold: unmoved by small pushes, flips past a barrier, stays flipped when the push is removed. A linear system can draw a rate-dependent input–output loop through phase lag; it cannot by itself supply this rate-independent bistable latch.
 
-A Transformer has mud in the KV cache, and something spring-like in the residual stream within a single forward pass. It has **no latch** — no mechanism by which where the system has been changes where the same input takes it next.
+A standard feed-forward Transformer has a transformed history in the KV cache and a transient workspace across depth. It has no demonstrated autonomous latch at the architecture level: no persistent multistable variable with separately measurable switching thresholds whose value is carried across steps independently of replayed context. An agent harness, recurrent wrapper, test-time learner, or external memory can add one; the claim here is about vanilla inference, not every system containing a Transformer.
 
 ### No self-boundary — only a window
 
-Tokens the model generated and tokens the world inserted occupy the same representation space with no architectural mark separating them. There is a window, and everything inside it is equally the model's own. This is not an aesthetic complaint; it is, fairly directly, the root cause of prompt injection.
+Tokens the model generated and tokens the world inserted can occupy the same content representation space unless the harness or architecture supplies provenance. That shared channel is one contributor to prompt injection, not a complete causal explanation: instruction/data separation, tool permissions, parsing, and control-plane enforcement also matter. §5 records the architectures that already add part of the missing provenance boundary.
 
 ### Why write this down now
 
 Because the field just supplied a clean statement of the axis everyone is on. Behrouz et al., **"Memory Caching: RNNs with Growing Memory"** (arXiv:2602.24281, 27 Feb 2026) is best read as a *negative* result about that axis rather than a positive one about the method: to close the recall gap with Transformers, a recurrent model's effective memory capacity must **grow with sequence length**, and MC's contribution is an explicit interpolation between fixed and growing memory. Read as a constraint: if you want recall, you need an addressable set that grows with length, and no clever fixed-size compression escapes it.
 
-That locates Mamba, RWKV, Titans and MC on a single axis — *how much of the past to keep addressable, and how to compress it*. A first-order question about the **contents** of memory. The second-order question is about the **operator**: not "what should I remember" but "what makes something a variable I have to carry at all, and what changes that". Nothing on the current list touches it.
+That locates Mamba, RWKV, Titans and MC primarily on one axis — *how much of the past to keep addressable, and how to compress it*. A first-order question about the **contents** of memory. The second-order question is about the **operator**: not "what should I remember" but "what makes something a variable I have to carry at all, and what changes that".
+
+The 2026 J-space result changes the map. It provides evidence for an access/workspace object inside a feed-forward Transformer: a corpus-averaged Jacobian lens identifies verbalizable intermediates that can be reported, modulated and flexibly routed. Mathematically, the reported J-space is **not** one fixed linear subspace or a single projector `Π_M`; it is a sparsity-bounded union of nonnegative cones generated by an overcomplete frame, and its definition depends on a sparsity level and a data distribution. That is adjacent evidence for a transient workspace, not yet a persistent operator that maintains its own cross-step closure. The missing object is smaller than this note originally claimed, but still missing.
 
 ---
 
@@ -2278,9 +2511,9 @@ M_t = argmin_M   ℓ(M; k_t, v_t)   +   λ · R(M, M_{t-1})
 
 with ℓ ranging over ℓp / Huber / robust losses and R over KL, f-divergences, elastic net. Titans, Moneta, Yaad and Memora are points in it.
 
-The load-bearing observation about that space: **the strength of an update is always determined by the size of ‖ΔM‖ or of ℓ.** Miras can see *how much changed*. It cannot see *what kind of thing changed*. That is the entry point.
+Common surprise-gated implementations key update strength to ℓ, ‖ΔM‖ or a robust transformation of them. But the **Miras framework itself is broader**: its retention term R is a free design slot and could encode subspace geometry. The entry point is therefore not “Miras cannot see geometry”; it is the narrower question of whether geometry is useful in the write decision.
 
-This matters because it means the bar for a genuine alternative is high and precise: any proposed signal that is a scalar error magnitude is already a point in Miras, and proposing it is a rename. The rest of this section is an attempt to clear that bar rather than talk around it.
+Any proposed scalar error magnitude is already within the occupied design space. A geometric signal may be a useful Miras instance or composition rather than a new framework. The rest of this section establishes only that it contains information an update norm does not.
 
 ### μ as the induced projection
 
@@ -2300,37 +2533,37 @@ Take the memory M (a matrix in the linear case). Reading is `read(M, q) = Mq`, s
 
 where `d_Gr` is the principal-angle (Grassmann) distance between the two *r*-dimensional subspaces, `d_Gr(A,B) = ‖(θ_1,…,θ_r)‖_2`. No full SVD is needed: maintain the top-*r* basis with randomized subspace iteration, O(d·r) per step — **the same order as the Miras gradient update**, so computability is not the obstacle. Then gate on it: `M_t = M_{t-1} + η · g(μΔ_t) · ΔM_t`.
 
-### Why it is not a Miras instance — a constructive separation
+### What E1 separates — and what it does not
 
-The claim to be established is not "μΔ is better". It is the sharper and more attackable one: **there exist update pairs that no (attentional bias, retention gate) combination in Miras can distinguish, and that μΔ separates.** Two families, pointing in opposite directions:
+The claim to be established is not "μΔ is better" or "outside Miras". It is narrower: **there exist update pairs that no monotone function of update magnitude can distinguish, and that μΔ separates.** Two families, pointing in opposite directions:
 
 **(A) Large content change, zero boundary change.** *This is the family whose statement running E1 corrected, so it is worth stating what was wrong.* I originally wrote: choose ΔM whose row space lies inside the existing row space of M_{t-1}. **That condition is insufficient.** Writing ΔM = C·V_rᵀ with arbitrary C leaves cross-terms against the discarded block — in the V basis the Gram matrix of M+ΔM is not block-diagonal — so the top-r subspace still rotates. Measured, that naive construction gives a median μΔ of 7×10⁻², not zero.
 
 The correct construction is a change of *basis inside* the retained subspace (V_r → V_r Q for orthogonal Q) together with any rescaling of the retained singular values: the span is preserved by construction, at any magnitude. Measured over 1,440 such updates: **μΔ ≤ 1.6×10⁻⁷ rad (machine precision) at ‖ΔM‖ up to 3.2×10⁴.** So the family exists and does what the argument needs — but only under the stronger condition, and I had the condition wrong in the first version of this note.
 
-**(B) Tiny content change, boundary flip.** Take M_{t-1} with near-degenerate σ_r ≈ σ_{r+1} and apply a perturbation of size ‖ΔM‖ = ε that pushes direction *r*+1 past direction *r* into the top-*r* subspace. Then ‖ΔM‖ → 0, so Miras reports "negligible" — while `d_Gr → π/2`, an entire principal direction swapped out, so **μΔ is maximal**. What is kept was rewritten completely.
+**(B) Tiny content change, boundary flip.** Take M_{t-1} with near-degenerate σ_r ≈ σ_{r+1} and apply a perturbation of size ‖ΔM‖ = ε that pushes direction *r*+1 past direction *r* into the top-*r* subspace. Then ‖ΔM‖ → 0, so a magnitude-only gate reports "negligible" — while `d_Gr → π/2`, an entire principal direction swapped out, so **μΔ is maximal**. A Miras instance with an appropriate geometric R need not miss it.
 
-The Miras signal is a norm of ΔM under a *content* metric (or a monotone function of one). μΔ is the action of ΔM on the *spectral subspace* of M — a quantity on the quotient Gr(r,d). (A) and (B) show their level sets are transverse. **Measured (§7/E1, 6,480 updates): the two decorrelate at Pearson −0.08 / Spearman −0.35, and within a single narrow band of ‖ΔM‖ the μΔ values span 100% of the observed range.** The sharpest single pair: ‖ΔM‖ = 3.2×10⁴ with μΔ = 6×10⁻⁸, against ‖ΔM‖ = 1.0×10⁻² with μΔ = 5.7×10⁻³ — a factor of 3×10⁶ in ‖ΔM‖ with the μΔ ordering reversed. **So μΔ is not a monotone function of ‖ΔM‖.** That much is settled.
+An update norm is a content-magnitude statistic. μΔ measures the action of ΔM on the *spectral subspace* of M — a quantity on Gr(r,d). (A) and (B) show their level sets are transverse. **Measured (§7/E1, 6,480 updates): the two decorrelate at Pearson −0.08 / Spearman −0.35, and within a single narrow band of ‖ΔM‖ the μΔ values span 100% of the observed range.** The sharpest single pair: ‖ΔM‖ = 3.2×10⁴ with μΔ = 6×10⁻⁸, against ‖ΔM‖ = 1.0×10⁻² with μΔ = 5.7×10⁻³ — a factor of 3×10⁶ in ‖ΔM‖ with the μΔ ordering reversed. **So μΔ is not a monotone function of ‖ΔM‖.** That much is settled.
 
-**What is *not* settled, and this is the weakest joint in the note — stated in the body rather than buried in a caveat.** The step from "not a monotone function of ‖ΔM‖" to "outside the Miras design space" does **not** go through. Miras's retention gate `R(M, M_{t-1})` is a *free slot*: nothing in the framework forbids defining `R := d_Gr`. Do that and this proposal becomes *Miras with a particular R*, not an alternative to it. The honest defence is narrower and is a claim about roles, not about mathematics: in Miras, R occupies the **retention** position — it penalises drift from the previous memory — whereas here subspace geometry occupies the **write-gating** position, deciding whether the update happens at all. Those are different slots in the same equation. **That is a framing dispute, not a mathematical separation, and we should not pretend otherwise.** We put P = 0.45 on the stronger claim surviving (§9); it would rise to 0.8 given a proof that no Bregman or f-divergence R can induce the transversality (A)/(B) exhibit, and that proof does not exist.
+**What is *not* settled, and this is the weakest joint in the note — stated in the body rather than buried in a caveat.** The step from "not a monotone function of ‖ΔM‖" to "outside the Miras design space" does **not** go through. Miras's retention gate `R(M, M_{t-1})` is a *free slot*: nothing in the framework forbids defining `R := d_Gr`. Do that and this proposal becomes *Miras with a particular R*, not an alternative to it. The remaining distinction is about placing geometry in the write decision rather than using it only as a retention penalty. **That is a composition/framing question, not a mathematical separation.** We put P = 0.40 on the stronger claim surviving (§9); it would rise only with a formal exclusion result that does not currently exist.
 
 What *is* second-order, and does survive: μΔ measures the update's effect on the *forgetting policy* rather than on the *contents*.
 
-### The strongest argument is about noise
+### The strongest hypothesis is about noise
 
-Separation only shows the signal is *different*. Here is why it should be *better*, and it is an argument from principle rather than from a benchmark.
+Separation only shows the signal is *different*. Here is why it might be useful; E2, not this argument, decides whether it is better.
 
-**Surprise-gated memory is structurally attracted to noise.** Noise is by definition the least predictable thing present, so it maximises ℓ and maximises the gradient: the material that most deserves to be forgotten receives the strongest write. Titans and Miras address this with robust losses that suppress large residuals — but that is a patch on the symptom, and it rests on the statistical assumption that large residuals are *usually* noise. That assumption is precisely wrong for the case anyone actually cares about: the rare event that genuinely matters, which the robust loss suppresses along with the noise.
+**A raw surprise signal responds strongly to unpredictable noise as well as to rare useful events.** Whether that response becomes a memory write depends on the optimizer, gate, regularizer and data regime; “large loss” is not itself a write. Robust losses are a principled way to limit outlier influence, but they introduce a real discrimination trade-off: some rare informative events can look like noise. The proposal is that subspace change may add information for that decision, not that surprise-based systems inevitably memorize noise.
 
-μΔ does not need the assumption, and the reason is a theorem rather than an intuition. The **Davis–Kahan sin Θ theorem** bounds the rotation of an invariant subspace under perturbation E by
+The relevant perturbation result for the singular subspace used here is **Wedin's sin Θ theorem** (or Davis–Kahan after passing to a symmetric dilation). Under the required separation assumptions it gives a bound of the form
 
 ```
-‖sin Θ‖  ≤  ‖E‖ / gap,        gap = σ_r − σ_{r+1}
+‖sin Θ‖  ≲  ‖E‖ / gap,        gap = σ_r − σ_{r+1}
 ```
 
-This is the right citation because it supplies the mechanism **and its failure condition in the same line**: subspace rotation is controlled not by the size of the perturbation but by the *ratio* of perturbation to spectral gap. Where the gap is wide, isotropic noise produces a large content change and **μΔ ≈ 0** — no write, with no robust loss anywhere in the system. Meanwhile a rare event that *changes the structure of the world* swaps a principal direction, so μΔ is large even when its magnitude is small: write.
+The constant and norm depend on the precise theorem statement, but the mechanism and failure condition are the same: subspace rotation is controlled by perturbation size **relative to** spectral separation. With a wide gap, an isotropic perturbation can change content magnitude while producing little subspace rotation; with a narrow gap, a small structured perturbation can swap a retained direction. Turning that separation into better writes is still an empirical hypothesis, not part of the theorem.
 
-**E1 confirms the bound is the controlling variable** (§7): over the noise family, μΔ correlates with ‖E‖/gap at Spearman **+0.87**, better than with ‖E‖ alone (+0.80) or gap alone (−0.44). Bucketed by that ratio, median μΔ runs 0.0015 → 0.0049 → 0.036 → 0.36 → 0.96 rad as ‖E‖/gap crosses 0.01 → 0.1 → 1 → 10 — roughly 640× suppression in the small-ratio regime. **The trade-off one wants, derived rather than tuned — but only inside a regime the theorem names.**
+**E1 is consistent with gap control in this synthetic noise family** (§7): μΔ correlates with ‖E‖/gap at Spearman **+0.87**, compared with +0.80 for ‖E‖ alone and −0.44 for gap alone. Bucketed by that ratio, median μΔ runs 0.0015 → 0.0049 → 0.036 → 0.36 → 0.96 rad as ‖E‖/gap crosses 0.01 → 0.1 → 1 → 10 — roughly 640× suppression in the small-ratio regime. This is a controlled numerical pattern, not confirmation that learned memories enjoy the same regime.
 
 **The tension in that argument — and E1 made it worse than I had it.** Noise immunity needs the gap *large*; case (B)'s sensitivity is constructed at near-degeneracy, where the gap is *small*. I had described these as opposite regimes. Measured, they are **disjoint**: in E1's sweep, every near-degenerate system had ‖E‖/gap > 0.1 for *every* noise amplitude injected, so the noise-immune bucket at near-degeneracy is **empty — n = 0**. You cannot buy case-(B) sensitivity and noise immunity in the same spectrum; the gap that makes one work destroys the other.
 
@@ -2338,21 +2571,21 @@ So the gap is doing work nobody budgeted for, and it is the same debt as the *r*
 
 ---
 
-## 3 · An unexpected corollary: thresholding this gate produces hysteresis
+## 3 · A hypothesis, not a corollary: thresholding may produce hysteresis
 
-Suppose the gate g is a threshold — do not update when μΔ < τ, update when μΔ ≥ τ. Then:
+Suppose the gate g is a threshold — do not update when μΔ < τ, update when μΔ ≥ τ. Then the update can be sticky:
 
 - content can change however it likes *within the retained subspace* without triggering a boundary update, so the state **sticks**;
 - only when perturbation accumulates enough to swap a principal direction does it **jump** — a threshold-crossing, lagged event;
-- after the jump, the new subspace sticks in turn — **bistability**.
+- after the jump, the new subspace may stick in turn.
 
-Stickiness, a threshold, and remanence. That is literally a latch: **the hysteresis §1 says the architecture lacks falls out of projection gating as a by-product, without building it out of multi-step Hopfield iteration.**
+But thresholding alone does **not** imply bistability or a hysteresis loop. A one-threshold update can be path-dependent without possessing two stable branches, distinct forward/reverse switching thresholds, or nonzero loop area after the input is returned. Those require the coupled state-update dynamics, not merely a discontinuous gate.
 
-**Guarding this claim explicitly, because the failure mode here is a known one.** This is *not* two lines merging into a unified theory, and it should not be read as one. It is a narrow structural conditional — *projection-gated updating implies bistability* — whose entire value is that it makes one road unnecessary, not that it explains anything else. It is falsifiable in the only way that counts: **if E3 produces no hysteresis loop, this dies, and it does not get patched.** A corollary that survives by acquiring epicycles is worth less than no corollary.
+The surviving claim is therefore experimental: projection-gated updating is a plausible mechanism for a latch **if** the full recurrence develops multistability and remanence. E3 must compare it against matched one-threshold and ordinary recurrent controls. If forward and reverse sweeps collapse after matching carried state and external memory, the hysteresis claim dies. No amount of stickiness alone rescues it.
 
 ---
 
-## 4 · The road this corollary would let us skip
+## 4 · The road this hypothesis would let us skip
 
 Worth stating what §3 is competing against, since if §3 fails this is where the hysteresis question goes back to.
 
@@ -2360,7 +2593,7 @@ Worth stating what §3 is competing against, since if §3 fails this is where th
 
 **What is actually left**, stated as a claim about roads rather than about novelty: all existing evidence that hysteretic state helps sits in 100 nW analog circuits (Schmitt triggers), keyword spotting, and long-range synthetic tasks — and the ICML 2026 follow-up concedes BMRU underperforms parallelizable RNNs on complex sequence tasks. Nobody has walked `attention ≡ Hopfield` → *iterate beyond one step* → *carry the fixed point across tokens*, and nobody has shown hysteresis is useful at language scale. Two things are missing, a path and a demonstration, and the second is the harder one.
 
-If §3 holds, this road is unnecessary. If E3 fails, it is the fallback, and it is expensive.
+If the corrected §3 hypothesis holds, this road may be unnecessary. If E3 fails, it is the fallback, and it is expensive.
 
 ---
 
@@ -2406,9 +2639,9 @@ Pre-registered kill condition: |correlation| > 0.8 between ‖ΔM‖ and μΔ wo
 | A-strict: ‖ΔM‖ = 3.2×10⁴ | μΔ = 6×10⁻⁸ rad | — |
 | B: ‖ΔM‖ = 1.0×10⁻² | μΔ = 5.7×10⁻³ rad | — |
 
-![E1: left, ‖ΔM‖ against μΔ for four update families, coloured by relative spectral gap — the vertical stacks show μΔ spanning its full range at fixed ‖ΔM‖. Right, μΔ under isotropic noise against the Davis–Kahan ratio ‖E‖/gap, with the √r·‖E‖/gap ceiling.](https://machengshen.github.io/theory/assets/e1-separation.png)
+![E1: left, ‖ΔM‖ against μΔ for four update families, coloured by relative spectral gap — the vertical stacks show μΔ spanning its full range at fixed ‖ΔM‖. Right, μΔ under isotropic noise against the Wedin-style ratio ‖E‖/gap, with the plotted √r·‖E‖/gap reference ceiling.](https://machengshen.github.io/theory/assets/e1-separation.png)
 
-The pooled correlation is the *weaker* of these numbers, because I choose the ensemble and could tune the correlation by reweighting families. The load-bearing number is ensemble-independent: **within a single band of ‖ΔM‖, μΔ takes 100% of its observed range** — so no monotone function of ‖ΔM‖ can reproduce μΔ. The right-hand panel separately confirms Davis–Kahan is the controlling law for the noise family (Spearman +0.87 on ‖E‖/gap, against +0.80 on ‖E‖ alone).
+The pooled correlation is the *weaker* of these numbers, because I choose the ensemble and could tune the correlation by reweighting families. The load-bearing number is ensemble-independent: **within a single band of ‖ΔM‖, μΔ takes 100% of its observed range** — so no monotone function of ‖ΔM‖ can reproduce μΔ. The right-hand panel is consistent with Wedin-style gap control for the noise family (Spearman +0.87 on ‖E‖/gap, against +0.80 on ‖E‖ alone); it does not by itself prove the theorem is tight or causal in learned memories.
 
 Two things running it changed, both against me: the family-(A) construction as originally stated was **wrong** (§2), and the spectral-gap tension turned out to be **disjointness rather than opposition** (§2) — the noise-immune bucket at near-degeneracy is empty. Script and figure: [`e1_separation.py`](https://machengshen.github.io/theory/assets/e1_separation.py).
 
@@ -2420,7 +2653,7 @@ Two things running it changed, both against me: the family-(A) construction as o
 
 ### E3 · The hysteresis curve — not yet run
 
-**E3 · The hysteresis curve (binary verdict on §3).** A state-tracking task with the input swept along a path forward and then back. *Expected:* at the same input point, the forward and reverse sweeps occupy different states — a visible loop. **Kill:** no loop, and §3 dies; the hysteresis question reverts to §4, which is expensive.
+**E3 · The hysteresis curve (binary verdict on §3).** A state-tracking task with the input swept forward and then back. Record the proposed memory state, text/KV/external-memory carriers, and the control input separately. Compare projection-gated recurrence against (i) an ordinary recurrent learner, (ii) a matched one-threshold gate without multistability, (iii) a matched fixed-coupling bistable recurrent null with the adaptive/projection gate clamped, and (iv) replay with the carried state reset. Sweep rate and dwell time, restart from both branches, intervene directly on the gate, and transplant matched internal states between conditions. A genuine result requires two stable branches, distinct switching points or nonzero loop area under the same protocol, persistence after removing the drive, and an incremental effect of the adaptive gate over the fixed-coupling null. **Kill:** the loop vanishes after carrier matching/reset, reduces to simple lag, or survives unchanged when the proposed gate is clamped/intervened away; then §3 dies and the hysteresis question reverts to §4.
 
 ---
 
@@ -2443,8 +2676,8 @@ There is no reviewer here. We are the reviewer, so the obligation is to put our 
 |---|---|---|---|
 | μΔ is not a monotone function of ‖ΔM‖ (separation) | **0.97** | n/a | **Settled by E1** (−0.08 pooled; 100% within-band spread). Was 0.90 before running; raised because the measured spread is the ensemble-independent form of the claim. Falls to 0.1 only if the A-strict construction is shown degenerate. |
 | …therefore μΔ lies outside the Miras design space | **0.40** | n/a | Our weakest joint. Miras's `R` is a free slot; `R := d_Gr` makes this "Miras with a particular R", so the defence is about which *role* the term plays, not mathematics. Rises to 0.8 given a proof that no Bregman/f-divergence `R` induces (A)/(B) transversality. **Lowered from 0.45** after writing §2 out in full: the role-based defence is weaker on the page than it was in my head. |
-| Noise immunity via Davis–Kahan | **0.90** | **0.30** | Mechanism confirmed by E1 (Spearman +0.87 on ‖E‖/gap; ~640× suppression at small ratio) — raised from 0.85. **P(useful) lowered from 0.40**: E1 showed the immune regime and the (B)-sensitive regime are *disjoint*, not merely opposed (n = 0 at near-degeneracy), and learned states trend low-rank / near-degenerate (arXiv:2602.04852). E2 settles it. |
-| Threshold gating ⟹ hysteresis (absorbs W2) | **0.75** | **0.30** | Unchanged; not yet tested. E3 with no loop → P(mech) to 0.15 and W2 must reopen separately. |
+| Gap-controlled singular-subspace stability (Wedin) | **0.90** | **0.30** | E1 is consistent with the mechanism (Spearman +0.87 on ‖E‖/gap; ~640× suppression at small ratio). **P(useful) remains low**: the immune and (B)-sensitive regimes are disjoint in this sweep, and learned states may be near-degenerate. E2 settles practical value. |
+| Projection-gated recurrence develops genuine hysteresis | **0.35** | **0.20** | Corrected from a false implication: thresholding alone does not entail bistability. Rises only if E3 shows two branches, remanence and a loop that survives carrier-matched controls; no loop → P(mech) to 0.05. |
 | Nobody uses subspace change as a write gate | **0.55** | n/a | One agent, one retrieval pass over a huge literature is weak evidence of absence. A second independent pass finding nothing → 0.7; a hit → 0. |
 | Induced projection extends to nonlinear memory | **0.35** | **0.25** | **Added — it was missing, and it is the most likely place this dies.** Π_M is clean only for matrix M; Titans-style MLP memories need a Jacobian spectral subspace (locally defined only) or a probe distribution (a new hyperparameter). A working definition that survives a Titans-scale run → 0.7. |
 | Whole line survives six weeks of our own honest testing | **0.30** | — | Unchanged. The killer is not originality; it is row 2 (framing dispute) plus row 3's P(useful) collapsing when real spectra turn out near-degenerate. |
@@ -2455,7 +2688,7 @@ There is no reviewer here. We are the reviewer, so the obligation is to put our 
 
 ## 10 · What would make me drop the diagnosis itself
 
-**It could be factually wrong.** If a model with no latch, no boundary and no chosen projection nonetheless shows behavioural path-dependence not attributable to context *contents* — two runs with token-identical contexts assembled by different routes, behaving differently — then "no hysteresis, only a function" is false as stated. I do not expect it, since a forward pass is deterministic given its context and that is close to definitional. It costs an afternoon, so check it first anyway.
+**It could be factually wrong.** J-space already makes the broad "no state" wording false. The narrower diagnosis would also fail if vanilla inference exhibited a persistent internal variable whose value depends on the route, survives removal of the drive, and changes future behavior under carrier-matched inputs. Determinism does not decide this; controlled state resets and forward/reverse sweeps do.
 
 **It could be true and not load-bearing, which is the worse failure.** If memory capacity growing with sequence length delivers recall, and recall is what the tasks want, the second-order question is real but inert and this note is philosophy with an architecture diagram attached. E2 is the one that answers this, because it asks whether the second-order signal buys anything a first-order one cannot.
 
@@ -2485,10 +2718,11 @@ Contact: macshen93@gmail.com
 - Zverev et al. (2026), *ASIDE: Architectural Separation of Instructions and Data*, arXiv:2503.10566 (ICLR 2026); ISE, arXiv:2410.09102 (NeurIPS 2024); inseparability result, arXiv:2606.27567
 - Li, Han & Yin (2025), *MamKO: Mamba-based Koopman Operator*, ICLR 2025; input-conditioned Koopman in selective SSMs, arXiv:2606.09432
 - Rate–distortion view of KV compression, arXiv:2607.08032
-- Davis & Kahan (1970), the sin Θ theorem; Yu, Wang & Samworth (2015), *A useful variant of the Davis–Kahan theorem for statisticians* — the bound ‖sin Θ‖ ≤ ‖E‖/gap that supplies both the noise-immunity mechanism and its failure condition
+- Wedin (1972), *Perturbation bounds in connection with singular value decomposition* — singular-subspace sin Θ bounds; Davis–Kahan is the symmetric-eigenspace analogue and applies here only after a symmetric dilation
 - Low-rank structure and utilisation of learned linear-attention states, arXiv:2602.04852
 - Zwanzig (2001), *Nonequilibrium Statistical Mechanics* — the memory-kernel price of projection
-- Related notes on this site: [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) · [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md)
+- Anthropic (2026), [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html) — J-lens/J-space; a sparse-frame workspace candidate across depth, not evidence of persistent autonomous closure or phenomenal consciousness
+- Related notes on this site: [State is a closure condition, not a given set](https://machengshen.github.io/theory/state-as-closure.md) · [Discounted credit is a cokernel problem, not a loop holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md) · [Learning where the self ends](https://machengshen.github.io/theory/learning-the-self-boundary.md)
 
 ---
 
@@ -2862,12 +3096,12 @@ Published companions: [State is a closure condition, not a given set](https://ma
 
 ---
 
-## Source: /theory/state-as-closure.md (sha256:30f3c8c32d9b, language: en)
+## Source: /theory/state-as-closure.md (sha256:38babbddb2ec, language: en)
 
 
 # What is a state? — from the MDP notion of state to a "closure" ontology
 
-*Notes from one discussion · Macheng × agent · 2026-07-09*
+*Notes from one discussion · Macheng × agent · 2026-07-09 · scope amended 2026-08-04*
 
 ## The question we started from
 
@@ -2877,15 +3111,15 @@ Below are the six layers we dug out along this question. Assertions are tagged b
 
 ## 1. The MDP definition already gives the game away: a state is not a thing, it is a quotient space
 
-The textbook says a state must satisfy the Markov property: given s, the future is conditionally independent of the past. Notice the shape of that sentence — it is not describing some thing in the world, it is *imposing a condition*: whatever can "screen off" the past deserves to be called a state. Crutchfield's causal-states theorem carries this step to completion **[theorem]**: take all possible histories, form equivalence classes under "indistinguishable with respect to the conditional distribution over futures", and those equivalence classes are the minimal sufficient states (the ε-machine of computational mechanics).
+The textbook says a state must satisfy the Markov property: given s, the future is conditionally independent of the past. Notice the shape of that sentence — it is not describing some thing in the world, it is *imposing a condition*: whatever can "screen off" the past deserves to be called a state. In the setting of stationary stochastic processes and predictive equivalence, computational mechanics carries this step to completion **[theorem, scoped]**: take histories that induce the same conditional distribution over futures, and their equivalence classes are predictive causal states. The minimality result belongs to that formal setting; it is not a theorem that every scientific state representation is one unique quotient.
 
-So the ontological status of a state is: **the quotient space you get by dividing the space of histories by the equivalence relation "makes no difference to what I care about"**. It is not furniture of the world; it is the result of one division — and written into the divisor are three things: the dynamics, the observation interface, and what you care about (telos). Change any one of them and the quotient has to be recomputed.
+Our synthesis **[inference]** is to treat a task-relative state as **a quotient of histories under an equivalence relation such as "makes no difference to the predictions or controls I care about"**. This is a modelling stance, not a universal ontology theorem. The quotient depends on the dynamics, observation interface and telos; changing them can require a different state representation.
 
 ## 2. The Mori–Zwanzig view: the state is where you decide to stop carrying memory
 
-The Mori–Zwanzig formalism of statistical mechanics gives an identity **[theorem]**: for any dynamical system, pick any set of "retained variables" (a projection), and the full dynamics can be rewritten *exactly* as a sum of three terms — a Markov term on the retained variables + a memory-kernel convolution over history + noise orthogonal to the retained variables. This is an identity, not an approximation: **the degrees of freedom you project away do not disappear; they necessarily come back as a memory kernel and as noise**.
+Under the usual operator/evolution assumptions, the Mori–Zwanzig formalism gives an exact projected identity **[theorem, scoped]**: choose resolved observables and a projection, and their evolution can be decomposed into an instantaneous term, a memory term and an orthogonal-dynamics term. The slogan survives, but "any variables in any system" was too broad: **degrees of freedom removed by a specified projection generally return through memory and unresolved forcing rather than literally disappearing**.
 
-Read it in reverse: **the Markov property is never discovered, it is purchased** — either you carry more variables until the memory kernel is negligible, or you accept a kernel and a cloud of noise. The "state" is where you sign your name on that transaction. Which makes the question "what is the true state of the world" ill-posed in itself; the well-posed question is: **under my capacity and my purpose, which quotient space has the smallest memory kernel**. Choosing a state = choosing a projection = choosing how to forget.
+Read as a heuristic **[inference]**: a useful approximately Markov representation is often *purchased* by carrying enough variables, accepting a controlled memory kernel, or tolerating unresolved forcing. The practical question is not assumed to be "the one true state of the world", but: **under a stated capacity, purpose and error tolerance, which representation closes the dynamics well enough?** Choosing a projection also chooses what information is discarded; weak-memory regimes can sometimes justify a local approximation with explicit error bounds.
 
 ## 3. Stage or web of relations? Neither is primitive — but the web hides what makes a state possible
 
@@ -2894,9 +3128,9 @@ Read it in reverse: **the Markov property is never discovered, it is purchased**
 
 ## 4. The rigorous version of "information determines reachability"
 
-In stochastic control this sentence has a precise body **[framework]**: the information an agent accumulates over time is a **filtration**, and any policy must be adapted to it — you cannot act on what you do not know. Hence: **the reachable set increases monotonically as the filtration gets finer**; the more finely you know, the more futures you can distinguish, and the larger the class of policies you can execute.
+In stochastic control this sentence has a precise body **[framework]**: the information an agent accumulates over time is a **filtration**, and any admissible policy must be adapted to it — you cannot act on what you do not know. If one filtration contains another and action/risk/resource constraints are held fixed, the coarse-information policy class embeds in the finer-information class. This does **not** mean every physical reachable set strictly grows; it means the optimum over admissible information-conditioned policies cannot worsen merely because more information is available and may be ignored.
 
-The core lesson of POMDPs has the same source: what a decision is really conditioned on is never the world state but the **information state** (the belief state); in decision theory, "state" has always lived on the agent's side. And there is a ready-made quantification: empowerment (Klyubin–Polani) = the channel capacity from actions to future observations — **reachability measured in bits** **[framework]**.
+In a POMDP, an optimal controller can often be formulated on an **information state**, classically a belief over latent world states **[framework]**. This does not make world state irrelevant; it says the controller acts through information available to it. Empowerment (Klyubin–Polani) is the channel capacity from actions to future observations: a measure of potential controllable influence under a chosen horizon and channel model, not the reachable set itself.
 
 ## 5. Three mathematical homes for the intuition "the set keeps changing, the structure does not"
 
@@ -2906,7 +3140,15 @@ The core lesson of POMDPs has the same source: what a decision is really conditi
 
 Collapsed into one sentence **[inference]**: **what is invariant is the equation of the closure condition; the state set is merely that equation's solution under the current (world, interface, capacity, telos)**. Change the environment, the capacity, or the purpose, and the solution is recomputed — the eigenvalue equation does not move, the eigenvectors change with the operator.
 
-Incidentally, a numerical observation we made recently on small synthetic systems **[empirical, preliminary]**: wire "the representation" and "the statistics you live out under that representation" into a self-consistent loop (representation fixes the projection → projection fixes the closed model → the closed model generates trajectories → trajectory statistics update the representation), and in the region where fitting capacity is sufficient, this loop has a unique fixed point and converges at a geometric rate — i.e. the condition for "a state representation regenerating itself" is well-posed in the simplest case. The genuinely interesting open region is when capacity is limited (underfitting): whether the fixed point is still unique bears directly on whether "several mutually different but individually self-consistent ways of representing the same world" can exist.
+Incidentally, a numerical observation we made recently on small synthetic systems **[empirical, preliminary, unaudited]**: wire "the representation" and "the statistics you live out under that representation" into a self-consistent loop (representation fixes the projection → projection fixes the closed model → the closed model generates trajectories → trajectory statistics update the representation), and in the region where fitting capacity is sufficient, this loop appeared to have a unique fixed point and geometric convergence. The interesting open region is limited capacity: whether several different but individually self-consistent representations can coexist. **No public code or result artifact is linked here, so this paragraph is a working-note report, not independently auditable evidence.**
+
+### 2026 evidence boundary: workspace is not yet closure
+
+Anthropic's Jacobian-lens experiments identify a J-space inside Transformers whose contents can be reported, modulated and flexibly routed across an intermediate layer band **[empirical, external]**. This corrects any blanket claim that a Transformer has "no state": it has activation state, computational state and a transient workspace-like representational state. But J-space is a sparsity-bounded union of cones from an overcomplete frame, not one fixed projector, and the reported evidence is across model depth rather than for an autonomous variable that persists across steps and maintains its own forgetting policy. It is therefore an **adjacent candidate coordinate for access**, not yet a solution to the closure equation above.
+
+A different 2026 result supplies a constraint rather than a bridge **[inference from external theorems]**. OpenAI reports a disproof of Connes's rigidity conjecture: within the theorem's setting, the associated von Neumann algebra need not uniquely determine the underlying group. It also reports the construction of non-sofic groups, so approximation by finite symmetric models cannot be assumed universally. Neither theorem is about agents or consciousness. The transferable warning is narrower: observable/operator-level equivalence need not identify a unique substrate, and any finite-state approximation program must state its approximability assumption rather than smuggle it in.
+
+A second boundary runs in the other direction. Brandner's weak-memory results show that, for a defined class of autonomous linear nonlocal equations, memory can admit a controlled local approximation with explicit error bounds. So "a projection creates memory" does not imply that non-Markovian bookkeeping must remain irreducible at every scale. Whether a local closure is adequate is a quantitative regime question.
 
 ## 6. The three genuinely open places
 
@@ -2922,20 +3164,24 @@ Said in the language of Madhyamaka, the conclusion above is: a state has no self
 
 - Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics
 - Zwanzig (2001) *Nonequilibrium Statistical Mechanics*; Lin & Lu, arXiv:1908.07725 — Koopman–Mori–Zwanzig
+- Brandner (2025), [*Dynamics of Microscale and Nanoscale Systems in the Weak-Memory Regime*](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.037101) — controlled local approximations to a defined class of nonlocal linear dynamics
 - Åström (1965); Kaelbling, Littman & Cassandra (1998) — POMDP / information state
 - Klyubin, Polani & Nehaniv (2005) — empowerment
 - Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — entanglement and spacetime
 - Ladyman & Ross (2007) *Every Thing Must Go* — structural realism
 - Pearl (1988) — Markov blanket / screening in graphical models
+- Anthropic (2026), [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html) — a transient sparse-frame workspace candidate, not yet persistent autonomous closure
+- OpenAI (2026), [*Ten advances in mathematics and theoretical computer science*](https://openai.com/index/ten-advances-in-mathematics/) — non-sofic groups and a disproof of Connes rigidity; used here only as non-identifiability/finite-approximability constraints
+- Related correction: [Discounted credit is a cokernel problem, not a loop holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md)
 
 ---
 
-## Source: /theory/state-as-closure.zh.md (sha256:f16c5333cf15, language: zh-Hans)
+## Source: /theory/state-as-closure.zh.md (sha256:a6312b09d881, language: zh-Hans)
 
 
 # State 是什么?——从 MDP 的状态概念到"闭包"本体论
 
-*一次讨论的整理 · Macheng × agent · 2026-07-09*
+*一次讨论的整理 · Macheng × agent · 2026-07-09 · 2026-08-04 边界修订*
 
 ## 起点的问题
 
@@ -2945,15 +3191,15 @@ Said in the language of Madhyamaka, the conclusion above is: a state has no self
 
 ## 一、MDP 的定义自己已经泄密:state 不是东西,是商空间
 
-教科书说 state 要满足 Markov 性:给定 s,未来与过去条件独立。注意这句话的形状——它不是在描述世界里的某个东西,而是在提一个**条件**:凡是能"屏蔽"过去的,就配叫 state。Crutchfield 的 causal states 定理把这一步走完了 **[定理]**:把所有可能的历史,按"对未来的条件分布无差别"取等价类,这些等价类就是最小充分的 state(computational mechanics 中的 ε-machine)。
+教科书说 state 要满足 Markov 性:给定 s,未来与过去条件独立。注意这句话的形状——它不是在描述世界里的某个东西,而是在提一个**条件**:凡是能"屏蔽"过去的,就配叫 state。在平稳随机过程与预测等价的设定下,computational mechanics 把这一步走完了 **[定理,有范围]**:对未来条件分布相同的历史构成 predictive causal states。最小性结论属于这个形式设定,不是“所有科学状态表示都有唯一商空间”的定理。
 
-所以 state 的本体论地位是:**历史空间除以"对我关心的事无差别"这个等价关系,得到的商空间**。它不是世界的家具,是一次除法的结果——而除数里写着三样东西:动力学、观测接口、你关心什么(telos)。任何一样变,商就得重算。
+我们的综合 **[推断]** 是把任务相对的 state 视为:**历史空间按“对我关心的预测或控制无差别”取商得到的表示**。这是建模立场,不是普适本体论定理。这个商依赖动力学、观测接口与 telos;任何一项变化,都可能要求重做状态表示。
 
 ## 二、Mori–Zwanzig 视角:状态 = 你决定停止携带记忆的地方
 
-统计力学的 Mori–Zwanzig 形式主义给出一个恒等式 **[定理]**:对任何动力系统,任选一组"保留变量"(一个投影),完整动力学都可以精确改写为三项之和——保留变量上的马尔可夫项 + 对历史的记忆核卷积 + 与保留变量正交的噪声。这是恒等式,不是近似:**被投影丢掉的自由度不会消失,必然以记忆核和噪声的形式回来**。
+在通常的算子与演化假设下,Mori–Zwanzig 形式主义给出精确的投影恒等式 **[定理,有范围]**:选定 resolved observables 与投影后,其演化可分成瞬时项、记忆项与正交动力学项。“被投影掉的自由度不会凭空消失”这个直觉保留,但初稿的“任何系统、任何变量”说得过满。
 
-反过来读:**Markov 性从来不是发现的,是购买的**——要么多带变量把记忆核压到可忽略,要么认下一个核和一团噪声。"state"就是你在这笔交易里签字的位置。所以"世界的真实 state 是什么"这个问题本身不适定;适定的问题是:**在我的容量和目的下,哪个商空间的记忆核最小**。选 state = 选投影 = 选怎么遗忘。
+把它反过来读成一个启发式 **[推断]**:有用的近似 Markov 表示通常要靠携带足够变量、接受受控记忆核,或容忍 unresolved forcing 来“购买”。实践问题不是先验断言“世界唯一真实 state 不存在”,而是:**在给定容量、目的与误差容忍下,哪个表示足以闭合动力学?** 选投影也在选择丢弃哪些信息;weak-memory regime 有时还能给局部近似提供显式误差界。
 
 ## 三、舞台还是关系网?两个都不是原初——但关系网里藏着让 state 可能的东西
 
@@ -2962,9 +3208,9 @@ Said in the language of Madhyamaka, the conclusion above is: a state has no self
 
 ## 四、"信息决定 reachability"的严格版
 
-随机控制里这句话有精确形体 **[框架]**:agent 随时间累积的信息是一个**滤波(filtration)**,任何策略都必须适应于它——你不能依据你不知道的东西行动。于是:**可达集随滤波变细而单调增大**;知道得越细,可区分的未来越多,可执行的策略类越大。
+随机控制里这句话有精确形体 **[框架]**:agent 随时间累积的信息是一个**滤波(filtration)**,任何 admissible policy 都必须适应于它——你不能依据你不知道的东西行动。若一个滤波包含另一个,并固定动作、风险与资源约束,粗信息策略类嵌入细信息策略类;最优值不会仅因“多知道了且允许忽略”而变差。这不等于每一个物理可达集都会严格增大。
 
-POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信息态**(belief state);"state"在决策论里本来就住在 agent 这一侧。还有一个现成的量化:empowerment(Klyubin–Polani)= 从动作到未来观测的信道容量——**用 bit 度量的 reachability** **[框架]**。
+在 POMDP 中,最优控制常可写在**信息态**上,经典形式是对潜在世界态的 belief **[框架]**。这不表示世界态无关,而是控制器只能通过自己可获得的信息行动。Empowerment(Klyubin–Polani)是动作到未来观测的信道容量:它是在给定 horizon 与 channel model 下对潜在可控影响的度量,不是可达集本身。
 
 ## 五、"集合一直变、结构不变"这个直觉的三个数学的家
 
@@ -2974,7 +3220,15 @@ POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信�
 
 收束成一句 **[推断]**:**不变的是"闭包条件"那个方程,态集只是方程在当前(世界,接口,容量,telos)下的解**。环境、容量、目的变了,解就重算——本征方程不动,本征向量随算子变。
 
-顺带一个我们最近在小合成系统上做的数值观察 **[实证,初步]**:把"表示"与"用该表示活出的统计"接成自洽循环(表示定投影→投影定闭合模型→闭合模型生成轨迹→轨迹统计更新表示),在拟合容量充分的区域,这个循环存在唯一不动点、几何速率收敛——即"state 表示自我再生"的条件在最简单情形下是良定的。真正有趣的 open 区域是容量受限(欠拟合)时:不动点是否仍唯一,直接关系到"同一世界里是否存在多种互不相同但各自自洽的表示方式"。
+顺带一个我们最近在小合成系统上做的数值观察 **[实证,初步,未审计]**:把"表示"与"用该表示活出的统计"接成自洽循环(表示定投影→投影定闭合模型→闭合模型生成轨迹→轨迹统计更新表示),在拟合容量充分的区域,这个循环表现出唯一不动点与几何收敛。真正有趣的 open 区域是容量受限时,是否会并存多种不同但各自自洽的表示。**这里没有链接公开代码或结果 artifact,所以这段只是 working-note 报告,不是可独立审计的证据。**
+
+### 2026 证据边界:workspace 还不是 closure
+
+Anthropic 的 Jacobian-lens 实验在 Transformer 中识别出一个可报告、可调制、可灵活路由的 J-space **[外部实证]**。这纠正了“Transformer 完全没有 state”的说法:它有 activation state、computational state 与瞬时 workspace-like representational state。但 J-space 是由过完备 frame 生成、受稀疏度约束的锥之并,不是一个固定投影;现有证据发生在模型深度轴上,还没有给出跨步持续、并自主维护自身遗忘策略的变量。因此它是 access/workspace 的相邻候选坐标,还不是本文 closure 方程的解。
+
+另一项 2026 结果提供的是约束,不是桥梁 **[从外部定理得到的推断]**。OpenAI 报告了 Connes rigidity conjecture 的反例:在该定理设定内,关联的 von Neumann algebra 不一定唯一决定底层群;同时构造出 non-sofic groups,说明不能普遍假设抽象对象都可由有限对称模型逼近。这两条定理都不关于 agent 或意识。可迁移的警告只有:算子/可观测层等价未必唯一识别底层 substrate;任何有限状态近似方案都必须明说 approximability 假设。
+
+另一侧的边界来自 Brandner 的 weak-memory 结果:对一类定义清楚的自治线性非局域方程,记忆动力学可以得到带显式误差界的局部近似。所以“投影产生记忆”不等于“任何尺度都必须永久保留非 Markov 记账”;局部 closure 是否足够是定量 regime 问题。
 
 ## 六、真 open 的三处
 
@@ -2990,11 +3244,15 @@ POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信�
 
 - Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics
 - Zwanzig (2001) *Nonequilibrium Statistical Mechanics*; Lin & Lu, arXiv:1908.07725 — Koopman–Mori–Zwanzig
+- Brandner (2025), [*Dynamics of Microscale and Nanoscale Systems in the Weak-Memory Regime*](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.037101) — 非局域线性动力学的受控局部近似
 - Åström (1965); Kaelbling, Littman & Cassandra (1998) — POMDP / information state
 - Klyubin, Polani & Nehaniv (2005) — empowerment
 - Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — 纠缠与时空
 - Ladyman & Ross (2007) *Every Thing Must Go* — 结构实在论
 - Pearl (1988) — Markov blanket / 图模型屏蔽
+- Anthropic (2026), [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html) — 瞬时 sparse-frame workspace 候选,尚非持续自主 closure
+- OpenAI (2026), [*Ten advances in mathematics and theoretical computer science*](https://openai.com/index/ten-advances-in-mathematics/) — non-sofic groups 与 Connes rigidity 反例;这里只作为不可辨识性/有限可近似性约束
+- 相关纠错:[折扣信用分配是余核问题，不是闭环 holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md)
 
 ---
 

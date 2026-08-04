@@ -36,7 +36,7 @@
   "@type": "https://cognition-track.org/schema#KnowledgeGraph",
   "schema": "machengshen/site-index/v1",
   "extends": "cognition-track/manifest/v0",
-  "generated": "2026-07-13",
+  "generated": "2026-08-04",
   "entry": "https://machengshen.github.io/llms.txt",
   "selfContained": "https://machengshen.github.io/llms-full.txt",
   "entryZh": "https://machengshen.github.io/llms.zh.txt",
@@ -193,6 +193,10 @@
         },
         {
           "relation": "contains",
+          "target": "discounted-credit-cokernel"
+        },
+        {
+          "relation": "contains",
           "target": "odd-relational-core"
         },
         {
@@ -275,8 +279,8 @@
         "zh": "State 是一个闭包条件,不是给定的集合"
       },
       "description": {
-        "en": "An MDP's state is not handed to you by the world; it is the solution to a closure equation under (world, interface, capacity, telos). Choosing a state is choosing a projection, and choosing a projection is choosing what to forget.",
-        "zh": "马尔可夫决策过程的状态不是世界递给你的;它是闭包方程在(world、interface、capacity、telos)下的解。选 state 就是选投影,而选投影就是选遗忘什么。"
+        "en": "Treats task-relative state as a closure representation under (world, interface, capacity, telos), explicitly as inference rather than universal ontology. The 2026 amendment scopes causal-state and Mori-Zwanzig results, distinguishes policy classes from physical reachable sets, and classifies J-space as transient workspace evidence. OpenAI's non-sofic-group and Connes-rigidity results are used only as finite-approximability and substrate-identifiability constraints.",
+        "zh": "把任务相对 state 视为(world、interface、capacity、telos)下的闭包表示,明确标作推断而非普适本体论。2026 修订收窄 causal-state 与 Mori-Zwanzig 结论,区分策略类与物理可达集,并把 J-space 归为瞬时 workspace 证据。OpenAI 的 non-sofic group 与 Connes rigidity 结果只作为有限可近似性和 substrate 可辨识性约束。"
       },
       "url": "https://machengshen.github.io/theory/state-as-closure.md",
       "format": "text/markdown",
@@ -284,6 +288,33 @@
       "workTranslation": "https://machengshen.github.io/theory/state-as-closure.zh.md",
       "cognitiveState": "speculative",
       "confidence": 0.5
+    },
+    {
+      "id": "discounted-credit-cokernel",
+      "label": {
+        "en": "Discounted credit is a cokernel problem, not a loop holonomy",
+        "zh": "折扣信用分配是余核问题，不是闭环 holonomy"
+      },
+      "description": {
+        "en": "A formal correction and executable finite-graph result. On a simple directed cycle and 0<=gamma<1, the discounted incidence operator is invertible, so the earlier M=4.095 candidate-potential defect was not a gauge-invariant holonomy and is withdrawn. The corrected object is the weighted reward residual modulo the image of the discounted incidence operator across the entire observed edge system. Exact balanced-alias enumeration gives 42/45 generically non-exact maps under the historical filter. A Cartesian 2x2 definition check independently varies this representation obstruction and strategic harmonic flow; targeted repair in one coupled learner remains the next experiment.",
+        "zh": "一次正式纠错与可执行有限图结果。简单有向环在 0<=gamma<1 时折扣关联算子可逆，因此旧 M=4.095 候选势缺陷不是 gauge-invariant holonomy，现已撤回。正确对象是全部已观测转移类型构成的边系统上，奖励场模去折扣关联算子像空间后的加权残差。平衡 alias 的精确枚举在历史筛选下给出 42/45 一般不可解。Cartesian 2x2 定义检查独立改变表征障碍与策略 harmonic flow；在同一个耦合 learner 中执行定向修复仍是下一实验。"
+      },
+      "url": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md",
+      "cognitiveState": "survived",
+      "confidence": 0.95,
+      "edges": [
+        {
+          "relation": "supports",
+          "target": "state-as-closure"
+        },
+        {
+          "relation": "corrects",
+          "target": "no-state-only-history"
+        }
+      ]
     },
     {
       "id": "odd-relational-core",
@@ -377,8 +408,8 @@
         "zh": "没有 state,只有 history"
       },
       "description": {
-        "en": "A diagnosis of the Transformer: no state, only history; no hysteresis, only a function; no self-boundary, only a window. A KV cache is an unprojected record, so forgetting is delegated to the context window rather than chosen by the architecture. Memory Caching (arXiv:2602.24281), read as a constraint, shows recall requires an addressable set growing with sequence length, placing the current field on one first-order axis and leaving untouched the second-order question of how a state maintains the projection defining it. The proposal: gate test-time memory on change in what the memory forgets rather than on surprise, since surprise-gated memory is structurally attracted to noise and robust losses only patch the symptom under an assumption that fails on rare important events. Defines mu as the projection a memory induces and the signal as the Grassmann distance between successive projections, computable at the same cost as a Miras update, with a constructive separation argument showing update families Miras (arXiv:2504.13173) cannot distinguish and this signal can. Unplanned corollary, stated as a narrow falsifiable conditional: thresholding the gate yields stickiness, jumps and remanence, so hysteresis appears as a by-product. Includes an honesty list conceding the metric is off-the-shelf subspace change-point detection, that nonlinear memories lack a clean projection, and that the retained rank revives the hyperparameter objection; a conceded provenance section narrowed to self-versus-world after ASIDE and an impossibility result; and three single-GPU experiments each with a kill condition. One candidate demoted to a footnote, one deleted outright. E1 has been run and is measured; running it corrected the note twice against its own author. E2 and E3 are not run. Closes with a Calibration table giving each claim P(mechanism) and P(useful) separately plus the observation that would move it; the step to being outside the Miras design space is scored 0.40 and conceded as a framing dispute.",
-        "zh": "对 Transformer 的诊断:没有 state 只有 history,没有滞回只有函数,没有自我边界只有 window。KV cache 是未做投影的记录,遗忘被交给 context window 而不是由架构选择。把 Memory Caching(arXiv:2602.24281)读作约束,它说明 recall 需要随长度增长的可寻址集合,从而把当前领域放在同一条一阶轴上,而二阶问题——state 如何维护定义自己的投影——无人触碰。主张:test-time memory 应由「遗忘什么」的变化门控而非由 surprise 门控,因为 surprise 门控在结构上被噪声吸引,而 robust loss 只是对症状打补丁,其假设在罕见重要事件上失效。把 mu 定义为 memory 诱导的投影,信号定义为前后投影的 Grassmann 距离,计算量与一次 Miras 更新相同,并给出构造性分离论证:存在 Miras(arXiv:2504.13173)无法区分而该信号可区分的更新族。计划外推论,按窄的可证伪条件陈述:阈值化该门会产生黏滞、跳变与剩磁,滞回作为副产品出现。含诚实清单,承认度量本身是现成的子空间变点检测、非线性 memory 缺少干净的投影定义、保留秩会复活超参反对;含一节对 provenance 的让步,在 ASIDE 与不可能性证明之后收窄到自我 vs 世界;以及三个单卡实验,各带证伪条件。另一条候选降为脚注,一条直接删除。E1 已跑,数字为实测,且两次纠正了作者自己;E2、E3 未跑。末尾带 Calibration 表,每条主张分别给 P(机制) 与 P(有用) 及更新条件;「不在 Miras 设计空间内」只给 0.40 并明写为框架之争。"
+        "en": "A corrected diagnosis of vanilla Transformer inference. It has activation state, computational state and a transient workspace-like representational state; Anthropic's J-space gives causal evidence for the last. The narrower missing object is a persistent autonomous path-dependent closure state that maintains its own projection and forgetting policy across steps. E1 still establishes that Grassmann subspace change is not a monotone function of update magnitude. The earlier claim that thresholding this gate implies bistability is withdrawn: E3 now requires carrier-matched controls, two stable branches and remanence, and its mechanism confidence is reset to 0.35.",
+        "zh": "对 vanilla Transformer inference 的修正诊断:它有 activation state、computational state 与瞬时 workspace-like representational state;Anthropic J-space 为最后一项提供了因果证据。真正缺失的对象收窄为跨步持续、具有路径依赖并自主维护自身投影与遗忘策略的 closure state。E1 仍证明 Grassmann 子空间变化不是更新幅度的单调函数。此前“阈值化门控推出双稳态”的说法撤回:E3 现在要求 carrier-matched controls、两条稳定分支与 remanence,机制置信度重置为 0.35。"
       },
       "url": "https://machengshen.github.io/theory/no-state-only-history.md",
       "format": "text/markdown",
@@ -393,8 +424,8 @@
         "zh": "能不能像研究量子力学那样,用数学研究意识?"
       },
       "description": {
-        "en": "The note's own summary: the analogy is half true and half a pretty trap, and the piece exists to draw that line rather than to present an equation. Held genuine: a mental state is a high-dimensional shape rather than a score, and what matters between two long-coupled people lives in the coupling itself. Scope is fenced at the top to how a self operates (maintaining its boundary, remembering, getting stuck), explicitly excluding what awareness itself is, which is assigned to first-person practice rather than formalism. The author states in the text that it carries no theorem core and that its cognitive state is exploratory.",
-        "zh": "笔记自述的结论:这个类比一半是真的,另一半是漂亮的陷阱;文章目的是划清这条界而不是端出方程。站得住的:状态是高维的形状不是分数;两个长期相处的人之间最要紧的东西住在耦合本身里。射程在开头自己圈死:只讲自我如何运作,明说碰不到觉知本身是什么,后者交给第一人称实践。作者正文自述无定理内核、认知状态为探索性。"
+        "en": "A boundary note amended in 2026. High-dimensional states and joint variables are legitimate modelling choices but have no quantum specificity; classical coupling already covers the relationship examples. The earlier equivalence among non-exact forms, holonomy, path dependence, hysteresis, memory and consciousness is withdrawn. Unitary dynamics can encode history, so the real missing ingredients are an empirically identified generator, environment and coarse-graining protocol. J-space, COGITATE and anaesthetized-hippocampus evidence are used to separate reportability, complex representation, plasticity and consciousness.",
+        "zh": "一篇于 2026 年修订的边界笔记。高维状态与联合变量是合法模型选择,但没有量子专属性;经典耦合已覆盖文中关系例子。此前把非恰当形式、holonomy、路径依赖、滞回、记忆与意识等同的说法撤回。幺正动力学可以编码历史,真正缺失的是实验识别出的生成元、环境与粗粒化协议。J-space、COGITATE 与麻醉海马证据被用于拆开可报告性、复杂表征、可塑性与意识。"
       },
       "url": "https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md",
       "format": "text/markdown",

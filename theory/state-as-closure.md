@@ -2,7 +2,7 @@
 
 # What is a state? — from the MDP notion of state to a "closure" ontology
 
-*Notes from one discussion · Macheng × agent · 2026-07-09*
+*Notes from one discussion · Macheng × agent · 2026-07-09 · scope amended 2026-08-04*
 
 ## The question we started from
 
@@ -12,15 +12,15 @@ Below are the six layers we dug out along this question. Assertions are tagged b
 
 ## 1. The MDP definition already gives the game away: a state is not a thing, it is a quotient space
 
-The textbook says a state must satisfy the Markov property: given s, the future is conditionally independent of the past. Notice the shape of that sentence — it is not describing some thing in the world, it is *imposing a condition*: whatever can "screen off" the past deserves to be called a state. Crutchfield's causal-states theorem carries this step to completion **[theorem]**: take all possible histories, form equivalence classes under "indistinguishable with respect to the conditional distribution over futures", and those equivalence classes are the minimal sufficient states (the ε-machine of computational mechanics).
+The textbook says a state must satisfy the Markov property: given s, the future is conditionally independent of the past. Notice the shape of that sentence — it is not describing some thing in the world, it is *imposing a condition*: whatever can "screen off" the past deserves to be called a state. In the setting of stationary stochastic processes and predictive equivalence, computational mechanics carries this step to completion **[theorem, scoped]**: take histories that induce the same conditional distribution over futures, and their equivalence classes are predictive causal states. The minimality result belongs to that formal setting; it is not a theorem that every scientific state representation is one unique quotient.
 
-So the ontological status of a state is: **the quotient space you get by dividing the space of histories by the equivalence relation "makes no difference to what I care about"**. It is not furniture of the world; it is the result of one division — and written into the divisor are three things: the dynamics, the observation interface, and what you care about (telos). Change any one of them and the quotient has to be recomputed.
+Our synthesis **[inference]** is to treat a task-relative state as **a quotient of histories under an equivalence relation such as "makes no difference to the predictions or controls I care about"**. This is a modelling stance, not a universal ontology theorem. The quotient depends on the dynamics, observation interface and telos; changing them can require a different state representation.
 
 ## 2. The Mori–Zwanzig view: the state is where you decide to stop carrying memory
 
-The Mori–Zwanzig formalism of statistical mechanics gives an identity **[theorem]**: for any dynamical system, pick any set of "retained variables" (a projection), and the full dynamics can be rewritten *exactly* as a sum of three terms — a Markov term on the retained variables + a memory-kernel convolution over history + noise orthogonal to the retained variables. This is an identity, not an approximation: **the degrees of freedom you project away do not disappear; they necessarily come back as a memory kernel and as noise**.
+Under the usual operator/evolution assumptions, the Mori–Zwanzig formalism gives an exact projected identity **[theorem, scoped]**: choose resolved observables and a projection, and their evolution can be decomposed into an instantaneous term, a memory term and an orthogonal-dynamics term. The slogan survives, but "any variables in any system" was too broad: **degrees of freedom removed by a specified projection generally return through memory and unresolved forcing rather than literally disappearing**.
 
-Read it in reverse: **the Markov property is never discovered, it is purchased** — either you carry more variables until the memory kernel is negligible, or you accept a kernel and a cloud of noise. The "state" is where you sign your name on that transaction. Which makes the question "what is the true state of the world" ill-posed in itself; the well-posed question is: **under my capacity and my purpose, which quotient space has the smallest memory kernel**. Choosing a state = choosing a projection = choosing how to forget.
+Read as a heuristic **[inference]**: a useful approximately Markov representation is often *purchased* by carrying enough variables, accepting a controlled memory kernel, or tolerating unresolved forcing. The practical question is not assumed to be "the one true state of the world", but: **under a stated capacity, purpose and error tolerance, which representation closes the dynamics well enough?** Choosing a projection also chooses what information is discarded; weak-memory regimes can sometimes justify a local approximation with explicit error bounds.
 
 ## 3. Stage or web of relations? Neither is primitive — but the web hides what makes a state possible
 
@@ -29,9 +29,9 @@ Read it in reverse: **the Markov property is never discovered, it is purchased**
 
 ## 4. The rigorous version of "information determines reachability"
 
-In stochastic control this sentence has a precise body **[framework]**: the information an agent accumulates over time is a **filtration**, and any policy must be adapted to it — you cannot act on what you do not know. Hence: **the reachable set increases monotonically as the filtration gets finer**; the more finely you know, the more futures you can distinguish, and the larger the class of policies you can execute.
+In stochastic control this sentence has a precise body **[framework]**: the information an agent accumulates over time is a **filtration**, and any admissible policy must be adapted to it — you cannot act on what you do not know. If one filtration contains another and action/risk/resource constraints are held fixed, the coarse-information policy class embeds in the finer-information class. This does **not** mean every physical reachable set strictly grows; it means the optimum over admissible information-conditioned policies cannot worsen merely because more information is available and may be ignored.
 
-The core lesson of POMDPs has the same source: what a decision is really conditioned on is never the world state but the **information state** (the belief state); in decision theory, "state" has always lived on the agent's side. And there is a ready-made quantification: empowerment (Klyubin–Polani) = the channel capacity from actions to future observations — **reachability measured in bits** **[framework]**.
+In a POMDP, an optimal controller can often be formulated on an **information state**, classically a belief over latent world states **[framework]**. This does not make world state irrelevant; it says the controller acts through information available to it. Empowerment (Klyubin–Polani) is the channel capacity from actions to future observations: a measure of potential controllable influence under a chosen horizon and channel model, not the reachable set itself.
 
 ## 5. Three mathematical homes for the intuition "the set keeps changing, the structure does not"
 
@@ -41,7 +41,15 @@ The core lesson of POMDPs has the same source: what a decision is really conditi
 
 Collapsed into one sentence **[inference]**: **what is invariant is the equation of the closure condition; the state set is merely that equation's solution under the current (world, interface, capacity, telos)**. Change the environment, the capacity, or the purpose, and the solution is recomputed — the eigenvalue equation does not move, the eigenvectors change with the operator.
 
-Incidentally, a numerical observation we made recently on small synthetic systems **[empirical, preliminary]**: wire "the representation" and "the statistics you live out under that representation" into a self-consistent loop (representation fixes the projection → projection fixes the closed model → the closed model generates trajectories → trajectory statistics update the representation), and in the region where fitting capacity is sufficient, this loop has a unique fixed point and converges at a geometric rate — i.e. the condition for "a state representation regenerating itself" is well-posed in the simplest case. The genuinely interesting open region is when capacity is limited (underfitting): whether the fixed point is still unique bears directly on whether "several mutually different but individually self-consistent ways of representing the same world" can exist.
+Incidentally, a numerical observation we made recently on small synthetic systems **[empirical, preliminary, unaudited]**: wire "the representation" and "the statistics you live out under that representation" into a self-consistent loop (representation fixes the projection → projection fixes the closed model → the closed model generates trajectories → trajectory statistics update the representation), and in the region where fitting capacity is sufficient, this loop appeared to have a unique fixed point and geometric convergence. The interesting open region is limited capacity: whether several different but individually self-consistent representations can coexist. **No public code or result artifact is linked here, so this paragraph is a working-note report, not independently auditable evidence.**
+
+### 2026 evidence boundary: workspace is not yet closure
+
+Anthropic's Jacobian-lens experiments identify a J-space inside Transformers whose contents can be reported, modulated and flexibly routed across an intermediate layer band **[empirical, external]**. This corrects any blanket claim that a Transformer has "no state": it has activation state, computational state and a transient workspace-like representational state. But J-space is a sparsity-bounded union of cones from an overcomplete frame, not one fixed projector, and the reported evidence is across model depth rather than for an autonomous variable that persists across steps and maintains its own forgetting policy. It is therefore an **adjacent candidate coordinate for access**, not yet a solution to the closure equation above.
+
+A different 2026 result supplies a constraint rather than a bridge **[inference from external theorems]**. OpenAI reports a disproof of Connes's rigidity conjecture: within the theorem's setting, the associated von Neumann algebra need not uniquely determine the underlying group. It also reports the construction of non-sofic groups, so approximation by finite symmetric models cannot be assumed universally. Neither theorem is about agents or consciousness. The transferable warning is narrower: observable/operator-level equivalence need not identify a unique substrate, and any finite-state approximation program must state its approximability assumption rather than smuggle it in.
+
+A second boundary runs in the other direction. Brandner's weak-memory results show that, for a defined class of autonomous linear nonlocal equations, memory can admit a controlled local approximation with explicit error bounds. So "a projection creates memory" does not imply that non-Markovian bookkeeping must remain irreducible at every scale. Whether a local closure is adequate is a quantitative regime question.
 
 ## 6. The three genuinely open places
 
@@ -57,8 +65,12 @@ Said in the language of Madhyamaka, the conclusion above is: a state has no self
 
 - Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics
 - Zwanzig (2001) *Nonequilibrium Statistical Mechanics*; Lin & Lu, arXiv:1908.07725 — Koopman–Mori–Zwanzig
+- Brandner (2025), [*Dynamics of Microscale and Nanoscale Systems in the Weak-Memory Regime*](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.037101) — controlled local approximations to a defined class of nonlocal linear dynamics
 - Åström (1965); Kaelbling, Littman & Cassandra (1998) — POMDP / information state
 - Klyubin, Polani & Nehaniv (2005) — empowerment
 - Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — entanglement and spacetime
 - Ladyman & Ross (2007) *Every Thing Must Go* — structural realism
 - Pearl (1988) — Markov blanket / screening in graphical models
+- Anthropic (2026), [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html) — a transient sparse-frame workspace candidate, not yet persistent autonomous closure
+- OpenAI (2026), [*Ten advances in mathematics and theoretical computer science*](https://openai.com/index/ten-advances-in-mathematics/) — non-sofic groups and a disproof of Connes rigidity; used here only as non-identifiability/finite-approximability constraints
+- Related correction: [Discounted credit is a cokernel problem, not a loop holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md)

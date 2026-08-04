@@ -2,7 +2,7 @@
 
 # State 是什么?——从 MDP 的状态概念到"闭包"本体论
 
-*一次讨论的整理 · Macheng × agent · 2026-07-09*
+*一次讨论的整理 · Macheng × agent · 2026-07-09 · 2026-08-04 边界修订*
 
 ## 起点的问题
 
@@ -12,15 +12,15 @@
 
 ## 一、MDP 的定义自己已经泄密:state 不是东西,是商空间
 
-教科书说 state 要满足 Markov 性:给定 s,未来与过去条件独立。注意这句话的形状——它不是在描述世界里的某个东西,而是在提一个**条件**:凡是能"屏蔽"过去的,就配叫 state。Crutchfield 的 causal states 定理把这一步走完了 **[定理]**:把所有可能的历史,按"对未来的条件分布无差别"取等价类,这些等价类就是最小充分的 state(computational mechanics 中的 ε-machine)。
+教科书说 state 要满足 Markov 性:给定 s,未来与过去条件独立。注意这句话的形状——它不是在描述世界里的某个东西,而是在提一个**条件**:凡是能"屏蔽"过去的,就配叫 state。在平稳随机过程与预测等价的设定下,computational mechanics 把这一步走完了 **[定理,有范围]**:对未来条件分布相同的历史构成 predictive causal states。最小性结论属于这个形式设定,不是“所有科学状态表示都有唯一商空间”的定理。
 
-所以 state 的本体论地位是:**历史空间除以"对我关心的事无差别"这个等价关系,得到的商空间**。它不是世界的家具,是一次除法的结果——而除数里写着三样东西:动力学、观测接口、你关心什么(telos)。任何一样变,商就得重算。
+我们的综合 **[推断]** 是把任务相对的 state 视为:**历史空间按“对我关心的预测或控制无差别”取商得到的表示**。这是建模立场,不是普适本体论定理。这个商依赖动力学、观测接口与 telos;任何一项变化,都可能要求重做状态表示。
 
 ## 二、Mori–Zwanzig 视角:状态 = 你决定停止携带记忆的地方
 
-统计力学的 Mori–Zwanzig 形式主义给出一个恒等式 **[定理]**:对任何动力系统,任选一组"保留变量"(一个投影),完整动力学都可以精确改写为三项之和——保留变量上的马尔可夫项 + 对历史的记忆核卷积 + 与保留变量正交的噪声。这是恒等式,不是近似:**被投影丢掉的自由度不会消失,必然以记忆核和噪声的形式回来**。
+在通常的算子与演化假设下,Mori–Zwanzig 形式主义给出精确的投影恒等式 **[定理,有范围]**:选定 resolved observables 与投影后,其演化可分成瞬时项、记忆项与正交动力学项。“被投影掉的自由度不会凭空消失”这个直觉保留,但初稿的“任何系统、任何变量”说得过满。
 
-反过来读:**Markov 性从来不是发现的,是购买的**——要么多带变量把记忆核压到可忽略,要么认下一个核和一团噪声。"state"就是你在这笔交易里签字的位置。所以"世界的真实 state 是什么"这个问题本身不适定;适定的问题是:**在我的容量和目的下,哪个商空间的记忆核最小**。选 state = 选投影 = 选怎么遗忘。
+把它反过来读成一个启发式 **[推断]**:有用的近似 Markov 表示通常要靠携带足够变量、接受受控记忆核,或容忍 unresolved forcing 来“购买”。实践问题不是先验断言“世界唯一真实 state 不存在”,而是:**在给定容量、目的与误差容忍下,哪个表示足以闭合动力学?** 选投影也在选择丢弃哪些信息;weak-memory regime 有时还能给局部近似提供显式误差界。
 
 ## 三、舞台还是关系网?两个都不是原初——但关系网里藏着让 state 可能的东西
 
@@ -29,9 +29,9 @@
 
 ## 四、"信息决定 reachability"的严格版
 
-随机控制里这句话有精确形体 **[框架]**:agent 随时间累积的信息是一个**滤波(filtration)**,任何策略都必须适应于它——你不能依据你不知道的东西行动。于是:**可达集随滤波变细而单调增大**;知道得越细,可区分的未来越多,可执行的策略类越大。
+随机控制里这句话有精确形体 **[框架]**:agent 随时间累积的信息是一个**滤波(filtration)**,任何 admissible policy 都必须适应于它——你不能依据你不知道的东西行动。若一个滤波包含另一个,并固定动作、风险与资源约束,粗信息策略类嵌入细信息策略类;最优值不会仅因“多知道了且允许忽略”而变差。这不等于每一个物理可达集都会严格增大。
 
-POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信息态**(belief state);"state"在决策论里本来就住在 agent 这一侧。还有一个现成的量化:empowerment(Klyubin–Polani)= 从动作到未来观测的信道容量——**用 bit 度量的 reachability** **[框架]**。
+在 POMDP 中,最优控制常可写在**信息态**上,经典形式是对潜在世界态的 belief **[框架]**。这不表示世界态无关,而是控制器只能通过自己可获得的信息行动。Empowerment(Klyubin–Polani)是动作到未来观测的信道容量:它是在给定 horizon 与 channel model 下对潜在可控影响的度量,不是可达集本身。
 
 ## 五、"集合一直变、结构不变"这个直觉的三个数学的家
 
@@ -41,7 +41,15 @@ POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信�
 
 收束成一句 **[推断]**:**不变的是"闭包条件"那个方程,态集只是方程在当前(世界,接口,容量,telos)下的解**。环境、容量、目的变了,解就重算——本征方程不动,本征向量随算子变。
 
-顺带一个我们最近在小合成系统上做的数值观察 **[实证,初步]**:把"表示"与"用该表示活出的统计"接成自洽循环(表示定投影→投影定闭合模型→闭合模型生成轨迹→轨迹统计更新表示),在拟合容量充分的区域,这个循环存在唯一不动点、几何速率收敛——即"state 表示自我再生"的条件在最简单情形下是良定的。真正有趣的 open 区域是容量受限(欠拟合)时:不动点是否仍唯一,直接关系到"同一世界里是否存在多种互不相同但各自自洽的表示方式"。
+顺带一个我们最近在小合成系统上做的数值观察 **[实证,初步,未审计]**:把"表示"与"用该表示活出的统计"接成自洽循环(表示定投影→投影定闭合模型→闭合模型生成轨迹→轨迹统计更新表示),在拟合容量充分的区域,这个循环表现出唯一不动点与几何收敛。真正有趣的 open 区域是容量受限时,是否会并存多种不同但各自自洽的表示。**这里没有链接公开代码或结果 artifact,所以这段只是 working-note 报告,不是可独立审计的证据。**
+
+### 2026 证据边界:workspace 还不是 closure
+
+Anthropic 的 Jacobian-lens 实验在 Transformer 中识别出一个可报告、可调制、可灵活路由的 J-space **[外部实证]**。这纠正了“Transformer 完全没有 state”的说法:它有 activation state、computational state 与瞬时 workspace-like representational state。但 J-space 是由过完备 frame 生成、受稀疏度约束的锥之并,不是一个固定投影;现有证据发生在模型深度轴上,还没有给出跨步持续、并自主维护自身遗忘策略的变量。因此它是 access/workspace 的相邻候选坐标,还不是本文 closure 方程的解。
+
+另一项 2026 结果提供的是约束,不是桥梁 **[从外部定理得到的推断]**。OpenAI 报告了 Connes rigidity conjecture 的反例:在该定理设定内,关联的 von Neumann algebra 不一定唯一决定底层群;同时构造出 non-sofic groups,说明不能普遍假设抽象对象都可由有限对称模型逼近。这两条定理都不关于 agent 或意识。可迁移的警告只有:算子/可观测层等价未必唯一识别底层 substrate;任何有限状态近似方案都必须明说 approximability 假设。
+
+另一侧的边界来自 Brandner 的 weak-memory 结果:对一类定义清楚的自治线性非局域方程,记忆动力学可以得到带显式误差界的局部近似。所以“投影产生记忆”不等于“任何尺度都必须永久保留非 Markov 记账”;局部 closure 是否足够是定量 regime 问题。
 
 ## 六、真 open 的三处
 
@@ -57,8 +65,12 @@ POMDP 的核心教训同源:决策真正条件的从来不是世界态,是**信�
 
 - Crutchfield & Young (1989); Shalizi & Crutchfield (2001) — causal states / computational mechanics
 - Zwanzig (2001) *Nonequilibrium Statistical Mechanics*; Lin & Lu, arXiv:1908.07725 — Koopman–Mori–Zwanzig
+- Brandner (2025), [*Dynamics of Microscale and Nanoscale Systems in the Weak-Memory Regime*](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.037101) — 非局域线性动力学的受控局部近似
 - Åström (1965); Kaelbling, Littman & Cassandra (1998) — POMDP / information state
 - Klyubin, Polani & Nehaniv (2005) — empowerment
 - Ryu & Takayanagi, hep-th/0603001; Van Raamsdonk, arXiv:1005.3035; Swingle, arXiv:0905.1317 — 纠缠与时空
 - Ladyman & Ross (2007) *Every Thing Must Go* — 结构实在论
 - Pearl (1988) — Markov blanket / 图模型屏蔽
+- Anthropic (2026), [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html) — 瞬时 sparse-frame workspace 候选,尚非持续自主 closure
+- OpenAI (2026), [*Ten advances in mathematics and theoretical computer science*](https://openai.com/index/ten-advances-in-mathematics/) — non-sofic groups 与 Connes rigidity 反例;这里只作为不可辨识性/有限可近似性约束
+- 相关纠错:[折扣信用分配是余核问题，不是闭环 holonomy](https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md)
