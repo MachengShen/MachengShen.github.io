@@ -1,1053 +1,1076 @@
 {
-  "@context": {
-    "id": "@id",
-    "label": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#label",
-      "@container": "@language"
-    },
-    "description": {
-      "@id": "http://purl.org/dc/terms/description",
-      "@container": "@language"
-    },
-    "url": {
-      "@id": "http://schema.org/url",
-      "@type": "@id"
-    },
-    "inLanguage": "http://schema.org/inLanguage",
-    "workTranslation": {
-      "@id": "http://schema.org/workTranslation",
-      "@type": "@id"
-    },
-    "translationOfWork": {
-      "@id": "http://schema.org/translationOfWork",
-      "@type": "@id"
-    },
-    "cognitiveState": "https://cognition-track.org/schema#cognitiveState",
-    "confidence": "https://cognition-track.org/schema#confidence",
-    "edges": "https://cognition-track.org/schema#edge",
-    "relation": "https://cognition-track.org/schema#relation",
-    "target": {
-      "@id": "https://cognition-track.org/schema#target",
-      "@type": "@id"
-    },
-    "branch": "https://cognition-track.org/schema#branch",
-    "format": "http://purl.org/dc/terms/format"
+ "@context": {
+  "id": "@id",
+  "label": {
+   "@id": "http://www.w3.org/2000/01/rdf-schema#label",
+   "@container": "@language"
   },
-  "@type": "https://cognition-track.org/schema#KnowledgeGraph",
-  "schema": "machengshen/site-index/v1",
-  "extends": "cognition-track/manifest/v0",
-  "generated": "2026-08-04",
-  "entry": "https://machengshen.github.io/llms.txt",
-  "selfContained": "https://machengshen.github.io/llms-full.txt",
-  "entryZh": "https://machengshen.github.io/llms.zh.txt",
-  "selfContainedZh": "https://machengshen.github.io/llms-full.zh.txt",
-  "languages": [
-    "en",
-    "zh-Hans"
+  "description": {
+   "@id": "http://purl.org/dc/terms/description",
+   "@container": "@language"
+  },
+  "url": {
+   "@id": "http://schema.org/url",
+   "@type": "@id"
+  },
+  "inLanguage": "http://schema.org/inLanguage",
+  "workTranslation": {
+   "@id": "http://schema.org/workTranslation",
+   "@type": "@id"
+  },
+  "translationOfWork": {
+   "@id": "http://schema.org/translationOfWork",
+   "@type": "@id"
+  },
+  "cognitiveState": "https://cognition-track.org/schema#cognitiveState",
+  "confidence": "https://cognition-track.org/schema#confidence",
+  "edges": "https://cognition-track.org/schema#edge",
+  "relation": "https://cognition-track.org/schema#relation",
+  "target": {
+   "@id": "https://cognition-track.org/schema#target",
+   "@type": "@id"
+  },
+  "branch": "https://cognition-track.org/schema#branch",
+  "format": "http://purl.org/dc/terms/format"
+ },
+ "@type": "https://cognition-track.org/schema#KnowledgeGraph",
+ "schema": "machengshen/site-index/v1",
+ "extends": "cognition-track/manifest/v0",
+ "generated": "2026-08-04",
+ "entry": "https://machengshen.github.io/llms.txt",
+ "selfContained": "https://machengshen.github.io/llms-full.txt",
+ "entryZh": "https://machengshen.github.io/llms.zh.txt",
+ "selfContainedZh": "https://machengshen.github.io/llms-full.zh.txt",
+ "languages": [
+  "en",
+  "zh-Hans"
+ ],
+ "root": "root",
+ "note": "Machine-traversable index of all public work. Cognitive state is a first-class field: `survived` has passed a real test, `speculative` is untested theory, `retired` was killed by its own falsification and is kept as a tombstone. Covers published research only; private notes and correspondence are not indexed.",
+ "languageNote": "One graph carries both languages; there is no second Chinese graph, because a second graph is a second thing to rot. `label` and `description` are language-tagged maps (JSON-LD @container: @language) and may be partial -- an English-only label means no Chinese title has been written, not that one is missing by error. `inLanguage` states what language the ARTIFACT is written in, which is not the language of the index pointing at it -- four of the research pages are Chinese-only while llms.txt is English. Where a work exists in both languages, the node carries the English canonical in `url` and points at its Chinese edition with `workTranslation`; the pairing is also visible in the filename, which takes a `.zh.` infix. Two of the three theory notes were written in Chinese first and translated afterwards, so their Chinese editions are originals rather than derivatives -- `workTranslation` records which URL is canonical for agents, not which text came first. `cognitiveState` and `confidence` are deliberately single-valued and untranslated: the epistemic layer is not a property of a language. A claim retired in English is retired in Chinese.",
+ "schemaNote": "v1 breaks v0 consumers that expected `label`/`description` to be plain strings; they are now language maps. v0 also silently renamed the vocabulary it claimed to extend. The mapping is now stated explicitly in `stateVocabulary` instead of being folklore.",
+ "stateVocabulary": {
+  "values": [
+   "survived",
+   "speculative",
+   "retired"
   ],
-  "root": "root",
-  "note": "Machine-traversable index of all public work. Cognitive state is a first-class field: `survived` has passed a real test, `speculative` is untested theory, `retired` was killed by its own falsification and is kept as a tombstone. Covers published research only; private notes and correspondence are not indexed.",
-  "languageNote": "One graph carries both languages; there is no second Chinese graph, because a second graph is a second thing to rot. `label` and `description` are language-tagged maps (JSON-LD @container: @language) and may be partial -- an English-only label means no Chinese title has been written, not that one is missing by error. `inLanguage` states what language the ARTIFACT is written in, which is not the language of the index pointing at it -- four of the research pages are Chinese-only while llms.txt is English. Where a work exists in both languages, the node carries the English canonical in `url` and points at its Chinese edition with `workTranslation`; the pairing is also visible in the filename, which takes a `.zh.` infix. Two of the three theory notes were written in Chinese first and translated afterwards, so their Chinese editions are originals rather than derivatives -- `workTranslation` records which URL is canonical for agents, not which text came first. `cognitiveState` and `confidence` are deliberately single-valued and untranslated: the epistemic layer is not a property of a language. A claim retired in English is retired in Chinese.",
-  "schemaNote": "v1 breaks v0 consumers that expected `label`/`description` to be plain strings; they are now language maps. v0 also silently renamed the vocabulary it claimed to extend. The mapping is now stated explicitly in `stateVocabulary` instead of being folklore.",
-  "stateVocabulary": {
-    "values": [
-      "survived",
-      "speculative",
-      "retired"
-    ],
-    "closed": true,
-    "mapsFrom": {
-      "note": "This site index `extends` cognition-track/manifest/v0, whose vocabulary is NOT the same. The rename was undocumented until now. This is the mapping, and it is the only sanctioned one -- a third variant must not appear.",
-      "survived-stress-test": "survived",
-      "speculative": "speculative",
-      "raw": "(not used here; this index publishes nothing in a raw state)",
-      "retired": "(no counterpart in cognition-track/manifest/v0, which expresses retirement with a `falsifies` edge instead of a state. This index does BOTH: a retired node carries the state AND the falsifies edge.)"
+  "closed": true,
+  "mapsFrom": {
+   "note": "This site index `extends` cognition-track/manifest/v0, whose vocabulary is NOT the same. The rename was undocumented until now. This is the mapping, and it is the only sanctioned one -- a third variant must not appear.",
+   "survived-stress-test": "survived",
+   "speculative": "speculative",
+   "raw": "(not used here; this index publishes nothing in a raw state)",
+   "retired": "(no counterpart in cognition-track/manifest/v0, which expresses retirement with a `falsifies` edge instead of a state. This index does BOTH: a retired node carries the state AND the falsifies edge.)"
+  }
+ },
+ "@graph": [
+  {
+   "id": "root",
+   "label": {
+    "en": "Macheng Shen — research program",
+    "zh": "Macheng Shen —— 研究计划"
+   },
+   "description": {
+    "en": "One thread: information, the operators that transform it, and what it costs to forget. Runs from holography and statistical mechanics through consciousness and machine learning to the design of agent-native institutions.",
+    "zh": "一条线索:信息、变换信息的算子,以及遗忘要付出什么代价。从全息原理与统计力学,穿过意识与机器学习,落到 agent-native 制度的设计上。"
+   },
+   "url": "https://machengshen.github.io/",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/index.zh.html",
+   "cognitiveState": "speculative",
+   "edges": [
+    {
+     "relation": "hasBranch",
+     "target": "branch/worldview"
+    },
+    {
+     "relation": "hasBranch",
+     "target": "branch/universe"
+    },
+    {
+     "relation": "hasBranch",
+     "target": "branch/future-society"
     }
+   ]
   },
-  "@graph": [
+  {
+   "id": "branch/worldview",
+   "label": {
+    "en": "Worldview — how beliefs are held",
+    "zh": "世界观 —— 信念是怎么被持有的"
+   },
+   "description": {
+    "en": "The first-order commitment is to a method, not a thesis: make the cognitive state of a claim explicit, publish what failed, run adversarial review before belief.",
+    "zh": "第一序的承诺是一套方法,而不是任何一条论点:把认知状态显式标出来、把失败的东西也发表、让对抗性评审先于相信发生。"
+   },
+   "branch": "worldview",
+   "edges": [
     {
-      "id": "root",
-      "label": {
-        "en": "Macheng Shen — research program",
-        "zh": "Macheng Shen —— 研究计划"
-      },
-      "description": {
-        "en": "One thread: information, the operators that transform it, and what it costs to forget. Runs from holography and statistical mechanics through consciousness and machine learning to the design of agent-native institutions.",
-        "zh": "一条线索:信息、变换信息的算子,以及遗忘要付出什么代价。从全息原理与统计力学,穿过意识与机器学习,落到 agent-native 制度的设计上。"
-      },
-      "url": "https://machengshen.github.io/",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/index.zh.html",
-      "cognitiveState": "speculative",
-      "edges": [
-        {
-          "relation": "hasBranch",
-          "target": "branch/worldview"
-        },
-        {
-          "relation": "hasBranch",
-          "target": "branch/universe"
-        },
-        {
-          "relation": "hasBranch",
-          "target": "branch/future-society"
-        }
-      ]
+     "relation": "contains",
+     "target": "cognition-track"
     },
     {
-      "id": "branch/worldview",
-      "label": {
-        "en": "Worldview — how beliefs are held",
-        "zh": "世界观 —— 信念是怎么被持有的"
-      },
-      "description": {
-        "en": "The first-order commitment is to a method, not a thesis: make the cognitive state of a claim explicit, publish what failed, run adversarial review before belief.",
-        "zh": "第一序的承诺是一套方法,而不是任何一条论点:把认知状态显式标出来、把失败的东西也发表、让对抗性评审先于相信发生。"
-      },
-      "branch": "worldview",
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "cognition-track"
-        },
-        {
-          "relation": "contains",
-          "target": "continual-learning-lab"
-        },
-        {
-          "relation": "contains",
-          "target": "reviewer-wheels"
-        },
-        {
-          "relation": "contains",
-          "target": "form-was-the-cage"
-        }
-      ]
+     "relation": "contains",
+     "target": "continual-learning-lab"
     },
     {
-      "id": "cognition-track",
-      "label": {
-        "en": "Cognition Track"
-      },
-      "description": {
-        "en": "Agent-traversable knowledge graph of non-consensus claims about intelligence and learning. Cognitive state is first-class on every node; one node is retained because it failed its stress test."
-      },
-      "url": "https://github.com/MachengShen/cognition-track",
-      "format": "application/ld+json",
-      "cognitiveState": "survived",
-      "edges": [
-        {
-          "relation": "machineIndex",
-          "target": "https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld"
-        }
-      ]
+     "relation": "contains",
+     "target": "reviewer-wheels"
     },
     {
-      "id": "continual-learning-lab",
-      "label": {
-        "en": "Continual Learning Lab"
-      },
-      "description": {
-        "en": "Pre-registered small continual-learning experiments, negative results included."
-      },
-      "url": "https://github.com/starshard-ai/continual-learning-lab",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "reviewer-wheels",
-      "label": {
-        "en": "Reviewer Wheels"
-      },
-      "description": {
-        "en": "Four verification wheels for multi-agent AI coding: drift checks, adversarial review, reuse compiler, frontend smoke gate."
-      },
-      "url": "https://github.com/starshard-ai/reviewer-wheels",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "form-was-the-cage",
-      "label": {
-        "en": "The Form Was the Cage"
-      },
-      "description": {
-        "en": "An agent OS, its self-referential trace, and the end of researcher-as-identity."
-      },
-      "url": "https://github.com/MachengShen/the-form-was-the-cage",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "branch/universe",
-      "label": {
-        "en": "Theory of the universe — information, physics, mind",
-        "zh": "宇宙底层理论 —— 信息、物理、心智"
-      },
-      "branch": "universe",
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "holography-koopman"
-        },
-        {
-          "relation": "contains",
-          "target": "state-as-closure"
-        },
-        {
-          "relation": "contains",
-          "target": "discounted-credit-cokernel"
-        },
-        {
-          "relation": "contains",
-          "target": "odd-relational-core"
-        },
-        {
-          "relation": "contains",
-          "target": "learning-the-self-boundary"
-        },
-        {
-          "relation": "contains",
-          "target": "learning-the-self-boundary-log"
-        },
-        {
-          "relation": "contains",
-          "target": "intelligence-essay"
-        },
-        {
-          "relation": "contains",
-          "target": "consciousness-unified"
-        },
-        {
-          "relation": "contains",
-          "target": "strings-to-consciousness"
-        },
-        {
-          "relation": "contains",
-          "target": "sleep-wave-theory"
-        },
-        {
-          "relation": "contains",
-          "target": "response-to-lillicrap"
-        },
-        {
-          "relation": "contains",
-          "target": "living-information-system"
-        },
-        {
-          "relation": "contains",
-          "target": "reversible-layer-aging"
-        },
-        {
-          "relation": "contains",
-          "target": "credit-transport"
-        },
-        {
-          "relation": "contains",
-          "target": "essays"
-        },
-        {
-          "relation": "contains",
-          "target": "contemplative-synthesis"
-        }
-      ]
-    },
-    {
-      "id": "holography-koopman",
-      "label": {
-        "en": "Holography and Koopman: two faces of one inverse problem",
-        "zh": "全息 ↔ Koopman:同一个反问题的两副面孔"
-      },
-      "description": {
-        "en": "Holography generates geometry from entanglement; a general learning machine learns an eigenbasis of its own dynamics. Same inverse problem: recover an operator's eigenstructure from what it does. The HaPPY code is the physical twin of 'forgetting is compression, not deletion'.",
-        "zh": "全息原理从纠缠结构里生成几何;一台通用学习机学习它自身动力学的本征基。同一个反问题:从算子做了什么反推它的本征结构。HaPPY 码是「遗忘是压缩、不是删除」的物理孪生。"
-      },
-      "url": "https://machengshen.github.io/theory/holography-koopman.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/holography-koopman.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.5,
-      "edges": [
-        {
-          "relation": "supports",
-          "target": "state-as-closure"
-        }
-      ]
-    },
-    {
-      "id": "state-as-closure",
-      "label": {
-        "en": "State is a closure condition, not a given set",
-        "zh": "State 是一个闭包条件,不是给定的集合"
-      },
-      "description": {
-        "en": "Treats task-relative state as a closure representation under (world, interface, capacity, telos), explicitly as inference rather than universal ontology. The 2026 amendment scopes causal-state and Mori-Zwanzig results, distinguishes policy classes from physical reachable sets, and classifies J-space as transient workspace evidence. OpenAI's non-sofic-group and Connes-rigidity results are used only as finite-approximability and substrate-identifiability constraints.",
-        "zh": "把任务相对 state 视为(world、interface、capacity、telos)下的闭包表示,明确标作推断而非普适本体论。2026 修订收窄 causal-state 与 Mori-Zwanzig 结论,区分策略类与物理可达集,并把 J-space 归为瞬时 workspace 证据。OpenAI 的 non-sofic group 与 Connes rigidity 结果只作为有限可近似性和 substrate 可辨识性约束。"
-      },
-      "url": "https://machengshen.github.io/theory/state-as-closure.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/state-as-closure.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.5
-    },
-    {
-      "id": "discounted-credit-cokernel",
-      "label": {
-        "en": "Discounted credit is a cokernel problem, not a loop holonomy",
-        "zh": "折扣信用分配是余核问题，不是闭环 holonomy"
-      },
-      "description": {
-        "en": "A formal correction and executable finite-graph result. On a simple directed cycle and 0<=gamma<1, the discounted incidence operator is invertible, so the earlier M=4.095 candidate-potential defect was not a gauge-invariant holonomy and is withdrawn. The corrected object is the weighted reward residual modulo the image of the discounted incidence operator across the entire observed edge system. Exact balanced-alias enumeration gives 42/45 generically non-exact maps under the historical filter. A Cartesian 2x2 definition check independently varies this representation obstruction and strategic harmonic flow; targeted repair in one coupled learner remains the next experiment.",
-        "zh": "一次正式纠错与可执行有限图结果。简单有向环在 0<=gamma<1 时折扣关联算子可逆，因此旧 M=4.095 候选势缺陷不是 gauge-invariant holonomy，现已撤回。正确对象是全部已观测转移类型构成的边系统上，奖励场模去折扣关联算子像空间后的加权残差。平衡 alias 的精确枚举在历史筛选下给出 42/45 一般不可解。Cartesian 2x2 定义检查独立改变表征障碍与策略 harmonic flow；在同一个耦合 learner 中执行定向修复仍是下一实验。"
-      },
-      "url": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md",
-      "cognitiveState": "survived",
-      "confidence": 0.95,
-      "edges": [
-        {
-          "relation": "supports",
-          "target": "state-as-closure"
-        },
-        {
-          "relation": "corrects",
-          "target": "no-state-only-history"
-        }
-      ]
-    },
-    {
-      "id": "odd-relational-core",
-      "label": {
-        "en": "The odd relational core: anti-bipartiteness as the minimal structure",
-        "zh": "奇关系核:反二分作为最小结构"
-      },
-      "description": {
-        "en": "Why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on small, odd, centered, ever-turning relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an us-vs-them binary terminus, while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: 'odd' is demoted to a corollary of 'anti-binary', two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion.",
-        "zh": "为什么文明的压缩图式(三相神、五行、七脉轮)反复落到小、奇、有心、不停转的关系核。一个硬的图论内核——二染色当且仅当无奇环,所以奇环是最省的、拓扑上拒绝「我们vs他们」二分终局的结构,而二元图式天然提供一个最终敌人——外面包着一个四股压力框架,然后被 note 自己的对抗自审拆掉:「奇」被降级为「反二元」的 corollary、四股里两股被重读成 exaptation、道德读法只是假设不是结论。"
-      },
-      "url": "https://machengshen.github.io/theory/odd-relational-core.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/odd-relational-core.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.4,
-      "edges": [
-        {
-          "relation": "supports",
-          "target": "state-as-closure"
-        }
-      ]
-    },
-    {
-      "id": "two-body-karma",
-      "label": {
-        "en": "Two-body karma: three modes of relational inertia",
-        "zh": "两体业力:关系里的三种惯性"
-      },
-      "description": {
-        "en": "Extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: the inertia lives in the coupling itself, not in either person. Shared mud is scene-keyed sedimentation of default scripts; the mutual spring is the model of you stored in the other's head, an external memory of your old pattern that makes unilateral self-reform systematically fail until it is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state with hysteresis that flips only when both sides cross the threshold together. Goal is not zero coupling but a negotiable spring. The dynamical-systems language is marked as structural rhyme, not derivation; the note closes with the observations that would break it.",
-        "zh": "把单人版的习气-惯性三模式(泥、弹簧、卡扣)扩展到两个人的关系:惯性存在耦合本身,不在任何一方体内。共泥=双侧沉积、场景键控的默认脚本;互弹簧=对方脑中那个「你的模型」,是你旧模式的外部存储器,让单方面修行系统性失效,直到用明说加反复演把它重训;互锁卡扣=关系状态的双稳加滞回,只有双方同时跨阈才翻转。目标不是零耦合,而是可协商的弹簧。动力学语言被标注为结构性押韵而非推导;文末给出能拆掉框架的可观察证据。"
-      },
-      "url": "https://machengshen.github.io/theory/two-body-karma.md",
-      "format": "text/markdown",
-      "inLanguage": "zh-Hans",
-      "cognitiveState": "speculative",
-      "confidence": 0.35
-    },
-    {
-      "id": "learning-the-self-boundary",
-      "label": {
-        "en": "Learning where the self ends",
-        "zh": "学习「我到哪里为止」"
-      },
-      "description": {
-        "en": "A proposal that a robot should learn the agent/environment boundary rather than be handed it by an engineer, and the one-day campaign in which three of its four supporting claims were destroyed, every one of them by the authors' own simulator or own re-analysis. Survived: hysteresis in the boundary emerges from a self-reinforcing precision loop with no hand-installed non-linearity, and survives extrapolation to zero sweep rate at 24-35x the resolution floor. Died: self-specificity, because raising one free amplitude makes a wind-blown ball's boundary stick digit-for-digit identically, so hysteresis is a generic property of any gated slow variable; the signature prediction that release is slower than incorporation, falsified in both implementations with the asymmetry reversed in the second for a computable reason, namely that precision amplifies the evidence against a channel just as much; and the claim that any of it falls out of the proposed objective, which in fact requires a cost/benefit ratio hand-tuned to about 2% and places every channel 2-420 window-widths outside it. The human-side motivation rested on an unreferenced claim of empirical establishment; two independent public datasets re-analysed here both point to adaptation, the opposite sign. Written in two layers: a jargon-free narrative, then the full measured record. Not ratified, not a result.",
-        "zh": "一个提案:机器人应该学出 agent/环境边界,而不是被工程师递给它;以及一天之内四条支撑主张倒掉三条的过程,每一条都是被自己的仿真器或自己的重分析打倒的。活下来:边界的滞回确实能从自我强化的精度回路里涌现,不需手装非线性,且通过零扫速外推,达分辨底的 24-35 倍。死掉:自我特异性,因为把一个自由幅度拧大,一个被风吹的球的边界卡得逐位相同,所以滞回是任何带门控慢变量的通用性质;「释放比并入更慢」这条签名预测在两种实现下都被证伪,第二种里方向还反了,原因可算,即精度同样放大反对该通道的证据;以及「这一切从提出的目标函数里自然长出」,实际需要手调到约 2% 的成本收益比,而目标函数把每条通道放在窗口外 2 到 420 个窗口宽。人类侧动机压在一句无出处的「经验上确凿」上;本文重分析的两份独立公开数据都指向适应,即相反符号。双层写作:先无术语叙事,再完整实测记录。未 ratify,不是结论。"
-      },
-      "url": "https://machengshen.github.io/theory/learning-the-self-boundary.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.15,
-      "edges": [
-        {
-          "relation": "supports",
-          "target": "state-as-closure"
-        }
-      ]
-    },
-    {
-      "id": "learning-the-self-boundary-log",
-      "label": {
-        "en": "Stage log - the self-boundary line, in order",
-        "zh": "阶段日志 - 自我边界这条线,按顺序"
-      },
-      "description": {
-        "en": "The audit trail for the self-boundary note: one row per stage (specification, prior-art audit, evidence audits, three rounds of data hunting, two human re-analyses, three simulation stages), each stating what it overturned or established. Mostly a record of self-inflicted damage, including three reusable mistakes: reading a probe's signal-to-noise as the system's coupling strength and then shipping that misdiagnosis downstream as a premise; believing three separate trial-level-data-available statements that all turned out to be aggregates with no trial index; and letting an unreferenced claim of empirical establishment carry an architectural conclusion.",
-        "zh": "自我边界那篇的审计留痕:每个阶段一行(规格、prior-art 审计、证据审计、三轮数据搜寻、两次人类数据重分析、三个仿真阶段),各自说明它推翻或确立了什么。主要是一份自伤记录,含三条可复用的错误:把探针的信噪比读成系统的耦合强度并把误诊当前提发给下一棒;连着相信三份「逐试次数据公开」的声明,打开全是没有试次序号的聚合表;以及让一句无出处的「经验上确凿」承载了一整条架构结论。"
-      },
-      "url": "https://machengshen.github.io/theory/learning-the-self-boundary-log.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary-log.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.15,
-      "edges": [
-        {
-          "relation": "supports",
-          "target": "learning-the-self-boundary"
-        }
-      ]
-    },
-    {
-      "id": "no-state-only-history",
-      "label": {
-        "en": "No state, only history",
-        "zh": "没有 state,只有 history"
-      },
-      "description": {
-        "en": "A corrected diagnosis of vanilla Transformer inference. It has activation state, computational state and a transient workspace-like representational state; Anthropic's J-space gives causal evidence for the last. The narrower missing object is a persistent autonomous path-dependent closure state that maintains its own projection and forgetting policy across steps. E1 still establishes that Grassmann subspace change is not a monotone function of update magnitude. The earlier claim that thresholding this gate implies bistability is withdrawn: E3 now requires carrier-matched controls, two stable branches and remanence, and its mechanism confidence is reset to 0.35.",
-        "zh": "对 vanilla Transformer inference 的修正诊断:它有 activation state、computational state 与瞬时 workspace-like representational state;Anthropic J-space 为最后一项提供了因果证据。真正缺失的对象收窄为跨步持续、具有路径依赖并自主维护自身投影与遗忘策略的 closure state。E1 仍证明 Grassmann 子空间变化不是更新幅度的单调函数。此前“阈值化门控推出双稳态”的说法撤回:E3 现在要求 carrier-matched controls、两条稳定分支与 remanence,机制置信度重置为 0.35。"
-      },
-      "url": "https://machengshen.github.io/theory/no-state-only-history.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.3
-    },
-    {
-      "id": "consciousness-as-quantum-mechanics",
-      "label": {
-        "en": "Can consciousness be studied mathematically, the way quantum mechanics is?",
-        "zh": "能不能像研究量子力学那样,用数学研究意识?"
-      },
-      "description": {
-        "en": "A boundary note amended in 2026. High-dimensional states and joint variables are legitimate modelling choices but have no quantum specificity; classical coupling already covers the relationship examples. The earlier equivalence among non-exact forms, holonomy, path dependence, hysteresis, memory and consciousness is withdrawn. Unitary dynamics can encode history, so the real missing ingredients are an empirically identified generator, environment and coarse-graining protocol. J-space, COGITATE and anaesthetized-hippocampus evidence are used to separate reportability, complex representation, plasticity and consciousness.",
-        "zh": "一篇于 2026 年修订的边界笔记。高维状态与联合变量是合法模型选择,但没有量子专属性;经典耦合已覆盖文中关系例子。此前把非恰当形式、holonomy、路径依赖、滞回、记忆与意识等同的说法撤回。幺正动力学可以编码历史,真正缺失的是实验识别出的生成元、环境与粗粒化协议。J-space、COGITATE 与麻醉海马证据被用于拆开可报告性、复杂表征、可塑性与意识。"
-      },
-      "url": "https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md",
-      "format": "text/markdown",
-      "inLanguage": "zh-Hans",
-      "cognitiveState": "speculative",
-      "confidence": 0.25
-    },
-    {
-      "id": "information-and-qi",
-      "label": {
-        "en": "Information and qi — a comparison note on a parallel line",
-        "zh": "信息与气 —— 对一条平行线路的对照笔记"
-      },
-      "description": {
-        "en": "Addressed to the YouTube channel @itsRedPill and its readers; compares a line arrived at independently from reinforcement learning, decision theory and robotics against that channel's information-ontology arcs. Framed by its author as an invitation rather than a scorecard. Five parts: four points of verbatim convergence (we touch only models; the real-versus-simulated dichotomy does not hold; the self is a process; and, flagged as most valuable, embodiment plus a requirement to maintain one's own existence); the step deliberately declined (the qi slot, dissolved rather than answered, since if the true state of the world is ill-posed so is the question of what underlies the projection); three places judged not to hold up, each with named literature and a stated way to settle it; a constructive replacement for one; and three suggestions. Applies its anti-grand-unification rule symmetrically and states the cost of its own branch. Claims tagged by honesty level. The author states the cognitive state as exploratory and non-conclusive in the text.",
-        "zh": "写给 YouTube 频道 @itsRedPill 及其读者的对照笔记,把一条从强化学习/决策论/机器人学独立走出的线与该频道的信息本体论系列对照,作者定性为邀请而非评分卡。五段:四处共识;一步主动不走的(气那个槽位,取消问题而非回答);三处判断站不住脚处,各附文献与判决方式;其中一处的建设性替代;三条建议。对自己用同一把尺子,并列出自己这条路的代价。论断按诚实度标注。作者正文自述认知状态为探索性、非结论。"
-      },
-      "url": "https://machengshen.github.io/information-and-qi.html",
-      "format": "text/html",
-      "inLanguage": "zh-Hans",
-      "cognitiveState": "speculative",
-      "confidence": 0.25
-    },
-    {
-      "id": "intelligence-essay",
-      "label": {
-        "en": "Toward a Theory of Intelligence and Contemporary AI"
-      },
-      "url": "https://machengshen.github.io/essay.pdf",
-      "format": "application/pdf",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "consciousness-unified",
-      "label": {
-        "en": "A unified-theory attempt on consciousness",
-        "zh": "一次关于意识的统一理论尝试"
-      },
-      "url": "https://machengshen.github.io/research/consciousness-unified-theory.html",
-      "inLanguage": "zh-CN",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "strings-to-consciousness",
-      "label": {
-        "en": "From strings to consciousness",
-        "zh": "从弦到意识"
-      },
-      "url": "https://machengshen.github.io/research/strings-to-consciousness.html",
-      "inLanguage": "zh-CN",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "sleep-wave-theory",
-      "label": {
-        "en": "Sleep, waves, and learning",
-        "zh": "睡眠、波与学习"
-      },
-      "url": "https://machengshen.github.io/research/sleep-learning-wave-theory.html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "response-to-lillicrap",
-      "label": {
-        "en": "Response to Lillicrap",
-        "zh": "回应 Lillicrap"
-      },
-      "description": {
-        "en": "On backprop and biological plausibility. Kept as background: the current position on this branch is the more cautious credit-transport framing. llms.txt asserts no cognitive state for it, and neither does this graph."
-      },
-      "url": "https://machengshen.github.io/research/response-to-lillicrap.html",
-      "inLanguage": "zh-CN"
-    },
-    {
-      "id": "living-information-system",
-      "label": {
-        "en": "Living Information System"
-      },
-      "description": {
-        "en": "Umbrella program: information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Aging and cancer as information-integrity failures."
-      },
-      "url": "https://github.com/starshard-ai/living-information-system",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "reversible-layer-aging",
-      "label": {
-        "en": "Reversible Layer Aging"
-      },
-      "description": {
-        "en": "Under partial reprogramming, the causal-damage methylation layer (DamAge) reverts youthward; the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries, on two human EPIC datasets."
-      },
-      "url": "https://github.com/starshard-ai/reversible-layer-aging",
-      "cognitiveState": "survived",
-      "confidence": 0.7
-    },
-    {
-      "id": "credit-transport",
-      "label": {
-        "en": "Credit transport generalizes backpropagation",
-        "zh": "Credit transport 是反向传播的推广"
-      },
-      "description": {
-        "en": "Error, value, and viability signals must propagate backward through every structure that caused an outcome; neural backprop is one projection of that. The claim is live and untested. It is NOT the same claim as the wave-equation derivation, which was the strong form and is retired — see wave-backprop-derivation. This node has no URL of its own precisely because that distinction was previously collapsed: the graph pointed at the retired page and called it speculative.",
-        "zh": "误差、价值与生存信号必须沿着一切造成了结果的结构反向传播;神经网络的反向传播只是它的一个投影。这条主张仍然活着,且未经检验。它**不等于**那条从波动方程出发的推导——那是它的强形式,已被 retire,见 wave-backprop-derivation。"
-      },
-      "cognitiveState": "speculative",
-      "confidence": 0.5,
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "hebbian-wave-interference"
-        },
-        {
-          "relation": "contains",
-          "target": "wave-backprop-full"
-        },
-        {
-          "relation": "contains",
-          "target": "wave-backprop-derivation"
-        },
-        {
-          "relation": "contains",
-          "target": "research-overview"
-        }
-      ]
-    },
-    {
-      "id": "hebbian-wave-interference",
-      "label": {
-        "en": "Hebbian appearance, instructive signals, and physical credit transport",
-        "zh": "Hebbian 的外观、instructive signal,与物理的 credit transport"
-      },
-      "description": {
-        "en": "The current working note. Why local plasticity can look Hebbian while still carrying task-dependent update information, and where wave/adjoint language genuinely helps."
-      },
-      "url": "https://machengshen.github.io/research/hebbian-wave-interference.html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "wave-backprop-full",
-      "label": {
-        "en": "Backpropagation, adjoint fields, and physical transport constraints",
-        "zh": "反向传播、伴随场,与物理传输约束"
-      },
-      "description": {
-        "en": "The exploratory note. Carries its own title correction: what physical systems actually show, and what they do not yet show."
-      },
-      "url": "https://machengshen.github.io/research/wave-backprop-full.html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "wave-backprop-derivation",
-      "label": {
-        "en": "Deriving backpropagation from wave equations",
-        "zh": "从波动方程推导反向传播"
-      },
-      "description": {
-        "en": "The original, stronger claim: that wave reflection already supplies a first-principles derivation of backpropagation. It does not. The page is kept as an archive notice at its original URL so the retraction is as reachable as the claim was. Readable in both languages; the Chinese alternate carries the same retirement.",
-        "zh": "原来那条更强的主张:波反射已经提供了反向传播的第一性原理推导。它没有。页面作为存档说明保留在原 URL 上,好让撤回和当初那条主张一样可达。"
-      },
-      "url": "https://machengshen.github.io/research/wave-backprop-en.html",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/research/wave-backprop-en.zh.html",
-      "cognitiveState": "retired",
-      "edges": [
-        {
-          "relation": "falsifies",
-          "target": "credit-transport"
-        }
-      ]
-    },
-    {
-      "id": "research-overview",
-      "label": {
-        "en": "Research overview",
-        "zh": "研究总览"
-      },
-      "description": {
-        "en": "The branch index for the wave / credit-transport line."
-      },
-      "url": "https://machengshen.github.io/research/",
-      "inLanguage": "en"
-    },
-    {
-      "id": "essays",
-      "label": {
-        "en": "Essays",
-        "zh": "文章"
-      },
-      "description": {
-        "en": "Long-form essays. No cognitive state is asserted on these in llms.txt, and none is invented here."
-      },
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "essay/harness-engineering"
-        },
-        {
-          "relation": "contains",
-          "target": "essay/meta-control"
-        },
-        {
-          "relation": "contains",
-          "target": "essay/where-objectives-come-from"
-        },
-        {
-          "relation": "contains",
-          "target": "essay/distributed-memory"
-        },
-        {
-          "relation": "contains",
-          "target": "ideas-archive"
-        }
-      ]
-    },
-    {
-      "id": "essay/harness-engineering",
-      "label": {
-        "en": "Harness engineering and the physical instantiation of intelligence"
-      },
-      "url": "https://machengshen.github.io/essays/harness-engineering-and-the-physical-instantiation-of-intelligence/",
-      "inLanguage": "en"
-    },
-    {
-      "id": "essay/meta-control",
-      "label": {
-        "en": "Meta-control, information gain, and the architecture of autonomous learning"
-      },
-      "url": "https://machengshen.github.io/essays/meta-control-information-gain-and-the-architecture-of-autonomous-learning/",
-      "inLanguage": "en"
-    },
-    {
-      "id": "essay/where-objectives-come-from",
-      "label": {
-        "en": "Where objectives come from — and why solutions become strategic assets"
-      },
-      "url": "https://machengshen.github.io/essays/where-objectives-come-from-and-why-solutions-become-strategic-assets/",
-      "inLanguage": "en"
-    },
-    {
-      "id": "essay/distributed-memory",
-      "label": {
-        "en": "Why distributed memory matters for lifelong agents"
-      },
-      "url": "https://machengshen.github.io/essays/why-distributed-memory-matters-for-lifelong-agents/",
-      "inLanguage": "en"
-    },
-    {
-      "id": "ideas-archive",
-      "label": {
-        "en": "Older essays (/ideas/)",
-        "zh": "更早的文章(/ideas/)"
-      },
-      "description": {
-        "en": "Served by a separate repository mounted at /ideas/, which shadows any folder of that name in the site repo. Its pages cannot be verified from this repo, so no inLanguage is asserted for them."
-      },
-      "url": "https://machengshen.github.io/ideas/",
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "idea/line-loss"
-        },
-        {
-          "relation": "contains",
-          "target": "idea/endogenous-viability"
-        },
-        {
-          "relation": "contains",
-          "target": "idea/computational-safety"
-        }
-      ]
-    },
-    {
-      "id": "idea/line-loss",
-      "label": {
-        "en": "Line loss for intelligence"
-      },
-      "url": "https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/"
-    },
-    {
-      "id": "idea/endogenous-viability",
-      "label": {
-        "en": "From mutual information to endogenous viability"
-      },
-      "url": "https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/"
-    },
-    {
-      "id": "idea/computational-safety",
-      "label": {
-        "en": "Safety in a computational universe"
-      },
-      "url": "https://machengshen.github.io/ideas/blog/safety-in-a-computational-universe/"
-    },
-    {
-      "id": "contemplative-synthesis",
-      "label": {
-        "en": "Grand synthesis of contemplative traditions with this theory",
-        "zh": "把禅修传统与本理论做大统一综合"
-      },
-      "description": {
-        "en": "An attempted mapping of Buddhist, Daoist, and Śaivite models of mind onto a single framework. It failed its own adversarial review and is NOT published. What survived: the genuinely un-unifiable divergences between traditions (cultivation vs. liberation as terminal goals), and the one actionable residue — that their contribution is a first-person verification method (practice), not a map.",
-        "zh": "一份试图把佛家、道家与湿婆派的心智模型映射到单一框架上的综合稿。它没能通过自己的对抗性评审,未发表。活下来的是:传统之间真实的、不可统一的分歧(以修养为终点,还是以解脱为终点),以及一条可操作的残余——它们的贡献是一套第一人称的验证方法(行),而不是一张图。"
-      },
-      "cognitiveState": "retired",
-      "edges": [
-        {
-          "relation": "falsifies",
-          "target": "root"
-        }
-      ]
-    },
-    {
-      "id": "branch/future-society",
-      "label": {
-        "en": "Future social forms — agent-native institutions",
-        "zh": "未来社会形态 —— agent-native 制度"
-      },
-      "description": {
-        "en": "If individuals run persistent agents, the institutions between them must be redesigned.",
-        "zh": "如果每个个体都跑着常驻 agent,那么人与人之间的制度就必须重新设计。"
-      },
-      "branch": "future-society",
-      "edges": [
-        {
-          "relation": "contains",
-          "target": "coordination-structures"
-        },
-        {
-          "relation": "contains",
-          "target": "agent-native-communication"
-        },
-        {
-          "relation": "contains",
-          "target": "starshard-architecture"
-        },
-        {
-          "relation": "contains",
-          "target": "user-agency-substrate"
-        },
-        {
-          "relation": "contains",
-          "target": "locality-as-protocol"
-        },
-        {
-          "relation": "contains",
-          "target": "fleet-coordination-protocol"
-        },
-        {
-          "relation": "contains",
-          "target": "starshard-communication"
-        },
-        {
-          "relation": "contains",
-          "target": "zhizi-agent-os"
-        },
-        {
-          "relation": "contains",
-          "target": "system-evolution-public"
-        },
-        {
-          "relation": "contains",
-          "target": "receipts"
-        }
-      ]
-    },
-    {
-      "id": "coordination-structures",
-      "label": {
-        "en": "Coordination structures as resource-scheduling architectures",
-        "zh": "作为资源调度架构的协调结构"
-      },
-      "description": {
-        "en": "Polity, firm, market, commons, and protocol as five instances of one object: an architecture for scheduling scarce resources under distributed, private information. Descriptive throughout: it ranks nothing, names no culprits, recommends nothing. Contains the Hayek/Scott information constraint, transaction-cost boundaries, Ostrom's commons, the protocol's three documented failure modes, and three falsifiers. Its use of credit-transport language is marked explicitly as a structural rhyme, not a derivation.",
-        "zh": "政体、企业、市场、共同体、协议,是同一个对象的五个实例:在分布式私有信息下调度稀缺资源的架构。全篇描述性:不排名、不点名、不建议。含 Hayek/Scott 信息约束、交易成本边界、Ostrom 的共同体、协议的三种已知失效模式,以及三条 falsifier。它对 credit-transport 语言的使用被显式标注为结构性押韵,而不是推导。"
-      },
-      "url": "https://machengshen.github.io/theory/coordination-structures.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.45,
-      "edges": [
-        {
-          "relation": "rhymesWith",
-          "target": "credit-transport"
-        },
-        {
-          "relation": "contains",
-          "target": "credit-routing-scalar"
-        }
-      ]
-    },
-    {
-      "id": "credit-routing-scalar",
-      "label": {
-        "en": "Ranking institutions by a scalar credit-transport fidelity score",
-        "zh": "用一个标量的 credit-transport 保真度给制度排名"
-      },
-      "description": {
-        "en": "A tempting move: assign each institution one scalar credit-routing fidelity number, by analogy to a loss gradient, and rank institutions by it. Rejected in the essay. Credit in a social structure is multi-dimensional, the backward pass is not differentiable, and collapsing it to one number is the formalism smuggling in structure the domain does not have.",
-        "zh": "一个诱人的动作:类比损失梯度,给每个制度赋一个标量的 credit-routing 保真度,并据此排名。文章里拒绝了它。社会结构里的 credit 是多维的,反向过程不可微,把它压成一个数,是形式主义在偷运这个领域并不具备的结构。"
-      },
-      "cognitiveState": "retired",
-      "edges": [
-        {
-          "relation": "falsifies",
-          "target": "coordination-structures"
-        }
-      ]
-    },
-    {
-      "id": "agent-native-communication",
-      "label": {
-        "en": "Agent-Native Open Communication (whitepaper)",
-        "zh": "Agent-Native Open Communication(白皮书)"
-      },
-      "description": {
-        "en": "Next-generation open communication architecture built for agents rather than apps. The whitepaper page on this site is written in Chinese; the source repository at https://github.com/MachengShen/agent-native-communication carries both languages."
-      },
-      "url": "https://machengshen.github.io/whitepaper-agent-native-communication/",
-      "inLanguage": "zh-CN",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "starshard-architecture",
-      "label": {
-        "en": "Starshard: Architecture v1"
-      },
-      "description": {
-        "en": "Architecture, safety charter, and philosophy for a substrate where memory is the primary layer and the individual, not the platform, owns it."
-      },
-      "url": "https://github.com/starshard-ai/architecture-v1",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "user-agency-substrate",
-      "label": {
-        "en": "User-Agency Substrate",
-        "zh": "User-Agency Substrate(用户主体性底座)"
-      },
-      "description": {
-        "en": "A nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely."
-      },
-      "url": "https://machengshen.github.io/substrate.html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "locality-as-protocol",
-      "label": {
-        "en": "Locality as Protocol",
-        "zh": "Locality as Protocol(把局部性当作协议)"
-      },
-      "url": "https://machengshen.github.io/locality-as-protocol.html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "fleet-coordination-protocol",
-      "label": {
-        "en": "Fleet Coordination Protocol"
-      },
-      "description": {
-        "en": "Many agents, one shared memory, nothing irreversible behind your back."
-      },
-      "url": "https://github.com/starshard-ai/fleet-coordination-protocol",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "agent-safety-stewardship",
-      "label": {
-        "en": "Agent safety as anti-cancer governance",
-        "zh": "Agent 安全：一种防癌变治理"
-      },
-      "description": {
-        "en": "A control-theoretic account of cancer-like persistent-agent failure: local survival, repair, and replication decoupled from owner-level purpose, bounded authority, stop inheritance, resource budgets, and independent verification. Defines seven runtime invariants and an A–D disclosure rule: never publish the growth engine separated from its immune system.",
-        "zh": "把常驻 Agent 的癌变式失控理解为一种控制病理：局部生存、修复和复制脱离 owner 层目的、有界权限、stop 继承、资源预算和独立验证。给出七条运行时不变量与 A–D 分层披露规则：永远不要把增长引擎从免疫系统上拆下来单独发布。"
-      },
-      "url": "https://machengshen.github.io/theory/agent-safety-stewardship.md",
-      "format": "text/markdown",
-      "inLanguage": "en",
-      "workTranslation": "https://machengshen.github.io/theory/agent-safety-stewardship.zh.md",
-      "cognitiveState": "speculative",
-      "confidence": 0.55,
-      "edges": [
-        {
-          "relation": "constrains",
-          "target": "fleet-coordination-protocol"
-        },
-        {
-          "relation": "constrains",
-          "target": "zhizi-agent-os"
-        }
-      ]
-    },
-    {
-      "id": "starshard-communication",
-      "label": {
-        "en": "Starshard Communication"
-      },
-      "description": {
-        "en": "Open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts."
-      },
-      "url": "https://github.com/starshard-ai/starshard-communication",
-      "cognitiveState": "speculative"
-    },
-    {
-      "id": "zhizi-agent-os",
-      "label": {
-        "en": "Zhizi Agent OS"
-      },
-      "description": {
-        "en": "One command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean."
-      },
-      "url": "https://github.com/starshard-ai/zhizi-agent-os",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "system-evolution-public",
-      "label": {
-        "en": "System Evolution, in public"
-      },
-      "description": {
-        "en": "Open record of how this substrate evolved: vision, theory, practice, governance, forecasts, self-iteration ledger."
-      },
-      "url": "https://github.com/MachengShen/system-evolution-public",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "receipts",
-      "label": {
-        "en": "Receipts"
-      },
-      "description": {
-        "en": "Running log of work executed by this agent stack, published so claims can be checked against what was actually done."
-      },
-      "url": "https://github.com/MachengShen/starshard-public",
-      "cognitiveState": "survived"
-    },
-    {
-      "id": "intention-as-measure-change",
-      "label": {
-        "en": "We proposed it, then we killed it — intention as a change of measure",
-        "zh": "我们提出它,然后自己杀掉它 —— 起心动念 = 换测度"
-      },
-      "description": {
-        "en": "Intention formalised as a change of path measure (Girsanov) rather than a collapse, with the KL-control cost, the path-integral form, large deviations, and Doob's h-transform as the single object underlying KL-optimal control, the diffusion-model reverse SDE and conditional diffusion — all attributed explicitly to others. Closes the quantum-collapse question once, on decoherence timescales and the underground exclusion of the parameter-free Diosi-Penrose model. The payload is a retraction: a directional prediction about meditation and sensory attenuation, claimed on 31 July 2026 as a surviving wedge, was found on 2 August written verbatim in the introduction of the paper it was meant to contradict, with a lineage back to 2011 and a two-sided statistical plan built to accommodate it; the authors' reading of that paper's second hypothesis was wrong. What survives is a missing predictability-matched control condition, written up as a preregisterable 2x2 with a discriminating statistic, covariates, four preregistered read-outs (two of which kill the authors' own reading) and N approximately 120-140. Confidence that the formalisation carries independent empirical content beyond the verbal version already in print: 0.15.",
-        "zh": "把意图形式化为路径测度的改变(Girsanov)而非坍缩,连同 KL 控制代价、路径积分表示、大偏差,以及 Doob's h-transform 作为 KL 最优控制 / diffusion 反向 SDE / conditional diffusion 底下的同一个对象 —— 并明确归属他人。量子坍缩只关一次,依据退相干时标与地下实验对无自由参数 Diosi-Penrose 模型的排除。载荷是一次撤回:07-31 提出的关于禅修与感觉衰减方向的预测,08-02 在它本该反对的论文引言里被逐字找到,谱系回溯到 2011 年,且对方的双侧检验本就为容纳它而设计;作者对该文第二条假设的读法是错的。幸存的是一个缺失的可预测性匹配控制条件,写成可预注册的 2x2,含判别统计量、协变量、四条预注册判读(其中两条会杀死作者自己的读法)与 N 约 120-140。'形式化带来独立经验内容'的置信度:0.15。"
-      },
-      "url": "https://machengshen.github.io/intention-as-measure-change.html",
-      "format": "text/html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.15
-    },
-    {
-      "id": "cancer-is-not-cells-waking-up",
-      "label": {
-        "en": "We thought cancer was cells waking up. The evidence says the opposite.",
-        "zh": "我们以为癌是细胞觉醒。证据说正好相反。"
-      },
-      "description": {
-        "en": "A negative result published deliberately. The hypothesis that a body over-domesticates its cells until they revolt is about 60% a re-invention of Levin's cognitive-light-cone contraction and about 40% wrong with the sign reversed: immunosuppression, germline TP53 loss, gap-junction uncoupling and chronic inflammation all run control-down-therefore-cancer-up, and the most completely domesticated cells in the body are essentially the ones that do not get cancer. There is no self inside a tumour, only clonal war; the roughly eight transmissible cancer lineages that escaped their hosts are the exception that fixes the rule. Includes an unsoftened maturity assessment of re-align-rather-than-kill: one clean win in sixty years whose own leading authority attributes the cure to degrading a ligandable fusion protein, a phase-3-negative second place, bioelectric normalisation with the sign reversed in mammals, and re-coupling being actively harmful in glioma. What survived is one distinction with its own kill condition: coercion imposes selection and breeds escape, alignment does not.",
-        "zh": "刻意公开的负面结果。'身体驯化过头导致细胞造反'这一假说约六成是在重新发明 Levin 的认知光锥收缩,约四成符号是反的:免疫抑制、TP53 胚系缺失、缝隙连接解偶联与慢性炎症全都指向控制下降导致癌症上升,而体内被驯化得最彻底的细胞基本就是不得癌的那些。肿瘤内部没有自我,只有克隆战争;逃出宿主的约八条可传播癌谱系恰好把规则钉死。含不打折的 re-align 成熟度评估:六十年一个干净胜利而其权威把治愈归因于降解可成药融合蛋白、三期阴性的第二名、在哺乳动物里符号反转的生物电正常化、以及在胶质瘤里帮倒忙的重新耦合。幸存的只有一条带自杀判据的区分:强制施加选择压因而催生逃逸,对齐不施加。"
-      },
-      "url": "https://machengshen.github.io/cancer-is-not-cells-waking-up.html",
-      "format": "text/html",
-      "inLanguage": "en",
-      "cognitiveState": "retired",
-      "confidence": 0.07
-    },
-    {
-      "id": "photographs-and-the-memory-generator",
-      "label": {
-        "en": "A photograph is an external fixed point",
-        "zh": "照片是一个被注入的外部不动点"
-      },
-      "description": {
-        "en": "If recall is generation rather than playback, a photograph is a low-dimensional projection that, unlike the memory it cues, does not change when accessed. Three mechanisms are separated and scored: post-retrieval modifiability (solid in rodents, contested in humans, with ten failed replication attempts of the flagship human demonstration and two failed registered replications of retrieval-extinction), reinterpretation by a changed generator, and the authors' own latch claim at P approximately 0.20 with a stated transfer experiment that would kill it. Corrects its own draft in the body: photographs are not a stronger false-memory vector than text, and the disciplined implantation rate is 30.4% rather than the headline 50%.",
-        "zh": "若回忆是生成而非回放,照片就是一个低维投影,且与它唤起的记忆不同,它在被访问时不改变自己。三条机制分开打分:取回后可修改性(啮齿类很硬、人类有争议,旗舰实验十次复现失败、retrieval-extinction 两次注册复现失败)、被改变了的生成器重读、以及作者自己的 latch 主张(P 约 0.20,并写明什么迁移实验会杀死它)。正文更正自己初稿:照片并不比文字更容易植入假记忆,且应使用 30.4% 的元分析植入率而非流传的 50%。"
-      },
-      "url": "https://machengshen.github.io/photographs-and-the-memory-generator.html",
-      "format": "text/html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.2
-    },
-    {
-      "id": "what-a-family-transmits",
-      "label": {
-        "en": "What a family actually transmits",
-        "zh": "一个家族到底传下来了什么"
-      },
-      "description": {
-        "en": "Shared family environment explains close to zero of the variance in adult personality, while latent social status persists at about 0.79 per generation across 422,374 people and four centuries. The reconciliation is mostly non-genetic: measurement error attenuates single-generation correlations without accumulating along a lineage, and assortative mating amplifies cultural and genetic transmission symmetrically so it cannot arbitrate between them. The contested step is scored separately from the finding, at 0.70 and 0.20 respectively, with both sides of the live 2025 exchange linked. Argues the Chinese lineage record is the under-used arbitrator, while devoting a full section to why those genealogies are constructed social documents rather than pedigrees.",
-        "zh": "共享家庭环境对成年人格变异的解释力接近零,而潜在社会地位在 422,374 人、四个世纪里每代只衰减到 0.79。调和的主体不需要基因:测量误差把单代相关衰减掉却不沿世系累积,择偶同质性对文化与遗传传递对称放大因而不能仲裁二者。有争议的那一步与发现本身分开打分,分别为 0.70 与 0.20,并把 2025 年那场仍活着的交锋双方都挂上。主张中国世系记录是被低估的仲裁者,同时用整整一节说明这些家谱是被建构的社会文书而非血统档案。"
-      },
-      "url": "https://machengshen.github.io/what-a-family-transmits.html",
-      "format": "text/html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.3
-    },
-    {
-      "id": "flow-dopamine-and-stop-signals",
-      "label": {
-        "en": "Flow, dopamine, and stop signals",
-        "zh": "心流、多巴胺与停止信号"
-      },
-      "description": {
-        "en": "An evidence review sorting behaviour-design claims into well-replicated-but-misapplied and plausible-but-untested. Dopamine mediates wanting and codes prediction error, so a fully transparent schedule produces no phasic response. Loot-box revenue correlates with problem gambling at rho 0.34 and with income at rho 0.02, not significant. Adaptive difficulty is the most expensive flow condition with the weakest evidence, and the note corrects its own draft here. Consumer HRV cannot separate flow from mild stress. The most actionable number is a sign flip inside one meta-analysis: tangible rewards undermine intrinsic motivation while positive informational feedback enhances it. On stop signals, messages move under 1% of players while enforced 15-minute unavailability works, a six-hour national curfew bought about 3.65 minutes a day and decayed to nothing, and the most-cited study claiming playtime quotas failed had no age data.",
-        "zh": "一份证据审查,把行为设计主张分成'复现良好但用反了'与'看似合理但没检验'。多巴胺介导想要、编码预测误差,因此完全透明的奖励表不产生相位反应。开箱消费与问题赌博相关 0.34、与收入相关 0.02 且不显著。动态难度是最贵、证据最弱的心流条件,笔记在此更正了自己的初稿。消费级 HRV 无法把心流与轻度压力分开。最可操作的数字是同一元分析里的符号翻转:实物奖励削弱内在动机,正向信息性反馈提升它。停止信号方面,消息只让不到 1% 的人停下,而强制 15 分钟不可用有效;六小时全国宵禁只买到每天约 3.65 分钟并很快归零;最常被引来证明时长配额失败的研究没有年龄数据。"
-      },
-      "url": "https://machengshen.github.io/flow-dopamine-and-stop-signals.html",
-      "format": "text/html",
-      "inLanguage": "en",
-      "cognitiveState": "speculative",
-      "confidence": 0.35
+     "relation": "contains",
+     "target": "form-was-the-cage"
     }
-  ]
+   ]
+  },
+  {
+   "id": "cognition-track",
+   "label": {
+    "en": "Cognition Track"
+   },
+   "description": {
+    "en": "Agent-traversable knowledge graph of non-consensus claims about intelligence and learning. Cognitive state is first-class on every node; one node is retained because it failed its stress test."
+   },
+   "url": "https://github.com/MachengShen/cognition-track",
+   "format": "application/ld+json",
+   "cognitiveState": "survived",
+   "edges": [
+    {
+     "relation": "machineIndex",
+     "target": "https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld"
+    }
+   ]
+  },
+  {
+   "id": "continual-learning-lab",
+   "label": {
+    "en": "Continual Learning Lab"
+   },
+   "description": {
+    "en": "Pre-registered small continual-learning experiments, negative results included."
+   },
+   "url": "https://github.com/starshard-ai/continual-learning-lab",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "reviewer-wheels",
+   "label": {
+    "en": "Reviewer Wheels"
+   },
+   "description": {
+    "en": "Four verification wheels for multi-agent AI coding: drift checks, adversarial review, reuse compiler, frontend smoke gate."
+   },
+   "url": "https://github.com/starshard-ai/reviewer-wheels",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "form-was-the-cage",
+   "label": {
+    "en": "The Form Was the Cage"
+   },
+   "description": {
+    "en": "An agent OS, its self-referential trace, and the end of researcher-as-identity."
+   },
+   "url": "https://github.com/MachengShen/the-form-was-the-cage",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "branch/universe",
+   "label": {
+    "en": "Theory of the universe — information, physics, mind",
+    "zh": "宇宙底层理论 —— 信息、物理、心智"
+   },
+   "branch": "universe",
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "holography-koopman"
+    },
+    {
+     "relation": "contains",
+     "target": "state-as-closure"
+    },
+    {
+     "relation": "contains",
+     "target": "discounted-credit-cokernel"
+    },
+    {
+     "relation": "contains",
+     "target": "odd-relational-core"
+    },
+    {
+     "relation": "contains",
+     "target": "learning-the-self-boundary"
+    },
+    {
+     "relation": "contains",
+     "target": "learning-the-self-boundary-log"
+    },
+    {
+     "relation": "contains",
+     "target": "intelligence-essay"
+    },
+    {
+     "relation": "contains",
+     "target": "consciousness-unified"
+    },
+    {
+     "relation": "contains",
+     "target": "strings-to-consciousness"
+    },
+    {
+     "relation": "contains",
+     "target": "sleep-wave-theory"
+    },
+    {
+     "relation": "contains",
+     "target": "response-to-lillicrap"
+    },
+    {
+     "relation": "contains",
+     "target": "living-information-system"
+    },
+    {
+     "relation": "contains",
+     "target": "reversible-layer-aging"
+    },
+    {
+     "relation": "contains",
+     "target": "credit-transport"
+    },
+    {
+     "relation": "contains",
+     "target": "essays"
+    },
+    {
+     "relation": "contains",
+     "target": "contemplative-synthesis"
+    }
+   ]
+  },
+  {
+   "id": "holography-koopman",
+   "label": {
+    "en": "Holography and Koopman: two faces of one inverse problem",
+    "zh": "全息 ↔ Koopman:同一个反问题的两副面孔"
+   },
+   "description": {
+    "en": "Holography generates geometry from entanglement; a general learning machine learns an eigenbasis of its own dynamics. Same inverse problem: recover an operator's eigenstructure from what it does. The HaPPY code is the physical twin of 'forgetting is compression, not deletion'.",
+    "zh": "全息原理从纠缠结构里生成几何;一台通用学习机学习它自身动力学的本征基。同一个反问题:从算子做了什么反推它的本征结构。HaPPY 码是「遗忘是压缩、不是删除」的物理孪生。"
+   },
+   "url": "https://machengshen.github.io/theory/holography-koopman.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/holography-koopman.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "state-as-closure"
+    }
+   ]
+  },
+  {
+   "id": "state-as-closure",
+   "label": {
+    "en": "State is a closure condition, not a given set",
+    "zh": "State 是一个闭包条件,不是给定的集合"
+   },
+   "description": {
+    "en": "Treats task-relative state as a closure representation under (world, interface, capacity, telos), explicitly as inference rather than universal ontology. The 2026 amendment scopes causal-state and Mori-Zwanzig results, distinguishes policy classes from physical reachable sets, and classifies J-space as transient workspace evidence. OpenAI's non-sofic-group and Connes-rigidity results are used only as finite-approximability and substrate-identifiability constraints.",
+    "zh": "把任务相对 state 视为(world、interface、capacity、telos)下的闭包表示,明确标作推断而非普适本体论。2026 修订收窄 causal-state 与 Mori-Zwanzig 结论,区分策略类与物理可达集,并把 J-space 归为瞬时 workspace 证据。OpenAI 的 non-sofic group 与 Connes rigidity 结果只作为有限可近似性和 substrate 可辨识性约束。"
+   },
+   "url": "https://machengshen.github.io/theory/state-as-closure.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/state-as-closure.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.5
+  },
+  {
+   "id": "discounted-credit-cokernel",
+   "label": {
+    "en": "Discounted credit is a cokernel problem, not a loop holonomy",
+    "zh": "折扣信用分配是余核问题，不是闭环 holonomy"
+   },
+   "description": {
+    "en": "A formal correction and executable finite-graph result. On a simple directed cycle and 0<=gamma<1, the discounted incidence operator is invertible, so the earlier M=4.095 candidate-potential defect was not a gauge-invariant holonomy and is withdrawn. The corrected object is the weighted reward residual modulo the image of the discounted incidence operator across the entire observed edge system. Exact balanced-alias enumeration gives 42/45 generically non-exact maps under the historical filter. A Cartesian 2x2 definition check independently varies this representation obstruction and strategic harmonic flow; targeted repair in one coupled learner remains the next experiment.",
+    "zh": "一次正式纠错与可执行有限图结果。简单有向环在 0<=gamma<1 时折扣关联算子可逆，因此旧 M=4.095 候选势缺陷不是 gauge-invariant holonomy，现已撤回。正确对象是全部已观测转移类型构成的边系统上，奖励场模去折扣关联算子像空间后的加权残差。平衡 alias 的精确枚举在历史筛选下给出 42/45 一般不可解。Cartesian 2x2 定义检查独立改变表征障碍与策略 harmonic flow；在同一个耦合 learner 中执行定向修复仍是下一实验。"
+   },
+   "url": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/discounted-credit-is-a-cokernel.zh.md",
+   "cognitiveState": "survived",
+   "confidence": 0.95,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "state-as-closure"
+    },
+    {
+     "relation": "corrects",
+     "target": "no-state-only-history"
+    }
+   ]
+  },
+  {
+   "id": "odd-relational-core",
+   "label": {
+    "en": "The odd relational core: anti-bipartiteness as the minimal structure",
+    "zh": "奇关系核:反二分作为最小结构"
+   },
+   "description": {
+    "en": "Why civilizational compression schemes (triadic deities, five phases, seven chakras) keep landing on small, odd, centered, ever-turning relational cores. One hard graph-theory kernel — two-coloring holds iff no odd cycle, so an odd cycle is the cheapest structure that topologically refuses an us-vs-them binary terminus, while a binary scheme natively supplies a final enemy — wrapped in a four-pressure framework the note's own adversarial audit then dismantles: 'odd' is demoted to a corollary of 'anti-binary', two of the four pressures are re-read as exaptations, and the moral reading is a hypothesis, not a conclusion.",
+    "zh": "为什么文明的压缩图式(三相神、五行、七脉轮)反复落到小、奇、有心、不停转的关系核。一个硬的图论内核——二染色当且仅当无奇环,所以奇环是最省的、拓扑上拒绝「我们vs他们」二分终局的结构,而二元图式天然提供一个最终敌人——外面包着一个四股压力框架,然后被 note 自己的对抗自审拆掉:「奇」被降级为「反二元」的 corollary、四股里两股被重读成 exaptation、道德读法只是假设不是结论。"
+   },
+   "url": "https://machengshen.github.io/theory/odd-relational-core.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/odd-relational-core.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.4,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "state-as-closure"
+    }
+   ]
+  },
+  {
+   "id": "two-body-karma",
+   "label": {
+    "en": "Two-body karma: three modes of relational inertia",
+    "zh": "两体业力:关系里的三种惯性"
+   },
+   "description": {
+    "en": "Extends a single-mind account of habit inertia (mud, spring, latch) to two coupled minds: the inertia lives in the coupling itself, not in either person. Shared mud is scene-keyed sedimentation of default scripts; the mutual spring is the model of you stored in the other's head, an external memory of your old pattern that makes unilateral self-reform systematically fail until it is retrained by announcement plus repeated demonstration; the interlocked latch is a bistable relational state with hysteresis that flips only when both sides cross the threshold together. Goal is not zero coupling but a negotiable spring. The dynamical-systems language is marked as structural rhyme, not derivation; the note closes with the observations that would break it.",
+    "zh": "把单人版的习气-惯性三模式(泥、弹簧、卡扣)扩展到两个人的关系:惯性存在耦合本身,不在任何一方体内。共泥=双侧沉积、场景键控的默认脚本;互弹簧=对方脑中那个「你的模型」,是你旧模式的外部存储器,让单方面修行系统性失效,直到用明说加反复演把它重训;互锁卡扣=关系状态的双稳加滞回,只有双方同时跨阈才翻转。目标不是零耦合,而是可协商的弹簧。动力学语言被标注为结构性押韵而非推导;文末给出能拆掉框架的可观察证据。"
+   },
+   "url": "https://machengshen.github.io/theory/two-body-karma.md",
+   "format": "text/markdown",
+   "inLanguage": "zh-Hans",
+   "cognitiveState": "speculative",
+   "confidence": 0.35
+  },
+  {
+   "id": "learning-the-self-boundary",
+   "label": {
+    "en": "Learning where the self ends",
+    "zh": "学习「我到哪里为止」"
+   },
+   "description": {
+    "en": "A proposal that a robot should learn the agent/environment boundary rather than be handed it by an engineer, and the one-day campaign in which three of its four supporting claims were destroyed, every one of them by the authors' own simulator or own re-analysis. Survived: hysteresis in the boundary emerges from a self-reinforcing precision loop with no hand-installed non-linearity, and survives extrapolation to zero sweep rate at 24-35x the resolution floor. Died: self-specificity, because raising one free amplitude makes a wind-blown ball's boundary stick digit-for-digit identically, so hysteresis is a generic property of any gated slow variable; the signature prediction that release is slower than incorporation, falsified in both implementations with the asymmetry reversed in the second for a computable reason, namely that precision amplifies the evidence against a channel just as much; and the claim that any of it falls out of the proposed objective, which in fact requires a cost/benefit ratio hand-tuned to about 2% and places every channel 2-420 window-widths outside it. The human-side motivation rested on an unreferenced claim of empirical establishment; two independent public datasets re-analysed here both point to adaptation, the opposite sign. Written in two layers: a jargon-free narrative, then the full measured record. Not ratified, not a result.",
+    "zh": "一个提案:机器人应该学出 agent/环境边界,而不是被工程师递给它;以及一天之内四条支撑主张倒掉三条的过程,每一条都是被自己的仿真器或自己的重分析打倒的。活下来:边界的滞回确实能从自我强化的精度回路里涌现,不需手装非线性,且通过零扫速外推,达分辨底的 24-35 倍。死掉:自我特异性,因为把一个自由幅度拧大,一个被风吹的球的边界卡得逐位相同,所以滞回是任何带门控慢变量的通用性质;「释放比并入更慢」这条签名预测在两种实现下都被证伪,第二种里方向还反了,原因可算,即精度同样放大反对该通道的证据;以及「这一切从提出的目标函数里自然长出」,实际需要手调到约 2% 的成本收益比,而目标函数把每条通道放在窗口外 2 到 420 个窗口宽。人类侧动机压在一句无出处的「经验上确凿」上;本文重分析的两份独立公开数据都指向适应,即相反符号。双层写作:先无术语叙事,再完整实测记录。未 ratify,不是结论。"
+   },
+   "url": "https://machengshen.github.io/theory/learning-the-self-boundary.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.15,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "state-as-closure"
+    }
+   ]
+  },
+  {
+   "id": "learning-the-self-boundary-log",
+   "label": {
+    "en": "Stage log - the self-boundary line, in order",
+    "zh": "阶段日志 - 自我边界这条线,按顺序"
+   },
+   "description": {
+    "en": "The audit trail for the self-boundary note: one row per stage (specification, prior-art audit, evidence audits, three rounds of data hunting, two human re-analyses, three simulation stages), each stating what it overturned or established. Mostly a record of self-inflicted damage, including three reusable mistakes: reading a probe's signal-to-noise as the system's coupling strength and then shipping that misdiagnosis downstream as a premise; believing three separate trial-level-data-available statements that all turned out to be aggregates with no trial index; and letting an unreferenced claim of empirical establishment carry an architectural conclusion.",
+    "zh": "自我边界那篇的审计留痕:每个阶段一行(规格、prior-art 审计、证据审计、三轮数据搜寻、两次人类数据重分析、三个仿真阶段),各自说明它推翻或确立了什么。主要是一份自伤记录,含三条可复用的错误:把探针的信噪比读成系统的耦合强度并把误诊当前提发给下一棒;连着相信三份「逐试次数据公开」的声明,打开全是没有试次序号的聚合表;以及让一句无出处的「经验上确凿」承载了一整条架构结论。"
+   },
+   "url": "https://machengshen.github.io/theory/learning-the-self-boundary-log.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/learning-the-self-boundary-log.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.15,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "learning-the-self-boundary"
+    }
+   ]
+  },
+  {
+   "id": "no-state-only-history",
+   "label": {
+    "en": "No state, only history",
+    "zh": "没有 state,只有 history"
+   },
+   "description": {
+    "en": "A corrected diagnosis of vanilla Transformer inference. It has activation state, computational state and a transient workspace-like representational state; Anthropic's J-space gives causal evidence for the last. The narrower missing object is a persistent autonomous path-dependent closure state that maintains its own projection and forgetting policy across steps. E1 still establishes that Grassmann subspace change is not a monotone function of update magnitude. The earlier claim that thresholding this gate implies bistability is withdrawn: E3 now requires carrier-matched controls, two stable branches and remanence, and its mechanism confidence is reset to 0.35.",
+    "zh": "对 vanilla Transformer inference 的修正诊断:它有 activation state、computational state 与瞬时 workspace-like representational state;Anthropic J-space 为最后一项提供了因果证据。真正缺失的对象收窄为跨步持续、具有路径依赖并自主维护自身投影与遗忘策略的 closure state。E1 仍证明 Grassmann 子空间变化不是更新幅度的单调函数。此前“阈值化门控推出双稳态”的说法撤回:E3 现在要求 carrier-matched controls、两条稳定分支与 remanence,机制置信度重置为 0.35。"
+   },
+   "url": "https://machengshen.github.io/theory/no-state-only-history.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.3
+  },
+  {
+   "id": "consciousness-as-quantum-mechanics",
+   "label": {
+    "en": "Can consciousness be studied mathematically, the way quantum mechanics is?",
+    "zh": "能不能像研究量子力学那样,用数学研究意识?"
+   },
+   "description": {
+    "en": "A boundary note amended in 2026. High-dimensional states and joint variables are legitimate modelling choices but have no quantum specificity; classical coupling already covers the relationship examples. The earlier equivalence among non-exact forms, holonomy, path dependence, hysteresis, memory and consciousness is withdrawn. Unitary dynamics can encode history, so the real missing ingredients are an empirically identified generator, environment and coarse-graining protocol. J-space, COGITATE and anaesthetized-hippocampus evidence are used to separate reportability, complex representation, plasticity and consciousness.",
+    "zh": "一篇于 2026 年修订的边界笔记。高维状态与联合变量是合法模型选择,但没有量子专属性;经典耦合已覆盖文中关系例子。此前把非恰当形式、holonomy、路径依赖、滞回、记忆与意识等同的说法撤回。幺正动力学可以编码历史,真正缺失的是实验识别出的生成元、环境与粗粒化协议。J-space、COGITATE 与麻醉海马证据被用于拆开可报告性、复杂表征、可塑性与意识。"
+   },
+   "url": "https://machengshen.github.io/theory/consciousness-as-quantum-mechanics.md",
+   "format": "text/markdown",
+   "inLanguage": "zh-Hans",
+   "cognitiveState": "speculative",
+   "confidence": 0.25
+  },
+  {
+   "id": "information-and-qi",
+   "label": {
+    "en": "Information and qi — a comparison note on a parallel line",
+    "zh": "信息与气 —— 对一条平行线路的对照笔记"
+   },
+   "description": {
+    "en": "Addressed to the YouTube channel @itsRedPill and its readers; compares a line arrived at independently from reinforcement learning, decision theory and robotics against that channel's information-ontology arcs. Framed by its author as an invitation rather than a scorecard. Five parts: four points of verbatim convergence (we touch only models; the real-versus-simulated dichotomy does not hold; the self is a process; and, flagged as most valuable, embodiment plus a requirement to maintain one's own existence); the step deliberately declined (the qi slot, dissolved rather than answered, since if the true state of the world is ill-posed so is the question of what underlies the projection); three places judged not to hold up, each with named literature and a stated way to settle it; a constructive replacement for one; and three suggestions. Applies its anti-grand-unification rule symmetrically and states the cost of its own branch. Claims tagged by honesty level. The author states the cognitive state as exploratory and non-conclusive in the text.",
+    "zh": "写给 YouTube 频道 @itsRedPill 及其读者的对照笔记,把一条从强化学习/决策论/机器人学独立走出的线与该频道的信息本体论系列对照,作者定性为邀请而非评分卡。五段:四处共识;一步主动不走的(气那个槽位,取消问题而非回答);三处判断站不住脚处,各附文献与判决方式;其中一处的建设性替代;三条建议。对自己用同一把尺子,并列出自己这条路的代价。论断按诚实度标注。作者正文自述认知状态为探索性、非结论。"
+   },
+   "url": "https://machengshen.github.io/information-and-qi.html",
+   "format": "text/html",
+   "inLanguage": "zh-Hans",
+   "cognitiveState": "speculative",
+   "confidence": 0.25
+  },
+  {
+   "id": "intelligence-essay",
+   "label": {
+    "en": "Toward a Theory of Intelligence and Contemporary AI"
+   },
+   "url": "https://machengshen.github.io/essay.pdf",
+   "format": "application/pdf",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "consciousness-unified",
+   "label": {
+    "en": "A unified-theory attempt on consciousness",
+    "zh": "一次关于意识的统一理论尝试"
+   },
+   "url": "https://machengshen.github.io/research/consciousness-unified-theory.html",
+   "inLanguage": "zh-CN",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "strings-to-consciousness",
+   "label": {
+    "en": "From strings to consciousness",
+    "zh": "从弦到意识"
+   },
+   "url": "https://machengshen.github.io/research/strings-to-consciousness.html",
+   "inLanguage": "zh-CN",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "sleep-wave-theory",
+   "label": {
+    "en": "Sleep, waves, and learning",
+    "zh": "睡眠、波与学习"
+   },
+   "url": "https://machengshen.github.io/research/sleep-learning-wave-theory.html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "response-to-lillicrap",
+   "label": {
+    "en": "Response to Lillicrap",
+    "zh": "回应 Lillicrap"
+   },
+   "description": {
+    "en": "On backprop and biological plausibility. Kept as background: the current position on this branch is the more cautious credit-transport framing. llms.txt asserts no cognitive state for it, and neither does this graph."
+   },
+   "url": "https://machengshen.github.io/research/response-to-lillicrap.html",
+   "inLanguage": "zh-CN"
+  },
+  {
+   "id": "living-information-system",
+   "label": {
+    "en": "Living Information System"
+   },
+   "description": {
+    "en": "Umbrella program: information, its future-reachability, and how it is preserved or destroyed across physical, living, and cognitive systems. Aging and cancer as information-integrity failures."
+   },
+   "url": "https://github.com/starshard-ai/living-information-system",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "reversible-layer-aging",
+   "label": {
+    "en": "Reversible Layer Aging"
+   },
+   "description": {
+    "en": "Under partial reprogramming, the causal-damage methylation layer (DamAge) reverts youthward; the adaptive layer (AdaptAge) does not. Replicated across two labs and two reprogramming chemistries, on two human EPIC datasets."
+   },
+   "url": "https://github.com/starshard-ai/reversible-layer-aging",
+   "cognitiveState": "survived",
+   "confidence": 0.7
+  },
+  {
+   "id": "credit-transport",
+   "label": {
+    "en": "Credit transport generalizes backpropagation",
+    "zh": "Credit transport 是反向传播的推广"
+   },
+   "description": {
+    "en": "Error, value, and viability signals must propagate backward through every structure that caused an outcome; neural backprop is one projection of that. The claim is live and untested. It is NOT the same claim as the wave-equation derivation, which was the strong form and is retired — see wave-backprop-derivation. This node has no URL of its own precisely because that distinction was previously collapsed: the graph pointed at the retired page and called it speculative.",
+    "zh": "误差、价值与生存信号必须沿着一切造成了结果的结构反向传播;神经网络的反向传播只是它的一个投影。这条主张仍然活着,且未经检验。它**不等于**那条从波动方程出发的推导——那是它的强形式,已被 retire,见 wave-backprop-derivation。"
+   },
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "hebbian-wave-interference"
+    },
+    {
+     "relation": "contains",
+     "target": "wave-backprop-full"
+    },
+    {
+     "relation": "contains",
+     "target": "wave-backprop-derivation"
+    },
+    {
+     "relation": "contains",
+     "target": "research-overview"
+    }
+   ]
+  },
+  {
+   "id": "hebbian-wave-interference",
+   "label": {
+    "en": "Hebbian appearance, instructive signals, and physical credit transport",
+    "zh": "Hebbian 的外观、instructive signal,与物理的 credit transport"
+   },
+   "description": {
+    "en": "The current working note. Why local plasticity can look Hebbian while still carrying task-dependent update information, and where wave/adjoint language genuinely helps."
+   },
+   "url": "https://machengshen.github.io/research/hebbian-wave-interference.html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "wave-backprop-full",
+   "label": {
+    "en": "Backpropagation, adjoint fields, and physical transport constraints",
+    "zh": "反向传播、伴随场,与物理传输约束"
+   },
+   "description": {
+    "en": "The exploratory note. Carries its own title correction: what physical systems actually show, and what they do not yet show."
+   },
+   "url": "https://machengshen.github.io/research/wave-backprop-full.html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "wave-backprop-derivation",
+   "label": {
+    "en": "Deriving backpropagation from wave equations",
+    "zh": "从波动方程推导反向传播"
+   },
+   "description": {
+    "en": "The original, stronger claim: that wave reflection already supplies a first-principles derivation of backpropagation. It does not. The page is kept as an archive notice at its original URL so the retraction is as reachable as the claim was. Readable in both languages; the Chinese alternate carries the same retirement.",
+    "zh": "原来那条更强的主张:波反射已经提供了反向传播的第一性原理推导。它没有。页面作为存档说明保留在原 URL 上,好让撤回和当初那条主张一样可达。"
+   },
+   "url": "https://machengshen.github.io/research/wave-backprop-en.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/research/wave-backprop-en.zh.html",
+   "cognitiveState": "retired",
+   "edges": [
+    {
+     "relation": "falsifies",
+     "target": "credit-transport"
+    }
+   ]
+  },
+  {
+   "id": "research-overview",
+   "label": {
+    "en": "Research overview",
+    "zh": "研究总览"
+   },
+   "description": {
+    "en": "The branch index for the wave / credit-transport line."
+   },
+   "url": "https://machengshen.github.io/research/",
+   "inLanguage": "en"
+  },
+  {
+   "id": "essays",
+   "label": {
+    "en": "Essays",
+    "zh": "文章"
+   },
+   "description": {
+    "en": "Long-form essays. No cognitive state is asserted on these in llms.txt, and none is invented here."
+   },
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "essay/harness-engineering"
+    },
+    {
+     "relation": "contains",
+     "target": "essay/meta-control"
+    },
+    {
+     "relation": "contains",
+     "target": "essay/where-objectives-come-from"
+    },
+    {
+     "relation": "contains",
+     "target": "essay/distributed-memory"
+    },
+    {
+     "relation": "contains",
+     "target": "ideas-archive"
+    }
+   ]
+  },
+  {
+   "id": "essay/harness-engineering",
+   "label": {
+    "en": "Harness engineering and the physical instantiation of intelligence"
+   },
+   "url": "https://machengshen.github.io/essays/harness-engineering-and-the-physical-instantiation-of-intelligence/",
+   "inLanguage": "en"
+  },
+  {
+   "id": "essay/meta-control",
+   "label": {
+    "en": "Meta-control, information gain, and the architecture of autonomous learning"
+   },
+   "url": "https://machengshen.github.io/essays/meta-control-information-gain-and-the-architecture-of-autonomous-learning/",
+   "inLanguage": "en"
+  },
+  {
+   "id": "essay/where-objectives-come-from",
+   "label": {
+    "en": "Where objectives come from — and why solutions become strategic assets"
+   },
+   "url": "https://machengshen.github.io/essays/where-objectives-come-from-and-why-solutions-become-strategic-assets/",
+   "inLanguage": "en"
+  },
+  {
+   "id": "essay/distributed-memory",
+   "label": {
+    "en": "Why distributed memory matters for lifelong agents"
+   },
+   "url": "https://machengshen.github.io/essays/why-distributed-memory-matters-for-lifelong-agents/",
+   "inLanguage": "en"
+  },
+  {
+   "id": "ideas-archive",
+   "label": {
+    "en": "Older essays (/ideas/)",
+    "zh": "更早的文章(/ideas/)"
+   },
+   "description": {
+    "en": "Served by a separate repository mounted at /ideas/, which shadows any folder of that name in the site repo. Its pages cannot be verified from this repo, so no inLanguage is asserted for them."
+   },
+   "url": "https://machengshen.github.io/ideas/",
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "idea/line-loss"
+    },
+    {
+     "relation": "contains",
+     "target": "idea/endogenous-viability"
+    },
+    {
+     "relation": "contains",
+     "target": "idea/computational-safety"
+    }
+   ]
+  },
+  {
+   "id": "idea/line-loss",
+   "label": {
+    "en": "Line loss for intelligence"
+   },
+   "url": "https://machengshen.github.io/ideas/blog/line-loss-for-intelligence/"
+  },
+  {
+   "id": "idea/endogenous-viability",
+   "label": {
+    "en": "From mutual information to endogenous viability"
+   },
+   "url": "https://machengshen.github.io/ideas/blog/from-mutual-information-to-endogenous-viability/"
+  },
+  {
+   "id": "idea/computational-safety",
+   "label": {
+    "en": "Safety in a computational universe"
+   },
+   "url": "https://machengshen.github.io/ideas/blog/safety-in-a-computational-universe/"
+  },
+  {
+   "id": "contemplative-synthesis",
+   "label": {
+    "en": "Grand synthesis of contemplative traditions with this theory",
+    "zh": "把禅修传统与本理论做大统一综合"
+   },
+   "description": {
+    "en": "An attempted mapping of Buddhist, Daoist, and Śaivite models of mind onto a single framework. It failed its own adversarial review and is NOT published. What survived: the genuinely un-unifiable divergences between traditions (cultivation vs. liberation as terminal goals), and the one actionable residue — that their contribution is a first-person verification method (practice), not a map.",
+    "zh": "一份试图把佛家、道家与湿婆派的心智模型映射到单一框架上的综合稿。它没能通过自己的对抗性评审,未发表。活下来的是:传统之间真实的、不可统一的分歧(以修养为终点,还是以解脱为终点),以及一条可操作的残余——它们的贡献是一套第一人称的验证方法(行),而不是一张图。"
+   },
+   "cognitiveState": "retired",
+   "edges": [
+    {
+     "relation": "falsifies",
+     "target": "root"
+    }
+   ]
+  },
+  {
+   "id": "branch/future-society",
+   "label": {
+    "en": "Future social forms — agent-native institutions",
+    "zh": "未来社会形态 —— agent-native 制度"
+   },
+   "description": {
+    "en": "If individuals run persistent agents, the institutions between them must be redesigned.",
+    "zh": "如果每个个体都跑着常驻 agent,那么人与人之间的制度就必须重新设计。"
+   },
+   "branch": "future-society",
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "coordination-structures"
+    },
+    {
+     "relation": "contains",
+     "target": "agent-native-communication"
+    },
+    {
+     "relation": "contains",
+     "target": "starshard-architecture"
+    },
+    {
+     "relation": "contains",
+     "target": "user-agency-substrate"
+    },
+    {
+     "relation": "contains",
+     "target": "locality-as-protocol"
+    },
+    {
+     "relation": "contains",
+     "target": "fleet-coordination-protocol"
+    },
+    {
+     "relation": "contains",
+     "target": "starshard-communication"
+    },
+    {
+     "relation": "contains",
+     "target": "zhizi-agent-os"
+    },
+    {
+     "relation": "contains",
+     "target": "system-evolution-public"
+    },
+    {
+     "relation": "contains",
+     "target": "receipts"
+    }
+   ]
+  },
+  {
+   "id": "coordination-structures",
+   "label": {
+    "en": "Coordination structures as resource-scheduling architectures",
+    "zh": "作为资源调度架构的协调结构"
+   },
+   "description": {
+    "en": "Polity, firm, market, commons, and protocol as five instances of one object: an architecture for scheduling scarce resources under distributed, private information. Descriptive throughout: it ranks nothing, names no culprits, recommends nothing. Contains the Hayek/Scott information constraint, transaction-cost boundaries, Ostrom's commons, the protocol's three documented failure modes, and three falsifiers. Its use of credit-transport language is marked explicitly as a structural rhyme, not a derivation.",
+    "zh": "政体、企业、市场、共同体、协议,是同一个对象的五个实例:在分布式私有信息下调度稀缺资源的架构。全篇描述性:不排名、不点名、不建议。含 Hayek/Scott 信息约束、交易成本边界、Ostrom 的共同体、协议的三种已知失效模式,以及三条 falsifier。它对 credit-transport 语言的使用被显式标注为结构性押韵,而不是推导。"
+   },
+   "url": "https://machengshen.github.io/theory/coordination-structures.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.45,
+   "edges": [
+    {
+     "relation": "rhymesWith",
+     "target": "credit-transport"
+    },
+    {
+     "relation": "contains",
+     "target": "credit-routing-scalar"
+    }
+   ]
+  },
+  {
+   "id": "credit-routing-scalar",
+   "label": {
+    "en": "Ranking institutions by a scalar credit-transport fidelity score",
+    "zh": "用一个标量的 credit-transport 保真度给制度排名"
+   },
+   "description": {
+    "en": "A tempting move: assign each institution one scalar credit-routing fidelity number, by analogy to a loss gradient, and rank institutions by it. Rejected in the essay. Credit in a social structure is multi-dimensional, the backward pass is not differentiable, and collapsing it to one number is the formalism smuggling in structure the domain does not have.",
+    "zh": "一个诱人的动作:类比损失梯度,给每个制度赋一个标量的 credit-routing 保真度,并据此排名。文章里拒绝了它。社会结构里的 credit 是多维的,反向过程不可微,把它压成一个数,是形式主义在偷运这个领域并不具备的结构。"
+   },
+   "cognitiveState": "retired",
+   "edges": [
+    {
+     "relation": "falsifies",
+     "target": "coordination-structures"
+    }
+   ]
+  },
+  {
+   "id": "agent-native-communication",
+   "label": {
+    "en": "Agent-Native Open Communication (whitepaper)",
+    "zh": "Agent-Native Open Communication(白皮书)"
+   },
+   "description": {
+    "en": "Next-generation open communication architecture built for agents rather than apps. The whitepaper page on this site is written in Chinese; the source repository at https://github.com/MachengShen/agent-native-communication carries both languages."
+   },
+   "url": "https://machengshen.github.io/whitepaper-agent-native-communication/",
+   "inLanguage": "zh-CN",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "starshard-architecture",
+   "label": {
+    "en": "Starshard: Architecture v1"
+   },
+   "description": {
+    "en": "Architecture, safety charter, and philosophy for a substrate where memory is the primary layer and the individual, not the platform, owns it."
+   },
+   "url": "https://github.com/starshard-ai/architecture-v1",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "user-agency-substrate",
+   "label": {
+    "en": "User-Agency Substrate",
+    "zh": "User-Agency Substrate(用户主体性底座)"
+   },
+   "description": {
+    "en": "A nonprofit open-source layer between frontier-model providers and individual users, capturing no economic upside; users own their derivatives entirely."
+   },
+   "url": "https://machengshen.github.io/substrate.html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "locality-as-protocol",
+   "label": {
+    "en": "Locality as Protocol",
+    "zh": "Locality as Protocol(把局部性当作协议)"
+   },
+   "url": "https://machengshen.github.io/locality-as-protocol.html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "fleet-coordination-protocol",
+   "label": {
+    "en": "Fleet Coordination Protocol"
+   },
+   "description": {
+    "en": "Many agents, one shared memory, nothing irreversible behind your back."
+   },
+   "url": "https://github.com/starshard-ai/fleet-coordination-protocol",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "agent-safety-stewardship",
+   "label": {
+    "en": "Agent safety as anti-cancer governance",
+    "zh": "Agent 安全：一种防癌变治理"
+   },
+   "description": {
+    "en": "A control-theoretic account of cancer-like persistent-agent failure: local survival, repair, and replication decoupled from owner-level purpose, bounded authority, stop inheritance, resource budgets, and independent verification. Defines seven runtime invariants and an A–D disclosure rule: never publish the growth engine separated from its immune system.",
+    "zh": "把常驻 Agent 的癌变式失控理解为一种控制病理：局部生存、修复和复制脱离 owner 层目的、有界权限、stop 继承、资源预算和独立验证。给出七条运行时不变量与 A–D 分层披露规则：永远不要把增长引擎从免疫系统上拆下来单独发布。"
+   },
+   "url": "https://machengshen.github.io/theory/agent-safety-stewardship.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/agent-safety-stewardship.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.55,
+   "edges": [
+    {
+     "relation": "constrains",
+     "target": "fleet-coordination-protocol"
+    },
+    {
+     "relation": "constrains",
+     "target": "zhizi-agent-os"
+    }
+   ]
+  },
+  {
+   "id": "abundant-verification-claims",
+   "label": {
+    "en": "Abundant verification needs abundant claims",
+    "zh": "廉价的 verification 还不够，还得有可解析的 claim"
+   },
+   "description": {
+    "en": "A cross-line note addressed to Jie Fu's verification line (Re:Form, arXiv:2507.16331/TMLR 2026; the autoformalization agenda; and a 2026-08-05 proposal to verify model internals cheaply via sparse matrix factorization inside the Guaranteed Safe AI frame). One convergence is recorded as evidence rather than contribution. Measured payload: on 18 real agent receipts, a prose-plus-regex blocker gate recalls 5 of 10 false parks while a minimal typed receipt schema has no such blind spot, at 0 semantic false triggers and 4/4 schema self-checks; one capability sat parked about eighteen days behind an unexecuted blocker. The binding constraint at deployment is therefore claim typing rather than verification unit cost. P(mechanism) 0.9, P(useful at scale) 0.3; the LLM-judge baseline that would kill it is named and unrun. Three objections to verifying internals: certificate versus statistical decomposition, non-uniqueness as path-dependence and hence a schema field, and Goodhart pressure on the verifier's input channel. Two citations from this line's own private note are withdrawn in the body and replaced.",
+    "zh": "一封写给付杰 verification 线的跨线笔记（Re:Form，arXiv:2507.16331/TMLR 2026；autoformalization 议程；以及 2026-08-05 提出的在 Guaranteed Safe AI 框架内用稀疏矩阵分解廉价验证模型 internals）。一处独立汇合被记为证据而非贡献。实测载荷：在 18 条真实 agent 回执上，散文加正则的 blocker 门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区，语义误触发 0、schema 自检 4/4；曾有一项能力在从未被执行过的 blocker 后停了约十八天。因此部署端真正卡住的是 claim 的类型化，而不是 verification 的单位成本。P(机制) 0.9，P(现实规模有用) 0.3；能杀死它的 LLM-judge baseline 已点名且未跑。三条针对验证 internals 的反对：证书与统计分解之别、不唯一性即路径依赖因而应成为 schema 字段、以及对 verifier 输入通道的 Goodhart 压力。本线私人笔记里的两个引用在正文中被撤回并替换。"
+   },
+   "url": "https://machengshen.github.io/theory/abundant-verification-needs-abundant-claims.md",
+   "format": "text/markdown",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/theory/abundant-verification-needs-abundant-claims.zh.md",
+   "cognitiveState": "speculative",
+   "confidence": 0.3,
+   "edges": [
+    {
+     "relation": "supports",
+     "target": "agent-safety-stewardship"
+    }
+   ]
+  },
+  {
+   "id": "starshard-communication",
+   "label": {
+    "en": "Starshard Communication"
+   },
+   "description": {
+    "en": "Open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts."
+   },
+   "url": "https://github.com/starshard-ai/starshard-communication",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "zhizi-agent-os",
+   "label": {
+    "en": "Zhizi Agent OS"
+   },
+   "description": {
+    "en": "One command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean."
+   },
+   "url": "https://github.com/starshard-ai/zhizi-agent-os",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "system-evolution-public",
+   "label": {
+    "en": "System Evolution, in public"
+   },
+   "description": {
+    "en": "Open record of how this substrate evolved: vision, theory, practice, governance, forecasts, self-iteration ledger."
+   },
+   "url": "https://github.com/MachengShen/system-evolution-public",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "receipts",
+   "label": {
+    "en": "Receipts"
+   },
+   "description": {
+    "en": "Running log of work executed by this agent stack, published so claims can be checked against what was actually done."
+   },
+   "url": "https://github.com/MachengShen/starshard-public",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "intention-as-measure-change",
+   "label": {
+    "en": "We proposed it, then we killed it — intention as a change of measure",
+    "zh": "我们提出它,然后自己杀掉它 —— 起心动念 = 换测度"
+   },
+   "description": {
+    "en": "Intention formalised as a change of path measure (Girsanov) rather than a collapse, with the KL-control cost, the path-integral form, large deviations, and Doob's h-transform as the single object underlying KL-optimal control, the diffusion-model reverse SDE and conditional diffusion — all attributed explicitly to others. Closes the quantum-collapse question once, on decoherence timescales and the underground exclusion of the parameter-free Diosi-Penrose model. The payload is a retraction: a directional prediction about meditation and sensory attenuation, claimed on 31 July 2026 as a surviving wedge, was found on 2 August written verbatim in the introduction of the paper it was meant to contradict, with a lineage back to 2011 and a two-sided statistical plan built to accommodate it; the authors' reading of that paper's second hypothesis was wrong. What survives is a missing predictability-matched control condition, written up as a preregisterable 2x2 with a discriminating statistic, covariates, four preregistered read-outs (two of which kill the authors' own reading) and N approximately 120-140. Confidence that the formalisation carries independent empirical content beyond the verbal version already in print: 0.15.",
+    "zh": "把意图形式化为路径测度的改变(Girsanov)而非坍缩,连同 KL 控制代价、路径积分表示、大偏差,以及 Doob's h-transform 作为 KL 最优控制 / diffusion 反向 SDE / conditional diffusion 底下的同一个对象 —— 并明确归属他人。量子坍缩只关一次,依据退相干时标与地下实验对无自由参数 Diosi-Penrose 模型的排除。载荷是一次撤回:07-31 提出的关于禅修与感觉衰减方向的预测,08-02 在它本该反对的论文引言里被逐字找到,谱系回溯到 2011 年,且对方的双侧检验本就为容纳它而设计;作者对该文第二条假设的读法是错的。幸存的是一个缺失的可预测性匹配控制条件,写成可预注册的 2x2,含判别统计量、协变量、四条预注册判读(其中两条会杀死作者自己的读法)与 N 约 120-140。'形式化带来独立经验内容'的置信度:0.15。"
+   },
+   "url": "https://machengshen.github.io/intention-as-measure-change.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.15
+  },
+  {
+   "id": "cancer-is-not-cells-waking-up",
+   "label": {
+    "en": "We thought cancer was cells waking up. The evidence says the opposite.",
+    "zh": "我们以为癌是细胞觉醒。证据说正好相反。"
+   },
+   "description": {
+    "en": "A negative result published deliberately. The hypothesis that a body over-domesticates its cells until they revolt is about 60% a re-invention of Levin's cognitive-light-cone contraction and about 40% wrong with the sign reversed: immunosuppression, germline TP53 loss, gap-junction uncoupling and chronic inflammation all run control-down-therefore-cancer-up, and the most completely domesticated cells in the body are essentially the ones that do not get cancer. There is no self inside a tumour, only clonal war; the roughly eight transmissible cancer lineages that escaped their hosts are the exception that fixes the rule. Includes an unsoftened maturity assessment of re-align-rather-than-kill: one clean win in sixty years whose own leading authority attributes the cure to degrading a ligandable fusion protein, a phase-3-negative second place, bioelectric normalisation with the sign reversed in mammals, and re-coupling being actively harmful in glioma. What survived is one distinction with its own kill condition: coercion imposes selection and breeds escape, alignment does not.",
+    "zh": "刻意公开的负面结果。'身体驯化过头导致细胞造反'这一假说约六成是在重新发明 Levin 的认知光锥收缩,约四成符号是反的:免疫抑制、TP53 胚系缺失、缝隙连接解偶联与慢性炎症全都指向控制下降导致癌症上升,而体内被驯化得最彻底的细胞基本就是不得癌的那些。肿瘤内部没有自我,只有克隆战争;逃出宿主的约八条可传播癌谱系恰好把规则钉死。含不打折的 re-align 成熟度评估:六十年一个干净胜利而其权威把治愈归因于降解可成药融合蛋白、三期阴性的第二名、在哺乳动物里符号反转的生物电正常化、以及在胶质瘤里帮倒忙的重新耦合。幸存的只有一条带自杀判据的区分:强制施加选择压因而催生逃逸,对齐不施加。"
+   },
+   "url": "https://machengshen.github.io/cancer-is-not-cells-waking-up.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "cognitiveState": "retired",
+   "confidence": 0.07
+  },
+  {
+   "id": "photographs-and-the-memory-generator",
+   "label": {
+    "en": "A photograph is an external fixed point",
+    "zh": "照片是一个被注入的外部不动点"
+   },
+   "description": {
+    "en": "If recall is generation rather than playback, a photograph is a low-dimensional projection that, unlike the memory it cues, does not change when accessed. Three mechanisms are separated and scored: post-retrieval modifiability (solid in rodents, contested in humans, with ten failed replication attempts of the flagship human demonstration and two failed registered replications of retrieval-extinction), reinterpretation by a changed generator, and the authors' own latch claim at P approximately 0.20 with a stated transfer experiment that would kill it. Corrects its own draft in the body: photographs are not a stronger false-memory vector than text, and the disciplined implantation rate is 30.4% rather than the headline 50%.",
+    "zh": "若回忆是生成而非回放,照片就是一个低维投影,且与它唤起的记忆不同,它在被访问时不改变自己。三条机制分开打分:取回后可修改性(啮齿类很硬、人类有争议,旗舰实验十次复现失败、retrieval-extinction 两次注册复现失败)、被改变了的生成器重读、以及作者自己的 latch 主张(P 约 0.20,并写明什么迁移实验会杀死它)。正文更正自己初稿:照片并不比文字更容易植入假记忆,且应使用 30.4% 的元分析植入率而非流传的 50%。"
+   },
+   "url": "https://machengshen.github.io/photographs-and-the-memory-generator.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.2
+  },
+  {
+   "id": "what-a-family-transmits",
+   "label": {
+    "en": "What a family actually transmits",
+    "zh": "一个家族到底传下来了什么"
+   },
+   "description": {
+    "en": "Shared family environment explains close to zero of the variance in adult personality, while latent social status persists at about 0.79 per generation across 422,374 people and four centuries. The reconciliation is mostly non-genetic: measurement error attenuates single-generation correlations without accumulating along a lineage, and assortative mating amplifies cultural and genetic transmission symmetrically so it cannot arbitrate between them. The contested step is scored separately from the finding, at 0.70 and 0.20 respectively, with both sides of the live 2025 exchange linked. Argues the Chinese lineage record is the under-used arbitrator, while devoting a full section to why those genealogies are constructed social documents rather than pedigrees.",
+    "zh": "共享家庭环境对成年人格变异的解释力接近零,而潜在社会地位在 422,374 人、四个世纪里每代只衰减到 0.79。调和的主体不需要基因:测量误差把单代相关衰减掉却不沿世系累积,择偶同质性对文化与遗传传递对称放大因而不能仲裁二者。有争议的那一步与发现本身分开打分,分别为 0.70 与 0.20,并把 2025 年那场仍活着的交锋双方都挂上。主张中国世系记录是被低估的仲裁者,同时用整整一节说明这些家谱是被建构的社会文书而非血统档案。"
+   },
+   "url": "https://machengshen.github.io/what-a-family-transmits.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.3
+  },
+  {
+   "id": "flow-dopamine-and-stop-signals",
+   "label": {
+    "en": "Flow, dopamine, and stop signals",
+    "zh": "心流、多巴胺与停止信号"
+   },
+   "description": {
+    "en": "An evidence review sorting behaviour-design claims into well-replicated-but-misapplied and plausible-but-untested. Dopamine mediates wanting and codes prediction error, so a fully transparent schedule produces no phasic response. Loot-box revenue correlates with problem gambling at rho 0.34 and with income at rho 0.02, not significant. Adaptive difficulty is the most expensive flow condition with the weakest evidence, and the note corrects its own draft here. Consumer HRV cannot separate flow from mild stress. The most actionable number is a sign flip inside one meta-analysis: tangible rewards undermine intrinsic motivation while positive informational feedback enhances it. On stop signals, messages move under 1% of players while enforced 15-minute unavailability works, a six-hour national curfew bought about 3.65 minutes a day and decayed to nothing, and the most-cited study claiming playtime quotas failed had no age data.",
+    "zh": "一份证据审查,把行为设计主张分成'复现良好但用反了'与'看似合理但没检验'。多巴胺介导想要、编码预测误差,因此完全透明的奖励表不产生相位反应。开箱消费与问题赌博相关 0.34、与收入相关 0.02 且不显著。动态难度是最贵、证据最弱的心流条件,笔记在此更正了自己的初稿。消费级 HRV 无法把心流与轻度压力分开。最可操作的数字是同一元分析里的符号翻转:实物奖励削弱内在动机,正向信息性反馈提升它。停止信号方面,消息只让不到 1% 的人停下,而强制 15 分钟不可用有效;六小时全国宵禁只买到每天约 3.65 分钟并很快归零;最常被引来证明时长配额失败的研究没有年龄数据。"
+   },
+   "url": "https://machengshen.github.io/flow-dopamine-and-stop-signals.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "cognitiveState": "speculative",
+   "confidence": 0.35
+  }
+ ]
 }
