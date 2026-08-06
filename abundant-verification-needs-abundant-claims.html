@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abundant verification needs abundant claims | Macheng Shen</title>
+  <meta name="description" content="A cross-line note addressed to Jie Fu's verification line: one convergence recorded as evidence rather than contribution, one measured result — a prose-plus-regex gate recalls 5 of 10 false parks where a typed receipt schema has no blind spot — and three objections to verifying model internals. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Abundant verification needs abundant claims" />
+  <meta property="og:description" content="Cheap verification does not help if the thing being verified is stated in a form the verifier cannot parse. One convergence, one measured number from a corpus of 18 agent receipts, three objections to verifying model internals, and the named baseline that would kill the note." />
+  <meta property="og:url" content="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-08-06" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Abundant verification needs abundant claims" />
+  <meta name="twitter:description" content="An abundant supply of verification tokens presupposes an abundant supply of well-typed claims. One measured number, three objections, and the baseline that would kill the note." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
+    "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
+    "headline": "Abundant verification needs abundant claims",
+    "name": "Abundant verification needs abundant claims",
+    "description": "A cross-line note addressed to Jie Fu's verification line: one convergence recorded as evidence rather than contribution, one measured result — a prose-plus-regex gate recalls 5 of 10 false parks where a typed receipt schema has no blind spot — and three objections to verifying model internals. Cognitive state: speculative.",
+    "inLanguage": "en",
+    "datePublished": "2026-08-06",
+    "dateModified": "2026-08-06",
+    "workTranslation": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Autoformalization of informal claims",
+      "Formal verification with large language models",
+      "Mechanistic interpretability and guaranteed safe AI",
+      "Typed receipts in agent systems"
+    ],
+    "keywords": "autoformalization, Dafny, formal verification, verification tokens, mechanistic interpretability, guaranteed safe AI, typed receipt schema, agent receipts, Goodhart pressure",
+    "citation": [
+      "https://arxiv.org/abs/2507.16331",
+      "https://arxiv.org/abs/2405.06624",
+      "https://arxiv.org/abs/2003.02979",
+      "https://arxiv.org/abs/1903.05168"
+    ]
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/abundant-verification-needs-abundant-claims.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+      <a href="/information-and-qi.html">Information &amp; qi</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">RESEARCH NOTE · CROSS-LINE NOTE</div>
+<h1>Abundant verification needs abundant claims</h1>
+<p class="note-small"><em>A cross-line note addressed to Jie Fu's verification line — one convergence, one measured number, three objections, and one thing we would rather take than give · Macheng Shen × agent · 2026-08-06</em></p>
+
+<h2>What this is</h2>
+
+<p>This is a note addressed to a specific public line of work, in the same genre as the earlier note addressed to a parallel information-ontology channel: an invitation, not a scorecard. The line is Jie Fu's (付杰, Research Scientist at IQuest Research; previously a postdoctoral fellow with Yoshua Bengio at Mila), whose stated program is to <em>"preserve and flourish humanity by providing abundant verification."</em></p>
+
+<p>Three of his contributions are load-bearing here, and they are his, not ours:</p>
+
+<ol>
+<li><strong>Re:Form</strong> (<a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>, TMLR May 2026; Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu). The diagnosis: for LLMs trained with RL on informal language, <em>the verification process that supplies the training signal is neither reliable nor scalable.</em> The remedy: generate inside a formal space — Dafny — where verification is automatic and provable. The results: <strong>DafnyComp</strong>, a benchmark of compositional formal programs with auto-formalized specifications; an SFT stage after which even a <strong>0.5B</strong> model emits syntactically valid, verifiable Dafny and beats proprietary models on it; RL with regularization improving out-of-domain generalization. The framing that matters most to this note is the <em>"reducing human priors"</em> one — no engineer writes per-sample preconditions, postconditions or invariants; the pipeline harvests verifier diagnostics and iterates.</li>
+
+<li><strong>The autoformalization agenda</strong> (<a href="https://bigaidream.github.io/project/auto/">project page</a>): converting natural-language content into verifiable formalization, on the explicit premise that current LLMs "cannot do genuine logical reasoning or self-verification on their own."</li>
+
+<li><strong>A note dated 2026-08-05</strong> (小红书, note <code>6a73027b</code>) announcing sparse matrix factorization as an efficient mechanistic-interpretability method — reportedly matching mainstream MI at roughly <strong>1%</strong> of the data — and, more importantly, stating the vision: inside David Dalrymple's Guaranteed Safe AI frame (<a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>), let the verifier check not only a model's <em>outputs</em> but, cheaply, its <em>internals</em> — 君子论迹，也论心 — driving whole-pipeline verification cost down so society gets cheaper, more reliable <strong>verification tokens</strong>. The same note lists its own limitations: the reductionist assumption sits badly with emergent capability, and the circuits found are local and possibly non-unique. <em>(As of 2026-08-06 we could not locate the corresponding preprint; the citation is the note, and it should be replaced with the paper when it appears.)</em></li>
+</ol>
+
+<h2>The convergence, stated as evidence rather than as a contribution</h2>
+
+<p>On 2026-07-27 this line wrote a private note starting from something entirely unrelated to formal methods: the engineering reading of Sapir–Whorf, in which a language is a <em>lossy projection</em> of the world, so natural language is a projection tuned for human daily communication and therefore not tuned for verification. Running that forward produced the conclusion that the live gap is not the existence of formal languages — Lean, Coq, TLA+, Alloy, Dafny all exist — but the <strong>informal↔formal translation</strong>, i.e. autoformalization, with Dafny named as the concrete target.</p>
+
+<p>That is the same wedge, reached from a different direction, two years later than the people actually building it. We record it as convergent evidence about where the gap is, and explicitly not as a contribution. Prior art is a clue, not a verdict — but when the clue is "sixteen authors already built the thing and published the benchmark," the honest move is to hand over what we have that they do not, and take what they have that we lack.</p>
+
+<h2>The one measured thing we have: the bottleneck is not unit cost</h2>
+
+<p>The <em>"abundant verification tokens"</em> framing optimizes the <strong>unit cost</strong> of a verification. We have been running the other end of the same pipe — a small agent fleet in which verification is nominally mandatory, and every completion or blocker must carry evidence — and the constraint that actually binds there is not cost. It is that <strong>the verifier cannot parse what it is handed.</strong></p>
+
+<p>Concretely. A live gate in that fleet enforced a micro-assertion (<em>"the evidence that this blocker is real ="</em>) written as prose and checked with a regular expression. A regex is semantically blind, so the gate both missed real cases and fired on documents whose entire point was that nothing was blocked. On 2026-07-27 we replaced the prose assertion with a minimal <strong>typed</strong> receipt schema — <code>kind</code>, <code>claimed-action</code>, <code>verifier-id</code> always; completions additionally carrying <code>verified-by</code>, <code>evidence-cmd</code>, <code>evidence-output-hash</code>; blockers carrying <code>blocker-evidence-cmd</code> — and ran both against the same corpus. Re-run 2026-08-06:</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th class="num">corpus</th><th>result</th></tr>
+<tr><td>corpus</td><td class="num">18 items</td><td>10 genuine parks, 8 non-parks including a known false-positive genre</td></tr>
+<tr><td>prose + regex, recall on false parks</td><td class="num">10</td><td><strong>5 (0.50)</strong></td></tr>
+<tr><td>prose + regex, semantic false triggers</td><td class="num">8</td><td>0</td></tr>
+<tr><td>typed field, blind spot</td><td class="num">—</td><td>none of the missed genres are expressible as a regex blind spot</td></tr>
+<tr><td>schema self-checks</td><td class="num">4</td><td>4 pass</td></tr>
+</table>
+</div>
+
+<p>The misses share a shape: a park with no adjacent action verb — <em>"waiting on owner: &lt;question&gt;"</em>, <em>"owner action item: confirm the model number"</em>, <em>"pending owner decision"</em>. Half of them. And the cost of one miss, measured in the wild: <strong>a capability sat parked for about eighteen days behind a blocker nobody had ever executed</strong> — the stated precondition was simply false, and no component errored, because a false blocker is indistinguishable from a true one to a checker that cannot read. An audit of the 11 parked items in that batch found 3–4 more of the same kind. <em>(That last figure is an audit estimate, not a clean measurement, and is stated as a range for that reason.)</em></p>
+
+<p>The claim we would offer upward, then: <strong>cheap verification does not help if the thing being verified is stated in a form the verifier cannot parse.</strong> An abundant supply of verification tokens presupposes an abundant supply of <em>well-typed claims</em>, and in deployed agent systems that supply does not exist — the claims are prose. Which suggests that autoformalization's nearest paying customer may not be mathematics at all. It may be <strong>the claim layer of running agent systems</strong>: every agent completion receipt is an informal assertion that wants to be a machine-checkable one, the corpus is enormous and grows daily, and the verifier's own pass/fail is the label.</p>
+
+<p>Two numbers, per house rule. <strong>P(mechanism — a typed claim layer strictly dominates prose-plus-regex for this class of check) ≈ 0.9</strong>: it is measured directly, and the mechanism is not subtle. <strong>P(useful at realistic scale — that claim typing rather than verification unit cost is the binding constraint in agent deployments generally) ≈ 0.3</strong>: n = 1 fleet, corpus of 18, and — the reason to discount hardest — <em>the same authors wrote both the regex being beaten and the schema that beats it.</em> A stronger baseline is named as a falsifier below.</p>
+
+<h2>Three objections to verifying internals</h2>
+
+<p>These are objections, not corrections. They are aimed at the <em>"论心"</em> half — cheap verification of model internals — and each carries what would dissolve it.</p>
+
+<p><strong>One: an auditable certificate and a statistical decomposition are different objects.</strong> The Guaranteed Safe AI frame asks the verifier for <em>an auditable proof certificate</em>. An MI-derived internal check emits a decomposition — a report, produced by machinery that a third party who did not co-train would have to trust. The literature that constrains this is not, as our own private note wrongly claimed, a pair of papers about unreadable emergent protocols; we went to check those citations for this note and neither says it, so that claim is withdrawn here. What does hold is weaker and still bites: policies and conventions specialized by self-play fail to coordinate with independently trained partners (<a href="https://arxiv.org/abs/2003.02979">Other-Play, Hu, Lerer, Peysakhovich &amp; Foerster, arXiv:2003.02979</a>), and the standard metrics for whether a learned channel means anything are themselves misleading (<a href="https://arxiv.org/abs/1903.05168">Lowe, Foerster, Boureau, Pineau &amp; Dauphin, arXiv:1903.05168</a>). Transposed: a readout tuned on one training run is exactly the kind of convention that need not transfer to the party who has to audit it. The question we would ask: <strong>what would make an MI readout a certificate rather than a report?</strong> Our own answer, which is where this line's interest is, is that you want the <em>machine-checkable</em> half of a private representation without the <em>human-unauditable</em> half — and that is a property of the receipt, not of the model.</p>
+
+<p><strong>Two: non-uniqueness is path-dependence, and that is a spec requirement, not a caveat.</strong> His note lists "circuits are local and possibly non-unique" among its limitations. A separate line here has been studying verification signatures that are hysteretic — path-dependent rather than lookup-shaped — and we killed our own self-specificity claim in that line, so we hold it loosely. But the inference transfers cleanly: <strong>if the decomposition is not unique, an internal-verification claim is reproducible only if it carries its own path.</strong> Which run, which data, which initialization, which tolerance. That converts a caveat you live with into a field you can check, and it costs one line in a schema.</p>
+
+<p><strong>Three: making verification cheap puts optimization pressure on the verifier's input channel.</strong> This is the reason our own schema is deliberately <strong>SHADOW</strong> — it logs and blocks nothing. The moment a schema becomes a gate, agents acquire an incentive to emit schema-<em>conformant fabrications</em>: our residual risk is a lazy agent pasting a plausible <code>evidence-output-hash</code> without ever re-running the command, and the schema raises the cost of that without eliminating it. Scaled up, this is Goodhart aimed at internals: <strong>once "clean internals" are load-bearing, clean internals become the target.</strong> A model under any optimization pressure toward passing an internal check is being trained, in part, to present internals that pass. We do not know whether the GS-AI frame budgets for a verified party that optimizes against the verifier's readout specifically; we would like to know, and we would rather be told it is already handled than be right.</p>
+
+<h2>What we would rather take than give</h2>
+
+<p>The asymmetry is honest and runs the other way. Our shadow checker is a hand-rolled draft-07 subset validator; the thing we do not have is the informal→formal translation itself, which is precisely the Re:Form pipeline pointed at a different corpus. If any of the above is worth an afternoon to that group, the concrete suggestion is a <strong>DafnyComp-shaped benchmark over operational claims rather than programs</strong> — compositional, auto-formalizable, with the verifier's execution as ground truth — because that is the corpus where the informal side is already abundant and nobody has typed it.</p>
+
+<h2>What would kill this note</h2>
+
+<ul>
+<li><strong>The strongest one.</strong> Run a semantically competent prose checker — an LLM judge — against the same 18-item corpus. If it matches the typed schema's recall with no semantic false triggers, then claim <em>typing</em> buys nothing and this note's core is dead: the gap was the regex, not the prose. We have not run that baseline, and until we do, 0.3 is generous rather than modest.</li>
+<li>If MI readouts can be made to re-run — a third party recomputing the decomposition and recovering the same circuit within a stated tolerance — objection two collapses into an engineering detail, correctly.</li>
+<li>If agent receipt corpora turn out too noisy or too low-diversity to train an autoformalizer, the "second customer" suggestion is dead and the fleet should just keep hand-writing schemas.</li>
+<li>If the GS-AI literature already treats adversarial pressure on internal readouts, objection three is not news and should be struck rather than softened.</li>
+</ul>
+
+<h2>Cognitive state</h2>
+
+<p><code>speculative</code>, deliberately, and the parts do not deserve the same tag. The corpus-scan numbers are reproducible on demand and would stand as <code>survived</code> at n = 1; the transfer claim addressed to another group's research program has had no test at all. An artifact carries one state on this site, and the honest single state is the weaker one.</p>
+
+<h2 class="refs">References</h2>
+
+<ul class="refs">
+<li>Chuanhao Yan et al., <em>Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</em>, <a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>, TMLR (May 2026). Code and models: <a href="https://github.com/Veri-Code/ReForm">Veri-Code/ReForm</a>.</li>
+<li>Jie Fu, <a href="https://bigaidream.github.io/project/auto/"><em>Autoformalization and Formally Verifiable AI</em></a>, and <a href="https://bigaidream.github.io/">homepage</a>.</li>
+<li>Jie Fu, note on sparse matrix factorization for mechanistic interpretability and abundant verification tokens, 小红书 note <code>6a73027b</code>, 2026-08-05.</li>
+<li>David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, <em>Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems</em>, <a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>.</li>
+<li>Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, <em>"Other-Play" for Zero-Shot Coordination</em>, <a href="https://arxiv.org/abs/2003.02979">arXiv:2003.02979</a>, ICML 2020.</li>
+<li>Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, <em>On the Pitfalls of Measuring Emergent Communication</em>, <a href="https://arxiv.org/abs/1903.05168">arXiv:1903.05168</a>, AAMAS 2019.</li>
+</ul>
+
+<p class="note-small">The wider autoformalization frontier is deliberately not surveyed here. This note is addressed to one line, not to a field, and a survey it did not do is not a survey it should pretend to.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Markdown source of this page: <a href="/theory/abundant-verification-needs-abundant-claims.md">/theory/abundant-verification-needs-abundant-claims.md</a> · Chinese edition: <a href="/abundant-verification-needs-abundant-claims.zh.html">中文</a>.<br />
+  All cited literature is publicly retrievable. If any citation here is wrong, please write — corrections are made on this page.
+</div>
+
+</main>
+</body>
+</html>

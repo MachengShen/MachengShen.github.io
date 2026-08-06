@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen</title>
+  <meta name="description" content="一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="廉价的 verification 还不够，还得有可解析的 claim" />
+  <meta property="og:description" content="verification 再便宜也没用，如果被验证的东西是以 verifier 无法解析的形式陈述的。一处汇合、一个来自 18 条真实 agent 回执的实测数字、三条关于验证模型 internals 的反对意见，以及能杀死本文的那个 baseline。" />
+  <meta property="og:url" content="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-08-06" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="廉价的 verification 还不够，还得有可解析的 claim" />
+  <meta name="twitter:description" content="「充裕的 verification token」预设了「充裕的良类型 claim」。一个实测数字、三条反对意见，以及能杀死本文的那个 baseline。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ScholarlyArticle",
+    "@id": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
+    "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
+    "headline": "廉价的 verification 还不够，还得有可解析的 claim",
+    "name": "廉价的 verification 还不够，还得有可解析的 claim",
+    "description": "一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-08-06",
+    "dateModified": "2026-08-06",
+    "translationOfWork": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "非形式断言的自动形式化",
+      "大模型与形式验证",
+      "机制可解释与 Guaranteed Safe AI",
+      "agent 系统里的有类型回执"
+    ],
+    "keywords": "autoformalization, Dafny, 形式验证, verification tokens, 机制可解释, Guaranteed Safe AI, 有类型回执 schema, agent 回执, Goodhart 压力",
+    "citation": [
+      "https://arxiv.org/abs/2507.16331",
+      "https://arxiv.org/abs/2405.06624",
+      "https://arxiv.org/abs/2003.02979",
+      "https://arxiv.org/abs/1903.05168"
+    ]
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/abundant-verification-needs-abundant-claims.html">EN</a>
+      <a href="/llms.zh.txt">给 agent</a>
+      <a href="/information-and-qi.html">信息与气</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">研究笔记 · 跨线笔记</div>
+<h1>廉价的 verification 还不够，还得有可解析的 claim</h1>
+<p class="note-small"><em>写给付杰这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06</em></p>
+
+<h2>这是什么</h2>
+
+<p>这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。这条线是付杰的（IQuest Research 研究科学家；此前在 Mila 师从 Yoshua Bengio 做博后），他公开的纲领是 <em>"preserve and flourish humanity by providing abundant verification"</em>。</p>
+
+<p>其中三项贡献在本文里是承重的，而它们属于他，不属于我们：</p>
+
+<ol>
+<li><strong>Re:Form</strong>（<a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu）。诊断是：对于用 RL 训练的自然语言 LLM，<em>提供训练信号的那个 verification 过程本身既不可靠也不可扩展</em>。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：<strong>DafnyComp</strong>，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 <strong>0.5B</strong> 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 <em>"reducing human priors"</em> 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。</li>
+
+<li><strong>Autoformalization 议程</strong>（<a href="https://bigaidream.github.io/project/auto/">项目页</a>）：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。</li>
+
+<li><strong>2026-08-05 的一条笔记</strong>（小红书，note <code>6a73027b</code>）：宣布用稀疏矩阵分解做高效 mechanistic interpretability（MI），据称只需主流方法约 <strong>1%</strong> 的数据而效果几乎保持；更重要的是其中陈述的愿景 —— 在 David Dalrymple 的 Guaranteed Safe AI 框架里（<a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>），让 verifier 不只验证模型的输出，也用更快的方式验证模型 internals —— 君子论迹，也论心 —— 从而压低全流程 verification 成本，为社会提供更便宜可靠的 <strong>verification tokens</strong>。同一条笔记也自陈了局限：reductionist 假设与 LLM 的 emergent capability 不符；找到的 circuits 都是 local 的，而且可能不唯一。<em>（截至 2026-08-06 我们没有找到对应的预印本；此处引用的是那条笔记本身，论文出现后应替换。）</em></li>
+</ol>
+
+<h2>这处汇合是证据，不是贡献</h2>
+
+<p>2026-07-27 本线写过一条私人笔记，起点跟形式方法毫无关系：Sapir-Whorf 的工程版读法 —— 语言是世界的<strong>有损投影</strong>，因此自然语言是为「人类日常沟通」调过的投影，也就必然不是为 verification 调过的。把这条往前推，得到的结论是：真正的缺口不在「有没有形式语言」（Lean、Coq、TLA+、Alloy、Dafny 都在），而在 <strong>informal↔formal 的翻译</strong>，即 autoformalization，并且把 Dafny 点名为具体目标。</p>
+
+<p>这是同一个 wedge，从另一个方向抵达，而且比真正在造它的人晚了两年。我们把它记为「关于缺口在哪」的汇合证据，并明确不记为贡献。「别人做过了」是线索不是裁决 —— 但当线索是「十六位作者已经把东西造出来并发布了 benchmark」时，诚实的动作是把我们有而他们没有的交出去，把他们有而我们缺的拿回来。</p>
+
+<h2>我们唯一实测到的东西：瓶颈不在单位成本</h2>
+
+<p><em>"abundant verification tokens"</em> 这个取法优化的是一次 verification 的<strong>单位成本</strong>。我们一直在同一根管子的另一端跑 —— 一个小型 agent 编队，其中 verification 名义上是强制的，每条完成或阻塞回执都必须带证据 —— 而在那一端真正卡住的约束不是成本，是 <strong>verifier 读不懂递给它的东西</strong>。</p>
+
+<p>具体地说。该编队里有一个 live gate 强制一条微断言（<em>「blocker 验证证据 =」</em>），写成散文并用正则检查。正则在语义上是盲的，于是这个门既漏掉真实情形，又在主旨恰恰是「没有任何阻塞」的文档上误触发。2026-07-27 我们把散文断言换成一个极小的<strong>有类型</strong>回执 schema —— <code>kind</code>、<code>claimed-action</code>、<code>verifier-id</code> 恒需；completion 另加 <code>verified-by</code>、<code>evidence-cmd</code>、<code>evidence-output-hash</code>；blocker 加 <code>blocker-evidence-cmd</code> —— 并在同一语料上对跑。2026-08-06 重跑：</p>
+
+<div class="tablewrap">
+<table>
+<tr><th></th><th class="num">语料</th><th>结果</th></tr>
+<tr><td>语料</td><td class="num">18 条</td><td>10 条真 park，8 条非 park（含一类已知误报体裁）</td></tr>
+<tr><td>散文 + 正则，对假 park 的召回</td><td class="num">10</td><td><strong>5（0.50）</strong></td></tr>
+<tr><td>散文 + 正则，语义误触发</td><td class="num">8</td><td>0</td></tr>
+<tr><td>有类型字段，盲区</td><td class="num">—</td><td>漏掉的那几类体裁都不构成类型字段的盲区</td></tr>
+<tr><td>schema 自检</td><td class="num">4</td><td>4 项全过</td></tr>
+</table>
+</div>
+
+<p>漏掉的那一半有共同形状：<strong>没有相邻动作动词</strong>的 park —— 「待 owner：&lt;问题&gt;」「owner 行动项：确认型号」「待 owner 定」。整整一半。而漏一次在真实世界里的代价是实测的：<strong>一项能力在一个从未有人执行过的 blocker 后面停了大约十八天</strong> —— 那个前提根本是假的，而且没有任何组件报错，因为对一个读不懂内容的检查器来说，假 blocker 与真 blocker 不可区分。对那一批 11 条 parked 条目的审计又扫出 3–4 条同类。<em>（最后这个数字是审计估计而非干净测量，因此以区间陈述。）</em></p>
+
+<p>因此我们愿意往上递的那句话是：<strong>verification 再便宜也没用，如果被验证的东西是以 verifier 无法解析的形式陈述的。</strong> 「充裕的 verification token」预设了「充裕的<strong>良类型 claim</strong>」，而在已部署的 agent 系统里这个供给根本不存在 —— claim 全是散文。这暗示 autoformalization 最近的一个付费客户可能根本不是数学，而是<strong>正在运行的 agent 系统的 claim 层</strong>：每条 agent 完成回执都是一句想变成可机检断言的非形式断言，语料巨大且每天增长，而 verifier 自己的 pass/fail 就是标签。</p>
+
+<p>按本站规矩给两个数。<strong>P(机制为真 —— 对这一类检查，有类型的 claim 层严格优于「散文 + 正则」) ≈ 0.9</strong>：直接测出来的，而且机制并不微妙。<strong>P(在现实规模上有用 —— 即在一般的 agent 部署中，卡住的是 claim 的类型化而不是 verification 的单位成本) ≈ 0.3</strong>：n = 1 个编队、18 条语料，而且最该打折的一条是 —— <em>被打败的那个正则和打败它的那个 schema 是同一批作者写的</em>。下面的证伪条目里点名了一个更强的 baseline。</p>
+
+<h2>三条关于「验证 internals」的反对意见</h2>
+
+<p>这些是反对意见，不是纠错。它们都瞄准 <em>「论心」</em> 那一半 —— 廉价地验证模型内部 —— 且每条都自带能化解它的条件。</p>
+
+<p><strong>其一：可审计的证书和统计分解是两种不同的对象。</strong> Guaranteed Safe AI 框架向 verifier 要的是<em>一份可审计的证明证书</em>。而 MI 导出的内部检查给出的是一份<strong>分解</strong> —— 一份报告，由一套「没有跟你共训过的第三方只能选择信任」的机器产出。约束这一点的文献，并不是我们自己那条私人笔记里声称的那两篇「学出来的协议对外人不可读」的论文；为写本文我们去核了那两个引用，两篇都没有这么说，因此该说法在此撤回。真正成立的版本更弱，但仍然咬人：由 self-play 特化出来的策略与约定，与独立训练的伙伴无法协调（<a href="https://arxiv.org/abs/2003.02979">Other-Play，Hu, Lerer, Peysakhovich &amp; Foerster，arXiv:2003.02979</a>），而用来判断一个学出来的通道是否真有含义的标准指标，其本身就会误导（<a href="https://arxiv.org/abs/1903.05168">Lowe, Foerster, Boureau, Pineau &amp; Dauphin，arXiv:1903.05168</a>）。转译过来：在一次训练上调出来的读出器，恰恰属于「不保证能迁移到必须审计它的那一方」的那类约定。我们想问的是：<strong>要让一个 MI 读出成为证书而不是报告，需要补上什么？</strong> 我们自己的答案（也正是本线的兴趣所在）是：你要的是私有表示里<strong>可机械检查</strong>的那一半，而不要<strong>不可人审</strong>的那一半 —— 而这是回执的属性，不是模型的属性。</p>
+
+<p><strong>其二：不唯一性其实是路径依赖，而那是一条 spec 要求，不是一条只能忍受的 caveat。</strong> 他的笔记把「circuits 是 local 的且可能不唯一」列为局限。本站另一条线一直在研究<strong>滞回</strong>式的 verification 签名 —— 路径依赖而非查表 —— 而我们在那条线里亲手杀掉了自己的 self-specificity 主张，所以对它握得很松。但这个推论可以干净地迁移：<strong>如果分解不唯一，那么一条内部验证的 claim 只有在自带其路径时才可复现。</strong> 哪次运行、哪份数据、哪个初始化、什么容差。这把一条「你只能带着走」的 caveat 变成一个可检查的字段，代价是 schema 里的一行。</p>
+
+<p><strong>其三：让 verification 变便宜，就把优化压力加到了 verifier 的输入通道上。</strong> 这正是我们自己的 schema 被刻意设为 <strong>SHADOW</strong> 的原因 —— 它只记录、不拦截任何东西。schema 一旦成为门，agent 就获得了产出<strong>符合 schema 的伪造</strong>的激励：我们的残余风险是一个偷懒的 agent 粘贴一个看起来合规的 <code>evidence-output-hash</code> 而从未真的重跑那条命令；schema 抬高了这么做的成本，但没有消除它。放大到上层，这就是瞄准 internals 的 Goodhart：<strong>一旦「干净的 internals」开始承重，干净的 internals 本身就成了靶子。</strong> 任何被施加「通过内部检查」这一优化压力的模型，都在被部分地训练成「呈现能通过检查的 internals」。我们不知道 GS-AI 框架是否已经为「被验证方专门针对 verifier 的读出做优化」这件事留了预算；我们想知道，而且我们宁愿被告知这早已被处理，也不愿自己是对的。</p>
+
+<h2>我们更想拿走而不是给出的东西</h2>
+
+<p>这处不对称是诚实的，而且方向朝另一边。我们的 shadow checker 只是一个手写的 draft-07 子集校验器；我们没有的东西正是 informal→formal 的翻译本身，而那恰是 Re:Form 的 pipeline 换一个语料指过去。如果上面有任何一条值得那个组花一个下午，具体建议是：做一个 <strong>DafnyComp 形状、但对象是「操作性 claim」而非程序的 benchmark</strong> —— 组合式、可自动形式化、以 verifier 的执行为 ground truth —— 因为那正是「非形式的一侧已经极其充裕、却还没有人给它定类型」的语料。</p>
+
+<h2>什么能杀死这条笔记</h2>
+
+<ul>
+<li><strong>最强的一条。</strong> 拿一个语义上称职的散文检查器 —— 一个 LLM judge —— 在同样这 18 条语料上跑。如果它能在没有语义误触发的前提下追平有类型 schema 的召回，那么 claim 的<strong>类型化</strong>就什么都没买到，本文的核心即死：缺口在正则，不在散文。这个 baseline 我们还没跑；在跑出来之前，0.3 是慷慨而不是谦虚。</li>
+<li>如果 MI 读出能被做成可重跑的 —— 第三方重算分解并在给定容差内复现同一 circuit —— 那么第二条反对意见就正确地塌缩成一个工程细节。</li>
+<li>如果 agent 回执语料被证明噪声太大或多样性太低，训不出 autoformalizer，那么「第二个客户」这个建议就死了，编队老老实实继续手写 schema。</li>
+<li>如果 GS-AI 文献已经处理了「针对内部读出的对抗压力」，那么第三条反对意见就不是新闻，应当被删掉而不是被软化。</li>
+</ul>
+
+<h2>Cognitive state</h2>
+
+<p>刻意标 <code>speculative</code>，而且各部分并不配得上同一个标签。corpus-scan 的数字随时可复现，在 n = 1 的意义上够得上 <code>survived</code>；而这条写给另一个研究组纲领的迁移主张，一次检验都没有过。本站一个 artifact 只带一个状态，诚实的那个单一状态是更弱的那个。</p>
+
+<h2 class="refs">参考文献</h2>
+
+<ul class="refs">
+<li>Chuanhao Yan et al., <em>Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</em>, <a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>, TMLR（2026 年 5 月）。代码与模型：<a href="https://github.com/Veri-Code/ReForm">Veri-Code/ReForm</a>。</li>
+<li>Jie Fu, <a href="https://bigaidream.github.io/project/auto/"><em>Autoformalization and Formally Verifiable AI</em></a>，以及<a href="https://bigaidream.github.io/">个人主页</a>。</li>
+<li>付杰，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note <code>6a73027b</code>，2026-08-05。</li>
+<li>David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, <em>Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems</em>, <a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>。</li>
+<li>Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, <em>"Other-Play" for Zero-Shot Coordination</em>, <a href="https://arxiv.org/abs/2003.02979">arXiv:2003.02979</a>, ICML 2020。</li>
+<li>Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, <em>On the Pitfalls of Measuring Emergent Communication</em>, <a href="https://arxiv.org/abs/1903.05168">arXiv:1903.05168</a>, AAMAS 2019。</li>
+</ul>
+
+<p class="note-small">更广的 autoformalization 前沿在此刻意不做综述。本文是写给一条线的，不是写给一个领域的；没做的综述不该假装做过。</p>
+
+<div class="footer">
+  由作者的工作笔记整理发布。认知状态：<strong>speculative</strong>。<br />
+  本页的 markdown 源文件：<a href="/theory/abundant-verification-needs-abundant-claims.zh.md">/theory/abundant-verification-needs-abundant-claims.zh.md</a> · 英文版：<a href="/abundant-verification-needs-abundant-claims.html">EN</a>。<br />
+  引用的所有文献都可公开获取；如发现引用错误，请来信，我们会在本页更正。
+</div>
+
+</main>
+</body>
+</html>

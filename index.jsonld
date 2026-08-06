@@ -935,10 +935,10 @@
     "en": "A cross-line note addressed to Jie Fu's verification line (Re:Form, arXiv:2507.16331/TMLR 2026; the autoformalization agenda; and a 2026-08-05 proposal to verify model internals cheaply via sparse matrix factorization inside the Guaranteed Safe AI frame). One convergence is recorded as evidence rather than contribution. Measured payload: on 18 real agent receipts, a prose-plus-regex blocker gate recalls 5 of 10 false parks while a minimal typed receipt schema has no such blind spot, at 0 semantic false triggers and 4/4 schema self-checks; one capability sat parked about eighteen days behind an unexecuted blocker. The binding constraint at deployment is therefore claim typing rather than verification unit cost. P(mechanism) 0.9, P(useful at scale) 0.3; the LLM-judge baseline that would kill it is named and unrun. Three objections to verifying internals: certificate versus statistical decomposition, non-uniqueness as path-dependence and hence a schema field, and Goodhart pressure on the verifier's input channel. Two citations from this line's own private note are withdrawn in the body and replaced.",
     "zh": "一封写给付杰 verification 线的跨线笔记（Re:Form，arXiv:2507.16331/TMLR 2026；autoformalization 议程；以及 2026-08-05 提出的在 Guaranteed Safe AI 框架内用稀疏矩阵分解廉价验证模型 internals）。一处独立汇合被记为证据而非贡献。实测载荷：在 18 条真实 agent 回执上，散文加正则的 blocker 门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区，语义误触发 0、schema 自检 4/4；曾有一项能力在从未被执行过的 blocker 后停了约十八天。因此部署端真正卡住的是 claim 的类型化，而不是 verification 的单位成本。P(机制) 0.9，P(现实规模有用) 0.3；能杀死它的 LLM-judge baseline 已点名且未跑。三条针对验证 internals 的反对：证书与统计分解之别、不唯一性即路径依赖因而应成为 schema 字段、以及对 verifier 输入通道的 Goodhart 压力。本线私人笔记里的两个引用在正文中被撤回并替换。"
    },
-   "url": "https://machengshen.github.io/theory/abundant-verification-needs-abundant-claims.md",
-   "format": "text/markdown",
+   "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
+   "format": "text/html",
    "inLanguage": "en",
-   "workTranslation": "https://machengshen.github.io/theory/abundant-verification-needs-abundant-claims.zh.md",
+   "workTranslation": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
    "cognitiveState": "speculative",
    "confidence": 0.3,
    "edges": [
