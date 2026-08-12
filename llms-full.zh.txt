@@ -1791,7 +1791,7 @@ Three of four down, **every one of them felled by our own simulator or our own r
 
 ---
 
-## Source: /theory/learning-the-self-boundary.md (sha256:784073d1195e, language: en)
+## Source: /theory/learning-the-self-boundary.md (sha256:2aa1ea0dbaca, language: en)
 
 
 # Learning where the self ends — a research line that broke three of its own four pillars in one day
@@ -1919,6 +1919,10 @@ Method note: the governing rule for this line is that **"someone already did thi
 - **Crutchfield causal states / computational mechanics (1989); PSR** — owns "state = minimal sufficient statistic for prediction", i.e. closure itself. **[cited]**
 - **Klyubin & Polani, empowerment (2005)** — owns "derive an intrinsic objective from channel structure". **[cited]**
 - **Maturana & Varela, autopoiesis** — owns "the self makes its own boundary" (no algorithm). **[cited]**
+- **von Foerster (1976) eigenbehavior; Spencer-Brown (1969) re-entry; Kauffman, eigenform** — owns "the self/object is a fixed point of its own operation, and self-reference is generative rather than paradoxical". We add this entry because §0 makes μ a first-class learned variable and §1.3 speaks of maintaining the condition under which μ remains a solution; that *sentence* is theirs, and it predates us by fifty years. **The disanalogy is load-bearing, which is why we do not treat this as pre-emption:** their fixed point lives in a *value/form* domain, is *universally guaranteed* to exist (Kauffman's reflexive-domain fixed point theorem, after Lawvere's diagonal argument), and is *not required to be dynamically stable* — Kauffman states outright that the living process "never goes to the fixed point, is never fully stable", and still calls a non-convergent oscillation an eigenform. Ours lives on a *set-valued* channel-membership object, may fail to exist (hence D0), and must be an attractor with a basin. A universally guaranteed fixed point carries no selection information; our whole question is which of several solutions gets selected, and whether it latches. **[cited]**
+  - Scope of that claim, stated honestly: a mechanical keyword sweep of a ~380k-character Kauffman corpus returns **zero** occurrences of hysteresis, bistability, bifurcation, attractor, or differential equation (the single "bifurcate" is ordinary English). *Form Dynamics* (1980) — the one title in this lineage that advertises dynamics — was read page by page: it delivers a brownian (De Morgan) algebra, periodic-sequence algebra, lcm waveform interference, and Scott-style least fixed points, and its bibliography contains **no** dynamical-systems reference. We flag this pre-emptively because it is the paper most likely to be cited against us. **We did not obtain Spencer-Brown's original book, Varela (1975), or von Foerster (1976) in full**; those readings are via Kauffman's formula-level reconstruction, so the negative claim above is scoped to the corpus actually swept, not to the lineage in principle. **[cited, with the stated gap]**
+- **Beuria, arXiv:2510.23688** — owns state-dependent coupling gain plus a swept hysteresis loop, but on a *scalar* Vicsek-type order parameter. Recorded here because it also supplies a caveat aimed straight at us: it calls loop area "a protocol-dependent measure of history dependence". Our zero-sweep-rate extrapolation in §5 exists precisely to make the stronger, protocol-**independent** claim; if we did not say so, their caveat would sweep our criterion away with it. **[cited]**
+- **Ikegami et al., arXiv:2001.09641** — owns the *object* "the self/non-self partition is determined by controllability", with no dynamical-systems content. Cited to make the division of labour explicit: the object is not ours, the dynamics is what we are claiming. **[cited]**
 - **Hoffmann / Lanillos, body-schema learning** — owns "a robot learns its own body from sensorimotor data". **[cited]**
 - **Tononi & Koch, Φ-argmax boundary** — owns "the boundary is the optimum of some quantity", **and is precisely the object we must be distinguished from**. **[cited]**
 - **Friston FEP / Markov blanket / self-evidencing** — **downgraded on audit 2026-07-28**: it is not a proven result but a framework whose premises have not been shown to be satisfied.
@@ -2202,7 +2206,7 @@ Two earlier threats also remain unanswered: whether "closure violation" is genui
 
 ---
 
-## Source: /theory/learning-the-self-boundary.zh.md (sha256:12c7032d077a, language: zh-Hans)
+## Source: /theory/learning-the-self-boundary.zh.md (sha256:b7cd4f4fc4d8, language: zh-Hans)
 
 
 # 学习"我到哪里为止" —— 一条理论线在一天之内自己打倒了四根支柱里的三根
@@ -2330,6 +2334,10 @@ Two earlier threats also remain unanswered: whether "closure violation" is genui
 - **Crutchfield 因果态 / computational mechanics (1989);PSR** —— 占住"state = 最小预测充分统计量",即闭包本身。**[引用]**
 - **Klyubin & Polani, empowerment (2005)** —— 占住"从通道结构导出内在目标"。**[引用]**
 - **Maturana & Varela, autopoiesis** —— 占住"自我造自己的边界"(无算法)。**[引用]**
+- **von Foerster (1976) eigenbehavior;Spencer-Brown (1969) re-entry;Kauffman, eigenform** —— 占住"自我/对象 = 它自己运作的不动点,自指是生成性的而非悖论性的"。补这一条,是因为 §0 把 μ 当作一等的可学变量、§1.3 讲"维持 μ 仍是解的那个条件"——**那句话的所有权是他们的,而且早我们五十年**。**不把这算作抢先,理由是那处不同点是承重的**:他们的不动点住在*值/形式*域里,存在性是*普适保证*的(Kauffman 的自反域不动点定理,承自 Lawvere 对角论证),而且*不要求动力学稳定*——Kauffman 明说活的过程"never goes to the fixed point, is never fully stable",并且把不收敛的振荡仍称作 eigenform。我们的不动点住在*集值*的通道成员资格对象上,**可能不存在**(所以才有 D0),而且必须是带吸引域的吸引子。普适保证的不动点携带零选择信息;而我们全部的问题恰恰是多解里谁被选中、以及它会不会latch住。**[引用]**
+  - 该断言的适用范围,诚实说明:对一个约 38 万字符的 Kauffman 语料做机械关键词普查,hysteresis / bistability / bifurcation / attractor / differential equation **全部零命中**(唯一一次 "bifurcate" 是日常英语义)。*Form Dynamics* (1980)——这条谱系里唯一标题带 dynamics 的——已逐页读过:交付物是 brownian(De Morgan)代数、周期序列代数、lcm 波形干涉、Scott 式最小不动点,**参考文献里没有任何动力系统文献**。预先写明是因为这是最容易被拿来说我们抢先的一篇。**我们没有拿到 Spencer-Brown 原书、Varela (1975)、von Foerster (1976) 的全文**,那几处经由 Kauffman 的公式级重建,因此上面这条否定断言的范围**仅限于实际普查过的语料**,不及于整条谱系。**[引用,含已声明缺口]**
+- **Beuria, arXiv:2510.23688** —— 占住"状态依赖的耦合增益 + 扫出来的滞回环",但跑在*标量*的 Vicsek 型序参量上。记在这里还因为它带了一条正对着我们来的 caveat:它称环面积是"a protocol-dependent measure of history dependence"。我们 §5 的零扫描速率外推,正是为了做出更强的、protocol-**无关**的主张;不写这句,我们的判据会被它的 caveat 顺手一起扫掉。**[引用]**
+- **Ikegami et al., arXiv:2001.09641** —— 占住"self/non-self 划分由可控性决定"这个*对象*,零动力系统内容。引它是为了把分工说清楚:**对象不是我们发明的,动力学才是我们在主张的东西**。**[引用]**
 - **Hoffmann / Lanillos, body-schema learning** —— 占住"机器人从感觉运动数据学自己的身体"。**[引用]**
 - **Tononi & Koch, Φ-argmax 边界** —— 占住"边界 = 某量的最优",**且正是必须被区别开的对象**。**[引用]**
 - **Friston FEP / Markov blanket / self-evidencing** —— **2026-07-28 审计降级**:它不是被证明的结果,是**前提未被验证满足的框架**。
@@ -3075,7 +3083,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 
 ---
 
-## Source: /theory/odd-relational-core.zh.md (sha256:4f4405ca34ba, language: zh-Hans)
+## Source: /theory/odd-relational-core.zh.md (sha256:ae74d50d9958, language: zh-Hans)
 
 
 # 奇关系核:反二分作为最小结构 —— 为什么文明的压缩图式收敛到"小、奇、有心、不停转"
@@ -3102,7 +3110,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 
 **先清掉一个假解释:** 不是"神圣质数"。三、五、七是质数,但(a)人对"小数"有强选择偏差(工作记忆撑不住大数),而(b)小自然数里质数本来就密(2,3,5,7 占了 2–8 的一半),所以"神圣图式多是质数"是**选择偏差 × 基率**的合成假象,不需要质数有任何特殊力量。真正干活的属性是**奇**,不是**质**:
 
-- 九宫格 = 9 = 奇非质,照样成立(有中心、反二分)。
+- 九宫格 = 9 = 奇非质;在中心反演下有一个固定格,但这**不推出反二分**。若只按上下左右正交邻接,3×3 网格反而可以棋盘式二染。
 - 阴阳 = 2 = 质非奇,是纯二元,恰恰是被这套压力**推开**的东西。
 
 → 所以下面四股讲的都是"为什么**奇**",质数只是搭便车。任何想让"3/5/7 因为是质数而有预测力"的冲动都是要克制的形而上漂移——一个数可以携带离散傅里叶式的编码,却不携带形而上的预测力。
@@ -3113,48 +3121,49 @@ Published companions: [State is a closure condition, not a given set](https://ma
 压缩一个关系世界,目标就是最短描述(MDL)。人脑侧的硬约束:工作记忆 ~4±1 个 chunk 顶天(Cowan),口传文化要能被记住、传下去。一个要活在人嘴里两千年的图式,元素数被压到个位数是**传输信道的带宽约束**,不是神秘学。→ 这一股解释"为什么小",不解释"为什么奇"。
 
 **压力二 · 奇 = 反二元 [定理内核,本 note 主体]**
-图论:**一个图可以被二染色(顶点分成两组、同组无边)当且仅当它不含奇环。** 奇环是"不可二分"的最小、最纯的障碍。一个关系核如果是奇环结构(每个元素既生一个、又克一个,首尾接不回一个干净的二分),它在结构上**拒绝**被劈成"我们 vs 他们"两个阵营。偶数/二分结构则天然邀请"两阵营"读法 → 善恶二元 → 末世式的最终决战。详见 §2。
+图论:**一个图可以被二染色(顶点分成两组、同组无边)当且仅当它不含奇环。** 奇环是二染色的最小障碍。这个定理只排除一种两色划分;它本身不把颜色解释成"我们 vs 他们",也不从可二染推出善恶二元或末世决战。那些语义映射是另一个待检验假说。详见 §2。
 
 **压力三 · 有中心 = 给"自我"留座位 [框架 + 接硬结构]**
-奇数个元素能排成 **{一个中心 + 若干对称对}**(如 5 = 心 + 2 对;7 = 心 + 3 对;9 = 心 + 4 对)。偶数排成纯对、没有中心格。一个要**把观察者/自我编码进去**的图式需要那个中心座位。这接 embedded agency:压缩者必须出现在自己的压缩里 → 需要一个自洽不动点 / 自我节点(见 §4,以及已发布的"state 是一个闭包条件"那篇)。**注意:"奇→有中心"是硬的(奇数才有唯一中心格),"需要自我座位→所以选奇"是软的目的论推断。** 标清。
+对有限集合 $X$ 上的反射/对合 $\sigma$,元素分成固定点和二元轨道,所以硬的只有 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$:奇数规模只保证固定点数为奇数,**不保证唯一中心**;偶数规模只保证固定点数为偶数,也可能有 0、2 或更多固定点。唯一中心需要额外条件,例如有限线性序上的次序反转在奇数长度时恰有一个固定点。一个把观察者编码进去的图式可以借用某个固定点、轴或参照系;但"需要自我座位→所以选奇"仍是软的目的论推断。
 
-**压力四 · 永动 = 无静止均衡 [框架 + 韵脚]**
-奇环上的(激励/抑制)动力学——A 生 B、B 生 C、C 克 A 这类非传递关系——**没有静止平衡点,只有循环轮转**。石头剪刀布没有纯策略纳什均衡(任何纯策略都被另一个克);生态学 May–Leonard 三物种非传递竞争产生持久的周期轮转而非定态。→ 把"变化不止 / 无热寂 / 生生不息"直接编进骨架。偶数/二分结构容易停在一个静态对立的定态(平衡=对峙)。**这一股[框架]成分是数学(RPS/非传递确实无定态),但"文明选它是为了编码永动"是[韵脚]。**
+**压力四 · 转 = 可承载非传递轮转,不保证无定态 [韵脚]**
+奇环可以作为 A 胜 B、B 胜 C、C 胜 A 这类非传递互动的骨架,但**图的奇偶不决定动力系统是否有平衡点**。石头剪刀布没有纯策略纳什均衡,标准对称零和版本却有均匀混合策略均衡;其复制子动力学在零和等条件下可以绕均衡运行,换参数或更新规则则可收敛或发散。May–Leonard 三物种模型同样依参数出现共存、振荡或异宿行为,不能概括成"奇环必然永动"。因此"文明选择奇环以编码生生不息"只是一条待检验的韵脚,不是拓扑定理;二分结构也不由二染色这一性质自动获得静止均衡。
 
 四股各自独立地把选择压向 **小 ∧ 奇 ∧ 有心 ∧ 转**。它们同时命中 3/5/7 这类核,是**四个约束的交集**,不是一个原因的四个投影——这个区分至关重要(见 §6)。
 
 ---
 
-## 2. 深挖压力二:从二染色定理一路推到"生不出最终敌人" [主体]
+## 2. 深挖压力二:从二染色定理到一个待检验的叙事便利假说 [主体]
 
 ### 2a. 硬内核:奇环 = 不可二分的最小障碍 [定理]
 
 图论事实(给直觉不给证明):
 - 一个图能被"两色染,同色不相邻" ⟺ 图里没有奇长度的环。
 - 有偶环没关系,照样能二染。**唯独奇环**让二染崩掉。
-- 换句话说:**奇性是"抗二分"的充要来源。** 想让一个关系结构无法被干净地劈成两半,最省的办法就是在里面埋一个奇环。
+- 换句话说:**指定图中含奇环,是 proper 2-coloring 失败的充要条件。** 想用尽量少的点构造一个不可二染图,三角形是最小实现。
 
 三元核就是最小奇环(3-环):生→克→生……接不回一个"红队 vs 蓝队"。五行是 5-环两套关系(生 5-环 + 克 5-环,都是奇环)。这不是比喻,是这些核**字面上**就是奇环,而奇环**字面上**就是二染色的障碍。
 
-### 2b. 二分结构如何天然孵化敌我叙事 [框架/推断]
+### 2b. 二分结构可能给二营叙事提供什么便利 [经验假说]
 
-一个二元/偶分图式(善vs恶、光vs暗、我们vs他们、正统vs异端)自带一条"最终对立轴":
-- 每个元素被指派到两组之一 → 世界被划成两个可辨识、可动员的阵营。
-- 冲突有一个**终局形状**:一方胜、一方灭(善终将战胜恶)。这是一个**吸收态**——达到后不再动(接压力四:二分=静态定态)。
-- 叙事上,它给出一个"**最终敌人**":一个可命名、可指向、消灭了就"世界得救"的对象。摩尼教的善恶宇宙观、末世决战、一个抽象的战时敌人形象——都是这个结构的实例。
+proper 2-coloring 只证明顶点可按邻接约束分成两类,**不替两类赋予善恶、敌我或政治语义**。但若叙事本来就要表达善vs恶、我们vs他们、正统vs异端,现成的二元轴可能降低编码和动员成本:角色较容易被贴进两组,冲突也较容易被讲成一方战胜另一方。摩尼教善恶宇宙观或末世决战只能算说明这种叙事确实存在的例子,不能证明二分拓扑生成了它。
 
-**结构判断(推断):** 敌我叙事不是"坏人硬塞进来的",它是**二分关系图的自然读出**。你先把关系世界压成二色图,"最终敌人"就几乎免费地掉出来了。图式的拓扑先于内容决定了它能不能孵出一个干净的敌人。
+**待检验假说:** 在控制历史、制度、媒介和具体内容后,显式双极图式可能比多角色关系图更方便人们回忆和传播"两营 + 最终敌人"叙事。反例同样直接:可二染的八卦立方体可以承载互变而非敌我;任何不可二染图也仍可被人粗贴成"我方/敌方"。因此二染性本身不能预测文化语义。
 
-### 2c. 奇关系核如何强制"一切居间调停一切" [框架/推断]
+叙事的"一方消灭另一方"也不能直接叫动力学**吸收态**。只有先指定状态、转移规则,并证明某状态进入后无法离开,这个术语才成立;图可二染不提供这些规则。
 
-奇环核上没有"最终对立轴",取而代之的是:
-- 每个元素**既生一个、又克一个**(五行:木生火、木克土;同时被水生、被金克)。没有哪个元素是纯粹的"善"或纯粹的"敌"——每个都同时是某物的资源和某物的克星。
-- 没有元素能被**孤立成敌人**并消灭:灭掉一个,环就断了,整个循环塌掉(灭火 → 土无所生、水无所克 → 系统病)。**每个元素对整体的存续都是必要的**,包括那个此刻在克你的。
-- 冲突没有终局吸收态:克是**局部、循环、可逆**的调节,不是**全局、终末、不可逆**的消灭。A 克 B 不是"A 要灭 B",是"A 在这一相位压制 B,好让 C 有空间",下一相位角色轮转。
+### 2c. 奇关系核可能改变哪些表征成本 [框架/待检验]
 
-→ 结构性结论(推断):**建在奇关系核上的道德/政治/宇宙体系,拓扑上就生不出"干净的最终敌人"。** 它能表达张力、克制、失衡、需要调节,但表达不了"消灭 X 则天下太平"。"一切居间调停一切"不是它选择的美德,是它的**图结构没给敌我终局留位置**。这跟压力四同源:无吸收态 ⟺ 无终局 ⟺ 无"消灭即救赎"。
+在**特定的有向带符号奇环**里,同一节点可以相对不同邻居承担不同角色(例如五行叙事中既生一个、又克一个,同时又被生、被克)。这种角色交叉可能让"所有节点干净分成两个相邻禁同组的阵营"这一种表示失效,也可能提示局部制约、角色轮转或关系依赖的叙事资源。
 
-**边界(诚实):** 这说的是**图式/表征层**的结构约束,不是"用五行的文明就不打仗"的经验断言(见 §6 反例)。人可以在任何图式外面加一层敌我;声称的只是——**图式本身不主动提供敌我的终局形状,二元图式主动提供**。
+但硬结论到此为止:
+- 删掉一个点会改变或打断所指定的环,不等于现实系统里该元素对整体存续必然不可替代。
+- 奇环不阻止外加敌我标签,也不阻止故事写出终局。
+- 是否出现循环、收敛、发散或吸收态,取决于另行给定的动力方程、参数和更新规则,不由奇环单独决定。
+
+**待检验假说:** 当叙事者被要求忠实保留一组交叉关系时,奇环表征可能提高"干净两营"编码的成本,并提高局部调节/角色轮换描述的可得性。这是认知与文化层的经验命题,不是拓扑定理。可用匹配内容的实验比较二分图、奇环和可二染多元图在回忆、压缩、敌我归因与终局想象上的差异。
+
+**边界(诚实):** 数学层只说 proper 2-coloring 是否存在;文化语义、政治动员和叙事终局必须另行测量。图式既不会自动制造敌人,也不会自动免疫敌我化。
 
 ---
 
@@ -3163,8 +3172,8 @@ Published companions: [State is a closure condition, not a given set](https://ma
 ### 3a. 判据 [推断,可证伪]
 
 主预测:**"变化/循环/过程"型宇宙论偏奇(奇关系核);"静态分类/对称秩序"型图式容得下偶(二分/四分)。**
-- 若一个传统的核心图式是**动态生成型**(讲生灭、轮转、气化、流变),预测其核心关系核是奇的、无终局的。
-- 若一个传统的核心图式是**静态分类型**(讲元素分类、方位排布、对称秩序),预测它容许偶数、二分、四分,且更容易配一条善恶终局轴。
+- 若一个传统的核心图式是**动态生成型**(讲生灭、轮转、气化、流变),待检验预测是其核心关系核更常含奇环,且叙事较少以单一终局为核心;这两项必须分别编码,不能互相代替。
+- 若一个传统的核心图式是**静态分类型**(讲元素分类、方位排布、对称秩序),预测它容许偶数、二分、四分,且可以配一条善恶终局轴。
 - **可证伪点:** 若发现大量"过程宇宙论 + 干净二元终局核",或"静态分类 + 强反二元奇核",则本预测被削弱。这是一个关于**图式类型 ↔ 奇偶** 的相关性断言,原则上可查、可反。
 
 ### 3b. 一次 illustrative 对照 tally(**不是系统民族志普查,只是常识级对照**)
@@ -3189,7 +3198,7 @@ Published companions: [State is a closure condition, not a given set](https://ma
 | 三相神 Trimūrti(梵天/毗湿奴/湿婆) | 3 | 奇 | 生-持-灭过程 | 无终局,功能轮转 | 高 |
 | 三 guṇa(sattva/rajas/tamas) | 3 | 奇 | 过程/动态平衡 | 无善恶终局,配比流变 | 中 |
 | 道教三宝/三清 | 3 | 奇 | (分类为主) | 弱终局 | 中[?名目多义] |
-| 六道轮回 | 6 | **偶** | 过程/循环 | 无善恶终局,循环无吸收态 | 中(**反例见下**) |
+| 六道轮回 | 6 | **偶** | 过程/循环 | 轮回叙事;未指定动力学,不谈吸收态 | 中(**反例见下**) |
 
 暧昧/反例(必须诚实列出):
 
@@ -3206,19 +3215,37 @@ Published companions: [State is a closure condition, not a given set](https://ma
 - 明确反例(过程却偶):**八卦、易64、六道轮回、十 sefirot ——4 条硬反例**,全是"过程/生成型却偶数"。八卦/易尤其致命:极致过程哲学(易=变)却选了纯二进制二分递归。
 - 暧昧:三清[?]、阴阳(纯二元但中式强调互含,自身就模糊了"二分=敌我")。
 
-**读这个 tally 的诚实结论:** "分类型容偶"这半边站得比较稳(四元素/四体液/四方位齐刷刷是偶)。"过程型偏奇"这半边**有明显反例**(易/八卦/六道)。所以 §3a 的判据**部分被自己的小普查削弱**——尤其"过程⟹奇"不成立,顶多"过程⟹反二元(无善恶终局)",而反二元既能靠奇(五行)也能靠"多元非二分的偶"(六道六个、易六十四个,都不是两阵营)。**这是一个重要的自我修正:真正稳的不是"奇",是"非二分";奇只是达成非二分的最省手段之一,不是唯一。** 见 §6。
+**读这个 tally 的诚实结论:** "分类型容偶"这半边站得比较稳(四元素/四体液/四方位齐刷刷是偶)。"过程型偏奇"这半边**有明显反例**(易/八卦/六道)。所以 §3a 的判据**部分被自己的小普查削弱**——尤其"过程⟹奇"不成立。过程图式可以在文化叙事上没有善恶两阵营,但这**不等于**它的关系图在数学上不可二染:那还要先指定边。**真正可守的主角是"拒绝敌我终局";奇环只是实现图论非二分的最省手段之一,不是对所有非敌我文化图式的总解释。** 见 §3c、§6。
 
 (再次强调:以上是 illustrative 对照,confidence 参差,名目取常识级,不构成系统民族志;任何"因此某文明更良善"的推论都不被这张表支持。)
+
+### 3c. 偶数结构编码什么?——坐标、成对变换与图外参照 [框架/待检验]
+
+**短答:** 偶数不等于"没有自我"。偶数结构可以把参照点编码成**中心对、轴、坐标、路径或变换规则**,而不是一个未配对的中心节点。但这只是结构假说,不是从数字读出文化本质。
+
+先分三层,避免把韵脚冒充事实:
+
+| 例子 | 数学结构(必须另行指定) | 最小文化编码读法 | 第一人称实践读法 |
+|---|---|---|---|
+| 六道 | 六个标签本身既不是环也不是图;要先定义哪些状态可相互转移 | 可视作对受制约处境的多类别枚举与轮转叙事,**不是已测得的物理相空间** | 不问"哪个道是永恒的我",而问"我现在落在哪种反应模式、什么会使它转移" |
+| 八卦 | 三个二值位生成 $2^3=8$ 个符号;若边定义为"一次只变一爻",得到可二染的三维超立方体 | 更像一套组合坐标与变换字母表;数学可二染**不推出**文化上必有善恶两营 | "我"可作为当前坐标、提问者和所走路径,不必是第九个中心点 |
+| 八字 | 不是八节点图,而是四个有序位置 × 每柱干支两项 | 更像带参照项的关系坐标表;传统解释把日干当锚点是文化约定,**不是数学必然或因果证据** | 最多把它当叙事镜面提出问题,不可把命断当已验证的物理预测 |
+
+这也反过来修正"奇数才有中心"的说法:对合只给出 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$,不给出唯一性。一个正六边形有图外几何中心,一条偶长度链有中心边;反之,3×3 格关于中轴反射时可以有三个固定格。**中心属于"结构 + 指定的对称作用",不属于基数本身。** embedded self 也未必占一个格子:它可以是选坐标的参照系、跨状态的轨迹,或改变关系边的算子。
+
+**理论反信号(需在正式、预注册研究中检验):** (1) 在明确节点、边和对称作用后,结构预测仍不能跨样本复现;(2) 独立编码者对同一材料的状态与转移几乎不一致;(3) 编码必须在知道结果后改口才"说得通";(4) 与字段和复杂度匹配的白话控制相比,它不能改善预先声明的预测或行动指标。持续出现这些结果,应把"偶数编码坐标/变换"降级为漂亮类比。
+
+**下一步只是 14 天可行性 probe,不是证伪或效果实验:** 预先随机生成近似平衡的 A/B/C 次序(5/5/4),每天只记一个事件。三种模板都有相同的三个字段和限制:(1) 40 字内状态编码——A 用"中心角色 + 两条关系",B 用预先固定的三个二值坐标,C 用三项白话描述;(2) 对同一个二元结果给出 0–100% 概率;(3) 30 字内下一动作;每次限时两分钟。事前锁定可行性主评分:完成率 ≥80%、三组记录时长中位数相差 ≤30 秒、主观负担中位数相差 ≤1/5 分、≥90% 记录可被去模板化后评分。探索性结果也事前固定算法:Brier $=(p/100-y)^2$(低为好)、行动完成 0/1、24 小时后悔与身体激活各 0–4(低为好);独立评者对清晰度与行动可执行性各打 1–5 分。它们只做描述性估计,不做显著性或优劣结论。评分前删掉 A/B/C、提示词和版式,统一成三个中性字段,再交给不知道分组的独立评者;另记录评者猜测分组以检查盲法是否失效。probe 通过只说明值得设计有功效的预注册实验,不说明任何文化图式或本体论为真。
 
 ---
 
 ## 4. 接周边理论线 [框架/推断,标清硬软]
 
 **生成器/种子母题:**
-这些图式 = **关系世界的最小生成核(种子)**,不是事实清单(叶子)。三/五/七不是"三个五个七个东西",是**能 unroll 出一整套关系判断的压缩生成元**——给定五行,你能生成"这个季节、这个器官、这种情绪、这类失衡"的无穷叶子。文明保留的是**种子(生成规则)**不是叶子(具体对应表);压力一(小)正是"种子要极致压缩"的表现。**这一接口是硬的**:图式确实是生成器不是清单(缘起有纹理、state=商,同已发布的"state 是一个闭包条件"那篇)。
+这些图式**可以被解释为**关系世界的压缩生成核(种子),而不只是事实清单(叶子)。三/五/七未必只是"三个五个七个东西";在某些传统解释中,它们可作为生成元,展开出季节、器官、情绪、失衡等关系判断。文明是否真的以"生成规则而非清单"来记忆和传递这些图式,仍是文化—认知层的待检验假说;压力一(小)只提示压缩可能有利于传播,不证明具体生成机制。
 
 **压力三 ↔ embedded-agency 自我节点:**
-奇数核的中心座位 = 压缩者在自己的压缩里的**不动点/自我节点**。embedded agent 必须建一个包含自己的世界模型 → 需要 μ=F(μ) 的自洽不动点 → 图式里那个"中心格"就是给这个自我留的位置。**硬的部分:** 奇数才有唯一中心格(这是算术)。**软的部分(韵脚,标清):** "文明选奇数是为了安放自我节点"是目的论推断,不是定理;完全可能是奇数因压力二被选中后,中心格**恰好**能兼作自我座位(exaptation,不是设计)。别把这个韵脚硬成"图式=embedded-agency 的证据"。(不动点/自我节点结构见已发布的"state 是一个闭包条件"那篇。)
+当一个**另有理由指定的**对称作用恰好只有一个固定点时,那个位置可以被读作压缩者在自己的压缩里的**不动点/自我节点**。若 embedded agent 显式建模自身及其对环境的介入,其模型可能需要某种自指或自洽条件,可用 μ=F(μ) 作形式类比;这不是所有 embedded agent 的普遍定理,更不证明文化图式必须给自我一个中心格。**硬的部分只有对合的奇偶关系 $|X|\equiv|\mathrm{Fix}(\sigma)|\pmod 2$;唯一固定点来自额外结构。** §3c 所示,自我也可能被编码成参照系、轨迹或算子。别把这个韵脚硬成"图式=embedded-agency 的证据"。(不动点/自我节点结构见已发布的"state 是一个闭包条件"那篇。)
 
 **跨线关系(克制):** 压力二(反二元)、压力三(自我座位)、压力四(永动)确实都能"rhyme"回不动点与信息动力学那套大框架——**但这正是要警惕的反射**。它们是**四条独立的腿**恰好落在同一个核上,不是一个大统一生成器的四个投影。把它们缝成"信息动力学解释了所有神圣数字"= 把过度理论化伪装成洞见。保持它们各自可证伪、各自可 kill。
 
@@ -3235,20 +3262,20 @@ Published companions: [State is a closure condition, not a given set](https://ma
 用"别把优雅误当真相 / 弹性框架能套一切 = 没内容"的刀砍自己:
 
 **(1) 最弱的一股 = 压力四(永动),其次压力三(有中心)。**
-压力二有真数学内核(二染色⟺无奇环,这是定理,不可争)。但压力三、四把"奇数恰好有中心格""奇环恰好无定态"这些**算术副产品**,反读成"文明**为了**编码自我/永动而选奇"——这是**目的论倒装**:先有了奇(可能纯因压力一+二),中心格和无定态是**免费搭送**的性质,然后被追认为"选它的理由"。这是最像事后合理化的地方。诚实说:压力三、四更可能是压力二的**exaptation**(旧结构的意外可用),不是四股独立压力。**若真是这样,"四股"其实是"一股半"**,而"四股独立汇聚"的说服力(§1 结尾那句"四个约束的交集")就大打折扣——它可能是一股(反二元)带着两个赠品。
+压力二有真数学内核(二染色⟺无奇环,这是定理,不可争)。但压力三、四容易把"某个指定对合恰有一个固定点""某些非传递动力学出现轮转"这些**依赖额外结构或参数的现象**,反读成"文明**为了**编码自我/永动而选奇"——这是**目的论倒装**。诚实说:压力三、四至多是待检验的 exaptation 读法,不是四股独立压力。**若真是这样,"四股"其实是"一股半"**,而"四股独立汇聚"的说服力(§1 结尾那句"四个约束的交集")就大打折扣。
 
 **(2) "奇"本身可能是假主角——§3b 的小普查已经反咬。**
-易/八卦/六道是硬反例:极致过程型却偶数、却仍反二元(非两阵营)。这说明真正干活的是**非二分(anti-bipartite)**,"奇"只是达成非二分**最省元素数**的手段之一(奇环是最小非二分障碍),但**多元偶数**(6 道、8 卦、64 卦)一样能非二分。→ 那么整套"为什么是奇数"的框架,应该被**降级**成"为什么反二元",而"奇"退回成一个 corollary(在**元素数受压力一压到最小**时,反二元的最省实现恰是奇环)。这是本 note 内部最诚实的修正,应该写进种子:**主角是"抗二分",不是"奇"。**
+易/八卦/六道是"过程型却偶数"的硬反例,但它们在文化上没有被读成两大敌营,**不能自动证明其关系图 anti-bipartite**。例如八卦若按单爻变化连边,其图反而可二染。真正硬的仍是:**指定关系边后,含奇环才不可二染。** 整套"为什么是奇数"应降级成"什么时候图式拒绝敌我终局",并把数学非二分与文化上的非敌我叙事分开检验。奇只是在元素与边都受压缩时构造非二分的一种最省实现,不是万能解释。
 
 **(3) 那个道德跳(§2c 所指向)藏着一个偷换。**
-从"奇图式拓扑上不孵敌我"到任何社会结论,中间悄悄把**表征层的结构**等同于**社会层的权力结构**。但一个社会的**关系图**(谁依赖谁、谁制约谁)和它信奉的**宇宙图式**(几神几行)是**两个图**,没有定理保证它们同构。用五行的帝国照样能搞敌我动员;用二元神学的社会也可能高度分布式。任何"分布式 ⟺ 反二元图式"式的结构类比是一个**漂亮的类比**,不是一个已验证的社会科学命题——它顶多给出一个**可研究的假设方向**(权力集中度 ↔ 主导叙事的二分度 相关吗?),绝不是结论。这一跳最需要 §3 那种可证伪化,否则就是政治直觉借了一件数学外套。
+从旧版主张"奇图式拓扑上不孵敌我"跳到任何社会结论,会把**表征层的结构**等同于**社会层的权力结构**。但一个社会的**关系图**(谁依赖谁、谁制约谁)和它信奉的**宇宙图式**(几神几行)是**两个图**,没有定理保证它们同构。用五行的帝国照样能搞敌我动员;用二元神学的社会也可能高度分布式。任何"分布式 ⟺ 反二元图式"式的结构类比是一个**漂亮的类比**,不是一个已验证的社会科学命题——它顶多给出一个**可研究的假设方向**(权力集中度 ↔ 主导叙事的二分度 相关吗?),绝不是结论。这一跳最需要 §3 那种可证伪化,否则就是政治直觉借了一件数学外套。
 
 **(4) 弹性 = 危险信号本身。**
 这套框架能"解释"三神、五行、七轮、也能"解释"为什么四元素是分类型、还能顺手接上 embedded agency——**这种什么都能接的顺滑,恰恰是 §0 警告的味道**。为道日损:如果砍掉压力三、压力四(留作 exaptation 注脚)、把"奇"降级成"反二元的 corollary"、把道德段降级成"待验证假设",剩下的**硬核只有一条**:
 
-> **二染色⟺无奇环,所以要让一个关系核拓扑上拒绝"我们vs他们"的二分终局,最省的结构是埋一个奇环;二分图式则天然提供可动员的最终敌人。**
+> **二染色⟺无奇环,所以奇环是拒绝两色划分的最小障碍;两种颜色是否会被文化解释成"我们 vs 他们",是另一个经验问题。**
 
-这一条是真的、可证伪的、有内容的。其余全是它周围的韵脚和赠品。**如果这个 note 只留一句话,留这句;其余当筏子,过河即弃。**
+前半句是定理;后半句是必须另行验证的文化假说。其余全是它周围的韵脚和赠品。**如果这个 note 只留一句话,留上面这条边界;其余当筏子,过河即弃。**
 
 ---
 
