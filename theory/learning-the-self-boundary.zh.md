@@ -125,6 +125,10 @@
 - **Crutchfield 因果态 / computational mechanics (1989);PSR** —— 占住"state = 最小预测充分统计量",即闭包本身。**[引用]**
 - **Klyubin & Polani, empowerment (2005)** —— 占住"从通道结构导出内在目标"。**[引用]**
 - **Maturana & Varela, autopoiesis** —— 占住"自我造自己的边界"(无算法)。**[引用]**
+- **von Foerster (1976) eigenbehavior;Spencer-Brown (1969) re-entry;Kauffman, eigenform** —— 占住"自我/对象 = 它自己运作的不动点,自指是生成性的而非悖论性的"。补这一条,是因为 §0 把 μ 当作一等的可学变量、§1.3 讲"维持 μ 仍是解的那个条件"——**那句话的所有权是他们的,而且早我们五十年**。**不把这算作抢先,理由是那处不同点是承重的**:他们的不动点住在*值/形式*域里,存在性是*普适保证*的(Kauffman 的自反域不动点定理,承自 Lawvere 对角论证),而且*不要求动力学稳定*——Kauffman 明说活的过程"never goes to the fixed point, is never fully stable",并且把不收敛的振荡仍称作 eigenform。我们的不动点住在*集值*的通道成员资格对象上,**可能不存在**(所以才有 D0),而且必须是带吸引域的吸引子。普适保证的不动点携带零选择信息;而我们全部的问题恰恰是多解里谁被选中、以及它会不会latch住。**[引用]**
+  - 该断言的适用范围,诚实说明:对一个约 38 万字符的 Kauffman 语料做机械关键词普查,hysteresis / bistability / bifurcation / attractor / differential equation **全部零命中**(唯一一次 "bifurcate" 是日常英语义)。*Form Dynamics* (1980)——这条谱系里唯一标题带 dynamics 的——已逐页读过:交付物是 brownian(De Morgan)代数、周期序列代数、lcm 波形干涉、Scott 式最小不动点,**参考文献里没有任何动力系统文献**。预先写明是因为这是最容易被拿来说我们抢先的一篇。**我们没有拿到 Spencer-Brown 原书、Varela (1975)、von Foerster (1976) 的全文**,那几处经由 Kauffman 的公式级重建,因此上面这条否定断言的范围**仅限于实际普查过的语料**,不及于整条谱系。**[引用,含已声明缺口]**
+- **Beuria, arXiv:2510.23688** —— 占住"状态依赖的耦合增益 + 扫出来的滞回环",但跑在*标量*的 Vicsek 型序参量上。记在这里还因为它带了一条正对着我们来的 caveat:它称环面积是"a protocol-dependent measure of history dependence"。我们 §5 的零扫描速率外推,正是为了做出更强的、protocol-**无关**的主张;不写这句,我们的判据会被它的 caveat 顺手一起扫掉。**[引用]**
+- **Ikegami et al., arXiv:2001.09641** —— 占住"self/non-self 划分由可控性决定"这个*对象*,零动力系统内容。引它是为了把分工说清楚:**对象不是我们发明的,动力学才是我们在主张的东西**。**[引用]**
 - **Hoffmann / Lanillos, body-schema learning** —— 占住"机器人从感觉运动数据学自己的身体"。**[引用]**
 - **Tononi & Koch, Φ-argmax 边界** —— 占住"边界 = 某量的最优",**且正是必须被区别开的对象**。**[引用]**
 - **Friston FEP / Markov blanket / self-evidencing** —— **2026-07-28 审计降级**:它不是被证明的结果,是**前提未被验证满足的框架**。
