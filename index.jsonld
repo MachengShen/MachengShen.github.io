@@ -434,6 +434,22 @@
    "confidence": 0.25
   },
   {
+   "id": "socrates-in-the-ai-era",
+   "label": {
+    "en": "After answers become cheap, the scarce thing is not asking but judging",
+    "zh": "答案变廉价之后,稀缺的不是提问,是判别"
+   },
+   "description": {
+    "en": "Addressed to the YouTube channel 安争鸣 (@anzhengming) and its readers, responding to the 2026-08-15 episode on Xenophon's Memorabilia which names Socratic questioning as the scarcest skill of the AI era. Agrees with the direction but argues the episode stops half a step early: Socrates's engine is testing, not questioning — every cited example is a consistency check (elenchus) — so the scarce complement of cheap generation is verification. Three places judged not to hold up, each with literature and a way to settle it: watertight answers conflate fluency with truth; Socratic interrogation of a sycophantic model converges to the user's prior, not truth; decades-in-seconds is a category error under knowledge-as-generator. One reinforcement: short definitions are lossy compressions, so counterexamples are generic and knowing one's ignorance means knowing where one's definition fails. One explicitly-labeled value fork: the rule-or-be-ruled binary erases exit (Hirschman; Tiebout; the Crito). Ends with where this note is most likely wrong. Claims tagged by honesty level.",
+    "zh": "写给 YouTube 频道 安争鸣(@anzhengming)及其读者,回应其 2026-08-15《回忆苏格拉底》一期。同意大方向(答案廉价化、价值上移、苏格拉底重新重要),但主张该期停早半步:苏格拉底的引擎是检验不是提问——片中每例都是一致性检查,廉价生成的稀缺互补品是验证。三处站不住,各附文献与判决方式:滴水不漏混淆流畅度与真值;对谄媚模型追问收敛到用户先验而非真理;几秒得几十年知识按「知识=生成器」判为范畴错误。一个加固:短定义是有损压缩,例外 generically 存在,自知无知=知道定义在哪失效。一处标明为价值分歧的分岔:统治/被统治二分抹掉退出选项。末节自列最可能错处。论断按诚实度标注。"
+   },
+   "url": "https://machengshen.github.io/socrates-in-the-ai-era.html",
+   "format": "text/html",
+   "inLanguage": "zh-Hans",
+   "cognitiveState": "speculative",
+   "confidence": 0.25
+  },
+  {
    "id": "information-and-qi",
    "label": {
     "en": "Information and qi — a comparison note on a parallel line",

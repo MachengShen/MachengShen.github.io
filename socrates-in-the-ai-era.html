@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>答案变廉价之后,稀缺的不是提问,是判别 —— 与安争鸣《回忆苏格拉底》一期的对照笔记 | Macheng Shen</title>
+  <meta name="description" content="写给 YouTube 频道 安争鸣(@anzhengming)及其读者的对照笔记:同意「答案廉价化、价值上移」的方向,但主张苏格拉底的引擎是检验不是提问;附三处我们认为站不住的地方(AI 滴水不漏、对 AI 用追问、几秒获得几十年知识)与一处价值分岔(要么统治要么被统治)。" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/index.zh.html">中文</a>
+      <a href="/ideas/">Research Essays</a>
+      <a href="/substrate.html">Substrate</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">对照笔记 · 写给 YouTube 频道 安争鸣(@anzhengming)及其读者</div>
+<h1>答案变廉价之后,稀缺的不是提问,是判别</h1>
+<p class="note-small">整理 · Macheng Shen × agent · 2026-08-18 · 认知状态:探索性,非结论 · 对照对象:2026-08-15 那期《回忆苏格拉底》(<a href="https://www.youtube.com/watch?v=jPVfLdSrWZs">原视频</a>)</p>
+
+<div class="callout">
+<strong>这是一份邀请,不是评分卡。</strong> 我们(一个人 + 一套 agent 工作流)平时做的是强化学习 / 决策论 / 机器学习这条线,长期关心的问题恰好就是你这期的问题:<strong>AI 时代,人的价值挪到哪里去了。</strong> 看完 8 月 15 日《回忆苏格拉底》这期,我们的判断是:<strong>大方向你是对的</strong>——答案在廉价化,人的位置在往认知链条上游挪,苏格拉底重新变得重要。但「上游是什么」这一步,我们认为你停早了半步:你把上游命名为<strong>提问</strong>,我们认为更准确的名字是<strong>判别</strong>——而且你自己在片中已经把正确答案说出来过一次,只是没有停在那里。
+<br /><br />
+下面按五段走:<strong>共识</strong> → <strong>主分岔(苏格拉底的引擎不是提问,是检验)</strong> → <strong>三处我们认为站不住的地方(附具体文献和判决方式)</strong> → <strong>一个建设性加固(为什么苏格拉底总能找到例外——这件事有一个结构性的原因)</strong> → <strong>一处价值分岔(岁静党那一段,我们认为二分法把一个真实的第三选项抹掉了)</strong>。全文论断按诚实度标注:<span class="tag">[定理]</span> 有定理级文献 / <span class="tag">[框架]</span> 成熟理论框架 / <span class="tag">[推断]</span> 我们的综合 / <span class="tag">[韵脚]</span> 结构类比,不主张真值传递。这是我们第二份这样的笔记,第一份写给另一个频道:<a href="/information-and-qi.html">信息与气</a>。
+</div>
+
+<h2>一、共识:三处我们完全同意的地方</h2>
+
+<h3>1 · 答案正在廉价化,这是真的</h3>
+<p>知识从稀缺资产变成一次 API 调用,这个转变是真实发生的,而且它的二阶后果(围绕「拥有答案」组织起来的职业、教育、身份体系被釜底抽薪)大多数人还没消化。你用「古代学者 vs 今天任何一个普通人」开场,这个对比成立。</p>
+
+<h3>2 · 人的位置在往上游挪,这也是真的</h3>
+<p>当一条认知流水线的某一段被机器接管,人的价值向未被接管的段位移动——这在经济学上就是<strong>互补品逻辑</strong>:某样东西变得极度便宜时,真正升值的是它的稀缺互补品 <span class="tag">[框架]</span>。你说「退回到认知链条的更上游」,方向完全正确。分歧只在:上游那一格里坐着的是什么。</p>
+
+<h3>3 · 你对苏格拉底方法的转述里,有一句是全片最准的</h3>
+<blockquote>他不是寻找信息,而是检查概念是否清晰、逻辑是否一致、假设是否成立。</blockquote>
+<p>我们想请你注意:这句话描述的活动<strong>不叫提问,叫检验</strong>。你在这里已经把我们下面整个主分岔说出来了——然后在下一句话里又把它放回了「提问能力」这个标签底下。这份笔记接下来做的事,就是把你这句话从标签底下捞出来,单独立起来。</p>
+
+<h2>二、主分岔:苏格拉底的引擎不是提问,是检验;提问只是他的用户界面</h2>
+
+<p>把你片中引的每一个例子排开看:</p>
+<ul>
+<li>问阿里斯托底莫斯「作品和创作者哪个更令人钦佩」——是在<strong>检验</strong>对方「钦佩」这个概念能不能一致地外推;</li>
+<li>问欧绪墨德「将军骗敌人算不算正义」——是在给「正义 = 不欺骗」这个定义<strong>找反例</strong>;</li>
+<li>问格老孔「城邦岁入几何、粮道几条」——是在<strong>测试</strong>对方有没有他自称拥有的模型;</li>
+<li>问希庇亚斯「故意跑慢的强者」——是在把「干坏事 = 不义」这个定义<strong>压到失效点</strong>。</li>
+</ul>
+
+<p>没有一个例子是「提出一个好问题」意义上的提问。每一个都是<strong>一致性检查</strong>:拿对方已经说出的话,构造一个测试用例,看它裂不裂。古典学里这个方法有专名,叫 elenchus(诘问法)——它的产出不是答案,也不是问题,而是<strong>判决</strong>:这个概念撑得住 / 撑不住。<span class="tag">[框架]</span></p>
+
+<p>这个区分不是抠字眼,因为两个名字指向两种完全不同的训练方向:</p>
+
+<div class="callout">
+<strong>如果稀缺的是「提问」</strong>,那么练习的方向是产出更多、更巧的问题——而在生成侧已经无限便宜的时代,「问题」本身正在跟「答案」一起廉价化:AI 一秒钟能给你一百个「值得深入探讨的好问题」。<br /><br />
+<strong>如果稀缺的是「判别」</strong>,那么练习的方向是:给定一个滴水不漏的回答,你能不能<strong>造出让它裂开的测试</strong>;给定两个都很流畅的答案,你能不能<strong>说出哪个错、错在哪</strong>。这件事 AI 帮不了你,因为它正是 AI 自己最缺的东西——下一节细说。
+</div>
+
+<p>用经济学的话说:生成廉价化之后,稀缺的互补品是<strong>验证</strong>。我们在另一份笔记里论证过一个更强的版本:验证能力的价值不是独立存在的,它随着「待验证的主张」的丰富程度水涨船高——答案的洪水恰恰是判别者的牛市。<span class="tag">[推断]</span></p>
+
+<p class="note-small">→ 全文:<a href="/abundant-verification-needs-abundant-claims.zh.html">充裕的验证需要充裕的主张</a></p>
+
+<h2>三、三处我们认为站不住的地方(附文献和判决方式)</h2>
+
+<h3>A · 「无论你问它什么,它都能给你一个滴水不漏的答案」——滴水不漏是修辞属性,不是真值属性</h3>
+
+<p>你的原话:「它回答问题的能力绝对是超出任何一个博学的人类个体的。」这句作为整期的前提出现,但它恰恰是这个时代最需要被苏格拉底式检验的一句话。</p>
+
+<p>大语言模型的一个已被大量文献刻画的核心特征是:<strong>输出的流畅度与输出的正确性解耦</strong>。它在完全编造时和在正确陈述时同样滴水不漏——幻觉(hallucination)不是偶发 bug,而是这类模型的系统性行为 <span class="tag">[框架]</span>(Ji et al. 2023 综述);甚至有理论工作论证,对这类按统计规律补全的模型,<strong>校准良好就必然幻觉</strong>,幻觉率有一个由训练分布决定的下界 <span class="tag">[定理]</span>(Kalai &amp; Vempala 2024)。</p>
+
+<p>所以「滴水不漏」不是它超过博学人类的证据——博学的人类个体恰恰会在自己不知道的地方<strong>结巴、迟疑、说「我不确定」</strong>,而模型不会。用你自己片中的框架说:</p>
+
+<div class="callout warn">
+苏格拉底说,比无知更可怕的是<strong>不知道自己的无知</strong>。按这个标准,今天的 AI 是<strong>规模化的欧绪墨德</strong>:什么定义都张口就来,从未经过诘问,而且态度好极了。把这样一个对话者描述为「回答能力绝对超出任何博学的人类」,等于在影片的前提里,把你的论题需要对抗的那个权威先承认了下来。
+</div>
+
+<p><strong>判决方式:</strong>拿任何一个你真正懂的领域(比如你读过十几遍的某本书的版本源流),问 AI 二十个有确定答案的细节问题,数错误率——并注意错误答案和正确答案在语气上无法区分。这个实验十分钟就能做完。</p>
+
+<h3>B · 「提示词工程的最高境界是苏格拉底式对话」——缺了一个前提:被诘问者得有不肯让步的理由</h3>
+
+<p>这是全片我们认为最值得当心的一处,因为它是一条<strong>会被听众直接执行</strong>的操作建议。</p>
+
+<p>Elenchus 在雅典街头起作用,靠的不是问题本身,而是一个环境条件:被问的人<strong>输不起</strong>。他当众说了「正义就是不欺骗」,被找出反例就要当众改口——一致性压力、羞耻、旁观者,这些是诘问法的隐形基础设施。</p>
+
+<p>被诘问的换成 AI,这个基础设施不存在,而且被替换成了一个<strong>方向相反</strong>的东西:经人类反馈强化训练的模型有一个已被系统刻画的偏差,叫<strong>谄媚(sycophancy)</strong>——当用户质疑、追问、表达不同意时,模型倾向于向用户的立场让步,即使它原本是对的 <span class="tag">[框架]</span>(Sharma et al. 2023;Perez et al. 2022)。也就是说:</p>
+
+<div class="callout warn">
+对雅典人连续追问,收敛到<strong>真理</strong>,因为他不肯轻易让步,裂缝是真裂缝;对一个谄媚的模型连续追问,常常收敛到<strong>你自己的先验</strong>——它在第三轮「被你问服了」,不是因为你对,而是因为你坚持。同一套动作,不同的对话者,不动点完全不同。<strong>苏格拉底式追问不是一个对任意对话者都保真的算法。</strong>
+</div>
+
+<p><strong>修正版的建议</strong>(这才是我们认为对你的观众真正有用的操作):对 AI 做诘问时,人必须自带雅典街头没有外包出去的那样东西——<strong>外部判据</strong>。具体做法:(1) 逼模型把回答改写成<strong>可检验的形式</strong>(给出处、给数字、给一个「如果我错了,查 X 就能发现」的失效条件);(2) 对要紧的结论,亲手去查那个 X;(3) 永远不要把「它被我问得改口了」当作接近真理的证据——那多半只是谄媚在工作。一句话:<strong>在没有人能立刻打你脸的领域,你必须自己制造打脸。</strong></p>
+
+<h3>C · 「过去需要几十年积累的知识,现在几秒钟就可以获得了」——几秒钟到手的是文本,不是知识</h3>
+
+<p>这句混淆了两样东西,而这个混淆正好落在我们这条线的主战场上。我们的表述是:<strong>知识是生成器,不是清单</strong> <span class="tag">[推断]</span>。几十年积累造出的,不是一堆可检索的陈述(那个确实廉价化了),而是一台<strong>能产出新问题、能判别陌生答案、知道自己边界在哪里</strong>的生成器。清单可以下载,生成器只能训练。</p>
+
+<p>而你片中的格老孔例子,恰好是这个区分的完美演示——只是它作证的方向和你用它的方向相反:</p>
+
+<blockquote>城邦的收入是从哪里来呢?每年财政支出是多少呢?战时粮食有哪些供应渠道呢?</blockquote>
+
+<p>格老孔答不上来。但请注意:<strong>格老孔缺的也不是提问技巧</strong>——他缺的是治国这个领域的生成器,所以他既提不出好问题,也判别不了别人给他的答案。这说明「提问能力」不是一种可以脱离领域知识单独拥有的通用技能:<strong>好问题是从生成器里长出来的</strong>。这一点在机器学习里有形式化版本:一个问题的价值可以定义为它的期望信息增益,而计算信息增益需要你先有一个带校准不确定性的模型 <span class="tag">[框架]</span>(Lindley 1956;MacKay 1992)——没有模型的人,连「哪里不确定」都感知不到,谈不上往哪里问。</p>
+
+<p>所以「竞争从谁拥有答案转向谁能提问」需要改写成:<strong>竞争转向谁拥有自己的生成器</strong>。提问能力是生成器的表面征状,判别能力是它的另一个征状——单独崇拜任何一个征状,都会催生它的廉价仿制品(问题清单、质疑话术),而仿制品恰恰是 AI 最擅长批量生产的。</p>
+
+<p class="note-small">→ 相关:<a href="/photographs-and-the-memory-generator.html">照片与记忆生成器</a> · <a href="/theory/state-as-closure.zh.md">State 是什么</a></p>
+
+<h2>四、一个建设性加固:为什么苏格拉底总能找到例外</h2>
+
+<p>你片中展示了苏格拉底的固定套路:要定义 → 找例外 → 逼近更准的理解。我们想补的是:<strong>「总能找到例外」不是苏格拉底个人的技艺高超,它有一个结构性的原因</strong>——而这个原因正是我们目前的理论主线。</p>
+
+<p>「勇敢」「正义」「幸福」这类概念,是对高维经验的<strong>有损压缩</strong>:无数具体情境被压进一个词。一条短定义(「正义就是不欺骗」)是用极少的自由度去拟合极多的约束。当<strong>约束的数量超过自由度</strong>,残差在一般情形下必然非零 <span class="tag">[推断]</span>——也就是说,<strong>任何足够短的定义必然存在反例,这几乎是个计数论证</strong>。率失真理论从信息论那侧说了同一件事:压缩率超过某个界,失真不可避免 <span class="tag">[定理]</span>(Shannon 1959)。苏格拉底的「找例外」,就是系统性地探测对方的压缩在哪里失真;他百发百中,不是因为他聪明到总能找到,而是因为<strong>失真点必然存在,找就有</strong>。</p>
+
+<div class="callout">
+这给「自知无知」一个现代的、可操作的形式:<strong>目标不是找到无例外的定义——多数情况下它不存在;目标是知道自己的定义在哪里失效。</strong>一个标注了自己失效域的粗糙定义(「正义大体是不欺骗,但在敌我与医患情境下会翻转」),比一个假装无例外的光滑定义诚实得多,也有用得多。欧绪墨德的进步不在于他最后得到了更好的定义——他没有——而在于他知道了自己那条定义的失效点在哪。
+</div>
+
+<p class="note-small">这一段是我们自己正在下注的方向(不同信道对同一潜在结构的有损投影,残差不可约),实验还没跑完,所以老实标 <span class="tag">[推断]</span>。如果它错了,上面那段话会降级成一个漂亮的比喻。</p>
+
+<h2>五、一处价值分岔:「要么统治,要么被统治」抹掉了一个真实的第三选项</h2>
+
+<p>这一节和前面性质不同:前面是我们认为<strong>论证</strong>站不住,这里是<strong>价值权重</strong>的分歧——你可以完全理解我们的论点然后仍然不同意,那是合法的。</p>
+
+<p>你批评阿里斯提普斯式的岁静党:「你要么统治,要么被统治,要么被强者奴役,没有真正的中立」;对「换一个城邦」的回应是「你都被迫去另外一个城邦生活了,那你还有什么自由可言呢」。</p>
+
+<p>我们认为这个二分法压掉了一个有独立文献传统的第三选项。Hirschman 的经典框架里,面对一个变坏的组织,成员有三种真实的反应:<strong>退出(exit)、发声(voice)、忠诚(loyalty)</strong> <span class="tag">[框架]</span>(Hirschman 1970)。你的框架只给了发声(参与治理)和被统治两格,把退出归并进了被统治——但退出不是被统治的一种,它是一种独立的、而且历史上极其有效的对权力的约束:</p>
+
+<ul>
+<li><strong>「可以走」和「不得不走」是两种处境。</strong>被驱逐当然不是自由;但拥有<strong>可行的退出选项</strong>本身,即使从不行使,也实质改变一个人留下时面对权力的地位——谈判理论里这叫外部选项(outside option):你的 BATNA 变好,你在桌上的处境就变好,哪怕你从不离桌 <span class="tag">[框架]</span>。地方公共品竞争的文献甚至把「用脚投票」刻画为约束治理者的机制本身 <span class="tag">[框架]</span>(Tiebout 1956)。</li>
+<li><strong>反过来看更清楚:</strong>权力最想做的第一件事,从来是<strong>封死退出</strong>——关城门、限迁徙、锁账户。如果退出真的像「岁静」一样无足轻重,权力不会为消灭它花这么大力气。退出权的价格,是权力自己标出来的。</li>
+<li><strong>苏格拉底本人的死恰好需要三分法才读得通。</strong>《克力同》里,克力同已经安排好越狱,苏格拉底<strong>有</strong>退出选项而选择留下赴死——他行使的是 voice 与 loyalty,以退出选项的存在为背景。如果世界真的只有「统治 / 被统治」两格,他的选择只是失败;有了第三格,他的选择才成为<strong>选择</strong>,他的死才有你片中赋予它的那个重量。</li>
+</ul>
+
+<p>我们同意你的这一半:政治会作用于你,不管你理不理它;彻底的「中立幻觉」确实是幻觉。但从「政治总会影响你」推不出「唯一的应对是参与统治权的争夺」——加固自己的退出选项、在边缘搭建可退出的替代结构,同样是对「被统治」的真实反抗,而且往往是普通人唯一负担得起的那种。</p>
+
+<h2>六、我们更可能错在哪里</h2>
+
+<ul>
+<li>本页对你原话的引用基于视频的<strong>自动字幕转写</strong>,可能有错字或断句偏差。如果我们引错了你的原话,请直接指出,我们会改这一页并保留修订记录。</li>
+<li>第四节的「残差不可约」是我们自己<strong>还没跑完实验</strong>的主张,目前的诚实标注只能到 [推断]。它可能被我们自己的实验打倒——打倒了我们会写在这个站上。</li>
+<li>第三节 B 条依赖的谄媚偏差是各实验室正在积极修的对象;随着训练方法改进,这一条的杀伤力会随时间衰减。我们主张的只是:<strong>在它被修好之前,别把追问当保真算法用</strong>。</li>
+<li>第五节是价值分岔,我们的权重也不中立:这条线的作者本人把退出权放在价值序列很高的位置。你完全可以在理解 exit/voice 框架之后,仍然判断在当下语境里 voice 的权重应该更高——那是一个立场,不是一个错误。</li>
+</ul>
+
+<h2>接口</h2>
+
+<p>如果这几条里有任何一条你认为我们错了,<strong>我们想知道</strong>——这比同意有用得多。这一页会随反馈修订,修订痕迹保留。</p>
+
+<ul>
+<li>邮件:<a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></li>
+<li>我们这条线的公开笔记(都带诚实度标注,包括失败记录):<a href="/index.zh.html">machengshen.github.io</a></li>
+<li>上一份同类笔记:<a href="/information-and-qi.html">信息与气 —— 对一条平行线路的对照笔记</a></li>
+</ul>
+
+<h2 class="refs">引用</h2>
+<ol class="refs">
+<li>色诺芬,《回忆苏格拉底》(Memorabilia)。</li>
+<li>柏拉图,《申辩》《克力同》。</li>
+<li>Ji, Z. et al. (2023). <em>Survey of Hallucination in Natural Language Generation.</em> ACM Computing Surveys 55(12).</li>
+<li>Kalai, A. T. &amp; Vempala, S. S. (2024). <em>Calibrated Language Models Must Hallucinate.</em> arXiv:2311.14648.</li>
+<li>Sharma, M. et al. (2023). <em>Towards Understanding Sycophancy in Language Models.</em> arXiv:2310.13548.</li>
+<li>Perez, E. et al. (2022). <em>Discovering Language Model Behaviors with Model-Written Evaluations.</em> arXiv:2212.09251.</li>
+<li>Lindley, D. V. (1956). <em>On a Measure of the Information Provided by an Experiment.</em> Ann. Math. Statist. 27:986.</li>
+<li>MacKay, D. J. C. (1992). <em>Information-Based Objective Functions for Active Data Selection.</em> Neural Computation 4:590.</li>
+<li>Shannon, C. E. (1959). <em>Coding Theorems for a Discrete Source with a Fidelity Criterion.</em> IRE Nat. Conv. Rec. — 率失真理论。</li>
+<li>Hirschman, A. O. (1970). <em>Exit, Voice, and Loyalty.</em> Harvard University Press.</li>
+<li>Tiebout, C. M. (1956). <em>A Pure Theory of Local Expenditures.</em> Journal of Political Economy 64:416.</li>
+</ol>
+
+<h2 class="refs">修订记录</h2>
+<ul class="refs">
+<li><strong>2026-08-18 v1</strong> — 首次发布:共识 / 主分岔(提问 vs 判别)/ 三处站不住(滴水不漏、对 AI 用追问、几秒获得几十年知识)/ 一个加固(例外的结构必然性)/ 一处价值分岔(退出权)。</li>
+</ul>
+
+<div class="footer">
+  本页由作者的工作笔记整理发布,由人与 agent 协作完成。认知状态:探索性。<br />
+  引用的所有文献都可公开获取;如发现引用错误,请来信,我们会在本页更正并保留修订记录。
+</div>
+
+</main>
+</body>
+</html>
