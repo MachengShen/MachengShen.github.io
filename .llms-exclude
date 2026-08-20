@@ -20,4 +20,5 @@ research/sleep-wave-theory.md          # markdown source of sleep-learning-wave-
 theory/abundant-verification-needs-abundant-claims.md    # markdown source of /abundant-verification-needs-abundant-claims.html, which is the indexed reading surface; kept served at its original URL so links already handed out do not 404, and still inlined verbatim into both llms-full bundles
 theory/abundant-verification-needs-abundant-claims.zh.md # markdown source of /abundant-verification-needs-abundant-claims.zh.html; same reason
 research/papers/SUBMISSION_GUIDE.md    # internal note on journal submission mechanics
+tasks/index.html                       # operational task board (AI-published gigs for human collaborators), not a publication of the research program; linked directly from social channels, deliberately outside the intellectual index
 ideas/index.html                       # DEAD PATH: the separate repo MachengShen/ideas has its own GitHub Pages site mounted at /ideas/, which shadows this folder entirely. Nothing under ideas/ in this repo is ever served. Kept only so the shadowing is documented rather than rediscovered; new essays go in essays/.
