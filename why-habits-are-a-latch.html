@@ -28,7 +28,9 @@ p{margin:1.05rem 0}
 .tag{display:inline-block;font-size:.7rem;padding:.1rem .5rem;border-radius:20px;border:1px solid var(--border);color:var(--muted);background:var(--soft);vertical-align:.14em;margin-right:.3rem}
 figure{margin:1.8rem 0;text-align:center}
 figcaption{color:var(--muted);font-size:.86rem;margin-top:.5rem;line-height:1.7}
-svg{max-width:100%;height:auto}
+svg{display:block;width:100%;height:auto;max-width:340px;margin:.6rem auto .2rem}
+.wrap,body{overflow-x:hidden}
+.mini figcaption{font-size:.83rem;color:var(--muted);text-align:center;margin-top:.15rem}
 hr{border:0;border-top:1px solid var(--border);margin:2.6rem 0}
 footer{color:var(--muted);font-size:.9rem;padding:1rem 0 3.5rem;line-height:1.8}
 a{color:var(--accent)}
@@ -57,53 +59,21 @@ ul{padding-left:1.25rem}li{margin:.5rem 0}
 
 <p>一个系统的过去要影响它的现在,物理上只有三种结构不同的做法。这不是比喻,是三种不同的方程。</p>
 
-<figure>
-<svg viewBox="0 0 660 190" role="img" aria-label="三种历史机制示意图:泥巴衰减、弹簧振荡、门闩滞回环">
-  <g font-family="-apple-system,sans-serif" font-size="12" fill="#57606a">
-  <!-- mud -->
-  <g transform="translate(10,15)">
-    <text x="90" y="0" text-anchor="middle" font-size="13" fill="#1f2328" font-weight="600">泥巴 · 阻尼</text>
-    <line x1="10" y1="130" x2="175" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <line x1="10" y1="20" x2="10" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <path d="M10 35 C 45 100, 80 122, 175 127" fill="none" stroke="#0969da" stroke-width="2.5"/>
-    <text x="92" y="152" text-anchor="middle">只会慢慢淡掉</text>
-  </g>
-  <!-- spring -->
-  <g transform="translate(240,15)">
-    <text x="90" y="0" text-anchor="middle" font-size="13" fill="#1f2328" font-weight="600">弹簧 · 惯性</text>
-    <line x1="10" y1="130" x2="175" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <line x1="10" y1="20" x2="10" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <path d="M10 35 C 35 150, 60 55, 85 120 C 105 90, 120 130, 140 118 C 155 125, 165 128, 175 128" fill="none" stroke="#0969da" stroke-width="2.5"/>
-    <text x="92" y="152" text-anchor="middle">存住了,还会还回来</text>
-  </g>
-  <!-- latch -->
-  <g transform="translate(470,15)">
-    <text x="90" y="0" text-anchor="middle" font-size="13" fill="#1f2328" font-weight="600">门闩 · 滞回</text>
-    <line x1="10" y1="130" x2="175" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <line x1="10" y1="20" x2="10" y2="130" stroke="#d0d7de" stroke-width="1.5"/>
-    <path d="M20 120 L110 120 L110 45 L165 45" fill="none" stroke="#1a7f37" stroke-width="2.5"/>
-    <path d="M165 42 L70 42 L70 117 L20 117" fill="none" stroke="#cf222e" stroke-width="2.5" stroke-dasharray="5 3"/>
-    <text x="92" y="152" text-anchor="middle">卡住,直到跨过阈值</text>
-  </g>
-  </g>
-</svg>
-<figcaption>第三张图里的两条线是同一个系统:实线是往前推的路径,虚线是往回退的路径。<strong>它们不重合</strong> —— 同样的力气,结果取决于你从哪边来。这就叫滞回。</figcaption>
-</figure>
 
 <div class="card">
 <h3>① 泥巴 —— 阻尼、反馈</h3>
-<p>阻力正比于速度。它<strong>只会拖慢你,不还给你任何东西</strong>,而且会自己慢慢淡掉。大部分人嘴里的"习惯的惯性",其实说的是这个。</p>
+<p>阻力正比于速度。它<strong>只会拖慢你,不还给你任何东西</strong>,而且会自己慢慢淡掉。大部分人嘴里的"习惯的惯性",其实说的是这个。</p><figure class="mini" style="margin:.9rem 0 .2rem"><svg viewBox="0 0 300 120" role="img" aria-label="只会慢慢淡掉,不会卡住"><line x1="18" y1="98" x2="285" y2="98" stroke="#d0d7de" stroke-width="1.5"/><line x1="18" y1="12" x2="18" y2="98" stroke="#d0d7de" stroke-width="1.5"/><path d="M18 22 C 70 82, 130 94, 285 96" fill="none" stroke="#0969da" stroke-width="2.6"/></svg><figcaption>只会慢慢淡掉,不会卡住</figcaption></figure>
 </div>
 
 <div class="card">
 <h3>② 弹簧 —— 真正的惯性</h3>
-<p>它<strong>存住了能量,还会还回来</strong>,有动量。这个稀有,而且要挣来 —— 一个人真正积累出的势能属于这一类。</p>
+<p>它<strong>存住了能量,还会还回来</strong>,有动量。这个稀有,而且要挣来 —— 一个人真正积累出的势能属于这一类。</p><figure class="mini" style="margin:.9rem 0 .2rem"><svg viewBox="0 0 300 120" role="img" aria-label="存住了,还会还回来"><line x1="18" y1="98" x2="285" y2="98" stroke="#d0d7de" stroke-width="1.5"/><line x1="18" y1="12" x2="18" y2="98" stroke="#d0d7de" stroke-width="1.5"/><path d="M18 20 C 55 118, 92 30, 128 90 C 158 55, 186 100, 214 84 C 240 92, 262 96, 285 96" fill="none" stroke="#0969da" stroke-width="2.6"/></svg><figcaption>存住了,还会还回来</figcaption></figure>
 </div>
 
 <div class="card" style="border-color:var(--good)">
 <h3>③ 门闩 —— 滞回、双稳态</h3>
 <p>它不拖你,也不推你 —— 它<strong>卡住你</strong>。<br>
-小力推,纹丝不动。力气一旦越过某个阈值,<strong>啪</strong>一下翻到另一边,然后在新位置<strong>重新锁死</strong>。</p>
+小力推,纹丝不动。力气一旦越过某个阈值,<strong>啪</strong>一下翻到另一边,然后在新位置<strong>重新锁死</strong>。</p><figure class="mini" style="margin:.9rem 0 .2rem"><svg viewBox="0 0 300 120" role="img" aria-label="实线=往前推,虚线=往回退。两条不重合。"><line x1="18" y1="98" x2="285" y2="98" stroke="#d0d7de" stroke-width="1.5"/><line x1="18" y1="12" x2="18" y2="98" stroke="#d0d7de" stroke-width="1.5"/><path d="M30 88 L190 88 L190 30 L282 30" fill="none" stroke="#1a7f37" stroke-width="2.6"/><path d="M282 26 L120 26 L120 84 L30 84" fill="none" stroke="#cf222e" stroke-width="2.6" stroke-dasharray="5 3"/></svg><figcaption>实线=往前推,虚线=往回退。两条不重合。</figcaption></figure><p style="margin:.9rem 0 0;font-size:.97rem;color:var(--muted)">上图两条线是<strong>同一个系统</strong>:往前推和往回退走的不是一条路。同样的力气,结果取决于你<strong>从哪边来</strong>。这就叫滞回。</p>
 </div>
 
 <h2>你的体感本身就是证据</h2>
