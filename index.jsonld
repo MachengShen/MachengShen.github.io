@@ -1087,6 +1087,34 @@
    "inLanguage": "en",
    "cognitiveState": "speculative",
    "confidence": 0.35
+  },
+  {
+   "id": "why-habits-are-a-latch",
+   "label": {
+    "en": "Why you cannot shake a habit — it is not mud, it is a latch",
+    "zh": "为什么你改不掉一个习惯 —— 它不是泥巴,是一个门闩"
+   },
+   "description": {
+    "en": "A mechanism note. The past can hold the present in only three physical ways: mud (damping), spring (inertia), and latch (hysteresis). A habit is the third, which is why incremental daily effort does not move it, and why people who did change one report that afterwards it stopped costing anything.",
+    "zh": "一则机制笔记。过去抓住现在只有三种物理方式:泥巴(阻尼)、弹簧(惯性)、门闩(滞回)。习惯是第三种,所以「每天进步一点点」对它无效,而真改过的人会说「后来就不费劲了」。"
+   },
+   "url": "https://machengshen.github.io/why-habits-are-a-latch.html",
+   "format": "text/html",
+   "inLanguage": "zh-Hans"
+  },
+  {
+   "id": "what-is-a-force",
+   "label": {
+    "en": "What a force is — none of the four fundamental forces is a force",
+    "zh": "「力」是什么 —— 四种基本力里没有一个是「力」"
+   },
+   "description": {
+    "en": "The second comparison note addressed to the YouTube channel @itsRedPill and its readers. Energy is placed by Noether's theorem; the modern identity of a force is the curvature of a connection; glueballs collapse the matter-versus-force dichotomy from both ends at once; and that compresses the question of whether information can constitute matter into a sharper one.",
+    "zh": "写给 YouTube 频道 @itsRedPill 及其读者的对照笔记第二篇:能量按诺特定理可以归位;「力」在现代物理里的真实身份是联络的曲率;胶球表明物质/力二分从两头同时塌;这把「信息能否构成物质」压缩成一个更尖的问题。"
+   },
+   "url": "https://machengshen.github.io/what-is-a-force.html",
+   "format": "text/html",
+   "inLanguage": "zh-Hans"
   }
  ]
 }

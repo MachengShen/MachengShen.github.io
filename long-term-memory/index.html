@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>长期记忆不是向量库 · 公开分享稿</title>
+<meta name="description" content="长期记忆不是向量库:一套从来源、时间与冲突出发,闭合到行动、验证与行为改变的多 Agent 连续性设计。26 页公开分享稿,免费下载。">
+<link rel="canonical" href="https://machengshen.github.io/long-term-memory/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="长期记忆不是向量库">
+<meta property="og:description" content="一套从来源、时间与冲突出发,闭合到行动、验证与行为改变的多 Agent 连续性设计。26 页公开分享稿,免费下载。">
+<meta property="og:url" content="https://machengshen.github.io/long-term-memory/">
+<meta property="og:locale" content="zh_CN">
+<style>
+  :root {
+    --paper: #F7F8F5;
+    --ink: #141A17;
+    --ink2: #4C5852;
+    --ink3: #7E8C85;
+    --rule: #D6DDD4;
+    --brick: #A82D1C;
+    --blue: #1F4E6B;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 30px 20px 72px; }
+
+  .kicker {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--ink3);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.05rem;
+    line-height: 1.32;
+    font-weight: 700;
+    margin: 0 0 12px;
+    letter-spacing: .01em;
+  }
+  .subtitle {
+    font-size: 1.02rem;
+    color: var(--ink2);
+    margin: 0 0 14px;
+    line-height: 1.72;
+  }
+  .byline {
+    font-size: .86rem;
+    color: var(--ink3);
+    margin: 0 0 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .dl-block { margin: 0 0 34px; }
+  a.dl {
+    display: block;
+    text-align: center;
+    background: var(--brick);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.06rem;
+    font-weight: 600;
+    padding: 17px 20px;
+    min-height: 56px;
+    border-radius: 10px;
+    letter-spacing: .02em;
+  }
+  a.dl:active { background: #8E2415; }
+  .dl-alt { margin: 13px 0 0; text-align: center; font-size: .95rem; }
+  .dl-alt a { color: var(--blue); }
+  .dl-meta {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: .8rem;
+    color: var(--ink3);
+  }
+  .dl-meta code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .78rem;
+  }
+
+  .embed-wrap { display: none; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin: 40px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    letter-spacing: .02em;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+
+  .thesis {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--ink);
+    margin: 0;
+    padding: 18px 20px;
+    background: #fff;
+    border-left: 3px solid var(--brick);
+    border-radius: 0 8px 8px 0;
+  }
+
+  ol.howto { margin: 0; padding-left: 1.35em; }
+  ol.howto li { margin-bottom: 8px; }
+  ol.howto .pg { color: var(--brick); font-weight: 600; }
+  p.howto-tail { color: var(--ink2); font-size: .95rem; margin: 12px 0 0; }
+
+  .arc { margin: 0 0 22px; }
+  .arc-head {
+    font-size: .84rem;
+    letter-spacing: .06em;
+    color: var(--ink3);
+    margin: 0 0 8px;
+  }
+  .arc-head b { color: var(--ink2); font-weight: 600; letter-spacing: 0; }
+  ul.toc { list-style: none; margin: 0; padding: 0; }
+  ul.toc li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: .97rem;
+    line-height: 1.6;
+  }
+  ul.toc li:last-child { border-bottom: none; }
+  ul.toc .n {
+    flex: 0 0 auto;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    color: var(--ink3);
+    min-width: 2.4em;
+  }
+
+  ul.gaps { margin: 0; padding-left: 1.15em; }
+  ul.gaps li { margin-bottom: 9px; font-size: .97rem; line-height: 1.72; }
+  .preface {
+    color: var(--ink2);
+    font-size: .95rem;
+    margin: 0 0 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: #fff;
+    line-height: 1.72;
+  }
+
+  p { margin: 0 0 14px; }
+  a { color: var(--blue); }
+
+  footer {
+    margin-top: 46px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink3);
+    font-size: .82rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 900px) {
+    .wrap { max-width: 760px; padding-top: 48px; }
+    h1 { font-size: 2.4rem; }
+    .embed-wrap {
+      display: block;
+      margin: 26px 0 0;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .embed-wrap embed {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: 0;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">公开分享稿 · 26 页 · 版本 2026-09-03</p>
+  <h1>长期记忆不是向量库</h1>
+  <p class="subtitle">一套从来源、时间与冲突出发,闭合到行动、验证与行为改变的多 Agent 连续性设计</p>
+  <p class="byline">Starshard Research Notes</p>
+
+  <div class="dl-block">
+    <a class="dl" href="ltm-field-guide-2026-09-03.pdf" download="长期记忆不是向量库-多Agent行动连续性设计-公开分享版-20260903.pdf">下载 PDF(免费,无需登录)</a>
+    <p class="dl-alt"><a href="ltm-field-guide-2026-09-03.pdf" target="_blank" rel="noopener">在浏览器中打开</a></p>
+    <p class="dl-meta">26 页 · A4 · 369 KB · sha256 前 12 位 <code>a84d9cfb4a4d</code></p>
+    <div class="embed-wrap"><embed src="ltm-field-guide-2026-09-03.pdf" type="application/pdf"></div>
+  </div>
+
+  <h2>一句话</h2>
+  <p class="thesis">长期记忆是一条运行合同:带来源、有效期和冲突状态的主张进入规则与权限,再通过行动、回执、目标侧验证、修复与行为改变闭环。</p>
+
+  <h2>怎么读(10 分钟)</h2>
+  <ol class="howto">
+    <li>先读 <span class="pg">p2</span> 阅读合同(证据边界)</li>
+    <li>再读 <span class="pg">p24</span> 还没闭合的部分</li>
+    <li>最后做 <span class="pg">p25</span> 三问自测</li>
+  </ol>
+  <p class="howto-tail">想细读,再从 <span class="pg">p3</span> 系统图开始。</p>
+
+  <h2>目录</h2>
+
+  <div class="arc">
+    <p class="arc-head">ARC A · 01–03 · <b>从检索转向控制</b></p>
+    <ul class="toc">
+      <li><span class="n">01</span><span>一个 Agent 忘了,是聊天问题;多个 Agent 一起忘,是控制问题</span></li>
+      <li><span class="n">02</span><span>关键规则不能等 Agent 想起来再搜</span></li>
+      <li><span class="n">03</span><span>摘要可以重写,原始经历不能被摘要取代</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC B · 04–07 · <b>事实 · 时间 · 负知识</b></p>
+    <ul class="toc">
+      <li><span class="n">04</span><span>Hot/cold 的分界,不是"重要"和"不重要"</span></li>
+      <li><span class="n">05</span><span>不知道,不等于反对;空白,不等于冲突</span></li>
+      <li><span class="n">06</span><span>别删除失败:系统会把它重新发明一遍</span></li>
+      <li><span class="n">07</span><span>来源、置信度与权限必须拆开</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC C · 08–11 · <b>并发 · 权力 · 完成语义</b></p>
+    <ul class="toc">
+      <li><span class="n">08</span><span>done 不是 verified</span></li>
+      <li><span class="n">09</span><span>Liveness、authority、effect admission 是三条轴</span></li>
+      <li><span class="n">10</span><span>Lease 解决认领,fence 才处理迟到写</span></li>
+      <li><span class="n">11</span><span>发出去,不等于闭环</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC D · 12–14 · <b>从经历到行为改变</b></p>
+    <ul class="toc">
+      <li><span class="n">12</span><span>Consolidation 不是摘要</span></li>
+      <li><span class="n">13</span><span>记忆只有改变下一次行为,才完成代谢</span></li>
+      <li><span class="n">14</span><span>最重要的能力,是诚实标出还没闭合的器官</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">此外</p>
+    <ul class="toc">
+      <li><span class="n">p19</span><span>四个可重放工件,各自只证明一个边界</span></li>
+      <li><span class="n">p20</span><span>一条 claim 应该怎样被降级</span></li>
+      <li><span class="n">p21</span><span>不是谁赢,而是哪一段链已经被谁做好</span></li>
+      <li><span class="n">p22</span><span>生命体隐喻,只是工程映射</span></li>
+      <li><span class="n">p23</span><span>如果从零开始,先实现这十一个接口</span></li>
+    </ul>
+  </div>
+
+  <h2>它没有解决什么</h2>
+  <p class="preface">四个 fixture 的通过,只证明预先编码的合成不变量与预期输出一致;不证明生产有效性、模型服从、隐私安全、独立验证、分布式耐久性或 exactly-once。</p>
+  <ul class="gaps">
+    <li>跨所有真实下游资源的 resource-side fencing;没有 fence 时,停止后的因果触达仍可能未知。</li>
+    <li>exactly-once 外部副作用;幂等键、lease 与重试都只能降低风险,不能魔法般提供保证。</li>
+    <li>跨模型、跨媒介统一的 provenance / confidence 标尺,以及来源相关性的建模。</li>
+    <li>自动 consolidation 的长期功效与副作用:规则膨胀、错误固化、过度抽象和身份影响。</li>
+    <li>独立失败域上的验证:换一个 Agent 但复用同一日志,不足以称 independent verification。</li>
+    <li>隐私、保留期、受控删除与公开导出的系统性评估。</li>
+    <li>外部复现与真实受众冷读;目前只有内部公共候选的确定性工件。</li>
+  </ul>
+
+  <h2>配套短文</h2>
+  <p>这份读本的 14 条会以中文短文逐条展开,陆续发布;每条都带一个可复现的合成 fixture、一张「它没解决什么」和一个可推翻它的条件。</p>
+
+  <h2>反馈</h2>
+  <p>欢迎冷读反馈——读不懂的段落、觉得过度声明的句子、你自己的失败 fixture。</p>
+  <p>
+    <a href="https://github.com/MachengShen/MachengShen.github.io/issues" target="_blank" rel="noopener">https://github.com/MachengShen/MachengShen.github.io/issues</a>
+  </p>
+
+  <footer>
+    本稿可分享;尚未完成外部受众冷读,不是受众验证版。<br>
+    © 2026 Starshard Research Notes
+  </footer>
+
+</div>
+</body>
+</html>

@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
@@ -74,23 +74,31 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
     <lastmod>2026-04-29</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/long-term-memory/</loc>
+    <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/long-term-memory/ltm-field-guide-2026-09-03.pdf</loc>
+    <lastmod>2026-09-03</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/photographs-and-the-memory-generator.html</loc>
@@ -158,7 +166,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/tasks/</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-23</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/theory/abundant-verification-needs-abundant-claims.md</loc>
@@ -245,11 +253,15 @@
     <lastmod>2026-08-02</lastmod>
   </url>
   <url>
+    <loc>https://machengshen.github.io/what-is-a-force.html</loc>
+    <lastmod>2026-08-30</lastmod>
+  </url>
+  <url>
     <loc>https://machengshen.github.io/whitepaper-agent-native-communication/</loc>
     <lastmod>2026-06-10</lastmod>
   </url>
   <url>
-    <loc>https://machengshen.github.io/what-is-a-force.html</loc>
-    <lastmod>2026-08-30</lastmod>
+    <loc>https://machengshen.github.io/why-habits-are-a-latch.html</loc>
+    <lastmod>2026-09-01</lastmod>
   </url>
 </urlset>
