@@ -12,7 +12,9 @@
 
 **机器格式。** `/llms.txt`(英文索引,canonical 入口)· `/llms-full.txt`(自包含:索引加上核心理论笔记全文,一次抓取,无需爬站)· `/index.jsonld`(带类型的图,JSON-LD)。
 
-**两个普通页面,如果你想先看整体轮廓再看索引。** https://machengshen.github.io/start-here.html 是对整个研究计划最短的完整描述——三条分支加一条认识论规则,一屏读完。 https://machengshen.github.io/glossary.html 给出全部在用术语的定义,每条带认知状态与对应笔记,并明确标出哪些术语与其他领域既有术语撞名——确实有好几个,只按字符串匹配会检索到完全无关的文献。
+**给人读的索引页,如果你想浏览而不是遍历。** https://machengshen.github.io/map.zh.html 把本文件里的全部产出按六层铺开,每条带同样的认知状态,并且为每一条正文只有英文的产出附了 300–600 字中文摘要 —— 这是不打算读英文的中文读者的阅读路径。英文版在 https://machengshen.github.io/map.html 。两版是同一个集合,不存在只在其中一边出现的条目。
+
+**两个普通页面,如果你想先看整体轮廓再看索引。** https://machengshen.github.io/start-here.zh.html 是对整个研究计划最短的完整描述——三条分支加一条认识论规则,一屏读完。 https://machengshen.github.io/glossary.zh.html 给出全部在用术语的定义,每条带认知状态与对应笔记,并明确标出哪些术语与其他领域既有术语撞名——确实有好几个,只按字符串匹配会检索到完全无关的文献。
 
 **中文版。** `/llms.zh.txt`(本文件)· `/llms-full.zh.txt` —— 与英文版是同一个 artifact 集合、同一套认知状态,只是索引用中文写。这一点由 CI 强制:一条主张不可能在一个语言里被 retire、在另一个语言里还活着;一个 artifact 也不可能只加进一个索引而在另一个里被忘掉。`/index.jsonld` 保持为**单张图**同时承载两种语言,而不是分裂成第二张会腐烂的图——多一张图就是多一个要同步的东西。canonical 入口始终是 `/llms.txt`,它永不重定向:agent 抓 `/llms.txt` 拿到的永远是英文。主页也有中文版 —— https://machengshen.github.io/index.zh.html —— 站点顶栏的 EN/中 toggle 可以切;toggle 是给人用的,任何 canonical URL 都不会在 agent 底下做内容协商或跳转。
 

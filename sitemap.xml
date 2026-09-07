@@ -42,7 +42,11 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/glossary.html</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/glossary.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/ideas/</loc>
@@ -50,7 +54,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/</loc>
-    <lastmod>2026-08-02</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
@@ -58,7 +62,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
-    <lastmod>2026-07-13</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/information-and-qi.html</loc>
@@ -99,6 +103,14 @@
   <url>
     <loc>https://machengshen.github.io/long-term-memory/ltm-field-guide-2026-09-03.pdf</loc>
     <lastmod>2026-09-03</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/map.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/map.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/photographs-and-the-memory-generator.html</loc>
@@ -214,7 +226,11 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/start-here.html</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/start-here.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/substrate.html</loc>

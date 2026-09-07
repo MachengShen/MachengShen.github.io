@@ -120,7 +120,7 @@ FILTER_SCRIPT = """  <script>
   </script>"""
 
 
-def head(*, lang: str, title: str, desc: str, path: str, alt_path: str) -> str:
+def head(*, lang: str, title: str, desc: str, path: str, alt_path: str, jsonld: str = "") -> str:
     """`path` and `alt_path` are site-relative, e.g. '/map.html'."""
     is_zh = lang.startswith("zh")
     en_href = SITE + (alt_path if is_zh else path)
@@ -157,6 +157,7 @@ def head(*, lang: str, title: str, desc: str, path: str, alt_path: str) -> str:
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <link rel="stylesheet" href="/assets/site.css" />
+{jsonld}
 {LANG_SCRIPT}
 </head>
 <body>"""
@@ -345,7 +346,32 @@ def build_map(data: dict, *, is_zh: bool) -> str:
         h1 = "The map"
         intro = data["intro_en"]
 
-    out = [head(lang="zh-Hans" if is_zh else "en", title=title, desc=desc, path=path, alt_path=alt)]
+    graph = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": SITE + path,
+        "url": SITE + path,
+        "name": title,
+        "description": desc,
+        "inLanguage": "zh-Hans" if is_zh else "en",
+        "isPartOf": {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/",
+                     "name": "Macheng Shen"},
+        "author": {"@type": "Person", "name": "Macheng Shen", "url": SITE + "/"},
+        "significantLink": [SITE + "/llms.txt", SITE + "/index.jsonld"],
+        "hasPart": [
+            {"@type": "CreativeWork",
+             "name": (r.get("title_zh") or r["title_en"]) if is_zh else r["title_en"],
+             "url": r["url"] if r.get("is_repo") else SITE + (r.get("zh_url") or r["url"] if is_zh else r["url"]),
+             **({"creativeWorkStatus": r["state"]} if r.get("state") in
+                ("survived", "speculative", "retired") else {})}
+            for r in sorted(recs, key=lambda x: (x.get("order", 999), x["url"]))
+        ],
+    }
+    jsonld = ('  <script type="application/ld+json">\n  '
+              + json.dumps(graph, ensure_ascii=False, indent=2).replace("\n", "\n  ")
+              + "\n  </script>")
+    out = [head(lang="zh-Hans" if is_zh else "en", title=title, desc=desc, path=path,
+                alt_path=alt, jsonld=jsonld)]
     out.append(masthead(is_zh=is_zh, current=path, path=path, alt_path=alt))
     out.append('<main class="wrap">')
     out.append(f"  <h1>{esc(h1)}</h1>")

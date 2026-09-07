@@ -120,7 +120,43 @@ def build(*, is_zh: bool) -> str:
             "speculative, or retired."
         )
 
-    out = [B.head(lang="zh-Hans" if is_zh else "en", title=title, desc=desc, path=path, alt_path=alt)]
+    profile = {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "@id": B.SITE + "/#profile",
+        "url": B.SITE + path,
+        "name": "Macheng Shen",
+        "description": desc,
+        "inLanguage": "zh-Hans" if is_zh else "en",
+        "significantLink": [
+            B.SITE + "/map.zh.html" if is_zh else B.SITE + "/map.html",
+            B.SITE + "/llms.txt",
+            B.SITE + "/index.jsonld",
+        ],
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Macheng Shen",
+            "email": "macshen93@gmail.com",
+            "url": B.SITE + "/",
+            "jobTitle": "Independent researcher",
+            "knowsAbout": [
+                "Information dynamics",
+                "Credit assignment and credit transport",
+                "Continual and lifelong learning",
+                "Koopman operator theory",
+                "Holography and entanglement entropy",
+                "Theories of consciousness",
+                "Multi-agent systems and agent-native protocols",
+                "Mechanism design",
+            ],
+            "sameAs": ["https://github.com/MachengShen", "https://github.com/starshard-ai"],
+        },
+    }
+    jsonld = ('  <script type="application/ld+json">\n  '
+              + json.dumps(profile, ensure_ascii=False, indent=2).replace("\n", "\n  ")
+              + "\n  </script>")
+    out = [B.head(lang="zh-Hans" if is_zh else "en", title=title, desc=desc, path=path,
+                  alt_path=alt, jsonld=jsonld)]
     out.append(B.masthead(is_zh=is_zh, current=path, path=path, alt_path=alt))
     out.append('<main class="wrap">')
 
