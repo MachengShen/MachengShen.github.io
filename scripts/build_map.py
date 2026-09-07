@@ -49,7 +49,38 @@ def esc(s: str) -> str:
 
 
 def load() -> dict:
-    return json.loads(DATA.read_text(encoding="utf-8"))
+    """Read the records, then re-derive the language facts from the filesystem.
+
+    `has_zh` and `zh_url` are NOT trusted from the data file. They were, once,
+    and it broke exactly the way a cached fact breaks: /safety/principles.zh.html
+    and /safety/roadmap.zh.html were written by a concurrent agent after the
+    record set was captured, and the Chinese index went on linking the English
+    pages -- on the one page whose entire job is to not do that. A Chinese
+    sibling either exists on disk or it does not, and this is a directory
+    lookup, so look it up.
+    """
+    data = json.loads(DATA.read_text(encoding="utf-8"))
+    for r in data["records"]:
+        if r.get("is_repo"):
+            continue
+        url = r["url"]
+        rel = url.lstrip("/")
+        rel = rel + "index.html" if rel.endswith("/") or rel == "" else rel
+        stem, _, ext = rel.rpartition(".")
+        zh_rel = f"{stem}.zh.{ext}" if stem else ""
+        if zh_rel and (ROOT / zh_rel).exists():
+            r["has_zh"] = True
+            r["zh_url"] = "/" + zh_rel
+            r["zh_native"] = True
+        elif r.get("lang", "").startswith("zh"):
+            r["has_zh"] = False
+            r["zh_url"] = ""
+            r["zh_native"] = True
+        else:
+            r["has_zh"] = False
+            r["zh_url"] = ""
+            r["zh_native"] = False
+    return data
 
 
 # --------------------------------------------------------------------------
@@ -375,7 +406,9 @@ def build_map(data: dict, *, is_zh: bool) -> str:
     out.append(masthead(is_zh=is_zh, current=path, path=path, alt_path=alt))
     out.append('<main class="wrap">')
     out.append(f"  <h1>{esc(h1)}</h1>")
+    zh_ready = sum(1 for r in recs if r.get("zh_native"))
     for i, para in enumerate(intro):
+        para = para.replace("{zh}", str(zh_ready)).replace("{total}", str(len(recs)))
         cls = ' class="lede"' if i == 0 else ""
         # Authored copy, written by hand in sections.json -- inline markup is
         # intended and is not escaped. Everything that comes from the record
