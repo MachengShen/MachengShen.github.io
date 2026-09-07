@@ -185,6 +185,11 @@
       },
       {
         "@type": "CreativeWork",
+        "name": "局部层析不是我们的粘合障碍 —— 一次自我证伪",
+        "url": "https://machengshen.github.iohttps://github.com/MachengShen/system-evolution-public/blob/main/essays/2026-09-07-local-tomography-is-not-our-gluing-obstruction.md"
+      },
+      {
+        "@type": "CreativeWork",
         "name": "元控制、信息增益,与自主学习的架构",
         "url": "https://machengshen.github.io/essays/meta-control-information-gain-and-the-architecture-of-autonomous-learning/"
       },
@@ -575,6 +580,16 @@
           <p>标题里「没有 state,只有 history」比经审查后存活的结论更极端,已收窄。Transformer 确实有 activation state、计算 state,以及 Anthropic 2026 年 Jacobian-lens 实验揭示的一种跨中间层的瞬时「工作空间」式表征(J-space)。真正缺的更窄:一个持久、自主、路径依赖的闭包 state,其自身更新规则要在多步之间维持自己的投影/遗忘策略——这个问题仍然开放。</p><p>核心提案:测试时记忆更新应该按「记忆遗忘了什么发生了变化」来设门,而不是只按预测误差幅度设门——用主子空间的 Grassmann 距离 μΔ 取代更新范数 ‖ΔM‖ 作为门控信号。E1(6,480 次合成更新)已跑完:两个信号的相关为 Pearson −0.08、Spearman −0.35,固定 ‖ΔM‖ 时 μΔ 覆盖 100% 的观测范围——μΔ 不是 ‖ΔM‖ 的单调函数,这一点已经确定。</p><p>但「有用」尚未证明。E2(噪声鲁棒性)与修正后的 E3(滞回曲线)都还没跑。滞回机制的置信度因一次错误推断被下修到 0.35(单纯阈值化不蕴含双稳态);非线性记忆下 Π_M 是否有良定义,置信度同样是 0.35,被作者标为最可能致命的一点。全篇 cognitive state 标为 speculative,只有 E1 的数字是实测而非预期。</p>
           <p class="langnote">正文为英文。以上摘要为中文转写,如与原文冲突以原文为准。</p>
         </details>
+      </li>
+      <li class="rec" data-state="refuted">
+        <span class="dot refuted" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/system-evolution-public/blob/main/essays/2026-09-07-local-tomography-is-not-our-gluing-obstruction.md">局部层析不是我们的粘合障碍 —— 一次自我证伪</a></h3>
+          <p class="rec-meta"><time datetime="2026-09-07">2026-09-07</time></p>
+        </div>
+        <p class="rec-alt">Local tomography is not our gluing obstruction</p>
+        <p class="rec-line">我们提出「局部层析 = 粘合障碍消失」,再三路自证伪,并发现等价谬误就在自家脚本里;存活的是:共训练丢弃的维数精确,且丢在跨模态一致场而非单塔秩上。</p>
+        <p class="langnote">正文为英文。</p>
       </li>
       <li class="rec" data-state="none">
         <span class="dot none" aria-hidden="true"></span>

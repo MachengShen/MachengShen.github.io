@@ -1289,6 +1289,25 @@
       "is_repo": false,
       "lang": "en",
       "zh_native": true
+    },
+    {
+      "url": "https://github.com/MachengShen/system-evolution-public/blob/main/essays/2026-09-07-local-tomography-is-not-our-gluing-obstruction.md",
+      "section": "universe",
+      "order": 35,
+      "title_en": "Local tomography is not our gluing obstruction",
+      "title_zh": "局部层析不是我们的粘合障碍 —— 一次自我证伪",
+      "one_line_en": "We proposed that local tomography is our multimodal gluing obstruction vanishing, then killed it three ways and found the equivocation inside our own scripts; the co-training discard is dimension-exact and sits in the cross-modal agreement field, not in tower rank.",
+      "one_line_zh": "我们提出「局部层析 = 粘合障碍消失」,再三路自证伪,并发现等价谬误就在自家脚本里;存活的是:共训练丢弃的维数精确,且丢在跨模态一致场而非单塔秩上。",
+      "abstract_zh": "",
+      "state": "refuted",
+      "date": "2026-09-07",
+      "has_zh": false,
+      "zh_url": "",
+      "kind": "research-note",
+      "format": "md",
+      "is_repo": false,
+      "lang": "en",
+      "zh_native": false
     }
   ]
 }
