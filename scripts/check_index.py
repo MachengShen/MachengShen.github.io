@@ -37,6 +37,8 @@ The invariants, and what each one is defending against:
   INV-10 hreflang honesty  a language link points at the wrong language
   INV-11 no orphan locales a .zh. file with no canonical sibling
   INV-12 language declared a publishable .md/.pdf with no stated language
+  INV-13 alias mirrors    /llm.txt or /.well-known/llms.txt drifted or vanished
+                          (the URL a stranger guesses 404s, or serves a stale index)
 """
 
 from __future__ import annotations
@@ -68,7 +70,17 @@ EXTERNALLY_SERVED = ("/ideas/",)  # served by the separate MachengShen/ideas rep
 MACHINE_SURFACES = {
     "/", "/llms.txt", "/llms-full.txt", "/llms.zh.txt", "/llms-full.zh.txt",
     "/index.jsonld", "/sitemap.xml", "/robots.txt",
+    # Byte-identical mirrors of /llms.txt, published at the paths agents guess.
+    # See scripts/mirror-index-aliases.sh for which paths and, more usefully,
+    # which one (/ai.txt) is deliberately left 404ing.
+    "/llm.txt", "/.well-known/llms.txt",
 }
+
+# Alias paths that must exist and must be byte-identical to EN_INDEX. Kept here
+# rather than only in the shell script so that CI does not depend on having run
+# it: the check is what makes the copy safe, and a copy nobody checks is drift
+# with extra steps.
+INDEX_MIRRORS = ("llm.txt", ".well-known/llms.txt")
 
 # The closed vocabulary. Three values, and the whole index leans on them.
 STATES = {"survived", "speculative", "retired"}
@@ -493,6 +505,28 @@ def main() -> int:  # noqa: C901 - one function, one report; splitting it hides 
                     )
                     + "    Run scripts/build-llms-full.sh."
                 )
+
+    # ---- INV-13. The alias mirrors exist and still match. ----
+    # /llm.txt (singular) 404'd for as long as this site had an index, and was
+    # found only when an external agent guessed it and got nothing. Reachability
+    # is not a property of the canonical URL alone; it is a property of every URL
+    # a stranger plausibly tries. Mirroring is cheap, and the only cost of a copy
+    # is drift, so the copy is checked rather than trusted.
+    canonical = en_path.read_bytes()
+    for rel in INDEX_MIRRORS:
+        mirror = ROOT / rel
+        if not mirror.exists():
+            problems.append(
+                f"INV-13. /{rel} is missing. It is a published alias of /{EN_INDEX};\n"
+                "    an agent that guesses it gets a 404 instead of the index.\n"
+                "    Run scripts/mirror-index-aliases.sh."
+            )
+        elif mirror.read_bytes() != canonical:
+            problems.append(
+                f"INV-13. /{rel} has drifted from /{EN_INDEX}.\n"
+                "    Two different indexes are being served under two URLs, and only one\n"
+                "    of them is current. Run scripts/mirror-index-aliases.sh."
+            )
 
     # ---- INV-12. Every publishable .md/.pdf declares a language. ----
     # Same doctrine as .llms-exclude: silence is not an option. HTML declares its

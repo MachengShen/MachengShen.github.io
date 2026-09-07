@@ -23,6 +23,12 @@ INCLUDE_SUFFIXES = {".html", ".md", ".pdf", ".txt", ".jsonld"}
 SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules"}
 SKIP_FILES = {"robots.txt", "sitemap.xml", "README.md"}
 
+# Byte-identical alias copies of llms.txt (see scripts/mirror-index-aliases.sh).
+# They are the same document served at another URL, not additional artifacts, so
+# they are not listed here -- a sitemap that advertises three URLs for one
+# document is telling a crawler something false about the site's size.
+SKIP_PATHS = {"llm.txt", ".well-known/llms.txt"}
+
 
 def last_commit_date(path: Path) -> str:
     """Last commit touching this path, as YYYY-MM-DD. Falls back to mtime."""
@@ -57,6 +63,8 @@ def entries() -> list[tuple[str, str]]:
         if any(part in SKIP_DIRS for part in parts[:-1]):
             continue
         if p.name in SKIP_FILES or p.name.startswith("."):
+            continue
+        if p.relative_to(ROOT).as_posix() in SKIP_PATHS:
             continue
         if p.suffix.lower() not in INCLUDE_SUFFIXES:
             continue

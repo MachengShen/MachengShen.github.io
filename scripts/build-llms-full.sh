@@ -91,3 +91,7 @@ build() {
 
 build llms.txt    llms-full.txt    en
 build llms.zh.txt llms-full.zh.txt zh
+
+# The alias mirrors are derived from llms.txt too, and forgetting them is how
+# /llm.txt came to 404 in the first place. Same command, same moment.
+bash "$(dirname "$0")/mirror-index-aliases.sh"
