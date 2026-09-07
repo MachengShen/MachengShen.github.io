@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://machengshen.github.io"
 
 INCLUDE_SUFFIXES = {".html", ".md", ".pdf", ".txt", ".jsonld"}
-SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules"}
+SKIP_DIRS = {".git", ".github", ".claude", "scripts", "assets", "node_modules"}
 SKIP_FILES = {"robots.txt", "sitemap.xml", "README.md"}
 
 # Byte-identical alias copies of llms.txt (see scripts/mirror-index-aliases.sh).

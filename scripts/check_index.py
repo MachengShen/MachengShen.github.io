@@ -58,7 +58,7 @@ SITE = "https://machengshen.github.io"
 PUBLISHABLE_SUFFIXES = {".html", ".md", ".pdf"}
 
 # Directories we never walk into.
-SKIP_DIRS = {".git", ".github", "scripts", "assets", "node_modules"}
+SKIP_DIRS = {".git", ".github", ".claude", "scripts", "assets", "node_modules"}
 
 # Path prefixes that live on machengshen.github.io but are NOT served by this
 # repository. GitHub mounts a repo's own Pages site at /<repo>/ on the user
