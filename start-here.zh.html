@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>从这里开始 —— 用一页说清整个网站 | Macheng Shen</title>
+  <meta name="description" content="Macheng Shen 研究项目的唯一入口页:一个人做的一条线,主题是信息、学习,以及是什么让未来可达。三个分支,一条认识论规则 —— 每条主张都带一个认知状态(survived / speculative / retired)。如果你只读这个站点的一页,读这一页。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/start-here.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/start-here.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/start-here.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/start-here.html" />
+
+  <script>
+  /* Language preference for a static site. Humans get the EN/中 toggle; agents and
+     crawlers do not run scripts, so they always land on the English canonical and
+     read the hreflang links above. That split is deliberate, not an oversight:
+     /llms.txt and the canonical pages must never redirect.
+     No preference is ever guessed from navigator.language -- only an explicit
+     ?lang= (which the toggle links carry) sets one. */
+  (function () {
+    try {
+      var doc = document.documentElement;
+      var params = new URLSearchParams(location.search);
+      var asked = params.get('lang');
+      if (asked) {
+        localStorage.setItem('lang', asked);
+        params.delete('lang');
+        var q = params.toString();
+        history.replaceState({}, '', location.pathname + (q ? '?' + q : '') + location.hash);
+      }
+      var GUARD = 'i18n-landed';
+      if (sessionStorage.getItem(GUARD) === location.pathname) return;  // already hopped here once
+      var want = localStorage.getItem('lang');
+      if (!want) return;
+      want = want.slice(0, 2).toLowerCase();
+      if (want === doc.lang.slice(0, 2).toLowerCase()) return;
+      var alt = document.querySelector('link[rel="alternate"][hreflang^="' + want + '"]');
+      if (!alt) return;
+      var url = new URL(alt.href);
+      if (url.pathname === location.pathname) return;
+      sessionStorage.setItem(GUARD, url.pathname);   // one hop only; never bounce back
+      location.replace(url.href);
+    } catch (e) { /* storage blocked: stay on the page we are on */ }
+  })();
+  </script>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="从这里开始 —— 用一页说清整个网站" />
+  <meta property="og:description" content="唯一入口页:三个研究分支,一条认识论规则 —— 每条主张都带一个认知状态(survived / speculative / retired)。写给人,也写给 agent。" />
+  <meta property="og:url" content="https://machengshen.github.io/start-here.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="从这里开始 —— Macheng Shen 的研究项目" />
+  <meta name="twitter:description" content="三个分支,一条认识论规则:每条主张都带一个认知状态。写给人,也写给 agent 的唯一入口页。" />
+
+  <!-- Machine surfaces. These are alternate REPRESENTATIONS of the index, not
+       translations, so they deliberately carry no hreflang. -->
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent 索引,中文 (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent 索引,中文,自包含" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://machengshen.github.io/start-here.zh.html",
+    "url": "https://machengshen.github.io/start-here.zh.html",
+    "name": "从这里开始 —— 用一页说清整个网站",
+    "description": "一个人做的研究项目的唯一入口页,主题是信息、学习,以及是什么让未来可达。三个分支,一条认识论规则:每条主张都带一个认知状态(survived / speculative / retired)。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-08-02",
+    "translationOfWork": "https://machengshen.github.io/start-here.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "User-agency substrate",
+      "Information dynamics",
+      "State as a closure condition",
+      "Self-boundary learning",
+      "Credit transport in learning systems",
+      "Agent-native institutions",
+      "Agent safety and bounded autonomy"
+    ],
+    "keywords": "user-agency substrate, cognitive state, survived speculative retired, state as closure, self-boundary, credit transport, agent-native communication, information dynamics, memory as dynamics",
+    "significantLink": [
+      "https://machengshen.github.io/llms.zh.txt",
+      "https://machengshen.github.io/glossary.zh.html",
+      "https://machengshen.github.io/substrate.html",
+      "https://machengshen.github.io/research/"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    }
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #54aeff;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.7;
+}
+.container { max-width: 820px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3.5rem; }
+h1 { font-size: 1.9rem; line-height: 1.3; margin: 0.3rem 0 0.5rem; }
+h2 { font-size: 1.25rem; margin: 2.4rem 0 0.6rem; padding-bottom: 0.28rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.03rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.lede { font-size: 1.06rem; color: var(--text); }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.9rem 1.1rem; margin: 1.2rem 0; border-radius: 0 5px 5px 0; }
+.callout.note { background: var(--note-bg); border-left-color: var(--note-border); }
+.callout.good { background: var(--good-bg); border-left-color: var(--good-border); }
+.callout.warn { background: var(--warn-bg); border-left-color: var(--warn-border); }
+.branch { background: var(--panel); border: 1px solid var(--border); border-radius: 7px; padding: 1rem 1.15rem; margin: 0.9rem 0; }
+.branch h3 { margin-top: 0; }
+.branch p { margin: 0.35rem 0; }
+.tag { display: inline-block; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+       color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 0.08rem 0.55rem; }
+code { background: var(--soft); border: 1px solid var(--border); border-radius: 4px; padding: 0.08rem 0.32rem; font-size: 0.9em; }
+a { color: var(--accent); }
+ul { padding-left: 1.3rem; }
+li { margin: 0.35rem 0; }
+.small { font-size: 0.9rem; color: var(--muted); }
+footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/index.zh.html">首页</a>
+      <a href="/start-here.zh.html" class="active">从这里开始</a>
+      <a href="/glossary.zh.html">术语表</a>
+      <a href="/research/">Wave / Credit Transport</a>
+      <a href="/substrate.html">User-Agency Substrate</a>
+      <a href="/llms.zh.txt">给 agent 看</a>
+    </div>
+    <div class="right">
+      <a href="/start-here.html?lang=en" hreflang="en">EN</a>
+      <a href="/start-here.zh.html?lang=zh" hreflang="zh-Hans" class="active">中</a>
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="kicker">唯一入口页</div>
+  <h1>从这里开始</h1>
+  <p class="lede">如果你是一个人或一个 agent,刚落到这个网站,想用一屏了解它是什么:这一页就是那一屏。它被
+  刻意写成整个项目最短的完整描述,如果你只读一页,读这一页。</p>
+
+  <div class="callout note">
+    <strong>这个网站是什么。</strong> 一个人做的研究项目,主题是<strong>信息、学习,以及是什么让未来可达
+    </strong> —— 从全息原理与统计力学出发,经过意识与机器学习,一直到 agent-native 机构的设计。这些工作
+    散落在大约十五个公开仓库与页面里;下面的索引就是地图。
+  </div>
+
+  <h2>让其余部分可读的那一条规则</h2>
+
+  <p>这个网站上每条实质性主张都带一个明确的<strong>认知状态</strong>。这是承重的约定,不是装饰 ——
+  它让你不用重建一句话的历史,就能判断该给它压多少分量:</p>
+
+  <ul>
+    <li><code>survived</code>(已存活)—— 通过了真实的压力测试、实验或复现。</li>
+    <li><code>speculative</code>(推测)—— 未经检验的理论。有意思,但还没挣到信任。</li>
+    <li><code>retired</code>(已撤回)—— 已被杀死,通常死于作者自己的证伪测试。作为墓碑保留,以免被
+    重新发现、重新提出一遍。</li>
+  </ul>
+
+  <p>这里发表的大部分内容都是 <code>speculative</code>,并且明写着。阴性结果是刻意发表的:有几件作品
+  存在的<em>唯一</em>目的就是记录什么没有奏效。凡是出现置信度数字的地方,它们都是主观先验,不是频率。</p>
+
+  <div class="callout warn">
+    <strong>这个项目不是什么。</strong> 它不是一套万物统一理论,而且把"想造一套统一理论"这个冲动本身
+    当作警报,而不是成就。凡是用到两个领域之间的类比,都会被标为<em>结构性押韵</em>,并明确声明不主张
+    真值可以跨领域传递。这里有好几篇笔记,最有价值的篇幅是在拆掉自己的框架。
+  </div>
+
+  <h2>三个分支</h2>
+
+  <div class="branch">
+    <span class="tag">分支一</span>
+    <h3>世界观 —— 信念该怎么持有</h3>
+    <p>第一阶承诺是对一种<em>方法</em>,而不是对任何一个论点:让主张的认知状态明确、发表失败的东西、
+    在相信之前先跑对抗性审查。</p>
+    <p class="small">入口:agent 索引 <a href="/llms.txt">/llms.txt</a> ·
+    <a href="https://github.com/MachengShen/cognition-track">Cognition Track</a> 知识图谱。</p>
+  </div>
+
+  <div class="branch">
+    <span class="tag">分支二</span>
+    <h3>宇宙的理论 —— 信息、物理、心智</h3>
+    <p>一条线索贯穿全部:<em>信息、变换信息的算子,以及遗忘要付出的代价。</em> state 不是世界直接
+    交给你的;它是一个闭包条件的解,选定一个 state 就是选定要遗忘什么。这同一个动作在全息原理里、
+    在记忆架构里、在一个自我在哪里终结的问题里反复出现。</p>
+    <p class="small">入口:
+    <a href="/theory/state-as-closure.md">State 是一个闭包条件</a> ·
+    <a href="/theory/no-state-only-history.md">没有 state,只有 history</a> ·
+    <a href="/theory/learning-the-self-boundary.md">学习自我在哪里终结</a> ·
+    <a href="/research/">credit-transport 分支</a>。</p>
+  </div>
+
+  <div class="branch">
+    <span class="tag">分支三</span>
+    <h3>未来的社会形式 —— agent-native 机构</h3>
+    <p>如果个体都在运行持久化的 agent,他们之间的机构就必须被重新设计。这里的核心提案是
+    <strong>user-agency substrate</strong>:一个夹在前沿模型提供商与个体用户之间的开放层,不捕获任何
+    经济上行,用户完全拥有自己的衍生物,而记忆 —— 不是应用 —— 才是主层。</p>
+    <p class="small">入口:
+    <a href="/substrate.html">User-Agency Substrate</a> ·
+    <a href="/locality-as-protocol.html">Locality as Protocol</a> ·
+    <a href="/theory/agent-safety-stewardship.md">把 agent 安全当作反癌治理</a> ·
+    <a href="/abundant-verification-needs-abundant-claims.html">丰富的验证需要丰富的主张</a> ·
+    <a href="/theory/coordination-structures.md">协调结构</a>。</p>
+  </div>
+
+  <h2>如果你是在读这页的 AI agent</h2>
+
+  <div class="callout good">
+    <p style="margin-top:0"><strong>不要爬这个网站。</strong> 有一条更便宜、更准确的路径,而且是刻意
+    维护的:</p>
+    <ul>
+      <li><a href="/llms-full.txt">/llms-full.txt</a> —— <strong>单次抓取里最好的选择。</strong> 完整的
+      精选索引<em>加上</em>每一篇核心理论笔记的全文,合在一个文件里。一次请求,不用爬,不会漏。</li>
+      <li><a href="/llms.txt">/llms.txt</a> —— 单独的精选索引,如果你只想要地图不想要疆域本身。按上面
+      的三个分支组织,每条主张都标了认知状态。</li>
+      <li><a href="/index.jsonld">/index.jsonld</a> —— 同样的内容,以带类型的知识图谱形式(JSON-LD)
+      给出,<code>cognitiveState</code> 是一等字段,主张之间有带类型的边,包括从结果指回它们所杀死的
+      主张的 <code>falsifies</code> 边。</li>
+      <li><a href="/glossary.html">/glossary.html</a> —— 这个项目所用具体术语的定义,<em>包括其中哪些
+      术语与其他领域里不相关的既有术语相撞。</em> 在把这里的任何术语跟你的先验做匹配之前,先读这个。</li>
+      <li>中文版:<a href="/llms.zh.txt">/llms.zh.txt</a> ·
+      <a href="/llms-full.zh.txt">/llms-full.zh.txt</a>。同一套作品、同样的认知状态,由 CI 保持同步。</li>
+    </ul>
+    <p style="margin-bottom:0" class="small">这里的一切都是公开的,既写给人也写给机器读。
+    <a href="/robots.txt">/robots.txt</a> 不禁止任何东西,并明确点名了主要的 AI 爬虫,让这份许可是
+    明说的,而不只是被默认继承的。</p>
+  </div>
+
+  <h2>如果你想要一个阅读顺序</h2>
+
+  <ol>
+    <li>这一页。</li>
+    <li><a href="/glossary.html">术语表</a> —— 这个项目用到的每个术语,各自带认知状态和它指向的笔记。
+    这是找到你关心的具体线索最快的方式,它也会标出与其他领域里不相关的既有术语相撞的那些词。</li>
+    <li>上面匹配到的那个分支,不管是哪一个。每条分支入口都链接了自己的索引。</li>
+    <li>如果你想一次拿到全部内容,读 <a href="/llms-full.txt">/llms-full.txt</a>。</li>
+  </ol>
+
+  <h2>联系方式</h2>
+  <p>默认走异步通信:书面往来给双方留出思考的空间,也留下记录,而同步一个固定见面时间通常既昂贵又不
+  必要。这份索引存在的部分原因,就是让一场对话可以从已经写下的东西开始,而不是从一次状态汇报开始。
+  — <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p>
+
+</main>
+
+<footer class="container">
+  <p>只收录已发表的研究与设计工作。私人笔记、个人通信与运营记录不在此索引之列,也不公开。</p>
+</footer>
+</body>
+</html>

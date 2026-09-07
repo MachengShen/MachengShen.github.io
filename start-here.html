@@ -7,6 +7,43 @@
   <meta name="description" content="The canonical entry point to Macheng Shen's research program: a one-person line on information, learning, and what makes futures reachable. Three branches, one epistemic rule — every claim carries a cognitive state (survived, speculative, retired). If you read only one page here, read this one." />
 
   <link rel="canonical" href="https://machengshen.github.io/start-here.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/start-here.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/start-here.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/start-here.html" />
+
+  <script>
+  /* Language preference for a static site. Humans get the EN/中 toggle; agents and
+     crawlers do not run scripts, so they always land on the English canonical and
+     read the hreflang links above. That split is deliberate, not an oversight:
+     /llms.txt and the canonical pages must never redirect.
+     No preference is ever guessed from navigator.language -- only an explicit
+     ?lang= (which the toggle links carry) sets one. */
+  (function () {
+    try {
+      var doc = document.documentElement;
+      var params = new URLSearchParams(location.search);
+      var asked = params.get('lang');
+      if (asked) {
+        localStorage.setItem('lang', asked);
+        params.delete('lang');
+        var q = params.toString();
+        history.replaceState({}, '', location.pathname + (q ? '?' + q : '') + location.hash);
+      }
+      var GUARD = 'i18n-landed';
+      if (sessionStorage.getItem(GUARD) === location.pathname) return;  // already hopped here once
+      var want = localStorage.getItem('lang');
+      if (!want) return;
+      want = want.slice(0, 2).toLowerCase();
+      if (want === doc.lang.slice(0, 2).toLowerCase()) return;
+      var alt = document.querySelector('link[rel="alternate"][hreflang^="' + want + '"]');
+      if (!alt) return;
+      var url = new URL(alt.href);
+      if (url.pathname === location.pathname) return;
+      sessionStorage.setItem(GUARD, url.pathname);   // one hop only; never bounce back
+      location.replace(url.href);
+    } catch (e) { /* storage blocked: stay on the page we are on */ }
+  })();
+  </script>
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Macheng Shen" />
@@ -128,6 +165,8 @@ footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; color: v
       <a href="/llms.txt">For agents</a>
     </div>
     <div class="right">
+      <a href="/start-here.html?lang=en" hreflang="en" class="active">EN</a>
+      <a href="/start-here.zh.html?lang=zh" hreflang="zh-Hans">中</a>
       <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
     </div>
   </div>

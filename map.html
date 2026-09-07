@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The map | Macheng Shen</title>
+  <meta name="description" content="Everything this research program has published, in five layers: universe and information, intelligence and memory, agency and boundary, many agents and coexistence, engineering harness and safety. Every entry carries its cognitive state — survived, speculative, or retired." />
+
+  <link rel="canonical" href="https://machengshen.github.io/map.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/map.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/map.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/map.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="The map | Macheng Shen" />
+  <meta property="og:description" content="Everything this research program has published, in five layers: universe and information, intelligence and memory, agency and boundary, many agents and coexistence, engineering harness and safety. Every entry carries its cognitive state — survived, speculative, or retired." />
+  <meta property="og:url" content="https://machengshen.github.io/map.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://machengshen.github.io/assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The map | Macheng Shen" />
+  <meta name="twitter:description" content="Everything this research program has published, in five layers: universe and information, intelligence and memory, agency and boundary, many agents and coexistence, engineering harness and safety. Every entry carries its cognitive state — survived, speculative, or retired." />
+  <meta name="twitter:image" content="https://machengshen.github.io/assets/og-card.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
+  <script>
+  /* Language preference for a static site, copied verbatim from index.html so
+     the two behave identically. Humans get the EN/中 toggle; agents and
+     crawlers do not run scripts, so they always land on the English canonical
+     and read the hreflang links above. No preference is ever guessed from
+     navigator.language -- only an explicit ?lang= sets one. */
+  (function () {
+    try {
+      var doc = document.documentElement;
+      var params = new URLSearchParams(location.search);
+      var asked = params.get('lang');
+      if (asked) {
+        localStorage.setItem('lang', asked);
+        params.delete('lang');
+        var q = params.toString();
+        history.replaceState({}, '', location.pathname + (q ? '?' + q : '') + location.hash);
+      }
+      var GUARD = 'i18n-landed';
+      if (sessionStorage.getItem(GUARD) === location.pathname) return;
+      var want = localStorage.getItem('lang');
+      if (!want) return;
+      want = want.slice(0, 2).toLowerCase();
+      if (want === doc.lang.slice(0, 2).toLowerCase()) return;
+      var alt = document.querySelector('link[rel="alternate"][hreflang^="' + want + '"]');
+      if (!alt) return;
+      var url = new URL(alt.href);
+      if (url.pathname === location.pathname) return;
+      sessionStorage.setItem(GUARD, url.pathname);
+      location.replace(url.href);
+    } catch (e) { /* storage blocked: stay on the page we are on */ }
+  })();
+  </script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <a class="name" href="/">Macheng Shen</a>
+    <nav aria-label="Site">
+        <a href="/">Home</a>
+        <a href="/map.html" aria-current="page">The map</a>
+        <a href="/start-here.html">Start here</a>
+        <a href="/glossary.html">Glossary</a>
+        <a href="/safety/">Safety</a>
+        <a href="/llms.txt">For agents</a>
+    </nav>
+    <div class="lang">
+      <a href="/map.html?lang=en" hreflang="en" aria-current="true">EN</a>
+      <span>/</span>
+      <a href="/map.zh.html?lang=zh" hreflang="zh-Hans">中文</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>The map</h1>
+  <p class="lede">One question, asked at six depths: what makes a future reachable, and what does a finite physical system have to build inside itself in order to reach one.</p>
+  <p>Read the state before the title. Every entry below is marked <strong>survived</strong> (it has passed a real test), <strong>speculative</strong> (untested, interesting, unearned), or <strong>retired</strong> (killed, usually by its own author). Retired work is not deleted. It stays at its original URL so that it is not rediscovered and proposed again — including by whoever proposed it the first time.</p>
+  <p>The six sections run from the least agent-like layer to the most, but nothing here is a prerequisite for anything else. Pick the layer you already argue about and start there. <a href="/llms.txt">/llms.txt</a> is this same index for machines, and <a href="/map.zh.html?lang=zh">中文版在这里</a>.</p>
+  <ul class="legend" hidden aria-label="Click to filter">
+    <li><button type="button" class="survived" data-state="survived" aria-pressed="true"><span class="dot survived" aria-hidden="true"></span>survived<span class="count">10</span></button></li>
+    <li><button type="button" class="speculative" data-state="speculative" aria-pressed="true"><span class="dot speculative" aria-hidden="true"></span>speculative<span class="count">35</span></button></li>
+    <li><button type="button" class="retired" data-state="retired" aria-pressed="true"><span class="dot retired" aria-hidden="true"></span>retired<span class="count">2</span></button></li>
+  </ul>
+
+  <section class="section" id="entry">
+    <h2>Where to start</h2>
+    <p class="blurb">Three things that describe the whole program before you commit to any part of it.</p>
+    <ul class="spine">
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/start-here.html">Start here — the one page that explains this whole site</a></h3>
+          <p class="rec-meta"><time datetime="2026-08-06">2026-08-06</time></p>
+        </div>
+        <p class="rec-alt">从这里开始 —— 一页说清整个站</p>
+        <p class="rec-line">The shortest complete description of the whole program — three branches and one epistemic rule, in one screen.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/glossary.html">Glossary — the terms this research program uses, and the ones they collide with</a></h3>
+          <p class="rec-meta"><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">术语表 —— 这个计划在用的词,以及那些撞了名的词</p>
+        <p class="rec-line">Defines every term in current use with its cognitive state and the note it points at; flags terms colliding with unrelated literature.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/cognition-track">Cognition Track</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/MachengShen</span></p>
+        </div>
+        <p class="rec-line">Agent-traversable knowledge graph of non-consensus claims about intelligence and learning; cognitive state is first-class on every node.</p>
+      </li>
+    </ul>
+  </section>
+  <section class="section" id="universe">
+    <h2>Universe and information</h2>
+    <p class="blurb">What information is, physically, and what it costs to keep. Geometry recovered from entanglement, state recovered from history, and two attempts on consciousness that are kept here because they were made, not because they worked.</p>
+    <ul class="spine">
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/holography-koopman.md">Holography and Koopman: two faces of one inverse problem</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-13">2026-07-13</time></p>
+        </div>
+        <p class="rec-alt">全息 ↔ Koopman:同一个反问题的两副面孔</p>
+        <p class="rec-line">Holographic geometry-from-entanglement and Koopman eigenbasis learning are the same inverse problem: recover an operator&#x27;s eigenstructure from what it does.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/state-as-closure.md">State is a closure condition, not a given set</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-04">2026-08-04</time></p>
+        </div>
+        <p class="rec-alt">State 是一个闭包条件,不是给定的集合</p>
+        <p class="rec-line">Treats task-relative state as a closure representation under world/interface/capacity/telos, as inference rather than universal ontology; scope amended 2026-08-04.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/no-state-only-history.md">No state, only history</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-04">2026-08-04</time></p>
+        </div>
+        <p class="rec-alt">没有 state,只有 history</p>
+        <p class="rec-line">Withdraws its broad diagnosis; a persistent autonomous closure state is still missing from Transformers, narrower than earlier claimed. E1 stands, E3 confidence reset to 0.35.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/what-is-a-force.html">What a force is — none of the four fundamental forces is a force</a></h3>
+          <p class="rec-meta"><time datetime="2026-08-30">2026-08-30</time></p>
+        </div>
+        <p class="rec-alt">「力」是什么 —— 四种基本力里没有一个是「力」</p>
+        <p class="rec-line">Second comparison note: energy is placed by Noether&#x27;s theorem, a force&#x27;s modern identity is connection curvature, glueballs collapse the matter/force dichotomy.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/information-and-qi.html">Information and qi — a comparison note on a parallel line</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">信息与气 —— 对一条平行线路的对照笔记</p>
+        <p class="rec-line">Compares an RL/decision-theory/robotics line against a YouTube channel&#x27;s information-ontology arcs; four points of convergence, one deliberately declined step.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/consciousness-as-quantum-mechanics.md">Can consciousness be studied mathematically, the way quantum mechanics is?</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-04">2026-08-04</time></p>
+        </div>
+        <p class="rec-alt">能不能像研究量子力学那样,用数学研究意识?</p>
+        <p class="rec-line">Boundary note: high-dimensional states carry no quantum specificity; withdraws the earlier holonomy/hysteresis/consciousness identification, keeps first-person experience as data.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/strings-to-consciousness.html">From strings to consciousness</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-10">2026-03-10</time></p>
+        </div>
+        <p class="rec-alt">从弦到意识</p>
+        <p class="rec-line">From strings to consciousness (Chinese-only research page).</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/consciousness-unified-theory.html">A unified-theory attempt on consciousness</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-10">2026-03-10</time></p>
+        </div>
+        <p class="rec-alt">一次关于意识的统一理论尝试</p>
+        <p class="rec-line">A unified-theory attempt on consciousness (Chinese-only research page).</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/living-information-system">Living Information System</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Umbrella research program on information&#x27;s future-reachability and how it is preserved or destroyed across physical, living, and cognitive systems.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/reversible-layer-aging">Reversible Layer Aging</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Re-analysis of two human EPIC methylation datasets: under partial reprogramming, the causal-damage layer reverts youthward while the adaptive layer does not.</p>
+      </li>
+    </ul>
+  </section>
+  <section class="section" id="intelligence">
+    <h2>Intelligence and memory</h2>
+    <p class="blurb">How a finite system moves update information around inside itself, and what it has to give up to remember. This is the layer with the most measured results, and also the one retired claim the program is most attached to.</p>
+    <ul class="spine">
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/essay.pdf">Toward a Theory of Intelligence and Contemporary AI</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-03">2026-03-03</time></p>
+        </div>
+        <p class="rec-alt">迈向一套智能的理论:兼论当代 AI</p>
+        <p class="rec-line">The long-form essay on a theory of intelligence and contemporary AI; also linked from the homepage.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/discounted-credit-is-a-cokernel.md">Discounted credit is a cokernel problem, not a loop holonomy</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span><time datetime="2026-08-04">2026-08-04</time></p>
+        </div>
+        <p class="rec-alt">折扣信用分配是余核问题，不是闭环 holonomy</p>
+        <p class="rec-line">Withdraws M=4.095 as gauge-invariant holonomy; replaces it with a weighted reward residual modulo the discounted incidence operator&#x27;s image, exact-enumerated at 42/45.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/essays/why-distributed-memory-matters-for-lifelong-agents/">Why distributed memory matters for lifelong agents</a></h3>
+          <p class="rec-meta"><time datetime="2026-07-09">2026-07-09</time></p>
+        </div>
+        <p class="rec-alt">为什么终身 agent 需要分布式记忆</p>
+        <p class="rec-line">Essay on why distributed memory matters for lifelong agents.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/long-term-memory/ltm-field-guide-2026-09-03.pdf">LTM Field Guide (2026-09-03)</a></h3>
+          <p class="rec-meta"><time datetime="2026-09-03">2026-09-03</time></p>
+        </div>
+        <p class="rec-alt">长期记忆田野指南(2026-09-03)</p>
+        <p class="rec-line">Public field-guide PDF published for direct social distribution, deliberately outside the intellectual index until externally cold-read.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/essays/meta-control-information-gain-and-the-architecture-of-autonomous-learning/">Meta-control, information gain, and the architecture of autonomous learning</a></h3>
+          <p class="rec-meta"><time datetime="2026-07-09">2026-07-09</time></p>
+        </div>
+        <p class="rec-alt">元控制、信息增益,与自主学习的架构</p>
+        <p class="rec-line">Essay on meta-control, information gain, and the architecture of autonomous learning.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/essays/harness-engineering-and-the-physical-instantiation-of-intelligence/">Harness engineering and the physical instantiation of intelligence</a></h3>
+          <p class="rec-meta"><time datetime="2026-07-09">2026-07-09</time></p>
+        </div>
+        <p class="rec-alt">装置工程,与智能的物理落地</p>
+        <p class="rec-line">Essay on harness engineering and the physical instantiation of intelligence.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/essays/where-objectives-come-from-and-why-solutions-become-strategic-assets/">Where objectives come from — and why solutions become strategic assets</a></h3>
+          <p class="rec-meta"><time datetime="2026-07-09">2026-07-09</time></p>
+        </div>
+        <p class="rec-alt">目标从哪里来 —— 以及解法为什么会变成战略资产</p>
+        <p class="rec-line">Essay on where objectives come from and why solutions become strategic assets.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/ideas/blog/line-loss-for-intelligence/">Line loss for intelligence</a></h3>
+        </div>
+        <p class="rec-alt">智能的线损</p>
+        <p class="rec-line">Older essay: line loss for intelligence. Served by a separate shadowing repository (MachengShen/ideas); content unverifiable from this repo.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/ideas/blog/from-mutual-information-to-endogenous-viability/">From mutual information to endogenous viability</a></h3>
+        </div>
+        <p class="rec-alt">从互信息到内生可存续性</p>
+        <p class="rec-line">Older essay: from mutual information to endogenous viability. Served by a separate shadowing repository; unverifiable from this repo.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/ideas/blog/safety-in-a-computational-universe/">Safety in a computational universe</a></h3>
+        </div>
+        <p class="rec-alt">计算宇宙中的安全</p>
+        <p class="rec-line">Older essay: safety in a computational universe. Served by a separate shadowing repository; unverifiable from this repo.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/why-habits-are-a-latch.html">Why you cannot shake a habit — it is not mud, it is a latch</a></h3>
+          <p class="rec-meta"><time datetime="2026-09-01">2026-09-01</time></p>
+        </div>
+        <p class="rec-alt">为什么你改不掉一个习惯 —— 它不是泥巴,是一个门闩</p>
+        <p class="rec-line">The past holds the present in only three physical ways — mud, spring, latch — and a habit is the third (hysteresis).</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/flow-dopamine-and-stop-signals.html">Flow, dopamine, and stop signals</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">心流、多巴胺与停止信号</p>
+        <p class="rec-line">Evidence review of gamified-interface claims: dopamine codes prediction error not reward, adaptive difficulty is weakly evidenced, most stop-signal interventions underperform.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/">Research overview</a></h3>
+          <p class="rec-meta"><time datetime="2026-07-13">2026-07-13</time></p>
+        </div>
+        <p class="rec-alt">研究总览</p>
+        <p class="rec-line">Branch index page for the wave / credit-transport research line.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/hebbian-wave-interference.html">Hebbian appearance, instructive signals, and physical credit transport</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-13">2026-03-13</time></p>
+        </div>
+        <p class="rec-alt">Hebbian 的外观、instructive signal,与物理的 credit transport</p>
+        <p class="rec-line">Current working note: why local plasticity can look Hebbian while carrying task-dependent update information, and where wave/adjoint language helps.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/sleep-learning-wave-theory.html">Sleep, waves, and learning</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-13">2026-03-13</time></p>
+        </div>
+        <p class="rec-alt">睡眠、波与学习</p>
+        <p class="rec-line">Speculative theory note on wave-based learning mechanisms during sleep.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/response-to-lillicrap.html">Response to Lillicrap</a></h3>
+          <p class="rec-meta"><time datetime="2026-03-13">2026-03-13</time></p>
+        </div>
+        <p class="rec-alt">回应 Lillicrap</p>
+        <p class="rec-line">On backprop and biological plausibility; kept as background, superseded by the more cautious credit-transport framing. No cognitive state asserted.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/wave-backprop-full.html">Backpropagation, adjoint fields, and physical transport constraints</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-03-13">2026-03-13</time></p>
+        </div>
+        <p class="rec-alt">反向传播、伴随场,与物理传输约束</p>
+        <p class="rec-line">Exploratory note carrying its own title correction: what physical systems actually show about backprop-like transport, and what they do not yet show.</p>
+      </li>
+      <li class="rec is-retired" data-state="retired">
+        <span class="dot retired" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/research/wave-backprop-en.html">Deriving backpropagation from wave equations</a></h3>
+          <p class="rec-meta"><span class="state retired">retired</span><time datetime="2026-07-13">2026-07-13</time></p>
+        </div>
+        <p class="rec-alt">从波动方程推导反向传播</p>
+        <p class="rec-line">Retired original claim that wave reflection derives backpropagation from first principles; kept at its original URL as a reachable retraction notice.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/continual-learning-lab">Continual Learning Lab</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Open log of small, pre-registered continual-learning experiments, negative results included.</p>
+      </li>
+    </ul>
+  </section>
+  <section class="section" id="agency">
+    <h2>Agency and boundary</h2>
+    <p class="blurb">Where one agent ends and another begins, and whether that boundary is discovered or maintained. Several of these are negative results: the claim was made, tested, and withdrawn, and the withdrawal is the finding.</p>
+    <ul class="spine">
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/learning-the-self-boundary.md">Learning where the self ends</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-12">2026-08-12</time></p>
+        </div>
+        <p class="rec-alt">学习「我到哪里为止」</p>
+        <p class="rec-line">A robot should learn the self/environment boundary; three of four supporting claims were destroyed by the authors&#x27; own re-analysis. Not ratified.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/learning-the-self-boundary-log.md">Stage log — the self-boundary line, in order</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-28">2026-07-28</time></p>
+        </div>
+        <p class="rec-alt">阶段日志 - 自我边界这条线,按顺序</p>
+        <p class="rec-line">Audit trail for the self-boundary note, one row per stage, mostly recording self-inflicted damage and three reusable methodological mistakes.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/odd-relational-core.md">The odd relational core: anti-bipartiteness as the minimal structure</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-15">2026-07-15</time></p>
+        </div>
+        <p class="rec-alt">奇关系核:反二分作为最小结构</p>
+        <p class="rec-line">Odd cycles are the cheapest structure refusing an us-vs-them binary; the note&#x27;s own adversarial audit then demotes &#x27;odd&#x27; to a corollary of &#x27;anti-binary&#x27;.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/two-body-karma.md">Two-body karma: three modes of relational inertia</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-20">2026-07-20</time></p>
+        </div>
+        <p class="rec-alt">两体业力:关系里的三种惯性</p>
+        <p class="rec-line">Extends single-mind habit inertia (mud/spring/latch) to two coupled minds, where the inertia lives in the coupling rather than either person.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/intention-as-measure-change.html">We proposed it, then we killed it — intention as a change of measure</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">我们提出它,然后自己杀掉它 —— 起心动念 = 换测度</p>
+        <p class="rec-line">Intention formalized as Girsanov measure-change with KL-control/Doob h-transform; retracts a meditation prediction found verbatim in the paper it was meant to contradict.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/photographs-and-the-memory-generator.html">A photograph is an external fixed point</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">照片是一个被注入的外部不动点</p>
+        <p class="rec-line">If recall is generation not playback, a photograph is a fixed low-dimensional projection clamped against a changing memory; corrects its own false-memory-vector claim.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/what-a-family-transmits.html">What a family actually transmits</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">一个家族到底传下来了什么</p>
+        <p class="rec-line">Reconciles near-zero shared-environment heritability of personality with 0.79-per-generation persistence of social status via measurement error and assortative mating.</p>
+      </li>
+      <li class="rec is-retired" data-state="retired">
+        <span class="dot retired" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/cancer-is-not-cells-waking-up.html">We thought cancer was cells waking up. The evidence says the opposite.</a></h3>
+          <p class="rec-meta"><span class="state retired">retired</span><time datetime="2026-08-02">2026-08-02</time></p>
+        </div>
+        <p class="rec-alt">我们以为癌是细胞觉醒。证据说正好相反。</p>
+        <p class="rec-line">Negative result: cancer evidence runs control-down-therefore-cancer-up, not cells waking up; about 60% reinvents Levin&#x27;s light-cone contraction, 40% sign-reversed.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/the-form-was-the-cage">The Form Was the Cage</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+          <p class="rec-meta"><span class="ext">github.com/MachengShen</span></p>
+        </div>
+        <p class="rec-line">An agent OS, its self-referential trace, and the end of researcher-as-identity.</p>
+      </li>
+    </ul>
+  </section>
+  <section class="section" id="society">
+    <h2>Many agents, living together</h2>
+    <p class="blurb">What changes when the participants are not all human: how they address each other, what a protocol has to guarantee, and what becomes scarce once answers are cheap.</p>
+    <ul class="spine">
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/coordination-structures.md">Coordination structures as resource-scheduling architectures</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-09">2026-07-09</time></p>
+        </div>
+        <p class="rec-alt">作为资源调度架构的协调结构</p>
+        <p class="rec-line">Polity, firm, market, commons, and protocol as five instances of one resource-scheduling-under-private-information architecture; descriptive, ranks and recommends nothing.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/whitepaper-agent-native-communication/">Agent-Native Open Communication (whitepaper)</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-06-10">2026-06-10</time></p>
+        </div>
+        <p class="rec-alt">Agent-Native Open Communication(白皮书)</p>
+        <p class="rec-line">Whitepaper on next-generation open communication architecture built for agents rather than apps; page is Chinese, source repo carries both languages.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/substrate.html">User-Agency Substrate</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-04-28">2026-04-28</time></p>
+        </div>
+        <p class="rec-alt">User-Agency Substrate(用户主体性底座)</p>
+        <p class="rec-line">Position statement: a nonprofit open-source layer between frontier-model providers and users, capturing no economic upside; users own their derivatives.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/locality-as-protocol.html">Locality as Protocol</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-04-29">2026-04-29</time></p>
+        </div>
+        <p class="rec-alt">Locality as Protocol(把局部性当作协议)</p>
+        <p class="rec-line">Position statement on why locality, not centralization, is the right coordination primitive.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/socrates-in-the-ai-era.html">After answers become cheap, the scarce thing is not asking but judging</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-18">2026-08-18</time></p>
+        </div>
+        <p class="rec-alt">答案变廉价之后,稀缺的不是提问,是判别</p>
+        <p class="rec-line">Response to a YouTube episode on Socratic questioning: argues the scarce complement of cheap generation is verification (testing), not questioning; names three weak points.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/abundant-verification-needs-abundant-claims.html">Abundant verification needs abundant claims</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-08-06">2026-08-06</time></p>
+        </div>
+        <p class="rec-alt">廉价的 verification 还不够，还得有可解析的 claim</p>
+        <p class="rec-line">Cross-line note to another verification program: a typed receipt schema beats a prose-plus-regex blocker gate (5/10 recall) on 18 real agent receipts.</p>
+      </li>
+      <li class="rec" data-state="none">
+        <span class="dot none" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/agent-native-communication">Agent-Native Communication (source repository)</a></h3>
+          <p class="rec-meta"><span class="ext">github.com/MachengShen</span></p>
+        </div>
+        <p class="rec-line">Source repository for the Agent-Native Open Communication whitepaper, carrying both Chinese and English text.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/architecture-v1">Starshard: Architecture v1</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Architecture, safety charter, quickstart, and philosophy for a substrate where memory is the primary layer, owned by the individual not the platform.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/fleet-coordination-protocol">Fleet Coordination Protocol</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Many agents, one shared memory, nothing irreversible behind your back; a narrow descriptive coordination wire above single-agent runtimes.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/starshard-communication">Starshard Communication</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.</p>
+      </li>
+    </ul>
+  </section>
+  <section class="section" id="harness">
+    <h2>The harness, and safety</h2>
+    <p class="blurb">The working end. Safety treated as a property of the machinery around a model rather than of the model itself — with the gates that are actually running separated from the ones that are only specified.</p>
+    <ul class="spine">
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/index.html">Safety is a property of the harness</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+        </div>
+        <p class="rec-alt">安全是装置的属性,不是模型的属性</p>
+        <p class="rec-line">Safety as a harness property, not a model property: bright lines, running gates, four written-up incidents from a one-person agent fleet, and the gaps.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/principles.html">Principles a harness can enforce</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+        </div>
+        <p class="rec-alt">装置能强制执行的那些原则</p>
+        <p class="rec-line">The fleet&#x27;s principle layer: bright lines, a pre-cleared ship envelope, stop as an absorbing state, and why blockers must be measured not guessed.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/mechanisms.html">What is actually running</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+        </div>
+        <p class="rec-alt">真正在跑的是什么</p>
+        <p class="rec-line">Running/specified/private badge on every mechanism; finds the project&#x27;s own public repos fail their own published safety spec today, a 163-pair coverage gap.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/evidence.html">Four incidents, and what they share</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+        </div>
+        <p class="rec-alt">四起事故,以及它们的共同点</p>
+        <p class="rec-line">Four de-identified closed incidents from a personal agent fleet — synthetic-input drift, self-deadlocked gate, hidden failure, downgraded authority — plus one positive result.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/theory.html">The theory underneath, and what it lost</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+        </div>
+        <p class="rec-alt">底下的理论,以及它输掉的部分</p>
+        <p class="rec-line">The research lines a personal agent-fleet safety harness borrows vocabulary from, each reported by what it lost rather than what it hoped.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/safety/roadmap.html">The gaps, and what would falsify this</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span></p>
+        </div>
+        <p class="rec-alt">缺口在哪,以及什么能证伪它</p>
+        <p class="rec-line">What the safety section does not yet do — an unimplemented public Safety Charter, doctrine-not-code stop mechanism, 163 uncovered pairs — and its falsifiers.</p>
+      </li>
+      <li class="rec" data-state="speculative">
+        <span class="dot speculative" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="/theory/agent-safety-stewardship.md">Agent safety as anti-cancer governance</a></h3>
+          <p class="rec-meta"><span class="state speculative">speculative</span><time datetime="2026-07-17">2026-07-17</time></p>
+        </div>
+        <p class="rec-alt">Agent 安全：一种防癌变治理</p>
+        <p class="rec-line">Persistent-agent failure as control pathology: local survival/repair/replication decoupled from owner purpose; defines seven runtime invariants and an A–D disclosure rule.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/reviewer-wheels">Reviewer Wheels</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">Four verification wheels for multi-agent AI coding — drift checks, adversarial review, a reuse compiler, a frontend smoke gate.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/starshard-ai/zhizi-agent-os">Zhizi Agent OS</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/starshard-ai</span></p>
+        </div>
+        <p class="rec-line">One command turns Claude Code into a personal assistant; bring-your-own-key, privacy-clean.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/system-evolution-public">System Evolution, in public</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/MachengShen</span></p>
+        </div>
+        <p class="rec-line">Open record of how this substrate actually evolved — VISION, THEORY, PRACTICE, GOVERNANCE, forecasts, and a self-iteration ledger.</p>
+      </li>
+      <li class="rec" data-state="survived">
+        <span class="dot survived" aria-hidden="true"></span>
+        <div class="rec-head">
+          <h3 class="rec-title"><a href="https://github.com/MachengShen/starshard-public">Receipts</a></h3>
+          <p class="rec-meta"><span class="state survived">survived</span></p>
+          <p class="rec-meta"><span class="ext">github.com/MachengShen</span></p>
+        </div>
+        <p class="rec-line">Running log of work executed by this agent stack, published so the claims above can be checked against what was actually done.</p>
+      </li>
+    </ul>
+  </section>
+</main>
+<footer class="foot"><div class="wrap"><p>© 2026 Macheng Shen. Under continuous revision. Claims that have survived a test, claims that have not been tested, and claims their own author has since falsified are marked apart and none of them are deleted.</p><p><a href="/llms.txt">llms.txt</a> is the same index for agents; <a href="/index.jsonld">index.jsonld</a> is the typed graph. Contact: <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p></div></footer>
+
+  <script>
+  /* The legend is the filter. Progressive enhancement on purpose: with no JS
+     every record is visible and the buttons are absent, which is the correct
+     degraded state for an index -- showing less than everything would be the
+     failure. */
+  (function () {
+    var legend = document.querySelector('.legend');
+    if (!legend) return;
+    legend.hidden = false;
+    var recs = Array.prototype.slice.call(document.querySelectorAll('.rec'));
+    var on = {survived: true, speculative: true, retired: true};
+    legend.addEventListener('click', function (ev) {
+      var b = ev.target.closest('button[data-state]');
+      if (!b) return;
+      var s = b.getAttribute('data-state');
+      on[s] = !on[s];
+      b.setAttribute('aria-pressed', on[s] ? 'true' : 'false');
+      recs.forEach(function (r) {
+        var st = r.getAttribute('data-state');
+        r.hidden = (st in on) && !on[st];
+      });
+      document.querySelectorAll('.section').forEach(function (sec) {
+        var any = sec.querySelector('.rec:not([hidden])');
+        sec.hidden = !any;
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

@@ -4,35 +4,38 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Macheng Shen — information, learning, and what makes futures reachable</title>
-
-  <!-- A description tag is what snippet generators and AI retrievers actually read. Its
-       absence is not neutral: without one they synthesise a summary from whatever cached
-       text they still hold, which is how a years-old snapshot of this page outlives the
-       page itself. The JSON-LD below carries the same sentence; both are needed, because
-       not every consumer reads structured data. -->
   <meta name="description" content="A one-person research program on information, learning, and what makes futures reachable — from holography and statistical mechanics, through consciousness and machine learning, to the design of agent-native institutions. Every claim carries an explicit cognitive state: survived, speculative, or retired." />
-
-  <meta property="og:type" content="profile" />
-  <meta property="og:site_name" content="Macheng Shen" />
-  <meta property="og:title" content="Macheng Shen — information, learning, and what makes futures reachable" />
-  <meta property="og:description" content="A one-person research program running from holography and statistical mechanics through consciousness and machine learning to agent-native institutions. Every claim carries an explicit cognitive state: survived, speculative, or retired." />
-  <meta property="og:url" content="https://machengshen.github.io/" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Macheng Shen — information, learning, and reachable futures" />
-  <meta name="twitter:description" content="A one-person research program on information, learning, and what makes futures reachable. Every claim carries an explicit cognitive state." />
 
   <link rel="canonical" href="https://machengshen.github.io/" />
   <link rel="alternate" hreflang="en" href="https://machengshen.github.io/" />
   <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/index.zh.html" />
   <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/" />
 
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Macheng Shen — information, learning, and what makes futures reachable" />
+  <meta property="og:description" content="A one-person research program on information, learning, and what makes futures reachable — from holography and statistical mechanics, through consciousness and machine learning, to the design of agent-native institutions. Every claim carries an explicit cognitive state: survived, speculative, or retired." />
+  <meta property="og:url" content="https://machengshen.github.io/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://machengshen.github.io/assets/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Macheng Shen — information, learning, and what makes futures reachable" />
+  <meta name="twitter:description" content="A one-person research program on information, learning, and what makes futures reachable — from holography and statistical mechanics, through consciousness and machine learning, to the design of agent-native institutions. Every claim carries an explicit cognitive state: survived, speculative, or retired." />
+  <meta name="twitter:image" content="https://machengshen.github.io/assets/og-card.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <link rel="stylesheet" href="/assets/site.css" />
   <script>
-  /* Language preference for a static site. Humans get the EN/中 toggle; agents and
-     crawlers do not run scripts, so they always land on the English canonical and
-     read the hreflang links above. That split is deliberate, not an oversight:
-     /llms.txt and the canonical pages must never redirect.
-     No preference is ever guessed from navigator.language -- only an explicit
-     ?lang= (which the toggle links carry) sets one. */
+  /* Language preference for a static site, copied verbatim from index.html so
+     the two behave identically. Humans get the EN/中 toggle; agents and
+     crawlers do not run scripts, so they always land on the English canonical
+     and read the hreflang links above. No preference is ever guessed from
+     navigator.language -- only an explicit ?lang= sets one. */
   (function () {
     try {
       var doc = document.documentElement;
@@ -45,7 +48,7 @@
         history.replaceState({}, '', location.pathname + (q ? '?' + q : '') + location.hash);
       }
       var GUARD = 'i18n-landed';
-      if (sessionStorage.getItem(GUARD) === location.pathname) return;  // already hopped here once
+      if (sessionStorage.getItem(GUARD) === location.pathname) return;
       var want = localStorage.getItem('lang');
       if (!want) return;
       want = want.slice(0, 2).toLowerCase();
@@ -54,371 +57,69 @@
       if (!alt) return;
       var url = new URL(alt.href);
       if (url.pathname === location.pathname) return;
-      sessionStorage.setItem(GUARD, url.pathname);   // one hop only; never bounce back
+      sessionStorage.setItem(GUARD, url.pathname);
       location.replace(url.href);
     } catch (e) { /* storage blocked: stay on the page we are on */ }
   })();
   </script>
-
-  <style>
-:root {
-    --bg: #fafbfc;
-    --panel: #ffffff;
-    --text: #24292e;
-    --muted: #57606a;
-    --accent: #0969da;
-    --border: #d0d7de;
-    --soft: #f6f8fa;
-    --warn-bg: #fff8c5;
-    --warn-border: #d4a72c;
-    --good-bg: #dafbe1;
-    --good-border: #1a7f37;
-    --note-bg: #ddf4ff;
-    --note-border: #0969da;
-    --shadow: 0 1px 2px rgba(0,0,0,0.06);
-}
-* { box-sizing: border-box; }
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-    line-height: 1.72;
-    color: var(--text);
-    background: var(--bg);
-    margin: 0;
-}
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 1.4rem;
-}
-header.site-header {
-    background: var(--panel);
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
-.nav {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: space-between;
-}
-.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
-.nav a {
-    color: var(--muted);
-    text-decoration: none;
-    font-weight: 600;
-}
-.nav a.active, .nav a:hover { color: var(--accent); }
-.hero {
-    background: linear-gradient(135deg, #eaf5ff 0%, #f7f0ff 100%);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1.6rem;
-    box-shadow: var(--shadow);
-    margin: 1.25rem 0 1.75rem;
-}
-.hero h1 {
-    margin: 0 0 0.35rem;
-    font-size: 2.2rem;
-    line-height: 1.15;
-}
-.hero p.subtitle {
-    margin: 0.2rem 0 0;
-    color: var(--muted);
-    font-size: 1.05rem;
-}
-h2 {
-    font-size: 1.55rem;
-    margin-top: 2.1rem;
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.25rem;
-    border-bottom: 2px solid var(--border);
-}
-h3 {
-    font-size: 1.16rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.45rem;
-    color: var(--accent);
-}
-p { margin: 0.75rem 0; }
-a { color: var(--accent); }
-.callout {
-    border-radius: 14px;
-    padding: 1rem 1.1rem;
-    margin: 1rem 0;
-    border: 1px solid var(--border);
-    background: var(--panel);
-}
-.callout.caution { background: var(--warn-bg); border-color: var(--warn-border); }
-.callout.note { background: var(--note-bg); border-color: var(--note-border); }
-.callout.good { background: var(--good-bg); border-color: var(--good-border); }
-.muted { color: var(--muted); }
-.small { font-size: 0.96rem; }
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-}
-.card {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 1rem;
-    box-shadow: var(--shadow);
-}
-.card h3 {
-    margin-top: 0;
-}
-.tag {
-    display: inline-block;
-    padding: 0.18rem 0.55rem;
-    border-radius: 999px;
-    background: var(--soft);
-    color: var(--muted);
-    font-size: 0.82rem;
-    font-weight: 700;
-    margin-bottom: 0.65rem;
-}
-ul, ol { padding-left: 1.3rem; }
-li { margin: 0.4rem 0; }
-.equation {
-    background: var(--soft);
-    border-left: 4px solid var(--accent);
-    border-radius: 10px;
-    padding: 1rem 1rem;
-    margin: 1rem 0;
-    overflow-x: auto;
-}
-.quote {
-    border-left: 4px solid var(--border);
-    padding-left: 1rem;
-    color: var(--muted);
-    margin: 1rem 0;
-}
-.footer {
-    margin-top: 2.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-    font-size: 0.95rem;
-}
-.kicker {
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--muted);
-    font-size: 0.82rem;
-    font-weight: 700;
-    margin-bottom: 0.4rem;
-}
-.button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1rem; }
-.button {
-    display: inline-block;
-    padding: 0.68rem 0.95rem;
-    border-radius: 10px;
-    background: var(--accent);
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-}
-.button.secondary {
-    background: var(--panel);
-    color: var(--accent);
-    border: 1px solid var(--border);
-}
-.embed-wrap {
-    background: var(--panel);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    padding: 0.9rem;
-    margin-top: 1rem;
-}
-.embed-wrap embed {
-    width: 100%;
-    min-height: 900px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
-img.profile {
-    width: 110px;
-    height: 110px;
-    border-radius: 16px;
-    object-fit: cover;
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow);
-}
-.hero-flex {
-    display: flex;
-    gap: 1.2rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-hr {
-    border: none;
-    border-top: 1px solid var(--border);
-    margin: 1.6rem 0;
-}
-.code {
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    background: var(--soft);
-    border-radius: 6px;
-    padding: 0.08rem 0.32rem;
-}
-@media (max-width: 700px) {
-    .hero h1 { font-size: 1.8rem; }
-    .container { padding: 1rem; }
-    .embed-wrap embed { min-height: 650px; }
-}
-</style>
-  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
-  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
-  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
-  <!-- Chinese editions of the two text indexes: same artifact set, same cognitive
-       states, enforced by CI. Deliberately NO hreflang on THESE four links, and the
-       distinction is load-bearing: hreflang here would say "the Chinese version of
-       this page is /llms.zh.txt", which is false — these are alternate machine
-       *representations* of the index, not *translations* of the homepage. The real
-       translation of this page is /index.zh.html, and that is where the hreflang
-       links above point. /llms.txt stays the canonical entry and never redirects:
-       an agent fetching it by exact URL always gets English. -->
-  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
-  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "url": "https://machengshen.github.io/",
-    "name": "Macheng Shen",
-    "description": "A one-person research program on information, learning, and what makes futures reachable — from holography and statistical mechanics through consciousness and machine learning to the design of agent-native institutions.",
-    "significantLink": [
-      "https://machengshen.github.io/llms.txt",
-      "https://machengshen.github.io/research/",
-      "https://machengshen.github.io/ideas/"
-    ],
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "email": "macshen93@gmail.com",
-      "url": "https://machengshen.github.io/",
-      "jobTitle": "Independent researcher",
-      "knowsAbout": [
-        "Information dynamics",
-        "Credit assignment and credit transport",
-        "Continual and lifelong learning",
-        "Koopman operator theory",
-        "Holography and entanglement entropy",
-        "Theories of consciousness",
-        "Multi-agent systems and agent-native protocols",
-        "Mechanism design"
-      ],
-      "sameAs": [
-        "https://github.com/MachengShen",
-        "https://github.com/starshard-ai"
-      ]
-    }
-  }
-  </script>
 </head>
 <body>
-<header class="site-header">
-  <div class="container nav">
-    <div class="left">
-      <a href="/" class="active">Home</a>
-      <a href="/start-here.html" class="">Start here</a>
-      <a href="/glossary.html" class="">Glossary</a>
-      <a href="/ideas/" class="">Research Essays</a>
-      <a href="/research/" class="">Wave / Credit Transport</a>
-      <a href="/substrate.html" class="">User-Agency Substrate</a>
-      <a href="/locality-as-protocol.html" class="">Locality as Protocol</a>
-      <a href="/llms.txt" class="">For agents</a>
-    </div>
-    <div class="right">
-      <a href="/?lang=en" hreflang="en" class="active">EN</a>
-      <a href="/index.zh.html?lang=zh" hreflang="zh-Hans">中</a>
-      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+<header class="masthead">
+  <div class="wrap">
+    <a class="name" href="/">Macheng Shen</a>
+    <nav aria-label="Site">
+        <a href="/" aria-current="page">Home</a>
+        <a href="/map.html">The map</a>
+        <a href="/start-here.html">Start here</a>
+        <a href="/glossary.html">Glossary</a>
+        <a href="/safety/">Safety</a>
+        <a href="/llms.txt">For agents</a>
+    </nav>
+    <div class="lang">
+      <a href="/?lang=en" hreflang="en" aria-current="true">EN</a>
+      <span>/</span>
+      <a href="/index.zh.html?lang=zh" hreflang="zh-Hans">中文</a>
     </div>
   </div>
 </header>
 
-<main class="container">
+<main class="wrap">
+  <h1>What makes a future reachable</h1>
+  <p class="lede">A one-person research program asking one question: what does a finite physical system have to build inside itself in order to reach a future it wants. Physics at one end, agent-native institutions at the other.</p>
+  <p>One rule matters more than any claim below it: <strong>every claim states which of three things it is</strong>. Retired work is not deleted. It stays at its original URL so it does not get rediscovered and proposed again.</p>
+  <ul class="tally">
+    <li><span class="dot survived" aria-hidden="true"></span><span class="tally-n">10</span><span class="tally-k state survived">survived</span><span class="tally-d">has passed a real test</span></li>
+    <li><span class="dot speculative" aria-hidden="true"></span><span class="tally-n">35</span><span class="tally-k state speculative">speculative</span><span class="tally-d">untested. Interesting, unearned</span></li>
+    <li><span class="dot retired" aria-hidden="true"></span><span class="tally-n">2</span><span class="tally-k state retired">retired</span><span class="tally-d">killed, usually by its own author</span></li>
+  </ul>
+  <p class="small tally-note">Those 47 are claims. The other 15 entries — the glossary, the orientation pages, section overviews — assert nothing, so they carry no state.</p>
 
-<section class="hero">
-  <div class="hero-flex">
-    <img src="WechatIMG1106.jpeg" alt="Macheng Shen" class="profile" />
-    <div>
-      <div class="kicker">Featured essay + research map</div>
-      <h1>Macheng Shen</h1>
-      <p class="subtitle">Researcher, builder, and explorer of intelligence and human transition.</p>
-      <div class="button-row">
-        <a class="button" href="/ideas/">Read essays</a>
-        <a class="button secondary" href="/research/">Open wave / credit-transport notes</a>
-      </div>
-    </div>
+  <div class="notice"><p><strong>中文</strong> &mdash; the whole site reads in Chinese: <a href="/index.zh.html?lang=zh">中文首页</a> · <a href="/map.zh.html?lang=zh">全景索引</a>. Mirror reachable from mainland China: <a href="https://theory.clawishmacheng.com/">theory.clawishmacheng.com</a></p></div>
+  <div class="doors">
+    <a class="door" href="/map.html"><span class="door-t">The map</span><span class="door-d">All 62 entries in six layers, each with its state, date, and one line.</span></a>
+    <a class="door" href="/start-here.html"><span class="door-t">Start here</span><span class="door-d">The whole program in one screen: three branches, one epistemic rule.</span></a>
+    <a class="door" href="/safety/"><span class="door-t">Safety is a property of the harness</span><span class="door-d">Gates that are actually running, kept separate from gates that are only specified.</span></a>
+    <a class="door" href="/llms.txt"><span class="door-t">For agents</span><span class="door-d">The same index, machine-readable, plus a typed graph and a single-fetch bundle.</span></a>
   </div>
-</section>
+  <h2>Featured essay</h2>
+  <p><em>Toward a Theory of Intelligence and Contemporary AI</em> is the current overview: intelligence as a finite physical system that builds, updates, and deploys internal structure sufficient for prediction, intervention, and control.</p>  <p><a href="/essay.pdf">Open essay.pdf</a></p>  <details><summary>Read it inline</summary>  <div class="embed-wrap"><embed src="/essay.pdf" type="application/pdf" /></div></details>
+  <h2>About</h2>
+  <img class="portrait" src="/WechatIMG1106.jpeg" alt="Macheng Shen" width="96" height="96" />
+  <p>I trained as an engineer and researcher, earned a PhD at MIT, and worked on
+  algorithmic research in Silicon Valley startups and at the Shanghai Qi Zhi
+  Institute, on foundational algorithms for embodied intelligence.</p>
+  <p>I am trying to find a language that describes intelligent behaviour across
+  biology and AI without collapsing it into current engineering jargon. That
+  means connecting learning, control, multiscale feedback, physical
+  implementation, and safety.</p>
+  <p>The work runs in three long-term directions: theories of intelligence;
+  how AI-native individuals and one-person companies reshape institutions; and
+  personal cognition systems &mdash; agents that help people think clearly and
+  decide well over long horizons.</p>
 
-<div class="callout note">
-  <strong>Current framing.</strong> The main thesis lives in the featured essay and the ideas page. The wave-backprop work is now treated as a narrower research branch about <em>credit transport</em> and physical implementations of learning, not as a finished total theory.
-</div>
-
-<div class="callout note">
-  <strong>Reading this with an agent?</strong> The work is spread across roughly fifteen repositories and pages. <a href="/llms.txt">/llms.txt</a> is a curated index of all of it, organised into three branches — how beliefs are held, theory of the universe, and future social forms — with the cognitive state of every claim marked (<em>survived</em>, <em>speculative</em>, <em>retired</em>). For a single fetch with no crawling, use <a href="/llms-full.txt">/llms-full.txt</a>; for a typed graph, <a href="/index.jsonld">/index.jsonld</a>.
-</div>
-<div class="callout note">
-  <strong>New here, human or machine?</strong> <a href="/start-here.html">Start here</a> is the shortest complete description of the whole program — three branches and one epistemic rule, in one screen. <a href="/glossary.html">The glossary</a> defines every term this program uses, and flags the ones that collide with unrelated established terms in other fields.
-</div>
-
-<h2>Featured Essay (Full Text)</h2>
-<p>This PDF is the current overview of the broader agenda: intelligence as a finite physical system that builds, updates, and deploys internal structure sufficient for prediction, intervention, and control.</p>
-
-<div class="embed-wrap">
-  <embed src="essay.pdf" type="application/pdf" />
-</div>
-
-<p>If the embedded viewer does not load in your browser, open the PDF directly: <a href="essay.pdf" target="_blank" rel="noopener">essay.pdf</a>.</p>
-
-<h2>Research Map</h2>
-<div class="card-grid">
-  <div class="card">
-    <div class="tag">Main thesis</div>
-    <h3>Toward a theory of intelligence</h3>
-    <p>The core question is what sort of object intelligence is. The working answer is not “static function approximation,” but multiscale closed-loop competence under physical, informational, and control constraints.</p>
-  </div>
-  <div class="card">
-    <div class="tag">Ideas page</div>
-    <h3>Line loss, viability, and distributed cognition</h3>
-    <p>These essays develop the higher-level language: physical budgets, coordination costs, endogenous viability, and why multiscale organization keeps appearing in biological and artificial systems.</p>
-  </div>
-  <div class="card">
-    <div class="tag">Research branch</div>
-    <h3>Credit transport and wave-inspired learning</h3>
-    <p>This branch asks a narrower question: how does task-relevant update information move inside a learning system? Some physical media can compute with fields and even measure gradients in situ; cortex may use its own cousin of this idea.</p>
-  </div>
-  <div class="card">
-    <div class="tag">Governance theory</div>
-    <h3><a href="/locality-as-protocol.html" style="color:inherit;text-decoration:none;">Locality as Protocol</a></h3>
-    <p>A framework for rule-system competition and co-evolution: what happens when governance decouples from the nation-state and rule-systems compete for global resource flow. Four principles, five unresolved design problems, v0.</p>
-  </div>
-</div>
-
-<h2>Original Raw Prompt</h2>
-<p class="small">I am still sharing the original prompt for reproducibility. It was useful as a seed, but several claims on the site have since been revised into a more careful layered framing.</p>
-<p><a href="assets/original_raw_prompt.txt" target="_blank" rel="noopener">View raw prompt (.txt)</a></p>
-
-<h2>About</h2>
-<p>I was trained as an engineer and researcher, earning a PhD at MIT and working on algorithmic research both in Silicon Valley startups and at the Shanghai Qi Zhi Institute, where I focused on foundational algorithms for embodied intelligence.</p>
-<p>I am trying to find a language that can describe intelligent behavior across biology and AI without collapsing everything into current engineering jargon. That means connecting learning, control, multiscale feedback, physical implementation, and safety.</p>
-<p>Recently, I’ve become less interested in being defined by any single credential, institution, or prior role. I want to spend my life working on questions and systems that can genuinely change how humans understand intelligence, navigate transition, and shape the future.</p>
-<p>Right now, my work is centered around three long-term directions:</p>
-<p><strong>Theories of intelligence</strong> — exploring the deeper structure, limits, and dynamics of intelligence itself.</p>
-<p><strong>Frontier Transition Lab</strong> — studying how AI-native individuals, one-person companies, and new human institutions may reshape society.</p>
-<p><strong>Personal cognition systems</strong> — building agents and frameworks that can help people think more clearly, make better long-term decisions, and live with greater internal coherence.</p>
-<p>That’s the cleanest description I have for now. The rest is still being built.</p>
-
-<div class="footer">© 2026 Macheng Shen. This site is under active revision. Strong claims are being separated from working hypotheses and open questions.</div>
-
+  <p class="small">The <a href="/assets/original_raw_prompt.txt">original raw prompt</a> stays published for reproducibility. Several claims it seeded have since been revised into a more careful layered framing.</p>
 </main>
+<footer class="foot"><div class="wrap"><p>© 2026 Macheng Shen. Under continuous revision. Claims that have survived a test, claims that have not been tested, and claims their own author has since falsified are marked apart and none of them are deleted.</p><p><a href="/llms.txt">llms.txt</a> is the same index for agents; <a href="/index.jsonld">index.jsonld</a> is the typed graph. Contact: <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a></p></div></footer>
+
 </body>
 </html>

@@ -1,0 +1,440 @@
+/* Macheng Shen — shared stylesheet for the bilingual index and homepage.
+ *
+ * Three design decisions, each load-bearing rather than decorative:
+ *
+ * 1. The only saturated colours on the page are the three cognitive states.
+ *    survived / speculative / retired is the one distinction this program
+ *    insists on, so it gets the entire colour budget and everything else is
+ *    greyscale. If you are tempted to add a fourth accent, you are adding a
+ *    distinction the epistemics do not have.
+ *
+ * 2. The index is a spine, not a grid of cards. Every record hangs a dot on a
+ *    single vertical hairline, so scanning down the spine shows the phase
+ *    distribution of the whole program before you read a single title. A card
+ *    grid destroys exactly that reading.
+ *
+ * 3. Serif headings, sans body — in both scripts. The Chinese side uses a
+ *    Song/Serif face for headings, which is what a published document looks
+ *    like in Chinese, and PingFang/Noto Sans for body, which is what a phone
+ *    can actually render at 15px. No webfonts: WeChat's in-app browser is a
+ *    primary target and a blocking font request there is a blank screen.
+ */
+
+:root {
+    --ground: #ffffff;
+    --raised: #f4f6f8;
+    --ink: #14171c;
+    --ink-soft: #4a545f;
+    --ink-faint: #78838f;
+    --rule: #d9dee4;
+    --rule-soft: #e8ecf0;
+    --link: #1b4f8a;
+    --link-hover: #0f3a68;
+
+    --survived: #1f6f4a;
+    --speculative: #9a6a12;
+    --retired: #8a3b3b;
+    --survived-wash: #e8f2ec;
+    --speculative-wash: #f7f0e0;
+    --retired-wash: #f5e9e9;
+
+    --serif: Georgia, "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "Serif CJK SC", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+
+    --measure: 35rem;
+    --page: 45rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --ground: #14171b;
+        --raised: #1c2127;
+        --ink: #e6e9ec;
+        --ink-soft: #a4aeb8;
+        --ink-faint: #7b8590;
+        --rule: #2e353d;
+        --rule-soft: #232930;
+        --link: #7db3ea;
+        --link-hover: #a6cdf5;
+
+        --survived: #64c295;
+        --speculative: #d5a94a;
+        --retired: #d98a8a;
+        --survived-wash: #1a2a23;
+        --speculative-wash: #2a2418;
+        --retired-wash: #2a1e1e;
+    }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 1.0625rem;
+    line-height: 1.72;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Chinese needs more leading than Latin at the same size, and slightly looser
+   tracking, or 15-17px body text on a phone turns into a grey block. */
+html[lang^="zh"] body { line-height: 1.85; letter-spacing: 0.01em; }
+
+.wrap {
+    max-width: var(--page);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+main.wrap { padding-top: 2.25rem; }
+
+a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--link-hover); }
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+    border-radius: 3px;
+}
+
+/* ---- masthead ---------------------------------------------------------- */
+
+.masthead {
+    border-bottom: 1px solid var(--rule);
+    background: var(--ground);
+}
+.masthead .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.15rem;
+    align-items: baseline;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+}
+.masthead .name {
+    font-family: var(--serif);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: 0.35rem;
+    white-space: nowrap;
+}
+.masthead nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    font-size: 0.9375rem;
+}
+.masthead nav a { color: var(--ink-soft); text-decoration: none; }
+.masthead nav a:hover,
+.masthead nav a[aria-current] { color: var(--ink); text-decoration: underline; }
+.masthead .lang {
+    margin-left: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    font-size: 0.9375rem;
+    white-space: nowrap;
+}
+.masthead .lang a { color: var(--ink-faint); text-decoration: none; }
+.masthead .lang a[aria-current] { color: var(--ink); font-weight: 600; }
+.masthead .lang span { color: var(--rule); }
+
+/* ---- typography -------------------------------------------------------- */
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; line-height: 1.25; }
+h1 { font-size: 2.125rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+h2 { font-size: 1.5rem; margin: 3rem 0 0.75rem; }
+h3 { font-size: 1.1875rem; margin: 2rem 0 0.4rem; }
+html[lang^="zh"] h1 { letter-spacing: 0; }
+
+p { margin: 0.85rem 0; max-width: var(--measure); }
+.lede { font-size: 1.1875rem; color: var(--ink-soft); max-width: var(--measure); }
+
+.hairline { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+
+/* ---- the state vocabulary ---------------------------------------------- */
+
+.dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    flex: none;
+    background: var(--ink-faint);
+}
+.dot.survived { background: var(--survived); }
+.dot.speculative { background: var(--speculative); }
+.dot.retired { background: var(--retired); }
+
+.state {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink-faint);
+    white-space: nowrap;
+}
+.state.survived { color: var(--survived); }
+.state.speculative { color: var(--speculative); }
+.state.retired { color: var(--retired); }
+
+/* The legend doubles as the filter. It is the only interactive element on the
+   index, deliberately: one control, three states, no menus. */
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+.legend button {
+    font: inherit;
+    font-size: 0.9375rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.34rem 0.7rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--ground);
+    color: var(--ink-soft);
+    cursor: pointer;
+}
+.legend button:hover { border-color: var(--ink-faint); color: var(--ink); }
+.legend button[aria-pressed="true"] { background: var(--raised); border-color: var(--ink-faint); color: var(--ink); }
+.legend button[aria-pressed="true"].survived { background: var(--survived-wash); border-color: var(--survived); }
+.legend button[aria-pressed="true"].speculative { background: var(--speculative-wash); border-color: var(--speculative); }
+.legend button[aria-pressed="true"].retired { background: var(--retired-wash); border-color: var(--retired); }
+.legend .count { color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+/* ---- the spine: the index itself --------------------------------------- */
+
+.section { margin-top: 3.25rem; }
+.section > h2 { margin-top: 0; }
+.section > .blurb { color: var(--ink-soft); font-size: 0.9375rem; max-width: var(--measure); margin-top: 0.25rem; }
+
+.spine {
+    list-style: none;
+    margin: 1.5rem 0 0;
+    padding: 0 0 0 1.5rem;
+    border-left: 1px solid var(--rule);
+}
+
+.rec {
+    position: relative;
+    padding: 0 0 1.5rem;
+}
+.rec + .rec { padding-top: 1.5rem; border-top: 1px solid var(--rule-soft); }
+
+/* The dot sits ON the rail, not beside it. Scanning the rail is the point. */
+.rec > .dot {
+    position: absolute;
+    left: -1.5rem;
+    top: 0.62rem;
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 3px var(--ground);
+}
+.rec + .rec > .dot { top: 2.12rem; }
+
+.rec-head {
+    max-width: var(--measure);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.75rem;
+}
+.rec-title {
+    font-family: var(--serif);
+    font-size: 1.1875rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.35;
+}
+.rec-title a { color: var(--ink); text-decoration: none; }
+.rec-title a:hover { color: var(--link); text-decoration: underline; }
+.rec-meta {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+}
+.rec-alt {
+    font-size: 0.9375rem;
+    color: var(--ink-faint);
+    margin: 0.1rem 0 0;
+}
+.rec-line { margin: 0.4rem 0 0; color: var(--ink-soft); max-width: var(--measure); }
+
+/* An off-site record says so in its own metadata rather than borrowing an
+   arrow or an icon: the host name is the honest signal and it is also the
+   thing a reader wants to know before clicking. */
+.rec-meta .ext { color: var(--ink-faint); }
+
+/* A retired claim is kept at its original URL and shown as what it is: the
+   author's own falsification, not an embarrassment to be hidden. Muting it is
+   honest; deleting it would not be. */
+.rec.is-retired .rec-title a { color: var(--ink-soft); }
+.rec.is-retired .rec-line { color: var(--ink-faint); }
+
+.rec[hidden] { display: none; }
+
+/* ---- the Chinese abstract ---------------------------------------------- */
+
+details.zh-abstract {
+    margin-top: 0.7rem;
+    border-left: 2px solid var(--rule);
+    padding-left: 0.85rem;
+}
+details.zh-abstract > summary {
+    cursor: pointer;
+    font-size: 0.9375rem;
+    color: var(--link);
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+details.zh-abstract > summary::-webkit-details-marker { display: none; }
+details.zh-abstract > summary::before {
+    content: "＋";
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+}
+details.zh-abstract[open] > summary::before { content: "－"; }
+details.zh-abstract > summary:hover { color: var(--link-hover); }
+details.zh-abstract p {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    margin: 0.6rem 0 0.2rem;
+}
+
+.langnote {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    margin-top: 0.35rem;
+}
+
+/* ---- notices ----------------------------------------------------------- */
+
+.notice {
+    background: var(--raised);
+    border-left: 3px solid var(--rule);
+    padding: 0.9rem 1.1rem;
+    margin: 1.5rem 0;
+    font-size: 0.9375rem;
+}
+.notice p { margin: 0.35rem 0; max-width: none; }
+.notice p:first-child { margin-top: 0; }
+.notice p:last-child { margin-bottom: 0; }
+.notice strong { color: var(--ink); }
+
+/* ---- doors (homepage) --------------------------------------------------- */
+
+.doors { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin: 2rem 0; }
+@media (min-width: 40rem) { .doors { grid-template-columns: 1fr 1fr; } }
+.door {
+    background: var(--ground);
+    padding: 1.15rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.door:hover { background: var(--raised); }
+.door .door-t { font-family: var(--serif); font-size: 1.125rem; font-weight: 600; color: var(--ink); }
+.door .door-d { font-size: 0.9375rem; color: var(--ink-soft); margin-top: 0.25rem; }
+
+/* ---- footer ------------------------------------------------------------ */
+
+.foot {
+    margin-top: 4rem;
+    border-top: 1px solid var(--rule);
+    padding: 1.5rem 0 3rem;
+    font-size: 0.9375rem;
+    color: var(--ink-faint);
+}
+.foot a { color: var(--ink-soft); }
+.foot p { max-width: var(--measure); }
+
+/* ---- mobile ------------------------------------------------------------ */
+
+@media (max-width: 30rem) {
+    body { font-size: 1rem; }
+    h1 { font-size: 1.6875rem; }
+    h2 { font-size: 1.3125rem; margin-top: 2.25rem; }
+    .lede { font-size: 1.0625rem; }
+    .wrap { padding: 0 1rem; }
+    .spine { padding-left: 1.15rem; }
+    .rec > .dot { left: -1.15rem; }
+    .rec-title { font-size: 1.0625rem; }
+    .masthead .lang { margin-left: 0; width: 100%; }
+    .section { margin-top: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+}
+
+@media print {
+    .masthead .lang, .legend { display: none; }
+    .rec[hidden] { display: block !important; }
+    details.zh-abstract > summary { display: none; }
+    details.zh-abstract > p { display: block; }
+}
+
+/* ---- homepage tally ------------------------------------------------------
+   The three states as a count over the whole program. This is the homepage
+   hero: not a slogan about rigour, but the actual distribution, including how
+   much of the work its own author has killed. */
+
+.tally { list-style: none; margin: 1.75rem 0; padding: 0; border-top: 1px solid var(--rule); }
+.tally li {
+    display: grid;
+    grid-template-columns: 0.5rem 2.5rem minmax(7rem, auto) 1fr;
+    align-items: baseline;
+    gap: 0 0.85rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--rule);
+    margin: 0;
+}
+.tally .dot { transform: translateY(-0.1rem); }
+.tally-n {
+    font-family: var(--serif);
+    font-size: 1.375rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    color: var(--ink);
+}
+.tally-k { font-size: 0.9375rem; }
+.tally-d { font-size: 0.9375rem; color: var(--ink-faint); }
+@media (max-width: 30rem) {
+    .tally li { grid-template-columns: 0.5rem 2.1rem 1fr; row-gap: 0.15rem; }
+    .tally-d { grid-column: 3; }
+}
+
+/* ---- long-form odds and ends -------------------------------------------- */
+
+.small { font-size: 0.9375rem; color: var(--ink-soft); }
+
+main > details { margin: 1rem 0; max-width: var(--measure); }
+main > details > summary { cursor: pointer; color: var(--link); font-size: 0.9375rem; }
+
+.embed-wrap { border: 1px solid var(--rule); border-radius: 4px; padding: 0.5rem; margin-top: 0.85rem; }
+.embed-wrap embed { width: 100%; min-height: 78vh; border: 0; }
+
+.portrait {
+    float: right;
+    width: 96px; height: 96px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin: 0.4rem 0 1rem 1.5rem;
+    border: 1px solid var(--rule);
+}
+@media (max-width: 30rem) { .portrait { width: 72px; height: 72px; margin-left: 1rem; } }
+.tally-note { margin-top: -0.85rem; color: var(--ink-faint); }

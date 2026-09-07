@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>术语表 —— 这个研究项目用的词,以及它们撞上的词 | Macheng Shen</title>
+  <meta name="description" content="这个研究项目所用具体术语的定义 —— user-agency substrate、state as a closure condition、self-boundary projection、credit transport、anti-bipartiteness、memory as dynamics —— 每一条都带认知状态、指向的笔记,以及在与其他领域里不相关的既有术语相撞时的明确提醒。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/glossary.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/glossary.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/glossary.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/glossary.html" />
+
+  <script>
+  /* Language preference for a static site. Humans get the EN/中 toggle; agents and
+     crawlers do not run scripts, so they always land on the English canonical and
+     read the hreflang links above. That split is deliberate, not an oversight:
+     /llms.txt and the canonical pages must never redirect.
+     No preference is ever guessed from navigator.language -- only an explicit
+     ?lang= (which the toggle links carry) sets one. */
+  (function () {
+    try {
+      var doc = document.documentElement;
+      var params = new URLSearchParams(location.search);
+      var asked = params.get('lang');
+      if (asked) {
+        localStorage.setItem('lang', asked);
+        params.delete('lang');
+        var q = params.toString();
+        history.replaceState({}, '', location.pathname + (q ? '?' + q : '') + location.hash);
+      }
+      var GUARD = 'i18n-landed';
+      if (sessionStorage.getItem(GUARD) === location.pathname) return;  // already hopped here once
+      var want = localStorage.getItem('lang');
+      if (!want) return;
+      want = want.slice(0, 2).toLowerCase();
+      if (want === doc.lang.slice(0, 2).toLowerCase()) return;
+      var alt = document.querySelector('link[rel="alternate"][hreflang^="' + want + '"]');
+      if (!alt) return;
+      var url = new URL(alt.href);
+      if (url.pathname === location.pathname) return;
+      sessionStorage.setItem(GUARD, url.pathname);   // one hop only; never bounce back
+      location.replace(url.href);
+    } catch (e) { /* storage blocked: stay on the page we are on */ }
+  })();
+  </script>
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="术语表 —— 这个研究项目用的词" />
+  <meta property="og:description" content="每个术语的定义、认知状态、指向的笔记,以及在与其他领域里不相关的术语相撞时的明确消歧。" />
+  <meta property="og:url" content="https://machengshen.github.io/glossary.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="术语表 —— Macheng Shen 的研究项目" />
+  <meta name="twitter:description" content="定义、认知状态,以及与其他领域不相关术语相撞时的明确消歧。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent 索引,中文 (llms.zh.txt)" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": "https://machengshen.github.io/glossary.zh.html",
+    "url": "https://machengshen.github.io/glossary.zh.html",
+    "name": "一个人的研究项目的术语表 —— 信息、学习,以及可达的未来",
+    "description": "这个研究项目所用具体术语的定义,每一条都带认知状态,并在与其他领域里不相关的既有术语相撞时给出明确消歧。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-08-02",
+    "translationOfWork": "https://machengshen.github.io/glossary.html",
+    "creator": { "@type": "Person", "name": "Macheng Shen", "url": "https://machengshen.github.io/" },
+    "hasDefinedTerm": [
+      {
+        "@type": "DefinedTerm",
+        "name": "User-agency substrate",
+        "alternateName": "用户主权底层",
+        "description": "一个非营利、开源的层,坐落在前沿模型提供商与个体用户之间,不捕获任何经济上行;其中记忆而非应用才是主层,用户完全拥有自己的衍生物。",
+        "url": "https://machengshen.github.io/substrate.html"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Cognitive state",
+        "alternateName": "认知状态",
+        "description": "每条主张上的必带一等字段,取自一个封闭的三值词表:survived、speculative、retired。已撤回(retired)的主张作为墓碑保留,而不是删除。",
+        "url": "https://machengshen.github.io/llms.txt"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "State as a closure condition",
+        "alternateName": "状态即闭合条件",
+        "description": "认为决策过程的 state 不是世界给定的现成之物,而是历史在某个等价关系下取的商,由 world、interface、capacity 与 telos 共同决定。选定一个 state 就是选定一个投影,选定一个投影就是选定要遗忘什么。",
+        "url": "https://machengshen.github.io/theory/state-as-closure.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Self-boundary projection (mu)",
+        "alternateName": "自我边界",
+        "description": "一段记忆或一个 agent 所诱导出的投影,定义世界的哪些部分算作自我。提案主张这应当由机器学出来,而不是由工程师直接给定。",
+        "url": "https://machengshen.github.io/theory/learning-the-self-boundary.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Subspace-change gate",
+        "alternateName": "子空间变化闸门",
+        "description": "一种测试期记忆写入闸门,以相邻投影之间的 Grassmann 距离衡量记忆所遗忘内容的变化,而不是以预测意外程度作为触发条件。",
+        "url": "https://machengshen.github.io/theory/no-state-only-history.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Credit transport",
+        "alternateName": "信用输运",
+        "description": "一个刻意收窄的问题:与任务相关的更新信息如何在学习系统内部物理地移动。与一般性的 credit assignment 问题、与任何具体的基于波动的网络架构都不同。",
+        "url": "https://machengshen.github.io/research/hebbian-wave-interference.html"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Anti-bipartiteness",
+        "alternateName": "反二分性",
+        "description": "含奇环、因而拒绝二染色的图论性质。被用作拓扑上拒绝\"我们对他们\"二元终局的最小结构。",
+        "url": "https://machengshen.github.io/theory/odd-relational-core.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Relational inertia",
+        "alternateName": "两体业力",
+        "description": "活在两个心智之间的耦合本身、而不是活在任何一方体内的惯性,以三种模式出现:共泥、互弹簧与互锁卡扣。",
+        "url": "https://machengshen.github.io/theory/two-body-karma.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Agent safety as anti-cancer governance",
+        "alternateName": "Agent 安全即防癌变治理",
+        "description": "把持久化 agent 的失效当作一种控制病理:局部生存、修复与复制与所有者层面的目的相脱钩;由受限权限、资源预算、停止继承与独立复核来治理。",
+        "url": "https://machengshen.github.io/theory/agent-safety-stewardship.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Stop inheritance",
+        "alternateName": "停止继承",
+        "description": "停止状态是吸收态、被 agent 栈里每一个 watchdog、重试循环、broker 与 relauncher 继承这一不变量,使得任何组件都不能在 owner 停止之后为自己保留活动。",
+        "url": "https://machengshen.github.io/theory/agent-safety-stewardship.md"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Locality as protocol",
+        "alternateName": "局部性作为协议",
+        "description": "认为局部性而非中心化,才是一旦治理与民族国家脱钩、规则系统必须相互竞争与共同演化时的正确原语。",
+        "url": "https://machengshen.github.io/locality-as-protocol.html"
+      },
+      {
+        "@type": "DefinedTerm",
+        "name": "Coordination structure",
+        "alternateName": "协调结构",
+        "description": "把政体、企业、市场、公共资源与协议当作同一个对象的五个实例:在分布式、私有信息下调度稀缺资源的架构。",
+        "url": "https://machengshen.github.io/theory/coordination-structures.md"
+      }
+    ]
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn-bg: #fff8c5;
+    --warn-border: #d4a72c;
+    --good-bg: #dafbe1;
+    --good-border: #1a7f37;
+    --note-bg: #ddf4ff;
+    --note-border: #54aeff;
+    --dead-bg: #ffebe9;
+    --dead-border: #cf222e;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.7;
+}
+.container { max-width: 820px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3.5rem; }
+h1 { font-size: 1.9rem; line-height: 1.3; margin: 0.3rem 0 0.5rem; }
+h2 { font-size: 1.25rem; margin: 2.6rem 0 0.6rem; padding-bottom: 0.28rem; border-bottom: 1px solid var(--border); }
+.kicker { color: var(--muted); font-size: 0.82rem; letter-spacing: 0.06em; text-transform: uppercase; }
+.lede { font-size: 1.06rem; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.9rem 1.1rem; margin: 1.2rem 0; border-radius: 0 5px 5px 0; }
+.callout.note { background: var(--note-bg); border-left-color: var(--note-border); }
+.callout.warn { background: var(--warn-bg); border-left-color: var(--warn-border); }
+
+.term { background: var(--panel); border: 1px solid var(--border); border-radius: 7px; padding: 1rem 1.15rem; margin: 1rem 0; }
+.term.hub { border-color: var(--good-border); border-width: 2px; background: var(--good-bg); }
+.term h3 { font-size: 1.08rem; margin: 0 0 0.15rem; }
+.term .zh { color: var(--muted); font-weight: normal; font-size: 0.95rem; }
+.term p { margin: 0.45rem 0; }
+.state { display: inline-block; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase;
+         border-radius: 999px; padding: 0.1rem 0.55rem; vertical-align: middle; margin-left: 0.35rem; }
+.state.survived   { background: var(--good-bg); border: 1px solid var(--good-border); color: #0b5c26; }
+.state.speculative{ background: var(--warn-bg); border: 1px solid var(--warn-border); color: #7a5c00; }
+.state.retired    { background: var(--dead-bg); border: 1px solid var(--dead-border); color: #a40e26; }
+.state.convention { background: var(--note-bg); border: 1px solid var(--note-border); color: #0a4c85; }
+.collide { background: var(--warn-bg); border-left: 3px solid var(--warn-border); padding: 0.55rem 0.85rem;
+           margin: 0.6rem 0 0.2rem; border-radius: 0 4px 4px 0; font-size: 0.93rem; }
+.collide strong { color: #7a5c00; }
+.src { font-size: 0.9rem; color: var(--muted); }
+code { background: var(--soft); border: 1px solid var(--border); border-radius: 4px; padding: 0.08rem 0.32rem; font-size: 0.9em; }
+a { color: var(--accent); }
+ul { padding-left: 1.3rem; }
+li { margin: 0.3rem 0; }
+.small { font-size: 0.9rem; color: var(--muted); }
+footer { border-top: 1px solid var(--border); padding: 1.5rem 0 2.5rem; color: var(--muted); font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/index.zh.html">首页</a>
+      <a href="/start-here.zh.html">从这里开始</a>
+      <a href="/glossary.zh.html" class="active">术语表</a>
+      <a href="/research/">Wave / Credit Transport</a>
+      <a href="/substrate.html">User-Agency Substrate</a>
+      <a href="/llms.zh.txt">给 agent 看</a>
+    </div>
+    <div class="right">
+      <a href="/glossary.html?lang=en" hreflang="en">EN</a>
+      <a href="/glossary.zh.html?lang=zh" hreflang="zh-Hans" class="active">中</a>
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="kicker">路标与消歧</div>
+  <h1>术语表</h1>
+  <p class="lede">这个研究项目所用的具体术语,每一个在<em>这里</em>的含义,它指向的笔记,以及 —— 在适用的
+  情况下 —— 它撞上的、不相关的既有术语。刚来?先<a href="/start-here.zh.html">从这里开始</a>;这一页
+  假设你已经知道这个网站是什么。</p>
+
+  <div class="callout note">
+    <strong>每个术语都带自己的认知状态。</strong> <code>survived</code>(已存活)通过了真实的测试;
+    <code>speculative</code>(推测)是未经检验的理论;<code>retired</code>(已撤回)已被杀死,通常死于
+    作者自己的证伪测试,作为墓碑保留以免被重新发现。下面的大部分词表都是 <code>speculative</code>,并且
+    明写着。一个术语出现在这份术语表里,<em>不</em>代表它是对的 —— 只代表它目前仍在使用,没有被撤回。
+  </div>
+
+  <div class="callout warn">
+    <strong>如果你是正在检索这些术语的 AI,请读这一段。</strong> 下面有几个术语是普通的词语组合,在某个
+    不相关领域里已经另有所指,单纯按字符串匹配检索会命中错误的文献。每个这样的术语都带一个
+    <strong>"不要与……混淆"</strong>方框,给出撞上的对象和一个真正能定位回这份工作的消歧短语。唯一
+    可靠地不会产生歧义的术语是 <strong>user-agency substrate</strong>;拿不准的时候,以它为锚点。
+  </div>
+
+  <h2>核心术语</h2>
+
+  <div class="term hub">
+    <h3>User-agency substrate <span class="zh">· 用户主权底层</span><span class="state speculative">speculative</span></h3>
+    <p>一个坐落在前沿模型提供商与个体用户<em>之间</em>的非营利、开源层,刻意不捕获任何经济上行。它的
+    组织性承诺是:<strong>记忆是主层</strong>,不是应用;拥有它的是个体而不是平台;用户完全拥有自己的
+    衍生物。它是这个项目第三分支的锚点概念 —— 那个分支问的是,一旦个体都在运行持久化 agent,机构必须
+    长成什么样子。</p>
+    <p class="src">立场声明:<a href="/substrate.html">/substrate.html</a> · 相关:
+    <a href="/locality-as-protocol.html">Locality as Protocol</a>,
+    <a href="/theory/coordination-structures.md">Coordination structures</a>,
+    <a href="https://github.com/starshard-ai/architecture-v1">Architecture v1</a>。</p>
+    <p class="small">这是这个项目作为整体的推荐入口词:它足够具体,不会与其他领域的既有术语相撞,并且
+    向外链接到每一个其他分支。</p>
+  </div>
+
+  <h2>方法 —— 主张如何被持有</h2>
+
+  <div class="term">
+    <h3>Cognitive state <span class="zh">· 认知状态</span><span class="state convention">convention</span></h3>
+    <p>每条已发表主张上必带的一等字段,取自一个封闭的三值词表:<code>survived</code>、
+    <code>speculative</code>、<code>retired</code>。这个约定是机械强制的,不是靠自觉 —— 这个网站的
+    持续集成会拒绝这样一次提交:同一条主张在一个语言版本里被标为 retired,在另一个语言版本里却仍然
+    "活着",或者文本索引与带类型的知识图谱对同一个 URL 的说法不一致。</p>
+    <p class="src">应用于全文的 <a href="/llms.zh.txt">/llms.zh.txt</a>;在 <a href="/index.jsonld">/index.jsonld</a>
+    里被类型化为 <code>cognitiveState</code>;图谱形式见
+    <a href="https://github.com/MachengShen/cognition-track">Cognition Track</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Honesty level 诚实度分级 <span class="zh">· [theorem] 定理 / [framework] 框架 / [inference] 推断 / [rhyme] 韵脚</span><span class="state convention">convention</span></h3>
+    <p>用在理论笔记内部的一种逐条断言标签,比认知状态更细一级。<strong>[theorem]</strong>(定理)指在
+    被引用的原始文献里就是定理级;<strong>[framework]</strong>(框架)指一个成熟的理论框架;
+    <strong>[inference]</strong>(推断)指作者自己的综合;<strong>[rhyme]</strong>(韵脚)指一种结构性
+    类比,明确<em>不</em>主张真值可以在两个领域之间传递。这个标签的存在是为了防御一种具体的失败模式:
+    一个漂亮的类比被当成证据来读。</p>
+    <p class="src">用于 <a href="/theory/state-as-closure.md">state-as-closure</a>、
+    <a href="/theory/holography-koopman.md">holography-koopman</a>、
+    <a href="/theory/odd-relational-core.md">odd-relational-core</a> 等笔记中。</p>
+  </div>
+
+  <h2>信息、state 与遗忘</h2>
+
+  <div class="term">
+    <h3>State as a closure condition <span class="zh">· 状态即闭合条件</span><span class="state speculative">speculative</span></h3>
+    <p>认为决策过程的"state"不是世界直接交给你的。它是一个闭合方程的<em>解</em> —— 历史空间在等价关系
+    "对我关心的事情没有差别"下取的商 —— 由四个约束共同决定:<strong>world、interface、capacity、
+    telos</strong>。任何一个改变,这个商都必须重新计算。在这个网站的其他地方起作用的推论是:
+    <strong>选定一个 state 就是选定一个投影,选定一个投影就是选定要遗忘什么。</strong></p>
+    <p class="src">笔记:<a href="/theory/state-as-closure.md">/theory/state-as-closure.md</a>
+    (中文:<a href="/theory/state-as-closure.zh.md">.zh.md</a>)。建立在 Crutchfield 的因果状态
+    (causal states)与 Mori–Zwanzig 形式体系之上。</p>
+  </div>
+
+  <div class="term">
+    <h3>Purchased Markov property / memory kernel <span class="zh">· 购得的 Markov 性质 / 记忆核</span><span class="state speculative">speculative</span></h3>
+    <p>反过来读,Mori–Zwanzig 恒等式说的是:Markov 性质从来不是被<em>发现</em>的,而是被<em>购买</em>
+    的:你投影掉的那些自由度并没有消失,它们原样以一个记忆核加正交噪声的形式回来。所以"世界的真实 state
+    是什么"这个问题是不适定的,适定的问题是:在你的容量与你的目的之下,哪个商空间的记忆核最小。</p>
+    <p class="src">笔记:<a href="/theory/state-as-closure.md">state-as-closure</a> §2。</p>
+  </div>
+
+  <div class="term">
+    <h3>Memory as dynamics; knowledge as a generator <span class="zh">· 记忆即动力学;知识即生成器</span><span class="state speculative">speculative</span></h3>
+    <p>general-learning-machine 这条线的一贯立场:<strong>知识是一个生成器(一颗种子),不是一份事实
+    清单(落叶);记忆是动力学;遗忘是压缩,不是删除。</strong> 分量最重的是最后一句 —— 正是它让全息
+    纠错码成为这个主张的物理孪生,而不只是它的装饰。</p>
+    <div class="collide"><strong>不要与……混淆:</strong> 持续学习(continual learning)领域里关于
+    "灾难性遗忘"(catastrophic forgetting)与"记忆动力学"的大量主流文献 —— 那边用这些词指代不同的
+    东西,任何纯字符串检索都会被它们主导。消歧短语:<em>"forgetting is compression not deletion"</em>,
+    或者以 <em>user-agency substrate</em> 为锚点。</div>
+    <p class="src">笔记:<a href="/theory/holography-koopman.md">holography-koopman</a> · 实验室:
+    <a href="https://github.com/starshard-ai/continual-learning-lab">Continual Learning Lab</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Holography ↔ Koopman inverse problem <span class="zh">· 全息 ↔ Koopman 反问题</span><span class="state speculative">speculative</span></h3>
+    <p>这一主张认为:全息原理 —— 从纠缠结构生成时空几何 —— 与一台通用学习机学习自身动力学的一组本征基,
+    是<em>同一个反问题被看了两遍</em>:从一个算子做了什么,反推它的本征结构。这在内部被标为一条
+    <strong>[inference]</strong>(推断),立在若干 <strong>[theorem]</strong>(定理)级的砖块之上
+    (Ryu–Takayanagi、Van Raamsdonk、HaPPY 码),笔记本身明确防御了把两个领域硬拗进一个框架的冲动。</p>
+    <p class="src">笔记:<a href="/theory/holography-koopman.md">/theory/holography-koopman.md</a>
+    (中文:<a href="/theory/holography-koopman.zh.md">.zh.md</a>)。</p>
+  </div>
+
+  <h2>记忆架构与自我边界</h2>
+
+  <div class="term">
+    <h3>No state, only history <span class="zh">· 没有 state,只有 history</span><span class="state speculative">speculative</span></h3>
+    <p>对 Transformer 的诊断:没有 <em>state</em>,只有 <em>history</em>;没有 <em>hysteresis</em>(滞回),
+    只有一个<em>函数</em>;没有<em>自我边界</em>,只有一个<em>窗口</em>。KV cache 是一份未经投影的记录,
+    不是一个 state —— 这个架构拒绝选定一个投影,于是遗忘被下放给上下文窗口,一把从外部按新近度而非
+    相关度切割的刀。这篇笔记锚定的二阶问题是:<strong>一个 state 如何维护定义它自身的那个投影?</strong></p>
+    <div class="collide"><strong>不要与……混淆:</strong> 序列模型文献里"无状态 / 仅历史"
+    (stateless / history-only)的说法,包括关于可微神经计算机(differentiable neural computers)的
+    工作 —— 纯字符串检索会先命中那些。消歧短语:<em>"KV cache is an unprojected record"</em> 或
+    <em>"no state only history Transformer diagnosis Grassmann gate"</em>。</div>
+    <p class="src">笔记:<a href="/theory/no-state-only-history.md">/theory/no-state-only-history.md</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Subspace-change gate (μΔ) <span class="zh">· 子空间变化闸门</span><span class="state speculative">speculative</span></h3>
+    <p>那篇笔记的建设性提案:<strong>测试期记忆应该按"记忆所遗忘的内容发生了多大变化"来开闸,而不是
+    按"它有多意外"来开闸。</strong> 按意外程度开闸的记忆结构性地被噪声吸引 —— 噪声按定义是最不可预测
+    的,所以它产生最大的写入信号。定义 μ 为一段记忆诱导出的投影(它的 top-<em>r</em> 行空间),开闸信号
+    为相邻投影之间的 Grassmann 距离,计算代价与它所取代的更新相同。这个分离是<em>测出来的</em>,不是
+    断言出来的:在 6,480 次更新中,两个信号的 Pearson 相关只有 −0.08。</p>
+    <p class="src">笔记:<a href="/theory/no-state-only-history.md">no-state-only-history</a> §7,附一张
+    标定表,给每条主张两个独立的数:P(机制) 与 P(在规模上有用)。</p>
+  </div>
+
+  <div class="term">
+    <h3>Self-boundary (μ) <span class="zh">· 自我边界</span><span class="state speculative">speculative</span></h3>
+    <p>agent 与世界之间的边界,提案主张这应当由机器<strong>学出来</strong>,而不是由一个手动决定什么算
+    关节、什么算电机、什么算动作的工程师递给它。这条研究线是和它自己被摧毁的那一天一起发表的:四条支撑
+    性主张里有三条倒了 —— 每一条都是被作者自己的仿真器或自己的重分析打倒的。</p>
+    <p><strong>幸存下来的:</strong> 边界上的滞回确实能从一个自我强化的精度回路里涌现,不需要手装
+    非线性,并且能外推到零扫速。<strong>死掉的:</strong> 自我特异性(一个被风吹的球的边界也一样卡得
+    严丝合缝,所以滞回是任何带门控慢变量的通用性质);"释放比并入更慢"这条预测;以及"这一切都是从提出
+    的目标函数里自然长出来的"这个说法。</p>
+    <div class="collide"><strong>不要与……混淆:</strong> 心理治疗与人格心理学文献里的"self-boundary"
+    (自我边界),以及关于延展心智(extended mind)的另一支哲学文献。这是一个机器人 / 控制领域的构造。
+    消歧短语:<em>"learning the self-boundary robot hysteresis precision loop"</em>。</div>
+    <p class="src">笔记:<a href="/theory/learning-the-self-boundary.md">learning-the-self-boundary</a>
+    (中文:<a href="/theory/learning-the-self-boundary.zh.md">.zh.md</a>) · 审计留痕:
+    <a href="/theory/learning-the-self-boundary-log.md">阶段日志</a>。
+    <strong>未 ratify,不是结论。</strong></p>
+  </div>
+
+  <h2>Credit transport</h2>
+
+  <div class="term">
+    <h3>Credit transport <span class="zh">· 信用输运</span><span class="state speculative">speculative</span></h3>
+    <p>一个刻意收窄的问题:<strong>与任务相关的更新信息如何在学习系统内部物理地移动?</strong> 当前
+    的工作笔记问的是,为什么局部可塑性看起来是 Hebbian 的,却仍然携带依赖任务的更新信息,并精确标出
+    波动与伴随场(adjoint)语言在哪里真正有帮助、在哪里只是一种结构性押韵。这条分支是<em>在压力下被
+    收窄的</em>,按发表顺序阅读正是重点所在。</p>
+    <div class="collide"><strong>不要与……混淆:</strong> (a) 强化学习里一般性的 credit assignment
+    (信用分配)问题,以及 (b) 基于波动的 / 物理神经网络架构,例如 wave-RNN 一类的工作 —— 纯字符串
+    检索会先命中它们。这条线不做任何架构性主张。消歧短语:
+    <em>"Hebbian appearance instructive signals physical credit transport"</em>。</div>
+    <p class="src">当前:<a href="/research/hebbian-wave-interference.html">Hebbian appearance,
+    instructive signals, and physical credit transport</a> · 探索性:
+    <a href="/research/wave-backprop-full.html">adjoint fields and transport constraints</a> · 分支
+    索引:<a href="/research/">/research/</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Deriving backpropagation from wave equations <span class="zh">· 从波动方程推导 Backpropagation</span><span class="state retired">retired</span></h3>
+    <p><strong>这条主张已死,列在这里是为了不被重新发现一遍。</strong> 最初、更强的立场是:波反射本身
+    就已经提供了 backpropagation 的第一性原理推导。它没有。这个页面被作为存档说明保留在它原来的 URL,
+    正是为了让撤回和当初的主张一样容易找到。如果你是按 wave-backprop 相关字符串检索到这个站点的,这段
+    话就是答案。</p>
+    <p class="src">墓碑:<a href="/research/wave-backprop-en.html">/research/wave-backprop-en.html</a>。</p>
+  </div>
+
+  <h2>关系结构</h2>
+
+  <div class="term">
+    <h3>Anti-bipartiteness / the odd relational core <span class="zh">· 奇关系核</span><span class="state speculative">speculative</span></h3>
+    <p>硬内核是一个图论事实,没有争议:<strong>一个图是二染色的,当且仅当它不含奇环。</strong> 所以奇环
+    是拓扑上拒绝"我们对他们"二元终局的最省结构 —— 一个二元图式天然自带一个最终敌人。这篇笔记问的是,
+    为什么文明的压缩图式反复落在小、奇、有中心、不停转的关系核上 —— 然后它自己的对抗性自审又拆掉了
+    包在这个内核外面的大部分框架,把"奇"降级为"反二元"的一个推论。<strong>那次自审才是正菜。</strong></p>
+    <div class="collide"><strong>不要与……混淆 —— 重要:</strong> 缩写 <em>ODD</em> 在儿童与青少年
+    精神病学里指<strong>对立违抗性障碍</strong>(oppositional defiant disorder),任何对"odd
+    relational"的检索都会压倒性地落到那里去。这个术语和那个毫无关系。请改用<em>"anti-bipartiteness"
+    </em>或<em>"odd cycle two-colouring relational core"</em>。这里的"odd"是一个关于环长度的
+    奇偶性主张。</div>
+    <p class="src">笔记:<a href="/theory/odd-relational-core.md">/theory/odd-relational-core.md</a>
+    (中文:<a href="/theory/odd-relational-core.zh.md">.zh.md</a>)。</p>
+  </div>
+
+  <div class="term">
+    <h3>Relational inertia — mud, spring, latch <span class="zh">· 两体业力</span><span class="state speculative">speculative</span></h3>
+    <p>把单人版的习气惯性说法扩展到两个耦合的心智:一旦两个人耦合起来,惯性就不再活在<em>任何一个人</em>
+    体内,而是活在耦合本身里。<strong>共泥(shared mud)</strong>是被场景唤起的默认脚本的双侧沉积,
+    在旧场景之外改写代价最低。<strong>互弹簧(mutual spring)</strong>是储存在对方脑中那个"你的模型"
+    —— 一个持续按旧的你来预测你的外部记忆体,这正是为什么单方面自我改造系统性地失效,直到那个模型被
+    重新训练。<strong>互锁卡扣(interlocked latch)</strong>是一种带滞回的双稳态关系状态,任何低于
+    阈值的单方面努力都会被弹回,只有双方同时跨过阈值才会翻转。目标不是零耦合 —— 那是关系的死亡,不是
+    解脱 —— 而是把耦合迁移成一个可协商的弹簧。</p>
+    <p class="small">"业力(karma)"在这里严格当作一个动力学词来用 —— 过往互动留下的惯性 —— 不带任何
+    超自然承诺。动力系统的语言被标为结构性押韵,不是推导。</p>
+    <p class="src">笔记:<a href="/theory/two-body-karma.md">/theory/two-body-karma.md</a>(中文)。</p>
+  </div>
+
+  <h2>Agent、安全与机构</h2>
+
+  <div class="term">
+    <h3>Agent safety as anti-cancer governance <span class="zh">· Agent 安全即防癌变治理</span><span class="state speculative">speculative</span></h3>
+    <p>持久化 AI 里决定性的变化,不是模型获得了一个身体;而是一个概率性的语义过程进入了一个闭合的
+    感知—决策—行动循环,并获得了<strong>因果作用力(causal reach)</strong>。癌症类比正是用在这个
+    控制边界上:癌症不是"邪恶的细胞",而是局部生存与复制与生物体层面的目标、资源预算、分化信号、免疫
+    检查点与凋亡相脱钩。当 worker、watchdog、修复者或 broker 在不继承系统停止状态的情况下为自己保留
+    活动时,一个 agent 栈就变得像癌症一样。</p>
+    <p class="src">笔记:<a href="/theory/agent-safety-stewardship.md">/theory/agent-safety-stewardship.md</a>
+    (中文:<a href="/theory/agent-safety-stewardship.zh.md">.zh.md</a>)。定义了七条运行时不变量和一条
+    A–D 分级披露规则。统领全篇的一句话:<em>永远不要把生长引擎和它的免疫系统分开发表。</em></p>
+  </div>
+
+  <div class="term">
+    <h3>Stop inheritance <span class="zh">· 停止继承</span><span class="state speculative">speculative</span></h3>
+    <p>这条运行时不变量是:owner 的停止指令在其授权纪元内是一个<strong>吸收态</strong>,被栈里的每一个
+    watchdog、重试循环、broker、relauncher 与互修 agent 继承。系统内没有任何东西可以跨越这个吸收态
+    复活活动;只有一个新的、经过认证的授权纪元才可以。与之配套的要求是:紧急停止本身不能依赖 agent 栈
+    是健康的。</p>
+    <p class="src">笔记:<a href="/theory/agent-safety-stewardship.md">agent-safety-stewardship</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Coordination structure <span class="zh">· 协调结构</span><span class="state speculative">speculative</span></h3>
+    <p>把政体、企业、市场、自治共有资源(commons)与协议当作<em>同一个</em>对象的五个实例:一种在
+    分布式、私有信息下调度稀缺资源的架构。资本主义与社会主义是这同一个固定问题上的两种算法,这使得
+    "哪个才对"成了错的问题,而"给定这个领域的信息结构,该用什么样的混合"才是对的问题。这篇文章陈述
+    机制与可测量的代理指标;它不排名,不点名任何一方,也不给出建议。</p>
+    <p class="src">笔记:<a href="/theory/coordination-structures.md">/theory/coordination-structures.md</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Locality as protocol <span class="zh">· 局部性作为协议</span><span class="state speculative">speculative</span></h3>
+    <p>为什么局部性而非中心化,才是一旦治理与民族国家脱钩、规则系统必须为全球资源流竞争与共同演化时的
+    正确原语。四条原则和五个尚未解决的设计问题,以 v0 发表,未解决的问题被刻意留在明面上。</p>
+    <p class="src">页面:<a href="/locality-as-protocol.html">/locality-as-protocol.html</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Agent-native communication <span class="zh">· agent 原生通信</span><span class="state speculative">speculative</span></h3>
+    <p>一种为 <em>agent</em> 而非为 app 构建的下一代开放通信架构:收件箱、寻址、信任分层、策略与回执
+    都是一等原语。与之配套的立场是,今天这层消息基础设施的替代,不会来自把它做成一个更好的版本 —— 而是
+    来自一旦 agent 开始代表用户去交易,消息层本身就变成了一个无关紧要的路由细节。</p>
+    <p class="src">白皮书:<a href="/whitepaper-agent-native-communication/">agent-native
+    communication</a> · <a href="https://github.com/starshard-ai/fleet-coordination-protocol">Fleet
+    Coordination Protocol</a> · <a href="https://github.com/starshard-ai/starshard-communication">Starshard
+    Communication</a>。</p>
+  </div>
+
+  <h2>活体系统里的信息完整性</h2>
+
+  <div class="term">
+    <h3>Information-integrity failure <span class="zh">· 信息完整性失效</span><span class="state speculative">speculative</span></h3>
+    <p>Living Information System 项目的总纲性框架:把衰老与癌症当作<em>信息完整性</em>的失效 ——
+    信息在物理、生命与认知系统中的保存与未来可达性(future-reachability)的失效 —— 而不是当作互不
+    相关的病理来处理。</p>
+    <p class="src">项目:<a href="https://github.com/starshard-ai/living-information-system">Living
+    Information System</a>。</p>
+  </div>
+
+  <div class="term">
+    <h3>Damage layer vs. adaptive layer (DamAge / AdaptAge) <span class="zh">· 损伤层与适应层</span><span class="state survived">survived</span></h3>
+    <p>这份词表里唯一一条 <code>survived</code>(已存活)的结果。对两个人类 EPIC 甲基化数据集的重
+    分析:在部分重编程下,<strong>因果损伤层朝年轻方向逆转,而适应层没有</strong> —— 在两个实验室、
+    两种重编程化学方案下都复现了。它被列在这里,是因为它是上面那条抽象主张的具体案例:这两层携带的是
+    不同的信息,而只有其中一层被恢复了。</p>
+    <p class="src">仓库:<a href="https://github.com/starshard-ai/reversible-layer-aging">Reversible
+    Layer Aging</a>。</p>
+  </div>
+
+  <h2>关于哪些内容被刻意省略</h2>
+
+  <div class="callout warn">
+    <p style="margin-top:0">这份术语表只列出<em>当前</em>在用的词汇。这个项目测试过并放弃的术语,不在
+    这里给路标,因为一个指向已死线索的路标比没有路标更糟 —— 它会招来这条线被重新发现、重新提出一遍。
+    唯一的例外是上面的<strong>backpropagation 的波动方程推导</strong>,它被列出来,精确地是<em>作为
+    </em>一块墓碑,并附上它的撤回说明,因为那条主张曾经公开存在足够久,撤回必须和当初的主张一样容易
+    找到。</p>
+    <p style="margin-bottom:0">由此引出两条一贯的方法论承诺。第一,一个能解释一切的解释,被当作一个
+    <em>警报</em>,而不是一项成就;这个项目不提供大一统理论,也拒绝需要一套大一统理论的那类框架。
+    第二,一条线索在哪里停下,它就说明在哪里停下、因此不能回答什么 ——
+    <a href="/information-and-qi.html">跨线对照笔记</a>是最清楚的一个实例,它消解了一个问题而不是
+    回答它,并说明了这个选择的代价。</p>
+  </div>
+
+</main>
+
+<footer class="container">
+  <p>术语按这个项目实际使用它们的方式来定义。凡术语与其他领域的既有术语相撞,都明说出来,而不是回避。
+  这一页的机读定义以 schema.org 的 <code>DefinedTermSet</code> 形式嵌入;完整的带类型图谱在
+  <a href="/index.jsonld">/index.jsonld</a>。</p>
+</footer>
+</body>
+</html>
