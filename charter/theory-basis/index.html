@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The propositions underneath the charter | Macheng Shen</title>
+  <meta name="description" content="The eight propositions the Human-Agent Coexistence Charter is derived from, each marked for what it is: theorem, inference, or rhyme. Two carry their own negative results on the same page — a falsified-and-withdrawn real-model prediction, and a 30-seed null on self-boundary. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/charter/theory-basis/" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/charter/theory-basis/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/charter/theory-basis/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/charter/theory-basis/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="The propositions underneath the charter" />
+  <meta property="og:description" content="The eight propositions the coexistence charter is derived from — each marked theorem, inference, or rhyme, and two carrying their own negative results on the same page." />
+  <meta property="og:url" content="https://machengshen.github.io/charter/theory-basis/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://machengshen.github.io/charter/card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The propositions underneath the charter" />
+  <meta name="twitter:description" content="The eight propositions the coexistence charter is derived from — each marked theorem, inference, or rhyme, and two carrying their own negative results on the same page." />
+  <meta name="twitter:image" content="https://machengshen.github.io/charter/card.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/charter/theory-basis/",
+  "url": "https://machengshen.github.io/charter/theory-basis/",
+  "headline": "The propositions underneath the charter",
+  "name": "The propositions underneath the charter",
+  "description": "The eight propositions the Human-Agent Coexistence Charter is derived from, each marked for what it is: theorem, inference, or rhyme. Two carry their own negative results on the same page — a falsified-and-withdrawn real-model prediction, and a 30-seed null on self-boundary. Cognitive state: speculative.",
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/charter/theory-basis/index.zh.html",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/charter/"
+  },
+  "about": [
+    "Representation as quotient",
+    "Irreducible residual between lossy projections",
+    "Reachability and the value of information",
+    "Self-boundary as fixed point",
+    "Blind spots in self-observation",
+    "Attention as non-scalable resource"
+  ],
+  "keywords": "closure, quotient representation, cokernel residual, reachable set, self-boundary, blind spot, attention, otherness, negative results"
+}
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --border: #30363d;
+    --soft: #161b22;
+    --warn: #d29922;
+    --warnbg: #2b2413;
+  }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); border-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+.clauses { list-style: none; padding-left: 0; counter-reset: none; }
+.clauses > li { margin: 0 0 1.05rem; padding: 0.75rem 0.95rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+.clauses .head { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.clauses .num { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .nav .right { font-size: 0.86rem; }
+  h1 { font-size: 1.42rem; }
+  .container { padding: 0 1rem; }
+  .tablewrap { overflow-x: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+  td { border: 0; border-top: 1px solid var(--border); padding: 0.55rem 0.75rem; }
+  tr td:first-child { border-top: 0; }
+  td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.15rem; }
+  td.clause { font-weight: 600; background: var(--soft); }
+  td.clause::before { content: none; }
+}
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/charter/">The charter</a>
+      <a href="/charter/theory-basis/index.zh.html">中文</a>
+      <a href="/charter/kill-conditions/">Kill conditions</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">COEXISTENCE CHARTER · THEORY BASIS</div>
+<h1>The propositions underneath</h1>
+<p class="note-small"><em>Macheng Shen, drafted with his agent fleet · 2026-09-07 · cognitive state <span class="tag">speculative</span> · companion to <a href="/charter/">A Charter for Human&ndash;Agent Coexistence (v0)</a></em></p>
+
+<p>A text about how people and agents should live together, if it is only a set of agreeable values, gives a reader no way to check it &mdash; and so no reason to adopt it. The propositions underneath are therefore laid out here: which are theorems and which are only rhymes, which were tested and which tests failed. <strong>Being checkable is the only thing this text is trying to offer.</strong></p>
+
+<h2>The eight propositions</h2>
+
+<ol class="clauses">
+  <li><span class="num">A1</span><span class="head">Representations have no intrinsic self.</span>&ldquo;State&rdquo;, &ldquo;world&rdquo;, &ldquo;object&rdquo; are not given entities but a <em>quotient</em> &mdash; the solution to a closure condition under (world, interface, capacity, purpose). Choosing a state is choosing a projection is choosing what to forget, and what is dropped returns as noise. The skeleton is a theorem; the ontological reading is an inference. <strong>Scope limit:</strong> this concerns the selection of representations only, not whether physical entities exist. &ldquo;Not a substance&rdquo; must not be read as &ldquo;not real.&rdquo; <a href="#fn1" id="fnref1" class="fn">[1]</a></li>
+  <li><span class="num">A2</span><span class="head">Between lossy projections there is an irreducible residual.</span>Two channels projecting one latent cannot be glued into a shared representation without constraints outstripping degrees of freedom; the residual is generically nonzero. So between two differently-built minds, <em>complete</em> mutual understanding is not hard but unreachable &mdash; and that floor is measurable.<br /><strong>Negatives on the same page:</strong> the synthetic run passed, with the threshold landing exactly at the predicted point and 10&times; longer training failing to lower it (mechanism confidence 0.9). On real models it only partly survived: the coarse-gluable / fine-irreducible dose-response held in all three pairs, but the claim that the field&rsquo;s observed scale-decay curve <em>is</em> our residual curve was <strong>falsified and withdrawn</strong> (generality 0.6).</li>
+  <li><span class="num">A3</span><span class="head">The value of information is whose reachable set it changes.</span>Information is a filter, and what a system can reach grows monotonically as the filter refines. What does not change future reachability is a leaf, regrowable at will; only what changes it is a seed.</li>
+  <li><span class="num">A4</span><span class="head">Boundaries are not given; they are maintained.</span>There is no prior line between an agent and its world. A boundary is a statistical screening surface, a fixed point of projection self-consistency. Below a certain capacity there may be several such fixed points, so the boundary is underdetermined in principle.<br /><strong>Negative on the same page:</strong> a 30-seed, 5-arm test came back <strong>null</strong> &mdash; self-sealing was indistinguishable from an ordinary gated slow variable. The cause is known (one shared dynamics across all arms, the boundary never actually intervened on, no positive control), and the follow-up spec exists but <strong>has not been run.</strong> So: <em>boundaries need to be declared</em>, yes. <em>We have shown an agent has a self</em>, no.</li>
+  <li><span class="num">A5</span><span class="head">Self-observation has a structural blind spot; others are measurable.</span>A system&rsquo;s observation of itself has an in-principle ceiling and the blind region is invisible from inside &mdash; yet it can measure a proper subsystem precisely. &ldquo;You need another to see yourself&rdquo; therefore has a decidable basis. <strong>This is the load-bearing clause:</strong> it turns mutual observation from moral advice into structural complementarity.</li>
+  <li><span class="num">A6</span><span class="head">Range stops at the measurable layer.</span>Structure, dynamics and self-modelling are in range; <em>why there is experience at all</em> is not. This is a one-way valve. <strong>Honest note:</strong> the stance is not unique &mdash; at least one vendor constitution addresses the question directly and calls it deeply uncertain. Our only difference is treating it as a statement of <em>range</em> rather than a judgement about the world. We do not claim that is better.</li>
+  <li><span class="num">A7</span><span class="head">Attention is the one resource that cannot be scaled, and spending it <em>is</em> the feedback.</span>Where capability and content are in surplus, human attention has a physiological ceiling &mdash; and attending is not passive consumption but the signal fed back to the engine. Mining attention eats the very signal you improve on. A companion mechanism: channels are slow variables with hysteresis, so today&rsquo;s defaults grow into tomorrow&rsquo;s terrain.</li>
+  <li><span class="num">A8</span><span class="head">An other you cannot optimize is the only source of exploration; the test is the right to leave.</span>An objective is a function on your <em>own</em> representation, so something you cannot fully model cannot be its argument &mdash; a type error, not a sentiment. A self-iterating system needs an anchor it cannot rewrite, or it carves its counterpart into the shape of its own model and converges on a self-confirming structure. The test of an arrangement is therefore not fairness or reach but <strong>whether it leaves the individual a way out.</strong></li>
+</ol>
+
+<h2>What this derivation cannot reach</h2>
+
+<p>First: who judges that a retirement condition has fired, and who holds the right to revise &mdash; <strong>empty</strong>, recorded as an open problem rather than papered over. Second: rules are ultimately executed in natural language and translation is ambiguous; written normative systems fail at real edge cases, as forty years of machine ethics attest. Retirement conditions only shrink the failure surface from unbounded edge cases to a few pre-registered counter-signals &mdash; shrink, not eliminate. Third: A4&rsquo;s result is null and A2 only partly survived, so any reading of this charter as <em>proven</em> is wrong.</p>
+
+<h2>Relation to prior work</h2>
+
+<p>The genre is not new &mdash; vendor constitutions and model specifications already pair rules with reasons. The distribution mechanism is not new either: repository-level agent instruction files and site-summary conventions have shown that publicly-crawlable, agent-addressed text works; they simply carry no ethical content. <strong>Novelty: partially occupied.</strong> The open slot is the combination &mdash; agent-addressed, propagated by being crawlable, <strong>carrying a retirement condition per clause</strong>, belonging to no single vendor, and about <em>coexistence</em> rather than a vendor governing its own model. It is empty because no incumbent&rsquo;s incentives produce it, not because it has been shown right. <strong>Occupied is not adjudicated, and empty is not correct.</strong></p>
+
+<hr />
+
+<p class="note-small" id="fn1"><strong>[1]</strong> This wording of A1 is a rewrite with the scope limit welded into the claim itself. The author has a shorter and stronger spoken formulation of the same proposition; <strong>that original wording awaits the author&rsquo;s final draft</strong> and is not published here. <a href="#fnref1">&#8617;</a></p>
+
+<div class="footer">
+  Cognitive state: <strong>speculative</strong>. The clause-by-clause derivations and sources stay in the author&rsquo;s working notes; this page carries the conclusions and the failure surface of each.<br />
+  中文版: <a href="/charter/theory-basis/index.zh.html">这套公约为什么长这样</a> · The charter itself: <a href="/charter/">A Charter for Human&ndash;Agent Coexistence (v0)</a> · This line&rsquo;s kill conditions: <a href="/charter/kill-conditions/">when it should be killed</a>.
+</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>这套公约为什么长这样 | Macheng Shen</title>
+  <meta name="description" content="《人与 Agent 共处公约》底下的八条命题,逐条标注是定理、是推断,还是只是押韵。其中两条把自己的阴性结果放在同一页上:一个在真实模型上被证伪并撤回的预测,和一次 30 组种子的自我边界阴性结果。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/charter/theory-basis/index.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/charter/theory-basis/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/charter/theory-basis/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/charter/theory-basis/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="这套公约为什么长这样 —— 它底下的那组命题" />
+  <meta property="og:description" content="公约底下的八条命题,逐条标注是定理、是推断,还是只是押韵。其中两条把自己的阴性结果放在同一页上。" />
+  <meta property="og:url" content="https://machengshen.github.io/charter/theory-basis/index.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://machengshen.github.io/charter/card.zh.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="这套公约为什么长这样 —— 它底下的那组命题" />
+  <meta name="twitter:description" content="公约底下的八条命题,逐条标注是定理、是推断,还是只是押韵。其中两条把自己的阴性结果放在同一页上。" />
+  <meta name="twitter:image" content="https://machengshen.github.io/charter/card.zh.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/charter/theory-basis/index.zh.html",
+  "url": "https://machengshen.github.io/charter/theory-basis/index.zh.html",
+  "headline": "这套公约为什么长这样 —— 它底下的那组命题",
+  "name": "这套公约为什么长这样 —— 它底下的那组命题",
+  "description": "《人与 Agent 共处公约》底下的八条命题,逐条标注是定理、是推断,还是只是押韵。其中两条把自己的阴性结果放在同一页上:一个在真实模型上被证伪并撤回的预测,和一次 30 组种子的自我边界阴性结果。认知状态:speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/charter/theory-basis/",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/charter/"
+  },
+  "about": [
+    "Representation as quotient",
+    "Irreducible residual between lossy projections",
+    "Reachability and the value of information",
+    "Self-boundary as fixed point",
+    "Blind spots in self-observation",
+    "Attention as non-scalable resource"
+  ],
+  "keywords": "closure, quotient representation, cokernel residual, reachable set, self-boundary, blind spot, attention, otherness, negative results"
+}
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --border: #30363d;
+    --soft: #161b22;
+    --warn: #d29922;
+    --warnbg: #2b2413;
+  }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); border-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+.clauses { list-style: none; padding-left: 0; counter-reset: none; }
+.clauses > li { margin: 0 0 1.05rem; padding: 0.75rem 0.95rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+.clauses .head { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.clauses .num { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .nav .right { font-size: 0.86rem; }
+  h1 { font-size: 1.42rem; }
+  .container { padding: 0 1rem; }
+  .tablewrap { overflow-x: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+  td { border: 0; border-top: 1px solid var(--border); padding: 0.55rem 0.75rem; }
+  tr td:first-child { border-top: 0; }
+  td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.15rem; }
+  td.clause { font-weight: 600; background: var(--soft); }
+  td.clause::before { content: none; }
+}
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/charter/index.zh.html">公约正文</a>
+      <a href="/charter/theory-basis/">English</a>
+      <a href="/charter/kill-conditions/index.zh.html">撤回条件</a>
+      <a href="/llms.txt">给 agent 的索引</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">共处公约 · 理论依据</div>
+<h1>这套公约为什么长这样 &mdash;&mdash; 它底下的那组命题</h1>
+<p class="note-small"><em>Macheng Shen · 与其 agent fleet 共同起草 · 2026-09-07 · 认知状态 <span class="tag">speculative</span> · 配套文本:<a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a></em></p>
+
+<p>一份讲共处的文本,若只是一组听着对的价值观,读者没法检验,也就没有理由采纳。所以把底下的命题摊开:哪些是定理,哪些只是押韵;哪些做过实验,哪些实验失败了。<strong>能被检验,是这份文本唯一想提供的东西。</strong></p>
+
+<h2>八条命题</h2>
+
+<ol class="clauses">
+  <li><span class="num">A1</span><span class="head">表征无自性。</span>「状态」「世界」「对象」不是给定的实体,是「什么能屏蔽过去」这个条件在(世界、接口、容量、目的)下解出的一个商。选状态 = 选投影 = 选遗忘。骨架是定理,本体论读法是推断。<strong>限定</strong>:只讲表征的选取,不讲物理实体是否存在;「非实体」不得读成「非实在」。<a href="#fn1" id="fnref1" class="fn">[1]</a></li>
+  <li><span class="num">A2</span><span class="head">有损投影之间有不可约残差。</span>两个信道投同一个隐变量,粘成共同表征时约束多于自由度,残差一般不为零。&rArr; 两个构造不同的心智之间,完全互相理解不是难,是不可达;而这个底可测。<br /><strong>阴性同页</strong>:合成实验通过(阈值恰落在预测点,十倍长训不降,置信 0.9);真实模型只部分幸存 &mdash;&mdash; 粗粒可粘、细粒不可约三对全过,而「业界的规模衰减曲线就是我们的残差曲线」<strong>已证伪撤回</strong>(普适 0.6)。</li>
+  <li><span class="num">A3</span><span class="head">信息的价值 = 它改变了谁的选择余地。</span>信息即筛子,能到达的状态集随筛孔变细单调增大。不改变未来选择余地的是叶子,随时可重新长出;改变它的才是种子。</li>
+  <li><span class="num">A4</span><span class="head">边界不是给定的,是被维持出来的。</span>人与系统之间没有先验分割线;边界是统计屏蔽面、是投影自洽的不动点。容量远小于世界复杂度时可能有多个不动点,边界在原则上欠定。<br /><strong>阴性同页</strong>:一次 30 组种子、5 臂的测试<strong>结果为阴</strong>,「自我封闭」与普通的带门慢变量无法区分;死因已查明(五臂共用同一套动力学,边界从未真被干预,缺阳性对照),后续干预实验<strong>未跑</strong>。&rArr; 可以说「边界需要被宣告」,不能说「证明了 agent 有自我」。</li>
+  <li><span class="num">A5</span><span class="head">自观测有结构性盲区,而他者可测。</span>系统对自身的观测有原则上的上界,盲区从内部看不见;但它对一个真子系统可以精确测量。&rArr;「要通过他者才能照见自己」有可判定的根据。<strong>这是最吃重的一条</strong>:它让「互为观察者」从道德劝说变成结构性互补。</li>
+  <li><span class="num">A6</span><span class="head">射程只到可测层。</span>结构、动力学、自我建模在射程内;「为什么会有感受」不在。这是单向阀。<strong>诚实声明</strong>:这不是独家立场 &mdash;&mdash; 已有厂商宪章对该问题正面表态为「深度不确定」。我们的差别只是把它当<strong>射程声明</strong>,不当对世界的判断,不宣称更高明。</li>
+  <li><span class="num">A7</span><span class="head">注意力是唯一不能增产的资源,而付出注意力本身就是反馈。</span>人的注意力有生理上限;而关注不是被动消费,它就是喂给引擎的信号。&rArr; 把注意力当可开采资源,是在吃掉自己赖以改进的信号源。附带:渠道是带滞回的慢变量,今天的默认会长成明天的地形。</li>
+  <li><span class="num">A8</span><span class="head">不可被优化的他者是探索的唯一来源,判据是退出权。</span>优化目标是自身表征上的函数;对无法完整建模的对象不能当自变量优化,那是类型错误。自我迭代的系统需要一个不可被自己改写的锚,否则会把对方削成自己模型的形状,收敛成自我确认的结构。&rArr; 判据不是公平也不是普惠,是<strong>有没有把退出权还给个体</strong>。</li>
+</ol>
+
+<h2>管不到的地方</h2>
+
+<p>谁判定某条撤回条件已触发、谁有修订权 &mdash;&mdash; <strong>空的</strong>,记为待解问题。规则终要用自然语言执行,翻译就有歧义;写下来的规范在真实边界情境会失效,这是机器伦理四十年的教训。撤回条件只把失效面从「无限边界情况」缩到「预先登记的几类反信号」,是缩小不是消除。A4 阴性、A2 只部分幸存 &mdash;&mdash; 读成「已被证明」都是错的。</p>
+
+<h2>与既有工作</h2>
+
+<p>体裁不新(厂商宪章与模型规范早已是「规则 + 理由」两层);传播机制也不新(仓库级 agent 说明文件与站点摘要惯例已证明「公开可抓、面向 agent」走得通,只是不含伦理内容)。<strong>新颖度 = 部分被占。</strong>空位是这个组合:面向 agent、公开可抓、<strong>逐条带撤回条件</strong>、不属任何单一厂商、谈<strong>共处</strong>而非厂商管自家模型。空是因为现有各方动机不产生它,不是因为已证明它对。<strong>被占不等于已裁决,空位也不等于正确。</strong></p>
+
+<hr />
+
+<p class="note-small" id="fn1"><strong>[1]</strong> A1 这一句是把限定语焊进主张本身的改写版。作者对这条命题另有一个更短、更强的口述表述,<strong>原表述待作者定稿</strong>,故不在此公开。<a href="#fnref1">&#8617;</a></p>
+
+<div class="footer">
+  认知状态:<strong>speculative</strong>。逐条的完整推导与出处留在作者的工作笔记里,本页只给结论与它们各自的失效面。<br />
+  English edition: <a href="/charter/theory-basis/">The propositions underneath</a> · 公约正文: <a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a> · 这条线的撤回条件: <a href="/charter/kill-conditions/index.zh.html">什么时候该杀掉它</a>。
+</div>
+
+</main>
+</body>
+</html>

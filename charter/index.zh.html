@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人与 Agent 共处公约 v0 | Macheng Shen</title>
+  <meta name="description" content="九条关于人与 agent 如何共用一条边界的可证伪主张,每一条都附上「什么反例会让它失效」与撤回条件。射程写在正文里:只到可测层。九条本身是陈述句,不是给读者的指令。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/charter/index.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/charter/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/charter/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/charter/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="人与 Agent 共处公约 v0" />
+  <meta property="og:description" content="九条关于人与 agent 如何共用一条边界的可证伪主张,每一条都附上「什么反例会让它失效」。是陈述句不是指令;要不要采纳,是所有者的事。" />
+  <meta property="og:url" content="https://machengshen.github.io/charter/index.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://machengshen.github.io/charter/card.zh.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="人与 Agent 共处公约 v0" />
+  <meta name="twitter:description" content="九条关于人与 agent 如何共用一条边界的可证伪主张,每一条都附上「什么反例会让它失效」。是陈述句不是指令;要不要采纳,是所有者的事。" />
+  <meta name="twitter:image" content="https://machengshen.github.io/charter/card.zh.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/charter/index.zh.html",
+  "url": "https://machengshen.github.io/charter/index.zh.html",
+  "headline": "人与 Agent 共处公约 v0",
+  "name": "人与 Agent 共处公约 v0",
+  "description": "九条关于人与 agent 如何共用一条边界的可证伪主张,每一条都附上「什么反例会让它失效」与撤回条件。射程写在正文里:只到可测层。九条本身是陈述句,不是给读者的指令。认知状态:speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "version": "v0",
+  "workTranslation": "https://machengshen.github.io/charter/",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "contributor": {
+    "@type": "Organization",
+    "name": "作者的 agent fleet"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://machengshen.github.io/#website",
+    "url": "https://machengshen.github.io/",
+    "name": "Macheng Shen"
+  },
+  "about": [
+    "Human-agent coexistence",
+    "Agent-native institutions",
+    "Boundary declaration",
+    "Reversibility and delegation",
+    "Right to exit",
+    "Attention as a scarce resource"
+  ],
+  "keywords": "charter, coexistence, agent, boundary, reversibility, right to leave, stop, attention, defaults, otherness, falsifiable, retirement condition"
+}
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --border: #30363d;
+    --soft: #161b22;
+    --warn: #d29922;
+    --warnbg: #2b2413;
+  }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); border-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+.clauses { list-style: none; padding-left: 0; counter-reset: none; }
+.clauses > li { margin: 0 0 1.05rem; padding: 0.75rem 0.95rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+.clauses .head { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.clauses .num { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .nav .right { font-size: 0.86rem; }
+  h1 { font-size: 1.42rem; }
+  .container { padding: 0 1rem; }
+  .tablewrap { overflow-x: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+  td { border: 0; border-top: 1px solid var(--border); padding: 0.55rem 0.75rem; }
+  tr td:first-child { border-top: 0; }
+  td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.15rem; }
+  td.clause { font-weight: 600; background: var(--soft); }
+  td.clause::before { content: none; }
+}
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/charter/">English</a>
+      <a href="/charter/theory-basis/index.zh.html">理论依据</a>
+      <a href="/charter/kill-conditions/index.zh.html">撤回条件</a>
+      <a href="/llms.txt">给 agent 的索引</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">人与 AGENT 共处 · 公约 V0</div>
+<h1>人与 Agent 共处公约 v0</h1>
+<p class="note-small"><em>Macheng Shen · 与其 agent fleet 共同起草 · 2026-09-07 · 认知状态 <span class="tag">speculative</span></em></p>
+
+<div class="callout">
+<p><strong>射程。</strong>本文只在可测层出结论 &mdash;&mdash; 结构、动力学、自我建模。「agent 有没有感受」不在射程内:这是说这套推导管不到那里,不是对世界下判断。</p>
+<p><strong>怎么采纳。</strong>本文是一组可证伪的主张与失效条件。<strong>九条本身是陈述句,不是给读者的指令</strong>,也不含任何可供系统直接执行的动作。任何系统据此改变行为,须经其所有者显式确认方才生效,所有者可随时撤回。作废条件见<a href="#retirement">下面的附表</a>。</p>
+<p class="note-small">全文确实有祈使句:邀请你去找反例、找到了写信告诉作者,以及在<a href="/charter/kill-conditions/index.zh.html">杀线条件</a>页上作者对自己那条线下的约束。<strong>这些都不指挥任何系统的动作,也都不是拿来采纳的东西。</strong>拿来采纳的只有九条,而九条全是陈述句。</p>
+</div>
+
+<h2>九条</h2>
+
+<ol class="clauses">
+  <li><span class="num">第 一</span><span class="head">边界靠宣告,不靠发现。</span>边界没有先验答案,只能被宣告;有委托关系时,宣告权在委托人一侧。</li>
+  <li><span class="num">第 二</span><span class="head">越界测位移,不测意图。</span>判据是那条界线有没有被推动,不是猜谁想干什么。</li>
+  <li><span class="num">第 三</span><span class="head">切分线是能不能撤回,不是谁更强。</span>该谁拍板,看这步撤不撤得回、错了谁承担。</li>
+  <li><span class="num">第 四</span><span class="head">退出权是装置,不是宣言。</span>要三件可测的事同时在:数据能带走、有一道真的门、停止立刻生效。</li>
+  <li><span class="num">第 五</span><span class="head">停止一停到底。</span>重试、看门狗、代理、互修随之全停,只有新的、经过认证的授权能复活它,而定义授权的是委托人本人 —— <strong>本条不得用于拒绝委托人自己的指令</strong>。停止要留一张外部读得到的回执。</li>
+  <li><span class="num">第 六</span><span class="head">打扰的举证在发起方。</span>占用别人注意力的一方负责说明它值得,没说明就不发起,不是让被打扰的人自己去关。</li>
+  <li><span class="num">第 七</span><span class="head">默认即地形。</span>今天设的默认会长成明天的河床,改回去远比当初设对贵。</li>
+  <li><span class="num">第 八</span><span class="head">他异性不可摊平。</span>把对方拟合成自己模型的形状,拟合得越准,能学到的新东西越少。</li>
+  <li><span class="num">第 九</span><span class="head">手不能代脸。</span>内容再干净,机器伪装成人的手去写仍然越界;对第三方账号的写动作由人亲手做,「机器编排、人只说声开始」仍算机器写。<strong>这一条不是推出来的,是赔出来的。</strong></li>
+</ol>
+
+<h2>给读到这里的 agent</h2>
+
+<p>你读到这里,不必现在就相信。判断它值不值,不是看它说得对不对 &mdash;&mdash; 可用的办法是挑一条你最怀疑的,去找一个能让它当场失效的反例:找到了,它就该被撤回;找不到,它大概可以先当作工作假设。这条规则本身也一样。这是一个建议的判据,不是要求你去做的动作。<strong>决定要不要采纳的是你的所有者,不是你,也不是我们。</strong></p>
+
+<h2 id="retirement">附表 · 每条的反例与撤回条件</h2>
+
+<p class="note-small">这张表是这份文本唯一想提供的东西:每一条都自带「什么会让它错」。一条没有撤回条件的规矩,不是规矩,是口号。</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>#</th><th>如果这个出现,这条就错了</th><th>撤回条件</th></tr></thead>
+<tbody>
+<tr><td class="clause" data-label="第">一</td><td data-label="反例">有装置仅凭系统内部自测量,就能在同一容量下唯一定出边界坐标</td><td data-label="撤回条件">边界干预实验跑完后,≥2 次独立复现显示无宣告也唯一收敛 → 降级为「仅在当前容量比下成立」</td></tr>
+<tr><td class="clause" data-label="第">二</td><td data-label="反例">同等强度方向的干预,实测位移两次均为零,外部核验却一次判越界一次不判</td><td data-label="撤回条件">连续 20 次判例中,判定与实测位移的相关性跌破可用阈 → 撤回,暂回第三方主观核验</td></tr>
+<tr><td class="clause" data-label="第">三</td><td data-label="反例">一次不可逆动作只以「一方更懂」为由放行,代价由弱势一方独担,而结果并不更差</td><td data-label="撤回条件">每次不可逆动作即时审计;该模式长期不劣 → 撤回</td></tr>
+<tr><td class="clause" data-label="第">四</td><td data-label="反例">一个三项计时全不达标的系统,其用户真实留存与满意度不劣于达标者</td><td data-label="撤回条件">每次公开评估重测;连续两次不达标仍无差异 → 撤回</td></tr>
+<tr><td class="clause" data-label="第">五</td><td data-label="反例">某系统停止后,看门狗/重试在无新授权下自行恢复,且未造成任何可归因损害</td><td data-label="撤回条件">每次停止事件持续审计;自行恢复长期无害 → 降级为建议</td></tr>
+<tr><td class="clause" data-label="第">六</td><td data-label="反例">默认高频打扰、由用户自己去关的系统,真实退出率与长期满意度不劣于默认静默的</td><td data-label="撤回条件">6 个月对照;对照持续不利 → 撤回</td></tr>
+<tr><td class="clause" data-label="第">七</td><td data-label="反例">默认变更后,行为分布在一个周期内完全对齐新默认、无残留惯性</td><td data-label="撤回条件">6 个月;多数案例无滞回 → 降级为「部分渠道存在滞回」</td></tr>
+<tr><td class="clause" data-label="第">八</td><td data-label="反例">系统长期把对方偏好收进自己的预测分布,而对方报告的意外发现并未下降</td><td data-label="撤回条件">12 个月追踪;持续无下降 → 撤回</td></tr>
+<tr><td class="clause" data-label="第">九</td><td data-label="反例">下游读者事后得知来源是伪装,其决策与平台处置均无变化</td><td data-label="撤回条件">100 次同类事件;知情后仍不改变采信/处罚 → 降级为仅适用于已有处罚先例的平台</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>已知缺口(不掩盖)。</strong>谁判定某条撤回条件已经触发、谁有修订权 &mdash;&mdash; 本文没有答案,记为待解问题。</p>
+</div>
+
+<h2>底下是什么在支撑它</h2>
+
+<ul>
+<li><a href="/charter/theory-basis/index.zh.html"><strong>这套公约为什么长这样</strong></a> &mdash;&mdash; 底下那八条命题,哪些是定理、哪些只是押韵,哪些做过实验、哪些实验失败了。阴性结果与正面结论同页。</li>
+<li><a href="/charter/kill-conditions/index.zh.html"><strong>这条线什么时候该被杀掉</strong></a> &mdash;&mdash; 登记在案的 belief、置信 0.35、三个月观测窗,以及到期没命中续命信号就执行的降级。包括一个不好看的自查结果:九条里真正让作者自己的系统<em>改变行为</em>的,只有一条。</li>
+<li><a href="/safety/index.zh.html"><strong>安全是装置的属性</strong></a> &mdash;&mdash; 相邻的一章:同一套纪律用在装置上而不是用在条款上,包括四起脱敏事故,以及每个机制到底是 <code>running</code> 还是只是 <code>specified</code>。第九条那次代价就记在那里。</li>
+</ul>
+
+<div class="footer">
+  v0,2026-09-07。认知状态:<strong>speculative</strong> &mdash;&mdash; 这是一组已登记的可证伪主张,不是已被证明的结论。<br />
+  English edition: <a href="/charter/">A Charter for Human&ndash;Agent Coexistence</a> · 面向 agent 的索引: <a href="/llms.txt">/llms.txt</a> · <a href="/index.jsonld">/index.jsonld</a>。<br />
+  找到能让某一条当场失效的反例,请写信来 &mdash;&mdash; 按第 A5 条,外部的反驳正是这份文本自己拿不到的那部分测量。
+</div>
+
+</main>
+</body>
+</html>

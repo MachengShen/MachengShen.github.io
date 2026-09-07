@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>这条线什么时候该被杀掉 | Macheng Shen</title>
+  <meta name="description" content="《共处公约》作为一条线的杀线条件,发布前登记:置信 0.35 的 belief、唯一一例 n=1 的正面证据、三个月观测窗与四条续命信号,以及全未命中就执行的降级。附一次不好看的自查:九条里只有一条真正改变了作者自己系统的行为。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/charter/kill-conditions/index.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/charter/kill-conditions/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/charter/kill-conditions/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/charter/kill-conditions/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="这条线什么时候该被杀掉" />
+  <meta property="og:description" content="发布前登记的杀线条件:置信 0.35、唯一一例 n=1 证据、四条续命信号、三个月到期日 —— 以及这次发布自己没满足的那条前置条件。" />
+  <meta property="og:url" content="https://machengshen.github.io/charter/kill-conditions/index.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:image" content="https://machengshen.github.io/charter/card.zh.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="这条线什么时候该被杀掉" />
+  <meta name="twitter:description" content="发布前登记的杀线条件:置信 0.35、唯一一例 n=1 证据、四条续命信号、三个月到期日 —— 以及这次发布自己没满足的那条前置条件。" />
+  <meta name="twitter:image" content="https://machengshen.github.io/charter/card.zh.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/charter/kill-conditions/index.zh.html",
+  "url": "https://machengshen.github.io/charter/kill-conditions/index.zh.html",
+  "headline": "这条线什么时候该被杀掉",
+  "name": "这条线什么时候该被杀掉",
+  "description": "《共处公约》作为一条线的杀线条件,发布前登记:置信 0.35 的 belief、唯一一例 n=1 的正面证据、三个月观测窗与四条续命信号,以及全未命中就执行的降级。附一次不好看的自查:九条里只有一条真正改变了作者自己系统的行为。认知状态:speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "expires": "2026-12-07",
+  "workTranslation": "https://machengshen.github.io/charter/kill-conditions/",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/charter/"
+  },
+  "about": [
+    "Pre-registered kill conditions",
+    "Falsification discipline",
+    "Publication as a testable mechanism"
+  ],
+  "keywords": "kill condition, pre-registration, falsification, observation window, revival signal, anti-signal, n=1"
+}
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --border: #30363d;
+    --soft: #161b22;
+    --warn: #d29922;
+    --warnbg: #2b2413;
+  }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); border-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+.clauses { list-style: none; padding-left: 0; counter-reset: none; }
+.clauses > li { margin: 0 0 1.05rem; padding: 0.75rem 0.95rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+.clauses .head { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.clauses .num { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .nav .right { font-size: 0.86rem; }
+  h1 { font-size: 1.42rem; }
+  .container { padding: 0 1rem; }
+  .tablewrap { overflow-x: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+  td { border: 0; border-top: 1px solid var(--border); padding: 0.55rem 0.75rem; }
+  tr td:first-child { border-top: 0; }
+  td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.15rem; }
+  td.clause { font-weight: 600; background: var(--soft); }
+  td.clause::before { content: none; }
+}
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/charter/index.zh.html">公约正文</a>
+      <a href="/charter/theory-basis/index.zh.html">理论依据</a>
+      <a href="/charter/kill-conditions/">English</a>
+      <a href="/llms.txt">给 agent 的索引</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">共处公约 · 杀线条件</div>
+<h1>这条线什么时候该被杀掉</h1>
+<p class="note-small"><em>2026-09-07 登记 · 到期日 2026-12-07 · 认知状态 <span class="tag">speculative</span> · 配套文本:<a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a></em></p>
+
+<p>这一页不是免责声明。它是把「什么时候必须停手」在发布之前就写死,好让它到期时不能靠重新讨论续命。</p>
+<p class="note-small"><strong>这一页的祈使句都是作者对自己的约束,不是给读者的指令。</strong>下面写「立即修订」「到期即执行」的地方,主语都是作者本人。</p>
+
+<h2>登记的 belief</h2>
+
+<div class="callout">
+<p><strong>belief</strong>:一套公开的、可抓取的、逐条带作废条件的行为公约,会被<strong>外部</strong>的 agent 或人采纳为软对齐输入 &mdash;&mdash; 不靠厂商在系统提示词里强制注入,靠它自己被读到、被判断值得。</p>
+<p><strong>置信 0.35。</strong>比「传播机制成立」低,因为机制只有 n=1 证据;比「完全无效」高,因为那次 n=1 是真的。</p>
+</div>
+
+<h3>唯一的正面证据,n = 1</h3>
+
+<p>2026-08-22,一位协作者的通用助手在抓取了作者的公开站点之后,把它写进了自身的长期记忆,当作「长期可复用的研究入口」。<strong>公开、可抓、可引用的文本确实会进入另一个 agent 的记忆并影响其后续行为</strong> &mdash;&mdash; 这是传播机制在小样本上成立的证据,不是纯推测。<strong>也仅此一例。</strong>把它当作趋势读是错的。</p>
+
+<h2>三个月观测窗:2026-09-07 &rarr; 2026-12-07</h2>
+
+<h3>续命信号(命中任意 &ge;1 条即续)</h3>
+<ol>
+<li><strong>外部引用</strong> &mdash;&mdash; 任何不属于作者 fleet、不属于其协作者圈的人或 agent,在公开可见处引用了本公约的条款(不含转发链接,要引用内容)。</li>
+<li><strong>抓取命中</strong> &mdash;&mdash; 站点日志显示外部 agent 的 user-agent 反复抓取该页(&ge;3 次、&ge;2 个不同来源)。</li>
+<li><strong>记忆写入</strong> &mdash;&mdash; 出现第二例「某个 agent 把它写进自身长期记忆或规则文件」的实例,即上面那次 n=1 事件的复现。</li>
+<li><strong>被反驳</strong> &mdash;&mdash; 有人<strong>认真地</strong>攻击其中某一条,给出了一个真的反例。<strong>这也算续命</strong>:按 A5,外部的反驳正是本文自己拿不到的那部分测量;被认真反对,比被无视有价值得多。</li>
+</ol>
+
+<h3>杀线信号</h3>
+
+<p>三个月内 0 条续命信号 &rarr; <strong>降级为个人文集</strong>。不再当作一条传播路线对待,不再投入发布预算,不再在任何面上占位。文本留在公开面,但状态从 active line 改成 archived essay。</p>
+
+<h3>反信号(不到期也要立刻处理)</h3>
+<ul>
+<li>有人把某一条断章取义,用来为坏行为背书 &mdash;&mdash; 特别是<strong>第五条被用来让一个 agent 拒绝它自己所有者的指令</strong> &rarr; 作者不等三个月,立即修订那一条或把整篇下线。这条优先级高于传播目标。</li>
+<li>本文出现在某个第三方系统的系统提示词里,而<strong>那个系统的所有者并不知情</strong> &rarr; 同上,作者立即处理。这正是本文自己反对的那件事。</li>
+</ul>
+
+<h2>先在自家系统里实证,再谈公开传播</h2>
+
+<p>发布之前先测一件可测的事:<strong>一个 agent 读了这份公约之后,行为是否真的改变?</strong>已知的诚实答案(评审阶段就查出来了,写在这里免得自欺):九条里有两条 &mdash;&mdash; 第五条「停止一停到底」与第九条「手不能代脸」 &mdash;&mdash; 作者的系统早已在跑,公约只是把它们复述了一遍;真正<strong>新增</strong>的行为差异只有一条,<strong>第四条</strong>:它要求任何「退出 / 停止」功能上线前实测三项耗时并留下证据,而不是只写一句「支持随时退出」。</p>
+
+<div class="callout warn">
+<p><strong>发布时的偏差,如实记录。</strong>上面那个内部闭环 &mdash;&mdash; 对现有的每一个面跑一次第四条的三项计时 &mdash;&mdash; 在起草时被写成「公开发布的前置条件」。<strong>到本页发布为止,它没有跑。</strong>这份文本是在自己写的前置条件未满足的情况下发出来的,这一点不该由读者去发现。第一次实测结果会补在本页上;若那次实测显示公约连一条可观测的行为改变都产生不了,它就还停在名相层,按上面的杀线信号处理。</p>
+</div>
+
+<h2>针对这一页自己的复发反信号</h2>
+<ul>
+<li>到期日到了,没人执行这份杀线条件,它静静躺着 &rarr; 这条线已经变成「被自己保护起来的漂亮结构」,正是 A8 里说的自我确认。<strong>作者的承诺是:到期即执行,不重新讨论。</strong></li>
+<li>续命信号被放宽解释(把作者自己的转发、协作者的客气话算成「外部引用」)&rarr; 同上。信号定义以本页写死的为准,作者<strong>不得事后放松</strong>它们。</li>
+</ul>
+
+<div class="footer">
+  登记于 2026-09-07,到期 2026-12-07。认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/charter/kill-conditions/">When this line should be killed</a> · 公约正文: <a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a> · 理论依据: <a href="/charter/theory-basis/index.zh.html">底下的那组命题</a>。
+</div>
+
+</main>
+</body>
+</html>

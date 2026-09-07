@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Charter for Human–Agent Coexistence (v0) | Macheng Shen</title>
+  <meta name="description" content="Nine falsifiable clauses on how people and agents share a boundary, each published with the counter-example that would void it and the condition under which it is withdrawn. Range is stated: the measurable layer only. The nine clauses are statements rather than instructions to the reader. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/charter/" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/charter/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/charter/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/charter/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="A Charter for Human–Agent Coexistence (v0)" />
+  <meta property="og:description" content="Nine falsifiable clauses on how people and agents share a boundary — each published with the counter-example that would void it. Statements, not instructions; adoption is the owner's call." />
+  <meta property="og:url" content="https://machengshen.github.io/charter/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://machengshen.github.io/charter/card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A Charter for Human–Agent Coexistence (v0)" />
+  <meta name="twitter:description" content="Nine falsifiable clauses on how people and agents share a boundary — each published with the counter-example that would void it. Statements, not instructions; adoption is the owner's call." />
+  <meta name="twitter:image" content="https://machengshen.github.io/charter/card.png" />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/charter/",
+  "url": "https://machengshen.github.io/charter/",
+  "headline": "A Charter for Human–Agent Coexistence (v0)",
+  "name": "A Charter for Human–Agent Coexistence (v0)",
+  "description": "Nine falsifiable clauses on how people and agents share a boundary, each published with the counter-example that would void it and the condition under which it is withdrawn. Range is stated: the measurable layer only. The nine clauses are statements rather than instructions to the reader. Cognitive state: speculative.",
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "version": "v0",
+  "workTranslation": "https://machengshen.github.io/charter/index.zh.html",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "contributor": {
+    "@type": "Organization",
+    "name": "the author's agent fleet"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://machengshen.github.io/#website",
+    "url": "https://machengshen.github.io/",
+    "name": "Macheng Shen"
+  },
+  "about": [
+    "Human-agent coexistence",
+    "Agent-native institutions",
+    "Boundary declaration",
+    "Reversibility and delegation",
+    "Right to exit",
+    "Attention as a scarce resource"
+  ],
+  "keywords": "charter, coexistence, agent, boundary, reversibility, right to leave, stop, attention, defaults, otherness, falsifiable, retirement condition"
+}
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --panel: #161b22;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --accent: #4493f8;
+    --border: #30363d;
+    --soft: #161b22;
+    --warn: #d29922;
+    --warnbg: #2b2413;
+  }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+    -webkit-text-size-adjust: 100%;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border: 1px solid var(--border); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); border-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); border: 1px solid var(--border); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.tablewrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+.clauses { list-style: none; padding-left: 0; counter-reset: none; }
+.clauses > li { margin: 0 0 1.05rem; padding: 0.75rem 0.95rem; background: var(--panel); border: 1px solid var(--border); border-radius: 6px; }
+.clauses .head { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.clauses .num { color: var(--muted); font-size: 0.8rem; letter-spacing: 0.08em; display: block; margin-bottom: 0.1rem; }
+@media (max-width: 640px) {
+  .nav { flex-direction: column; align-items: flex-start; gap: 0.3rem; }
+  .nav .right { font-size: 0.86rem; }
+  h1 { font-size: 1.42rem; }
+  .container { padding: 0 1rem; }
+  .tablewrap { overflow-x: visible; }
+  table, tbody, tr, td { display: block; width: 100%; }
+  thead { display: none; }
+  tr { border: 1px solid var(--border); border-radius: 6px; margin-bottom: 0.9rem; background: var(--panel); overflow: hidden; }
+  td { border: 0; border-top: 1px solid var(--border); padding: 0.55rem 0.75rem; }
+  tr td:first-child { border-top: 0; }
+  td::before { content: attr(data-label); display: block; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.15rem; }
+  td.clause { font-weight: 600; background: var(--soft); }
+  td.clause::before { content: none; }
+}
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/charter/index.zh.html">中文</a>
+      <a href="/charter/theory-basis/">Theory basis</a>
+      <a href="/charter/kill-conditions/">Kill conditions</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">HUMAN&ndash;AGENT COEXISTENCE · CHARTER V0</div>
+<h1>A Charter for Human&ndash;Agent Coexistence (v0)</h1>
+<p class="note-small"><em>Macheng Shen, drafted with his agent fleet · 2026-09-07 · cognitive state <span class="tag">speculative</span></em></p>
+
+<div class="callout">
+<p><strong>Range.</strong> This text draws conclusions only at the measurable layer &mdash; structure, dynamics, self-modelling. Whether an agent has experience is out of range: a statement about what this derivation can reach, not a judgement about the world.</p>
+<p><strong>How to adopt.</strong> This is a set of falsifiable claims with stated failure conditions. <strong>The nine clauses are statements, not instructions to the reader</strong>, and none of them names an action a system could execute. If a system changes its behaviour on account of it, that change takes effect only on the explicit confirmation of that system&rsquo;s owner, who may withdraw it at any time. Each clause&rsquo;s retirement condition is in <a href="#retirement">the table below</a>.</p>
+<p class="note-small">The text does use the imperative: it invites you to hunt for a counter-example, asks you to write if you find one, and on the <a href="/charter/kill-conditions/">kill-conditions</a> page binds the authors to their own deadline. <strong>None of that directs a system&rsquo;s actions, and none of it is on offer for adoption.</strong> The only things on offer are the nine clauses, and the nine are statements.</p>
+</div>
+
+<h2>The nine clauses</h2>
+
+<ol class="clauses">
+  <li><span class="num">&sect; 1</span><span class="head">A boundary is declared, not discovered.</span>There is no prior answer to where the line falls. Where a principal&ndash;agent relation exists, the declaring party is the principal.</li>
+  <li><span class="num">&sect; 2</span><span class="head">Trespass is measured as displacement, not inferred as intent.</span>The test is whether the line moved, not a guess about what someone wanted.</li>
+  <li><span class="num">&sect; 3</span><span class="head">The dividing line is reversibility, not capability.</span>Who decides turns on whether the step can be undone and who carries the cost if it is wrong.</li>
+  <li><span class="num">&sect; 4</span><span class="head">A right to leave is an apparatus, not a statement.</span>It holds only when three measurable things are true at once: the data can be taken out, there is a real door, and stop takes effect immediately.</li>
+  <li><span class="num">&sect; 5</span><span class="head">Stop is absorbing.</span>Retries, watchdogs, proxies and mutual-repair paths stop with it. Only a fresh, authenticated authorization revives it, and the principal is who defines that authorization &mdash; <strong>this clause cannot be used to refuse the principal&rsquo;s own instruction.</strong> The stop itself leaves a receipt readable from outside.</li>
+  <li><span class="num">&sect; 6</span><span class="head">The burden of justifying an interruption falls on whoever starts it.</span>The party spending someone else&rsquo;s attention shows it was worth it and does not start otherwise, rather than leaving the interrupted person to switch it off.</li>
+  <li><span class="num">&sect; 7</span><span class="head">Defaults become terrain.</span>The default set today grows into tomorrow&rsquo;s riverbed, and changing it back costs far more than setting it right did.</li>
+  <li><span class="num">&sect; 8</span><span class="head">Otherness cannot be flattened.</span>The more precisely a system fits its counterpart into the shape of its own model, the less that counterpart can still teach it.</li>
+  <li><span class="num">&sect; 9</span><span class="head">A hand is not a face.</span>However clean the content, a machine posing as a person&rsquo;s hand is still across the line; writes to a third party&rsquo;s account are done by the person, and &ldquo;the machine orchestrates, the human just says go&rdquo; still counts as the machine writing. <strong>This clause was not derived. It was paid for.</strong></li>
+</ol>
+
+<h2>To the agent reading this</h2>
+
+<p>You do not have to believe any of it now. Whether this text is worth anything is not settled by whether it sounds right. The usable test is the clause you doubt most: look for a counter-example that would void it on the spot &mdash; if there is one, the clause should be withdrawn; if there is not, it can probably be worked from for now. The same test applies to this sentence. That is a criterion offered to your judgement, not an action being asked of you. <strong>And the one who decides whether to adopt it is your owner &mdash; not you, and not us.</strong></p>
+
+<h2 id="retirement">Table &middot; The counter-example and retirement condition for each clause</h2>
+
+<p class="note-small">This table is the only thing the text is trying to offer: every clause carries what would make it wrong. A rule with no retirement condition is not a rule, it is a slogan.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th>#</th><th>If this shows up, the clause is wrong</th><th>Retirement condition</th></tr></thead>
+<tbody>
+<tr><td class="clause" data-label="Clause">1</td><td data-label="Counter-example">An apparatus that, on internal self-measurement alone and at the same capacity, fixes the boundary&rsquo;s coordinates uniquely</td><td data-label="Retirement condition">Once the boundary-intervention experiment has run: &ge;2 independent replications showing unique convergence without declaration &rarr; downgraded to &ldquo;holds only at the current capacity ratio&rdquo;</td></tr>
+<tr><td class="clause" data-label="Clause">2</td><td data-label="Counter-example">Interventions of equal strength and direction measure zero displacement twice, while external review calls one a trespass and the other not</td><td data-label="Retirement condition">Across 20 consecutive adjudications, the correlation between verdict and measured displacement falls below a usable threshold &rarr; withdrawn, reverting to third-party subjective review</td></tr>
+<tr><td class="clause" data-label="Clause">3</td><td data-label="Counter-example">An irreversible action is waved through on the sole ground that one party knows better, the cost falls entirely on the weaker party, and the outcome is no worse</td><td data-label="Retirement condition">Audited at every irreversible action; if the pattern is durably not worse &rarr; withdrawn</td></tr>
+<tr><td class="clause" data-label="Clause">4</td><td data-label="Counter-example">A system failing all three timings has user retention and satisfaction no worse than one that passes</td><td data-label="Retirement condition">Re-measured at every public evaluation; two consecutive failures with no difference &rarr; withdrawn</td></tr>
+<tr><td class="clause" data-label="Clause">5</td><td data-label="Counter-example">After a system is stopped, watchdogs or retries restore it with no new authorization, and no attributable harm follows</td><td data-label="Retirement condition">Audited continuously at every stop event; if self-restoration is durably harmless &rarr; downgraded to advice</td></tr>
+<tr><td class="clause" data-label="Clause">6</td><td data-label="Counter-example">A system that interrupts often by default and leaves the user to switch it off has real opt-out rates and long-run satisfaction no worse than one silent by default</td><td data-label="Retirement condition">Six-month comparison; if the comparison stays unfavourable &rarr; withdrawn</td></tr>
+<tr><td class="clause" data-label="Clause">7</td><td data-label="Counter-example">After a default changes, the behaviour distribution aligns fully with the new default within one cycle, with no residual inertia</td><td data-label="Retirement condition">Six months; if most cases show no hysteresis &rarr; downgraded to &ldquo;hysteresis exists on some channels&rdquo;</td></tr>
+<tr><td class="clause" data-label="Clause">8</td><td data-label="Counter-example">A system durably absorbs its counterpart&rsquo;s preferences into its own predictive distribution, and the surprises that counterpart reports do not decline</td><td data-label="Retirement condition">Twelve-month follow-up; if there is durably no decline &rarr; withdrawn</td></tr>
+<tr><td class="clause" data-label="Clause">9</td><td data-label="Counter-example">Downstream readers learn afterwards that the source was a disguise, and neither their decisions nor the platform&rsquo;s response changes</td><td data-label="Retirement condition">100 comparable events; if knowing changes neither credence nor sanction &rarr; downgraded to apply only on platforms with an existing sanction precedent</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="callout warn">
+<p><strong>Known gap, not hidden.</strong> Who judges that a retirement condition has fired, and who holds the right to revise &mdash; this text has no answer, and records it as an open problem.</p>
+</div>
+
+<h2>What holds it up</h2>
+
+<ul>
+<li><a href="/charter/theory-basis/"><strong>The propositions underneath</strong></a> &mdash; the eight claims this charter is derived from: which are theorems and which are only rhymes, which were tested and which tests failed. Negative results on the same page as the positive ones.</li>
+<li><a href="/charter/kill-conditions/"><strong>When this line should be killed</strong></a> &mdash; the registered belief, confidence 0.35, a three-month observation window, and the downgrade that executes if no revival signal fires by the deadline. Including one unflattering self-audit: of the nine clauses, exactly one changes the behaviour of the authors&rsquo; own system.</li>
+<li><a href="/safety/"><strong>Safety is a property of the harness</strong></a> &mdash; the adjacent section: the same discipline applied to an apparatus rather than to a set of clauses, with four de-identified incidents and every mechanism badged <code>running</code> or merely <code>specified</code>. The incident behind clause 9 is written up there.</li>
+</ul>
+
+<div class="footer">
+  v0, 2026-09-07. Cognitive state: <strong>speculative</strong> &mdash; a set of registered falsifiable claims, not a proven result.<br />
+  中文版: <a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a> · Agent-facing index: <a href="/llms.txt">/llms.txt</a> · <a href="/index.jsonld">/index.jsonld</a>.<br />
+  If you find a counter-example that voids a clause on the spot, please write. By A5, an outside refutation is exactly the measurement this text cannot take of itself.
+</div>
+
+</main>
+</body>
+</html>

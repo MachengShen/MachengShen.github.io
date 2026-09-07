@@ -813,6 +813,10 @@
     {
      "relation": "contains",
      "target": "safety-section"
+    },
+    {
+     "relation": "contains",
+     "target": "coexistence-charter"
     }
    ]
   },
@@ -1249,6 +1253,61 @@
    "url": "https://machengshen.github.io/safety/roadmap.html",
    "inLanguage": "en",
    "workTranslation": "https://machengshen.github.io/safety/roadmap.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "coexistence-charter",
+   "label": {
+    "en": "A Charter for Human–Agent Coexistence (v0)",
+    "zh": "人与 Agent 共处公约 v0"
+   },
+   "description": {
+    "en": "Nine clauses on how a person and an agent share a boundary, each published with the counter-example that would void it and the condition under which it is withdrawn. Range is declared at the measurable layer only. The nine clauses are statements rather than instructions to the reader; adoption is the owner's decision, and the clause on stop states that it may not be used to refuse the owner's own instruction.",
+    "zh": "九条关于人与 agent 如何共用一条边界的主张,每一条都附上「什么反例会让它失效」与撤回条件。射程明写为只到可测层。九条本身是陈述句而不是给读者的指令;要不要采纳是所有者的决定,而讲「停止」的那一条明写着它不得被用来拒绝所有者自己的指令。"
+   },
+   "url": "https://machengshen.github.io/charter/",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/charter/index.zh.html",
+   "cognitiveState": "speculative",
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "coexistence-charter/theory-basis"
+    },
+    {
+     "relation": "contains",
+     "target": "coexistence-charter/kill-conditions"
+    }
+   ]
+  },
+  {
+   "id": "coexistence-charter/theory-basis",
+   "label": {
+    "en": "The propositions underneath the charter",
+    "zh": "公约底下的那组命题"
+   },
+   "description": {
+    "en": "The eight propositions the charter is derived from, each marked theorem, inference, or rhyme. Two carry their own negative results on the same page: a real-model scale-decay prediction falsified and withdrawn, and a 30-seed null on self-boundary whose follow-up has not been run. Novelty scored as partially occupied.",
+    "zh": "公约所依据的八条命题,逐条标注是定理、是推断,还是只是押韵。其中两条把阴性结果放在同一页:真实模型上的规模衰减预测已证伪撤回,以及一次 30 组种子、后续未跑的自我边界阴性结果。新颖度评为部分被占。"
+   },
+   "url": "https://machengshen.github.io/charter/theory-basis/",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/charter/theory-basis/index.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "coexistence-charter/kill-conditions",
+   "label": {
+    "en": "When this line should be killed",
+    "zh": "这条线什么时候该被杀掉"
+   },
+   "description": {
+    "en": "Kill conditions registered before publication: the belief at confidence 0.35, its single n = 1 piece of positive evidence, a three-month window to 2026-12-07, four revival signals including being seriously refuted, and the downgrade that executes if none fires. Records that only one of the nine clauses changes the authors' own behaviour, and that the internal precondition they set for publishing had not been run when the pages went live.",
+    "zh": "发布前登记的杀线条件:置信 0.35 的 belief、唯一一例 n = 1 正面证据、到 2026-12-07 的三个月观测窗、四条续命信号(含「被认真反驳」),以及全未命中就执行的降级。并记录:九条里只有一条真正改变作者自己系统的行为,而他们自设的发布前置条件在上线时并没有跑。"
+   },
+   "url": "https://machengshen.github.io/charter/kill-conditions/",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/charter/kill-conditions/index.zh.html",
    "cognitiveState": "speculative"
   }
  ]
