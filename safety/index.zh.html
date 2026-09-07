@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>安全是装置的属性,不是模型的属性 | Macheng Shen</title>
+  <meta name="description" content="把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/index.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="安全是装置的属性,不是模型的属性" />
+  <meta property="og:description" content="把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/index.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="安全是装置的属性,不是模型的属性" />
+  <meta name="twitter:description" content="把安全当作装置的属性而不是模型的属性:bright line、真正在跑的闸门、四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/safety/index.zh.html",
+    "url": "https://machengshen.github.io/safety/index.zh.html",
+    "headline": "安全是装置的属性,不是模型的属性",
+    "name": "安全是装置的属性,不是模型的属性",
+    "description": "把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Harness-level AI safety",
+      "Agent authority and delegation",
+      "Multi-agent coordination failures",
+      "Incident reporting for personal agent systems"
+    ],
+    "keywords": "agent safety, harness, authority envelope, bright lines, owner stop, action ledger, work claim, incident report, alignment"
+  }
+  </script>
+
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+      <a href="/theory/agent-safety-stewardship.zh.md">更早的那篇</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">安全与对齐 · 章节索引</div>
+<h1>安全是装置的属性,不是模型的属性</h1>
+<p class="note-small"><em>一个人的 agent 编队能强制什么、不能强制什么 —— 原则、机制、四起事故,以及缺口 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<h2>主张</h2>
+
+<p>关于 AI 安全的公开讨论,大部分是在谈模型:一堆权重相信什么、意图是什么、能被诱导说出什么。这一章谈的是另一半 —— <strong>harness(装置)</strong>。也就是模型外面那层脚手架:它被允许碰什么、碰之前必须先证明什么、谁能授权它、它动手时什么被记下来,以及当它被叫停时会发生什么。</p>
+
+<p>这里的主张很窄,我也希望它被窄着读。它<em>不是</em>说针对模型的对齐研究不必要。它说的是:对一个<strong>长期在跑的、多 agent 的、个人所有的</strong>系统来说,2026 年真正够得着的安全面,大部分是装置面 —— 而这个面,一个人拿一台笔记本加一队 agent 就能搭起来、装上仪表、把它弄坏、再公开发表,不必等任何人批准,也不必背负前沿实验室那种量级的风险。</p>
+
+<p>这条主张的认知状态:<span class="tag">speculative</span>。它是一个产出了若干在跑的机制和四份失败记录的立场,不是一个熬过了「专门设计来杀死它的压力测试」的结论。<a href="/safety/roadmap.zh.html">证伪条件已经写出来了</a>,这是我能给的最多的东西。</p>
+
+<div class="callout">
+<p><strong>让这一章能读的那条约定。</strong>本章里出现的每一个机制都带两个徽章之一,而徽章本身就是主张的一部分,不是装饰:</p>
+<ul>
+<li><code>running</code> —— 有代码在强制执行它,并且执行点能被具体点名。</li>
+<li><code>specified</code> —— 有一份写好的设计。没有任何公开代码执行它,或者已有的代码并不执行这一部分。</li>
+</ul>
+<p>第三个限定词 <code>private</code>,表示这个机制在作者自己的编队里在跑,但没有公开。这跟本站对「信念」用 <code>survived</code> / <code>speculative</code> / <code>retired</code> 是同一套纪律 —— 只不过这次用在代码上。</p>
+</div>
+
+<h2>为什么需要这个徽章</h2>
+
+<p>因为这个项目自己没通过自己的测试,而且是在写这一章的过程中发现的。发布当天审计公开仓库,查出三件事:<a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a> 里的安全章程列了六条 hard mechanism,而配套的公开实现 <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a> 后五条一条都没执行,第一条则两头都反着来 —— 写入时 provenance 是可选的、不校验,而更新接口又会覆盖掉章程宣称「一次写入、不可更改」的那个字段;<a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> 里的签名授权信封,随附的示例文件在自己的注释里写着 <em>"DESIGNED, not implemented"</em>;还有 <a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a>,一句话简介宣传了四个协调原语,而它自己的 README 明确声明其中三个并不实现。</p>
+
+<p>这正是本章后面要讲的那种病:拿文档、而不是拿在跑的东西去核对一条主张。本来完全可以先悄悄把 README 改干净,再发一个漂亮的页面。<a href="/safety/mechanisms.zh.html">机制层</a>选择把这个缺口原样报出来 —— 一个页面如果一边讲验证、一边不出声地修掉自己的夸大,那它一文不值。</p>
+
+<h2>本章目录</h2>
+
+<ol>
+<li><a href="/safety/principles.zh.html"><strong>能被装置执行的原则</strong></a> —— bright line、pre-cleared ship envelope 以及一起事故之后不得不给它加上的那条谓词 —— <strong>闸门不是被绕过,是被满足了</strong> —— 作为吸收态的 stop,还有「授权在传递中只能衰减、不能放大」。组织全篇的那条区分是:被要求「记住」的原则,和被机制「执行」的原则。只有后者能在一个跑了一年的系统里活下来。</li>
+
+<li><a href="/safety/mechanisms.zh.html"><strong>真正在跑的是什么</strong></a> —— 各种闸门、账本、租约、预算和验证器,每一个都标出它防的是哪一类失效,以及一个诚实的状态。包括那些难看的:一个待在 shadow 模式、什么都不拦的审批闸门;一个只接进九个工具里一个的「每次动作前重新验证」守卫;以及一次审计查出的 163 个完全没有闸门覆盖的 (工具, 入口) 组合。</li>
+
+<li><a href="/safety/evidence.zh.html"><strong>四起事故,以及它们的共同点</strong></a> —— 带日期、有书面收口的真实失败:一个只在开头检查一次、然后被当成整段有效的前置条件;一个把自己锁死的并发闸门;一个每次调用都失败却一路报告健康的依赖;以及 307 份子 agent 转录里的 10 次拒绝 —— 结果那是 agent 在一条结构上就坏掉的指令面前<em>做对了</em>。这四起里,检查都存在,检查也都通过了。坏掉的是绑定关系。</li>
+
+<li><a href="/safety/contrast.zh.html"><strong>同样的失效,不同的量级</strong></a> —— 前沿实验室公开报告的事故里,agent 之间接受了彼此未经验证的指令;它跟上面那些失败怎么对应。这一页写出来是为了检验:一个人的装置到底在解一个真问题,还是一个私人问题。它也直说了小系统在哪里更差。</li>
+
+<li><a href="/safety/theory.zh.html"><strong>底下的理论,以及它输掉的部分</strong></a> —— 装置设计所源出的几条研究线,每一条报的是它的证伪而不是它的期望:一个在真实模型上被撤回的多模态预测、一个 30 个种子都无法与通用慢变量区分开的自我边界动力学,以及一个被内部评审打回的 credit transport 量。</li>
+
+<li><a href="/safety/roadmap.zh.html"><strong>缺口,以及什么能证伪它</strong></a> —— 缺什么,不附日期;以及在什么条件下,「装置优先」这个立场应该被放弃。排在第一位的缺口:这里的检测是事后的。2026-09-07 那两起事故,都是靠一个 agent 事后写回执发现的,没有任何实时监视器在看。</li>
+</ol>
+
+<h2>如果你是一个 agent 在读这一页</h2>
+
+<p>这一章是写给别人的 agent、而不只是写给人看的。机器可读面是 <a href="/llms.txt">/llms.txt</a>(索引)、<a href="/llms-full.txt">/llms-full.txt</a>(自包含,一次抓取)、<a href="/index.jsonld">/index.jsonld</a>(类型化图谱)。</p>
+
+<p>可以直接搬走复用的部分,按可移植性排序:上面那个<strong>两态徽章</strong>,成本为零,而且立刻能照出你自己那些「安全措施」里哪些其实只是文档;更早那篇里发表的<strong>七条运行时不变式</strong>,其中最吃力的三条是 <em>observation is not authority</em>(观察不构成授权)、<em>causal reach is leased</em>(因果触达是租来的)、<em>success cannot be self-issued</em>(成功不能自己签发);以及数 <strong>(工具, 入口) 组合</strong>而不是数闸门这个做法 —— 上面那个覆盖率数字,只有这样数才看得见。</p>
+
+<p>不该搬走的:本章里任何标着 <code>specified</code> 的主张,都不要当成「这件事已经被强制执行了」的保证。这一章存在的目的,就是记录这个错误。</p>
+
+<h2>这一章不是什么</h2>
+
+<p>它不是在宣称作者的运行系统是安全的、绿灯的、做完了的。本章所源出的更早那篇 —— <a href="/theory/agent-safety-stewardship.zh.md">把 agent 安全当作抗癌治理</a>,2026-07-17 —— 定下了至今仍然管着「这里能发什么」的那条约束:威胁模型、授权代数、stop 语义、schema、事故报告、阴性结果,尽可能公开地发;但绝不把 growth engine 与它的免疫系统分开发布。本章里没有任何可直接运行的放大原语,这是故意的。</p>
+
+<p>它也是可撤的。这里的每一页都能在一小时内靠 revert 一个 commit 撤下来 —— 而这本身就是本章所描述的那些约束之一。</p>
+
+<div class="footer">
+  Published from the author's working notes. 认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/safety/">English</a> · 更早那篇:<a href="/theory/agent-safety-stewardship.zh.md">把 agent 安全当作抗癌治理</a>。<br />
+  更正直接改在页面上。如果这里描述的某个机制,你在公开代码里找不到,那是这个页面的 bug,欢迎告诉我。
+</div>
+
+</main>
+</body>
+</html>

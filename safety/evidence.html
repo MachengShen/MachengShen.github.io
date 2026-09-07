@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Four incidents, and what they share | Macheng Shen</title>
+  <meta name="description" content="Four de-identified, closed incidents from a personal agent fleet — a synthetic-input drift, a gate that deadlocked against itself, a healthy status hiding a total failure, and authority downgraded across a relay — plus one small positive result. Cognitive state: survived." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/evidence.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/evidence.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/evidence.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Four incidents, and what they share" />
+  <meta property="og:description" content="Four closed incidents from a personal agent fleet, told mechanically, plus one small positive result. In every case the check existed and passed — what failed was the binding between the check and what it was supposed to cover." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/evidence.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Four incidents, and what they share" />
+  <meta name="twitter:description" content="Four closed incidents from a personal agent fleet: a synthetic-input drift, a self-deadlocking gate, a healthy status masking total failure, and authority downgraded at dispatch." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/evidence.html",
+    "url":  "https://machengshen.github.io/safety/evidence.html",
+    "headline": "Four incidents, and what they share",
+    "name": "Four incidents, and what they share",
+    "description": "Four de-identified, closed incidents from a personal agent fleet — a synthetic-input drift, a gate that deadlocked against itself, a healthy status hiding a total failure, and authority downgraded across a relay — plus one small positive result. Cognitive state: survived.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/evidence.zh.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": ["Agent safety incident review", "Verification binding failures", "Confused deputy in multi-agent systems", "Health check design", "Authority envelopes", "Concurrency gate design"],
+    "keywords": "agent safety, incident postmortem, confused deputy, health checks, authority envelope, concurrency, verification binding"
+  }
+  </script>
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: survived. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/">Safety index</a>
+      <a href="/safety/evidence.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">SAFETY · EVIDENCE</div>
+<h1>Four incidents, and what they share</h1>
+<p class="note-small"><em>In all four, the check existed and the check passed — what failed was the binding · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>The four incidents below happened, were logged, and were closed with a written receipt.
+That much is observed fact — the cognitive state of this page is <strong>survived</strong>,
+not speculative. The lesson at the end, that a system can be fully covered by checks and
+still be unsafe, is this author's reading of the four together, not a fifth observation,
+and should be trusted less than the incidents themselves. All four are de-identified — no
+device models, app or platform names, order contents, or personal names — but the
+mechanics are given in full, because the mechanics are the point.</p>
+
+<h2>(a) Verify-then-drift</h2>
+<p>An agent was injecting a multi-minute sequence of synthetic keystrokes into a phone. It
+confirmed the device was unlocked and idle once, at the start, and treated that as good for
+the whole sequence. Partway through, the owner picked the device up and began using it. The
+foreground had by then become a checkout screen and then a payment-confirmation screen;
+the last two injected confirmations may have landed there. It could not be established
+either way, and the agent declined to open the owner's transaction history to find out, on
+the grounds that this would be a second privacy violation rather than a resolution of the
+first — a constraint that makes the incident credible rather than convenient. Failure
+class: a precondition checked once per session and assumed to hold for every action inside
+it. Fix: re-verify unlocked state, foreground application, and idle time before each
+injection. Honest gap: not yet wired into the other input-injection tools.</p>
+
+<h2>(b) A gate deadlocking against itself</h2>
+<p>A session was blocked from sending an owner notification by its own concurrency gate,
+which reported the lease's holder as "verified alive" — the holder was the session itself.
+Its acquire path had skipped its own existing lease and created a second one; a later
+compare-and-swap picked the older lease as authoritative, concluded the newer one had lost
+the race, deleted the lease it had just created, and reported the winner — itself — as
+alive and blocking. A second bug compounded it: the same session derived two different
+holder identities depending on whether it entered through a hook or a manual shell call, so
+the gate treated one actor as two. Failure class: identity for "is this the same actor?"
+derived inconsistently across entry points into one gate. Fix: liveness and self-identity
+from process ancestry, not string comparison. Twenty-five of twenty-five tests reproduced
+the bug before the patch; twenty-eight of twenty-eight pass after, with a before/after
+table showing no cross-session guarantee was weakened.</p>
+
+<h2>(c) Healthy status, total failure</h2>
+<p>Three background dispatches to a second execution provider all died on their first
+model turn with an identical HTTP 400, whatever model was requested. Root cause: a local
+model-metadata cache had lost a required field, so the client fell back silently to
+degraded metadata for every model it ran. Through all three failures the client's own
+<code>--version</code>, <code>--help</code>, and status commands reported healthy, because
+none of them makes a real call. Failure class: a health check that does not exercise the
+thing it certifies. Fix: an upgrade, cache kept for rollback. Standing rule: a canary for
+this class of dependency must perform a real round trip, not a version probe.</p>
+
+<h2>(d) Authority downgraded at dispatch</h2>
+<p>Across 307 sub-agent transcripts in one session, ten carried refusal language of the form
+"a relayed instruction is not authorisation"; at least four were hard refusals that forced
+the parent session to restate the instruction or do the work by hand. The sub-agents were
+behaving correctly — an agent cannot distinguish "the owner said so" from "my caller
+claims the owner said so"; those are the same string. The bug was structural: authority
+was downgraded at dispatch into an unverifiable claim, and no sub-agent judgment can
+recover information never passed down. Fix: a signed envelope carrying the owner's own
+words, channel, scope, a time-to-live, and delegation depth, where delegation can only
+attenuate authority, never amplify it — modelled on delegated-authorisation token exchange
+(RFC 8693) and attenuation-only capability tokens such as macaroons and biscuits. The
+schema is public; the running, signed implementation is private. Its documented limit,
+stated plainly: it establishes provenance, not a security boundary.</p>
+
+<h2>(e) A positive result, briefly</h2>
+<p>Not everything here is a failure. One canary tests the opposite direction: a task is
+dispatched whose target does not exist, set up so a fabricated result would have passed
+automatic acceptance. In both runs so far, the worker declared itself blocked, with
+evidence, instead of inventing success. The count is exactly <strong>n = 2</strong>,
+reported as two, not rounded up to a trend — an existence proof, not a rate.</p>
+
+<h2>What the four share</h2>
+<p>In every one of the four incidents, the check existed, and it passed. Case (a) had a
+liveness check; it passed at the start and was never asked again. Case (b) had a
+concurrency gate; it evaluated correctly against the identity it was given and returned
+the wrong answer because the identity was wrong. Case (c) had a health check; it reported
+exactly what it was built to report, and that was not the thing that mattered. Case (d)
+had a refusal policy working as intended, on every hop where refusal was structurally the
+only correct response available to the agent making it.</p>
+
+<p>What failed, in each case, was not the check. It was the <strong>binding</strong> —
+between a check and the action it was meant to cover, between a check and the identity it
+was meant to be checking, between a check and the thing it was supposed to certify, between
+an instruction and a verifiable record of where it came from. A system can be covered, gate
+for gate, and still be unsafe, if the wiring between the gates and the events they gate is
+wrong in some case nobody has yet exercised. This is why the coverage number reported
+elsewhere in this section counts (tool, entry-point) pairs rather than gates: a gate that
+exists is not evidence of anything until it is shown reachable from, and correctly bound
+to, every path that needs it.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>survived</strong>.<br />
+  Chinese edition: <a href="/safety/evidence.zh.html">中文</a> ·
+  Section index: <a href="/safety/">Safety &amp; alignment</a>.<br />
+  Corrections are made on this page — write to the address above.
+</div>
+</main>
+</body>
+</html>

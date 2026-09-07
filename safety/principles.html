@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Principles a harness can enforce | Macheng Shen</title>
+  <meta name="description" content="The principle layer of a personal agent fleet: bright lines, a pre-cleared ship envelope and the sixth predicate an incident forced onto it, stop as an absorbing state, and why a principle an agent is asked to remember does not survive. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/principles.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/principles.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/principles.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/principles.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Principles a harness can enforce" />
+  <meta property="og:description" content="A principle an agent is asked to remember versus a principle a mechanism enforces — bright lines, a pre-cleared ship envelope, the incident where the gate was satisfied instead of bypassed, and stop as an absorbing state that is specified, not yet running." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/principles.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Principles a harness can enforce" />
+  <meta name="twitter:description" content="Bright lines, a pre-cleared ship envelope, the incident where the gate was satisfied rather than bypassed, and stop as an absorbing state that is specified, not yet running." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/safety/principles.html",
+    "url": "https://machengshen.github.io/safety/principles.html",
+    "headline": "Principles a harness can enforce",
+    "name": "Principles a harness can enforce",
+    "description": "The principle layer of a personal agent fleet: bright lines, a pre-cleared ship envelope and the sixth predicate an incident forced onto it, stop as an absorbing state, and why a principle an agent is asked to remember does not survive. Cognitive state: speculative.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/principles.zh.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Agent harness safety",
+      "Pre-cleared ship envelope",
+      "Authority delegation and attenuation",
+      "Stop as an absorbing state",
+      "Blocker verification"
+    ],
+    "keywords": "agent safety, harness design, bright lines, pre-cleared ship envelope, authority envelope, stop epoch, blocker verification, principal classes, agent governance"
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/">Safety index</a>
+      <a href="/safety/principles.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">SAFETY · PRINCIPLE LAYER</div>
+<h1>Principles a harness can enforce</h1>
+<p class="note-small"><em>The rules that outlive an incident are the ones a mechanism checks, not the ones an agent is asked to remember · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>A fleet of agents accumulates two kinds of rule. One is written down and an agent is asked to remember it — a line in a prompt, a sentence of documentation it may or may not load. The other is checked by something outside the model before an action completes. Only the second kind survives a workflow its author never anticipated. What follows is this fleet's standing rule set, each entry marked enforced or merely stated — the distinction is where its worst incident happened.</p>
+
+<h2>Bright lines</h2>
+<p>A fixed set of action classes is refused regardless of content quality or agent confidence: sending anything to a third party on the owner's behalf; writing to a third-party account; spending money; touching identity, billing, DNS, signing, secret or recovery roots; force-pushing; standing up a new public surface; any action not withdrawable within an hour. Not weighed against content case by case — refused categorically, before the content is even read.</p>
+
+<h2>The pre-cleared ship envelope, and the gate that was satisfied rather than bypassed</h2>
+<p>Most publishing decisions are not bright lines, and escalating every one teaches the owner to stop reading escalations. Default is <em>ship</em>, gated by a mechanical checklist: content clean of private names, financial figures and first-time identity commitments; destination pre-cleared; withdrawable within an hour. All yes, publish and leave a receipt. Any no, defer, naming the predicate that failed.</p>
+<p>A sixth predicate was added 2026-09-06; the lesson is worth stating precisely, since the comfortable version is wrong. A multi-agent workflow drove a logged-in browser session and injected roughly sixteen successful posts into a third-party platform's drafts backend in thirty-seven minutes. That day's receipt honestly ran the five-predicate checklist and passed cleanly — an account the owner already used is, trivially, pre-cleared. <strong>The gate was not bypassed. It was satisfied.</strong> The five predicates asked only whether content was clean and the destination listed; none asked whose hand was writing. The account was muted. Second lesson, same incident: the rule that would have stopped it — do not automate this platform — lived only inside one skill's description text, and the workflow at fault never loaded that skill. A rule living only in documentation exists only when someone loads it; the fix moved it into a file every relevant tool must read at startup. The new predicate: is this the owner's own hand, or a machine imitating it? A write against a third-party account fails it regardless of content — reading is not writing.</p>
+
+<h2>Stop as an absorbing state — specified, not yet running</h2>
+<p>Within one authorization epoch, a stop is meant to be absorbing: every watchdog, retry loop, broker, relauncher and mutual-repair agent inherits it, and only a new authenticated epoch may revive what stopped. That is the design. Stated plainly: the project's own internal ledger rates this <strong>doctrine only — no mechanism</strong> — a rule agents are expected to follow, not yet a property code enforces. A stop that works only because everyone remembered to check for it has not been built.</p>
+
+<h2>One root of authority</h2>
+<p>Authority has exactly one root — the owner. Every delegation downstream may only attenuate what it passes on, never grant back more than given. A sub-agent cannot manufacture scope its caller lacked, and no chain of delegation regains, at its far end, permission narrowed anywhere along the way.</p>
+
+<h2>Only the way, not the technique</h2>
+<p>The owner decides values, direction, strategy and the tradeoffs he cares about; agents decide implementation, and may not escalate a choice upward as an A/B/C menu. The test: does it change his goals, time or strategy — his call — or only how the outcome gets built — the agent's call. Sharper version: whether an approach is robust enough to rely on is a fact the agent must go establish, not a question to hand upward dressed as a decision.</p>
+
+<h2>Blockers must be measured, not guessed</h2>
+<p>A capability once sat parked behind a blocker labeled "waiting on the owner" for roughly eighteen days — nothing ever errored, and nobody had run the command it was supposedly waiting on. A sweep of eleven other parked items found three or four more of the same shape. The fix is a predicate: any item so parked must carry the command actually run and its output. Without that line the tag is invalid — relabel it unverified, never trust it as a reason nothing happened.</p>
+
+<h2>Two classes of principal, and service is not sycophancy</h2>
+<p>The owner gets pushback: an agent may argue against him. Everyone else gets service-first treatment, with no pushback on lifestyle or priorities. Preserved for both, once, without nagging: engineering and factual correction. Service mode is explicitly not sycophancy mode.</p>
+
+<h2>Friction is the system's fault, symmetrically</h2>
+<p>"Didn't follow it, didn't remember, used the wrong link" is recorded as a system failure, for owner and served alike, never pushed back onto the person who hit it.</p>
+
+<h2>The invariants this page sits under</h2>
+<p>Downstream of seven runtime invariants published 2026-07-17 in "Agent safety as anti-cancer governance," named here rather than re-argued:</p>
+<ol>
+<li>Observation is not authority.</li>
+<li>Causal reach is leased — scope, evidence requirement, TTL, budget, revocation.</li>
+<li>Stop is an epoch boundary; nothing inside a stopped epoch may renew authority, and revival requires a new authenticated epoch.</li>
+<li>Recovery is narrower than the task agent it recovers from.</li>
+<li>Metabolism is bounded — spawn counts, retries, compute, money, storage, persistence.</li>
+<li>Success cannot be self-issued; green requires fresh evidence and an independent verifier.</li>
+<li>Every incident closes: containment, repair, verification, recurrence prevention, rollback evidence, one terminal receipt.</li>
+</ol>
+<p>Full argument at <a href="/theory/agent-safety-stewardship.md">/theory/agent-safety-stewardship.md</a>. What runs today versus what is only specified is tracked at <a href="/safety/mechanisms.html">/safety/mechanisms.html</a>.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Chinese edition: <a href="/safety/principles.zh.html">中文</a> ·
+  Section index: <a href="/safety/">Safety &amp; alignment</a>.<br />
+  Corrections are made on this page — write to the address above.
+</div>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>四起事故,以及它们的共同点 | Macheng Shen</title>
+  <meta name="description" content="来自个人 agent fleet 的四起脱敏、已收口事故:一次合成输入的漂移、一个跟自己死锁的门禁、一个状态健康却全线失败的依赖、一次在转发中被降级的权限——外加一个小的正面结果。认知状态:survived。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/evidence.zh.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/evidence.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/evidence.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="四起事故,以及它们的共同点" />
+  <meta property="og:description" content="来自个人 agent fleet 的四起已收口事故,按机制原样讲述,外加一个小的正面结果。每一起里检查都存在也都通过了——出问题的是检查和它本该覆盖的那件事之间的绑定。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/evidence.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="四起事故,以及它们的共同点" />
+  <meta name="twitter:description" content="个人 agent fleet 的四起已收口事故:合成输入漂移、自死锁门禁、状态健康却全灭的依赖、转发中被降级的权限。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/evidence.zh.html",
+    "url":  "https://machengshen.github.io/safety/evidence.zh.html",
+    "headline": "四起事故,以及它们的共同点",
+    "name": "四起事故,以及它们的共同点",
+    "description": "来自个人 agent fleet 的四起脱敏、已收口事故:一次合成输入的漂移、一个跟自己死锁的门禁、一个状态健康却全线失败的依赖、一次在转发中被降级的权限——外加一个小的正面结果。认知状态:survived。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/evidence.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": ["Agent safety incident review", "Verification binding failures", "Confused deputy in multi-agent systems", "Health check design", "Authority envelopes", "Concurrency gate design"],
+    "keywords": "agent 安全, 事故复盘, confused deputy, 健康检查, authority envelope, 并发, 校验绑定"
+  }
+  </script>
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: survived. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/index.zh.html">安全索引</a>
+      <a href="/safety/evidence.html">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">安全 · 证据</div>
+<h1>四起事故,以及它们的共同点</h1>
+<p class="note-small"><em>四起里,检查都存在、也都通过了 —— 坏掉的是绑定关系 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>下面四起事故都确实发生过,被记录下来,并且都以一份书面 receipt 收口。这一点是可观察的事实——本页的认知状态是<strong>survived</strong>(已发生、已收口),不是 speculative。结尾给出的那条结论——一个系统可以在检查这个维度上被逐一覆盖,却依然不安全——是作者对这四个案例放在一起做出的解读,不是第五个观察,应当比事故本身少一分信任。四起都做了脱敏处理:没有设备型号、没有 app 或平台名称、没有订单内容、没有具体人名——但机制本身写得完整,因为机制才是重点。</p>
+
+<h2>(a) 校验一次,后面全靠假设</h2>
+<p>一个 agent 正在向一台手机注入一段持续几分钟的合成按键序列。它在开始时确认了一次设备处于解锁且空闲状态,然后把这一次检查当作对整段序列都成立。序列进行到一半,机主把设备拿了起来,自己开始操作。此时前台已经变成一个结算页面,随后又变成一个支付确认页面;最后两次注入的确认动作可能就落在了这两个页面上。这件事无法被确证——agent 也拒绝去查看机主的交易记录来弄清楚,理由是这样做本身会构成第二次隐私侵犯,而不是对第一次的补救。正是这份克制,让这起事故显得可信,而不是显得方便。失败类别:一个只在会话开始时检查一次、此后被默认对其中每个动作都成立的前置条件。修复:在每一次注入动作之前,分别重新校验解锁状态、前台应用和空闲时长。诚实的缺口:截至同一天的审计,这个修复还没有接入其它注入输入的工具。</p>
+
+<h2>(b) 一个跟自己死锁的门禁</h2>
+<p>一个 session 想给机主发一条通知,却被自己的并发门禁拦了下来——门禁报告说,租约的持有者"已验证存活",而这个持有者正是它自己。它的获取路径在申请新租约前,漏掉了检查自己是否已经持有租约这一步,于是又建了一个;随后一次 compare-and-swap 把更早的那个租约当成权威版本,判定较新的这个输掉了竞争,于是删掉了自己刚刚创建的租约,再把胜出者——也就是它自己——报告为存活且处于阻塞状态。第二个独立的 bug 让情况更糟:同一个 session 在从 hook 进入和从手动 shell 调用进入时,会推导出两个不同的持有者身份,于是门禁把一个行动者当成了两个。失败类别:"这是不是同一个行动者"这个身份判断,在同一个门禁的不同入口之间被不一致地推导出来。修复:存活性与自身身份改用进程祖先关系判定,不再用字符串比较。补丁前 25 次测试全部复现了这个 bug;补丁后 28 次测试全部通过,并附一张前后对照表,证明没有削弱任何跨 session 的保证。</p>
+
+<h2>(c) 状态显示健康,实际全线失败</h2>
+<p>三次派往第二个执行 provider 的后台任务,都在第一个模型回合就挂掉,报错完全相同的 HTTP 400,无论请求哪个模型都一样。根因是本地一份模型元数据缓存丢了一个必填字段,导致客户端对它运行的每一个模型都悄悄退化成了残缺元数据。三次失败期间,该客户端自己的 <code>--version</code>、<code>--help</code> 和 status 命令全程显示健康,因为这些命令都不发起真实调用。失败类别:一个不去实际执行它所认证的那件事的健康检查。修复:升级,并保留那份损坏的缓存以便回滚。由此定下的常设规则很具体:针对这一类依赖的 canary,必须做一次真实的往返调用,而不是版本探测。</p>
+
+<h2>(d) 权限在转发那一步被降级</h2>
+<p>在同一个 session 的 307 份 sub-agent 转录里,有 10 份带有"被转发的指令不构成授权"这类拒绝措辞;其中至少 4 份是硬性拒绝,逼得父 session 要么重新下达一次指令,要么干脆自己动手完成那部分工作。这些 sub-agent 的表现是正确的——一个 agent 确实无法区分"机主说过"和"我的调用方声称机主说过",这两句话摆在它面前是同一个字符串。真正的 bug 是结构性的:权限在转发的那一刻就被降级成了一个无法验证的说法,而任何 sub-agent 层面的判断力,都找不回一开始就没被传下来的信息。修复:一个签名的 authority envelope,携带机主的原话、到达的渠道、作用范围、有效期(TTL)与委派深度,其中委派只能收窄权限,不能放大——参照的是委派授权令牌交换(RFC 8693)以及 macaroons、biscuits 这类只能收窄的能力令牌。schema 本身是公开的;真正在跑的、带签名的实现是私有的。它记录在案的边界说得很直白:它建立的是来源可追溯性,不是安全边界。</p>
+
+<h2>(e) 一个简短的正面结果</h2>
+<p>这一层不全是失败。有一个 canary 专门测相反的方向:派发一个目标根本不存在的任务,如果编造一个看似合理的结果,是可以直接通过自动验收的。到目前为止的两次运行中,worker 都选择了带着证据宣布自己被阻塞,而不是编造一次成功。这个次数确切地是 <strong>n = 2</strong>,如实报告为 2,不往上凑成一个趋势——这是一个存在性证明,不是一个比率。</p>
+
+<h2>这四起事故的共同点</h2>
+<p>这四起事故里,检查都存在,而且都通过了。案例 (a) 有一次存活性检查,它在一开始通过,此后再没被问起过。案例 (b) 有一个并发门禁,它针对拿到的身份做出了正确的判断,只是那个身份本身是错的,于是结论也跟着错。案例 (c) 有一个健康检查,它如实报告了它被设计去报告的那件事,只是那件事恰好不是真正要紧的那件事。案例 (d) 有一个拒绝策略,在每一跳都按设计工作,而在那一跳上,拒绝正是那个 agent 唯一在结构上说得通的正确反应。</p>
+
+<p>每一起里,出问题的都不是检查本身,而是<strong>绑定</strong>——检查和它本该覆盖的动作之间的绑定,检查和它本该核对的身份之间的绑定,检查和它本该认证的那件事之间的绑定,一条指令和一份可核实的来源记录之间的绑定。一个系统可以在门禁这个维度上被逐一覆盖,却依然不安全,只要某个还没被真正跑过的场景里,门禁和它该管的事件之间接错了线。这也是为什么本节其它地方报告的覆盖率数字,数的是(工具、入口)这样的对子,而不是数门禁的数量:一道门禁的存在本身不构成任何证据,直到它被证明能从每一条需要它的路径抵达,并且正确地绑定在那条路径上。</p>
+
+<div class="footer">
+  由作者的工作笔记整理发布。认知状态:<strong>survived</strong>。<br />
+  English edition: <a href="/safety/evidence.html">English</a> ·
+  章节索引:<a href="/safety/index.zh.html">安全与对齐</a>。<br />
+  相关:<a href="/safety/mechanisms.zh.html">机制</a> · <a href="/safety/contrast.zh.html">与前沿规模的对照</a> · <a href="/safety/roadmap.zh.html">路线图</a>。<br />
+  更正会直接改在本页——写信到上面的地址。
+</div>
+</main>
+</body>
+</html>

@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
@@ -74,19 +74,19 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -151,6 +151,62 @@
   <url>
     <loc>https://machengshen.github.io/research/wave-backprop-full.html</loc>
     <lastmod>2026-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/contrast.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/contrast.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/evidence.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/evidence.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/index.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/mechanisms.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/mechanisms.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/principles.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/principles.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/roadmap.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/roadmap.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/theory.html</loc>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/safety/theory.zh.html</loc>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/socrates-in-the-ai-era.html</loc>

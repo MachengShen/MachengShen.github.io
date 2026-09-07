@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The theory underneath, and what it lost | Macheng Shen</title>
+  <meta name="description" content="The research lines the harness design comes from, each reported with what it lost: a multimodal prediction withdrawn on real models, a self-boundary dynamic thirty seeds could not distinguish from a generic slow variable, and a credit-transport quantity sent back by review." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/theory.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/theory.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/theory.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/theory.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="The theory underneath, and what it lost" />
+  <meta property="og:description" content="The research lines underneath the harness, each reported with its falsification rather than its hope — a withdrawn prediction, a negative result at thirty seeds, and a quantity an internal review sent back." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/theory.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The theory underneath, and what it lost" />
+  <meta name="twitter:description" content="The research lines a safety harness borrows its vocabulary from, each reported by what it lost — a withdrawn prediction, an unresolved self-boundary result, a credit quantity sent back for reframing." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/theory.html",
+    "url":  "https://machengshen.github.io/safety/theory.html",
+    "headline": "The theory underneath, and what it lost",
+    "name": "The theory underneath, and what it lost",
+    "description": "The research lines the harness design comes from, each reported with what it lost: a multimodal prediction withdrawn on real models, a self-boundary dynamic thirty seeds could not distinguish from a generic slow variable, and a credit-transport quantity sent back by review.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/theory.zh.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": [
+      "Information dynamics and future-reachability",
+      "Multimodal representational irreducibility",
+      "Agency and the self-boundary",
+      "Memory as an operating contract",
+      "Credit transport",
+      "Coordination structures",
+      "Verification and typed claims"
+    ],
+    "keywords": "agent safety theory, information dynamics, multimodal representation, self-boundary, memory as dynamics, credit transport, coordination structures, typed verification, cognitive state"
+  }
+  </script>
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/">Safety index</a>
+      <a href="/safety/theory.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">SAFETY · THEORY</div>
+<h1>The theory underneath, and what it lost</h1>
+<p class="note-small"><em>The research lines a harness borrows its vocabulary from, reported by what each one lost · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>A leased action, a two-vote wrapper, a stop epoch: the mechanisms this section describes, some of them <a href="/safety/mechanisms.html">running code and some still only specified</a>. None of them started as harness design. They are downstream of a longer research program on what information is, how it moves, and what a system forfeits when it forgets, and the harness borrowed the program's vocabulary along with, in one place, its failures. Each line below gets one paragraph on its claim, one sentence on what was falsified or remains unearned, a cognitive state, and a link. Credibility travels with what a line lost, not with what it hopes.</p>
+
+<h2>The spine: information dynamics and reachability</h2>
+<p>The program's spine is a claim about information itself: what matters is not a static representation but the operators that transform it and what it costs a system to forget. Aging, cancer, and a stopped agent fleet are read as instances of one integrity failure — future-reachability destroyed rather than preserved. It is the umbrella the rest of this page sits under, stated at the level of a research program, not a tested result. Front door: <a href="https://github.com/starshard-ai/living-information-system">Living Information System</a> and <a href="/start-here.html">/start-here.html</a>. State: <span class="tag">speculative</span>.</p>
+
+<h2>Multimodal representational irreducibility — a falsification, reported plainly</h2>
+<p>The claim: an embedding gap between modalities is not an optimisation failure but a structural obstruction under lossy projection — two channels projecting one latent, with more constraints than degrees of freedom, leaves a generically nonzero residual. Synthetic experiments passed cleanly: a threshold exactly where predicted, contrastive objectives stopping above an analytic floor, ten times longer training not moving it.</p>
+
+<p>Then the falsification, which is the reason to report this line at all: <strong>on real models the predicted scale-decay story was tested and withdrawn</strong> — residual falls with scale under co-training, the opposite of the prediction.</p>
+
+<p>What survived is narrower: a granularity dose-response, coarse concepts glue and fine ones do not, monotone across three model pairs over roughly an eightfold range; and a weakened version of the residual prediction on independently-trained towers. A later experiment reclassified contrastive co-training itself as a collapse loop rather than a repair loop — residual falls because the obstructed field is discarded, not resolved. Prior art on dimensional collapse is not yet cleared. The owner's call was to park the line as a handle rather than push it further; there is no public page for it yet. State: mechanism-level <span class="tag">speculative</span>; the falsified sub-claim is <span class="tag">retired</span>.</p>
+
+<h2>Agency and the self-boundary — a negative result, published</h2>
+<p>The headline is negative, and more credible for it: under thirty seeds, a candidate self-sealing dynamic could not be distinguished from generic gated slow variables or from simply freezing the action channel. A follow-up specification tests only what that negative result left untested — a boundary-coupling intervention, not a readout — and is explicitly conditional, not yet runnable. It makes no claim about phenomenal experience; that limit is part of the spec, not an omission here. Published as <a href="/theory/learning-the-self-boundary.md">learning-the-self-boundary.md</a> and its <a href="/theory/learning-the-self-boundary-log.md">stage log</a>. State: <span class="tag">speculative</span>, with a published negative result.</p>
+
+<h2>Memory as dynamics, not retrieval</h2>
+<p>Long-term memory is treated as an operating contract, not a vector store: a claim carries provenance, a validity interval, and an explicit conflict state, and it closes only through action — a receipt, a verification step, a measured change in behaviour. This is the direct ancestor of two sentences repeated across the mechanism and principle pages: observation is not authority, and success cannot be self-issued. Both are this position applied to one claim instead of a whole belief store. Field guide: <a href="/long-term-memory/">/long-term-memory/</a>. State: <span class="tag">speculative</span>.</p>
+
+<h2>Credit transport</h2>
+<p>Credit transport asks how reward should attribute across a graph of causes rather than a chain. An earlier headline result here — a discounted holonomy invariant — was itself withdrawn and replaced with a weighted residual against the image of the discounted incidence operator, a correction the site already carries in full. Unsettled: an internal adversarial review returned a not-yet, reframe verdict on whether the resulting credit-curvature quantity is actionable, so the line is active and partially walked back rather than closed. Full argument: <a href="/theory/discounted-credit-is-a-cokernel.md">discounted-credit-is-a-cokernel.md</a>. State: <span class="tag">speculative</span>.</p>
+
+<h2>Coordination structures</h2>
+<p>A polity, a firm, a market, a commons, and a protocol are read here as five instances of one object — an architecture for scheduling scarce resources under distributed, private information, with capitalism and socialism read as two algorithms inside the same formal space rather than opposed foundations. It is where the principle layer's language of one root of authority and separate classes of principal comes from. Essay: <a href="/theory/coordination-structures.md">coordination-structures.md</a>. State: <span class="tag">speculative</span>.</p>
+
+<h2>Verification needs well-typed claims</h2>
+<p>The argument: the binding constraint on verification is not cost but whether the verifier can parse the claim at all. The measured result carries this directly — a prose-plus-regex blocker gate recalled five of ten false "waiting on the owner" parks, while a minimal typed receipt schema covering the same ground had no equivalent blind spot, not from trying harder but because a malformed typed claim has nowhere to hide the way a plausible sentence does. Full note: <a href="/abundant-verification-needs-abundant-claims.html">abundant-verification-needs-abundant-claims.html</a>. State: <span class="tag">speculative</span>.</p>
+
+<h2>One convention, two uses</h2>
+<p>Every claim on this site, this page included, carries exactly one of three words: survived, speculative, retired. That is not decoration, and it is not unique to theory — it is the same discipline as the running/specified badge on <a href="/safety/mechanisms.html">the mechanism pages</a>, applied to a belief instead of a piece of code. A mechanism marked specified has a design and no enforcement; a claim marked speculative has an argument and no stress test that has tried to kill it yet. Both badges exist for the same reason: so a reader, human or agent, can tell what is load-bearing without reconstructing its history. The falsifications above are not an embarrassment to route around — they are the same evidence, in the same currency, that <a href="/safety/evidence.html">the evidence page</a> asks you to trust when it reports what still fails.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Chinese edition: <a href="/safety/theory.zh.html">中文</a> ·
+  Section index: <a href="/safety/">Safety &amp; alignment</a>.<br />
+  Related: <a href="/safety/principles.html">Principles</a> · <a href="/safety/mechanisms.html">Mechanisms</a> · <a href="/safety/evidence.html">Evidence</a> · <a href="/safety/contrast.html">Contrast at frontier scale</a> · <a href="/safety/roadmap.html">Roadmap</a>.<br />
+  Corrections are made on this page — write to the address above.
+</div>
+</main>
+</body>
+</html>

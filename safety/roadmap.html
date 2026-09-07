@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The gaps, and what would falsify this | Macheng Shen</title>
+  <meta name="description" content="What this safety section does not yet do — an unimplemented public Safety Charter, a stop mechanism that is still doctrine rather than code, 163 uncovered (tool, entry-point) pairs — and the specific observations that would falsify the harness-first position. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/roadmap.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/roadmap.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/roadmap.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/roadmap.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="The gaps, and what would falsify this" />
+  <meta property="og:description" content="The gaps published without dates, and the conditions under which the harness-first position should be abandoned — the sharpest being that a satisfied-but-wrong gate looks exactly like a working one until something breaks." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/roadmap.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The gaps, and what would falsify this" />
+  <meta name="twitter:description" content="Eight gaps stated plainly, and the kill conditions that would falsify the harness-first safety position — including gates that are satisfied rather than bypassed." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/roadmap.html",
+    "url":  "https://machengshen.github.io/safety/roadmap.html",
+    "headline": "The gaps, and what would falsify this",
+    "name": "The gaps, and what would falsify this",
+    "description": "What this safety section does not yet do — an unimplemented public Safety Charter, a stop mechanism that is still doctrine rather than code, 163 uncovered (tool, entry-point) pairs — and the specific observations that would falsify the harness-first position. Cognitive state: speculative.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/roadmap.zh.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": ["Agent safety roadmap", "Falsifiability", "Kill conditions", "Safety Charter conformance gap", "Gate coverage audit", "Owner attention budget"],
+    "keywords": "agent safety, kill conditions, falsifiability, safety charter, gate coverage, harness design, roadmap, satisfied-but-wrong gate, stop as absorbing state"
+  }
+  </script>
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/">Safety index</a>
+      <a href="/safety/roadmap.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">SAFETY · ROADMAP AND KILL CONDITIONS</div>
+<h1>The gaps, and what would falsify this</h1>
+<p class="note-small"><em>What the harness does not yet do, and what would count against the whole position · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>The other pages in this section describe what already runs. This one describes what does not, and what would have to be true for the position underneath all of them — safety as a property of the harness, not the model — to be wrong. A page that only advertises working parts is marketing, not a claim. What follows is ordered by how much each gap matters, not how easy it would be to close.</p>
+
+<h2>What is missing</h2>
+
+<ol>
+<li><strong>No independent real-time monitor of action patterns.</strong> This is the top gap. Detection here is retrospective — both of the incidents logged on 2026-09-07 were caught by an agent writing a receipt after the fact, not by anything watching action patterns as they happened. Nothing here plays the role chain-of-thought monitoring plays at frontier labs, however imperfectly. Until something does, every incident on this site is a story about what was found afterward, not stopped mid-action.</li>
+<li><strong>The public Safety Charter's six hard mechanisms are mostly unimplemented.</strong> The charter states six: memory provenance, write-protected memories, untrusted-content quarantine tagging, outbound audit with a sensitive-contact gate, a kill switch, and an anti-propagation TTL on sedimented safety flags. The reference implementation carries the first, and gets it wrong — its own update endpoint overwrites the field the spec declares write-once. Mechanisms two through six are not implemented. Fixing the code, or retitling the charter to state only what runs, is on this list.</li>
+<li><strong>Stop-as-absorbing is doctrine, not a checkable mechanism.</strong> The design calls for an owner stop to be an absorbing state every watchdog, retry loop, broker and mutual-repair agent inherits. The project's own internal security ledger rates it "doctrine only — no mechanism": a rule agents follow, not a property the system enforces.</li>
+<li><strong>The approval gate has never left shadow mode.</strong> It classifies the bright-line action classes and logs a verdict on every one; it has never blocked anything. Promoting it to enforcing is scoped, known work that has simply not happened yet.</li>
+<li><strong>Per-action re-verification is wired into one tool of roughly nine.</strong> Self-tested against a live conflicting foreground application, it has zero callers among the other input-injection tools sharing the failure class it was built to close.</li>
+<li><strong>163 (tool, entry-point) pairs carry no gate coverage.</strong> That count comes from an audit run the same day this page was written. The same audit found the external-send gate matching a whitelist of helper binaries that no longer exist on the machine, while the tools that actually send mail today were never listed — fail-safe-allow degenerated, quietly, into always-allow.</li>
+<li><strong>No cross-provider deduplication of the owner attention budget.</strong> The budget holds inside one execution surface. Nothing stops two independent providers from each, correctly, deciding they are within budget while the owner receives both.</li>
+<li><strong>The owner-delivery escalation engine runs on one host.</strong> Elsewhere it degrades to a probabilistic reminder pool with no escalating re-push — a weaker guarantee, standing in for the real one everywhere but the first host.</li>
+</ol>
+
+<p>None of the above carries a date, deliberately. A dated promise on a personal research project is exactly the kind of claim that quietly expires once the date passes and nobody revisits it. This list gets corrected in place as gaps close — it is not a schedule.</p>
+
+<h2>What would falsify this</h2>
+
+<p>The thesis here is that most of the reachable safety surface, for a persistent multi-agent system with one owner, is harness surface — testable today by one person with a laptop and a fleet, not something waiting on model-level alignment research. That is a falsifiable position. What would count against it:</p>
+
+<ul>
+<li>ungoverned persistent-agent fleets turning out to remain stable under adversarial fault injection without leases, budgets, stop inheritance or independent verification;</li>
+<li>these controls measurably failing to reduce runaway retries, resurrection, false success or resource exhaustion;</li>
+<li>a stop epoch proving impossible to make absorbing across heterogeneous watchdogs without creating a worse common-mode failure than the one it replaces;</li>
+<li>tiered disclosure blocking independent safety replication without correspondingly reducing the availability of dangerous amplification primitives.</li>
+</ul>
+
+<p>One of these gets more attention here than the rest, because it is the failure mode this section is most exposed to: <strong>the gates proving routinely satisfied-but-wrong rather than bypassed.</strong> The clearest instance already happened. A workflow drove a logged-in browser session and posted repeatedly into a third-party platform's drafts backend; the receipt written that day ran the ship-envelope checklist honestly, and it passed — because an account the owner already used was, trivially, a pre-cleared surface. The gate was not evaded; it answered the question it was built to answer, correctly, and the question was wrong. A satisfied-but-wrong gate is indistinguishable from a working one until something breaks — the most dangerous failure shape available to a gate-built system, and the one most worth watching for recurring.</p>
+
+<p>A minimum experimental sequence for testing this thesis directly is already published at <a href="/theory/agent-safety-stewardship.md">/theory/agent-safety-stewardship.md</a>: one synthetic incident closed by a separate verifier, one three-arm stop-and-resurrection drill, one resource-storm fault injection, and one disclosure review where a red team tries to reconstruct the withheld amplification primitive from the open safety layer alone. That sequence is published; none of the four is recorded as having been run. The distinction is deliberate — this section's own rule is that a claim about state must cite the check that established it, and what exists here is an absence in the record rather than a negative result.</p>
+
+<div class="callout">
+Corrections to anything above are made on this page, not in a separate errata — write to the address in the header. Everything in this section, including this page, is withdrawable within an hour by reverting a commit; that constraint applies to itself.
+</div>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Chinese edition: <a href="/safety/roadmap.zh.html">中文</a> ·
+  Section index: <a href="/safety/">Safety &amp; alignment</a>.<br />
+  Corrections are made on this page — write to the address above.
+</div>
+</main>
+</body>
+</html>

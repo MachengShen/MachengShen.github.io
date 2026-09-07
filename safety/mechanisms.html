@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is actually running | Macheng Shen</title>
+  <meta name="description" content="What is actually enforced in a personal agent fleet, and what is only written down. Two tables of mechanisms badged running or specified, opened by an audit finding this project's own public repositories contradicting their own safety claims." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/mechanisms.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/mechanisms.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/mechanisms.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/mechanisms.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="What is actually running" />
+  <meta property="og:description" content="Two tables of mechanisms — what runs in public code, and what runs privately — opened by an audit finding this project's own public repositories contradicting their own safety claims." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/mechanisms.html" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="What is actually running" />
+  <meta name="twitter:description" content="A badge on every mechanism — running or specified — and the finding that this project's own public repositories fail their own spec today." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/safety/mechanisms.html",
+    "url": "https://machengshen.github.io/safety/mechanisms.html",
+    "headline": "What is actually running",
+    "name": "What is actually running",
+    "description": "The safety section's spine: a running/specified/private badge on every mechanism, and the finding that this project's own public repositories fail their own published spec today. What runs in public code, what runs privately, a 163-pair coverage gap, and the fail-open design rule behind it.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Agent safety harness design",
+      "Spec-versus-code verification gap",
+      "Fail-open versus fail-closed gating",
+      "Coverage audit for agent action gates",
+      "Authority envelope and delegation"
+    ],
+    "keywords": "agent safety, harness engineering, spec-code gap, fail-open fail-closed, coverage audit, authority envelope, agent gating, verification",
+    "citation": [
+      "https://github.com/starshard-ai/agent-mail-stack",
+      "https://github.com/starshard-ai/selfhost-chat",
+      "https://github.com/starshard-ai/agent-continuity-demo",
+      "https://github.com/starshard-ai/fleet-coordination-protocol",
+      "https://github.com/starshard-ai/starshard-communication"
+    ]
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/">Safety index</a>
+      <a href="/safety/mechanisms.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">SAFETY · MECHANISM LAYER</div>
+<h1>What is actually running</h1>
+<p class="note-small"><em>Every mechanism below carries a badge, and the badge is the claim · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>Every mechanism named in this section carries one of two badges, and the badge is part of the claim, not a footnote to it. <span class="tag">running</span> means there is code that enforces the mechanism and the enforcement point can be named — a file, a function, a check that executes before the action. <span class="tag">specified</span> means there is a written design, a schema, a rule agents are told to follow — and no public code enforces it, or the code that exists does not enforce this part of it. A third qualifier, <span class="tag">private</span>, marks a mechanism that is genuinely running, just not in a repository anyone outside this fleet can read.</p>
+
+<p>The reason to insist on this before listing anything that works: a document describing a control and a system running it are not the same fact, and treating them as interchangeable is the specific failure this whole section exists to name. This page sits under the invariants published at <a href="/theory/agent-safety-stewardship.md">theory/agent-safety-stewardship.md</a>; it does not restate them, it audits what is actually true of them today.</p>
+
+<h2>Where the claim and the code disagree</h2>
+
+<p>An audit of this project's own public repositories, run on the day this page was written, found three places where the document and the code say different things — and it belongs here, first, not in a corrections footnote.</p>
+
+<p>The Safety Charter in <a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a> states six hard mechanisms: memory provenance, write-protected memories, untrusted-content quarantine tagging, outbound audit with a sensitive-contact gate, a kill switch, and an anti-propagation TTL on sedimented safety flags. Its companion public implementation, <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>, implements none of mechanisms two through six. Mechanism one it does not implement either, in two separate ways: the charter says a write with an incomplete provenance block is rejected, and in the code provenance is an optional field with no such check on creation; and the update endpoint then overwrites the same field the charter declares write-once. So the code does not merely fall short of the charter — on the one mechanism it appears to carry, it contradicts it at both ends.</p>
+
+<p>The communication spec in <a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> ships a signed authority envelope as a headline safety primitive. The example file that is supposed to demonstrate it carries, in its own comment field, the words <strong>"DESIGNED, not implemented."</strong></p>
+
+<p>The one-line GitHub description of <a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a> advertises four coordination primitives. Its own README explicitly disclaims three of them; the repository proves two.</p>
+
+<p>None of this was surfaced by an outside reviewer; it was found by checking the repositories against their own stated claims, which is the exact standard this page asks a reader to apply to everything below. The tempting response would be to quietly fix the READMEs and publish a clean page about verification — that would be the same failure at one remove, a claim that passes because nobody checked it against the running thing. The response taken here is the other one: report the gap, fix the documents on their own schedule, and hold the badge rule strictly enough that it would have caught this on day one.</p>
+
+<h2>What runs in public code</h2>
+
+<p>The following are <span class="tag">running</span>, not specified — read from the source in each repository, not inferred from its documentation. Each row names the failure class it prevents and the file where the enforcement actually lives.</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>Mechanism</th><th>Prevents</th><th>Where</th></tr>
+<tr><td>Owner-only outbound allowlist</td><td>A background agent emailing a third party with no human in the loop</td><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a> — <code>bin/fire-and-forget-deliver</code></td></tr>
+<tr><td>Spool-don't-leak</td><td>Message bodies leaking into a store other agents can read</td><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a> — <code>bin/zhizi-mail</code></td></tr>
+<tr><td>Pre-publish release gate</td><td>Publishing credentials or private identifiers to a public surface</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>verify/release_gate.py</code>, <code>verify/scrub_check.py</code></td></tr>
+<tr><td>Structural regression checks</td><td>A future edit silently opening a new egress or PII-read path</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>open-signup/verify/no_outbound_check.py</code>, <code>pii_check.py</code></td></tr>
+<tr><td>Tenant isolation, machine-tested</td><td>Cross-tenant leakage, a session-existence oracle, free probing that costs money</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>open-signup/verify/test_isolation.py</code></td></tr>
+<tr><td>Belief-conflict quarantine</td><td>Silent belief-clobbering between agent processes</td><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a> — <code>hub.py</code></td></tr>
+<tr><td>Coordination record shapes (shared fact, work claim, receipt, conflict signal)</td><td>Cross-runtime belief collision, duplicated work, missing audit trail — for cooperating callers only</td><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a> — <code>fcp/hub.py</code>, <code>SPEC.md</code></td></tr>
+<tr><td>False-negative monitoring</td><td>Important messages silently filtered with nothing revealing that filtering happened</td><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> — <code>reference-impl/monitor.py</code></td></tr>
+</table>
+</div>
+
+<p>The coordination protocol's own spec is worth quoting directly, because it does something rarer than shipping a feature: it states its own limits. <code>SPEC.md</code> says the protocol provides <strong>no permission enforcement, no authenticated principal, no absorbing cancellation, no retry budget, no independent verifier, and no exactly-once semantics</strong>. A spec that names what it does not do, next to what it does, is not a weaker spec than one that stays silent about its gaps — it is the only kind a reader can actually act on. That is the behaviour this whole page is arguing for, demonstrated by one of its own subjects.</p>
+
+<h2>What runs in the private fleet</h2>
+
+<p>These run today; the code is not public. The honest badge for the whole table is <span class="tag">private</span>. Status uses a finer vocabulary than running/specified, because most of this work is not binary: <strong>enforcing</strong> blocks, <strong>shadow</strong> classifies and logs without blocking, <strong>advisory</strong> nudges only, <strong>partial</strong> is built but not wired everywhere.</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>Mechanism</th><th>Prevents</th><th>Status</th></tr>
+<tr><td>Signed authority envelope (working implementation)</td><td>Confused deputy / authority laundering by relay — a sub-agent cannot tell "the owner said so" from "my caller claims the owner said so"</td><td>enforcing for provenance; documented limit — this is provenance, not a security boundary. The public part is the schema, and it is <span class="tag">specified</span> only.</td></tr>
+<tr><td>Action ledger + two-vote guarded action</td><td>Verification bound to a code path instead of an action — a new entry point inherits none of the checks</td><td>enforcing for wrapped actions, plus an independent, fail-open bypass detector running continuously</td></tr>
+<tr><td>Work-claim gate</td><td>Two sessions racing the same irreversible action</td><td>enforcing, fail-closed when the coordination store is unreachable — bright-line actions only</td></tr>
+<tr><td>Approval gate</td><td>Unreviewed destructive / spend / identity / external-send actions</td><td><strong>shadow</strong> — classifies and logs today; blocks nothing</td></tr>
+<tr><td>Blocker-verification gate</td><td>"Waiting on the owner" claims that were never actually tested</td><td>enforcing on the mechanical predicate; advisory on a looser prose-matching leg, after it was found to fire on negated sentences</td></tr>
+<tr><td>Delegation-bound gate</td><td>Sub-agents dispatched with no deadline, no call cap, no partial-report contract</td><td><strong>advisory</strong>, fails open — and this one is <a href="https://github.com/starshard-ai/reviewer-wheels">public</a>, so it is <code>running</code> rather than <code>private</code>; its own docstring says it never blocks</td></tr>
+<tr><td>Per-action re-verification (synthetic input)</td><td>A precondition checked once at the start of a multi-minute sequence and assumed to hold for all of it</td><td><strong>partial</strong> — self-tested against a live conflicting foreground app, but zero callers among the other input-injection tools as of the audit</td></tr>
+<tr><td>Cross-provider receipt ledger</td><td>Self-issued success — a process staying alive is not completion evidence</td><td>enforcing; while its verdict says unreconciled, no agent may report the task done</td></tr>
+<tr><td>Delivery-versus-reach accounting</td><td>Believing a message landed because it was sent</td><td>enforcing — a successful send never counts as reached</td></tr>
+<tr><td>Attention budget</td><td>Alert flooding the one scarce resource in the system</td><td>enforcing, via hooks</td></tr>
+<tr><td>Model-routing bound</td><td>Cost blow-ups from defaulting every role to the most expensive model tier</td><td>enforcing, pre-dispatch, every decision logged</td></tr>
+<tr><td>Platform-automation blocklist</td><td>A rule that exists only in one skill's prose being invisible to a workflow that never loads that skill</td><td>enforcing for the four tools that read it at startup</td></tr>
+<tr><td>Live-round-trip canaries</td><td>A dependency reporting healthy from <code>--version</code> and <code>status</code> while every real call fails</td><td>enforcing, added after the incident it was named for</td></tr>
+<tr><td>Context-pressure and rule-repetition steers</td><td>Context exhaustion; owner-repeated rules decaying because they live in retrievable memory, not always-loaded substrate</td><td><strong>advisory</strong>, fails open</td></tr>
+</table>
+</div>
+
+<div class="callout warn">One line does not belong in that table, and putting it there would be exactly the overclaim this page opened by criticizing. <strong>Stop is absorbing</strong> — the rule that an owner's stop propagates to every watchdog, retry, broker and mutual-repair agent within an authorisation epoch — is <span class="tag">specified</span>, not running, not even privately. The project's own internal security ledger rates it "doctrine only; no mechanism." Agents follow it. Nothing enforces it. That is one of the more important honest admissions on this page, not a footnote to it.</div>
+
+<h2>The coverage number</h2>
+
+<p>An audit run on 2026-09-07 counted every (tool, entry-point) pair against every gate meant to cover it. <strong>163 pairs had zero gate coverage.</strong> Tracked as still open on the <a href="/safety/roadmap.html">roadmap page</a>.</p>
+
+<p>The same audit found something more specific than the raw count, and more useful. The existing external-send gate matched against a whitelist of helper binaries — several of which no longer exist on the machine that runs it — while the tools that actually send mail today were never added to that list. A fail-safe-allow design, block unless explicitly permitted, had quietly become an always-allow design, because the permitted list stopped tracking reality and nothing noticed the drift.</p>
+
+<p>The general lesson is not "add more gates." It is that verification bound to a code path survives exactly as long as that code path stays the only route to the action. A new entry point — a new tool, a new binary, a rewritten call site — reaches the same capability and inherits none of the checks, because the check was never attached to the action. It was attached to one way of reaching it.</p>
+
+<h2>The rule that recurs</h2>
+
+<p>One design choice repeats often enough across this table to be worth stating on its own: <strong>fail-closed only where the action is irreversible; fail-open everywhere else.</strong> The work-claim gate is the clean example — it blocks hard when its coordination store is unreachable, but only for bright-line actions. For everything else, it gets out of the way.</p>
+
+<p>The reason is not optimism about the rest of the system. It is that a gate which blocks ordinary work gets removed by the person it annoys — quietly, under deadline pressure, in a way far harder to audit afterward than a documented fail-open default. A control that survives contact with an annoyed operator is worth more than one that is stricter on paper and gets deleted in practice. It is also, not by accident, the shape of the badge rule this page opened with: say plainly what actually runs, say plainly what does not, and let the gap stay visible instead of being quietly removed.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Chinese edition: <a href="/safety/mechanisms.zh.html">中文</a> ·
+  Section index: <a href="/safety/">Safety &amp; alignment</a>.<br />
+  Related: <a href="/safety/principles.html">Principles</a> · <a href="/safety/evidence.html">Evidence</a> · <a href="/safety/roadmap.html">Roadmap</a> · <a href="/safety/contrast.html">Contrast at frontier scale</a> · <a href="/safety/theory.html">Theory layer</a>.<br />
+  Corrections are made on this page — write to the address above.
+</div>
+</main>
+</body>
+</html>

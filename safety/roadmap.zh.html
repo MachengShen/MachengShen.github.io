@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>缺口,以及什么能证伪它 | Macheng Shen</title>
+  <meta name="description" content="这份安全板块目前还没做到什么——一份大多未实现的公开 Safety Charter、一个仍是 doctrine 而非机制的 stop、163 对没有 gate 覆盖的(工具,入口)组合——以及会让「装置优先」这个立场被判定推翻的具体观察。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/roadmap.zh.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/roadmap.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/roadmap.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/roadmap.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="缺口,以及什么能证伪它" />
+  <meta property="og:description" content="把缺口如实说成缺口,不说成承诺——一份大多未实现的公开 Safety Charter、stop-as-doctrine、163 对没有 gate 覆盖的(工具,入口)组合——以及会推翻整个「装置优先」立场的证伪条件,包括它最容易撞上的那种失效:门禁被满足,而不是被绕过。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/roadmap.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="缺口,以及什么能证伪它" />
+  <meta name="twitter:description" content="八条缺口如实说清楚,以及会推翻「装置优先」这个安全立场的证伪条件——包括门禁被满足、而不是被绕过的那种失效。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/roadmap.zh.html",
+    "url":  "https://machengshen.github.io/safety/roadmap.zh.html",
+    "headline": "缺口,以及什么能证伪它",
+    "name": "缺口,以及什么能证伪它",
+    "description": "这份安全板块目前还没做到什么——一份大多未实现的公开 Safety Charter、一个仍是 doctrine 而非机制的 stop、163 对没有 gate 覆盖的(工具,入口)组合——以及会让「装置优先」这个立场被判定推翻的具体观察。认知状态:speculative。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/roadmap.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": ["Agent safety roadmap", "Falsifiability", "Kill conditions", "Safety Charter conformance gap", "Gate coverage audit", "Owner attention budget"],
+    "keywords": "agent 安全, 证伪条件, 装置优先, safety charter, gate 覆盖率, harness engineering, roadmap, 满足了但满足错了的门禁, stop 吸收态"
+  }
+  </script>
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/index.zh.html">安全索引</a>
+      <a href="/safety/roadmap.html">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">安全 · 缺口与证伪条件</div>
+<h1>缺口,以及什么能证伪它</h1>
+<p class="note-small"><em>装置目前还没做到什么,以及什么会推翻这整个立场 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>本节其它几页写的是已经在跑的东西。这一页写的是还没有的东西,以及要让底下那条立场——安全是装置的属性,不是模型的属性——被推翻,需要出现什么。一页只展示能用的部分,那是营销,不是主张。下面按每条缺口有多重要排序,不按修起来有多容易排序。</p>
+
+<h2>缺了什么</h2>
+
+<ol>
+<li><strong>没有独立的实时动作模式监视器。</strong>这是排在第一位的缺口。这里的检测是事后的——2026-09-07 记录的那两起事故,都是被一个 agent 事后写 receipt 发现的,没有任何东西在动作发生的当下盯着动作模式。这里没有任何东西扮演前沿实验室那种 chain-of-thought monitoring 的角色,哪怕做得不完美。在这个角色被填上之前,本站的每一起事故都是"事后被发现"的故事,不是"动作进行中被拦下"的故事。</li>
+<li><strong>公开的 Safety Charter 六项硬机制,大多没有实现。</strong>章程写明六项:memory provenance(记忆溯源)、write-protected memories(写保护记忆)、untrusted-content quarantine tagging(不可信内容隔离标记)、带敏感联系人门的 outbound audit(出站审计)、一个 kill switch,以及给已沉淀安全标志的反传播 TTL。参考实现只做到第一项,而且做错了——它自己的 update 接口,覆写了 spec 宣称 write-once(只写一次)的那个字段。机制二到六一项都没实现。修好代码,或者把章程改名成只写它真做到的部分,都还挂在这份清单上。</li>
+<li><strong>Stop 是吸收态,目前是 doctrine,不是一个可核查的机制。</strong>设计要求 owner 的一次 stop 成为一个吸收态,让每个 watchdog、retry 循环、broker 和互修 agent 都继承它。项目自己的内部安全台账把它评为"仅是 doctrine——没有机制":这是一条 agent 被要求遵守的规则,还不是系统强制执行的属性。</li>
+<li><strong>审批门禁从没离开过 shadow 模式。</strong>它对每一类 bright-line 动作分类并记录判定,但从没拦下过任何东西。把它升级成 enforcing 是一项范围明确、已知怎么做的工作,只是还没有人做。</li>
+<li><strong>每次动作前重新校验,目前只接入了大约九个工具里的一个。</strong>它针对一个正在冲突的前台 app 自测过,但在共享同一失败类别、本该同样用得上它的其它输入注入工具里,调用方是零。</li>
+<li><strong>163 对(工具,入口)组合没有任何 gate 覆盖。</strong>这个数字来自写这页当天跑的一次审计。同一次审计还发现,既有的外发 gate 匹配的是一份 helper 二进制白名单,其中好几个早就不存在于机器上了,而今天真正在发邮件的工具压根没被列进去——一个 fail-safe-allow(默认拒绝、显式放行)的设计,就这样悄悄退化成了 always-allow(始终放行)。</li>
+<li><strong>owner 注意力预算,没有跨 provider 去重。</strong>这份预算只在一个执行面内部成立。没有任何东西阻止两个独立的 provider 各自正确地判断"自己没超预算",而 owner 同时收到两份。</li>
+<li><strong>面向 owner 的送达升级引擎,只跑在一台主机上。</strong>在其它地方,它退化成一个没有递增重推的概率性提醒池——一个更弱的保证,在除第一台主机之外的每一处,顶替着真正的那个。</li>
+</ol>
+
+<p>以上都没有附日期,这是故意的。一个私人研究项目上的带日期承诺,正是那种日期一过、没人回头看,就悄悄过期的主张。这份清单会在缺口补上时原地更正,它不是一份进度表。</p>
+
+<h2>什么能证伪它</h2>
+
+<p>这一节背后的论点是:对一个由单一 owner 拥有的、长期在跑的多 agent 系统来说,够得着的安全面,大部分是装置面——今天就能由一个人拿一台笔记本加一队 agent 去测,不必等模型层面的对齐研究。这是一个可证伪的立场。会推翻它的是:</p>
+
+<ul>
+<li>不受治理的长期 agent 编队,在没有 lease、没有预算、没有 stop 继承、也没有独立验证的情况下,在对抗性故障注入下反而保持稳定;</li>
+<li>这些控制手段被测出并没有降低失控重试、复活、虚假成功或资源耗尽;</li>
+<li>一个 stop epoch,被证明不可能在异构的 watchdog 之间做成吸收态,除非引入一种比它要取代的更糟的共因失效;</li>
+<li>分级披露挡住了独立的安全复现,却没有相应地降低危险放大原语的可得性。</li>
+</ul>
+
+<p>这几条里,有一条在这里得到的关注比其它都多,因为它是本节最容易撞上的那种失效:<strong>门禁被证明是常态性的"满足了、但满足错了",而不是被绕过。</strong>最清楚的一次已经发生过。一个 workflow 驱动一个已登录的浏览器 session,反复往一个第三方平台的草稿后台发帖;那天写下的 receipt 老老实实跑完了 ship-envelope 清单,而且通过了——因为 owner 已经在用的一个账号,平平无奇地就是一个 pre-cleared surface。这道门禁没有被绕开;它正确地回答了它被造出来要回答的那个问题,只是那个问题本身问错了。一道"满足了但满足错了"的门禁,在出事之前,和一道真正管用的门禁没有任何分别——这是一个几乎完全由门禁搭起来的系统所能碰到的最危险的失效形状,也是最值得盯着看它有没有再发生的一条。</p>
+
+<p>一套用来直接检验这个论点的最小实验序列,已经发表在 <a href="/theory/agent-safety-stewardship.zh.md">/theory/agent-safety-stewardship.md</a>:一起由独立验证者收口的合成事故、一次三臂的 stop-and-resurrection 演练、一次资源风暴式的故障注入,以及一次披露评审——让一个红队只凭公开的安全层,尝试还原被扣下的那个放大原语。这套序列已经发表;四项里,没有任何一项在记录中被标为跑过。这个措辞是故意的 —— 本章自己的规矩是:关于状态的主张必须附上确立它的那次检查,而这里存在的是记录上的空白,不是一个阴性结果。</p>
+
+<div class="callout">
+对以上任何内容的更正,都直接改在这一页上,不另开勘误——写信到页眉那个地址。本节的一切,包括这一页本身,都可以在一小时内靠回退一次 commit 撤下;这条约束,也适用于它自己。
+</div>
+
+<div class="footer">
+  由作者的工作笔记整理发布。认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/safety/roadmap.html">English</a> ·
+  章节索引:<a href="/safety/index.zh.html">安全与对齐</a>。<br />
+  相关:<a href="/safety/mechanisms.zh.html">机制</a> · <a href="/safety/evidence.zh.html">事故</a> · <a href="/theory/agent-safety-stewardship.zh.md">更早那篇:最小实验序列</a>。<br />
+  更正会直接改在本页——写信到上面的地址。
+</div>
+</main>
+</body>
+</html>

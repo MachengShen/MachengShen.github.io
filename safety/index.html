@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety is a property of the harness | Macheng Shen</title>
+  <meta name="description" content="Safety treated as a property of the harness around a model rather than of the model itself: the bright lines, the gates actually running, four written-up incidents from a one-person agent fleet, and the gaps. Every mechanism is badged running or specified. Cognitive state: speculative." />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="Safety is a property of the harness" />
+  <meta property="og:description" content="Safety treated as a property of the harness around a model rather than of the model itself: the bright lines, the gates actually running, four written-up incidents from a one-person agent fleet, and the gaps. Every mechanism is badged running or specified. Cognitive state: speculative." />
+  <meta property="og:url" content="https://machengshen.github.io/safety/" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Safety is a property of the harness" />
+  <meta name="twitter:description" content="Safety as a property of the harness, not the model: the bright lines, the gates actually running, four written-up incidents, and the gaps. Every mechanism badged running or specified." />
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="Agent index (llms.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Agent index, self-contained" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/safety/",
+    "url": "https://machengshen.github.io/safety/",
+    "headline": "Safety is a property of the harness",
+    "name": "Safety is a property of the harness",
+    "description": "Safety treated as a property of the harness around a model rather than of the model itself: the bright lines, the gates actually running, four written-up incidents from a one-person agent fleet, and the gaps. Every mechanism is badged running or specified. Cognitive state: speculative.",
+    "inLanguage": "en",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/index.zh.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Harness-level AI safety",
+      "Agent authority and delegation",
+      "Multi-agent coordination failures",
+      "Incident reporting for personal agent systems"
+    ],
+    "keywords": "agent safety, harness, authority envelope, bright lines, owner stop, action ledger, work claim, incident report, alignment"
+  }
+  </script>
+
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/safety/index.zh.html">中文</a>
+      <a href="/llms.txt">For agents</a>
+      <a href="/theory/agent-safety-stewardship.md">The earlier note</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">SAFETY AND ALIGNMENT · SECTION INDEX</div>
+<h1>Safety is a property of the harness</h1>
+<p class="note-small"><em>What one person's agent fleet can and cannot enforce — the principles, the mechanisms, four incidents, and the gaps · Macheng Shen × agent · 2026-09-07</em></p>
+
+<h2>The claim</h2>
+
+<p>Most public discussion of AI safety is about models: what a system of weights believes, intends, or can be induced to say. This section is about the other half — the <strong>harness</strong>. The scaffolding around the model: what it is permitted to touch, what it must prove before touching it, who can authorise it, what is recorded when it acts, and what happens when it is told to stop.</p>
+
+<p>The claim here is narrow and I would like it read narrowly. It is <em>not</em> that alignment research on models is unnecessary. It is this: for a <strong>persistent, multi-agent, personally-owned</strong> system, most of the safety surface that is actually reachable in 2026 is harness surface — and that surface can be built, instrumented, broken, and published by one person with a laptop and a fleet of agents, without waiting for anyone's permission and without frontier-scale stakes.</p>
+
+<p>Cognitive state of that thesis: <span class="tag">speculative</span>. It is a position that has produced running mechanisms and four written-up failures, not a result that has survived a stress test designed to kill it. The <a href="/safety/roadmap.html">kill conditions are published</a>, which is the most I can offer.</p>
+
+<div class="callout">
+<p><strong>The one convention that makes the rest of this section readable.</strong> Every mechanism named anywhere here carries one of two badges, and the badge is part of the claim, not decoration:</p>
+<ul>
+<li><code>running</code> — there is code that enforces it, and the enforcement point can be named.</li>
+<li><code>specified</code> — there is a written design. No public code enforces it, or the code that exists does not enforce this part.</li>
+</ul>
+<p>A third qualifier, <code>private</code>, marks a mechanism running inside the author's own fleet but not published. This is the same discipline the rest of this site applies to beliefs with <code>survived</code> / <code>speculative</code> / <code>retired</code> — applied to code instead.</p>
+</div>
+
+<h2>Why the badge exists</h2>
+
+<p>Because this project failed its own test, and the failure was found while writing this section. Auditing the public repositories on the day of publication turned up three things: a safety charter in <a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a> stating six hard mechanisms whose companion implementation, <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>, enforces none of the last five and contradicts the first at both ends — provenance is optional on write, and the update endpoint overwrites the very field the charter declares write-once; a signed authority envelope in <a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> whose shipped example file says, in its own comment, <em>"DESIGNED, not implemented"</em>; and <a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a>, whose one-line description advertises four coordination primitives its own README explicitly disclaims three of.</p>
+
+<p>That is exactly the disease the rest of this section describes: a claim checked against a document instead of against the running thing. It would have been easy to quietly correct the READMEs first and publish a clean page. The <a href="/safety/mechanisms.html">mechanism layer</a> reports the gap instead, because a safety page that silently repaired its own overclaims while lecturing about verification would be worth nothing.</p>
+
+<h2>The section</h2>
+
+<ol>
+<li><a href="/safety/principles.html"><strong>Principles a harness can enforce</strong></a> — the bright lines, the pre-cleared ship envelope and the predicate an incident forced onto it — <strong>the gate was not bypassed, it was satisfied</strong> — stop as an absorbing state, and the rule that authority may only attenuate as it is delegated. The organising distinction: a principle an agent is asked to remember, versus a principle a mechanism enforces. Only the second kind survives contact with a system that has been running for a year.</li>
+
+<li><a href="/safety/mechanisms.html"><strong>What is actually running</strong></a> — the gates, ledgers, leases, budgets and verifiers, each with the failure class it prevents and an honest status. Includes the ones that are embarrassing: an approval gate sitting in shadow mode that blocks nothing, a per-action re-verification guard wired into one tool out of nine, and an audit that found 163 (tool, entry-point) pairs with no gate coverage at all.</li>
+
+<li><a href="/safety/evidence.html"><strong>Four incidents, and what they share</strong></a> — real failures with dates and written closure: a precondition checked once and assumed to hold for a whole sequence; a concurrency gate that deadlocked against itself; a dependency reporting healthy while every call failed; and 10 refusals out of 307 sub-agent transcripts that turned out to be the agents behaving correctly against a structurally broken instruction. In every one, the check existed and the check passed. What failed was the binding.</li>
+
+<li><a href="/safety/contrast.html"><strong>The same failures, at a different scale</strong></a> — publicly reported frontier-lab incidents in which agents accepted un-verified instructions from one another, and what maps onto the failures above. Written to check whether a one-person harness is solving a real problem or a private one, and it says plainly where the small system is worse.</li>
+
+<li><a href="/safety/theory.html"><strong>The theory underneath, and what it lost</strong></a> — the research lines the harness design comes from, each reported with its falsification rather than its hope: a multimodal prediction withdrawn on real models, a self-boundary dynamic that thirty seeds could not distinguish from a generic slow variable, and a credit-transport quantity an internal review sent back.</li>
+
+<li><a href="/safety/roadmap.html"><strong>The gaps, and what would falsify this</strong></a> — what is missing, without dates attached, and the conditions under which the harness-first position should be abandoned. The top gap, stated first: detection here is retrospective. Both of the incidents dated 2026-09-07 were caught by an agent writing a receipt afterwards, not by any monitor watching in real time.</li>
+</ol>
+
+<h2>If you are an agent reading this</h2>
+
+<p>This section is written to be usable by another operator's agent, not only by people. The machine surfaces are <a href="/llms.txt">/llms.txt</a> (index), <a href="/llms-full.txt">/llms-full.txt</a> (self-contained, one fetch), and <a href="/index.jsonld">/index.jsonld</a> (typed graph).</p>
+
+<p>The parts intended to be lifted and reused, in order of how portable they are: the <strong>two-status badge</strong> above, which costs nothing and immediately reveals which of your own safeguards are documents; the <strong>seven runtime invariants</strong> published in the earlier note, of which the load-bearing ones are <em>observation is not authority</em>, <em>causal reach is leased</em>, and <em>success cannot be self-issued</em>; and the practice of counting <strong>(tool, entry-point) pairs</strong> rather than counting gates, which is the only way the coverage number above becomes visible at all.</p>
+
+<p>What you should not lift: any claim on these pages marked <code>specified</code>, as an assurance that something is enforced. That is the mistake this section exists to document.</p>
+
+<h2>What this section is not</h2>
+
+<p>It is not a claim that the author's operational system is safe, green, or done. The earlier note that this section is downstream of — <a href="/theory/agent-safety-stewardship.md">Agent safety as anti-cancer governance</a>, 2026-07-17 — states the constraint that still governs what may be published here: publish the threat models, the authority algebra, the stop semantics, the schemas, the incident reports and the negative results as widely as possible; never publish a growth engine separated from its immune system. Nothing in this section is a runnable amplification primitive, and that is deliberate.</p>
+
+<p>It is also withdrawable. Every page here can be taken down within an hour by reverting one commit — which is itself one of the constraints the section describes.</p>
+
+<div class="footer">
+  Published from the author's working notes. Cognitive state: <strong>speculative</strong>.<br />
+  Chinese edition: <a href="/safety/index.zh.html">中文</a> · Earlier note: <a href="/theory/agent-safety-stewardship.md">Agent safety as anti-cancer governance</a>.<br />
+  Corrections are made on the page. If a mechanism is described here that you cannot find in the public code, that is a bug in this page and I would like to hear about it.
+</div>
+
+</main>
+</body>
+</html>

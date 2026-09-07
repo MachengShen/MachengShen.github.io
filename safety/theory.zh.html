@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>底下的理论,以及它输掉的部分 | Macheng Shen</title>
+  <meta name="description" content="一个人的 agent 编队安全装置,借来了哪几条研究线的词汇——信息动力学、多模态表征不可约性、自我边界、作为运行合同的记忆、credit transport、协调结构、类型化验证——每一条都按它输掉了什么来报,不按它盼着什么。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/theory.zh.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/theory.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/theory.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/theory.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="底下的理论,以及它输掉的部分" />
+  <meta property="og:description" content="装置设计所源出的几条研究线,每一条报的是它的证伪而不是它的期望:一个在真实模型上被撤回的多模态预测、一个 30 个种子都无法与通用慢变量区分开的自我边界动力学,以及一个被内部评审打回的 credit transport 量。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/theory.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="底下的理论,以及它输掉的部分" />
+  <meta name="twitter:description" content="安全装置借来词汇的那几条研究线,每一条都按它输掉了什么来报——一个被撤回的预测、一个悬而未决的自我边界结果、一个被打回重构的 credit 量。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id":  "https://machengshen.github.io/safety/theory.zh.html",
+    "url":  "https://machengshen.github.io/safety/theory.zh.html",
+    "headline": "底下的理论,以及它输掉的部分",
+    "name": "底下的理论,以及它输掉的部分",
+    "description": "一个人的 agent 编队安全装置,借来了哪几条研究线的词汇——信息动力学、多模态表征不可约性、自我边界、作为运行合同的记忆、credit transport、协调结构、类型化验证——每一条都按它输掉了什么来报,不按它盼着什么。认知状态:speculative。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/theory.html",
+    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
+    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
+                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
+    "about": [
+      "信息动力学与未来可达性",
+      "多模态表征不可约性",
+      "自我边界与 agency",
+      "作为运行合同的记忆",
+      "Credit transport",
+      "协调结构",
+      "类型化验证"
+    ],
+    "keywords": "agent 安全理论, 信息动力学, 多模态表征, 自我边界, memory as dynamics, credit transport, 协调结构, 类型化验证, 认知状态"
+  }
+  </script>
+  <style>
+
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/index.zh.html">安全索引</a>
+      <a href="/safety/theory.html">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">安全 · 理论层</div>
+<h1>底下的理论,以及它输掉的部分</h1>
+<p class="note-small"><em>装置借来词汇的那几条研究线,按每一条输掉了什么来报 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>一个租来的动作、一个双票 wrapper、一个 stop epoch——本章描述的这些机制,<a href="/safety/mechanisms.zh.html">有的是在跑的代码,有的还只是 specified</a>。它们都不是凭空长出来的装置设计。它们下游是一条更长的研究线,关于信息是什么、它怎么流动、一个系统忘记的时候付出什么代价——装置借用了这条研究线的词汇,在至少一处,也借用了它的失败。下面每一条线各占一段:它主张什么、被证伪或还没兑现的是哪一句话、它的认知状态,以及一个链接。可信度跟着一条线输掉了什么走,不跟着它盼着什么走。</p>
+
+<h2>脊梁:信息动力学与可达性</h2>
+<p>整个研究计划的脊梁是一个关于信息本身的主张:重要的不是某个静态表征,而是变换它的那些算子,以及一个系统忘记时要付出的代价。衰老、癌症、一支被叫停的 agent 编队,在这个框架里被读成同一类完整性失效的实例——未来可达性被摧毁,而不是被保存。这是本页其余各条线所在的伞;它停在研究计划这一级,不是一个已经跑通的结果。入口:<a href="https://github.com/starshard-ai/living-information-system">Living Information System</a>与<a href="/start-here.html">/start-here.html</a>。状态:<span class="tag">speculative</span>。</p>
+
+<h2>多模态表征不可约性——一次证伪,照实说</h2>
+<p>主张是:模态之间的 embedding gap 不是优化失败,而是有损投影之下一种结构性障碍——两个信道投影同一个 latent,约束数多于自由度,generically 就会留下非零残差。合成实验干净地过了:阈值恰好出现在预测的位置,contrastive 目标停在解析 floor 之上,训练时长拉长十倍也压不下去。</p>
+
+<p>然后是证伪,这也是这条线值得报的唯一理由:<strong>在真实模型上,预测的 scale-decay 曲线被测试并撤回了</strong>——co-training 之下残差随规模下降,方向和预测正好相反。</p>
+
+<p>幸存下来的更窄:一个颗粒度剂量-响应(granularity dose-response)——粗粒度概念能粘合,细粒度不能,在三对模型上单调,跨度大约 8 倍;以及在独立训练的两座塔上,残差预测的一个弱化版本。后续一次实验把 contrastive co-training 本身重新归类为一个 collapse 环而不是修复环——残差下降是因为被障碍卡住的那个场被丢弃了,不是被解开了。dimensional collapse 这条 prior art 还没清干净。owner 的裁定是把这条线收作 handle 静置,不再继续推;它目前还没有公开页面。状态:机制层面<span class="tag">speculative</span>;被证伪的那句子命题是<span class="tag">retired</span>。</p>
+
+<h2>Agency 与自我边界——一个已发表的阴性结果</h2>
+<p>这里的头条是阴性的,而且正因为阴性才更可信:在 30 个种子下,一个候选的自我封闭(self-sealing)动力学,无法和通用的带门慢变量、或者干脆冻结动作通道区分开。一份后续 spec 只测这个阴性结果没测过的东西——一次边界耦合干预,而不是一次读出——而且明说是条件性的,还跑不起来。它对现象学意义上的主观体验不做任何断言;这条限制是 spec 本身的一部分,不是这里省略掉的。发表为<a href="/theory/learning-the-self-boundary.zh.md">learning-the-self-boundary.zh.md</a>及其<a href="/theory/learning-the-self-boundary-log.zh.md">阶段记录</a>。状态:<span class="tag">speculative</span>,附一个已发表的阴性结果。</p>
+
+<h2>记忆是动力学,不是检索</h2>
+<p>长期记忆在这里被当作一份运行合同,不是一个向量库:一条 claim 携带 provenance、一个有效区间、一个明确的冲突状态,并且只通过动作收口——一份 receipt、一步验证、一次可测量的行为改变。这是「观察不构成授权」「成功不能自己签发」这两句在机制层和原则层反复出现的话的直接源头。两者都是把这个立场用在一条 claim 上,而不是整个信念库上。field guide:<a href="/long-term-memory/">/long-term-memory/</a>。状态:<span class="tag">speculative</span>。</p>
+
+<h2>Credit transport</h2>
+<p>Credit transport 问的是:报酬应该沿着一张因果图分摊,而不是沿着一条链。这里更早的一个头条结果——一个 discounted holonomy 不变量——本身已经被撤回,替换为对 discounted incidence operator 的像取模之后的加权残差,这个修正本站已经完整收录。悬而未决的是:一次内部对抗式评审,对由此得到的 credit-curvature 量是否可用给出了「还不行、需要 reframe」的裁定,所以这条线是活跃的,而且被部分推翻,还没收口。完整论证:<a href="/theory/discounted-credit-is-a-cokernel.zh.md">discounted-credit-is-a-cokernel.zh.md</a>。状态:<span class="tag">speculative</span>。</p>
+
+<h2>协调结构</h2>
+<p>一个政体、一家公司、一个市场、一个 commons、一个协议,在这里被读成同一个对象的五个实例——一种在分布式、私有信息之下调度稀缺资源的架构,资本主义和社会主义则被读成同一个形式空间里的两种算法,而不是两套对立的地基。原则层里「权威只有一个根」「principal 分两类」这套语言,就是从这里来的。文章:<a href="/theory/coordination-structures.md">coordination-structures.md</a>。状态:<span class="tag">speculative</span>。</p>
+
+<h2>验证需要类型化的 claim</h2>
+<p>论点是:验证真正受限的不是成本,而是验证者能不能把这条 claim 解析出来。测出来的结果直接支持这一点——一个由 prose 加正则拼起来的 blocker 闸门,在测试集里只召回了十条假的「等 owner」park 里的五条;而一个覆盖同样范围的最小类型化 receipt schema 没有同样的盲区——不是因为它更努力,而是因为一条格式不对的类型化 claim,没有一个通顺句子那种可以藏身的地方。完整笔记:<a href="/abundant-verification-needs-abundant-claims.zh.html">abundant-verification-needs-abundant-claims.zh.html</a>。状态:<span class="tag">speculative</span>。</p>
+
+<h2>一套约定,两处用法</h2>
+<p>本站每一条 claim,包括这一页自己,都只带三个词里的一个:survived、speculative、retired。这不是装饰,也不是理论专属——它和<a href="/safety/mechanisms.zh.html">机制那几页</a>上 running / specified 那套徽章是同一套纪律,只不过这次用在一个信念上,而不是一段代码上。一个标 specified 的机制,有设计、没有强制执行;一个标 speculative 的 claim,有论证、还没有一次真正想杀死它的压力测试。两套徽章存在的理由是同一个:让一个读者——不管是人还是 agent——不用重建整段历史,就能看出什么是承重的。上面这些证伪不是要绕开的难堪,它们和<a href="/safety/evidence.zh.html">事故这一页</a>要你相信它报的那些「仍然在坏」时用的,是同一种货币、同一份证据。</p>
+
+<div class="footer">
+  Published from the author's working notes. 认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/safety/theory.html">English</a> ·
+  章节索引:<a href="/safety/index.zh.html">安全与对齐</a>。<br />
+  相关:<a href="/safety/principles.zh.html">原则</a> · <a href="/safety/mechanisms.zh.html">机制</a> · <a href="/safety/evidence.zh.html">事故</a> · <a href="/safety/contrast.zh.html">与前沿量级的对照</a> · <a href="/safety/roadmap.zh.html">路线图</a>。<br />
+  更正直接改在页面上——写信到上面的地址。
+</div>
+</main>
+</body>
+</html>

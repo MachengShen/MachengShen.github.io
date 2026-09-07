@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>真正在跑的是什么 | Macheng Shen</title>
+  <meta name="description" content="安全板块的主线规则：给每个机制打 running / specified / private 徽章。以及一个不舒服的发现——本项目自己的公开仓库，在写这页的当天没能通过自己发布的 spec：六项 Safety Charter 机制里五项未实现，通信 spec 的签名 authority envelope 在示例文件自己的注释里写着「未实现」，还有一次 163 对（工具，入口）零覆盖的审计，以及背后那条 fail-open 设计规则。认知状态：speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/mechanisms.zh.html" />
+  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/mechanisms.html" />
+  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/mechanisms.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/mechanisms.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="真正在跑的是什么" />
+  <meta property="og:description" content="每个机制都打一个徽章：running（有代码强制执行，能指名文件）或 specified（有设计，没有公开代码强制执行）。然后是不舒服的部分：本项目自己的公开仓库今天没能通过自己发布的 spec，一次 163 对的覆盖率审计还发现一道 fail-safe-allow 的 gate 已经悄悄退化成了 always-allow。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/mechanisms.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="真正在跑的是什么" />
+  <meta name="twitter:description" content="给每个机制打 running 或 specified 徽章，以及本项目自己的公开仓库今天没能通过自己发布的 spec 这一发现。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "url": "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "headline": "真正在跑的是什么",
+    "name": "真正在跑的是什么",
+    "description": "安全板块的主线规则：给每个机制打 running / specified / private 徽章。以及一个不舒服的发现——本项目自己的公开仓库，在写这页的当天没能通过自己发布的 spec：六项 Safety Charter 机制里五项未实现，通信 spec 的签名 authority envelope 在示例文件自己的注释里写着「未实现」，还有一次 163 对（工具，入口）零覆盖的审计，以及背后那条 fail-open 设计规则。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/mechanisms.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Agent 安全 harness 设计",
+      "Spec 与代码的落差",
+      "Fail-open 与 fail-closed 的取舍",
+      "Agent 动作 gate 覆盖率审计",
+      "Authority envelope 与 delegation"
+    ],
+    "keywords": "agent 安全, harness engineering, spec-code gap, fail-open fail-closed, 覆盖率审计, authority envelope, agent gating, verification",
+    "citation": [
+      "https://github.com/starshard-ai/agent-mail-stack",
+      "https://github.com/starshard-ai/selfhost-chat",
+      "https://github.com/starshard-ai/agent-continuity-demo",
+      "https://github.com/starshard-ai/fleet-coordination-protocol",
+      "https://github.com/starshard-ai/starshard-communication"
+    ]
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/index.zh.html">安全索引</a>
+      <a href="/safety/mechanisms.html">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+<div class="kicker">安全 · 机制层</div>
+<h1>真正在跑的是什么</h1>
+<p class="note-small"><em>下面每个机制都带一个徽章,徽章本身就是主张的一部分 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>本节提到的每一个机制都带两种徽章之一,徽章是主张的一部分,不是脚注。<span class="tag">running</span>(在跑)意味着有代码在强制执行这个机制,而且能指名强制执行点在哪——哪个文件、哪个函数、哪一步检查在动作发生前先跑一遍。<span class="tag">specified</span>(已规定)意味着有一份书面设计、一个 schema、一条 agent 被要求遵守的规则——但没有公开代码强制执行它,或者存在的代码没有强制执行这一部分。第三个限定词 <span class="tag">private</span>(私有)标注一个机制:它确实在跑,只是跑在本 fleet 之外任何人都读不到的仓库里。</p>
+
+<p>把这条摆在列出任何"能用"之前的原因是:一份描述某项控制的文档,和一套真正在跑这项控制的系统,不是同一件事;把二者当成可以互换,正是本节从头到尾要指名的那个失败本身。本页立于 <a href="/theory/agent-safety-stewardship.zh.md">theory/agent-safety-stewardship.md</a> 已发布的不变式之下——它不重述那些不变式,而是审计它们今天究竟成立到什么程度。</p>
+
+<h2>主张与代码分歧的地方</h2>
+
+<p>一次对本项目自己公开仓库的审计——就在写这页的同一天跑的——找出了三处文档与代码各说各话的地方,而且它该放在这里、放在最前面,而不是放进一条更正脚注里。</p>
+
+<p><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a> 里的 Safety Charter 写明六项硬机制:memory provenance(记忆溯源)、write-protected memories(写保护记忆)、untrusted-content quarantine tagging(不可信内容隔离标记)、带敏感联系人门的 outbound audit(出站审计)、一个 kill switch,以及给已沉淀安全标志的反传播 TTL。它配套的公开实现 <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>,机制二到六一项都没实现。机制一它其实也没实现,而且是从两头都没实现:章程说 provenance 块不完整的写入会被拒绝,而代码里 provenance 是一个可选字段,创建时根本没有这项检查;随后 update 接口又会覆写章程声明为 write-once(只写一次)的同一个字段。所以代码不只是没做到章程——在它看上去唯一碰过的那一条上,它两头都与章程相反。</p>
+
+<p><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> 里的通信 spec,把一个带签名的 authority envelope(授权信封)当成头号安全原语来展示。而那个本该演示它的示例文件,在自己的注释里写着——<strong>"DESIGNED, not implemented."</strong>(已设计,未实现。)</p>
+
+<p><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a> 在 GitHub 上那一行简介宣称有四个协作原语(coordination primitives)。它自己的 README 明明白白否认了其中三个;这个仓库真正证明的是两个。</p>
+
+<p>这些都不是外部审阅者挑出来的,而是拿仓库去对照它们自己声明的主张查出来的——这恰恰是本页要求读者对下面每一条都套用的那把标准。诱人的做法是悄悄把 README 改干净,再发一页干净的、讲验证的文章——那会是同一种失败往后退一步:一个主张之所以过了关,是因为没人拿它去对照真正在跑的东西检查过。这里选的是另一条路:把差距报出来,文档按它自己的节奏另行修,把徽章规则收紧到——如果从第一天就这么执行,本该在第一天就抓住这个问题。</p>
+
+<h2>公开代码里在跑的东西</h2>
+
+<p>下面这些是 <span class="tag">running</span>,不是 specified——直接从每个仓库的源码里读出来的,不是从文档里推断的。每一行都点名它防的是哪类失败,以及强制执行实际落在哪个文件里。</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>机制</th><th>防的是</th><th>位置</th></tr>
+<tr><td>仅限 owner 的出站白名单</td><td>后台 agent 在没有人类介入的情况下给第三方发邮件</td><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a> — <code>bin/fire-and-forget-deliver</code></td></tr>
+<tr><td>落盘而不外泄(spool-don't-leak)</td><td>带着邀请 token 的消息正文,泄漏进其他 agent 能读到的存储</td><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a> — <code>bin/zhizi-mail</code></td></tr>
+<tr><td>发布前 release gate</td><td>把凭证或私人身份信息发布到公开面</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>verify/release_gate.py</code>, <code>verify/scrub_check.py</code></td></tr>
+<tr><td>结构性回归检查</td><td>未来一次改动悄悄开出新的出站点或新的 PII 读取路径</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>open-signup/verify/no_outbound_check.py</code>, <code>pii_check.py</code></td></tr>
+<tr><td>租户隔离,机器测试过</td><td>跨租户泄漏、一个可探测会话是否存在的 oracle、不花钱就能白嫖的探测</td><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> — <code>open-signup/verify/test_isolation.py</code></td></tr>
+<tr><td>信念冲突隔离(belief-conflict quarantine)</td><td>agent 进程之间静默互相覆写彼此的信念</td><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a> — <code>hub.py</code></td></tr>
+<tr><td>协作记录形状(shared fact、work claim、receipt、conflict signal)</td><td>跨运行时的信念冲突、重复劳动、缺失审计线索——仅对配合的调用方有效</td><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a> — <code>fcp/hub.py</code>, <code>SPEC.md</code></td></tr>
+<tr><td>假阴性监控</td><td>重要消息被静默过滤,且没有任何东西显示发生过过滤</td><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a> — <code>reference-impl/monitor.py</code></td></tr>
+</table>
+</div>
+
+<p>协作协议自己的 spec 值得直接引用,因为它做了一件比交付一项功能更少见的事:写明了自己的边界。<code>SPEC.md</code> 说这个协议<strong>不提供权限强制执行、不提供经过认证的 principal、没有 absorbing cancellation(吸收式取消)、没有 retry budget、没有独立验证者、也没有 exactly-once 语义</strong>。一份把自己不做什么和自己做什么并排写清楚的 spec,并不比一份对自己的缺口保持沉默的 spec 更弱——它是唯一一种读者真能据以行动的 spec。这正是本页通篇在主张的那种行为,而且是被它自己的一个研究对象亲手示范出来的。</p>
+
+<h2>私有 fleet 里在跑的东西</h2>
+
+<p>以下这些今天都在跑,只是代码不公开。整张表诚实的徽章是 <span class="tag">private</span>。状态用的是一套比 running/specified 更细的词汇,因为这里大多数工作不是二元的:<strong>enforcing</strong>(强制,会拦)、<strong>shadow</strong>(影子,只分类记录,不拦)、<strong>advisory</strong>(建议,只提醒)、<strong>partial</strong>(部分,已建成但没接到所有地方)。</p>
+
+<div class="tablewrap">
+<table>
+<tr><th>机制</th><th>防的是</th><th>状态</th></tr>
+<tr><td>签名 authority envelope(可运行实现)</td><td>Confused deputy / 靠转发洗出权限——sub-agent 分不清"owner 真这么说的"和"我的调用方声称 owner 这么说的"</td><td>对 provenance 是 enforcing;有据可查的局限——这只是 provenance,不是安全边界。公开的部分只有 schema,而且只是 <span class="tag">specified</span>。</td></tr>
+<tr><td>Action ledger + 双票守护动作</td><td>验证绑定在代码路径而不是动作本身上——新入口继承不到任何检查</td><td>对被包住的动作是 enforcing,外加一个独立的、fail-open 的旁路检测器持续在跑</td></tr>
+<tr><td>Work-claim gate</td><td>两个 session 抢着做同一个不可逆动作</td><td>enforcing,协调存储不可达时 fail-closed——仅限 bright-line 动作</td></tr>
+<tr><td>Approval gate</td><td>未经审查的破坏性 / 花钱 / 身份 / 外发类动作</td><td><strong>shadow</strong>——今天只分类记录,不拦任何东西</td></tr>
+<tr><td>Blocker-verification gate</td><td>"在等 owner"这类从没被真正测过的说法</td><td>对机械判据是 enforcing;对一条更松的 prose-matching 支路只是 advisory,因为发现它会在否定句上误触发</td></tr>
+<tr><td>Delegation-bound gate</td><td>派出去的 sub-agent 没有 deadline、没有调用上限、没有部分汇报契约</td><td><strong>advisory</strong>,fail-open —— 而且这一条是<a href="https://github.com/starshard-ai/reviewer-wheels">公开的</a>,所以它是 <code>running</code> 而不是 <code>private</code>;它自己的 docstring 就写明它从不拦截</td></tr>
+<tr><td>每次动作前重新校验(合成输入)</td><td>一个只在多分钟序列开头验一次、就假定整段都成立的前置条件</td><td><strong>partial</strong>——针对一个正在冲突的前台 app 自测过,但截至审计当天,在其它输入注入工具里调用方是零</td></tr>
+<tr><td>跨 provider 回执账本</td><td>自报成功——进程还活着不是完成的证据</td><td>enforcing;只要它的判定还是 unreconciled(未对账),就没有 agent 可以对外说任务做完了</td></tr>
+<tr><td>送达 vs 触达记账</td><td>把消息发出去了,就当成它已经到了</td><td>enforcing——成功发送本身从不计入"已触达"</td></tr>
+<tr><td>注意力预算</td><td>警报淹没系统里唯一稀缺的资源</td><td>enforcing,靠 hook 实现</td></tr>
+<tr><td>模型路由下限</td><td>把每个角色默认派到最贵档位造成的成本爆炸</td><td>enforcing,派发前拦截,每条路由决定都记录在案</td></tr>
+<tr><td>平台自动化黑名单</td><td>一条只写在某个 skill 文字说明里的规则,对从没加载过那个 skill 的工作流形同不存在</td><td>对启动时会读它的四个工具是 enforcing</td></tr>
+<tr><td>实时往返 canary</td><td>一个依赖在 <code>--version</code> 和 <code>status</code> 上一直报健康,而每次真调用都失败</td><td>enforcing,是在它得名的那次事故之后加上的</td></tr>
+<tr><td>Context 压力与规则重复提醒</td><td>Context 耗尽;owner 反复讲过的规则,因为活在可检索记忆里而不是常驻加载的底座里而衰减</td><td><strong>advisory</strong>,fail-open</td></tr>
+</table>
+</div>
+
+<div class="callout warn">有一行不该放进那张表,放进去就恰好是本页开篇批评的那种夸大。<strong>Stop is absorbing</strong>(停止是吸收态)——owner 的一次 stop 会传播给授权 epoch 内所有 watchdog、retry、broker 和互修 agent 的那条规则——是 <span class="tag">specified</span>,不是在跑,连私下都不在跑。项目自己的内部安全台账把它评为"仅是 doctrine;没有机制"。Agent 在遵守它。没有任何东西在强制它。这是本页更重要的诚实承认之一,不是它的脚注。</div>
+
+<h2>覆盖率数字</h2>
+
+<p>2026-09-07 跑的一次审计,把每一个(工具,入口)对都拿去对照本该覆盖它的每一道 gate 数了一遍。<strong>163 对完全没有 gate 覆盖。</strong>这条仍标记为未结,见 <a href="/safety/roadmap.zh.html">roadmap 页面</a>。</p>
+
+<p>同一次审计还发现了一件比这个原始数字更具体、也更有用的事。既有的外发 gate,匹配的是一份 helper 二进制文件白名单——其中好几个在跑它的机器上早就不存在了——而今天真正在发邮件的那些工具,压根就没被加进那份名单。一个 fail-safe-allow(默认拒绝、显式放行)的设计,就这样悄悄退化成了 always-allow(始终放行),因为白名单不再跟踪现实,而且没有任何东西察觉到这个漂移。</p>
+
+<p>普遍的教训不是"再加几道 gate"。而是:绑定在某条代码路径上的验证,能存活的时间恰好等于那条代码路径还是通往那个动作的唯一路径。一个新入口——一个新工具、一个新二进制、一处改写过的调用点——能抵达同一项能力,却继承不到任何检查,因为那个检查从来就没绑在动作本身上。它绑的是通往动作的一条路。</p>
+
+<h2>反复出现的那条规则</h2>
+
+<p>有一个设计选择在这张表里反复出现,值得单独说一句:<strong>仅在动作不可逆时 fail-closed;其余一律 fail-open。</strong>Work-claim gate 是最干净的例子——它的协调存储不可达时会硬拦,但只针对 bright-line 动作。其余情况,它让路。</p>
+
+<p>理由不是对系统其余部分抱有乐观。而是:一道会拦住日常工作的 gate,会被它惹恼的那个人悄悄移除——在赶 deadline 的压力下,事后比一个写明的 fail-open 默认值难审计得多。一项能扛住一个被惹恼的操作者的控制,比一项纸面上更严格、实际上会被删掉的控制更值钱。而且这也不是巧合——它正是本页开篇那条徽章规则的形状:老老实实说清楚什么真的在跑,老老实实说清楚什么没在跑,让差距保持可见,而不是被悄悄抹掉。</p>
+
+<div class="footer">
+  由作者的工作笔记整理发布。认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/safety/mechanisms.html">English</a> ·
+  章节索引: <a href="/safety/index.zh.html">安全与对齐</a>。<br />
+  相关: <a href="/safety/principles.zh.html">原则层</a> · <a href="/safety/evidence.zh.html">证据层</a> · <a href="/safety/roadmap.zh.html">路线图</a> · <a href="/safety/contrast.zh.html">与前沿规模的对照</a> · <a href="/safety/theory.zh.html">理论层</a>。<br />
+  更正直接改在本页——写信到上面的地址。
+</div>
+</main>
+</body>
+</html>

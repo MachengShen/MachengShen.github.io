@@ -809,6 +809,10 @@
     {
      "relation": "contains",
      "target": "receipts"
+    },
+    {
+     "relation": "contains",
+     "target": "safety-section"
     }
    ]
   },
@@ -1115,6 +1119,137 @@
    "url": "https://machengshen.github.io/what-is-a-force.html",
    "format": "text/html",
    "inLanguage": "zh-Hans"
+  },
+  {
+   "id": "safety-section",
+   "label": {
+    "en": "Safety and alignment as a harness property",
+    "zh": "把安全与对齐当作装置的属性"
+   },
+   "description": {
+    "en": "A seven-page section arguing that for persistent, multi-agent, personally-owned systems most of the reachable safety surface is harness surface, not model surface. Principles, running mechanisms with honest status badges, four de-identified incidents, a contrast with publicly reported frontier-lab failures, the theory lines underneath, and published kill conditions.",
+    "zh": "一个七页的章节,主张对长期在跑的、多 agent 的、个人所有的系统来说,真正够得着的安全面是装置面而不是模型面。内容包括原则层、带诚实状态徽章的在跑机制、四起脱敏事故、与公开报道的前沿实验室失效的对照、底下的理论线,以及公开的证伪条件。"
+   },
+   "url": "https://machengshen.github.io/safety/",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/index.zh.html",
+   "cognitiveState": "speculative",
+   "edges": [
+    {
+     "relation": "contains",
+     "target": "safety/principles"
+    },
+    {
+     "relation": "contains",
+     "target": "safety/mechanisms"
+    },
+    {
+     "relation": "contains",
+     "target": "safety/evidence"
+    },
+    {
+     "relation": "contains",
+     "target": "safety/contrast"
+    },
+    {
+     "relation": "contains",
+     "target": "safety/theory"
+    },
+    {
+     "relation": "contains",
+     "target": "safety/roadmap"
+    }
+   ]
+  },
+  {
+   "id": "safety/principles",
+   "label": {
+    "en": "Principles a harness can enforce",
+    "zh": "能被装置执行的原则"
+   },
+   "description": {
+    "en": "Bright lines, the pre-cleared ship envelope and the predicate added after an incident in which the gate was satisfied rather than bypassed, stop as an absorbing state (specified, not running), attenuation-only delegation, and the requirement that a blocker be measured rather than guessed.",
+    "zh": "Bright line、pre-cleared ship envelope 以及一起「闸门不是被绕过、是被满足」的事故之后加上的谓词、作为吸收态的 stop(specified 而非 running)、只能衰减的授权传递,以及 blocker 必须测出来而不是猜出来。"
+   },
+   "url": "https://machengshen.github.io/safety/principles.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/principles.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "safety/mechanisms",
+   "label": {
+    "en": "What is actually running",
+    "zh": "真正在跑的是什么"
+   },
+   "description": {
+    "en": "Two tables of mechanisms — what runs in public code with the file where enforcement lives, and what runs privately with a status of enforcing, shadow, advisory, partial or blueprint — opened by an audit finding this project's own public repositories contradicting their own safety claims.",
+    "zh": "两张机制表 —— 公开代码里在跑的(含执行点文件)与私下在跑的(状态分 enforcing/shadow/advisory/partial/blueprint)—— 开篇是一次审计:本项目自己的公开仓库与自己的安全主张相矛盾。"
+   },
+   "url": "https://machengshen.github.io/safety/mechanisms.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/mechanisms.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "safety/evidence",
+   "label": {
+    "en": "Four incidents, and what they share",
+    "zh": "四起事故,以及它们的共同点"
+   },
+   "description": {
+    "en": "Four de-identified incidents with written closure and one positive canary result. In every case the check existed and passed; what failed was the binding between a check and the action, the identity, the certified thing, or the instruction's origin.",
+    "zh": "四起有书面收口的脱敏事故,外加一个阳性 canary 结果。每一起里检查都存在也都通过了;坏掉的是绑定 —— 检查与动作、与身份、与它所认证之物、与指令来源之间的绑定。"
+   },
+   "url": "https://machengshen.github.io/safety/evidence.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/evidence.zh.html",
+   "cognitiveState": "survived"
+  },
+  {
+   "id": "safety/contrast",
+   "label": {
+    "en": "The same failures, at a different scale",
+    "zh": "同样的失效,不同的量级"
+   },
+   "description": {
+    "en": "Publicly reported frontier-lab agent incidents mapped against this project's own failures, eight named failure modes scored running/specified/nothing, and the honest conclusion that detection in the small system is retrospective.",
+    "zh": "把公开报道的前沿实验室 agent 事故与本项目自己的失败对应起来,八种被点名的失效模式逐一评为 running/specified/无,并给出诚实的结论:小系统里的检测是事后的。"
+   },
+   "url": "https://machengshen.github.io/safety/contrast.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/contrast.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "safety/theory",
+   "label": {
+    "en": "The theory underneath, and what it lost",
+    "zh": "底下的理论,以及它输掉的部分"
+   },
+   "description": {
+    "en": "The research lines the harness design comes from, each reported with what it lost: a withdrawn multimodal prediction, a self-boundary dynamic thirty seeds could not distinguish from a generic slow variable, and a credit-transport quantity sent back by internal review.",
+    "zh": "装置设计所源出的研究线,每条都报出它输掉的部分:一个被撤回的多模态预测、一个 30 个种子都无法与通用慢变量区分的自我边界动力学,以及一个被内部评审打回的 credit transport 量。"
+   },
+   "url": "https://machengshen.github.io/safety/theory.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/theory.zh.html",
+   "cognitiveState": "speculative"
+  },
+  {
+   "id": "safety/roadmap",
+   "label": {
+    "en": "The gaps, and what would falsify this",
+    "zh": "缺口,以及什么能证伪它"
+   },
+   "description": {
+    "en": "The gaps published without dates, and the conditions under which the harness-first position should be abandoned — the sharpest being that a satisfied-but-wrong gate is indistinguishable from a working one until something breaks.",
+    "zh": "不附日期公布的缺口,以及「装置优先」这个立场应当被放弃的条件 —— 其中最锋利的一条是:一个「被满足但是错的」闸门,在出事之前与一个正常工作的闸门无法区分。"
+   },
+   "url": "https://machengshen.github.io/safety/roadmap.html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/safety/roadmap.zh.html",
+   "cognitiveState": "speculative"
   }
  ]
 }

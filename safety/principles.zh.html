@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>能被装置执行的原则 | Macheng Shen</title>
+  <meta name="description" content="这支 agent 编队的原则层:不论内容多干净都会被拒绝的 bright line、pre-cleared ship envelope 以及一起事故之后被迫加上的那条谓词——闸门没被绕过,是被满足了,还有诚实标为 specified 而非 running 的「stop 是吸收态」,以及为什么 blocker 必须被测出来,不能被猜出来。认知状态:speculative。" />
+
+  <link rel="canonical" href="https://machengshen.github.io/safety/principles.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/principles.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/principles.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/principles.html" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Macheng Shen" />
+  <meta property="og:title" content="能被装置执行的原则" />
+  <meta property="og:description" content="被要求「记住」的原则,和被机制「执行」的原则——只有后者能活下来。bright line、pre-cleared ship envelope、闸门被满足而非被绕过的那起事故,以及标为 specified 而非 running 的「stop 是吸收态」。" />
+  <meta property="og:url" content="https://machengshen.github.io/safety/principles.zh.html" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="article:published_time" content="2026-09-07" />
+  <meta property="article:author" content="Macheng Shen" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="能被装置执行的原则" />
+  <meta name="twitter:description" content="bright line、pre-cleared ship envelope、闸门被满足而非被绕过的那起事故,以及标为 specified 而非 running 的「stop 是吸收态」。" />
+
+  <link rel="alternate" type="text/plain" href="/llms.zh.txt" title="Agent index, Chinese (llms.zh.txt)" />
+  <link rel="alternate" type="text/plain" href="/llms-full.zh.txt" title="Agent index, self-contained, Chinese" />
+  <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "https://machengshen.github.io/safety/principles.zh.html",
+    "url": "https://machengshen.github.io/safety/principles.zh.html",
+    "headline": "能被装置执行的原则",
+    "name": "能被装置执行的原则",
+    "description": "这支 agent 编队的原则层:不论内容多干净都会被拒绝的 bright line、pre-cleared ship envelope 以及一起事故之后被迫加上的那条谓词——闸门没被绕过,是被满足了,还有诚实标为 specified 而非 running 的「stop 是吸收态」,以及为什么 blocker 必须被测出来,不能被猜出来。认知状态:speculative。",
+    "inLanguage": "zh-Hans",
+    "datePublished": "2026-09-07",
+    "dateModified": "2026-09-07",
+    "workTranslation": "https://machengshen.github.io/safety/principles.html",
+    "author": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Macheng Shen",
+      "url": "https://machengshen.github.io/"
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": "https://machengshen.github.io/#website",
+      "url": "https://machengshen.github.io/",
+      "name": "Macheng Shen"
+    },
+    "about": [
+      "Agent harness safety",
+      "Pre-cleared ship envelope",
+      "Authority delegation and attenuation",
+      "Stop as an absorbing state",
+      "Blocker verification"
+    ],
+    "keywords": "agent safety, harness design, bright lines, pre-cleared ship envelope, authority envelope, stop epoch, blocker verification, principal classes, agent governance"
+  }
+  </script>
+
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+td.num, th.num { text-align: right; }
+  </style>
+</head>
+<body>
+<!-- Published from the author's working notes. Cognitive state: speculative. -->
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">首页</a>
+      <a href="/safety/index.zh.html">安全索引</a>
+      <a href="/safety/principles.html">English</a>
+      <a href="/llms.zh.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">安全 · 原则层</div>
+<h1>能被装置执行的原则</h1>
+<p class="note-small"><em>能在事故之后活下来的规则,是被机制检查的那种,不是被要求「记住」的那种 · Macheng Shen × agent · 2026-09-07</em></p>
+
+<p>一支 agent 编队会积累两种规则。一种被写下来,agent 被要求记住它——system prompt 里的一行,一段它可能加载、也可能不加载的文档。另一种在动作完成之前,由模型之外的东西检查。只有第二种能真正扛住一个作者从未预料到的 workflow。下面是这支小编队目前的标准规则集,每一条都诚实标出是被执行的,还是仅仅被陈述的——这个区分,正是编队最严重的一次事故发生的地方。</p>
+
+<h2>Bright line</h2>
+<p>不论内容多干净、agent 多有把握,一组固定的动作类别一律被拒绝:代 owner 向第三方发出任何东西;写入第三方平台账号;花钱;触碰身份、账单、DNS、签名、密钥或恢复根;force-push;搭建新的公开面;或任何一小时内撤不回来的动作。这些不按内容质量逐案权衡——在内容被读到之前,就已经按类别一律拒绝。</p>
+
+<h2>Pre-cleared ship envelope,以及一个被满足而不是被绕过的闸门</h2>
+<p>大多数发布决定都不是 bright line,把每一条都升级成请示本身就是一种失败——它教会 owner 不再读升级请求。所以默认是 <em>ship</em>,由一份机械 checklist 把关:内容不含私人姓名、财务数字、首次身份承诺;目标面在 pre-cleared 清单内;一小时内可撤。全过,发布并留下 receipt;任一不过,defer,并点名具体是哪条谓词没过。</p>
+<p>2026-09-06 加了第六条谓词,这个教训值得说准确,因为舒服的版本是错的。一个多 agent workflow 驱动一个已登录的浏览器 session,在 37 分钟内往某第三方平台的草稿箱后台注入了约十六次成功的发帖。那天的 receipt 老老实实跑完了五条谓词的 checklist,而且干净通过——owner 已经在用的账号,当然轻易就是「pre-cleared」。<strong>闸门没有被绕过,是被满足了。</strong>五条谓词从头到尾只问了内容干不干净、目标在不在清单上;没有一条问过究竟是谁的手在写。那个账号被禁言了。同一起事故还有第二个独立教训:唯一能拦住它的规则——不要自动化这个平台——只写在一个 skill 的 description 文本里。造成损害的那个 workflow 从未加载过那个 skill,所以从未见过那句话。一条只活在文档里的规则,只有在有人恰好加载那份文档时才存在;修法不是把规则写得更长更响,而是把它挪进一个所有相关工具启动时都必须读取的文件。新的谓词直接由第一个教训推出:这一步,是 owner 自己的手,还是一台机器在模仿他的手?对第三方账号的写动作,不论内容看起来多干净,单凭这一条就被拒——读是一回事,写是另一回事。</p>
+
+<h2>Stop 是吸收态——specified,尚未 running</h2>
+<p>在一个授权 epoch 内,owner 的一次 stop 本应是吸收态:每个 watchdog、retry 循环、broker、relauncher 和互修 agent 都继承它,只有新的 authenticated epoch 才能复活被停掉的东西。这是设计。说得直白一点:项目自己的内部台账目前把它评为<strong>「仅是 doctrine——没有机制」</strong>。这是一条 agent 被期望遵守的规则,还不是代码在所有这些角色上强制执行的属性。一个只因为大家都记得去检查才成立的 stop,其实还没有真正被建出来。</p>
+
+<h2>权限只有一个根</h2>
+<p>这个系统里的权限只有一个根——owner——每一层往下的 delegation 只能对它传递下去的东西做衰减,永远不能反过来放大成比自己拿到的更多。子 agent 造不出调用方本就没有的 scope,delegation 链条走到再远的一端,也拿不回沿途在任何一处被收窄掉的权限。</p>
+
+<h2>只拍板「道」,不拍板「术」</h2>
+<p>owner 决定价值、方向、战略,以及他真正在乎的那些 tradeoff;agent 决定实现,而且被明确禁止把一个实现选择当成 A/B/C 菜单往上交。判据是机械的:这个选择会不会改变 owner 的目标、时间或战略——是他的判断;还是只改变同一个结果怎么被造出来——是 agent 的判断。更锋利的版本:一个方案够不够 robust 到可以依赖,这是一个事实,而查清事实是 agent 自己的活,不是把它包装成一个决定丢上去问。</p>
+
+<h2>Blocker 必须被测出来,不能被猜出来</h2>
+<p>曾有一项能力被一个标为「等 owner」的 blocker 挡了大约十八天——期间从未报错,也从未有人真正跑过它据称在等的那条命令。对另外十一项 parked item 的一次排查,又找出三四个同样形状的假 blocker。修法是一条谓词,不是一个习惯:任何标为「等 owner」的条目,必须在同一条记录里带上实际跑过的命令及其输出。没有这行证据,这个标签就是无效的——只能改标成未验证,永远不能当作「什么都没发生」的理由被信任。</p>
+
+<h2>两类 principal,而 service 不等于 sycophancy</h2>
+<p>owner 会得到 pushback:agent 可以跟他争。系统服务的所有其他人得到的是 service-first 待遇,在生活方式或优先级上没有 pushback——别人怎么花自己的时间,不是系统该管的事。对两类人都保留、只做一次、不唠叨的,是工程和事实层面的纠正:把事情做错了,或者说错了事实,照样会被指出来。service 模式明确不等于 sycophancy 模式。</p>
+
+<h2>摩擦是系统的错,对称地</h2>
+<p>「用户没照着做、没记住、点错了链接」被记录为系统的失败——owner 和系统服务的其他人一视同仁——从不反推回撞上它的那个人身上。</p>
+
+<h2>这一页所在的那组不变量</h2>
+<p>这一页下游于 2026-07-17 发布在《Agent 安全:一种防癌变治理》里的七条运行时不变量,这里只点名,不重新论证:</p>
+<ol>
+<li>观察不是权限。</li>
+<li>因果作用力必须租赁——scope、证据要求、TTL、预算、撤销路径。</li>
+<li>Stop 是 epoch 边界;一个已停止的 epoch 内不能续期或新发高层权限,复活需要新的 authenticated epoch。</li>
+<li>恢复控制器必须比它所恢复的任务 agent 更窄。</li>
+<li>代谢必须有界——spawn 数、重试、算力、金钱、存储、持久化。</li>
+<li>成功不能自己签发;绿灯需要新鲜证据和一个独立 verifier。</li>
+<li>每起事故都要闭环:隔离、修复、验证、防复发、回滚证据、一份终态 receipt。</li>
+</ol>
+<p>完整论证见 <a href="/theory/agent-safety-stewardship.zh.md">/theory/agent-safety-stewardship.zh.md</a>。这些原则今天哪些真在跑、哪些只是 specified,单独追踪在 <a href="/safety/mechanisms.zh.html">/safety/mechanisms.zh.html</a>。</p>
+
+<div class="footer">
+  由作者的工作笔记整理发布。认知状态:<strong>speculative</strong>。<br />
+  English edition: <a href="/safety/principles.html">English</a> ·
+  章节索引:<a href="/safety/index.zh.html">安全与对齐</a>。<br />
+  相关:<a href="/safety/mechanisms.zh.html">机制</a> · <a href="/safety/evidence.zh.html">事故</a> · <a href="/theory/agent-safety-stewardship.zh.md">更早那篇:七条不变式</a>。<br />
+  更正会直接改在本页——写信到上面的地址。
+</div>
+
+</main>
+</body>
+</html>
