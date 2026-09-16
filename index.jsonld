@@ -1309,6 +1309,47 @@
    "inLanguage": "en",
    "workTranslation": "https://machengshen.github.io/charter/kill-conditions/index.zh.html",
    "cognitiveState": "speculative"
+  },
+  {
+   "id": "coordination-spine-eden",
+   "label": {
+    "en": "Coordination spine (Eden-style)",
+    "zh": "协作脊柱（Eden 式）"
+   },
+   "description": {
+    "en": "Agent-readable spine for a personal multi-runtime stack: shared Memory Hub, standup group chat, private build chats, typed packets — without private ops inventory.",
+    "zh": "个人多运行时栈的 agent 可读脊柱：共享 Memory Hub、组会对齐、私聊造系统、类型化 packet；不含私有运维清单。"
+   },
+   "url": "https://machengshen.github.io/spine/",
+   "format": "text/html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/spine/index.zh.html",
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": []
+  },
+  {
+   "id": "coordination-spine-eden-index",
+   "label": {
+    "en": "Coordination spine (Eden-style) — index.html",
+    "zh": "协作脊柱（Eden 式）— index.html"
+   },
+   "description": {
+    "en": "English HTML entry file for the coordination spine page (same work as /spine/).",
+    "zh": "协作脊柱英文 HTML 入口文件（与 /spine/ 同一作品）。"
+   },
+   "url": "https://machengshen.github.io/spine/index.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/spine/index.zh.html",
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": [
+    {
+     "relation": "sameAs",
+     "target": "coordination-spine-eden"
+    }
+   ]
   }
  ]
 }

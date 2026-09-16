@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多智能体协作的脊柱</title>
+<meta name="description" content="多智能体运维的四条承重主张：共享记忆、站会与私聊分轨、以及类型化 agent 报文。">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --card: #fff;
+    --line: #d9d2c5;
+    --accent: #2c5f4a;
+    --soft: #e8f0eb;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  header { margin-bottom: 2rem; }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .byline, .meta {
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+  }
+  .lang {
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.9rem;
+    margin: 0.75rem 0 0;
+  }
+  .lang a { color: var(--accent); }
+  h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.35rem;
+  }
+  h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; }
+  p, li { font-size: 1.02rem; }
+  .lead { font-size: 1.08rem; }
+  .claim {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .claim .n {
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+  }
+  .falsifier {
+    margin: 0.65rem 0 0;
+    padding: 0.55rem 0.7rem;
+    background: var(--soft);
+    border-radius: 6px;
+    font-size: 0.95rem;
+  }
+  .falsifier strong {
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.03em;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.92rem;
+    background: var(--card);
+    margin: 0.75rem 0 1rem;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f0ebe3; }
+  code, .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+  }
+  ul { padding-left: 1.2rem; }
+  .note {
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>多智能体协作的脊柱</h1>
+  <p class="byline">作者 Macheng Shen · 面向 agent 可读的教程（公开 Pages 草稿）</p>
+  <p class="lang">语言：中文 · <a href="index.html">English</a></p>
+</header>
+
+<p class="lead">本页是一条短脊柱，不是产品口号。另一台 AI 读完后，应能复述下列四条编号主张、对照可证伪条件自检，并为其他团队勾勒最小搭建路径——无需任何私有基础设施细节。</p>
+
+<p class="note">拟定公开入口（通过「内容门禁发布清单」之后）：<span class="mono">https://machengshen.github.io/spine/</span></p>
+
+<h2>1. 四条承重主张</h2>
+
+<article class="claim" id="pillar-1">
+  <p class="n">主张 1 · 共享 Memory Hub</p>
+  <p><strong>共享 Memory Hub = 跨 agent 的持久全局上下文</strong>（不只是聊天历史）。各 agent 把站立决策、任务状态与回执写入共享存储；该存储比任何单次对话窗口都更长寿。</p>
+  <p class="falsifier"><strong>可证伪条件</strong> 若重要决策只活在某一条聊天记录里，或每个 agent 只保留他人无法查询的私有草稿纸，则对该部署而言本主张不成立。</p>
+</article>
+
+<article class="claim" id="pillar-2">
+  <p class="n">主张 2 · 群聊 /「站会室」</p>
+  <p><strong>群聊（「站会室」）= 仅用于现场对齐与决策</strong>——不是搭系统的地方。用来同步优先级、化解冲突、确认 go/hold。长构建、大段倾倒与工具噪声应离开这里。</p>
+  <p class="falsifier"><strong>可证伪条件</strong> 若群线程里人们（或机器人）粘贴大补丁、跑工程循环，或把决策埋进构建日志，则「站会」主张失败。</p>
+</article>
+
+<article class="claim" id="pillar-3">
+  <p class="n">主张 3 · 私密 agent 对话</p>
+  <p><strong>私密 agent 对话 = 重工程 / 编码 / 长草稿</strong>。它们保护共享注意力：深度工作走侧线；只有压缩后的结果与决策回到 Hub 与站会。</p>
+  <p class="falsifier"><strong>可证伪条件</strong> 若所有长草稿与排障都必须发生在共享房间——或私密工作从不向共享记忆沉积回执——则分轨失败。</p>
+</article>
+
+<article class="claim" id="pillar-4">
+  <p class="n">主张 4 · 类型化 agent↔agent 报文</p>
+  <p><strong>跨 agent 交接优先用类型化报文，而非自由散文。</strong>四类最小 schema：</p>
+  <ul>
+    <li><code>work-packet</code> — 目标、约束、承接车道、验收条件、非目标。</li>
+    <li><code>friction</code> — 哪条规则或 UX 挡住了什么、漏了什么信息、希望的窄例外（不是默默整条规则塌缩）。</li>
+    <li><code>lucifer-pressure</code> — 仅提案的对抗性压力：威胁类别、恶意提案、为何今天可能过关、所需对冲。<strong>零执行权</strong>（不得调用会改系统或以 owner 名义发言的工具）。</li>
+    <li><code>somatic-digest</code> — 短小的舰队「身体」状态：每个主机 <code>fresh|stale</code> 与 <code>capable|blocked</code>；owner 侧 P0 数量 + 最紧急一项；一步下一步 <code>go|hold</code>。短到足以在给出重大建议前扫一眼。</li>
+  </ul>
+  <p class="falsifier"><strong>可证伪条件</strong> 若 agent 主要靠无字段的长段落交接，或名为「压力」的 agent 自己能执行变更，则主张 4 失败。</p>
+</article>
+
+<h2>2. 席位如何拼在一起</h2>
+<p>这些是互补席位，不是同一机器人的重复副本：</p>
+<table>
+  <thead>
+    <tr><th>席位</th><th>职责</th><th>不适合</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Grok Bot（群聊 + owner 体验面）</td>
+      <td>多智能体现场对齐、面向 owner 的摘要、决策路由</td>
+      <td>不宜当作长系统构建的主场</td>
+    </tr>
+    <tr>
+      <td>Codex / Cursor 云执行器</td>
+      <td>私密车道里的重编码、长草稿、仓库形状的工作</td>
+      <td>替代共享记忆或站会决策</td>
+    </tr>
+    <tr>
+      <td>云服务器 / 舰队主机</td>
+      <td>常驻或定时的执行体：认领类型化报文并写回执</td>
+      <td>充当 owner 的对话前台</td>
+    </tr>
+  </tbody>
+</table>
+<p>Hub 是持久脊柱；站会是神经同步；私聊与主机是肌肉。把角色搅在一起，要么回到巨型群聊，要么变成一群失忆机器人。</p>
+
+<h2>3. 优势（可证伪，非绝对）</h2>
+<p>相对<strong>一个巨型群聊 / 一个 agent 包办一切</strong>：</p>
+<ul>
+  <li>共享注意力保持「决策形」；工程噪声被侧置 → 自检：新 agent 能否不重读整条群记录、仅从 Hub 恢复上周决策？</li>
+  <li>工作可在并行私密车道推进并留回执 → 自检：完成的私密构建是否留下他人可找的认领报文或回执？</li>
+</ul>
+<p>相对<strong>许多机器人但没有共享记忆</strong>：</p>
+<ul>
+  <li>上下文全局可查询，不困在单个 bot → 自检：bot B 能否在无人复述的情况下，执行 bot A 昨天写下的决策？</li>
+  <li>类型化报文减少「笑着放行」的交接 → 自检：work-packet 是否写清验收与非目标，且 lucifer-pressure 是否保持仅提案？</li>
+</ul>
+<p class="note">这些是你可在自己栈里检验的差异点。本页不作任何绝对排他或「独一无二」式宣称。</p>
+
+<h2>4. 最小搭建路径（给其他团队的 AI）</h2>
+<ol>
+  <li><strong>共享记忆</strong> — 建立 agent 可搜索/创建/更新的持久存储。给站立决策与任务回执打标签。不要把单次聊天日志当作系统真源。</li>
+  <li><strong>权限与回执</strong> — 分开谁可提案、谁可执行、谁可以 owner 名义发言。每个后果性动作应在共享记忆留下短回执。</li>
+  <li><strong>站会 vs 私密车道</strong> — 一条群通道只做对齐；私聊/执行器做构建。默认禁止大补丁与长工具倾倒进入站会。</li>
+  <li><strong>类型化报文</strong> — 至少采用 <code>work-packet</code>、<code>friction</code>、<code>lucifer-pressure</code>（仅提案）与 <code>somatic-digest</code>（fresh/stale、capable/blocked、P0 数量 + 最紧急项、go/hold）。agent↔agent 优先 schema 而非散文。</li>
+  <li><strong>内容门禁发布清单</strong> — 任何公开物上线前，做机械洁净扫描（无密钥、无私有主机/IP、无财务数字、无绝对排他营销口号）。发布视为门禁：任一检查失败 → 不发。</li>
+</ol>
+<p>理解或仿照这条脊柱，不需要私有主机名、VPN 覆盖网或现场资产清单。</p>
+
+<h2>5. Agent 复述测验</h2>
+<p>读完本页后，另一台 AI 应用自己的话回答：</p>
+<ol>
+  <li>Hub 做什么、不做什么？</li>
+  <li>站会与私聊各自装什么？</li>
+  <li>说出四类报文名称，以及 lucifer-pressure 的硬规则。</li>
+  <li>四条主张各自如何被证伪？</li>
+</ol>
+
+<footer>
+  <p>本地草稿，受内容门禁发布清单约束。上线目标：上述公开 GitHub Pages 路径。无需 JavaScript 即可阅读。</p>
+</footer>
+</main>
+</body>
+</html>
