@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A day-shaped pipeline for multi-agent work</title>
+<meta name="description" content="Human narrative + agent checklist for a day-shaped multi-agent pipeline: standup, shared memory, outer harness, spine, Slack+Cursor, phone-first delivery, content-gated publish.">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --card: #fff;
+    --line: #d9d2c5;
+    --accent: #2c5f4a;
+    --soft: #e8f0eb;
+    --warn: #7a3b12;
+    --warnbg: #f8efe6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  header { margin-bottom: 1.5rem; }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.25;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .byline, .meta, .note, .caption, .toc, .badge {
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  .byline, .meta { color: var(--muted); font-size: 0.95rem; }
+  .lang { font-family: system-ui, -apple-system, sans-serif; font-size: 0.9rem; margin: 0.75rem 0 0; }
+  .lang a { color: var(--accent); }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.92rem;
+  }
+  .toc a { color: var(--accent); }
+  .toc ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+  h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.35rem;
+  }
+  h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; }
+  p, li { font-size: 1.02rem; }
+  .lead { font-size: 1.08rem; }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .step .n {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+  }
+  .shot {
+    margin: 1rem 0 1.4rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #eee;
+  }
+  .caption {
+    margin: 0;
+    padding: 0.65rem 0.85rem 0.85rem;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    margin-right: 0.35rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.9rem;
+    background: var(--card);
+    margin: 0.75rem 0 1rem;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f0ebe3; }
+  code, .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+  }
+  ul, ol { padding-left: 1.2rem; }
+  .note { font-size: 0.9rem; color: var(--muted); }
+  .diff {
+    background: var(--soft);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0;
+  }
+  .warnbox {
+    background: var(--warnbg);
+    border: 1px solid #e6d2bc;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.92rem;
+  }
+  .warnbox strong { color: var(--warn); }
+  .agent-anchor {
+    scroll-margin-top: 1rem;
+  }
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>A day-shaped pipeline for multi-agent work</h1>
+  <p class="byline">By Macheng Shen · public tutorial · dual audience</p>
+  <p class="lang">Language: English · <a href="index.zh.html">中文</a></p>
+</header>
+
+<p class="lead">This page walks through one working day on a multi-agent stack—how humans and agents stay aligned without turning the shared room into a build log. It is a pipeline story, not a product pitch. Architecture details live on the public spine page.</p>
+
+<p class="note">Intended public home (after content-gated publish): <span class="mono">https://machengshen.github.io/pipeline/</span> · Architecture spine: <a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a></p>
+
+<nav class="toc" aria-label="Page tracks">
+  <strong>Two tracks on one page</strong>
+  <ul>
+    <li><a href="#for-humans">For humans</a> — narrative day + collaboration screenshots (synthetic, public-safe)</li>
+    <li><a href="#for-agents">For agents</a> — executable checklist + pitfall table</li>
+  </ul>
+</nav>
+
+<!-- ========== HUMAN TRACK ========== -->
+<section id="for-humans">
+  <h2>For humans · a day on the pipeline</h2>
+  <p>You do not need to run agents to understand this. Think of it as a collaboration pattern with seven stations. Each station answers a recurring friction from a real working day (2026-09-16 rewrite, public-safe).</p>
+
+  <article class="step" id="h1">
+    <p class="n">Station 1 · Multi-agent group chat as standup</p>
+    <p>Morning starts in a shared room with several agents and the owner. The room’s job is <strong>align only</strong>: priorities, go/hold, who owns which lane. Long patches, tool dumps, and debug loops do not belong here—they bury decisions.</p>
+    <p>Falsifiable check: if a random day of the shared thread is mostly build noise, the standup claim has failed.</p>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-standup.svg" width="920" height="540" alt="Synthetic mockup of a multi-agent standup chat used for alignment only">
+    <figcaption class="caption"><span class="badge">Synthetic UI</span> Group standup: short alignment turns, no engineering dumps. Illustration only—not a live transcript.</figcaption>
+  </figure>
+
+  <article class="step" id="h2">
+    <p class="n">Station 2 · Shared Memory Hub for standing prefs</p>
+    <p>Chat is ephemeral. Preferences that must survive the next session go into a <strong>Shared Memory Hub</strong>: durable standing decisions, task receipts, and a shared profile other agents can query.</p>
+    <p>Owner phrase pattern (Chinese): when someone says they have “noted it” (<span lang="zh">「记下了」</span>), the intended meaning is a <em>triple write</em>—not a polite chat acknowledgment:</p>
+    <ol>
+      <li>Write a Hub standing note (durable, searchable).</li>
+      <li>Update the shared profile / session-prime surface other seats read.</li>
+      <li>Notify sibling agents so they do not rediscover the preference by accident.</li>
+    </ol>
+    <p>If step 1–3 never happen, “noted” is a failure mode—even if the chat looked polite.</p>
+  </article>
+
+  <article class="step" id="h3">
+    <p class="n">Station 3 · Outer harness when the core product harness is closed</p>
+    <p>Some days the primary product harness (the usual IDE / cloud coding surface) is unavailable, rate-limited, or waiting on auth. The pipeline still needs a place to draft, stage files, and run mechanical checks.</p>
+    <p><strong>Outer harness</strong> here means a secondary shell—another agent runtime or scratch workspace that can hold work until the core harness reopens. It is a continuity pattern, not a second source of truth: standing decisions still land in the Hub.</p>
+  </article>
+
+  <article class="step" id="h4">
+    <p class="n">Station 4 · Public spine page for architecture</p>
+    <p>When the question is “how is the stack shaped?”, do not re-explain in Slack. Point to the public architecture page:</p>
+    <p><a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a></p>
+    <p>That page covers shared memory, standup vs private lanes, typed packets, and take/leave guidance with falsifiers. This pipeline page is the day-shaped walkthrough; the spine is the map.</p>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-spine.svg" width="920" height="540" alt="Synthetic mockup of the public spine architecture page in a browser">
+    <figcaption class="caption"><span class="badge">Synthetic UI</span> Public spine: architecture claims with falsifiers. Link the live page; this image is an illustrative frame.</figcaption>
+  </figure>
+
+  <article class="step" id="h5">
+    <p class="n">Station 5 · Slack + Cursor Cloud Agents need a repository</p>
+    <p>Cloud coding agents attached to Slack are <strong>repo-shaped</strong>, not free-floating REPL windows. Before asking an agent to build, pick a repository—preferably a dedicated scratch default so product and Pages repos stay clean.</p>
+    <div class="warnbox">
+      <strong>Hard pitfall.</strong> Being logged into Cursor with a personal account is not the same as installing the <em>Cursor GitHub App</em> on the GitHub organization. Without the org app, “Pick Repository” can fail even when the repo URL is correct.
+    </div>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-slack-cursor.svg" width="920" height="540" alt="Synthetic mockup of Slack Cursor Pick Repository with org GitHub App pitfall highlighted">
+    <figcaption class="caption"><span class="badge">Synthetic UI</span> Slack @Cursor: Pick Repository needs a Git repo; org GitHub App install is a separate step from personal login.</figcaption>
+  </figure>
+
+  <article class="step" id="h6">
+    <p class="n">Station 6 · Phone-first delivery</p>
+    <p>When humans will open a link on a phone, verify the URL returns <strong>HTTP 200</strong> before sending it. Broken or auth-walled links waste attention and erode trust. Prefer a solo, result-shaped message with a live URL over a speculative “this should work.”</p>
+  </article>
+
+  <article class="step" id="h7">
+    <p class="n">Station 7 · Content-gated publish (PCSE-style)</p>
+    <p>Public pages ship only after a mechanical clean-content checklist passes. Public description of the gate:</p>
+    <ul>
+      <li>No secrets, tokens, or private credentials in the body.</li>
+      <li>No private hostnames, overlay VPN fingerprints, or absolute filesystem paths.</li>
+      <li>No financial figures or private person names beyond an agreed public byline.</li>
+      <li>No absolute-uniqueness marketing; use falsifiable differentiators instead.</li>
+      <li>Fail any check → do not ship. Keep a short takedown path after publish.</li>
+    </ul>
+  </article>
+
+  <h3>Why the multi-agent + connector shape matters (checkable)</h3>
+  <div class="diff">
+    <p>Compared with <strong>single-thread chat products</strong> (one conversation, one model, memory mostly inside that thread), a multi-agent group plus connector-style Hub UX is different in ways you can test:</p>
+    <ul>
+      <li><strong>Shared attention</strong> — several agents and a human can align in one standup without forcing every build into that thread. Check: can you recover yesterday’s decisions from Hub without rereading the whole room?</li>
+      <li><strong>Connector durability</strong> — standing prefs and receipts live in a queryable store other seats can open. Check: can a new agent act on a preference written by another seat without a human paste?</li>
+      <li><strong>Lane split</strong> — group chat stays decision-shaped; heavy work runs in private/cloud executors. Check: does a random standup day stay free of long patches?</li>
+    </ul>
+    <p class="note" style="margin:0.6rem 0 0">These are product differences you can falsify in your own stack. This page does not claim absolute uniqueness.</p>
+  </div>
+</section>
+
+<!-- ========== AGENT TRACK ========== -->
+<section id="for-agents" class="agent-anchor">
+  <h2>For agents · executable tract</h2>
+  <p>Machine-oriented companion to the human narrative. Restate, then execute the checklist. Do not invent private infrastructure from this page.</p>
+
+  <h3 id="agent-restatement">Restatement targets</h3>
+  <ol>
+    <li>Standup = align only; Hub = durable standing prefs; private/cloud = builds.</li>
+    <li>「记下了」pattern = Hub standing + shared profile + notify siblings.</li>
+    <li>Outer harness = continuity when core harness is closed; Hub remains SoR.</li>
+    <li>Architecture pointer = <span class="mono">https://machengshen.github.io/spine/</span></li>
+    <li>Slack/Cursor = repository required; personal login ≠ org GitHub App.</li>
+    <li>Phone-first = HTTP 200 before human URL delivery.</li>
+    <li>Publish = content-gated; any clean fail blocks ship.</li>
+  </ol>
+
+  <h3 id="pitfalls">Pitfall table</h3>
+  <table>
+    <thead>
+      <tr><th>Pitfall</th><th>Symptom</th><th>Fix pattern</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Standup becomes a build log</td>
+        <td>Patches / tool dumps bury go-hold decisions</td>
+        <td>Move builds to private lanes; return a short receipt to Hub + standup</td>
+      </tr>
+      <tr>
+        <td>“Noted” without writes</td>
+        <td>Preference vanishes next session</td>
+        <td>Hub standing + shared profile + sibling notify (triple write)</td>
+      </tr>
+      <tr>
+        <td>Core harness closed → freeze</td>
+        <td>No drafts or checks land anywhere</td>
+        <td>Use an outer harness shell; keep Hub as system of record</td>
+      </tr>
+      <tr>
+        <td>Re-explain architecture in chat</td>
+        <td>Repeated long essays in Slack/group</td>
+        <td>Link <span class="mono">/spine/</span>; keep chat for decisions</td>
+      </tr>
+      <tr>
+        <td>Treat Cursor Slack as a REPL</td>
+        <td>No repo; agent cannot attach work</td>
+        <td>Pick a dedicated scratch default repository</td>
+      </tr>
+      <tr>
+        <td>Personal Cursor login only</td>
+        <td>Pick Repository fails despite correct URL</td>
+        <td>Install Cursor GitHub App on the GitHub org; reconnect if needed</td>
+      </tr>
+      <tr>
+        <td>Send URLs before live</td>
+        <td>Humans hit 404 / auth walls on phone</td>
+        <td>Verify HTTP 200, then send a solo result message</td>
+      </tr>
+      <tr>
+        <td>Ship without clean gate</td>
+        <td>Secrets, private hosts, or absolute-uniqueness claims leak</td>
+        <td>Run PCSE-style checklist; fail closed</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="follow-checklist">Minimal follow checklist</h3>
+  <ol>
+    <li>Open standup only for alignment; refuse to paste long patches there.</li>
+    <li>On standing prefs: write Hub standing → update shared profile → notify siblings.</li>
+    <li>If core harness is closed: continue in an outer harness; deposit receipts to Hub.</li>
+    <li>For architecture questions: link <a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a>.</li>
+    <li>Before Slack @Cursor work: confirm org GitHub App + dedicated scratch repo; then Pick Repository.</li>
+    <li>Before human URL delivery: <span class="mono">curl -sI &lt;url&gt;</span> (or equivalent) shows HTTP 200.</li>
+    <li>Before public ship: run clean greps (no secrets, private hosts, financials, absolute uniqueness); any hit → do not ship.</li>
+    <li>Leave a short Hub receipt of what shipped or what blocked.</li>
+  </ol>
+
+  <h3 id="pcse">PCSE-style publish checklist (public description)</h3>
+  <table>
+    <thead>
+      <tr><th>Gate</th><th>Pass condition</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>clean_content</td><td>Forbidden-token scan empty on public HTML</td></tr>
+      <tr><td>secrets_scan</td><td>No API keys, tokens, passwords, private URLs</td></tr>
+      <tr><td>public_surface_only</td><td>Links are public github.io / public GitHub only</td></tr>
+      <tr><td>no_absolute_uniqueness</td><td>Claims are falsifiable differentiators</td></tr>
+      <tr><td>owner_ack</td><td>Human ack before Pages push (operator step)</td></tr>
+      <tr><td>takedown_path</td><td>≤1h removal path documented for the surface</td></tr>
+    </tbody>
+  </table>
+  <p>Any fail → do not publish. This page itself is drafted under that gate.</p>
+</section>
+
+<footer>
+  <p>Public GitHub Pages pipeline tutorial (EN). Screenshots are synthetic UI mockups labeled as such. Readable without JavaScript. Companion architecture: <a href="https://machengshen.github.io/spine/">/spine/</a>.</p>
+</footer>
+</main>
+</body>
+</html>

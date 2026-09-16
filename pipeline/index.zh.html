@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>多智能体协作的「一日流水线」</title>
+<meta name="description" content="面向人的叙事 + 面向智能体的清单：站会对齐、共享记忆、外层壳、公开 spine、Slack+Cursor、手机优先投递、内容门禁发布。">
+<style>
+  :root {
+    --bg: #f7f4ef;
+    --ink: #1a1a1a;
+    --muted: #555;
+    --card: #fff;
+    --line: #d9d2c5;
+    --accent: #2c5f4a;
+    --soft: #e8f0eb;
+    --warn: #7a3b12;
+    --warnbg: #f8efe6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "PingFang SC", "Noto Sans SC", "Source Han Sans SC", Georgia, serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.65;
+  }
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+  header { margin-bottom: 1.5rem; }
+  h1 {
+    font-size: 1.85rem;
+    line-height: 1.3;
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+  }
+  .byline, .meta, .note, .caption, .toc, .badge {
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+  }
+  .byline, .meta { color: var(--muted); font-size: 0.95rem; }
+  .lang { font-family: system-ui, -apple-system, sans-serif; font-size: 0.9rem; margin: 0.75rem 0 0; }
+  .lang a { color: var(--accent); }
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.92rem;
+  }
+  .toc a { color: var(--accent); }
+  .toc ul { margin: 0.35rem 0 0; padding-left: 1.2rem; }
+  h2 {
+    font-size: 1.25rem;
+    margin: 2rem 0 0.75rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.35rem;
+  }
+  h3 { font-size: 1.05rem; margin: 1.25rem 0 0.4rem; }
+  p, li { font-size: 1.02rem; }
+  .lead { font-size: 1.08rem; }
+  .step {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0;
+  }
+  .step .n {
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+  }
+  .shot {
+    margin: 1rem 0 1.4rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #eee;
+  }
+  .caption {
+    margin: 0;
+    padding: 0.65rem 0.85rem 0.85rem;
+    font-size: 0.86rem;
+    color: var(--muted);
+  }
+  .badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--soft);
+    color: var(--accent);
+    border-radius: 999px;
+    padding: 0.15rem 0.55rem;
+    margin-right: 0.35rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.9rem;
+    background: var(--card);
+    margin: 0.75rem 0 1rem;
+  }
+  th, td {
+    border: 1px solid var(--line);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th { background: #f0ebe3; }
+  code, .mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.9em;
+  }
+  ul, ol { padding-left: 1.2rem; }
+  .note { font-size: 0.9rem; color: var(--muted); }
+  .diff {
+    background: var(--soft);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0;
+  }
+  .warnbox {
+    background: var(--warnbg);
+    border: 1px solid #e6d2bc;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin: 1rem 0;
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.92rem;
+  }
+  .warnbox strong { color: var(--warn); }
+  .agent-anchor { scroll-margin-top: 1rem; }
+  footer {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+<header>
+  <h1>多智能体协作的「一日流水线」</h1>
+  <p class="byline">作者 Macheng Shen · 公开教程 · 双受众</p>
+  <p class="lang">语言：<a href="index.html">English</a> · 中文</p>
+</header>
+
+<p class="lead">本页按「工作日」走一遍多智能体栈：人和智能体如何对齐，又不把共享房间变成构建日志。这是流水线故事，不是产品软文。架构细节见公开 spine 页。</p>
+
+<p class="note">拟定公开路径（内容门禁通过后）：<span class="mono">https://machengshen.github.io/pipeline/</span> · 架构 spine：<a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a></p>
+
+<nav class="toc" aria-label="页面双轨">
+  <strong>同一页上的两条轨道</strong>
+  <ul>
+    <li><a href="#for-humans">给人看</a> — 叙事日线 + 协作截图（合成、可公开）</li>
+    <li><a href="#for-agents">给智能体</a> — 可执行清单 + 坑点表</li>
+  </ul>
+</nav>
+
+<section id="for-humans">
+  <h2>给人看 · 流水线上的一天</h2>
+  <p>你不必自己跑智能体也能读懂。把它想成七个站点的协作模式。每个站点对应真实工作日里反复出现的摩擦（2026-09-16 公开安全改写）。</p>
+
+  <article class="step" id="h1">
+    <p class="n">站点 1 · 多智能体群聊当站会</p>
+    <p>早晨从共享房间开始：多个智能体 + 主人。房间职责是<strong>只对齐</strong>：优先级、go/hold、谁负责哪条车道。长补丁、工具倾倒、调试循环不属于这里——它们会淹没决策。</p>
+    <p>可检验：若随机一天的共享线程大半是构建噪音，站会主张就失败了。</p>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-standup.svg" width="920" height="540" alt="合成示意图：多智能体站会对齐聊天">
+    <figcaption class="caption"><span class="badge">合成 UI</span> 群站会：短对齐回合，无工程倾倒。仅示意——不是真实聊天记录。</figcaption>
+  </figure>
+
+  <article class="step" id="h2">
+    <p class="n">站点 2 · 共享 Memory Hub 承载长期偏好</p>
+    <p>聊天会过期。必须跨会话存活的偏好写入 <strong>Shared Memory Hub</strong>：可检索的 standing 决策、任务回执、其他智能体可读的共享画像。</p>
+    <p>主人话术模式：有人说「记下了」，意图应是<strong>三连写入</strong>——不是礼貌口头回应：</p>
+    <ol>
+      <li>写一条 Hub standing（持久、可搜）。</li>
+      <li>更新其他座位会读的共享画像 / session-prime。</li>
+      <li>通知兄弟智能体，避免大家重新「发现」同一偏好。</li>
+    </ol>
+    <p>若 1–3 步没发生，「记下了」就是失败模式——哪怕聊天看起来很客气。</p>
+  </article>
+
+  <article class="step" id="h3">
+    <p class="n">站点 3 · 核心产品 harness 关闭时的外层壳</p>
+    <p>有些日子主产品 harness（常用 IDE / 云端编码面）不可用、限流或卡在鉴权。流水线仍需要能起草、暂存文件、跑机械检查的地方。</p>
+    <p>这里的<strong>外层壳（outer harness）</strong>指二级运行时或草稿工作区：核心 harness 重开前先把活接着干。它是连续性模式，不是第二真相源：standing 决策仍进 Hub。</p>
+  </article>
+
+  <article class="step" id="h4">
+    <p class="n">站点 4 · 公开 spine 页讲架构</p>
+    <p>有人问「栈长什么样？」时，不要在 Slack 里再写长文。指向公开架构页：</p>
+    <p><a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a></p>
+    <p>那一页讲共享记忆、站会 vs 私聊车道、类型化数据包，以及带可证伪条件的取用/跳过指南。本页是「一日流水线」；spine 是地图。</p>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-spine.svg" width="920" height="540" alt="合成示意图：浏览器中的公开 spine 架构页">
+    <figcaption class="caption"><span class="badge">合成 UI</span> 公开 spine：带可证伪条件的架构主张。请链到线上页；本图仅为示意框。</figcaption>
+  </figure>
+
+  <article class="step" id="h5">
+    <p class="n">站点 5 · Slack + Cursor Cloud Agents 需要仓库</p>
+    <p>挂在 Slack 上的云端编码智能体是<strong>仓库形态</strong>的，不是漂浮的 REPL 窗口。让它开工前先选仓库——最好有专用的默认草稿仓库，避免污染产品仓或 Pages 仓。</p>
+    <div class="warnbox">
+      <strong>硬坑。</strong>个人账号登录 Cursor ≠ 在 GitHub<strong>组织</strong>上安装 Cursor GitHub App。没有组织级 App 时，即使仓库 URL 正确，「Pick Repository」仍可能失败。
+    </div>
+  </article>
+
+  <figure class="shot">
+    <img src="assets/mock-slack-cursor.svg" width="920" height="540" alt="合成示意图：Slack 中 Cursor Pick Repository 与组织 App 坑点">
+    <figcaption class="caption"><span class="badge">合成 UI</span> Slack @Cursor：Pick Repository 需要 Git 仓库；组织安装 GitHub App 与个人登录是两步。</figcaption>
+  </figure>
+
+  <article class="step" id="h6">
+    <p class="n">站点 6 · 手机优先投递</p>
+    <p>链接要给人在手机上点开时，先确认 URL 返回 <strong>HTTP 200</strong> 再发送。坏链或鉴权墙浪费注意力、损害信任。优先发一条结果型、带可打开 URL 的单独消息，而不是「应该能开」的猜测。</p>
+  </article>
+
+  <article class="step" id="h7">
+    <p class="n">站点 7 · 内容门禁发布（PCSE 风格）</p>
+    <p>公开页只有在机械 clean-content 清单通过后才上线。门禁的公开描述：</p>
+    <ul>
+      <li>正文无密钥、令牌、私密凭证。</li>
+      <li>无私有主机名、叠加 VPN 指纹、绝对文件系统路径。</li>
+      <li>无财务数字；除约定公开署名外无私密人名。</li>
+      <li>不做绝对稀缺营销话术；改用可证伪的差异点。</li>
+      <li>任一项失败 → 不上线。发布后保留短时下架路径。</li>
+    </ul>
+  </article>
+
+  <h3>多智能体群 + 连接器形态为什么重要（可核对）</h3>
+  <div class="diff">
+    <p>相对<strong>单线程聊天产品</strong>（一段对话、一个模型、记忆多半困在该线程里），多智能体群聊 + 连接器式 Hub 体验在可检验的维度上不同：</p>
+    <ul>
+      <li><strong>共享注意力</strong> — 多个智能体与人可在站会对齐，而不必把每次构建塞进同一线程。核对：能否从 Hub 恢复昨天的决策，而无需重读整间房？</li>
+      <li><strong>连接器持久性</strong> — standing 偏好与回执在可查询存储中，其他座位可打开。核对：新智能体能否直接按另一座位写过的偏好行动，而无需人粘贴？</li>
+      <li><strong>车道分离</strong> — 群聊保持决策形；重活在私聊/云端执行器。核对：随机一天站会是否仍无长补丁？</li>
+    </ul>
+    <p class="note" style="margin:0.6rem 0 0">这些是可在你自己栈里证伪的产品差异。本页不做绝对稀缺宣称。</p>
+  </div>
+</section>
+
+<section id="for-agents" class="agent-anchor">
+  <h2>给智能体 · 可执行专轨</h2>
+  <p>人类叙事的机器向伴读。先复述，再执行清单。勿从本页臆造私有基础设施。</p>
+
+  <h3 id="agent-restatement">复述目标</h3>
+  <ol>
+    <li>站会 = 只对齐；Hub = 持久 standing；私聊/云端 = 构建。</li>
+    <li>「记下了」模式 = Hub standing + 共享画像 + 通知兄弟座位。</li>
+    <li>外层壳 = 核心 harness 关闭时的连续性；Hub 仍是记录系统。</li>
+    <li>架构指针 = <span class="mono">https://machengshen.github.io/spine/</span></li>
+    <li>Slack/Cursor = 必须有仓库；个人登录 ≠ 组织 GitHub App。</li>
+    <li>手机优先 = 给人发 URL 前先 HTTP 200。</li>
+    <li>发布 = 内容门禁；clean 任一失败即阻断。</li>
+  </ol>
+
+  <h3 id="pitfalls">坑点表</h3>
+  <table>
+    <thead>
+      <tr><th>坑点</th><th>症状</th><th>修复模式</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>站会变构建日志</td>
+        <td>补丁 / 工具倾倒淹没 go-hold</td>
+        <td>构建移私车道；短回执回 Hub + 站会</td>
+      </tr>
+      <tr>
+        <td>口头「记下了」无写入</td>
+        <td>下一会话偏好消失</td>
+        <td>Hub standing + 共享画像 + 兄弟通知（三连写）</td>
+      </tr>
+      <tr>
+        <td>核心 harness 关闭就停摆</td>
+        <td>草稿与检查无处落地</td>
+        <td>启用外层壳；Hub 仍为系统记录</td>
+      </tr>
+      <tr>
+        <td>在聊天里反复讲架构</td>
+        <td>Slack/群里长文重复</td>
+        <td>链到 <span class="mono">/spine/</span>；聊天只留决策</td>
+      </tr>
+      <tr>
+        <td>把 Cursor Slack 当 REPL</td>
+        <td>无仓库；智能体挂不上活</td>
+        <td>选用专用默认草稿仓库</td>
+      </tr>
+      <tr>
+        <td>只有个人 Cursor 登录</td>
+        <td>URL 正确仍 Pick Repository 失败</td>
+        <td>在 GitHub 组织安装 Cursor GitHub App；必要时重连</td>
+      </tr>
+      <tr>
+        <td>未上线就发链接</td>
+        <td>手机端 404 / 鉴权墙</td>
+        <td>先确认 HTTP 200，再发单独结果消息</td>
+      </tr>
+      <tr>
+        <td>无 clean 门禁就上线</td>
+        <td>密钥、私有主机或绝对宣称外泄</td>
+        <td>跑 PCSE 风格清单；失败即关闭</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="follow-checklist">最小跟随清单</h3>
+  <ol>
+    <li>站会只对齐；拒绝在此粘贴长补丁。</li>
+    <li>遇 standing 偏好：写 Hub standing → 更新共享画像 → 通知兄弟座位。</li>
+    <li>核心 harness 关闭：在外层壳继续；回执写入 Hub。</li>
+    <li>架构问题：链到 <a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a>。</li>
+    <li>Slack @Cursor 开工前：确认组织 GitHub App + 专用草稿仓；再 Pick Repository。</li>
+    <li>给人发 URL 前：<span class="mono">curl -sI &lt;url&gt;</span>（或等价）显示 HTTP 200。</li>
+    <li>公开上线前：跑 clean 扫描（无密钥、私有主机、财务、绝对宣称）；任一命中 → 不上线。</li>
+    <li>留下短 Hub 回执：上线了什么，或卡在哪一闸。</li>
+  </ol>
+
+  <h3 id="pcse">PCSE 风格发布清单（公开描述）</h3>
+  <table>
+    <thead>
+      <tr><th>闸门</th><th>通过条件</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>clean_content</td><td>公开 HTML 上禁用词扫描为空</td></tr>
+      <tr><td>secrets_scan</td><td>无 API key、令牌、密码、私有 URL</td></tr>
+      <tr><td>public_surface_only</td><td>链接仅为公开 github.io / 公开 GitHub</td></tr>
+      <tr><td>no_absolute_uniqueness</td><td>主张均为可证伪差异点</td></tr>
+      <tr><td>owner_ack</td><td>Pages 推送前有人确认（运营步骤）</td></tr>
+      <tr><td>takedown_path</td><td>表面有 ≤1h 下架路径说明</td></tr>
+    </tbody>
+  </table>
+  <p>任一失败 → 不发布。本页本身按该门禁起草。</p>
+</section>
+
+<footer>
+  <p>公开 GitHub Pages 流水线教程（中文）。截图为标注的合成 UI。无需 JavaScript。架构伴读：<a href="https://machengshen.github.io/spine/">/spine/</a>。</p>
+</footer>
+</main>
+</body>
+</html>

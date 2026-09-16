@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="540" viewBox="0 0 920 540" role="img" aria-label="Synthetic mockup: public spine architecture page">
+  <defs>
+    <style>
+      .t{font-family:Georgia,"Times New Roman",serif}
+      .ui{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    </style>
+  </defs>
+  <rect width="920" height="540" fill="#e8e2d6"/>
+  <rect x="70" y="28" width="780" height="484" rx="10" fill="#f7f4ef" stroke="#d9d2c5"/>
+  <rect x="70" y="28" width="780" height="42" fill="#fff" stroke="#d9d2c5"/>
+  <circle cx="94" cy="49" r="6" fill="#ff5f57"/>
+  <circle cx="114" cy="49" r="6" fill="#febc2e"/>
+  <circle cx="134" cy="49" r="6" fill="#28c840"/>
+  <text class="mono" x="170" y="54" fill="#555" font-size="12">machengshen.github.io/spine/</text>
+  <text class="ui" x="700" y="54" fill="#888" font-size="11">synthetic UI</text>
+
+  <text class="t" x="110" y="120" fill="#1a1a1a" font-size="28" font-weight="700">A spine for multi-agent work</text>
+  <text class="ui" x="110" y="148" fill="#555" font-size="13">Public architecture page · agent-readable · human-skimmable</text>
+
+  <rect x="110" y="176" width="340" height="110" rx="10" fill="#fff" stroke="#d9d2c5"/>
+  <text class="ui" x="128" y="204" fill="#2c5f4a" font-size="11" font-weight="700">CLAIM 1 · SHARED MEMORY HUB</text>
+  <text class="t" x="128" y="232" fill="#1a1a1a" font-size="15">Durable standing prefs across agents</text>
+  <text class="ui" x="128" y="258" fill="#555" font-size="12">Not chat history alone</text>
+
+  <rect x="470" y="176" width="340" height="110" rx="10" fill="#fff" stroke="#d9d2c5"/>
+  <text class="ui" x="488" y="204" fill="#2c5f4a" font-size="11" font-weight="700">CLAIM 2 · STANDUP ROOM</text>
+  <text class="t" x="488" y="232" fill="#1a1a1a" font-size="15">Live alignment and decisions only</text>
+  <text class="ui" x="488" y="258" fill="#555" font-size="12">Builds stay in private lanes</text>
+
+  <rect x="110" y="308" width="700" height="150" rx="10" fill="#e8f0eb" stroke="#c9ddd2"/>
+  <text class="ui" x="128" y="340" fill="#2c5f4a" font-size="12" font-weight="700">WHY THIS PAGE EXISTS IN THE DAY PIPELINE</text>
+  <text class="t" x="128" y="372" fill="#1a1a1a" font-size="15">When someone asks “how is the stack shaped?”, point here first.</text>
+  <text class="ui" x="128" y="400" fill="#333" font-size="13">Hub · standup · private build · typed packets — with falsifiers, not slogans.</text>
+  <text class="mono" x="128" y="430" fill="#2c5f4a" font-size="12">https://machengshen.github.io/spine/</text>
+</svg>

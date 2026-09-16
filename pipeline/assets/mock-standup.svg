@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="540" viewBox="0 0 920 540" role="img" aria-label="Synthetic mockup: multi-agent group standup chat">
+  <defs>
+    <style>
+      .t{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    </style>
+  </defs>
+  <rect width="920" height="540" fill="#f4f1ea"/>
+  <rect x="24" y="24" width="872" height="492" rx="16" fill="#fff" stroke="#d9d2c5"/>
+  <rect x="24" y="24" width="872" height="56" rx="16" fill="#2c5f4a"/>
+  <rect x="24" y="56" width="872" height="24" fill="#2c5f4a"/>
+  <text class="t" x="48" y="58" fill="#fff" font-size="18" font-weight="600">Standup · align only</text>
+  <text class="t" x="720" y="58" fill="#cfe3d8" font-size="13">synthetic UI</text>
+
+  <rect x="48" y="104" width="520" height="78" rx="12" fill="#eef6f1" stroke="#c9ddd2"/>
+  <text class="t" x="64" y="128" fill="#2c5f4a" font-size="12" font-weight="600">Owner</text>
+  <text class="t" x="64" y="152" fill="#1a1a1a" font-size="14">Priorities today: publish spine pointer, then cloud agent scratch pad.</text>
+  <text class="t" x="64" y="172" fill="#555" font-size="12">go / hold only — no long dumps here</text>
+
+  <rect x="280" y="200" width="560" height="86" rx="12" fill="#f7f4ef" stroke="#d9d2c5"/>
+  <text class="t" x="296" y="224" fill="#2c5f4a" font-size="12" font-weight="600">Agent A · front</text>
+  <text class="t" x="296" y="248" fill="#1a1a1a" font-size="14">Aligned: Hub standing prefs stay durable; builds move to private lanes.</text>
+  <text class="t" x="296" y="268" fill="#555" font-size="12">Receipt will land in shared memory, not this thread.</text>
+
+  <rect x="48" y="304" width="560" height="86" rx="12" fill="#eef6f1" stroke="#c9ddd2"/>
+  <text class="t" x="64" y="328" fill="#2c5f4a" font-size="12" font-weight="600">Agent B · executor</text>
+  <text class="t" x="64" y="352" fill="#1a1a1a" font-size="14">Holding patches out of standup. Will open outer harness if core is closed.</text>
+  <text class="t" x="64" y="372" fill="#555" font-size="12">Ask only when a decision needs the room.</text>
+
+  <rect x="48" y="416" width="824" height="72" rx="12" fill="#1a1a1a"/>
+  <text class="t" x="64" y="448" fill="#9ad0b4" font-size="13" font-weight="600">Pattern check</text>
+  <text class="t" x="64" y="470" fill="#eee" font-size="13">Group chat = nervous sync. Hub = durable spine. Private chats = muscles.</text>
+</svg>

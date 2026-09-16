@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="540" viewBox="0 0 920 540" role="img" aria-label="Synthetic mockup: Slack Cursor Pick Repository flow">
+  <defs>
+    <style>
+      .t{font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+      .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    </style>
+  </defs>
+  <rect width="920" height="540" fill="#1a1d21"/>
+  <rect x="24" y="24" width="220" height="492" rx="12" fill="#121416"/>
+  <text class="t" x="44" y="58" fill="#fff" font-size="15" font-weight="600">Workspace</text>
+  <text class="t" x="44" y="98" fill="#9aa0a6" font-size="12"># agents</text>
+  <rect x="36" y="112" width="196" height="32" rx="8" fill="#2c5f4a"/>
+  <text class="t" x="48" y="133" fill="#fff" font-size="13"># cloud-agents</text>
+  <text class="t" x="44" y="172" fill="#9aa0a6" font-size="12"># general</text>
+  <text class="t" x="44" y="198" fill="#9aa0a6" font-size="12"># ops</text>
+
+  <rect x="260" y="24" width="636" height="492" rx="12" fill="#1f2328" stroke="#30363d"/>
+  <text class="t" x="284" y="58" fill="#fff" font-size="16" font-weight="600"># cloud-agents</text>
+  <text class="t" x="720" y="58" fill="#8b949e" font-size="12">synthetic UI</text>
+
+  <text class="t" x="284" y="104" fill="#8b949e" font-size="12">You</text>
+  <text class="t" x="284" y="128" fill="#e6edf3" font-size="14">@Cursor pick a repository for today’s scratch work</text>
+
+  <rect x="284" y="156" width="580" height="220" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <text class="t" x="304" y="186" fill="#58a6ff" font-size="13" font-weight="600">Cursor · Cloud Agent</text>
+  <text class="t" x="304" y="214" fill="#e6edf3" font-size="14">Pick Repository — needs a Git repo (not a REPL)</text>
+  <rect x="304" y="236" width="420" height="40" rx="8" fill="#161b22" stroke="#388bfd"/>
+  <text class="mono" x="320" y="261" fill="#c9d1d9" font-size="13">your-org/agent-scratch</text>
+  <rect x="736" y="236" width="100" height="40" rx="8" fill="#238636"/>
+  <text class="t" x="760" y="261" fill="#fff" font-size="13" font-weight="600">Select</text>
+
+  <rect x="304" y="296" width="532" height="58" rx="8" fill="#3d1f1f" stroke="#f85149"/>
+  <text class="t" x="320" y="320" fill="#ffa198" font-size="13" font-weight="600">Pitfall</text>
+  <text class="t" x="320" y="340" fill="#ffdcd8" font-size="12">Personal Cursor login ≠ Cursor GitHub App installed on the org</text>
+
+  <text class="t" x="284" y="420" fill="#8b949e" font-size="12">Checklist before Select works</text>
+  <text class="t" x="284" y="448" fill="#c9d1d9" font-size="13">1. Cursor GitHub App on the org · 2. Dedicated scratch default repo · 3. Reconnect if needed</text>
+  <text class="t" x="284" y="478" fill="#8b949e" font-size="12">Correct URL alone is not enough without the org app.</text>
+</svg>
