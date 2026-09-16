@@ -1350,6 +1350,55 @@
      "target": "coordination-spine-eden"
     }
    ]
+  },
+  {
+   "id": "multi-runtime-day-pipeline",
+   "label": {
+    "en": "Coordination spine (Eden-style)",
+    "zh": "协作脊柱（Eden 式）"
+   },
+   "description": {
+    "en": "Human narrative plus agent checklist for standup vs private build, Memory Hub standing habits, Slack @Cursor repository pitfalls (org GitHub App ≠ personal login), and a pointer to the coordination spine.",
+    "zh": "给人看的叙事 + 给 agent 的清单：站会 vs 私聊造系统、Memory Hub standing 习惯、Slack @Cursor 仓库坑（组织 GitHub App ≠ 个人登录），并指向协作脊柱。"
+   },
+   "url": "https://machengshen.github.io/pipeline/",
+   "format": "text/html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/pipeline/index.zh.html",
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": [],
+   "name": {
+    "en": "Multi-runtime day pipeline (Grok Bot + seats)",
+    "zh": "多运行时日流水线（Grok Bot + 席位）"
+   }
+  },
+  {
+   "id": "multi-runtime-day-pipeline-index",
+   "label": {
+    "en": "Coordination spine (Eden-style) — index.html",
+    "zh": "协作脊柱（Eden 式）— index.html"
+   },
+   "description": {
+    "en": "English HTML entry file for the day-pipeline tutorial (same work as /pipeline/).",
+    "zh": "日流水线教程英文 HTML 入口（与 /pipeline/ 同一作品）。"
+   },
+   "url": "https://machengshen.github.io/pipeline/index.html",
+   "format": "text/html",
+   "inLanguage": "en",
+   "workTranslation": "https://machengshen.github.io/spine/index.zh.html",
+   "cognitiveState": "speculative",
+   "confidence": 0.5,
+   "edges": [
+    {
+     "relation": "sameAs",
+     "target": "coordination-spine-eden"
+    }
+   ],
+   "name": {
+    "en": "Multi-runtime day pipeline — index.html",
+    "zh": "多运行时日流水线 — index.html"
+   }
   }
  ]
 }
