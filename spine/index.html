@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A spine for multi-agent work</title>
-<meta name="description" content="Four load-bearing claims for multi-agent ops: shared memory, standup vs private lanes, and typed agent packets.">
+<meta name="description" content="Agent-readable spine for multi-agent ops: shared memory, standup vs private lanes, typed packets, take/leave guide, and a public stack catalog for self-setup.">
 <style>
   :root {
     --bg: #f7f4ef;
@@ -100,16 +100,39 @@
     vertical-align: top;
   }
   th { background: #f0ebe3; }
+  table.guide { font-size: 0.84rem; }
+  table.guide th, table.guide td { padding: 0.45rem 0.5rem; }
   code, .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.9em;
   }
   ul { padding-left: 1.2rem; }
+  .stack-group { margin: 0.85rem 0 1.1rem; }
+  .stack-group h3 {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+    border: none;
+  }
+  .stack-group ul { margin: 0.25rem 0 0; }
+  .stack-group li { margin: 0.45rem 0; font-size: 0.98rem; }
+  .stack-group a { color: var(--accent); }
+  .stack-group .why {
+    display: block;
+    color: var(--muted);
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 0.86rem;
+    margin-top: 0.12rem;
+  }
   .note {
     font-family: system-ui, -apple-system, sans-serif;
     font-size: 0.9rem;
     color: var(--muted);
   }
+  a { color: var(--accent); }
   footer {
     margin-top: 2.5rem;
     padding-top: 1rem;
@@ -118,31 +141,33 @@
     font-size: 0.85rem;
     color: var(--muted);
   }
+
 </style>
 </head>
 <body>
 <main>
 <header>
   <h1>A spine for multi-agent work</h1>
-  <p class="byline">By Macheng Shen · agent-readable tutorial (draft for public Pages)</p>
+  <p class="byline">By Macheng Shen · agent-readable tutorial</p>
   <p class="lang">Language: English · <a href="index.zh.html">中文</a></p>
 </header>
 
-<p class="lead">This page is a short spine, not a product pitch. Another AI should be able to restate the four numbered claims below, check them against the falsifiers, and sketch a minimal setup for a different team—without needing private infrastructure details.</p>
+<p class="lead">This page is a short spine, not a product pitch. Another team’s agent should be able to restate the four numbered claims, check them against the falsifiers, decide which pieces to take or skip for its owner’s needs, and open the right public repos for self-setup—without any private infrastructure details.</p>
 
-<p class="note">Intended public home (after a content-gated publish checklist): <span class="mono">https://machengshen.github.io/spine/</span></p>
+<p class="note">Public home: <span class="mono">https://machengshen.github.io/spine/</span> · Machine index: <a href="https://machengshen.github.io/llms.txt">llms.txt</a></p>
 
 <h2>1. Four load-bearing claims</h2>
+<p>Four complementary pillars. Read them as contracts another agent can test, not as slogans.</p>
 
 <article class="claim" id="pillar-1">
   <p class="n">Claim 1 · Shared Memory Hub</p>
-  <p><strong>Shared Memory Hub = durable global context across agents</strong> (not chat history alone). Agents read and write standing decisions, task state, and receipts into a shared store that outlives any single conversation window.</p>
+  <p><strong>Shared Memory Hub = durable global context across agents</strong> (not chat history alone). Agents read and write standing decisions, task state, and receipts into a shared store that outlives any single conversation window. New agents recover prior decisions by querying the Hub, not by rereading the whole group thread.</p>
   <p class="falsifier"><strong>Falsifier</strong> If important decisions only exist inside one chat transcript, or each agent keeps a private scratchpad that others cannot query, this claim is false for that deployment.</p>
 </article>
 
 <article class="claim" id="pillar-2">
   <p class="n">Claim 2 · Group chat / standup room</p>
-  <p><strong>Group chat (“standup room”) = live alignment and decisions only</strong>—not the place to build systems. Use it to sync priorities, resolve conflicts, and confirm go/hold. Long builds, dumps, and tooling noise belong elsewhere.</p>
+  <p><strong>Group chat (“standup room”) = live alignment and decisions only</strong>—not the place to build systems. Use it to sync priorities, resolve conflicts, and confirm go/hold. Long builds, dumps, and tooling noise belong in private lanes.</p>
   <p class="falsifier"><strong>Falsifier</strong> If the group thread is where people (or bots) paste large patches, run engineering loops, or bury decisions under build logs, the standup claim fails.</p>
 </article>
 
@@ -165,65 +190,182 @@
 </article>
 
 <h2>2. How the seats fit together</h2>
-<p>These are complementary seats, not duplicate copies of the same bot:</p>
+<p>These are complementary seats, not duplicate copies of the same bot. An adopting agent should map its owner’s runtimes onto roles, not copy brand names.</p>
 <table>
   <thead>
     <tr><th>Seat</th><th>Role</th><th>Not for</th></tr>
   </thead>
   <tbody>
     <tr>
-      <td>Grok Bot (group + owner surface)</td>
+      <td>Group + owner surface</td>
       <td>Live multi-agent alignment, owner-facing summaries, routing of decisions</td>
       <td>Being the only place long systems are built</td>
     </tr>
     <tr>
-      <td>Codex / Cursor cloud executors</td>
+      <td>Cloud / IDE executors</td>
       <td>Heavy coding, long drafts, repo-shaped work in private lanes</td>
       <td>Replacing shared memory or standup decisions</td>
     </tr>
     <tr>
-      <td>Cloud servers / fleet hosts</td>
-      <td>Always-on or scheduled execution bodies that claim typed packets and write receipts</td>
+      <td>Always-on / scheduled hosts</td>
+      <td>Execution bodies that claim typed packets and write receipts</td>
       <td>Acting as the owner’s conversational front stage</td>
     </tr>
   </tbody>
 </table>
 <p>The Hub is the durable spine; standup is the nervous sync; private chats and hosts are muscles. Confusing those roles recreates either a mega-chat or a fleet of amnesiac bots.</p>
 
-<h2>3. Advantages (falsifiable, not absolute)</h2>
-<p>Compared with <strong>one mega-chat / one agent does everything</strong>:</p>
-<ul>
-  <li>Shared attention stays decision-shaped; engineering noise is sidelined → check: can a new agent recover last week’s decisions from Hub without rereading the whole group thread?</li>
-  <li>Work can proceed in parallel private lanes with receipts → check: does a finished private build leave a claimable packet or receipt others can find?</li>
-</ul>
-<p>Compared with <strong>many bots with no shared memory</strong>:</p>
-<ul>
-  <li>Context is global and queryable, not trapped per bot → check: can bot B act on a decision bot A wrote yesterday without a human re-pasting it?</li>
-  <li>Typed packets reduce “smile-and-pass” handoffs → check: does a work packet state acceptance and non-goals, and does lucifer-pressure stay propose-only?</li>
-</ul>
-<p class="note">These are differentiators you can test in your own stack. This page makes no absolute uniqueness claim.</p>
+<h2>3. Take / leave guide (match owner needs)</h2>
+<p>Adopt only when the need is real. Skip is a valid design choice—not a failure. Keep the falsifiers in §1; each row adds a check you can run in your own stack. This page makes no absolute uniqueness claim.</p>
+<table class="guide">
+  <thead>
+    <tr>
+      <th>Practice</th>
+      <th>Take if…</th>
+      <th>Skip if…</th>
+      <th>One falsifiable check</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Shared Memory Hub</td>
+      <td>Two or more agents must recover standing decisions across sessions without a human re-pasting context</td>
+      <td>A single short-lived chat is the whole system, and nothing must survive the window</td>
+      <td>Can a new agent answer “what did we decide last week?” from the store alone?</td>
+    </tr>
+    <tr>
+      <td>Standup group vs private build lanes</td>
+      <td>Alignment traffic and engineering dumps compete for the same attention surface</td>
+      <td>One person + one agent, low volume, and dumps never bury decisions</td>
+      <td>Does a random standup day contain patches/tool logs longer than the decisions?</td>
+    </tr>
+    <tr>
+      <td>Typed packets (<code>work-packet</code>, <code>friction</code>)</td>
+      <td>Handoffs cross agents or days and “smile-and-pass” prose keeps losing acceptance criteria</td>
+      <td>All work stays inside one continuous conversation with one human in the loop</td>
+      <td>Does a finished handoff state goal, acceptance, and non-goals as fields?</td>
+    </tr>
+    <tr>
+      <td>Propose-only adversarial pressure (<code>lucifer-pressure</code>)</td>
+      <td>You need a dedicated threat-challenge lane that must never mutate systems or speak as the owner</td>
+      <td>You already have an external review path with no execution rights, or volume is too low to justify a seat</td>
+      <td>Can the pressure agent call any mutating tool or owner-voice surface? (Must be no.)</td>
+    </tr>
+    <tr>
+      <td>Somatic / body digest (<code>somatic-digest</code>)</td>
+      <td>Advice depends on whether hosts are fresh/capable and whether a P0 is open</td>
+      <td>No always-on bodies; advice is purely textual and host state is irrelevant</td>
+      <td>Before a go/hold call, can you scan fresh|stale, capable|blocked, P0 count + top item in one screen?</td>
+    </tr>
+    <tr>
+      <td>Content-gated publish (clean scan before public ship)</td>
+      <td>Anything public must not leak secrets, private hosts, financials, or absolute-uniqueness marketing</td>
+      <td>The artifact is private-only and never leaves the controlled surface</td>
+      <td>Does a mechanical grep/scan of forbidden tokens fail closed (any hit → do not ship)?</td>
+    </tr>
+    <tr>
+      <td>Multi-runtime seats (chat front + coding executors + always-on hosts)</td>
+      <td>Live alignment, heavy coding, and scheduled execution need different bodies at once</td>
+      <td>One runtime covers the whole workload without contention or amnesia</td>
+      <td>If you stop one seat, do the other seats still share durable context via Hub + receipts?</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>4. Minimal setup path (another team’s AI)</h2>
+<h2>4. Public stack catalog</h2>
+<p>Public repos and pages only (scraped from <a href="https://machengshen.github.io/llms.txt">llms.txt</a> § Future social forms and related public GitHub orgs already linked there). Each line states what another agent should open it for. Do not invent private hosts or private repos from this list.</p>
+
+<div class="stack-group">
+  <h3>Memory / coordination</h3>
+  <ul>
+    <li><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a>
+      <span class="why">Open to wire many agents to one shared memory with typed claims and no silent irreversibles.</span></li>
+    <li><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a>
+      <span class="why">Open for personal-agent inbox, addressing, trust tiers, policy, and receipts.</span></li>
+    <li><a href="https://machengshen.github.io/whitepaper-agent-native-communication/">Agent-Native Open Communication</a> · <a href="https://github.com/MachengShen/agent-native-communication">source repo</a>
+      <span class="why">Open for the whitepaper + repo on next-generation open communication built for agents rather than apps.</span></li>
+    <li><a href="https://github.com/starshard-ai/zhizi-agent-os">personal-assistant OS (BYOK)</a>
+      <span class="why">Open when turning a coding agent into a bring-your-own-key personal assistant with a privacy-clean default.</span></li>
+    <li><a href="https://machengshen.github.io/theory/coordination-structures.md">coordination-structures.md</a>
+      <span class="why">Open for the descriptive theory that frames polities, firms, markets, commons, and protocols as resource-scheduling architectures.</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>Architecture / safety</h3>
+  <ul>
+    <li><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a>
+      <span class="why">Open for architecture, safety charter, quickstart, and memory-as-primary-layer philosophy.</span></li>
+    <li><a href="https://machengshen.github.io/substrate.html">substrate.html</a>
+      <span class="why">Open for the nonprofit user-agency position statement between frontier providers and individuals.</span></li>
+    <li><a href="https://machengshen.github.io/locality-as-protocol.html">locality-as-protocol.html</a>
+      <span class="why">Open when deciding locality vs centralization as the design primitive.</span></li>
+    <li><a href="https://machengshen.github.io/theory/agent-safety-stewardship.md">agent-safety-stewardship.md</a>
+      <span class="why">Open for seven runtime invariants and the A–D disclosure rule.</span></li>
+    <li><a href="https://machengshen.github.io/safety/">safety/</a>
+      <span class="why">Open for harness-as-safety surface, running/specified badges, principles, mechanisms, and falsifiers.</span></li>
+    <li><a href="https://machengshen.github.io/charter/">charter/</a>
+      <span class="why">Open for nine human–agent coexistence clauses, each with a counter-example and retirement condition.</span></li>
+    <li><a href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html">abundant-verification-needs-abundant-claims.html</a>
+      <span class="why">Open when designing typed receipts vs prose/regex blockers for agent claim layers.</span></li>
+    <li><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>
+      <span class="why">Open for drift checks, adversarial review, reuse compiler, and frontend smoke gates.</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>Research logs</h3>
+  <ul>
+    <li><a href="https://github.com/MachengShen/cognition-track">cognition-track</a>
+      <span class="why">Open for an agent-traversable claim graph where cognitive state is a first-class field (including failed nodes).</span></li>
+    <li><a href="https://github.com/starshard-ai/continual-learning-lab">continual-learning-lab</a>
+      <span class="why">Open for pre-registered continual-learning experiments with negative results included.</span></li>
+    <li><a href="https://github.com/starshard-ai/living-information-system">living-information-system</a>
+      <span class="why">Open for the umbrella research program on information, future-reachability, and integrity failures.</span></li>
+    <li><a href="https://github.com/MachengShen/system-evolution-public">system-evolution-public</a>
+      <span class="why">Open for VISION / THEORY / PRACTICE / GOVERNANCE and the self-iteration ledger.</span></li>
+    <li><a href="https://github.com/MachengShen/the-form-was-the-cage">the-form-was-the-cage</a>
+      <span class="why">Open for an agent OS self-referential trace and the end of researcher-as-identity framing.</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>Receipts</h3>
+  <ul>
+    <li><a href="https://github.com/MachengShen/starshard-public">starshard-public</a>
+      <span class="why">Open to check published claims against a running log of work actually executed by the agent stack.</span></li>
+    <li><a href="https://machengshen.github.io/llms.txt">llms.txt</a>
+      <span class="why">Open first: traverse all public artifacts with cognitive states without crawling the whole site.</span></li>
+    <li><a href="https://machengshen.github.io/spine/">spine/</a>
+      <span class="why">This page: coordination spine for multi-runtime personal stacks.</span></li>
+  </ul>
+</div>
+
+<p class="note">This catalog is a pointer set, not a private inventory. No private hostnames, VPN overlays, or live fleet tables are required to self-setup from public materials.</p>
+
+<h2>5. Minimal setup path (another team’s AI)</h2>
 <ol>
   <li><strong>Shared memory</strong> — Stand up a durable store agents can search/create/update. Tag standing decisions and task receipts. Do not treat a single chat log as the system of record.</li>
   <li><strong>Permissions and receipts</strong> — Separate who may propose, who may execute, and who may speak as the owner. Every consequential action should leave a short receipt in shared memory.</li>
   <li><strong>Standup vs private lanes</strong> — One group channel for alignment only; private chats/executors for builds. Ban large patches and long tool dumps from standup by default.</li>
   <li><strong>Typed packets</strong> — Adopt at least <code>work-packet</code>, <code>friction</code>, <code>lucifer-pressure</code> (propose-only), and <code>somatic-digest</code> (fresh/stale, capable/blocked, P0 count + top item, go/hold). Prefer schemas over free prose for agent↔agent work.</li>
   <li><strong>Content-gated publish checklist</strong> — Before shipping anything public, run a mechanical clean-content scan (no secrets, no private hosts/IPs, no financials, no absolute uniqueness marketing). Treat publish as gated: fail any check → do not ship.</li>
+  <li><strong>Open the catalog</strong> — Start from <a href="https://machengshen.github.io/llms.txt">llms.txt</a>, then pull only the public repos that match the take/leave decisions above.</li>
 </ol>
-<p>No private hostnames, VPN overlays, or live inventory are required to understand or imitate this spine.</p>
 
-<h2>5. Agent restatement test</h2>
+<h2>6. Agent restatement test</h2>
 <p>After reading this page, another AI should answer in its own words:</p>
 <ol>
   <li>What is Hub for, and what is it not?</li>
   <li>What belongs in standup vs private chats?</li>
   <li>Name the four packet types and the hard rule on lucifer-pressure.</li>
   <li>What would falsify each of the four claims?</li>
+  <li>For two practices in the take/leave guide, state when to take, when to skip, and the falsifiable check.</li>
+  <li>Name the machine index URL and two other public stack links you would open next for architecture or safety.</li>
 </ol>
 
 <footer>
-  <p>Local draft under a content-gated publish checklist. Ship target: public GitHub Pages path above. Readable without JavaScript.</p>
+  <p>Public GitHub Pages spine. Readable without JavaScript. Cognitive state of the coordination pattern: speculative—test against the falsifiers before adopting.</p>
 </footer>
 </main>
 </body>

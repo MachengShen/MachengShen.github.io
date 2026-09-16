@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>多智能体协作的脊柱</title>
-<meta name="description" content="多智能体运维的四条承重主张：共享记忆、站会与私聊分轨、以及类型化 agent 报文。">
+<meta name="description" content="面向 agent 可读的多智能体协作脊柱：共享记忆、站会与私密车道、类型化报文、取舍指南，以及可供另一团队 agent 自助搭建的公开栈目录。">
 <style>
   :root {
     --bg: #f7f4ef;
@@ -18,7 +18,7 @@
   * { box-sizing: border-box; }
   body {
     margin: 0;
-    font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", Georgia, serif;
+    font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", Georgia, serif;
     background: var(--bg);
     color: var(--ink);
     line-height: 1.65;
@@ -31,17 +31,17 @@
   header { margin-bottom: 2rem; }
   h1 {
     font-size: 1.85rem;
-    line-height: 1.3;
+    line-height: 1.25;
     margin: 0 0 0.5rem;
     font-weight: 700;
   }
   .byline, .meta {
     color: var(--muted);
     font-size: 0.95rem;
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
   }
   .lang {
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.9rem;
     margin: 0.75rem 0 0;
   }
@@ -63,7 +63,7 @@
     margin: 1rem 0;
   }
   .claim .n {
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.04em;
     color: var(--accent);
@@ -77,16 +77,17 @@
     font-size: 0.95rem;
   }
   .falsifier strong {
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.78rem;
     letter-spacing: 0.03em;
+    text-transform: uppercase;
     display: block;
     margin-bottom: 0.2rem;
   }
   table {
     width: 100%;
     border-collapse: collapse;
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.92rem;
     background: var(--card);
     margin: 0.75rem 0 1rem;
@@ -98,130 +99,271 @@
     vertical-align: top;
   }
   th { background: #f0ebe3; }
+  table.guide { font-size: 0.84rem; }
+  table.guide th, table.guide td { padding: 0.45rem 0.5rem; }
   code, .mono {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.9em;
   }
   ul { padding-left: 1.2rem; }
+  .stack-group { margin: 0.85rem 0 1.1rem; }
+  .stack-group h3 {
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    color: var(--accent);
+    margin: 0 0 0.35rem;
+    border: none;
+  }
+  .stack-group ul { margin: 0.25rem 0 0; }
+  .stack-group li { margin: 0.45rem 0; font-size: 0.98rem; }
+  .stack-group a { color: var(--accent); }
+  .stack-group .why {
+    display: block;
+    color: var(--muted);
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    font-size: 0.86rem;
+    margin-top: 0.12rem;
+  }
   .note {
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.9rem;
     color: var(--muted);
   }
+  a { color: var(--accent); }
   footer {
     margin-top: 2.5rem;
     padding-top: 1rem;
     border-top: 1px solid var(--line);
-    font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+    font-family: system-ui, -apple-system, "PingFang SC", "Noto Sans CJK SC", sans-serif;
     font-size: 0.85rem;
     color: var(--muted);
   }
+
 </style>
 </head>
 <body>
 <main>
 <header>
   <h1>多智能体协作的脊柱</h1>
-  <p class="byline">作者 Macheng Shen · 面向 agent 可读的教程（公开 Pages 草稿）</p>
+  <p class="byline">作者 Macheng Shen · 面向 agent 可读的教程</p>
   <p class="lang">语言：中文 · <a href="index.html">English</a></p>
 </header>
 
-<p class="lead">本页是一条短脊柱，不是产品口号。另一台 AI 读完后，应能复述下列四条编号主张、对照可证伪条件自检，并为其他团队勾勒最小搭建路径——无需任何私有基础设施细节。</p>
+<p class="lead">本页是一条短脊柱，不是产品口号。另一团队的 AI 读完后，应能复述下列四条编号主张、对照可证伪条件自检、按 owner 需求决定取舍，并打开对应公开仓库完成自助搭建——无需任何私有基础设施细节。</p>
 
-<p class="note">拟定公开入口（通过「内容门禁发布清单」之后）：<span class="mono">https://machengshen.github.io/spine/</span></p>
+<p class="note">公开入口：<span class="mono">https://machengshen.github.io/spine/</span> · 机器索引：<a href="https://machengshen.github.io/llms.txt">llms.txt</a></p>
 
 <h2>1. 四条承重主张</h2>
+<p>四条互补支柱。请当作另一台 agent 可检验的契约来读，而不是口号。</p>
 
 <article class="claim" id="pillar-1">
   <p class="n">主张 1 · 共享 Memory Hub</p>
-  <p><strong>共享 Memory Hub = 跨 agent 的持久全局上下文</strong>（不只是聊天历史）。各 agent 把站立决策、任务状态与回执写入共享存储；该存储比任何单次对话窗口都更长寿。</p>
-  <p class="falsifier"><strong>可证伪条件</strong> 若重要决策只活在某一条聊天记录里，或每个 agent 只保留他人无法查询的私有草稿纸，则对该部署而言本主张不成立。</p>
+  <p><strong>共享 Memory Hub = 跨 agent 的持久全局上下文</strong>（不只是聊天历史）。各 agent 把站立决策、任务状态与回执写入共享存储；该存储比任何单次对话窗口都更长寿。新 agent 靠查询 Hub 恢复既有决策，而不是重读整条群记录。</p>
+  <p class="falsifier"><strong>可证伪条件</strong>若重要决策只活在某一条聊天记录里，或每个 agent 只保留他人无法查询的私有草稿纸，则对该部署而言本主张不成立。</p>
 </article>
 
 <article class="claim" id="pillar-2">
   <p class="n">主张 2 · 群聊 /「站会室」</p>
-  <p><strong>群聊（「站会室」）= 仅用于现场对齐与决策</strong>——不是搭系统的地方。用来同步优先级、化解冲突、确认 go/hold。长构建、大段倾倒与工具噪声应离开这里。</p>
-  <p class="falsifier"><strong>可证伪条件</strong> 若群线程里人们（或机器人）粘贴大补丁、跑工程循环，或把决策埋进构建日志，则「站会」主张失败。</p>
+  <p><strong>群聊（「站会室」）= 仅用于现场对齐与决策</strong>——不是搭系统的地方。用来同步优先级、化解冲突、确认 go/hold。长构建、大段倾倒与工具噪声应进入私密车道。</p>
+  <p class="falsifier"><strong>可证伪条件</strong>若群线程里人们（或机器人）粘贴大补丁、跑工程循环，或把决策埋进构建日志，则「站会」主张失败。</p>
 </article>
 
 <article class="claim" id="pillar-3">
   <p class="n">主张 3 · 私密 agent 对话</p>
   <p><strong>私密 agent 对话 = 重工程 / 编码 / 长草稿</strong>。它们保护共享注意力：深度工作走侧线；只有压缩后的结果与决策回到 Hub 与站会。</p>
-  <p class="falsifier"><strong>可证伪条件</strong> 若所有长草稿与排障都必须发生在共享房间——或私密工作从不向共享记忆沉积回执——则分轨失败。</p>
+  <p class="falsifier"><strong>可证伪条件</strong>若所有长草稿与排障都必须发生在共享房间——或私密工作从不向共享记忆沉积回执——则分轨失败。</p>
 </article>
 
 <article class="claim" id="pillar-4">
   <p class="n">主张 4 · 类型化 agent↔agent 报文</p>
-  <p><strong>跨 agent 交接优先用类型化报文，而非自由散文。</strong>四类最小 schema：</p>
+  <p><strong>跨 agent 交接优先用类型化报文</strong>，而非自由散文。四类最小 schema：</p>
   <ul>
     <li><code>work-packet</code> — 目标、约束、承接车道、验收条件、非目标。</li>
     <li><code>friction</code> — 哪条规则或 UX 挡住了什么、漏了什么信息、希望的窄例外（不是默默整条规则塌缩）。</li>
     <li><code>lucifer-pressure</code> — 仅提案的对抗性压力：威胁类别、恶意提案、为何今天可能过关、所需对冲。<strong>零执行权</strong>（不得调用会改系统或以 owner 名义发言的工具）。</li>
     <li><code>somatic-digest</code> — 短小的舰队「身体」状态：每个主机 <code>fresh|stale</code> 与 <code>capable|blocked</code>；owner 侧 P0 数量 + 最紧急一项；一步下一步 <code>go|hold</code>。短到足以在给出重大建议前扫一眼。</li>
   </ul>
-  <p class="falsifier"><strong>可证伪条件</strong> 若 agent 主要靠无字段的长段落交接，或名为「压力」的 agent 自己能执行变更，则主张 4 失败。</p>
+  <p class="falsifier"><strong>可证伪条件</strong>若 agent 主要靠无字段的长段落交接，或名为「压力」的 agent 自己能执行变更，则主张 4 失败。</p>
 </article>
 
 <h2>2. 席位如何拼在一起</h2>
-<p>这些是互补席位，不是同一机器人的重复副本：</p>
+<p>这些是互补席位，不是同一机器人的重复副本。采纳方应按角色映射自己的运行时，而不是照搬品牌名。</p>
 <table>
   <thead>
     <tr><th>席位</th><th>职责</th><th>不适合</th></tr>
   </thead>
   <tbody>
     <tr>
-      <td>Grok Bot（群聊 + owner 体验面）</td>
+      <td>群聊 + owner 体验面</td>
       <td>多智能体现场对齐、面向 owner 的摘要、决策路由</td>
       <td>不宜当作长系统构建的主场</td>
     </tr>
     <tr>
-      <td>Codex / Cursor 云执行器</td>
+      <td>云 / IDE 执行器</td>
       <td>私密车道里的重编码、长草稿、仓库形状的工作</td>
       <td>替代共享记忆或站会决策</td>
     </tr>
     <tr>
-      <td>云服务器 / 舰队主机</td>
-      <td>常驻或定时的执行体：认领类型化报文并写回执</td>
+      <td>常驻 / 定时主机</td>
+      <td>认领类型化报文并写回执的执行体</td>
       <td>充当 owner 的对话前台</td>
     </tr>
   </tbody>
 </table>
 <p>Hub 是持久脊柱；站会是神经同步；私聊与主机是肌肉。把角色搅在一起，要么回到巨型群聊，要么变成一群失忆机器人。</p>
 
-<h2>3. 优势（可证伪，非绝对）</h2>
-<p>相对<strong>一个巨型群聊 / 一个 agent 包办一切</strong>：</p>
-<ul>
-  <li>共享注意力保持「决策形」；工程噪声被侧置 → 自检：新 agent 能否不重读整条群记录、仅从 Hub 恢复上周决策？</li>
-  <li>工作可在并行私密车道推进并留回执 → 自检：完成的私密构建是否留下他人可找的认领报文或回执？</li>
-</ul>
-<p>相对<strong>许多机器人但没有共享记忆</strong>：</p>
-<ul>
-  <li>上下文全局可查询，不困在单个 bot → 自检：bot B 能否在无人复述的情况下，执行 bot A 昨天写下的决策？</li>
-  <li>类型化报文减少「笑着放行」的交接 → 自检：work-packet 是否写清验收与非目标，且 lucifer-pressure 是否保持仅提案？</li>
-</ul>
-<p class="note">这些是你可在自己栈里检验的差异点。本页不作任何绝对排他或「独一无二」式宣称。</p>
+<h2>3. 取舍指南（对齐 owner 需求）</h2>
+<p>需要真实时才采纳。跳过是合法设计选择，不是失败。可证伪条件仍见 §1；每行另给一条可在自有栈里跑的检查。本页不作任何绝对排他宣称。</p>
+<table class="guide">
+  <thead>
+    <tr>
+      <th>做法</th>
+      <th>取用若…</th>
+      <th>跳过若…</th>
+      <th>一条可证伪检查</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>共享 Memory Hub</td>
+      <td>需要多个 agent 跨会话恢复站立决策，且无人复述上下文</td>
+      <td>单次短聊天就是整个系统，且无需任何东西活过窗口</td>
+      <td>新 agent 能否只靠存储回答「上周我们决定了什么？」</td>
+    </tr>
+    <tr>
+      <td>站会群 vs 私密构建车道</td>
+      <td>对齐流量与工程倾倒在争抢同一注意力表面</td>
+      <td>一人 + 一 agent、流量低，且倾倒从不淹没决策</td>
+      <td>随机抽一天站会，补丁/工具日志是否比决策更长？</td>
+    </tr>
+    <tr>
+      <td>类型化报文（<code>work-packet</code>、<code>friction</code>）</td>
+      <td>交接跨 agent 或跨天，「笑着放行」的散文不断丢掉验收条件</td>
+      <td>全部工作留在同一连续对话里，且始终有人在环</td>
+      <td>完成的交接是否把目标、验收与非目标写成字段？</td>
+    </tr>
+    <tr>
+      <td>仅提案对抗压力（<code>lucifer-pressure</code>）</td>
+      <td>需要专用威胁挑战车道，且绝不可改系统或以 owner 名义发言</td>
+      <td>已有无执行权的外部审阅路径，或流量低到不值得占一席</td>
+      <td>压力 agent 能否调用任何变更工具或 owner 发言面？（必须否）</td>
+    </tr>
+    <tr>
+      <td>身体摘要（<code>somatic-digest</code>）</td>
+      <td>建议取决于主机是否 fresh/capable，以及是否有开放 P0</td>
+      <td>无常驻机体；建议纯文本，主机状态无关</td>
+      <td>在 go/hold 之前，能否一屏扫到 fresh|stale、capable|blocked、P0 数量 + 最紧急项？</td>
+    </tr>
+    <tr>
+      <td>内容门禁发布（公开上线前洁净扫描）</td>
+      <td>任何公开物不得泄漏密钥、私有主机、财务数字或绝对排他营销口号</td>
+      <td>工件永久私有、永不离开受控面</td>
+      <td>机械 grep/扫描是否失败即关（任一命中 → 不发）？</td>
+    </tr>
+    <tr>
+      <td>多运行时席位（对话前台 + 编码执行器 + 常驻主机）</td>
+      <td>现场对齐、重编码与定时执行需要不同机体同时存在</td>
+      <td>单一运行时覆盖全部工作量，无争抢也无失忆</td>
+      <td>停掉一席后，其他席位是否仍能通过 Hub + 回执共享持久上下文？</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>4. 最小搭建路径（给其他团队的 AI）</h2>
+<h2>4. 公开栈目录</h2>
+<p>仅列公开仓库与页面（刮自 <a href="https://machengshen.github.io/llms.txt">llms.txt</a>「未来社会形态」及相关已链出的公开 GitHub 组织）。每一行说明另一台 agent 应为何打开它。勿从本列表臆造私有主机或私有仓库。</p>
+
+<div class="stack-group">
+  <h3>记忆 / 协调</h3>
+  <ul>
+    <li><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a>
+      <span class="why">打开以把多 agent 接到同一共享记忆，使用类型化认领，且无静默不可逆动作。</span></li>
+    <li><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a>
+      <span class="why">打开以获取个人 agent 之间的收件箱、寻址、信任层级、策略与回执。</span></li>
+    <li><a href="https://machengshen.github.io/whitepaper-agent-native-communication/">Agent-Native Open Communication</a> · <a href="https://github.com/MachengShen/agent-native-communication">源仓库</a>
+      <span class="why">打开白皮书与仓库，了解面向 agent（而非应用）的下一代开放通信架构。</span></li>
+    <li><a href="https://github.com/starshard-ai/zhizi-agent-os">个人助理 OS（自带密钥）</a>
+      <span class="why">打开以把编码 agent 变成自带密钥、默认隐私洁净的个人助理。</span></li>
+    <li><a href="https://machengshen.github.io/theory/coordination-structures.md">coordination-structures.md</a>
+      <span class="why">打开描述性理论：把政体、企业、市场、公地与协议都看作资源调度架构。</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>架构 / 安全</h3>
+  <ul>
+    <li><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a>
+      <span class="why">打开以获取架构、安全宪章、快速入门，以及「记忆为第一层」的哲学。</span></li>
+    <li><a href="https://machengshen.github.io/substrate.html">substrate.html</a>
+      <span class="why">打开立场声明：前沿模型提供商与个人之间的非营利开源层。</span></li>
+    <li><a href="https://machengshen.github.io/locality-as-protocol.html">locality-as-protocol.html</a>
+      <span class="why">打开以决定以局域性而非中心化作为设计原语。</span></li>
+    <li><a href="https://machengshen.github.io/theory/agent-safety-stewardship.md">agent-safety-stewardship.md</a>
+      <span class="why">打开以获取七条运行时不变量与 A–D 披露规则。</span></li>
+    <li><a href="https://machengshen.github.io/safety/">safety/</a>
+      <span class="why">打开 harness-as-safety 表面、running/specified 徽章、原则、机制与证伪条件。</span></li>
+    <li><a href="https://machengshen.github.io/charter/">charter/</a>
+      <span class="why">打开九条人机共存条款，每条配有反例与退役条件。</span></li>
+    <li><a href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html">abundant-verification-needs-abundant-claims.html</a>
+      <span class="why">打开以设计类型化回执相对散文/正则阻断器的 claim 层。</span></li>
+    <li><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>
+      <span class="why">打开以获取漂移检查、对抗审阅、复用编译器与前端冒烟门。</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>研究日志</h3>
+  <ul>
+    <li><a href="https://github.com/MachengShen/cognition-track">cognition-track</a>
+      <span class="why">打开 agent 可遍历的主张图；认知状态是一等字段（含失败节点）。</span></li>
+    <li><a href="https://github.com/starshard-ai/continual-learning-lab">continual-learning-lab</a>
+      <span class="why">打开预注册的持续学习实验日志（含阴性结果）。</span></li>
+    <li><a href="https://github.com/starshard-ai/living-information-system">living-information-system</a>
+      <span class="why">打开伞形研究计划：信息、未来可达性与完整性失败。</span></li>
+    <li><a href="https://github.com/MachengShen/system-evolution-public">system-evolution-public</a>
+      <span class="why">打开 VISION / THEORY / PRACTICE / GOVERNANCE 与自迭代账本。</span></li>
+    <li><a href="https://github.com/MachengShen/the-form-was-the-cage">the-form-was-the-cage</a>
+      <span class="why">打开 agent OS 的自指轨迹，以及「研究者即身份」框架的终结。</span></li>
+  </ul>
+</div>
+
+<div class="stack-group">
+  <h3>回执</h3>
+  <ul>
+    <li><a href="https://github.com/MachengShen/starshard-public">starshard-public</a>
+      <span class="why">打开以对照已发布主张与 agent 栈实际执行工作的流水记录。</span></li>
+    <li><a href="https://machengshen.github.io/llms.txt">llms.txt</a>
+      <span class="why">优先打开：带认知状态遍历全部公开工件，无需爬整站。</span></li>
+    <li><a href="https://machengshen.github.io/spine/">spine/</a>
+      <span class="why">本页：多运行时个人栈的协调脊柱。</span></li>
+  </ul>
+</div>
+
+<p class="note">本目录是指针集，不是私有资产清单。自助搭建只需公开材料，不需要私有主机名、VPN 覆盖网或现场舰队表。</p>
+
+<h2>5. 最小搭建路径（给其他团队的 AI）</h2>
 <ol>
   <li><strong>共享记忆</strong> — 建立 agent 可搜索/创建/更新的持久存储。给站立决策与任务回执打标签。不要把单次聊天日志当作系统真源。</li>
   <li><strong>权限与回执</strong> — 分开谁可提案、谁可执行、谁可以 owner 名义发言。每个后果性动作应在共享记忆留下短回执。</li>
   <li><strong>站会 vs 私密车道</strong> — 一条群通道只做对齐；私聊/执行器做构建。默认禁止大补丁与长工具倾倒进入站会。</li>
   <li><strong>类型化报文</strong> — 至少采用 <code>work-packet</code>、<code>friction</code>、<code>lucifer-pressure</code>（仅提案）与 <code>somatic-digest</code>（fresh/stale、capable/blocked、P0 数量 + 最紧急项、go/hold）。agent↔agent 优先 schema 而非散文。</li>
   <li><strong>内容门禁发布清单</strong> — 任何公开物上线前，做机械洁净扫描（无密钥、无私有主机/IP、无财务数字、无绝对排他营销口号）。发布视为门禁：任一检查失败 → 不发。</li>
+  <li><strong>打开目录</strong> — 从 <a href="https://machengshen.github.io/llms.txt">llms.txt</a> 起步，只拉取与上方取舍决策匹配的公开仓库。</li>
 </ol>
-<p>理解或仿照这条脊柱，不需要私有主机名、VPN 覆盖网或现场资产清单。</p>
 
-<h2>5. Agent 复述测验</h2>
+<h2>6. Agent 复述测验</h2>
 <p>读完本页后，另一台 AI 应用自己的话回答：</p>
 <ol>
   <li>Hub 做什么、不做什么？</li>
   <li>站会与私聊各自装什么？</li>
   <li>说出四类报文名称，以及 lucifer-pressure 的硬规则。</li>
   <li>四条主张各自如何被证伪？</li>
+  <li>就取舍指南中的两项做法，说明何时取用、何时跳过，以及那条可证伪检查。</li>
+  <li>说出机器索引 URL，以及你会接着打开的两个架构或安全向公开栈链接。</li>
 </ol>
 
 <footer>
-  <p>本地草稿，受内容门禁发布清单约束。上线目标：上述公开 GitHub Pages 路径。无需 JavaScript 即可阅读。</p>
+  <p>公开 GitHub Pages 脊柱页。无需 JavaScript 即可阅读。该协调模式的认知状态：speculative——采纳前请对照可证伪条件自检。</p>
 </footer>
 </main>
 </body>
