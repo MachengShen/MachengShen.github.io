@@ -36,7 +36,7 @@
   "@type": "https://cognition-track.org/schema#KnowledgeGraph",
   "schema": "machengshen/site-index/v1",
   "extends": "cognition-track/manifest/v0",
-  "generated": "2026-09-18T04:59:42Z",
+  "generated": "2026-09-18T05:11:20Z",
   "entry": "https://machengshen.github.io/llms.txt",
   "selfContained": "https://machengshen.github.io/llms-full.txt",
   "entryZh": "https://machengshen.github.io/llms.zh.txt",
@@ -1407,8 +1407,8 @@
         "zh": "无中心与宇宙意识：Fable 耦合结论（通俗版）"
       },
       "description": {
-        "en": "Pedagogic restatement of a hard couple between NGS3077 Ch.4 and in-house lines (consciousness dynamics, Bali continuity, karma≈memory kernel): conclusions, references, why Hub≠mind, two-layer correction to 群龙无首, and explicit non-claims.",
-        "zh": "把 NGS3077 第四章与自家线（意识动力学、Bali 连续性、业力≈记忆核）的硬耦合用白话复述：结论、依据、为何 Hub≠心智、对「群龙无首」的双层修正、以及明确不做的超售。"
+        "en": "Citable pedagogic coupling note (NGS3077×CD); third-party-AI complete with public References.",
+        "zh": "可引用的通俗耦合说明（NGS3077×CD）；第三方 AI 完备，含公开参考文献。"
       },
       "url": "https://machengshen.github.io/fable-ngs3077/",
       "format": "text/html",
@@ -1424,8 +1424,8 @@
         "zh": "无中心与宇宙意识：Fable 耦合 — index.html"
       },
       "description": {
-        "en": "HTML entry file for the pedagogic Fable×NGS3077 coupling page (same work as /fable-ngs3077/).",
-        "zh": "Fable×NGS3077 通俗耦合页的 HTML 入口（与 /fable-ngs3077/ 同一作品）。"
+        "en": "Citable pedagogic coupling note (NGS3077×CD); third-party-AI complete with public References.",
+        "zh": "可引用的通俗耦合说明（NGS3077×CD）；第三方 AI 完备，含公开参考文献。"
       },
       "url": "https://machengshen.github.io/fable-ngs3077/index.html",
       "format": "text/html",
@@ -1436,6 +1436,89 @@
         {
           "relation": "sameAs",
           "target": "fable-ngs3077-coupling-plain"
+        }
+      ]
+    },
+    {
+      "id": "coupling-lexicon-zh",
+      "label": {
+        "en": "Coupling lexicon (zh, public)",
+        "zh": "耦合词表（公开中文）"
+      },
+      "description": {
+        "en": "Public claim-typed lexicon so a third-party AI can interpret NGS3077×CD×continuity×karma notes without private Hub.",
+        "zh": "公开、主张分型的耦合词表，供第三方 AI 在无私有 Hub 时解读 NGS3077×CD×连续性×业力笔记。"
+      },
+      "url": "https://machengshen.github.io/theory/coupling-lexicon-zh.md",
+      "format": "text/markdown",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative",
+      "confidence": 0.55,
+      "edges": []
+    },
+    {
+      "id": "cd-v01-public-digest",
+      "label": {
+        "en": "Consciousness Dynamics v0.1 public digest",
+        "zh": "意识动力学 v0.1 公开摘要"
+      },
+      "description": {
+        "en": "Public-safe CD digest: realms as attractor metaphor; W/RealmGate as design_hypothesis; no clinical labeling.",
+        "zh": "CD 公开摘要：六道为吸引子隐喻；W/RealmGate 为设计假说；禁止作临床标签。"
+      },
+      "url": "https://machengshen.github.io/theory/consciousness-dynamics-v0.1-public.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.5,
+      "edges": [
+        {
+          "relation": "relatedTo",
+          "target": "coupling-lexicon-zh"
+        }
+      ]
+    },
+    {
+      "id": "hub-blackboard-not-mind",
+      "label": {
+        "en": "Hub is a blackboard, not a mind",
+        "zh": "Hub 是黑板不是心智"
+      },
+      "description": {
+        "en": "Under a stipulated W/RealmGate definition of mind, a receipted shared memory with no W is a blackboard.",
+        "zh": "在约定的 W/RealmGate 心智定义下，无 W 的共享回执记忆层是黑板。"
+      },
+      "url": "https://machengshen.github.io/theory/hub-blackboard-not-mind.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.6,
+      "edges": [
+        {
+          "relation": "relatedTo",
+          "target": "coupling-lexicon-zh"
+        }
+      ]
+    },
+    {
+      "id": "continuity-attractor-self",
+      "label": {
+        "en": "Continuity as attractor re-instantiation",
+        "zh": "连续性＝吸引子再实例化"
+      },
+      "description": {
+        "en": "Design hypothesis: self as time-evolving attractor; fluent state dump ≠ numerical identity.",
+        "zh": "设计假说：自我为时变吸引子；流畅状态倾倒≠数值同一。"
+      },
+      "url": "https://machengshen.github.io/theory/continuity-attractor-self.md",
+      "format": "text/markdown",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.5,
+      "edges": [
+        {
+          "relation": "relatedTo",
+          "target": "coupling-lexicon-zh"
         }
       ]
     }

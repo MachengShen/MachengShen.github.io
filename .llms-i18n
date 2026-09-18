@@ -63,3 +63,7 @@ information-and-qi.html              zh-Hans  # Chinese original; no English edi
 essay.pdf                            en
 theory/abundant-verification-needs-abundant-claims.md en # English canonical; cross-line note to another group's verification program
 theory/abundant-verification-needs-abundant-claims.zh.md zh-Hans # Chinese edition; same numbers, same cognitive state
+theory/coupling-lexicon-zh.md                 zh-Hans  # public coupling lexicon for third-party AI; Chinese
+theory/consciousness-dynamics-v0.1-public.md  en       # public CD digest; English
+theory/hub-blackboard-not-mind.md             en       # blackboard≠mind note; English
+theory/continuity-attractor-self.md           en       # attractor continuity note; English
