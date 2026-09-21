@@ -466,6 +466,22 @@
       "confidence": 0.25
     },
     {
+      "id": "euler-identity-information-ontology",
+      "label": {
+        "en": "Euler's identity · information and generative mechanism",
+        "zh": "欧拉恒等式 · 信息与生成机制"
+      },
+      "description": {
+        "en": "Public note from a May 2026 AI discussion: Euler's identity as a structural hint that growth, rotation, oscillation, phase, and closure can be projections of one generative mechanism; information as perturbation of a transition operator's spectrum; memory/attention/trust/routing as modes. Exploratory, not a final physical law.",
+        "zh": "整理自 2026-05 与 AI 的讨论：欧拉恒等式作为结构提示——增长、旋转、振荡、相位、闭合可以是同一生成机制的投影；信息作为过渡算子谱的扰动；记忆/注意/信任/路由作为模态。探索性，非物理终局定律。"
+      },
+      "url": "https://machengshen.github.io/euler-identity-information-ontology.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.3
+    },
+    {
       "id": "intelligence-essay",
       "label": {
         "en": "Toward a Theory of Intelligence and Contemporary AI"

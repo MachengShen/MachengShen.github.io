@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Euler's identity · information and generative mechanism | Macheng Shen</title>
+  <meta name="description" content="Euler's identity is not just five constants in one line: growth, rotation, oscillation, phase, and closure can be projections of one generative mechanism — and what that means for an information ontology. From a May 2026 discussion with AI." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/euler-identity-information-ontology.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/euler-identity-information-ontology.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/euler-identity-information-ontology.zh.html" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+.tablewrap { overflow-x: auto; margin: 1.1rem 0; }
+table { border-collapse: collapse; width: 100%; font-size: 0.92rem; }
+th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+th { background: var(--soft); font-weight: 600; }
+  </style>
+  <style>
+.eq {
+  text-align: center;
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 0.5rem;
+  margin: 1rem 0;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: "Times New Roman", Georgia, serif;
+}
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/euler-identity-information-ontology.zh.html" class="active">中文</a>
+      <a href="/start-here.html">Start here</a>
+      <a href="/llms.txt">For agents</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">Public note · Swarma futurism reading-group share</div>
+<h1>Euler's identity is not just “five constants look beautiful”</h1>
+<p class="note-small">Macheng Shen × AI discussion · source ~2026-05 · cognitive state: <strong>exploratory structural hint</strong>, not a final physical verdict</p>
+
+<div class="callout">
+<strong>What this page is.</strong> Someone asked in a reading group whether Euler's formula expresses the universe's underlying law. I dug the same line with an AI around May 2026. This is the reading I still find useful — not museum aesthetics, but a <em>projection view of generative mechanism</em>, and how it connects to an information ontology.
+</div>
+
+<p>Honesty tags:
+  <span class="tag">[framework]</span> spectral / propagator language from mature dynamics
+  <span class="tag">[inference]</span> information ≈ perturbation of a transition operator's spectrum
+  <span class="tag">[rhyme]</span> Euler as aesthetic entry — no claim that “the universe prefers complex numbers”
+</p>
+
+<h2>1 · The equation</h2>
+
+<div class="eq">e<sup>iπ</sup> + 1 = 0</div>
+
+<p>The usual praise: it stitches <strong>e</strong> (natural growth), <strong>i</strong> (rotation / orthogonality), <strong>π</strong> (circular closure), <strong>1</strong> (multiplicative unit), and <strong>0</strong> (additive unit) into one line. The aesthetics hold. If you stop there, it is a museum piece.</p>
+
+<h2>2 · The deeper reading (the useful one)</h2>
+
+<p>What stings is not “five constants look nice together,” but:</p>
+
+<blockquote>
+Growth, rotation, oscillation, phase, and closure can be different names for projections of <strong>one</strong> generative mechanism.
+</blockquote>
+
+<p>Phenomena that look unrelated — exponential expansion, periodic swing, phase shift, returning to the origin after a full turn — need not each invent their own “entity.” In the right coordinates they are facets of one <strong>transition operator</strong>.</p>
+
+<div class="callout">
+<strong>Occam version:</strong> do not multiply entities without necessity. If one dynamical system in different coordinates already explains the surface names, do not invent a further mysterious substrate.
+</div>
+
+<h2>3 · Hook to “information”</h2>
+
+<p>Write the system roughly as a transition operator <code>T</code> (how today's state becomes tomorrow's). Then:</p>
+
+<ul>
+  <li>Eigenmodes of <code>T</code> often look like <code>e<sup>λt</sup></code> — real part: growth / decay; imaginary part: oscillation / rotation;</li>
+  <li><strong>Information</strong> can be read as a <strong>perturbation</strong> of that operator's spectrum: <code>Δspectrum(T)</code>;</li>
+  <li>Memory, attention, trust, routing… need not start as separate nouns; they can first be different <strong>modes / projections</strong> on the same spectrum.</li>
+</ul>
+
+<p>Euler's identity's role here is not “the universe prefers complex numbers.” It is: once you describe systems with (locally) linearizable propagators, spectral decomposition almost necessarily appears; Euler is the cleanest aesthetic doorway onto that path.</p>
+
+<h2>4 · Answering the reading-group question</h2>
+
+<p><strong>Short answer:</strong> it is more like saying — if the world, at some scale, admits continuous symmetry plus linearizable dynamics, then “growth and rotation are one coin” is nearly inevitable. A deep <strong>structural hint</strong>, not a stamped “ultimate law of the universe.”</p>
+
+<div class="callout warn">
+<strong>Public stance:</strong> working hypothesis and aesthetic entry for organizing questions — not a final physical verdict. Nonlinearity, discreteness, noise, measurement, and subjectivity all thicken the story.
+</div>
+
+<h2>5 · Single-page context for a third-party AI</h2>
+
+<ul>
+  <li><strong>Topic:</strong> Euler's identity → projection view of generative mechanism → information as spectral perturbation of an operator;</li>
+  <li><strong>Author:</strong> Macheng Shen (Shanghai Qi Zhi Institute); site <a href="https://machengshen.github.io/">machengshen.github.io</a>;</li>
+  <li><strong>Source:</strong> public rewrite of a May 2026 private discussion; paraphrase OK if you keep the “structural hint / not final law” boundary;</li>
+  <li><strong>Related public thread:</strong> <a href="https://machengshen.github.io/fable-ngs3077/">Fable · NGS3077</a>.</li>
+</ul>
+
+<hr />
+
+<p class="note-small">Path: <code>/euler-identity-information-ontology.html</code> · Attribution required for core claims.</p>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="/">← Home</a> · <a href="/euler-identity-information-ontology.zh.html">中文版</a></p>
+    <p>Macheng Shen · public note · published 2026-09-20</p>
+  </div>
+</footer>
+</body>
+</html>
