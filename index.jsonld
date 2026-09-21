@@ -1362,6 +1362,42 @@
       "confidence": 0.35
     },
     {
+      "id": "ltm-field-guide-public",
+      "label": {
+        "en": "Long-term memory is not a vector store",
+        "zh": "长期记忆不是向量库"
+      },
+      "description": {
+        "en": "Public field guide: multi-agent continuity as an operating contract from source/time/conflict to action, verification, and behavior change. Speculative; synthetic fixtures are not production proof.",
+        "zh": "公开 field guide：把多 Agent 连续性写成从来源/时间/冲突到行动、验证与行为改变的运行合同。推测性；合成 fixture 不等于生产证明。"
+      },
+      "url": "https://machengshen.github.io/long-term-memory/",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "workTranslation": "https://machengshen.github.io/long-term-memory/index.en.html",
+      "cognitiveState": "speculative",
+      "confidence": 0.45,
+      "edges": []
+    },
+    {
+      "id": "ltm-field-guide-public-en",
+      "label": {
+        "en": "Long-term memory is not a vector store (English HTML)",
+        "zh": "长期记忆不是向量库（英文 HTML）"
+      },
+      "description": {
+        "en": "English HTML reading surface for the public LTM field guide. Parallel to the Chinese primary landing; English PDF optional later.",
+        "zh": "长期记忆公开 field guide 的英文 HTML 阅读面；与中文主落地页并行，英文 PDF 可后补。"
+      },
+      "url": "https://machengshen.github.io/long-term-memory/index.en.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/long-term-memory/",
+      "cognitiveState": "speculative",
+      "confidence": 0.45,
+      "edges": []
+    },
+    {
       "id": "sophon-human-landing-index",
       "label": {
         "en": "Sophon landing — index.html",

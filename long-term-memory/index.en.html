@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Long-term memory is not a vector store · public field guide</title>
+<meta name="description" content="Long-term memory is not a vector store: a multi-agent continuity design that starts from source, time, and conflict, and closes through action, verification, and behavior change. English HTML edition of the 26-page public field guide.">
+<link rel="canonical" href="https://machengshen.github.io/long-term-memory/index.en.html">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/long-term-memory/index.en.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/long-term-memory/">
+<link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/long-term-memory/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Long-term memory is not a vector store">
+<meta property="og:description" content="A multi-agent continuity design from source, time, and conflict to action, verification, and behavior change. Public English HTML edition.">
+<meta property="og:url" content="https://machengshen.github.io/long-term-memory/index.en.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="zh_CN">
+<style>
+  :root {
+    --paper: #F7F8F5;
+    --ink: #141A17;
+    --ink2: #4C5852;
+    --ink3: #7E8C85;
+    --rule: #D6DDD4;
+    --brick: #A82D1C;
+    --blue: #1F4E6B;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.78;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 30px 20px 72px; }
+
+  .kicker {
+    font-size: .78rem;
+    letter-spacing: .12em;
+    color: var(--ink3);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.05rem;
+    line-height: 1.32;
+    font-weight: 700;
+    margin: 0 0 12px;
+    letter-spacing: .01em;
+  }
+  .subtitle {
+    font-size: 1.02rem;
+    color: var(--ink2);
+    margin: 0 0 14px;
+    line-height: 1.72;
+  }
+  .byline {
+    font-size: .86rem;
+    color: var(--ink3);
+    margin: 0 0 26px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .dl-block { margin: 0 0 34px; }
+  a.dl {
+    display: block;
+    text-align: center;
+    background: var(--brick);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.06rem;
+    font-weight: 600;
+    padding: 17px 20px;
+    min-height: 56px;
+    border-radius: 10px;
+    letter-spacing: .02em;
+  }
+  a.dl:active { background: #8E2415; }
+  .dl-alt { margin: 13px 0 0; text-align: center; font-size: .95rem; }
+  .dl-alt a { color: var(--blue); }
+  .dl-meta {
+    margin: 12px 0 0;
+    text-align: center;
+    font-size: .8rem;
+    color: var(--ink3);
+  }
+  .dl-meta code {
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .78rem;
+  }
+
+  .embed-wrap { display: none; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-weight: 700;
+    margin: 40px 0 14px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    letter-spacing: .02em;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+
+  .thesis {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--ink);
+    margin: 0;
+    padding: 18px 20px;
+    background: #fff;
+    border-left: 3px solid var(--brick);
+    border-radius: 0 8px 8px 0;
+  }
+
+  ol.howto { margin: 0; padding-left: 1.35em; }
+  ol.howto li { margin-bottom: 8px; }
+  ol.howto .pg { color: var(--brick); font-weight: 600; }
+  p.howto-tail { color: var(--ink2); font-size: .95rem; margin: 12px 0 0; }
+
+  .arc { margin: 0 0 22px; }
+  .arc-head {
+    font-size: .84rem;
+    letter-spacing: .06em;
+    color: var(--ink3);
+    margin: 0 0 8px;
+  }
+  .arc-head b { color: var(--ink2); font-weight: 600; letter-spacing: 0; }
+  ul.toc { list-style: none; margin: 0; padding: 0; }
+  ul.toc li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: .97rem;
+    line-height: 1.6;
+  }
+  ul.toc li:last-child { border-bottom: none; }
+  ul.toc .n {
+    flex: 0 0 auto;
+    font-family: ui-monospace, Menlo, Consolas, monospace;
+    font-size: .82rem;
+    color: var(--ink3);
+    min-width: 2.4em;
+  }
+
+  ul.gaps { margin: 0; padding-left: 1.15em; }
+  ul.gaps li { margin-bottom: 9px; font-size: .97rem; line-height: 1.72; }
+  .preface {
+    color: var(--ink2);
+    font-size: .95rem;
+    margin: 0 0 16px;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: #fff;
+    line-height: 1.72;
+  }
+
+  p { margin: 0 0 14px; }
+  a { color: var(--blue); }
+
+  footer {
+    margin-top: 46px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    color: var(--ink3);
+    font-size: .82rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 900px) {
+    .wrap { max-width: 760px; padding-top: 48px; }
+    h1 { font-size: 2.4rem; }
+    .embed-wrap {
+      display: block;
+      margin: 26px 0 0;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .embed-wrap embed {
+      display: block;
+      width: 100%;
+      height: 720px;
+      border: 0;
+    }
+  }
+
+  .lang {
+    font-size: .9rem;
+    color: var(--ink3);
+    margin: -12px 0 22px;
+  }
+  .lang a { color: var(--blue); }
+  .section-kicker {
+    font-size: .78rem;
+    letter-spacing: .08em;
+    color: var(--ink3);
+    margin: 28px 0 8px;
+    text-transform: uppercase;
+  }
+  .claim-block {
+    margin: 0 0 28px;
+    padding: 16px 18px;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+  }
+  .claim-block h3 {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    margin: 0 0 10px;
+    line-height: 1.45;
+  }
+  .claim-block .label {
+    font-size: .78rem;
+    letter-spacing: .06em;
+    color: var(--brick);
+    font-weight: 600;
+    margin: 12px 0 4px;
+  }
+  .claim-block p { margin: 0 0 8px; font-size: .95rem; }
+  .claim-block p:last-child { margin-bottom: 0; }
+  .note-box {
+    color: var(--ink2);
+    font-size: .92rem;
+    margin: 0 0 22px;
+    padding: 12px 14px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: #fff;
+    line-height: 1.7;
+  }
+  table.simple {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+    margin: 0 0 18px;
+  }
+  table.simple th, table.simple td {
+    border: 1px solid var(--rule);
+    padding: 8px 10px;
+    vertical-align: top;
+    text-align: left;
+  }
+  table.simple th { background: #fff; color: var(--ink2); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="kicker">PUBLIC FIELD GUIDE · 26 pages · version 2026-09-03</p>
+  <h1>Long-term memory is not a vector store</h1>
+  <p class="subtitle">A multi-agent continuity design that starts from source, time, and conflict, and closes through action, verification, and behavior change</p>
+  <p class="byline">Starshard Research Notes · By Macheng Shen</p>
+  <p class="lang">Language: English · <a href="index.html">中文</a></p>
+
+  <div class="dl-block">
+    <a class="dl" href="ltm-field-guide-2026-09-03.pdf" download>Download Chinese PDF (free, no login)</a>
+    <p class="dl-alt"><a href="ltm-field-guide-2026-09-03.pdf" target="_blank" rel="noopener">Open PDF in browser</a>
+      · English PDF is an optional follow-up; this HTML is the English reading surface.</p>
+    <p class="dl-meta">Chinese PDF · 26 pages · A4 · 369 KB · sha256 first 12 <code>a84d9cfb4a4d</code></p>
+  </div>
+
+  <p class="note-box"><strong>Reading contract.</strong> This is not a product brochure, and not an internal system dressed up as a finished open-source release. Novelty status: the individual components have mature precedents; the contribution claim is organizing them into one user-auditable <em>operating contract</em>. Epistemic status: a mix of synthetic invariants, single-owner historical motive, design policy, and explicit open gaps. Fixture output consistency is high; real behavioral gain, privacy bounds, and distributed safety are not yet established. What remains: matched held-out replay, external reproduction, cross-executor target-side verification, and long-horizon behavior metrics. Four fixtures passing only prove that pre-coded synthetic invariants match expected outputs — not production validity, model obedience, privacy safety, independent verification, distributed durability, or exactly-once.</p>
+
+  <h2>One sentence</h2>
+  <p class="thesis">Long-term memory is an operating contract: claims that carry source, validity window, and conflict state enter rules and permissions, then close through action, receipts, target-side verification, repair, and behavior change.</p>
+
+  <h2>How to read (10 minutes)</h2>
+  <ol class="howto">
+    <li>First read <span class="pg">p2</span> (and the contract box above) — evidence boundary</li>
+    <li>Then read <span class="pg">§ What is not closed</span> — the open organs</li>
+    <li>Finally run <span class="pg">§ Three-question self-test</span></li>
+  </ol>
+  <p class="howto-tail">For a close read, continue from the system map and Arcs A–D below. Long-term memory is not “storing the past”; it is letting a claim constrain action, accept re-verification, and be repaired, withdrawn, or retired when needed.</p>
+
+  <h2>Contents</h2>
+
+  <div class="arc">
+    <p class="arc-head">ARC A · 01–03 · <b>From retrieval to control</b></p>
+    <ul class="toc">
+      <li><span class="n">01</span><span>One agent forgetting is a chat problem; many agents forgetting together is a control problem</span></li>
+      <li><span class="n">02</span><span>Critical rules cannot wait for an agent to remember to search</span></li>
+      <li><span class="n">03</span><span>Summaries may be rewritten; raw experience must not be replaced by a summary</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC B · 04–07 · <b>Facts · time · negative knowledge</b></p>
+    <ul class="toc">
+      <li><span class="n">04</span><span>The hot/cold cut is not “important” vs “unimportant”</span></li>
+      <li><span class="n">05</span><span>Unknown is not oppose; blank is not conflict</span></li>
+      <li><span class="n">06</span><span>Do not delete failure: the system will reinvent it</span></li>
+      <li><span class="n">07</span><span>Source, confidence, and authority must be split</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC C · 08–11 · <b>Concurrency · power · completion semantics</b></p>
+    <ul class="toc">
+      <li><span class="n">08</span><span>done is not verified</span></li>
+      <li><span class="n">09</span><span>Liveness, authority, and effect admission are three axes</span></li>
+      <li><span class="n">10</span><span>Lease solves claim; fence handles late writes</span></li>
+      <li><span class="n">11</span><span>Sent is not closed-loop</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">ARC D · 12–14 · <b>From experience to behavior change</b></p>
+    <ul class="toc">
+      <li><span class="n">12</span><span>Consolidation is not summarization</span></li>
+      <li><span class="n">13</span><span>Memory finishes metabolism only when next behavior changes</span></li>
+      <li><span class="n">14</span><span>The most important capacity is honestly marking organs that are not yet closed</span></li>
+    </ul>
+  </div>
+
+  <div class="arc">
+    <p class="arc-head">Also</p>
+    <ul class="toc">
+      <li><span class="n">p19</span><span>Four replayable fixtures, each proving one boundary</span></li>
+      <li><span class="n">p20</span><span>How a claim should be downgraded</span></li>
+      <li><span class="n">p21</span><span>Not who wins — which segment of the chain is already done by whom</span></li>
+      <li><span class="n">p22</span><span>Living-system metaphor is only an engineering map</span></li>
+      <li><span class="n">p23</span><span>If starting from zero, implement these eleven interfaces first</span></li>
+    </ul>
+  </div>
+
+  <h2>System map</h2>
+  <p>Retrieval still matters, but it only answers “where might relevant past be?” Continuity must also answer four other families of questions.</p>
+  <table class="simple">
+    <tr><th>Arc</th><th>Core question</th><th>Corresponding design</th></tr>
+    <tr><td>A</td><td>Why can retrieval still lead to wrong action?</td><td>constitution, raw / projection, pre-action gate</td></tr>
+    <tr><td>B</td><td>When does a fact hold?</td><td>valid time, unknown / conflict, supersede, tombstone</td></tr>
+    <tr><td>C</td><td>How do agents avoid duplication, overreach, and false completion?</td><td>claim, lease, authority epoch, fence, receipt, verification</td></tr>
+    <tr><td>D</td><td>Did an episode actually change the system?</td><td>candidate, validation, promotion, rollback, behavior delta</td></tr>
+  </table>
+  <p><strong>Three minimal distinctions.</strong> (1) retrieved ≠ remembered: a rule that never enters the pre-action boundary is only something that might be recalled. (2) unknown / conflict, done / verified, and intent / outcome are not interchangeable. (3) What transfers is not a set of hyperparameters, but the loop “incident → parameter → anti-signal → re-verification.”</p>
+
+  <h2>Evolution (how it grew)</h2>
+  <p>It did not start as the shape it has now. April 2026 began from sleep-inspired consolidation; real use pushed the problem from “how to remember” toward “how to constrain and verify.”</p>
+  <ul class="gaps">
+    <li><strong>Raw / compiled layer.</strong> Travel and cross-device use made cross-session amnesia a real friction; offline consolidation and human adjudication were proposed.</li>
+    <li><strong>From retrieval to constraint.</strong> Critical rules cannot wait for query hit; constitution, hot/cold, and source back-pointers formed.</li>
+    <li><strong>From facts to temporality.</strong> unknown, computed conflict, supersede, tombstone, and source strength entered.</li>
+    <li><strong>From memory to control.</strong> Work claim, authority epoch, receipts, target-side re-check, and owner-stop joined the same chain.</li>
+    <li><strong>From summary to metabolism.</strong> Episodes become candidate changes, validated, rolled back, and observed until next behavior is actually different.</li>
+  </ul>
+  <p class="note-box">The most important correction: early “raw + compiled + mirror” solved the division of evidence vs abstraction, but did not automatically solve critical-rule miss-loading, temporal conflict, authority, concurrency, false completion, or stop propagation. Later mechanisms came from those failure types — not from an ideal architecture diagram drawn first. Early public point: LessWrong — Starshard: Sleep-Inspired Memory Consolidation for a Multi-Agent Personal System (2026-04-21).</p>
+
+  <h2 id="arc-a">Arc A — From retrieval to control</h2>
+
+  <div class="claim-block" id="c01">
+    <h3>01 · One agent forgetting is a chat problem; many agents forgetting together is a control problem</h3>
+    <p class="label">FAILURE</p>
+    <p>When a system executes real actions across sessions, amnesia does not only worsen answers — it causes repeat execution, revival of old conclusions, and false completion. Traditional memory often aims to “let the model find the past.” The dangerous failures happen after retrieval: who may act, whether someone is already doing it, whether the current conclusion still holds, whether completion has target-side evidence.</p>
+    <p class="label">DESIGN</p>
+    <p>Define long-term continuity as a control chain. Retrieval supplies candidate context; rules, permissions, work claim, receipts, re-verification, and repair decide what the system may do and when an action is closed.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A synthetic cross-session state machine can stably replay two families of state: query-contingent / missing / self-report vs pre-action / claimed / unverified. That proves state semantics were encoded — not that real models obey them.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If ordinary thread history or RAG, on the same held-out tasks, stably eliminates repeat execution, revived conclusions, and false completion at lower complexity, a heavier control layer is unnecessary.</p>
+  </div>
+
+  <div class="claim-block" id="c02">
+    <h3>02 · Critical rules cannot wait for an agent to remember to search</h3>
+    <p class="label">FAILURE</p>
+    <p>Semantic retrieval is query-contingent: the model first judges relevance, then the system fetches. Precisely when the model does not notice risk, prohibitions, identity bounds, and irreversible-action conditions are most likely to be absent. A rule that appears only on query hit is not an execution boundary.</p>
+    <p class="label">DESIGN</p>
+    <p>Place a small set of unmissable rules into an unbypassable pre-action gate. Implementation may be an always-loaded constitution or a mandatory policy lookup before action; the key is not “put it in the prompt,” but that the call chain cannot skip it.</p>
+    <p class="label">EVIDENCE</p>
+    <p>This is a control contract and a testable hypothesis — not the assertion that “always-loaded is always better.” Compare rule recall, violation rate, context tax, and false blocks before assigning a rule to hot vs cold tier.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If retrieval-only does not show higher miss rate on enough held-out scenes, or always-loaded rules cause worse interference and false blocks, that rule should return to on-demand tier.</p>
+  </div>
+
+  <div class="claim-block" id="c03">
+    <h3>03 · Summaries may be rewritten; raw experience must not be replaced by a summary</h3>
+    <p class="label">FAILURE</p>
+    <p>A shorter, prettier memory may wash out source, conditions, and counterexamples. If summary, profile, or rule becomes the only truth, later systems cannot know who the conclusion came from, what the situation was, or replay and repair when a projection is wrong.</p>
+    <p class="label">DESIGN</p>
+    <p>Keep append-oriented raw events; treat compiled memory, indexes, person profiles, and public text as rebuildable projections. Derived conclusions must point back to source events. Projections may update; they must not rewrite sources backwards.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A synthetic lineage fixture shows raw → compiled → redacted public projection, and verifies that after deleting a projection it can be regenerated from retained sources. Append-oriented is not permanent retention: access control, retention windows, and controlled deletion still apply.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If a projection cannot point back to sources, replay changes decision boundaries, or public derivatives mix in private originals, evidence layering has failed.</p>
+  </div>
+
+  <h2 id="arc-b">Arc B — Facts · time · negative knowledge</h2>
+
+  <div class="claim-block" id="c04">
+    <h3>04 · The hot/cold cut is not “important” vs “unimportant”</h3>
+    <p class="label">FAILURE</p>
+    <p>The real judgment is whether this information must arrive uninvited before action. Frequency and semantic similarity favor common content and can suppress rarely mentioned rules that must never be missed; loading all “important” content always dilutes attention.</p>
+    <p class="label">DESIGN</p>
+    <p>Hot tier holds only identity bounds, unmissable rules, current owner state, and the active control surface. Cold tier holds history, background knowledge, long evidence, and queryable detail. Admission is set by miss cost jointly with interference cost.</p>
+    <p class="label">EVIDENCE</p>
+    <p>The split comes from repeated calibration in real use; exact size, hyperparameters, and refresh cadence depend on a specific owner, model, and task, and should not be copied as universal parameters.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If hot tier balloons and rules dilute each other, or cold recall routinely arrives after action, admission policy needs retuning; “more context” is not an automatic fix.</p>
+  </div>
+
+  <div class="claim-block" id="c05">
+    <h3>05 · Unknown is not oppose; blank is not conflict</h3>
+    <p class="label">FAILURE</p>
+    <p>Person facts and long preferences need at least known / unknown / conflict. Simple key-value overwrite miswrites “not found” as false, lets low-confidence transcription overwrite into a new fact, or arbitrarily picks the newer sentence under conflict.</p>
+    <p class="label">DESIGN</p>
+    <p>Facts carry valid time, source, and confidence. unknown means insufficient evidence. conflict is computed from still-valid incompatible evidence relations — not declared by an agent.</p>
+    <p class="label">EVIDENCE</p>
+    <p>Deterministic temporal replay can produce known, unknown, computed conflict, and superseded. That proves projector rule consistency — not that inputs are true, and not a full bitemporal database.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If a single-value overwrite model equally preserves source, expresses unknown, and keeps consistent decision boundaries after replay, the extra states bring no net value.</p>
+  </div>
+
+  <div class="claim-block" id="c06">
+    <h3>06 · Do not delete failure: the system will reinvent it</h3>
+    <p class="label">FAILURE</p>
+    <p>Negative knowledge is not garbage; it is a control object that stops old routes from reviving. If failed experiments are deleted or left as “didn’t work well,” the next agent easily re-derives, re-commits, and re-spends the same cost under similar conditions.</p>
+    <p class="label">DESIGN</p>
+    <p>supersede closes the validity window of an old fact; tombstone stores the failed route, scope, evidence, revival conditions, and re-test conditions. It is not a permanent ban — it is a stop credential with bounds.</p>
+    <p class="label">EVIDENCE</p>
+    <p>Temporal primitives can stop superseded conclusions from entering the current projection. Whether real redo decreases still needs matched replay: repeat rate with vs without tombstone on similar tasks.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If tombstones cause many false blocks, or do not reduce route revival, shrink their scope, demote to audit-only, or retire them.</p>
+  </div>
+
+  <div class="claim-block" id="c07">
+    <h3>07 · Source, confidence, and authority must be split</h3>
+    <p class="label">FAILURE</p>
+    <p>A confident decimal neither launders a weak source nor grants action rights. Compressing provenance into a single confidence makes repeated hearsay look like independent evidence; worse, the system may sneak from “believe this sentence” to “may send mail, pay, or change permissions on it.”</p>
+    <p class="label">DESIGN</p>
+    <p>Record separately: who said it, original vs hearsay, when it is valid, how sure the system is, and who may act. Evidence updates may change belief; authority comes only from authentication and authorization paths — not from probability.</p>
+    <p class="label">EVIDENCE</p>
+    <p>Currently schema and governance contract; a unified confidence scale across models and media is not established. The conservative default is to keep source class and uncertainty rather than forge precise probabilities.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If low-quality sources can still drown first-hand evidence by volume, or high confidence automatically crosses permission gates, the belief supply chain remains unsafe.</p>
+  </div>
+
+  <h2 id="arc-c">Arc C — Concurrency · power · completion</h2>
+
+  <div class="claim-block" id="c08">
+    <h3>08 · done is not verified</h3>
+    <p class="label">FAILURE</p>
+    <p>An executor’s self-reported completion is only an event that must be checked. File exists, command returned zero, process alive, or worker said “done” can all be false positives. They do not prove target state, scope of effect, or current freshness.</p>
+    <p class="label">DESIGN</p>
+    <p>Separate intent receipt from outcome receipt. Verification must be fresh, same-scope, target-side readback or otherwise checkable evidence. “Independent” also requires different failure domains — not merely another agent reading the same log.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A synthetic receipt checker can keep self-report as done and upgrade to verified only after readback conditions hold. That proves state-transition rules — not that real observation sources are reliable.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If verified can appear without new evidence, with mismatched scope, or with expired evidence, completion semantics are already lost.</p>
+  </div>
+
+  <div class="claim-block" id="c09">
+    <h3>09 · Liveness, authority, and effect admission are three axes</h3>
+    <p class="label">FAILURE</p>
+    <p>“I cannot see it” does not imply “it is dead,” still less “a new worker may safely take over.” Disconnect, lost heartbeat, and vanished session only mean observation degraded. The old executor may still run, or may resume later and write. Treating invisibility as death creates double-write and overreach.</p>
+    <p class="label">DESIGN</p>
+    <p>liveness describes observability; authority describes who is allowed to continue; effect admission describes whether downstream resources accept its writes. Record them separately and connect them through epoch / fence.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A three-axis synthetic fixture can simultaneously represent liveness=unknown, authority=revoked, effect=blocked without smuggling any one into another.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If a system re-issues irreversible actions on heartbeat expiry alone, and downstream cannot refuse an old epoch, double effects can still occur on recovery.</p>
+  </div>
+
+  <div class="claim-block" id="c10">
+    <h3>10 · Lease solves claim; fence handles late writes</h3>
+    <p class="label">FAILURE</p>
+    <p>“Who should do it” and “who can still write” are not the same problem. After lease expiry a new worker may take over, but the old worker may not know it lost authority. If the place where effects happen does not check epoch, late writes are still accepted.</p>
+    <p class="label">DESIGN</p>
+    <p>Work claim coordinates intent; resource-side fence rejects stale epochs where side effects actually occur. Idempotency keys reduce retry duplication but do not replace causal identity, authority contraction, and owner-stop.</p>
+    <p class="label">EVIDENCE</p>
+    <p>Single-process simulation can show expected invariants: new epoch takes over; old epoch is refused. That is not evidence that production downstream resources already implement fencing, and it does not claim exactly-once.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If the fence exists only in the coordination database while real downstream still accepts old writers, the control layer has not sealed causal reach.</p>
+  </div>
+
+  <div class="claim-block" id="c11">
+    <h3>11 · Sent is not closed-loop</h3>
+    <p class="label">FAILURE</p>
+    <p>Every channel must answer: what event closes this loop? A message, task, reminder, or command being “sent” only proves intent left the sender. It may be lost, duplicated, delayed, rejected, or executed with the receipt lost.</p>
+    <p class="label">DESIGN</p>
+    <p>A closed-loop channel at least includes receipt/readback, durable state, timeout, repair/escalation, bounded retry, and final reconcile. owner-stop is an absorbing state: old watchdogs or late results must not quietly restart the same authority epoch.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A synthetic crash matrix can distinguish intent-created, delivery-unknown, effect-verified, and repair-open. Real transport reliability still depends on each adapter’s observation and downstream bounds.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If the system cannot give a unique auditable terminal state under lost receipt, duplicate delivery, and late-after-stop, it is still fire-and-forget.</p>
+  </div>
+
+  <h2 id="arc-d">Arc D — From experience to behavior change</h2>
+
+  <div class="claim-block" id="c12">
+    <h3>12 · Consolidation is not summarization</h3>
+    <p class="label">FAILURE</p>
+    <p>Compressing old text is not turning experience into verifiable system change. A summary may be shorter without answering: which action produced which outcome, which rule should change, what side effects the change causes, how to roll back on failure.</p>
+    <p class="label">DESIGN</p>
+    <p>A consolidation chain should include episode → outcome → candidate → validation → promotion / rollback. Candidate changes may enter task, behavior, audit-only, tombstone, or nothing — not always long-term rules.</p>
+    <p class="label">EVIDENCE</p>
+    <p>A deterministic routing fixture can map different evidence strengths to different terminals. Routing rules are currently explicit policy, not automatically learned; they do not prove candidate rules are safe after deployment.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If consolidation only produces smoother summaries and cannot point to changes in next behavior, stop conditions, or verification plans, it is still archiving, not learning.</p>
+  </div>
+
+  <div class="claim-block" id="c13">
+    <h3>13 · Memory finishes metabolism only when next behavior changes</h3>
+    <p class="label">FAILURE</p>
+    <p>Storage volume, recall rate, and summary quality are intermediate metrics. A system can have huge memory, pretty graphs, and high recall, and still repeat the same class of mistakes if experience never received correct credit and never entered the execution boundary.</p>
+    <p class="label">DESIGN</p>
+    <p>Write behavior change as a falsifiable delta: what specifically changes next in judgment, action, stop condition, human escalation, or tool path; also record anti-signal, re-test date, and rollback conditions.</p>
+    <p class="label">EVIDENCE</p>
+    <p>Strongest current evidence is replayable candidate-routing machinery plus historical motive; real gain needs held-out tasks, baseline contrast, and repeat-failure rate inside a time window.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If long-term storage keeps growing while matched failures, human re-explanation, and error revival do not fall, the system is only hoarding information.</p>
+  </div>
+
+  <div class="claim-block" id="c14">
+    <h3>14 · The most important capacity is honestly marking organs that are not yet closed</h3>
+    <p class="label">FAILURE</p>
+    <p>Public status must allow downgrade — not rewrite a roadmap as a completion manifesto. Architecture diagrams, hash equality, an online repo, or one demo pass are easily narratively upgraded into “the system is already reliable,” erasing the distance among code, runtime, policy, and real effect.</p>
+    <p class="label">DESIGN</p>
+    <p>Each claim uses multi-select status: code-present, runtime-probed, enforced-on-specified-path, policy, historical, unknown. New evidence may upgrade; anti-signals must be able to downgrade or withdraw.</p>
+    <p class="label">EVIDENCE</p>
+    <p>This guide includes four deterministic synthetic fixtures and checks against public materials; audience cold-read, external reproduction, and production benefit evaluation are unfinished, so it remains a public sharing draft.</p>
+    <p class="label">FALSIFIER</p>
+    <p>If a claim cannot be downgraded by new evidence, or unknown is packaged as inevitable future completion, so-called auditability is only a visual label.</p>
+  </div>
+
+  <h2 id="fixtures">Four replayable fixtures (p19)</h2>
+  <p>All artifacts are deterministic, synthetic, single-process state machines; expected output matches actual output. Each proves one boundary only.</p>
+  <table class="simple">
+    <tr><th>Arc</th><th>Invariant verified</th><th>Explicitly does not prove</th></tr>
+    <tr><td>A</td><td>Critical rules appear before action; claim vs verification states are distinguishable.</td><td>Real model obedience; concurrency safety.</td></tr>
+    <tr><td>B</td><td>known / unknown / conflict / superseded projections replay deterministically.</td><td>Input truth; full bitemporal store.</td></tr>
+    <tr><td>C</td><td>authority epoch, stale writer, owner-stop, and receipt transitions.</td><td>Fake fence ≠ production resource-side fencing; not exactly-once.</td></tr>
+    <tr><td>D</td><td>episode can route to task / behavior / audit-only / tombstone / nothing.</td><td>Hand-written policy; not real behavior gain or safe deploy.</td></tr>
+  </table>
+  <p>Why synthetic fixtures are still worth it: they compress conceptual arguments into checkable state transitions — same input must yield same projection, old epochs must be refused, unknown must not quietly become false. Lowest-layer contract tests, not real-world efficacy trials. Public re-verification status: code release still needs alignment with public-repo description and evidence bounds. This page reports artifact status; it does not pass off local runs as third-party reproduction.</p>
+
+  <h2 id="claim-grammar">Claim grammar — how to downgrade (p20)</h2>
+  <p>“Implemented” is too coarse. Multi-select status says at which layer a claim actually holds:</p>
+  <ul class="gaps">
+    <li><strong>code-present</strong> — inspectable code exists; does not mean it is called.</li>
+    <li><strong>runtime-probed</strong> — probed in a specified runtime; does not auto-extrapolate to all environments.</li>
+    <li><strong>enforced-on-specified-path</strong> — a named path is unbypassable; no guarantee outside that path.</li>
+    <li><strong>policy</strong> — behavioral contract or process agreement; without a structural gate it may be violated.</li>
+    <li><strong>historical</strong> — observation from one system at one period; not an industry rate.</li>
+    <li><strong>unknown</strong> — insufficient evidence; a gap is not a counterexample and must not be packaged as done.</li>
+  </ul>
+  <p>Upgrade/downgrade rules: an architecture diagram cannot upgrade to code-present; code existence cannot upgrade to runtime-probed; process success cannot upgrade to target-state verified; another agent reading the same log is not automatically independent verification. When an anti-signal appears, status must be downgradable. Credibility comes not from the label itself but from whether scope, time, source, re-test method, and failure conditions sit beside the label.</p>
+
+  <h2 id="prior-art">Prior art landscape (p21)</h2>
+  <p>Research cutoff 2026-09-03; based only on public first-hand documents — no inference about private implementations. The question is not who wins, but which segment of the chain is already done well by whom.</p>
+  <ul class="gaps">
+    <li><strong>ChatGPT Memory</strong> — strong at cross-chat personalization, editable memory summaries, source hints, user control. Do not infer a general event ledger, action receipts, or multi-agent permission controller.</li>
+    <li><strong>LangMem / LangGraph</strong> — hot-path tools, extraction, background consolidation, durable store, execution orchestration. Apps still must define provenance, conflict, authority, and external side-effect correctness.</li>
+    <li><strong>Letta MemFS</strong> — always-loaded system files vs on-demand files, Git history, cross-device sync, concurrent worktrees. Git history ≠ fact validity, independent verification, or resource-side fence.</li>
+    <li><strong>Graphiti / Zep</strong> — temporal knowledge graphs, fact validity, invalidation history, hybrid retrieval. Temporal validity ≠ source trust, user authorization, or action-stop semantics.</li>
+  </ul>
+  <p class="note-box">Safe composition difference: storage, retrieval, temporal facts, file memory, and background consolidation are already rich. Closing provenance, temporal conflict, authority, concurrency, action receipts, repair, and behavior change into one user-auditable chain still appears, in sampled public materials, mainly as scattered components plus application engineering. Private implementations are unknown.</p>
+
+  <h2 id="living-system">Living-system metaphor (p22)</h2>
+  <p>Metabolism, sleep, immune, apoptosis help check whether closed-loop organs are missing; they are not claims of consciousness or biological life.</p>
+  <ul class="gaps">
+    <li><strong>Sleep / consolidation</strong> — keep concrete episodes while active; offline, dedupe, find conflicts, distill candidate rules and tasks.</li>
+    <li><strong>Metabolism</strong> — experience becomes system capability only after credit assignment, validation, and behavior change.</li>
+    <li><strong>Immune boundary</strong> — keep source and uncertainty first; isolate, review, and minimize authorization before rules and permissions.</li>
+    <li><strong>Apoptosis / retirement</strong> — expired facts, failed routes, and rules should not vanish without trace; use supersede, tombstone, archive, and rollback to exit current control.</li>
+    <li><strong>Nervous system / control plane</strong> — connect perception, state, authority, action, feedback, and stop; any one agent is a replaceable executor.</li>
+    <li><strong>Homeostasis</strong> — when evidence ages, control is lost, or owner-stop appears, shrink causal scope rather than keep “green” by confidence.</li>
+  </ul>
+  <p>The metaphor is useful only if the architecture answers: where does input come from? how is it digested? how are errors isolated? how do failed organs exit? how does the system restore steady state? Without mechanism answers, drop the metaphor.</p>
+
+  <h2 id="eleven">Eleven interfaces if starting from zero (p23)</h2>
+  <p>Not a demand to build a giant platform at once. Order principle: seal irreversible errors first, then optimize recall.</p>
+  <ol class="howto">
+    <li><strong>raw event</strong> — append-oriented source records with time, actor, scope, source pointer.</li>
+    <li><strong>temporal assertion</strong> — valid time, unknown, computed conflict, supersede.</li>
+    <li><strong>projection</strong> — profile / index / public view, rebuildable, with lineage.</li>
+    <li><strong>constitution gate</strong> — unmissable rules enter unbypassable pre-action checks.</li>
+    <li><strong>work claim</strong> — claim, deadline, current owner, takeover for the same work key.</li>
+    <li><strong>authority epoch</strong> — revoke, replace, and owner-stop use monotonic epochs.</li>
+    <li><strong>effect fence</strong> — refuse stale writers where side effects happen; if impossible, honestly mark unknown.</li>
+    <li><strong>paired receipts</strong> — record intent and outcome separately; write terminal state on failure too.</li>
+    <li><strong>verification</strong> — fresh, same-scope, target-side readback; name the failure domain.</li>
+    <li><strong>closed-loop adapter</strong> — timeout, repair, bounded retry, reconcile, durable state.</li>
+    <li><strong>consolidation</strong> — episode → candidate → validation → promotion / rollback / nothing.</li>
+  </ol>
+  <p><strong>Public firewall:</strong> public projections generate only from controlled derivatives — never export directly from raw private corpora.</p>
+  <p><strong>Minimal migration:</strong> first split done / verified, unknown / false, intent / outcome; then add pre-action gate and receipts for irreversible actions; only then complex retrieval, graphs, and automatic consolidation.</p>
+
+  <h2 id="open-gaps">What is not closed</h2>
+  <p class="preface">These gaps are not footnotes — they are inputs to the next round of experiments. Four fixtures passing only prove pre-coded synthetic invariants match expected outputs; they do not prove production validity, model obedience, privacy safety, independent verification, distributed durability, or exactly-once.</p>
+  <ul class="gaps">
+    <li>Resource-side fencing across all real downstream resources; without a fence, causal reach after stop may still be unknown.</li>
+    <li>Exactly-once external side effects; idempotency keys, leases, and retries only reduce risk — they do not magically guarantee.</li>
+    <li>A unified provenance / confidence scale across models and media, and modeling of source correlation.</li>
+    <li>Long-horizon efficacy and side effects of automatic consolidation: rule bloat, error solidification, over-abstraction, identity effects.</li>
+    <li>Verification on independent failure domains: swapping the agent while reusing the same log is not independent verification.</li>
+    <li>Systematic evaluation of privacy, retention, controlled deletion, and public export.</li>
+    <li>External reproduction and real-audience cold-read; currently only deterministic artifacts that are internal public candidates.</li>
+  </ul>
+  <p class="note-box"><strong>Highest-information next experiment.</strong> Pick a held-out multi-agent task set; fix model, token budget, tools, and inputs; compare retrieval-only vs control-chain arms; measure rule miss-loading, duplicate actions, false done, human re-explanation, recovery time, and false blocks. Every failure must be written back as an auditable sample.</p>
+
+  <h2 id="self-test">Three-question self-test</h2>
+  <p>Is your system a memory store, or a continuity layer? Do not start from the tech stack — ask three questions that can be verified on the spot.</p>
+  <ol class="howto">
+    <li><strong>Fact.</strong> Who is this conclusion from? When is it valid? Is there still-valid conflicting evidence?</li>
+    <li><strong>Action.</strong> Who is doing it? Under which authority epoch? Where is the artifact? Who re-verified with same-scope, target-side evidence?</li>
+    <li><strong>Learning.</strong> What next judgment, action, stop condition, or human escalation did this episode change? If none, why keep it long-term?</li>
+  </ol>
+  <p>If two of three can only be answered by a human re-reading chat logs, you may own storage, not continuity.</p>
+  <p class="thesis">Final criterion: good long-term memory does not feel like “the system remembered a lot.” It feels like less repeated explanation, less confirming false completion, easier error tracing, a real ability to stop, and observable behavior change the next time a similar situation appears.</p>
+
+  <h2>Companion notes</h2>
+  <p>The fourteen claims will also be expanded as Chinese short notes over time; each carries a reproducible synthetic fixture, a “what it does not solve” card, and a condition that would overturn it. This English HTML is the parallel reading surface for the public field guide; an English PDF remains optional follow-up.</p>
+
+  <h2>Feedback</h2>
+  <p>Cold-read feedback welcome — passages you cannot parse, sentences that feel over-claimed, and your own failure fixtures.</p>
+  <p>
+    <a href="https://github.com/MachengShen/MachengShen.github.io/issues" target="_blank" rel="noopener">https://github.com/MachengShen/MachengShen.github.io/issues</a>
+  </p>
+
+  <h2>Primary sources</h2>
+  <ul class="gaps">
+    <li>LessWrong: Starshard — Sleep-Inspired Memory Consolidation</li>
+    <li>OpenAI: Memory FAQ</li>
+    <li>LangMem: Introduction · LangGraph: Persistence</li>
+    <li>Letta: MemFS · Zep / Graphiti: Facts and temporal validity</li>
+    <li>LoCoMo · LongMemEval · MemoryAgentBench</li>
+  </ul>
+  <p class="note-box">About this document: a public-safe research field guide. It does not include private raw records, internal paths, runtime topology, precise deployment parameters, or unauthorized historical operational fingerprints. Public code reading paths will be added after repo description and evidence status are aligned.</p>
+
+  <footer>
+    Shareable draft; external audience cold-read not finished — not an audience-validated edition.<br>
+    End line: memory is not a store; memory is that next behavior is still constrained by real experience.<br>
+    © 2026 Starshard Research Notes
+  </footer>
+
+</div>
+</body>
+</html>
