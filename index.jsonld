@@ -1345,6 +1345,39 @@
       "edges": []
     },
     {
+      "id": "sophon-human-landing",
+      "label": {
+        "en": "Sophon / 智子 — personal multi-agent system",
+        "zh": "智子 / Sophon — 个人多 Agent 系统"
+      },
+      "description": {
+        "en": "Human landing for a personal multi-agent stack: shared memory, complementary seats, safety gates. Speculative intro; prefer spine falsifiers before adopting practices.",
+        "zh": "个人多 Agent 栈人读落地页：共享记忆、互补席位、安全闸门。推测性介绍；落地前请对照 spine 可证伪条件。"
+      },
+      "url": "https://machengshen.github.io/sophon/",
+      "format": "text/html",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/sophon/index.zh.html",
+      "cognitiveState": "speculative",
+      "confidence": 0.35
+    },
+    {
+      "id": "sophon-human-landing-index",
+      "label": {
+        "en": "Sophon landing — index.html",
+        "zh": "智子落地页 — index.html"
+      },
+      "description": {
+        "en": "English HTML entry for /sophon/.",
+        "zh": "/sophon/ 英文 HTML 入口。"
+      },
+      "url": "https://machengshen.github.io/sophon/index.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "confidence": 0.35
+    },
+    {
       "id": "coordination-spine-eden-index",
       "label": {
         "en": "Coordination spine (Eden-style) — index.html",

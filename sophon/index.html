@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://machengshen.github.io/sophon/">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/sophon/">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/sophon/index.zh.html">
+<link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/sophon/">
+<title>Sophon / 智子 — a personal multi-agent system</title>
+<meta name="description" content="Sophon (智子) is Macheng Shen’s personal multi-agent system: shared memory, safety gates, and seats that work together so one person can run many AIs with less babysitting.">
+<style>
+  :root { --ink:#111; --muted:#555; --line:#e6e6e6; --bg:#fafafa; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; color:var(--ink); background:#fff; }
+  main { max-width:40rem; margin:0 auto; padding:2.5rem 1.25rem 4rem; }
+  header { display:flex; gap:1rem; align-items:center; margin-bottom:1.75rem; }
+  header img { width:72px; height:72px; }
+  h1 { font-size:1.75rem; line-height:1.2; margin:0 0 .35rem; font-weight:650; }
+  .tag { color:var(--muted); font-size:.95rem; margin:0; }
+  h2 { font-size:1.1rem; margin:2rem 0 .6rem; }
+  .muted { color:var(--muted); }
+  .card { border:1px solid var(--line); border-radius:12px; padding:1rem 1.1rem; background:var(--bg); margin:1rem 0; }
+  ul { padding-left:1.2rem; }
+  a { color:#0b57d0; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  .lang { font-size:.9rem; margin-bottom:1.25rem; }
+  footer { margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--line); font-size:.85rem; color:var(--muted); }
+  .pill { display:inline-block; border:1px solid var(--line); border-radius:999px; padding:.15rem .6rem; font-size:.8rem; color:var(--muted); margin-right:.35rem; }
+</style>
+</head>
+<body>
+<main>
+  <p class="lang"><a href="index.zh.html">中文</a> · English</p>
+  <header>
+    <img src="logo-sophon.png" alt="Sophon mark: nested orbits with one luminous node">
+    <div>
+      <h1>Sophon <span class="muted">/ 智子</span></h1>
+      <p class="tag">A personal multi-agent system — not a chatbot app.</p>
+    </div>
+  </header>
+  <p><strong>Sophon</strong> (Chinese: <strong>智子</strong>) is the name of the agent stack Macheng Shen runs day to day. The English name is for people who should not have to pronounce pinyin; the Chinese name stays 智子.</p>
+  <div class="card">
+    <p style="margin:0"><span class="pill">human-readable</span><span class="pill">speculative · check falsifiers</span></p>
+    <p style="margin:.7rem 0 0">One person. Many AI seats. One shared memory. Hard safety gates. The point is less babysitting — not more chat windows.</p>
+  </div>
+  <h2>What it is, in one screen</h2>
+  <ul>
+    <li><strong>Shared Memory Hub</strong> — standing decisions and receipts live outside any single chat, so new agents can recover context.</li>
+    <li><strong>Seats, not clones</strong> — a frontstage experience seat (e.g. Grok Bot), cloud/code executors, and always-on hosts each do different jobs.</li>
+    <li><strong>Standup vs private lanes</strong> — group chat is for alignment; heavy builds stay in private lanes.</li>
+    <li><strong>Safety as code</strong> — consequential actions go through gates (propose vs execute vs speak-as-owner), with receipts.</li>
+  </ul>
+  <h2>What it is not</h2>
+  <ul>
+    <li>Not a consumer product you can install today as an app-store download.</li>
+    <li>Not “one mega-chat that does everything.”</li>
+    <li>Not a claim that the fleet source code is all public (public research + protocols yes; private runtime stays private).</li>
+  </ul>
+  <h2>Deeper human-readable report</h2>
+  <p>The ~26-page public field guide that walks multi-agent continuity (not “vector DB = memory”) is here:</p>
+  <ul>
+    <li><a href="https://machengshen.github.io/long-term-memory/">Long-term memory field guide</a> (page)</li>
+    <li><a href="https://machengshen.github.io/long-term-memory/ltm-field-guide-2026-09-03.pdf">PDF</a></li>
+  </ul>
+  <h2>Where to go next</h2>
+  <ul>
+    <li><strong>Human / coordination spine:</strong> <a href="https://machengshen.github.io/spine/">machengshen.github.io/spine</a></li>
+    <li><strong>Technical entry (architecture + safety):</strong> <a href="https://github.com/starshard-ai/architecture-v1">starshard-ai/architecture-v1</a></li>
+    <li><strong>Public org:</strong> <a href="https://github.com/starshard-ai">github.com/starshard-ai</a></li>
+    <li><strong>Machine index:</strong> <a href="https://machengshen.github.io/llms.txt">llms.txt</a></li>
+  </ul>
+  <h2>Logo</h2>
+  <p class="muted">Interim mark (AI draft): nested orbits + one luminous node. A designer pass can replace it later.</p>
+  <footer>
+    Contact: macshen93@gmail.com · Cognitive state: speculative human intro — prefer the spine falsifiers before adopting any practice.
+  </footer>
+</main>
+</body>
+</html>
