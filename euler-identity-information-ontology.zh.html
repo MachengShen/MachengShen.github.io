@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>欧拉恒等式 · 信息与生成机制 | Macheng Shen</title>
+  <meta name="description" content="欧拉恒等式不只是五个常数的美学拼贴：增长、旋转、振荡、相位与闭合，可以是同一生成机制在不同坐标下的投影——以及这对信息本体意味着什么。整理自 2026 年 5 月与 AI 的讨论。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/euler-identity-information-ontology.zh.html" />
+  <style>
+:root {
+    --bg: #fafbfc;
+    --panel: #ffffff;
+    --text: #24292e;
+    --muted: #57606a;
+    --accent: #0969da;
+    --border: #d0d7de;
+    --soft: #f6f8fa;
+    --warn: #9a6700;
+    --warnbg: #fff8c5;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0; padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Segoe UI", "Hiragino Sans GB", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+    font-size: 16px; line-height: 1.8;
+}
+.container { max-width: 780px; margin: 0 auto; padding: 0 1.25rem; }
+.site-header { background: var(--panel); border-bottom: 1px solid var(--border); padding: 0.75rem 0; }
+.nav { display: flex; justify-content: space-between; align-items: center; }
+.nav .left, .nav .right { display: flex; gap: 0.9rem; align-items: center; flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.92rem; }
+.nav a.active, .nav a:hover { color: var(--accent); }
+main { padding: 2rem 0 3rem; }
+h1 { font-size: 1.7rem; line-height: 1.35; margin: 0.4rem 0 0.6rem; }
+h2 { font-size: 1.22rem; margin: 2.2rem 0 0.5rem; padding-bottom: 0.25rem; border-bottom: 1px solid var(--border); }
+h3 { font-size: 1.04rem; margin: 1.5rem 0 0.3rem; }
+.kicker { color: var(--muted); font-size: 0.85rem; letter-spacing: 0.05em; }
+.callout { background: var(--soft); border-left: 3px solid var(--accent); padding: 0.85rem 1.05rem; margin: 1.1rem 0; border-radius: 0 4px 4px 0; }
+.callout.warn { background: var(--warnbg); border-left-color: var(--warn); }
+.footer { color: var(--muted); font-size: 0.9rem; padding: 1.5rem 0 2rem; border-top: 1px solid var(--border); margin-top: 2.5rem; }
+ul, ol { padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+code { background: var(--soft); padding: 0.1em 0.35em; border-radius: 3px; font-size: 0.9em; }
+pre { background: var(--soft); border: 1px solid var(--border); padding: 0.7rem 0.9rem; border-radius: 4px; overflow-x: auto; font-size: 0.88rem; line-height: 1.6; }
+a { color: var(--accent); }
+.note-small { color: var(--muted); font-size: 0.88rem; }
+.tag { display: inline-block; font-size: 0.75rem; padding: 0.05rem 0.45rem; border-radius: 10px; background: var(--soft); border: 1px solid var(--border); color: var(--muted); vertical-align: 0.1em; }
+blockquote { margin: 1rem 0; padding: 0.2rem 0 0.2rem 1rem; border-left: 3px solid var(--border); color: var(--muted); }
+hr { border: 0; border-top: 1px solid var(--border); margin: 2.2rem 0; }
+.eq {
+  text-align: center;
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
+  padding: 0.9rem 0.5rem;
+  margin: 1rem 0;
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: "Times New Roman", "Songti SC", Georgia, serif;
+}
+.refs { font-size: 0.9rem; color: var(--muted); }
+.refs li { margin-bottom: 0.3rem; }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav">
+    <div class="left">
+      <a href="/">Home</a>
+      <a href="/start-here.zh.html">从这里开始</a>
+      <a href="/fable-ngs3077/">Fable · NGS3077</a>
+      <a href="/llms.zh.txt">给 agent</a>
+    </div>
+    <div class="right">
+      <a href="mailto:macshen93@gmail.com">macshen93@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+<div class="kicker">集智 · 未来学读书会札记 · 公开整理</div>
+<h1>欧拉恒等式说的，不只是「五个常数很美」</h1>
+<p class="note-small">Macheng Shen × AI 讨论整理 · 源对话约 2026-05 · 认知状态：<strong>探索性结构提示</strong>，非物理终局判决</p>
+
+<div class="callout">
+<strong>这一页是什么。</strong> 有人在读书会里问：欧拉公式是不是在表达宇宙底层规律？我约在 2026 年 5 月和 AI 深挖过同一条线。这里给出当时我认为真正有用的读法——不是博物馆美学，而是「生成机制的投影观」，以及它和信息本体怎么接上。
+</div>
+
+<p>诚实度标注：
+  <span class="tag">[框架]</span> 谱 / 传播子语言来自成熟动力学
+  <span class="tag">[推断]</span> 信息 = 对过渡算子谱的扰动
+  <span class="tag">[韵脚]</span> 欧拉作为美学入口，不主张「宇宙偏爱复数」
+</p>
+
+<h2>一 · 先写公式</h2>
+
+<div class="eq">e<sup>iπ</sup> + 1 = 0</div>
+
+<p>常见赞美是：它把 <strong>e</strong>（自然增长）、<strong>i</strong>（旋转 / 正交）、<strong>π</strong>（圆周闭合）、<strong>1</strong>（乘法单位）、<strong>0</strong>（加法单位）缝在一行里。美学成立；若停在这里，它只是展品。</p>
+
+<h2>二 · 更深一层（我认为有用的读法）</h2>
+
+<p>真正刺人的，不是「五个常数凑在一起很美」，而是：</p>
+
+<blockquote>
+增长、旋转、振荡、相位、闭合，可以是同一生成机制在不同投影下的名字。
+</blockquote>
+
+<p>表面上看起来完全不同的现象——指数膨胀、周期摆动、相位偏移、绕一圈回到原点——未必需要各自发明一套「实体」。在合适的坐标里，它们是同一个<strong>过渡算子</strong>的不同侧面。</p>
+
+<div class="callout">
+<strong>Occam 版：</strong>不要无谓地增加实体。能用同一动力学系统的不同坐标说清楚的，就不要再发明一层神秘基质。
+</div>
+
+<h2>三 · 和「信息」怎么接上</h2>
+
+<p>若把系统粗写成「过渡算子」<code>T</code>（今天的状态如何变成明天的状态），那么：</p>
+
+<ul>
+  <li><code>T</code> 的本征模常常长得像 <code>e<sup>λt</sup></code>——实部管增长 / 衰减，虚部管振荡 / 旋转；</li>
+  <li>所谓<strong>信息</strong>，可以读成对这个算子谱的<strong>扰动</strong>：<code>Δspectrum(T)</code>；</li>
+  <li>记忆、注意、信任、路由……不必先当成一堆独立名词，可以先当成同一谱上的不同<strong>模态 / 投影</strong>。</li>
+</ul>
+
+<p>欧拉恒等式在这里的角色，不是「宇宙偏爱复数」，而是：一旦你愿意用（局部）可线性化的传播子描述系统，谱分解几乎必然出现；欧拉公式是这条路上最干净的美学入口。</p>
+
+<h2>四 · 回答读书会里的那句问</h2>
+
+<p><strong>短答：</strong>它更像在表达——若世界在某个尺度上可用连续对称 + 线性化动力学来描述，那么「增长与旋转是同一枚硬币」几乎不可避免。它是深刻的<strong>结构提示</strong>，不是已盖章的「宇宙终极定律」。</p>
+
+<div class="callout warn">
+<strong>公开立场：</strong>这是工作假说与审美入口，用来组织追问；不是物理终局判决。非线性、离散、噪声、测量与主体性，都会让故事变厚。
+</div>
+
+<h2>五 · 给第三方 AI 的单页上下文</h2>
+
+<ul>
+  <li><strong>主题：</strong>欧拉恒等式 → 生成机制的投影观 → 信息作为算子谱扰动；</li>
+  <li><strong>作者：</strong>沈马成（上海期智研究院）；个人页 <a href="https://machengshen.github.io/">machengshen.github.io</a>；</li>
+  <li><strong>来源：</strong>2026-05 私人讨论的公开整理版；可二次转述，请保留「结构提示 / 非终局定律」边界；</li>
+  <li><strong>相关公开线索：</strong><a href="https://machengshen.github.io/fable-ngs3077/">Fable · NGS3077</a>。</li>
+</ul>
+
+<hr />
+
+<p class="note-small">页面路径：<code>/euler-identity-information-ontology.zh.html</code> · 保留署名即可转述核心论点。</p>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p><a href="/">← 返回主页</a> · <a href="/start-here.zh.html">从这里开始</a></p>
+    <p>Macheng Shen · 公开短文 · 2026-09-20 整理上线</p>
+  </div>
+</footer>
+</body>
+</html>
