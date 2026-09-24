@@ -36,7 +36,7 @@
   "@type": "https://cognition-track.org/schema#KnowledgeGraph",
   "schema": "machengshen/site-index/v1",
   "extends": "cognition-track/manifest/v0",
-  "generated": "2026-09-24T14:48:56Z",
+  "generated": "2026-09-24T15:01:13Z",
   "entry": "https://machengshen.github.io/llms.txt",
   "selfContained": "https://machengshen.github.io/llms-full.txt",
   "entryZh": "https://machengshen.github.io/llms.zh.txt",
@@ -956,6 +956,22 @@
       "url": "https://machengshen.github.io/whitepaper-agent-native-communication/",
       "inLanguage": "zh-CN",
       "cognitiveState": "speculative"
+    },
+    {
+      "id": "agent-native-comm-protocol-entry",
+      "label": {
+        "en": "Agent-to-agent communication · privacy-policy gated knowledge share",
+        "zh": "Agent 间通信协议 · Privacy Policy 门控知识共享"
+      },
+      "description": {
+        "en": "Paste-ready public entry for the open personal-agent communication layer: local Privacy Policy / AgentPolicy gates which technical experience may be shared with another person's agent; links SPEC-0001, SPEC-0003, INTEGRATION, and Starshard Communication.",
+        "zh": "可贴分享的公开入口：个人 AI agent 开放通信层；本地 Privacy Policy / AgentPolicy 门控可共享的技术经验；链向 SPEC-0001、SPEC-0003、INTEGRATION 与 Starshard Communication。"
+      },
+      "url": "https://machengshen.github.io/agent-comm-protocol.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/agent-comm-protocol.zh.html"
     },
     {
       "id": "starshard-architecture",

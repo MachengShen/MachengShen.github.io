@@ -74,3 +74,5 @@ theory/continuity-attractor-self.md           en       # attractor continuity no
 long-term-memory/ltm-field-guide-2026-09-03.pdf zh-CN
 observer-local-time-objectivity.html       en       # English canonical; no-shared-clock / objectivity note
 observer-local-time-objectivity.zh.html    zh-Hans  # Chinese edition; same fleet-ruled gates and refusal
+agent-comm-protocol.html                 en       # English canonical; agent↔agent privacy-policy gated share entry
+agent-comm-protocol.zh.html              zh-Hans  # Chinese edition; paste-ready for collaborator share

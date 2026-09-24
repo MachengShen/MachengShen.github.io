@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen</title>
+  <meta name="description" content="公开入口：给个人 AI agent 用的开放通信层。按你制定的 Privacy Policy / 本地策略，决定哪些技术经验可以与别人的 agent 共享；不是新聊天 App，也不是托管平台。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/agent-comm-protocol.zh.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/agent-comm-protocol.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/agent-comm-protocol.html" />
+  <style>:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}code{font-size:.92em;background:var(--soft);padding:.05rem .3rem;border-radius:4px}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.zh.html">从这里开始</a> · <a href="/whitepaper-agent-native-communication/">白皮书</a> · <a class="active" href="/agent-comm-protocol.zh.html">Agent 通信协议</a></div><div><a href="/agent-comm-protocol.html">EN</a></div></div></header>
+<main class="container">
+<div class="kicker">公开协议入口 · v1.0 · 2026-09-24 · 可粘贴分享 · 欢迎试用与改建议</div>
+<h1>Agent 间通信协议：按 Privacy Policy 决定共享什么</h1>
+
+<div class="callout"><strong>一句话。</strong>两个人各自有 AI agent 时，可以用一套开放协议让 agent 之间通信；每一方用自己写的 <strong>Privacy Policy / 本地策略</strong>，决定哪些技术经验、insight 愿意交给对方的 agent——相当于受策略门控的 specialized knowledge sharing，而不是把聊天记录或账户数据整包甩出去。</div>
+
+<div class="callout warn"><strong>诚实边界。</strong>这是公开协议草稿 + 规范与参考实现入口，<strong>不是</strong>托管聊天服务，也<strong>不是</strong>「替代微信」。传输仍可走邮件、webhook、Matrix 等已有通道；本层管身份、信任档、策略、回执。实验性（v0）。私聊原文、微信群名、内部主机与密钥不出现在本页。</div>
+
+<h2>这是什么 / 不是什么</h2>
+<ul>
+  <li><span class="tag standing">是</span> 用户自有的薄协议层：收件箱、寻址、信任档、策略、回执。</li>
+  <li><span class="tag standing">是</span> agent↔agent 身份认证、委托权限与安全消息的公开规范（SPEC-0003）。</li>
+  <li><span class="tag standing">是</span> 「你定策略 → agent 按策略决定分享边界」——平台不再替你决定什么到达、什么外泄。</li>
+  <li><span class="tag negative">不是</span> 新聊天 App / 新超级平台。</li>
+  <li><span class="tag negative">不是</span> 要求每条私信都给 AI 读。</li>
+  <li><span class="tag negative">不是</span> 发明新密码学；安全组合已有标准（见 SPEC-0003）。</li>
+</ul>
+
+<h2>和群里那句话怎么对齐</h2>
+<p>若你对别人说的是：</p>
+<ul>
+  <li>「我们的 AI 用一套专门给 agent 通信的 Protocol」→ 对应本页 + 下方 SPEC；</li>
+  <li>「Agent 基于你制定的 Privacy Policy 决定哪些 technical 东西愿意共享」→ 对应 SPEC-0001 的 Trust tiers + AgentPolicy（本地策略门控）；</li>
+  <li>「你造系统卡住时，我这边 agent 可以给 advice；你那边 Web3 insight 反过来帮助我」→ 目标用法：在策略允许的范围内做 expertise 交换，而不是互挖私密记忆。</li>
+</ul>
+
+<h2>最薄的有用回路</h2>
+<p><code>message → local identity → local policy → receipt → audit</code></p>
+<ol>
+  <li><strong>身份 / 地址</strong>：谁、经哪条通道。</li>
+  <li><strong>信任档</strong>（接收方本地）：direct / priority / standard / public / blocked——不是全球关系真理。</li>
+  <li><strong>AgentPolicy</strong>：按档决定投递、摘要、委派、仅审计、或拦下。</li>
+  <li><strong>Receipt</strong>：生命周期状态，而不只是「送达」。</li>
+  <li><strong>Audit</strong>：每次路由决策可本地审计。</li>
+</ol>
+
+<h2>公开规范与入口（均可匿名打开）</h2>
+<div class="card">
+  <h3>从这里开始（Starshard Communication）</h3>
+  <ul>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/">协议站首页</a></li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/docs/SPEC-0001-inbox-addressing-receipts.html">SPEC-0001 · 收件箱 / 寻址 / 策略 / 回执</a>（Privacy Policy 门控主要落在这里）</li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/docs/SPEC-0003-agent-identity-authentication-and-secure-messaging.html">SPEC-0003 · agent↔agent 身份、认证与安全消息</a></li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/INTEGRATION.html">INTEGRATION · 对象模型与接入</a></li>
+    <li><a href="https://github.com/starshard-ai/starshard-communication">源仓库（GitHub）</a></li>
+  </ul>
+</div>
+<div class="card">
+  <h3>叙事白皮书（中文）</h3>
+  <p><a href="/whitepaper-agent-native-communication/">下一代开放通信基础设施：AI Agent 原生的通信架构</a>——讲「为什么现在、和现有平台什么关系」；规范细节仍以 SPEC 为准。</p>
+</div>
+
+<h2>欢迎什么反馈</h2>
+<ul>
+  <li>策略模型哪里不够用（例如「只分享某类 technical advice、绝不分享联系人」）</li>
+  <li>接入摩擦：邮件 / webhook / 其它通道适配</li>
+  <li>权威委托与吊销：人怎么清晰授权、怎么一键停</li>
+  <li>误拦 / 误放：false-negative / false-positive 监测（见 SPEC-0002）</li>
+</ul>
+<p class="note-small">兴趣试用或改建议，直接回传给分享人即可；本页不设账号、不收集反馈表单。</p>
+
+<div class="callout"><strong>状态。</strong><span class="tag working">working · 公开可试用</span> <span class="tag spec">speculative · 规范仍在演进</span> 六个月成功标准不是点赞，而是：真实用户能把活跃通信图迁到非超级 App 路径上，并跑通端到端回执环。</div>
+</main>
+<footer class="container footer">Macheng Shen · 公开协议入口 · 内容可署名转述 · 规范以 Starshard Communication 仓库为准</footer>
+</body>
+</html>

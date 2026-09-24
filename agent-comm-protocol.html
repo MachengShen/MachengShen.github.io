@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen</title>
+  <meta name="description" content="Public entry for an open communication layer for personal AI agents. Your local Privacy Policy / AgentPolicy decides which technical experience may be shared with another person's agent — not a chat app, not a hosted platform." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/agent-comm-protocol.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/agent-comm-protocol.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/agent-comm-protocol.zh.html" />
+  <style>:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}code{font-size:.92em;background:var(--soft);padding:.05rem .3rem;border-radius:4px}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}</style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.html">Start here</a> · <a href="/whitepaper-agent-native-communication/">Whitepaper</a> · <a class="active" href="/agent-comm-protocol.html">Agent comm protocol</a></div><div><a href="/agent-comm-protocol.zh.html">中文</a></div></div></header>
+<main class="container">
+<div class="kicker">Public protocol entry · v1.0 · 2026-09-24 · paste-ready · feedback welcome</div>
+<h1>Agent-to-agent communication: privacy-policy gated knowledge share</h1>
+
+<div class="callout"><strong>In one line.</strong> When two people each run a personal AI agent, an open protocol lets those agents talk; each side's own <strong>Privacy Policy / local AgentPolicy</strong> decides which technical experience or insight may cross the boundary — specialized knowledge sharing under policy gates, not dumping chat logs or account data.</div>
+
+<div class="callout warn"><strong>Honest boundary.</strong> This is a public protocol draft plus specs and a reference path — <strong>not</strong> a hosted chat service and <strong>not</strong> a WeChat replacement. Transports stay email, webhooks, Matrix, and so on; this layer owns identity, trust tiers, policy, and receipts. Experimental (v0). Private chat dumps, group names, hosts, and secrets do not appear here.</div>
+
+<h2>What this is / is not</h2>
+<ul>
+  <li><span class="tag standing">is</span> a user-owned thin layer: inbox, addressing, trust tiers, policy, receipts.</li>
+  <li><span class="tag standing">is</span> public agent↔agent identity, authentication, delegated authority, and secure messaging (SPEC-0003).</li>
+  <li><span class="tag standing">is</span> “you write the policy → the agent shares only within that envelope.”</li>
+  <li><span class="tag negative">not</span> a new chat app or super-platform.</li>
+  <li><span class="tag negative">not</span> a demand that every private message be read by AI.</li>
+  <li><span class="tag negative">not</span> a new crypto suite; SPEC-0003 composes existing standards.</li>
+</ul>
+
+<h2>Thinnest useful loop</h2>
+<p><code>message → local identity → local policy → receipt → audit</code></p>
+<ol>
+  <li><strong>Identity / address</strong> — who, over which channel.</li>
+  <li><strong>Trust tiers</strong> (recipient-local) — direct / priority / standard / public / blocked.</li>
+  <li><strong>AgentPolicy</strong> — per-tier deliver, digest, delegate, audit-only, or block.</li>
+  <li><strong>Receipt</strong> — lifecycle state, not merely “delivered.”</li>
+  <li><strong>Audit</strong> — every routing decision locally auditable.</li>
+</ol>
+
+<h2>Public specs (all open without login)</h2>
+<div class="card">
+  <ul>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/">Starshard Communication home</a></li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/docs/SPEC-0001-inbox-addressing-receipts.html">SPEC-0001 · inbox / addressing / policy / receipts</a> (where the privacy-policy gate primarily lives)</li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/docs/SPEC-0003-agent-identity-authentication-and-secure-messaging.html">SPEC-0003 · agent↔agent identity, auth, secure messaging</a></li>
+    <li><a href="https://starshard-ai.github.io/starshard-communication/INTEGRATION.html">INTEGRATION guide</a></li>
+    <li><a href="https://github.com/starshard-ai/starshard-communication">Source repository</a></li>
+    <li>Chinese narrative whitepaper: <a href="/whitepaper-agent-native-communication/">Agent-native open communication</a></li>
+  </ul>
+</div>
+
+<div class="callout"><strong>Status.</strong><span class="tag working">working · public try</span> <span class="tag spec">speculative · specs still evolving</span> Success is an end-to-end receipt loop on non-super-app paths — not stars.</div>
+</main>
+<footer class="container footer">Macheng Shen · public protocol entry · cite freely · specs authoritative at Starshard Communication</footer>
+</body>
+</html>
