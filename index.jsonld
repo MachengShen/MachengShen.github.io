@@ -498,6 +498,22 @@
       "workTranslation": "https://machengshen.github.io/theory-mainline-index.zh.html"
     },
     {
+      "id": "information-dynamics-ledger",
+      "label": {
+        "en": "Information Dynamics research ledger · future reachability",
+        "zh": "Information Dynamics 研究台账 · 未来可达性"
+      },
+      "description": {
+        "en": "Bilingual living ledger for the public Information Dynamics mainline: status-tagged claims, a plain-language reachability-set definition, negative results, site notes, the public arc of The Reachable World, known gaps, and public literature anchors.",
+        "zh": "Information Dynamics 公开主线的双语活台账：带状态的主张、可达集人话定义、负面结果、站内笔记、《可达的世界》公开弧线、已知缺口与公网文献锚点。"
+      },
+      "url": "https://machengshen.github.io/information-dynamics-ledger.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/information-dynamics-ledger.zh.html"
+    },
+    {
       "id": "intelligence-essay",
       "label": {
         "en": "Toward a Theory of Intelligence and Contemporary AI"
