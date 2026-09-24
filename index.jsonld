@@ -482,6 +482,22 @@
       "confidence": 0.3
     },
     {
+      "id": "theory-mainline-index",
+      "label": {
+        "en": "Theory mainline index · information ontology",
+        "zh": "理论主线索引 · 信息本体"
+      },
+      "description": {
+        "en": "Shared-interest index packet (not a treatise): four load-bearing threads, numbered claims with standing/working/speculative tags, discussion hooks, and anti-conspiracy discipline. Engineering branches and applied forks demoted.",
+        "zh": "共同兴趣扫描用的索引包（不是论文）：四条承重线程、编号命题、讨论钩子与防阴谋论味纪律。工程分支与应用叉降级。"
+      },
+      "url": "https://machengshen.github.io/theory-mainline-index.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/theory-mainline-index.zh.html"
+    },
+    {
       "id": "intelligence-essay",
       "label": {
         "en": "Toward a Theory of Intelligence and Contemporary AI"
