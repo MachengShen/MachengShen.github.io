@@ -488,8 +488,8 @@
         "zh": "理论主线索引 · 信息本体"
       },
       "description": {
-        "en": "Shared-interest index packet (not a treatise): four load-bearing threads, numbered claims with standing/working/speculative tags, discussion hooks, and anti-conspiracy discipline. Engineering branches and applied forks demoted.",
-        "zh": "共同兴趣扫描用的索引包（不是论文）：四条承重线程、编号命题、讨论钩子与防阴谋论味纪律。工程分支与应用叉降级。"
+        "en": "Plain-language shared-interest guide: a six-term glossary, four load-bearing threads, eleven claims with limits and pushback questions, a status legend, branch boundaries, discussion hooks, and public further reading. Engineering branches and applied forks are not ontology evidence.",
+        "zh": "面向朋友共同兴趣扫描的人话指南：六词术语表、四条承重线程、十一条带边界与反驳入口的命题、状态图例、主线与分支区隔、讨论钩子及本站延伸阅读。工程分支与应用叉不是本体证据。"
       },
       "url": "https://machengshen.github.io/theory-mainline-index.html",
       "format": "text/html",

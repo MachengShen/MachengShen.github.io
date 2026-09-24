@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>理论主线索引 · 信息本体与宇宙底层规律 | Macheng Shen</title>
-  <meta name="description" content="以信息为本体的宇宙底层规律：四条承重线程、主线索引、讨论钩子与纪律。索引包，不是论文。" />
+  <meta name="description" content="信息本体论的公开人话指南：术语表、四条承重线程、十一条可讨论命题、主线与分支边界、反驳入口和本站延伸阅读。" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://machengshen.github.io/theory-mainline-index.zh.html" />
   <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/theory-mainline-index.zh.html" />
@@ -66,6 +66,11 @@ a { color: var(--accent); }
   border: 1px solid var(--border); border-radius: 8px; background: var(--panel);
   padding: 0.9rem 1rem; margin: 0.7rem 0;
 }
+.entry p { margin: 0.55rem 0 0; }
+.glossary {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.65rem;
+}
+.glossary .thread { margin: 0; }
 .entry .meta { color: var(--muted); font-size: 0.88rem; margin-top: 0.35rem; }
 .hooks li { margin-bottom: 0.75rem; }
 .toc { background: var(--soft); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1.1rem; }
@@ -77,6 +82,8 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.55rem; text-align: 
 th { background: var(--soft); }
 @media (max-width: 640px) {
   .hide-sm { display: none; }
+  .glossary { grid-template-columns: 1fr; }
+  .video-table th:nth-child(n+3), .video-table td:nth-child(n+3) { display: none; }
 }
   </style>
 </head>
@@ -99,7 +106,7 @@ th { background: var(--soft); }
 
 <main class="container">
 
-<div class="kicker">索引包 · v1.1 · 2026-09-24 · 公开人话版</div>
+<div class="kicker">索引包 · v1.2 · 2026-09-24 · 公开人话充实版</div>
 <h1>理论主线索引：以信息为本体的宇宙底层规律</h1>
 <p class="note-small">沈马成 · 用途：共同兴趣扫描用的<strong>索引 + 钩子</strong>，不是论文、不是宣言。认知状态：工作假说与结构提示。</p>
 
@@ -114,14 +121,31 @@ th { background: var(--soft); }
 <nav class="toc" aria-label="目录">
   <strong>目录</strong>
   <ol>
+    <li><a href="#read">怎么读这一页</a></li>
+    <li><a href="#glossary">六个先用得上的词</a></li>
     <li><a href="#spine">主线脊柱（四线程）</a></li>
     <li><a href="#index">主线索引</a></li>
-    <li><a href="#discipline">纪律</a></li>
+    <li><a href="#branches">主线与分支</a></li>
+    <li><a href="#discipline">讨论纪律</a></li>
     <li><a href="#hooks">共同兴趣钩子</a></li>
     <li><a href="#videos">视频对齐（待补）</a></li>
-    <li><a href="#public">公开入口</a></li>
+    <li><a href="#public">延伸阅读</a></li>
   </ol>
 </nav>
+
+<h2 id="read">0. 怎么读这一页</h2>
+<p><span class="tag standing">standing</span> 表示这条是当前框架的固定路标；<span class="tag working">working</span> 表示值得认真发展、但仍要接受形式化或证据检验；<span class="tag spec">speculative</span> 表示探索性的桥或应用，随时可能降级或放弃。它们标的是<strong>认知状态</strong>，不是“真理等级”。</p>
+<p>第一次读不必从头同意到尾。请先从索引或讨论钩子里挑 <strong>2–3 个</strong>你真正在意的问题：一个你觉得有力量，一个你觉得可疑，再加一个可能与自己领域相连的入口；从反例开始聊通常更有收获。</p>
+
+<h2 id="glossary">术语表：六个先用得上的词</h2>
+<div class="glossary">
+  <div class="thread"><strong>it-from-bit</strong>一种提问方向：我们称为“物”的现实，是否要通过可区分、可记录的信息关系才获得确定意义。它不是“宇宙就是电脑”的缩写。</div>
+  <div class="thread"><strong>退相干历史（decoherent histories）</strong>量子系统与环境相互作用后，某些历史彼此不再产生可见干涉，于是能像互不混淆的经典故事那样被谈论。它帮助解释经典外观，但不自动解决所有测量问题。</div>
+  <div class="thread"><strong>可达集（reachability set）</strong>从一个当前状态出发，在给定规律与资源下，未来真正可能到达的状态集合。信息若有物理作用，应当能改变这个集合，而不只是换一种描述。</div>
+  <div class="thread"><strong>粗粒化 / RG</strong>粗粒化是忽略细节、保留大尺度有效变量；重整化群（RG）研究描述随尺度变化时，哪些结构会保留下来。这里关心的是：稳定规律是否来自有纪律的信息舍弃。</div>
+  <div class="thread"><strong>态射 / 范畴优先</strong>先问对象之间允许哪些变换、这些变换怎样复合，再问对象“究竟是什么”。这是组织解释的优先级，不是声称对象不存在。</div>
+  <div class="thread"><strong>编码 ≠ 本体</strong>一种系统可以忠实编码另一种系统的部分结构，却不因此成为同一种存在。模型能算对，不等于它已经告诉我们世界由什么构成。</div>
+</div>
 
 <h2 id="spine">1. 主线脊柱（四条承重线程）</h2>
 <p>每条索引条目至少挂上其中一条：</p>
@@ -138,52 +162,71 @@ th { background: var(--soft); }
 
 <div class="entry">
   <strong>2.1 理论主线 = 信息本体 / 宇宙底层规律</strong>
+  <p>主张的核心不是“信息很有用”，而是物理现实的基本说明可能应从可区分性、关系与合法变换开始。它不声称万物只是文字、数字或计算机里的比特。朋友可以追问：这种说法比普通物理语言多解释了什么，又允许什么观察把它判错？</p>
   <div class="meta">总纲 · <span class="tag standing">standing</span></div>
 </div>
 <div class="entry">
   <strong>2.2 记录 / 关联使现实确定；宇宙可作分布式记忆直觉</strong>
+  <p>这条把“确定发生过”与世界中留下的稳定关联联系起来：痕迹可以散布在环境里，而不必等一个人来观看。它不等于说宇宙有人的记忆或意图，“分布式记忆”只是帮助思考记录的直觉。可以反问：什么物理条件让相关性配得上叫记录，短暂纠缠又为何不够？</p>
   <div class="meta">T1 · <span class="tag working">working</span> · 直觉 ≠ 终局定律</div>
 </div>
 <div class="entry">
   <strong>2.3 Information Dynamics：lawful update；信息改变未来可达性</strong>
+  <p>这里把动力学理解为受规律约束的更新，并追问信息的有无是否会改变系统下一步能做到什么。它不把“信息”当作脱离能量、载体与约束的魔法力量。最直接的质疑是要求给出两个物理上可区分的可达集，而不只是两种描述方式。</p>
   <div class="meta">T2 · <span class="tag working">working</span> · 主线第二层；形式化仍在压实</div>
 </div>
 <div class="entry">
   <strong>2.4 《可达的世界》十四篇 = reachability 连续科普包</strong>
+  <p>这个内部系列尝试把“状态是什么、限制是什么、未来哪些路径仍开放”串成连续的人话路线。它是概念教学包，不是已经完成同行评议的理论，也不在本页提供外链。朋友可以检查十四篇是否真的共享一个可操作的可达性定义，还是只共享了一个好听的比喻。</p>
   <div class="meta">T2 · <span class="tag working">working</span> · 内部系列；本页<strong>不附外链</strong></div>
 </div>
 <div class="entry">
   <strong>2.5 欧拉恒等式可作「同一生成机制、多投影」对外引子</strong>
+  <p>欧拉恒等式适合展示：看似不同的表示，可能来自同一结构，并在特定条件下相遇。它不证明宇宙以信息为本体，数学之美本身也不是物理证据。可推回来的问题是：这只是优雅类比，还是存在明确的结构保持映射？</p>
   <div class="meta">T4 邻接 · <span class="tag working">working</span> ·
     <a href="https://machengshen.github.io/euler-identity-information-ontology.zh.html">公开页</a>（探索性；非终局物理判决）</div>
 </div>
 <div class="entry">
   <strong>2.6 主线筛靶</strong>：相关/记录、尺度与粗粒化、关系结构、量子信息动力学、映射纪律
+  <p>这些主题是寻找可承重工作的筛选器：它们分别碰到主线的记录、尺度、关系、动力学与可检验映射。它们不是一张“沾上量子或信息就收录”的关键词表。朋友可以逐项要求说明：它接入哪条线程、增加了什么解释、映射又在哪里断。</p>
   <div class="meta">T1–T4 · <span class="tag standing">standing</span> · 分支不匹配 ≠ 自动 HOLD</div>
 </div>
 <div class="entry">
   <strong>2.7 四层信息测试 + Marr 护栏</strong>
+  <p>同一句“信息”可能指物理载体、算法/表征、功能目标或观察者层面的解释；四层测试要求先别把这些层混在一起。Marr 护栏提醒我们区分要解决什么、怎样表示与计算、又由什么机制实现。可以用任何热门视频做压力测试：它是否在不说明的情况下从一层跳到了另一层？</p>
   <div class="meta">认识论 · <span class="tag working">working</span> · 觉醒红药丸类内容 = <strong>触发器非权威</strong></div>
 </div>
 <div class="entry">
   <strong>2.8 Spine 公共页 = 多智能体协作脊柱</strong>
+  <p>Spine 展示一种工程上的协作骨架：如何让多个执行者共享结构、边界与交接点。它能提供“关系与更新如何组织”的设计经验，却不能证明自然界也采用同一种本体。朋友可以把它当反例工厂：哪些工程便利只是人为设计，不能向宇宙外推？</p>
   <div class="meta">工程分支 · <span class="tag working">working</span> ·
     <a href="https://machengshen.github.io/spine/">spine/</a> · <strong>工程证据，不升级为本体证据</strong></div>
 </div>
 <div class="entry">
   <strong>2.9 内生目标 + 多智能体 orchestration = 分支</strong>
+  <p>这一分支研究目标怎样在系统内部形成，以及多个行动者怎样协调而不丢失边界与反馈。它不构成信息本体论的证据，也不要求主线接受任何具体代理架构。合适的批评是：若去掉“信息本体”语言，这些工程问题是否仍能完整解决？若能，分支就应保持降级。</p>
   <div class="meta">工程分支 · <span class="tag standing">standing</span> · 评估先问是否触及主线</div>
 </div>
 <div class="entry">
   <strong>2.10 Body-net / Dream-RSI / discovery-tree = 应用叉</strong>
+  <p>这些名称代表把记录、更新、反馈或搜索结构带入身体感知、自我改进与发现流程的应用设想。它们不是一组已证实的自然规律，也不能用产品效果反向证明本体论。朋友可以分别问每个叉：依赖主线的哪条不可替代假设，失败又会否伤到主线？</p>
   <div class="meta">应用叉 · <span class="tag spec">speculative</span> · 不可替代主线</div>
 </div>
 <div class="entry">
   <strong>2.11 Constructor theory（Deutsch）桥</strong>
+  <p>构造理论以“哪些转变可能、哪些不可能”来组织物理解释，因此看起来可能与可达性语言相接。这里目前只有已知缺口，没有建立正式桥梁，更不声称任何人物或研究计划之间存在隶属关系。要推进它，朋友可以要求一份逐项词汇映射、一个成功案例和一个明确断点。</p>
   <div class="meta"><span class="tag spec">speculative</span> · <strong>已知缺口</strong>（未伪造）；若要桥须另建</div>
 </div>
 
-<h2 id="discipline">3. 纪律（防阴谋论味）</h2>
+<h2 id="branches">3. 主线与分支：别把能运行当成宇宙证据</h2>
+<p><strong>主线</strong>只讨论信息、记录、可达性、尺度与关系结构能否承担基础解释。下面两类内容都明确降级：</p>
+<ul>
+  <li><strong>工程分支：</strong>Spine、内生目标、多智能体编排。它们可以验证设计是否有用，但<strong>不是本体证据</strong>。</li>
+  <li><strong>应用叉：</strong>Body-net、Dream-RSI、discovery-tree。它们可以生成问题或工具，但<strong>不是本体证据</strong>。</li>
+</ul>
+<p>因此，分支成功不自动证明主线，分支失败也不自动否决主线。只有当它明确依赖了主线的一项可检验、不可替代的断言时，结果才可能回流。</p>
+
+<h2 id="discipline">4. 讨论纪律（防阴谋论味）</h2>
 <ul>
   <li>类比债：每个物理↔信息类比须写清「映射什么 / 在哪断」，或标 speculative</li>
   <li>编码 ≠ 本体；同态 ≠ 同构</li>
@@ -195,7 +238,7 @@ th { background: var(--soft); }
   <li>不捏造 Wheeler / constructor / 具体研究项目之间的隶属关系</li>
 </ul>
 
-<h2 id="hooks">4. 共同兴趣钩子</h2>
+<h2 id="hooks">5. 共同兴趣钩子</h2>
 <p class="note-small">只抛可讨论问题，不做宣言。一起聊时建议只挑 <strong>2–3 条</strong>。</p>
 <ol class="hooks">
   <li><strong>记录先于观察者？</strong> 若是「记录/关联」让结果变得确定，那么在任何观察者出现之前，什么东西算一条「记录」？（→ 2.2）</li>
@@ -210,26 +253,28 @@ th { background: var(--soft); }
   <li><strong>你从哪些「非主流入口」进的这个话题？</strong> 入口视频/播客当触发器可以、当论据不行 — 你的清单里哪一条最经得起这个降级？（→ 2.7）</li>
 </ol>
 
-<h2 id="videos">5. 视频对齐（待补）</h2>
-<p>转发给朋友前，可先填几条具体视频；填之前<strong>不做内容主张</strong>。</p>
-<table>
+<h2 id="videos">6. 视频对齐（待补）</h2>
+<p>这里只保留空占位；补入并核对具体视频之前，<strong>不做任何内容主张</strong>。</p>
+<table class="video-table">
   <thead>
     <tr><th>视频标题</th><th>链接</th><th>对应主线</th><th>一句话对齐点</th></tr>
   </thead>
   <tbody>
-    <tr><td>待补</td><td>—</td><td>2.5</td><td>生成机制投影 vs 纯美学</td></tr>
-    <tr><td>待补</td><td>—</td><td>2.3</td><td>lawful update vs 可达性是否分清</td></tr>
-    <tr><td>待补</td><td>—</td><td>2.2</td><td>分布式记忆：直觉还是主张</td></tr>
-    <tr><td>待补</td><td>—</td><td>2.7</td><td>四层测试是否落到案例</td></tr>
+    <tr><td>待补</td><td>待补</td><td>待补</td><td>待补</td></tr>
+    <tr><td>待补</td><td>待补</td><td>待补</td><td>待补</td></tr>
+    <tr><td>待补</td><td>待补</td><td>待补</td><td>待补</td></tr>
   </tbody>
 </table>
 
-<h2 id="public">6. 公开入口</h2>
+<h2 id="public">7. 参考与延伸阅读</h2>
+<p>以下只列本站已经公开的入口，不把页面当作外部学术背书：</p>
 <ul>
   <li><a href="https://machengshen.github.io/euler-identity-information-ontology.zh.html">欧拉恒等式 × 信息本体</a>（CN）</li>
+  <li><a href="https://machengshen.github.io/euler-identity-information-ontology.html">Euler identity × information ontology</a>（EN）</li>
   <li><a href="https://machengshen.github.io/spine/">Spine / Sophon 着陆页</a>（工程分支证据）</li>
-  <li><a href="https://machengshen.github.io/">machengshen.github.io</a></li>
+  <li><a href="https://machengshen.github.io/start-here.zh.html">从这里开始</a></li>
 </ul>
+<p class="note-small"><strong>已知缺口：</strong>constructor theory 的正式桥接页尚未建立；本页不以虚构论文或人物关联填补它。</p>
 
 <hr />
 <p class="note-small">结构经内部钢人审阅（GO）：无无源条目；《可达的世界》不外链；视频节零内容主张。保留署名即可转述核心论点。</p>
