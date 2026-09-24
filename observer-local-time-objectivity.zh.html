@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>无共享时钟 ≠ 无客观世界 | Macheng Shen</title>
+  <meta name="description" content="舰队裁定与详细推导：坐标时间局域、客观性作为冗余记录与跨观测者不变结构的涌现近似；意识不升本体；相对论拆掉的是全局时钟不是共享实在。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/observer-local-time-objectivity.zh.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/observer-local-time-objectivity.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/observer-local-time-objectivity.html" />
+  <style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}table{width:100%;border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:var(--soft)}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.zh.html">从这里开始</a> · <a href="/theory-mainline-index.zh.html">理论主线</a> · <a class="active" href="/observer-local-time-objectivity.zh.html">无共享时钟</a></div><div><a href="/observer-local-time-objectivity.html">EN</a></div></div></header>
+<main class="container">
+<div class="kicker">公开研究笔记 · v1.0 · 2026-09-24 · 挂理论主线索引 2.19–2.21</div>
+<h1>无共享时钟 ≠ 无客观世界</h1>
+
+<div class="callout"><strong>一句话。</strong>相对论拆掉的是全局同时性时钟，不是共享实在。客观性更好读成：跨观测者不变结构，加上冗余记录里的涌现近似共识。意识不升本体。</div>
+
+<div class="callout warn"><strong>来源与诚实边界。</strong>本页吸收的是 2026-09-24 一次「局域时间 / 客观世界是否存在」的硬理论对照（Claude Fable 5.1、Claude Opus 5.5、Claude Opus 4.6 同主张包独立钢人审）。Owner 把两道口径门交给舰队按客观逻辑裁定，再写入统一索引。本页<strong>不是</strong>终局物理定理，也<strong>不是</strong>对口头原主张不加边界的背书。私聊原文、内部 drop id、主机与密钥不出现在本页。</div>
+
+<h2>舰队两道门（已裁定）</h2>
+<table>
+  <tr><th>门</th><th>裁定</th><th>状态</th></tr>
+  <tr>
+    <td>「意识体 / 观测者」指什么？</td>
+    <td>主线口径取<strong>保持记录或模型的物理系统</strong>（传感器→记忆→估计→控制亦可）。字面现象意识「构建世界」<strong>不升本体</strong>，与索引 2.2（记录使结果确定，不要求有人在看）、2.17（拒绝质量＝能量＝信息＝意识）一致。</td>
+    <td><span class="tag standing">standing · 纪律</span> <span class="tag negative">negative · 意识升本体</span></td>
+  </tr>
+  <tr>
+    <td>「没有 commonly shared 客观现实」否定到哪一层？</td>
+    <td>只否定：① 全局共享的同时性时钟 / 绝对「现在」；② 对所有可观测量的一张无上下文全局赋值总表。不否定：共享动力学定律、时空间隔与因果序、沿世界线的固有时、可冗余记录的稳定事实。若连定律/不变量一并否定 → <strong>该支 NO-GO</strong>（会拆掉论证自己依赖的证据）。</td>
+    <td><span class="tag standing">standing · 否定范围</span></td>
+  </tr>
+</table>
+
+<h2>状态图例</h2>
+<p><span class="tag standing">standing</span> 教科书/已稳口径；<span class="tag working">working</span> 值得写入主线的工作命题；<span class="tag spec">speculative</span> 可降级桥；<span class="tag negative">negative</span> 主动不走。</p>
+
+<h2>1. 原猜想（被收窄前）</h2>
+<ol>
+  <li>时间可能是观测者在局域坐标系里自己构建的，不是共享全局轴。</li>
+  <li>若 everything is about structure and information，「客观世界」可能是错误近似。</li>
+  <li>即便假定局域性，局域范围多大？若处处相互影响，或许不存在独立于观测者的客观世界——只有统一系统（一即全）。</li>
+  <li>相对论「不同坐标系不同时间、无人共享同一时间轴」因此显得自然：所谓客观物理世界 ≈ 不同意识体推断出的大致相容的世界表征。</li>
+</ol>
+<p class="note-small">口头原主张里「意识体」「科学基本假设错误」「处处相互影响」等措辞，三家审阅均要求砍边界后才能进索引。</p>
+
+<h2>2. 钢人链（收窄后仍成立的推导）</h2>
+<div class="card"><h3><span class="tag standing">standing</span> 步骤 A · 无全局同时性时钟</h3>
+<p>狭义/广义相对论取消绝对同时性：不同参考系对「同一时刻」的切片不同。这是教科书事实，不依赖意识哲学。</p></div>
+<div class="card"><h3><span class="tag standing">standing</span> 步骤 B · 仍有跨观测者不变结构</h3>
+<p>同一事件对、同一世界线，各系仍精确同意：时空间隔、因果序（谁能信号影响谁）、固有时、重逢时谁更年轻等。差异由变换律精确给出，不是「大致猜得差不多」。</p></div>
+<div class="card"><h3><span class="tag working">working</span> 步骤 C · 客观性重新读作涌现冗余</h3>
+<p>把「客观」从「上帝视角的同时性事实总表」改读为：<strong>在多个记录系统之间不变、且被冗余印刻的结构</strong>。量子达尔文主义式「环境冗余记录」、关系量子力学里稳定事实、以及测量上下文性（无全局非上下文赋值表）都指向：客观性可以是<strong>程度量输出</strong>，不必是前提假设的绝对现在。</p></div>
+<div class="card"><h3><span class="tag working">working</span> 步骤 D · 观测者 = 记录/模型系统</h3>
+<p>把步骤 C 里的「观测者」钉成物理记录链，而不是第一人称体验。这样与主线 2.2 兼容：记录/关联使结果确定，不要求有人在看。</p></div>
+<div class="card"><h3><span class="tag spec">speculative</span> 步骤 E · 时间从关联中涌现（可选桥）</h3>
+<p>Page–Wootters 一类「从关联读出时间」可作为 T1 邻接的推测桥：有助于理解「局域时钟构建」，但<strong>不</strong>自动推出「没有共享实在」。</p></div>
+<div class="card"><h3><span class="tag spec">speculative</span> 步骤 F · 一即全只作关系整体论隐喻</h3>
+<p>「部分与整体相互规定」可作关系整体论口号；读成「部分包含整体」会撞上纠缠单配制、不可克隆等硬边界。保留隐喻，拒绝字面包含。</p></div>
+
+<h2>3. 强读法哪里不对（压力测试）</h2>
+<ol>
+  <li><strong>相对论是错误证人。</strong>「无共享时间坐标 ⇒ 无共享实在」推反了：相对论说的是无共享时间<em>且</em>有共享时空结构。</li>
+  <li><strong>「科学基本假设错误」是稻草人。</strong>被推翻的是牛顿同时性与经典「所有量同时有确定值」；更好的措辞是：某些近似被误当终极。</li>
+  <li><strong>意识构建世界撑不起主线。</strong>锚定框架（关系 QM、Wheeler 式 it-from-bit、退相干历史、量子达尔文主义）用的是物理记录系统；字面意识不增加可检验预测，且触发索引 2.7 / 2.17 护栏。</li>
+  <li><strong>「处处相互影响」混淆相关与影响。</strong>关联可以全局；影响仍受光锥 / 无信号定理约束。</li>
+  <li><strong>「大致相容的世界表征」缺机制。</strong>若用共享环境、共享定律、相互耦合来解释相容，就重新引入观测者独立结构——这正是钢人要保留的。</li>
+  <li><strong>集体潜意识「渲染」世界</strong>是另一条社会建构命题，不并入本条物理/信息本体裁定。</li>
+</ol>
+
+<h2>4. 与公开框架的映射（简表）</h2>
+<table>
+  <tr><th>框架</th><th>对齐</th><th>断开处</th></tr>
+  <tr><td>狭义/广义相对论</td><td>无绝对同时性；固有时与因果序共享</td><td>不能用来证明「无客观世界」</td></tr>
+  <tr><td>关系量子力学 / QBism 邻接</td><td>事实相对记录系统；客观性可作稳定重叠</td><td>不等于唯我论；不等于意识本体</td></tr>
+  <tr><td>退相干历史 / 量子达尔文主义</td><td>冗余记录解释「看起来客观」</td><td>不自动给出意识</td></tr>
+  <tr><td>Wheeler it-from-bit</td><td>参与/记录使差异确定</td><td>编码 ≠ 本体（索引纪律）</td></tr>
+  <tr><td>一即全 / 强整体论</td><td>关系隐喻</td><td>部分包含整体；超光速影响</td></tr>
+</table>
+
+<h2>5. 三家口音（对照摘要）</h2>
+<ul>
+  <li><strong>Opus 4.6：</strong>NARROW-GO；钢人链更愿意暂时保留「意识体」措辞，但仍把「科学根本错误 / 否定固有时 / 纠缠击败局域影响」关在门外。</li>
+  <li><strong>Opus 5.5：</strong>NARROW-GO；最利的相对论纠偏；命题分 standing / working / speculative；明确两道 owner 门（本页已由舰队代裁）。</li>
+  <li><strong>Fable 5.1：</strong>NARROW-GO；最贴索引写法；意识升本体 = NO-GO；建议主线槽位与「客观性=冗余记录涌现」工作命题。</li>
+</ul>
+<p><strong>一致点：</strong>三家均为 NARROW-GO；无人接受不加边界的口头原主张。</p>
+
+<h2>6. 写入主线的命题边界</h2>
+<div class="card"><h3><span class="tag standing">standing</span> 进</h3>
+<p>无全局同时性时钟；跨观测者不变结构（间隔、因果序、固有时等）仍在；观测者口径 = 记录/模型系统。</p></div>
+<div class="card"><h3><span class="tag working">working</span> 进</h3>
+<p>客观性 ≈ 跨观测者不变 + 冗余记录的涌现近似；测量上下文性支持「无全局非上下文赋值总表」。</p></div>
+<div class="card"><h3><span class="tag spec">speculative</span> 可挂可不挂</h3>
+<p>Page–Wootters 式时间-从-关联；一即全作关系隐喻。</p></div>
+<div class="card"><h3><span class="tag negative">negative · 不进</span></h3>
+<ul>
+  <li>意识构建世界 / 意识升本体</li>
+  <li>「科学基本假设根本错误」口号</li>
+  <li>否定共享定律与不变量的「无客观现实」</li>
+  <li>纠缠 ⇒ 可超距影响 / 局域性彻底失效</li>
+  <li>一即全字面「部分包含整体」</li>
+</ul></div>
+
+<h2>7. 可证伪 / 可打脸的点</h2>
+<ul>
+  <li>若「客观＝冗余记录」比「绝对同时事实总表」<strong>少解释</strong>一件可公开核对的事，本条 working 应降级。</li>
+  <li>若实验/理论表明必须把现象意识当作不可消去原语才能描述稳定事实，则门 A 需重开（当前裁定不支持）。</li>
+  <li>若有人证明「否定共享不变量」仍能保留相对论与量子记录的全部成功，门 B 的 NO-GO 支才可复议。</li>
+</ul>
+
+<h2>公网可核对锚点（定义边界，非背书）</h2>
+<ul>
+  <li>相对论同时性与固有时：任何标准狭义/广义相对论教材（Einstein 1905 / 教科书章节即可）。</li>
+  <li>关系量子力学公开综述入口：C. Rovelli 及相关 Stanford Encyclopedia 条目（以百科/综述页为准，引用前核标题与年份）。</li>
+  <li>量子达尔文主义：W. H. Zurek 系列公开论文（引用前核确切题名与 DOI）。</li>
+  <li>测量上下文性 / Kochen–Specker：标准量子基础教材与原始论文。</li>
+  <li>站内：<a href="/theory-mainline-index.zh.html">理论主线索引</a> · <a href="/matter-info-energy-ledger.zh.html">物质·信息·能量分账</a> · <a href="/information-dynamics-ledger.zh.html">可达性台账</a> · <a href="/locality-as-protocol.zh.html">局域性作为协议</a>（若在线）。</li>
+</ul>
+<p class="note-small">部分二级文献题名在内部收据中标了 verify；公开复述前请核 DOI/题名。外部文献锚定定义边界，不构成本站工作假说的权威背书。</p>
+
+<p class="note-small">索引包入口：理论主线 <strong>2.19–2.21</strong>。保留署名即可转述核心论点。</p>
+</main>
+<footer class="footer"><div class="container"><p><a href="/">← Home</a> · <a href="/observer-local-time-objectivity.html">English</a> · <a href="/theory-mainline-index.zh.html">理论主线</a></p><p>Macheng Shen · public research note · 2026-09-24</p></div></footer>
+</body></html>

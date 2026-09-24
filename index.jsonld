@@ -36,7 +36,7 @@
   "@type": "https://cognition-track.org/schema#KnowledgeGraph",
   "schema": "machengshen/site-index/v1",
   "extends": "cognition-track/manifest/v0",
-  "generated": "2026-09-18T05:11:20Z",
+  "generated": "2026-09-24T14:48:56Z",
   "entry": "https://machengshen.github.io/llms.txt",
   "selfContained": "https://machengshen.github.io/llms-full.txt",
   "entryZh": "https://machengshen.github.io/llms.zh.txt",
@@ -488,8 +488,8 @@
         "zh": "理论主线索引 · 信息本体"
       },
       "description": {
-        "en": "Plain-language shared-interest guide: a six-term glossary, four load-bearing threads, eighteen claims (consciousness-structure 2.12–2.14; matter–information–energy bookkeeping 2.15–2.18) with limits and pushback questions, a status legend, branch boundaries, discussion hooks, and public further reading. Engineering branches and applied forks are not ontology evidence. Packet v1.5.",
-        "zh": "面向朋友共同兴趣扫描的人话指南：六词术语表、四条承重线程、十八条（含意识结构 2.12–2.14；物质·信息·能量分账 2.15–2.18）带边界与反驳入口的命题、状态图例、主线与分支区隔、讨论钩子及本站延伸阅读。工程分支与应用叉不是本体证据。索引包 v1.5。"
+        "en": "Plain-language shared-interest guide: a six-term glossary, four load-bearing threads, twenty-one claims (consciousness-structure 2.12–2.14; matter–information–energy bookkeeping 2.15–2.18; no-shared-clock / emergent objectivity 2.19–2.21) with limits and pushback questions, a status legend, branch boundaries, discussion hooks, and public further reading. Engineering branches and applied forks are not ontology evidence. Packet v1.6.",
+        "zh": "面向朋友共同兴趣扫描的人话指南：六词术语表、四条承重线程、二十一条（含意识结构 2.12–2.14；物质·信息·能量分账 2.15–2.18；无共享时钟/客观性涌现 2.19–2.21）带边界与反驳入口的命题、状态图例、主线与分支区隔、讨论钩子及本站延伸阅读。工程分支与应用叉不是本体证据。索引包 v1.6。"
       },
       "url": "https://machengshen.github.io/theory-mainline-index.html",
       "format": "text/html",
@@ -528,6 +528,22 @@
       "inLanguage": "en",
       "cognitiveState": "speculative",
       "workTranslation": "https://machengshen.github.io/matter-info-energy-ledger.zh.html"
+    },
+    {
+      "id": "observer-local-time-objectivity",
+      "label": {
+        "en": "No shared clock ≠ no shared world",
+        "zh": "无共享时钟 ≠ 无客观世界"
+      },
+      "description": {
+        "en": "Public research note from a three-model hard-theory review (fleet-ruled gates): relativity abolishes a global simultaneity clock, not a shared world; objectivity reread as cross-observer invariants plus emergent redundant records; observer = physical record/model system; consciousness-as-ontology refused; stress tests against “science is fundamentally wrong,” influence≠correlation, and literal holism; links theory-mainline 2.19–2.21.",
+        "zh": "三模型硬理论对照后的公开研究笔记（舰队裁定两道门）：相对论取消全局同时性时钟不是取消共享实在；客观性改读为跨观测者不变结构加冗余记录的涌现近似；观测者＝保持记录/模型的物理系统；意识升本体拒绝；压力测试覆盖「科学根本错误」、相关≠影响、字面一即全；挂理论主线 2.19–2.21。"
+      },
+      "url": "https://machengshen.github.io/observer-local-time-objectivity.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/observer-local-time-objectivity.zh.html"
     },
     {
       "id": "intelligence-essay",
