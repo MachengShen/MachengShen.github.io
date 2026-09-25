@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Macheng Shen — public open-source &amp; public entry points (verified 2026-09-25, every link HTTP 200) | Macheng Shen</title>
+  <meta name="description" content="Unified index of every public open-source repo, protocol spec and research page by Macheng Shen; every link verified live." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/open-source.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/open-source.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/open-source.html" />
+  <style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}table{width:100%;border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:var(--soft)}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}
+
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.86em;word-break:break-all}li a,p a{word-break:break-all}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.html">Start here</a> · <a href="/map.html">Map</a> · <a class="active" href="/open-source.html">Open source</a></div><div><a href="/open-source.zh.html">中文</a></div></div></header>
+<main class="container">
+<h1>Macheng Shen — public open-source &amp; public entry points (verified 2026-09-25, every link HTTP 200)</h1>
+<h2>⭐ Top 5 you can use right away</h2>
+<ol>
+<li>agent-continuity-demo — smallest runnable proof of four multi-agent coordination primitives (shared memory, permission boundary, per-action receipts, work-claims); stdlib Python, ~1s. Start: clone, then <code>./demo.sh</code>. <a href="https://github.com/starshard-ai/agent-continuity-demo">https://github.com/starshard-ai/agent-continuity-demo</a></li>
+<li>zhizi-agent-os — one command turns Claude Code into a personal Zhizi assistant (Lite for non-technical users, Pro adds skills/hooks/subagents); bring your own key. Start: <code>curl -fsSL https://raw.githubusercontent.com/starshard-ai/zhizi-agent-os/main/install.sh | bash</code>. <a href="https://github.com/starshard-ai/zhizi-agent-os">https://github.com/starshard-ai/zhizi-agent-os</a></li>
+<li>reviewer-wheels — installable Claude Code verification skills for multi-agent coding (drift mirror, adversarial review panel, reuse compiler, frontend smoke gate, delegation bound). Start: <code>/plugin marketplace add starshard-ai/reviewer-wheels</code>. <a href="https://github.com/starshard-ai/reviewer-wheels">https://github.com/starshard-ai/reviewer-wheels</a></li>
+<li>fleet-coordination-protocol (FCP v0) — thin coordination wire above any agent runtime: shared facts, work-claims, receipts before irreversible actions, belief-conflict quarantine. Start: <code>pip install git+https://github.com/starshard-ai/fleet-coordination-protocol.git</code>. <a href="https://github.com/starshard-ai/fleet-coordination-protocol">https://github.com/starshard-ai/fleet-coordination-protocol</a></li>
+<li>starshard-communication — open, user-owned communication substrate for personal agents (inbox, addressing, trust tiers, policy, receipts) plus SPEC-0003 on agent-to-agent identity/auth/secure messaging; includes a runnable reference router. <a href="https://github.com/starshard-ai/starshard-communication">https://github.com/starshard-ai/starshard-communication</a></li>
+</ol>
+<h2>A. Tools you can clone / install</h2>
+<ul>
+<li>ilya-ml-scientist — Claude Code plugin giving an AI-scientist persona for ML direction calls. <a href="https://github.com/starshard-ai/ilya-ml-scientist">https://github.com/starshard-ai/ilya-ml-scientist</a></li>
+<li>selfhost-chat — self-hosted web chat for a personal agent (per-contact rooms or open signup with spend guard). <a href="https://github.com/starshard-ai/selfhost-chat">https://github.com/starshard-ai/selfhost-chat</a></li>
+<li>agent-mail-stack — email as a durable agent channel (SMTP spool, IMAP attachments, mail-to-agent wakeup). <a href="https://github.com/starshard-ai/agent-mail-stack">https://github.com/starshard-ai/agent-mail-stack</a></li>
+<li>signal-agent-pipeline — signal-cli linked-device send/receive/attach wrapper for agents. <a href="https://github.com/starshard-ai/signal-agent-pipeline">https://github.com/starshard-ai/signal-agent-pipeline</a></li>
+<li>reference-impl — reference memory-hub server (FastAPI + SQLite + MCP bridge) for persistent cross-session agent memory; docker compose. <a href="https://github.com/starshard-ai/reference-impl">https://github.com/starshard-ai/reference-impl</a></li>
+<li>skill-provenance — small standard + helper for honest provenance on agent skills. <a href="https://github.com/starshard-ai/skill-provenance">https://github.com/starshard-ai/skill-provenance</a></li>
+<li>vibe-research-toolkit — Discord-native ML research ops toolkit for Codex/Claude agents. <a href="https://github.com/MachengShen/vibe-research-toolkit">https://github.com/MachengShen/vibe-research-toolkit</a></li>
+<li>openclaw-deployment-kit — self-hosting kit for OpenClaw (scripts, config templates, Chinese guide); <code>bash scripts/deploy.sh</code>. <a href="https://github.com/MachengShen/openclaw-deployment-kit">https://github.com/MachengShen/openclaw-deployment-kit</a></li>
+<li>EBM_OnlineRL — online goal-reaching RL with diffusion planning (point-mass + Maze2D Diffuser). <a href="https://github.com/MachengShen/EBM_OnlineRL">https://github.com/MachengShen/EBM_OnlineRL</a></li>
+<li>reversible-layer-aging — reproducible re-analysis of two human EPIC methylation datasets on partial reprogramming. <a href="https://github.com/starshard-ai/reversible-layer-aging">https://github.com/starshard-ai/reversible-layer-aging</a></li>
+</ul>
+<h2>B. Protocols / specs</h2>
+<ul>
+<li>Starshard Communication docs site (incl. SPEC-0003). <a href="https://starshard-ai.github.io/starshard-communication/">https://starshard-ai.github.io/starshard-communication/</a></li>
+<li>architecture-v1 — Starshard architecture, safety charter, quickstart, philosophy. <a href="https://github.com/starshard-ai/architecture-v1">https://github.com/starshard-ai/architecture-v1</a></li>
+<li>agent-native-communication — whitepaper: Agent-Native Open Communication Architecture (Chinese). <a href="https://github.com/starshard-ai/agent-native-communication">https://github.com/starshard-ai/agent-native-communication</a></li>
+<li>Agent-to-agent communication · privacy-policy gated knowledge share. <a href="https://machengshen.github.io/agent-comm-protocol.html">https://machengshen.github.io/agent-comm-protocol.html</a></li>
+<li>A Charter for Human–Agent Coexistence (v0). <a href="https://machengshen.github.io/charter/">https://machengshen.github.io/charter/</a></li>
+</ul>
+<h2>C. Theory / research</h2>
+<ul>
+<li>No shared clock ≠ no shared world. <a href="https://machengshen.github.io/observer-local-time-objectivity.html">https://machengshen.github.io/observer-local-time-objectivity.html</a></li>
+<li>Sophon / 智子 — a personal multi-agent system. <a href="https://machengshen.github.io/sophon/">https://machengshen.github.io/sophon/</a></li>
+<li>Safety is a property of the harness. <a href="https://machengshen.github.io/safety/">https://machengshen.github.io/safety/</a></li>
+<li>Long-term memory is not a vector store · public field guide. <a href="https://machengshen.github.io/long-term-memory/index.en.html">https://machengshen.github.io/long-term-memory/index.en.html</a></li>
+<li>A spine for multi-agent work. <a href="https://machengshen.github.io/spine/">https://machengshen.github.io/spine/</a></li>
+<li>cognition-track — agent-traversable knowledge graph of non-consensus claims with explicit epistemic state. <a href="https://github.com/MachengShen/cognition-track">https://github.com/MachengShen/cognition-track</a></li>
+<li>continual-learning-lab — pre-registered continual-learning experiments, negative results included. <a href="https://github.com/starshard-ai/continual-learning-lab">https://github.com/starshard-ai/continual-learning-lab</a></li>
+<li>living-information-system — front door to the research program on information and future-reachability. <a href="https://github.com/starshard-ai/living-information-system">https://github.com/starshard-ai/living-information-system</a></li>
+<li>Starshard: sleep-inspired memory consolidation (LessWrong). <a href="https://www.lesswrong.com/posts/wg56edFhuPCsZrncQ/starshard-sleep-inspired-memory-consolidation-for-a-multi">https://www.lesswrong.com/posts/wg56edFhuPCsZrncQ/starshard-sleep-inspired-memory-consolidation-for-a-multi</a></li>
+</ul>
+<h2>D. Index / meta</h2>
+<ul>
+<li>Home. <a href="https://machengshen.github.io/">https://machengshen.github.io/</a></li>
+<li>Start here. <a href="https://machengshen.github.io/start-here.html">https://machengshen.github.io/start-here.html</a></li>
+<li>The map (all entries, six layers). <a href="https://machengshen.github.io/map.html">https://machengshen.github.io/map.html</a></li>
+<li>Theory mainline index. <a href="https://machengshen.github.io/theory-mainline-index.html">https://machengshen.github.io/theory-mainline-index.html</a></li>
+<li>For agents: <a href="https://machengshen.github.io/llms.txt">https://machengshen.github.io/llms.txt</a> (full bundle: <a href="https://machengshen.github.io/llms-full.txt">https://machengshen.github.io/llms-full.txt</a>; graph: <a href="https://machengshen.github.io/index.jsonld">https://machengshen.github.io/index.jsonld</a>)</li>
+</ul>
+</main>
+<footer class="footer container">© Macheng Shen · <a href="/open-source.zh.html">中文</a></footer>
+</body>
+</html>

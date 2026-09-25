@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>沈马成（Macheng Shen）公开开源 / 公开入口索引（2026-09-25 核验，全部链接 HTTP 200） | Macheng Shen</title>
+  <meta name="description" content="沈马成（Macheng Shen）所有已公开的开源仓库、协议规范与研究页面的统一索引，每个链接均已核验可访问。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/open-source.zh.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/open-source.zh.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/open-source.html" />
+  <style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}table{width:100%;border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:var(--soft)}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}
+
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.86em;word-break:break-all}li a,p a{word-break:break-all}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.zh.html">从这里开始</a> · <a href="/map.zh.html">全景索引</a> · <a class="active" href="/open-source.zh.html">开源索引</a></div><div><a href="/open-source.html">EN</a></div></div></header>
+<main class="container">
+<h1>沈马成（Macheng Shen）公开开源 / 公开入口索引（2026-09-25 核验，全部链接 HTTP 200）</h1>
+<h2>⭐ 最能直接上手的 5 个</h2>
+<ol>
+<li>agent-continuity-demo — 多 agent 协作四原语（共享记忆/权限边界/动作回执/工作认领）最小可运行演示，纯 Python 标准库，约 1 秒跑完；上手：clone 后 <code>./demo.sh</code>。<a href="https://github.com/starshard-ai/agent-continuity-demo">https://github.com/starshard-ai/agent-continuity-demo</a></li>
+<li>zhizi-agent-os — 一条命令把 Claude Code 变成个人「智子」助手（Lite 给非技术用户，Pro 加技能/hooks/子 agent），自带 key；上手：<code>curl -fsSL https://raw.githubusercontent.com/starshard-ai/zhizi-agent-os/main/install.sh | bash</code>。<a href="https://github.com/starshard-ai/zhizi-agent-os">https://github.com/starshard-ai/zhizi-agent-os</a></li>
+<li>reviewer-wheels — Claude Code 多 agent 编码的验证技能包（漂移检查、对抗式评审、复用编译、前端冒烟门、委派边界）；上手：<code>/plugin marketplace add starshard-ai/reviewer-wheels</code>。<a href="https://github.com/starshard-ai/reviewer-wheels">https://github.com/starshard-ai/reviewer-wheels</a></li>
+<li>fleet-coordination-protocol（FCP v0）— 架在任意 agent 运行时之上的薄协调层：共享事实、工作认领、不可逆动作前回执、信念冲突隔离；上手：<code>pip install git+https://github.com/starshard-ai/fleet-coordination-protocol.git</code>。<a href="https://github.com/starshard-ai/fleet-coordination-protocol">https://github.com/starshard-ai/fleet-coordination-protocol</a></li>
+<li>starshard-communication — 用户自有的个人 agent 通信底座（收件箱、寻址、信任分级、策略、回执）+ SPEC-0003 agent 间身份认证与安全消息；有可跑的参考路由器。<a href="https://github.com/starshard-ai/starshard-communication">https://github.com/starshard-ai/starshard-communication</a></li>
+</ol>
+<h2>A. 可直接 clone / 安装的工具</h2>
+<ul>
+<li>ilya-ml-scientist — 给 Claude Code 装一个做 ML 方向判断的「AI 科学家」人格（插件）。<a href="https://github.com/starshard-ai/ilya-ml-scientist">https://github.com/starshard-ai/ilya-ml-scientist</a></li>
+<li>selfhost-chat — 个人 agent 的自托管网页聊天（按联系人分房间 / 开放注册 + 花费护栏），一个 app.py + 一个 index.html。<a href="https://github.com/starshard-ai/selfhost-chat">https://github.com/starshard-ai/selfhost-chat</a></li>
+<li>agent-mail-stack — 让个人 agent 用邮件做持久通道（SMTP 本地队列、IMAP 附件、邮件唤醒 agent）。<a href="https://github.com/starshard-ai/agent-mail-stack">https://github.com/starshard-ai/agent-mail-stack</a></li>
+<li>signal-agent-pipeline — 基于 signal-cli 的 Signal 收发/发附件封装，给 agent 用。<a href="https://github.com/starshard-ai/signal-agent-pipeline">https://github.com/starshard-ai/signal-agent-pipeline</a></li>
+<li>reference-impl — Starshard 记忆中枢参考服务（FastAPI + SQLite + MCP 桥），让 Claude Code/Codex 跨会话跨机器持久记忆，docker compose 启动。<a href="https://github.com/starshard-ai/reference-impl">https://github.com/starshard-ai/reference-impl</a></li>
+<li>skill-provenance — 给 agent skill 加规范出处信息（作者/来源/许可/联系方式）的小标准 + 脚本。<a href="https://github.com/starshard-ai/skill-provenance">https://github.com/starshard-ai/skill-provenance</a></li>
+<li>vibe-research-toolkit — 基于 Discord 的 ML 研究运维工具箱（Codex/Claude agent 中继、计划/任务/worktree 流程、长任务回调）。<a href="https://github.com/MachengShen/vibe-research-toolkit">https://github.com/MachengShen/vibe-research-toolkit</a></li>
+<li>openclaw-deployment-kit — OpenClaw 自托管部署包（脚本 + 配置模板 + 中文指南），<code>bash scripts/deploy.sh</code>。<a href="https://github.com/MachengShen/openclaw-deployment-kit">https://github.com/MachengShen/openclaw-deployment-kit</a></li>
+<li>EBM_OnlineRL — 扩散规划做在线目标到达 RL（2D 质点原型 + Maze2D Diffuser）。<a href="https://github.com/MachengShen/EBM_OnlineRL">https://github.com/MachengShen/EBM_OnlineRL</a></li>
+<li>reversible-layer-aging — 两个人类 EPIC 数据集上的可复现再分析：部分重编程逆转的是哪一层甲基化衰老。<a href="https://github.com/starshard-ai/reversible-layer-aging">https://github.com/starshard-ai/reversible-layer-aging</a></li>
+</ul>
+<h2>B. 协议 / 规范</h2>
+<ul>
+<li>Starshard Communication 文档站（含 SPEC-0003）。<a href="https://starshard-ai.github.io/starshard-communication/">https://starshard-ai.github.io/starshard-communication/</a></li>
+<li>architecture-v1 — Starshard 架构、安全章程、快速开始与理念（用户自有记忆为主层，agent 为外设）。<a href="https://github.com/starshard-ai/architecture-v1">https://github.com/starshard-ai/architecture-v1</a></li>
+<li>agent-native-communication — 白皮书《AI Agent 原生的开放通信架构》（中文）。<a href="https://github.com/starshard-ai/agent-native-communication">https://github.com/starshard-ai/agent-native-communication</a></li>
+<li>Agent 间通信协议 · Privacy Policy 门控知识共享。<a href="https://machengshen.github.io/agent-comm-protocol.zh.html">https://machengshen.github.io/agent-comm-protocol.zh.html</a></li>
+<li>人与 Agent 共处公约 v0。<a href="https://machengshen.github.io/charter/index.zh.html">https://machengshen.github.io/charter/index.zh.html</a></li>
+</ul>
+<h2>C. 理论 / 研究</h2>
+<ul>
+<li>无共享时钟 ≠ 无客观世界。<a href="https://machengshen.github.io/observer-local-time-objectivity.zh.html">https://machengshen.github.io/observer-local-time-objectivity.zh.html</a></li>
+<li>智子 / Sophon — 个人多 Agent 系统介绍。<a href="https://machengshen.github.io/sophon/index.zh.html">https://machengshen.github.io/sophon/index.zh.html</a></li>
+<li>安全是装置的属性，不是模型的属性。<a href="https://machengshen.github.io/safety/index.zh.html">https://machengshen.github.io/safety/index.zh.html</a></li>
+<li>长期记忆不是向量库 · 公开分享稿。<a href="https://machengshen.github.io/long-term-memory/">https://machengshen.github.io/long-term-memory/</a></li>
+<li>多智能体协作的脊柱。<a href="https://machengshen.github.io/spine/index.zh.html">https://machengshen.github.io/spine/index.zh.html</a></li>
+<li>cognition-track — 可被 agent 遍历的非共识观点知识图谱，每个节点标注认知状态。<a href="https://github.com/MachengShen/cognition-track">https://github.com/MachengShen/cognition-track</a></li>
+<li>continual-learning-lab — 预注册的持续学习小实验公开日志，含负结果。<a href="https://github.com/starshard-ai/continual-learning-lab">https://github.com/starshard-ai/continual-learning-lab</a></li>
+<li>living-information-system — 关于信息与「未来可达性」的跨学科研究入口。<a href="https://github.com/starshard-ai/living-information-system">https://github.com/starshard-ai/living-information-system</a></li>
+</ul>
+<h2>D. 索引 / 总入口</h2>
+<ul>
+<li>个人主页（中文）。<a href="https://machengshen.github.io/index.zh.html">https://machengshen.github.io/index.zh.html</a></li>
+<li>从这里开始（一页说清全站）。<a href="https://machengshen.github.io/start-here.zh.html">https://machengshen.github.io/start-here.zh.html</a></li>
+<li>全景索引（全部条目 + 中文摘要）。<a href="https://machengshen.github.io/map.zh.html">https://machengshen.github.io/map.zh.html</a></li>
+<li>理论主线索引。<a href="https://machengshen.github.io/theory-mainline-index.zh.html">https://machengshen.github.io/theory-mainline-index.zh.html</a></li>
+<li>给 agent 读的索引：<a href="https://machengshen.github.io/llms.zh.txt">https://machengshen.github.io/llms.zh.txt</a> （英文版 <a href="https://machengshen.github.io/llms.txt">https://machengshen.github.io/llms.txt</a> ）</li>
+</ul>
+</main>
+<footer class="footer container">© Macheng Shen · <a href="/open-source.html">English</a></footer>
+</body>
+</html>
