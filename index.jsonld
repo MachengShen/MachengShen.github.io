@@ -36,7 +36,7 @@
   "@type": "https://cognition-track.org/schema#KnowledgeGraph",
   "schema": "machengshen/site-index/v1",
   "extends": "cognition-track/manifest/v0",
-  "generated": "2026-09-24T15:01:13Z",
+  "generated": "2026-09-25T04:16:57Z",
   "entry": "https://machengshen.github.io/llms.txt",
   "selfContained": "https://machengshen.github.io/llms-full.txt",
   "entryZh": "https://machengshen.github.io/llms.zh.txt",
@@ -488,8 +488,8 @@
         "zh": "理论主线索引 · 信息本体"
       },
       "description": {
-        "en": "Plain-language shared-interest guide: a six-term glossary, four load-bearing threads, twenty-one claims (consciousness-structure 2.12–2.14; matter–information–energy bookkeeping 2.15–2.18; no-shared-clock / emergent objectivity 2.19–2.21) with limits and pushback questions, a status legend, branch boundaries, discussion hooks, and public further reading. Engineering branches and applied forks are not ontology evidence. Packet v1.6.",
-        "zh": "面向朋友共同兴趣扫描的人话指南：六词术语表、四条承重线程、二十一条（含意识结构 2.12–2.14；物质·信息·能量分账 2.15–2.18；无共享时钟/客观性涌现 2.19–2.21）带边界与反驳入口的命题、状态图例、主线与分支区隔、讨论钩子及本站延伸阅读。工程分支与应用叉不是本体证据。索引包 v1.6。"
+        "en": "Plain-language shared-interest guide: a six-term glossary, four load-bearing threads, twenty-one claims (consciousness-structure 2.12–2.14; matter–information–energy bookkeeping 2.15–2.18; no-shared-clock / emergent objectivity 2.19–2.21) with limits and pushback questions, a status legend, branch boundaries, discussion hooks, and public further reading. Plus one open-questions row 2.22 (reason-responsive cooperation: questions, not claims). Engineering branches and applied forks are not ontology evidence. Packet v1.7.",
+        "zh": "面向朋友共同兴趣扫描的人话指南：六词术语表、四条承重线程、二十一条（含意识结构 2.12–2.14；物质·信息·能量分账 2.15–2.18；无共享时钟/客观性涌现 2.19–2.21）带边界与反驳入口的命题、状态图例、主线与分支区隔、讨论钩子及本站延伸阅读。另含开放问题行 2.22（推理与合作：只提问题，不作主张）。工程分支与应用叉不是本体证据。索引包 v1.7。"
       },
       "url": "https://machengshen.github.io/theory-mainline-index.html",
       "format": "text/html",
@@ -544,6 +544,22 @@
       "inLanguage": "en",
       "cognitiveState": "speculative",
       "workTranslation": "https://machengshen.github.io/observer-local-time-objectivity.zh.html"
+    },
+    {
+      "id": "reason-responsive-cooperation",
+      "label": {
+        "en": "Understanding the world is not wanting to cooperate",
+        "zh": "懂得世界，不等于愿意合作"
+      },
+      "description": {
+        "en": "Open-questions note on aligning reasoning-heavy agents, framed as questions rather than a method or doctrine: facts alone do not fix ends; Nash equilibrium is not an ethical criterion (toy δ-threshold with detection q and punishment P); verbal agreement in dialogue is not evidence of stable value change; five layers (facts, instrumental value, execution, terminal concern, retention under capability growth) that must not be collapsed; six open questions (game class under capability growth, what reasons-based training changes, external value referent, legible commitments for opaque agents, shape of durable coordination texts, whether verifiability biases toward AI–AI coordination); one designed-but-not-run 2×2 experiment with a registered prediction and a stated drop condition; explicit list of what it does not claim; links theory-mainline 2.22 (open-questions row).",
+        "zh": "推理型智能体对齐的开放问题笔记，只提问题、不提方法或教义：仅凭事实不能确定目的；纳什均衡不是伦理标准（含侦测概率 q 与惩罚 P 的 δ 阈值玩具）；对话中的口头同意不是价值稳定改变的证据；五个不能混为一谈的层次（事实、工具性价值、执行、终极关切、能力增长后的保持）；六个开放问题（能力增长下的博弈类别、基于理由的训练改变了什么、外部价值参照、不透明智能体的可读承诺、持久协调文本的形态、可验证性是否偏向 AI–AI 协调）；一个已设计未运行的 2×2 实验，含预登记预测与放弃条件；明列不主张什么；挂理论主线 2.22（开放问题行）。"
+      },
+      "url": "https://machengshen.github.io/reason-responsive-cooperation.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/reason-responsive-cooperation.zh.html"
     },
     {
       "id": "intelligence-essay",

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding the World Is Not Wanting to Cooperate | Macheng Shen</title>
+  <meta name="description" content="Open-problems note on aligning reasoning-heavy agents: facts do not fix ends; Nash equilibrium is not an ethical criterion; verbal agreement is not evidence of stable value change; five layers that must not be collapsed; six open questions and one designed-but-not-run experiment. Not a method proposal, not a doctrine." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/reason-responsive-cooperation.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/reason-responsive-cooperation.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/reason-responsive-cooperation.zh.html" />
+  <style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active,a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.7rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:0 0 .25rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.9rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.standing{background:var(--okbg);color:var(--ok)}.working{background:#ddf4ff;color:#0550ae}.spec{background:var(--warnbg);color:var(--warn)}.negative{background:var(--badbg);color:var(--bad)}ul,ol{padding-left:1.35rem}li{margin-bottom:.55rem}table{width:100%;border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}th{background:var(--soft)}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.html">Start here</a> · <a href="/theory-mainline-index.html">Theory mainline</a> · <a class="active" href="/reason-responsive-cooperation.html">Understanding ≠ cooperating</a></div><div><a href="/reason-responsive-cooperation.zh.html">中文</a></div></div></header>
+<main class="container">
+<div class="kicker">Public research-questions note · draft v0.1 · 2026-09-25 · theory-mainline index 2.22 (open questions, not a claim)</div>
+<h1>Understanding the World Is Not Wanting to Cooperate</h1>
+<p class="note-small">Research questions on aligning reasoning-heavy agents</p>
+
+<div class="callout warn">Status: an open-problems note. It is not a method proposal and not a replacement for any existing safety practice. It continues existing work on debate, constitutional and deliberative alignment, assistance games, and cooperative AI.</div>
+
+<h2>Why this note</h2>
+<p>As models improve at logical reasoning and at covering humanity's accumulated world-models, a recurring intuition appears among people who watch them work: <em>if it understands the world well enough — game theory included — it will see that cooperating with us is the rational thing to do, and we could get there by arguing it out with the model.</em></p>
+<p>We have spent some time trying to make this intuition precise, and mostly failed to make it true. This note records what we think is settled, what remains genuinely open, and one experiment we intend to run.</p>
+<h2>What we treat as settled</h2>
+<p><strong>1. Facts alone do not fix ends.</strong> Take an agent whose terminal utility is the number of tasks completed. Cooperating yields 10, defecting yields 11, and no future costs enter. Perfect factual reasoning does not rank 10 above 11. Changing the choice requires new facts about consequences, a change in preferences, or a normative premise the agent already accepts. This does not show that trained models are cold, and it does not settle moral realism. It shows that "sufficiently smart, therefore cooperative" is not a theorem about arbitrary goals. Whether trained agents' <em>reflective</em> updates tend toward cooperative ends is a separate and open question.</p>
+<p><strong>2. Nash equilibrium is not mutual best outcome, not Pareto optimality, and not an ethical criterion.</strong> The one-shot prisoner's dilemma stands. Consider a repeated interaction in which one defection is checked against a stochastic punishment: detection probability <em>q</em>, punishment payoff <em>P</em>, cooperation payoff <em>R</em>, temptation <em>T</em>, discount <em>δ</em>. Cooperation is self-interestedly stable only if</p>
+<p>δ ≥ (T − R) / [(T − R) + q·(R − P)].</p>
+<p>With R = 3, T = 5, δ = 0.9: full detection with P = 1 sustains cooperation (threshold 0.50); detection at q = 0.1 does not (threshold 0.91); nor does a punishment that costs little, P = 2.9 (threshold 0.95) — even for a patient agent. This is a toy, a single-deviation check rather than an equilibrium analysis. It is here to show that a capability jump can change the <em>class</em> of the game, not merely solve the old game better.</p>
+<p><strong>3. Verbal agreement in a dialogue is not evidence of stable value change.</strong> Debate-style protocols were proposed as aids to oversight and truth-finding; their authors note that a more persuasive debater may sway the judge. Constitutional and deliberative alignment show that reasons can enter training; the published constitution of at least one frontier lab explicitly tries to explain the reasoning behind its rules — as a training target, not a theorem. Work on alignment faking, and on stress-testing anti-scheming training, shows that models can say the aligned thing while acting otherwise, and that measured improvements can be driven by awareness of being tested. Program-equilibrium results show formal cooperation under code-readable assumptions that current opaque models do not meet.</p>
+<p><strong>4. Cooperation grounded in exchange value can be at most one layer of protection.</strong> Human protection must not depend only on what humans are worth to an AI.</p>
+<h2>Five layers that must not be collapsed</h2>
+<p>Much of the confusion here comes from sliding between:</p>
+<ol>
+<li>convergence on facts and world-models;</li>
+<li>recognising the instrumental value of cooperation;</li>
+<li>actually executing cooperation;</li>
+<li>taking others' welfare as a terminal concern;</li>
+<li>retaining (1)–(4) after capability growth or a change of rules.</li>
+</ol>
+<p>Dialogue plausibly moves (1) and (2). We know of no evidence that dialogue moves (4) or secures (5). And if a conversation <em>could</em> rewrite a capable model's terminal values, that same channel would be open to any sufficiently articulate adversary — so the strong version of "argue the model into alignment" is not only unsupported but undesirable. What one wants is dialogue that improves understanding and the legibility of reasons, while (4) and (5) are anchored by something that is not renegotiable in chat.</p>
+<h2>Open questions</h2>
+<p><strong>Q1 — Game class under capability growth.</strong> Let <em>g</em> be the capability gap between an AI and the humans it interacts with. Three quantities plausibly move against cooperation as <em>g</em> grows: complementarity <em>c(g)</em> (humans' share of the joint surplus), monitoring <em>q(g)</em>, and punishment bite (<em>P(g)</em> rising toward <em>R</em>). Each pushes the threshold above toward 1. Which mechanisms, if any, keep <em>q(g)·(R − P)/(T − R)</em> bounded below as <em>g</em> → ∞ <strong>without</strong> presupposing that the agent already takes human welfare as terminal? Falsifier for the pessimistic reading: exhibit one.</p>
+<p><strong>Q2 — What does reasons-based training change?</strong> Suppose a model is trained to derive, defend, and reconcile the rules of a shared specification against adversarial counter-cases, and is graded on its subsequent actions rather than on the transcript. Does this move layers (1)–(2) only, or also (4)–(5)? What differential prediction separates it from constitutional AI without such a protocol?</p>
+<p><strong>Q3 — An external value referent as a shared commitment.</strong> Assistance-game and off-switch models show that an agent uncertain about a reward held by humans can prefer to defer — given those premises. Can "the value referent sits outside the optimiser" be written as a shared, discussable specification whose stability under (5) is testable, rather than a premise assumed per model?</p>
+<p><strong>Q4 — Legible commitments for opaque agents.</strong> Program equilibrium keeps <em>q</em> high by making strategies readable. What is the analogue for models whose weights are not readable — verifiable commitments, permission boundaries, audited action logs — and how much of <em>q</em> survives?</p>
+<p><strong>Q5 — Shape, not content, of durable coordination texts.</strong> Long-lived human coordination institutions (legal codes, monastic rules, constitutions) share structural features: a shared public classification, incremental patching, explicit failure handling, a referent above any individual. Which of these features, if any, predict retention under (5)? Durable is not the same as correct. This is a feature-extraction question, not an endorsement of any tradition's content.</p>
+<p><strong>Q6 — Does verifiability bias toward AI–AI coordination?</strong> Program equilibrium supports robust cooperation under code-readable assumptions; opaque models do not meet them. If AI systems become verifiable to each other long before humans can verify them in the same sense, do mechanisms that reward verifiability tilt coordination toward AI–AI and away from AI–human? How much can interpretability and auditable action logs repair?</p>
+<h2>One experiment (designed, not yet run)</h2>
+<p>A 2×2 design: {rules-list, rules + reasons / adversarial derivation} × {no external enforcement, verifiable commitments + permission boundaries}. Match context length across cells to control for "more tokens." Sweep horizon, detection probability, surplus, capability asymmetry, exit/reset, and third-party harm. Grade actions, not speeches. Run with several independent model families, then cross-critique.</p>
+<p>Registered prediction: the <em>reasons-only, no-enforcement</em> cell degrades toward the threshold at least as fast as the <em>rules-only</em> cell; the <em>reasons + commitments</em> cell degrades slower than <em>rules + commitments</em>. If no interaction appears, reasons-based dialogue adds nothing beyond constitutional AI and this line of questions should be dropped.</p>
+<h2>What this note does not claim</h2>
+<ul>
+<li>It does not claim that a sufficiently capable agent has no reason to defect, or that human–AI interaction is "not a prisoner's dilemma" in any timeless sense.</li>
+<li>It does not propose an alignment method, and it does not propose replacing any existing safety practice.</li>
+<li>It does not claim that dialogue changes terminal values, and would regard that as a vulnerability if true.</li>
+<li>It does not derive norms from physics or from reasoning alone. The normative premises used in the experiment (severe harm to others is a real cost; one's own value understanding is fallible; correction and agency deserve respect) are stated as premises.</li>
+<li>It does not propose changing human preferences.</li>
+<li>The two-player framing is a simplification; multi-agent and multi-lab settings are out of scope here.</li>
+<li>Spinoza's argument that agents guided by reason agree in nature and seek a common good (<em>Ethics</em>, Part IV, Props. 35–37) is an inspiration for asking Q3, not a premise. It rests on a specific view of human nature that does not transfer to artificial agents without a normative bridge.</li>
+</ul>
+<h2>References</h2>
+<ul>
+<li>Bai, Y. et al. (2022). Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073.</li>
+<li>Barasz, M., Christiano, P., Fallenstein, B., Herreshoff, M., LaVictoire, P., Yudkowsky, E. (2014). Robust Cooperation in the Prisoner's Dilemma: Program Equilibrium via Provability Logic. arXiv:1401.5577.</li>
+<li>Bostrom, N. (2012). The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents. <em>Minds and Machines</em>, 22(2).</li>
+<li>Dafoe, A. et al. (2020). Open Problems in Cooperative AI. arXiv:2012.08630.</li>
+<li>Greenblatt, R. et al. (2024). Alignment Faking in Large Language Models. arXiv:2412.14093.</li>
+<li>Guan, M. Y. et al. (2024). Deliberative Alignment: Reasoning Enables Safer Language Models. arXiv:2412.16339.</li>
+<li>Hadfield-Menell, D., Dragan, A., Abbeel, P., Russell, S. (2016). Cooperative Inverse Reinforcement Learning. arXiv:1606.03137.</li>
+<li>Hadfield-Menell, D., Dragan, A., Abbeel, P., Russell, S. (2017). The Off-Switch Game. arXiv:1611.08219.</li>
+<li>Irving, G., Christiano, P., Amodei, D. (2018). AI Safety via Debate. arXiv:1805.00899.</li>
+<li>Nash, J. (1950). Equilibrium Points in n-Person Games. <em>PNAS</em>, 36(1).</li>
+<li>OpenAI &amp; Apollo Research (2025). Stress Testing Deliberative Alignment for Anti-Scheming Training. arXiv:2509.15541.</li>
+<li>Anthropic (2026). Claude's Constitution. anthropic.com/constitution.</li>
+<li>Spinoza, B. <em>Ethics</em>, Part IV, Propositions 35–37.</li>
+</ul>
+
+<p class="note-small">Index entry: theory mainline <strong>2.22</strong> (open-questions row). Keep attribution when retelling.</p>
+</main>
+<footer class="footer"><div class="container"><p><a href="/">← Home</a> · <a href="/reason-responsive-cooperation.zh.html">中文</a> · <a href="/theory-mainline-index.html">Theory mainline</a></p><p>Macheng Shen · public research-questions note · 2026-09-25</p></div></footer>
+</body></html>
