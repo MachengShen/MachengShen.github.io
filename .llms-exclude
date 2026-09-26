@@ -32,3 +32,4 @@ thailand-energy/**                    # data, model scripts and institution tabl
 global-climate/*                      # global climate x livelihoods policy research study (public sources only); outside the theory intellectual index, same doctrine as reports/
 continual-learning/*                  # continual-learning research study (public literature only); outside the theory intellectual index, same doctrine as reports/
 complexity/*                          # research survey on why complexity grows (public literature + open questions); outside the theory intellectual index until externally cold-read, same doctrine as reports/
+company-architecture/*   # futures study; full page, keep out of llms-full
