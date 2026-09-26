@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Self-Reference and the Arrow of Complexity — a conclusion-first study</title>
+<meta name="description" content="Why does the universe seem to get more complex — microbes, brains, AI? Why 'entropy increases' does not explain it, an audit of every serious theory, and a testable conjecture about self-reference.">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/complexity/">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/complexity/index.zh.html">
+<link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/complexity/">
+<link rel="canonical" href="https://machengshen.github.io/complexity/">
+<style>
+:root{
+  --bg:#faf9f6; --fg:#1d1d1f; --muted:#5b5b60; --line:#e2e0da;
+  --accent:#8a4b2d; --boxbg:#f2efe8; --est:#2c6e49; --con:#a05d1c; --spec:#8b3a62;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#171512; --fg:#e8e5df; --muted:#a4a09a; --line:#33302a;
+    --accent:#d99a6c; --boxbg:#221f1a; --est:#7fc79e; --con:#e0a86a; --spec:#d98cb3; }
+}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:Georgia,'Times New Roman',serif;line-height:1.65}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.2rem 4rem}
+header.site{max-width:46rem;margin:0 auto;padding:1.2rem 1.2rem 0;
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.langlink{font-family:system-ui,sans-serif;font-size:.9rem;white-space:nowrap;
+  border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;
+  text-decoration:none;color:var(--fg)}
+.langlink:hover{border-color:var(--accent)}
+h1{font-size:1.75rem;line-height:1.25;margin:.6rem 0 .2rem}
+.subtitle{color:var(--muted);margin:0 0 1.5rem;font-style:italic}
+h2{font-size:1.28rem;margin:2.4rem 0 .6rem;line-height:1.3}
+h3{font-size:1.05rem;margin:1.6rem 0 .4rem}
+p{margin:.7rem 0}
+a{color:var(--accent)}
+dfn{font-style:normal;font-weight:bold}
+.lead{background:var(--boxbg);border:1px solid var(--line);border-radius:10px;
+  padding:1rem 1.2rem;font-size:1.05rem}
+.lead p{margin:.55rem 0}
+.box{background:var(--boxbg);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:8px;padding: .9rem 1.1rem;margin:1.1rem 0}
+.box h3{margin-top:.2rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.88rem;
+  font-family:system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:var(--boxbg)}
+.tablewrap{overflow-x:auto}
+.tag{display:inline-block;font-family:system-ui,sans-serif;font-size:.72rem;
+  border-radius:999px;padding:.05rem .55rem;border:1px solid currentColor;white-space:nowrap}
+.tag.est{color:var(--est)} .tag.con{color:var(--con)} .tag.spec{color:var(--spec)}
+sup.c{font-family:system-ui,sans-serif;font-size:.72em;line-height:0}
+sup.c a{text-decoration:none}
+ol.refs{font-size:.86rem;font-family:system-ui,sans-serif;padding-left:1.6rem}
+ol.refs li{margin:.45rem 0}
+.note{color:var(--muted);font-size:.9rem}
+blockquote{margin:1rem 0;padding:.2rem 1rem;border-left:3px solid var(--accent);
+  color:inherit;background:var(--boxbg);border-radius:0 8px 8px 0}
+footer{max-width:46rem;margin:0 auto;padding:0 1.2rem 3rem;color:var(--muted);
+  font-size:.85rem;font-family:system-ui,sans-serif;border-top:1px solid var(--line)}
+footer p{margin:.8rem 0}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:var(--boxbg);
+  padding:.05em .3em;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="site">
+  <span class="note">A theory study · conclusion first</span>
+  <a class="langlink" href="index.zh.html" lang="zh-Hans" hreflang="zh-Hans">中文版</a>
+</header>
+<main>
+
+<h1>Self-Reference and the Arrow of Complexity</h1>
+<p class="subtitle">Why the universe seems to grow more complex, why "entropy increases" does not explain it, and what would.</p>
+
+<div class="lead">
+<p><strong>In plain words.</strong> The universe began as a nearly uniform hot soup, yet today it contains cells, brains, and computers. A popular explanation invokes "entropy" — but entropy only measures how spread-out and shuffled energy is, and nothing in physics says shuffled things must organize themselves. The best current answer has four parts: a steady flow of usable energy (like sunlight) makes organization <em>possible</em>; things that carry a copyable recipe of themselves can <em>keep</em> each improvement instead of losing it; competition decides which improvements survive; and living things keep changing each other's world, so the game never settles. Complexity grows only where all four meet — and even then only at the leading edge: most life, then and now, is still microbes.</p>
+</div>
+
+<p class="note">This site presents a study I wrote to test some questions of my own: if an agent and its environment are really one physical system, where does the apparent drive toward complexity come from? Is "self-reference" — a thing containing and using its own recipe — the secret ingredient? Everything below is conclusion-first; the full reference list, with each claim tagged as established, contested, or speculative, is at the <a href="#references">end</a>.</p>
+
+<h2 id="conclusions">Core conclusions</h2>
+<ol>
+<li><strong>There is no law that forces complexity to grow.</strong> We audited every serious candidate (table below). The general proof of the "maximum entropy production" principle was refuted<sup class="c"><a href="#r14">[14]</a></sup>; the free-energy principle has published technical counterexamples<sup class="c"><a href="#r22">[22]</a></sup> and contains no term that makes anything grow; assembly theory measures complexity but does not predict its rise, and its stronger claims have two published critiques<sup class="c"><a href="#r19">[19]</a>,<a href="#r20">[20]</a></sup>. In a sealed-off system, complexity rises, peaks, and then decays<sup class="c"><a href="#r9">[9]</a></sup>.</li>
+<li><strong>What exists instead is a four-part conditional engine.</strong> <em>Permission</em>: a sustained flow of <dfn>free energy</dfn> (energy still capable of doing useful work), ultimately traceable to the extremely ordered starting state of the universe<sup class="c"><a href="#r68">[68]</a>,<a href="#r69">[69]</a></sup>. <em>Ratchet</em>: a copyable, interpretable self-description — the architecture of DNA, anticipated on paper before its discovery<sup class="c"><a href="#r40">[40]</a></sup> — which lets improvements be inherited rather than lost. <em>Rectifier</em>: natural selection. <em>Pump</em>: organisms constantly changing each other's environment, so the game never reaches a final level<sup class="c"><a href="#r30">[30]</a>,<a href="#r31">[31]</a></sup>. Remove any one part and growth stops.</li>
+<li><strong>Self-reference is (probably) necessary but demonstrably not sufficient.</strong> Mathematics guarantees the ladder of complexity has no top<sup class="c"><a href="#r35">[35]</a>,<a href="#r37">[37]</a>,<a href="#r38">[38]</a></sup>, and strong arguments say accurate heredity is impossible without a copied-and-interpreted self-description<sup class="c"><a href="#r40">[40]</a>,<a href="#r59">[59]</a>,<a href="#r32">[32]</a></sup>. But digital-evolution experiments show populations of fully self-referential programs still stagnate in closed worlds<sup class="c"><a href="#r44">[44]</a>,<a href="#r48">[48]</a></sup>: the drive is not inside self-reference; it lives in the combination of self-referencers with a driven, ever-shifting environment.</li>
+<li><strong>Self-reference cannot exist at the deepest microscopic level.</strong> A basic theorem of quantum physics (<dfn>no-cloning</dfn>: an unknown quantum state cannot be copied<sup class="c"><a href="#r56">[56]</a></sup>) forbids using raw quantum states as a heritable recipe. Heritable self-description must live in robust, effectively classical records — the kind the environment naturally duplicates<sup class="c"><a href="#r57">[57]</a>,<a href="#r58">[58]</a></sup>. So the "recipe-carrying" kind of self-reference is necessarily an emergent, higher-level phenomenon. This is the closest thing to a theorem in the whole study.</li>
+</ol>
+<p><strong>One sentence:</strong> entropy is neither the enemy nor the engine; the engine is a ratchet that spends flowing energy to buy recorded depth, self-reference is the ratchet's necessary architecture rather than its motor, and the motor is the universe's low-entropy start plus the restless environment self-referencers make for each other.</p>
+
+<h2 id="entropy">Why "entropy increases" explains nothing here</h2>
+<p>There are three different things called <dfn>entropy</dfn>, and the popular argument blurs them. <em>Thermodynamic entropy</em> counts how many microscopic arrangements look the same from outside — it depends on how you decide to blur the details (the <dfn>coarse-graining</dfn>). <em>Shannon entropy</em><sup class="c"><a href="#r1">[1]</a></sup> measures the average unpredictability of a source of messages. <em>Algorithmic entropy</em> (<dfn>Kolmogorov complexity</dfn><sup class="c"><a href="#r2">[2]</a></sup>) is the length of the shortest computer program that reproduces one specific object. They are bridged by a physical fact: erasing one bit of information has a minimum heat cost<sup class="c"><a href="#r3">[3]</a>,<a href="#r4">[4]</a>,<a href="#r5">[5]</a></sup> — information processing is physical.</p>
+<p>Three precise reasons "entropy = disorder" fails as an explanation:</p>
+<ol>
+<li><strong>"Disorder" is undefined.</strong> The same microscopic state has different entropies under different coarse-grainings; an entropy claim that does not specify one is incomplete.</li>
+<li><strong>Order can form while total entropy rises.</strong> Crystals grow and proteins fold spontaneously; what the second law constrains is system-plus-surroundings, not visual tidiness. Living things are not entropy's opponents — they are channels that <em>speed up</em> entropy production in their surroundings while maintaining deep structure inside<sup class="c"><a href="#r10">[10]</a></sup>.</li>
+<li><strong>Complexity is not low entropy.</strong> A perfect crystal (lowest entropy) and a stirred-up gas (highest entropy) are both simple. Interesting structure lives in between, which is why in a closed system complexity first rises and then falls as mixing completes<sup class="c"><a href="#r9">[9]</a></sup>. The right measures of "interesting" reward stored history, not randomness: <dfn>logical depth</dfn> (how long the shortest recipe takes to run<sup class="c"><a href="#r6">[6]</a></sup>) and the <dfn>assembly index</dfn> (the minimum number of construction steps, reusing earlier parts<sup class="c"><a href="#r18">[18]</a></sup>). Pure noise maximizes Kolmogorov complexity and minimizes both.</li>
+</ol>
+<p>Earth escapes the closed-system fate by not being closed: it absorbs concentrated sunlight and radiates the same energy back as diluted heat, exporting entropy. That flux — the <em>permission</em> — traces back to the universe's extraordinarily low-entropy beginning<sup class="c"><a href="#r68">[68]</a>,<a href="#r69">[69]</a></sup>. The arrow of complexity and the arrow of time have the same source.</p>
+
+<h2 id="audit">The theory audit</h2>
+<p>Every major candidate for a "complexity drive," what it actually predicts, and where it stands. (A <dfn>dissipative structure</dfn> is a pattern, like a whirlpool or a candle flame, that exists only while energy flows through it.)</p>
+<div class="tablewrap">
+<table>
+<tr><th>Theory</th><th>Predicts a complexity trend?</th><th>Conditions / notes</th><th>Status</th></tr>
+<tr><td>Dissipative structures<sup class="c"><a href="#r11">[11]</a></sup></td><td>No — shows order <em>can</em> appear under driving</td><td>Far from equilibrium; no memory, vanishes when driving stops</td><td><span class="tag est">established</span> (mechanism)</td></tr>
+<tr><td>Minimum entropy production<sup class="c"><a href="#r11">[11]</a></sup></td><td>No</td><td>Valid only near equilibrium</td><td><span class="tag est">established</span> (narrow)</td></tr>
+<tr><td>Maximum entropy production<sup class="c"><a href="#r12">[12]</a>,<a href="#r13">[13]</a>,<a href="#r15">[15]</a></sup></td><td>Claimed; unproven</td><td>General derivation refuted<sup class="c"><a href="#r14">[14]</a></sup></td><td><span class="tag con">contested</span></td></tr>
+<tr><td>Dissipative adaptation<sup class="c"><a href="#r16">[16]</a>,<a href="#r17">[17]</a></sup></td><td>Conditional tendency toward <em>work-absorbing</em> states — not the same as complex ones</td><td>Driven many-body systems; the 2013 dissipation bound is rigorous, the mechanism is a conjecture</td><td><span class="tag est">bound established</span> · <span class="tag con">mechanism contested</span></td></tr>
+<tr><td>Kolmogorov complexity<sup class="c"><a href="#r2">[2]</a></sup></td><td>Wrong measure — noise scores highest</td><td>—</td><td><span class="tag est">established</span> (as a measure)</td></tr>
+<tr><td>Logical depth / effective complexity<sup class="c"><a href="#r6">[6]</a>,<a href="#r7">[7]</a>,<a href="#r8">[8]</a></sup></td><td>Right flavor of measure; no dynamics</td><td>No theorem makes depth grow</td><td><span class="tag est">established</span> (measures)</td></tr>
+<tr><td>Coffee automaton<sup class="c"><a href="#r9">[9]</a></sup></td><td><strong>Opposite</strong>: in closed systems complexity rises then falls</td><td>Closed + interacting particles; preprint</td><td><span class="tag con">preliminary</span></td></tr>
+<tr><td>Assembly theory<sup class="c"><a href="#r18">[18]</a></sup></td><td>Quantifies the trend; does not predict it</td><td>"High assembly + many copies ⇒ a selective history" as an empirical criterion; critiques<sup class="c"><a href="#r19">[19]</a>,<a href="#r20">[20]</a></sup> say the index behaves like known compression measures and "selection" is used too broadly</td><td><span class="tag con">contested</span></td></tr>
+<tr><td>Free-energy principle<sup class="c"><a href="#r21">[21]</a></sup></td><td>No — describes persistence, not growth ("dark-room problem"<sup class="c"><a href="#r24">[24]</a></sup>)</td><td>Technical counterexamples to early formulations<sup class="c"><a href="#r22">[22]</a></sup>, partially repaired<sup class="c"><a href="#r23">[23]</a></sup></td><td><span class="tag con">contested</span></td></tr>
+<tr><td>Major evolutionary transitions<sup class="c"><a href="#r25">[25]</a>,<a href="#r26">[26]</a></sup></td><td>No — retrospective classification</td><td>Recurring motif: revolutions in information storage and transmission; explicitly contingent</td><td><span class="tag est">established</span> (biology); not a law</td></tr>
+<tr><td>Energy rate density<sup class="c"><a href="#r33">[33]</a>,<a href="#r34">[34]</a></sup></td><td>Describes an empirical rise (energy flow per gram, from galaxies to brains to society)</td><td>Sampled along the lineage leading to us; high power ≠ complexity</td><td><span class="tag con">contested</span> (as a law)</td></tr>
+<tr><td>Passive trend / ZFEL<sup class="c"><a href="#r27">[27]</a>,<a href="#r28">[28]</a></sup></td><td>Yes — but as diffusion, not drive</td><td>A lower wall of minimal viable complexity makes the record-holder drift upward with no force at all; any real "drive" theory must first beat this null model</td><td><span class="tag est">null model established</span></td></tr>
+</table>
+</div>
+
+<h2 id="conjecture">The conjecture: does self-reference itself drive complexity?</h2>
+<p>My conjecture was: <em>once a self-referential system appears, it tends toward ever-greater complexity — and possibly this is a pure mathematics question.</em> Here <dfn>self-reference</dfn> means something specific and strong: a system that contains its own recipe and uses it twice — once <em>read as instructions</em> (to build itself) and once <em>photocopied blindly</em> (to pass on)<sup class="c"><a href="#r40">[40]</a></sup>. This is exactly how DNA works, and it was predicted on paper five years before the double helix was found.</p>
+<p>Split the conjecture into three strengths, which get three different verdicts:</p>
+<ul>
+<li><strong>Possibility — holds.</strong> Mathematics shows self-reference forecloses any final, complete state: any sufficiently rich consistent formal system can prove neither its own consistency nor everything true, so there is always a strictly stronger system above it, forever<sup class="c"><a href="#r35">[35]</a>,<a href="#r37">[37]</a>,<a href="#r38">[38]</a></sup>. The ladder has no top.</li>
+<li><strong>Necessity — strong argument, nearly theorem-shaped.</strong> Without a copied-and-interpreted self-description there is no accurate heredity<sup class="c"><a href="#r40">[40]</a>,<a href="#r59">[59]</a></sup>; without accurate heredity (copying fidelity above a quantifiable error threshold<sup class="c"><a href="#r32">[32]</a></sup>), selection has no memory to accumulate in; without cumulative memory, complexity growth is bounded. Only fleeting order — whirlpools, flames — remains.</li>
+<li><strong>Sufficiency — false as stated.</strong> See the attack below.</li>
+</ul>
+
+<div class="box">
+<h3>Steelman (the strongest defensible version)</h3>
+<p>In a persistently energized world where self-replicators share resources, unbounded growth of the complexity frontier turns from impossible into statistically expected: the self-description makes gains heritable (ratchet); the ladder has no top (mathematics); and — the key move — populations of self-describers <em>make their own weather</em>. Every published recipe is a resource others can exploit: in the classic Tierra experiment, parasites arose precisely by hijacking other programs' copy routines<sup class="c"><a href="#r44">[44]</a></sup>. That launches arms races<sup class="c"><a href="#r30">[30]</a></sup> and environment-reshaping<sup class="c"><a href="#r31">[31]</a></sup> which keep reopening opportunity — self-reference nearly supplies its own pump.</p>
+</div>
+
+<div class="box">
+<h3>Attack (why the literal conjecture fails)</h3>
+<ol>
+<li><strong>The quine problem.</strong> The canonical mathematical product of self-reference is a program that prints itself, <em>unchanged</em><sup class="c"><a href="#r36">[36]</a></sup>. Self-reference guarantees perfect self-copying — self-preservation, not self-transcendence. Nothing in the fixed-point theorems pushes upward.</li>
+<li><strong>The stagnation counterexample.</strong> In Tierra and Avida every individual is fully self-referential, yet in closed worlds novelty runs dry and the systems saturate<sup class="c"><a href="#r44">[44]</a>,<a href="#r48">[48]</a>,<a href="#r49">[49]</a></sup>. Complex features evolve when the environment supplies stepping-stone rewards — and not otherwise<sup class="c"><a href="#r45">[45]</a></sup>. The drive is in the environment's structure.</li>
+<li><strong>Complexity also goes down.</strong> Selection frequently prunes it (parasites shed genes), and much observed complexity may originate in genetic drift — a non-adaptive process — rather than any upward push<sup class="c"><a href="#r29">[29]</a></sup>.</li>
+<li><strong>The measure trap.</strong> Until you fix a complexity measure and a coarse-graining, the conjecture is unfalsifiable; once fixed, different measures can disagree.</li>
+<li><strong>Undecidability.</strong> For world-rules rich enough to compute anything, "does complexity grow without bound here?" is undecidable in general<sup class="c"><a href="#r39">[39]</a></sup>. So "a pure mathematical question" is half right: provable on restricted classes, undecidable universally.</li>
+<li><strong>The null model.</strong> Part of any observed rise is explainable as diffusion away from a lower wall<sup class="c"><a href="#r27">[27]</a>,<a href="#r28">[28]</a></sup>, with no appeal to self-reference at all.</li>
+</ol>
+</div>
+
+<p><strong>Verdict:</strong> possibility holds; necessity is the most promising target for an actual theorem; sufficiency is false in closed worlds; the steelman — self-referential populations under sustained energy flow nearly pump themselves — is the genuinely open question. Even Tierra's arms race eventually stopped, so "nearly" is doing real work.</p>
+
+<h2 id="toy">A companion toy experiment (illustrative only)</h2>
+<div class="box">
+<p><strong>Setup.</strong> A small artificial-chemistry simulation I ran (unpublished; 8 random seeds): two otherwise identical systems, except that in one, copy events read segments from the unit's <em>own</em> genome (self-reference), while in the control, copied segments come from an external random stream.</p>
+<p><strong>Result.</strong> In 8 of 8 seeds, the self-referential system scored <em>higher</em> on assembly-index and logical-depth proxies and <em>lower</em> on Shannon and block entropy. More structure and history, less randomness — a clean, hands-on illustration that entropy and complexity are different quantities that can move in opposite directions.</p>
+<p><strong>Honest critique: the result is close to true-by-construction.</strong> Self-copying mechanically manufactures repeats; repeats directly lower entropy scores and directly raise reuse-counting assembly scores. Both differences are arithmetic consequences of the copy mechanism, so the experiment demonstrates <em>reuse</em>, not open-ended complexity growth. It also reports a snapshot difference between two systems, whereas the real conjecture is about a <em>trend over time</em>; and it has only one of the four engine components (no energy budget, no selection, no interaction between lineages).</p>
+<p><strong>What a non-circular test needs:</strong> novelty measures that do not reward repetition (first-occurrence rates against an expanding dictionary; statistical complexity<sup class="c"><a href="#r8">[8]</a></sup>; decompression-time depth proxies); a <em>structured but non-self-referential</em> control (copying from other units or a fixed template library — the actual contrast at issue), length- and composition-matched arms with shuffled baselines; long runs testing whether growth <em>rates</em> stay positive or saturate; and the missing components — resource costs, selection, and shared-resource interaction.</p>
+</div>
+
+<h2 id="conjectures">Two falsifiable conjectures</h2>
+<div class="box">
+<h3>Conjecture A — the self-referential ratchet</h3>
+<p>In a driven stochastic system over an unbounded space of buildable configurations (think: a simulated chemistry with energy flowing through), satisfying (i) sustained free-energy flux, (ii) self-description copying above the heredity error threshold<sup class="c"><a href="#r32">[32]</a></sup>, (iii) no ceiling on constructible size, and (iv) multiple replicating lineages sharing finite resources — the population's maximum assembly index grows without bound, with probability one. <em>And</em>: deleting (ii) (no template copying) or (iv) (a lone lineage in a fixed world) bounds it forever.</p>
+<p class="note">Falsify it by building a simulation with (i)–(iv) that provably plateaus, or one that grows without bound with (ii) removed. Both attacks are runnable on existing digital-evolution platforms<sup class="c"><a href="#r46">[46]</a></sup>.</p>
+</div>
+<div class="box">
+<h3>Conjecture B — no microscopic self-reference</h3>
+<p>Any self-replicator with heritable variation must store its description in effectively classical records: robust states that the environment redundantly copies<sup class="c"><a href="#r57">[57]</a>,<a href="#r58">[58]</a></sup>. Equivalently, no evolvable replicator can use a coherent quantum state as its genetic tape. For unknown states this follows from the no-cloning theorem<sup class="c"><a href="#r56">[56]</a></sup>; for known-but-coherent tapes it is a genuine conjecture about decoherence rates versus the error threshold.</p>
+<p class="note">Falsify it by exhibiting — even as a theoretical model — a replicator whose heritable medium is a coherent quantum state maintained across generations.</p>
+</div>
+
+<h2 id="next">Three concrete next steps</h2>
+<ol>
+<li><strong>A necessity theorem.</strong> In a minimal model class — driven autocatalytic chemistries<sup class="c"><a href="#r53">[53]</a>,<a href="#r54">[54]</a></sup> or noisy cellular automata<sup class="c"><a href="#r55">[55]</a></sup> — state and try to prove: <em>without a copied-and-interpreted self-description, the maximum assembly index stays bounded almost surely.</em> Necessity is more theorem-shaped than sufficiency, and a counterexample would itself be a major discovery.</li>
+<li><strong>A factorial simulation.</strong> On an Avida-style platform<sup class="c"><a href="#r46">[46]</a></sup>: {self-description copying vs. external copier} × {fixed vs. coevolving environment} × {bounded vs. extensible genome}, ≥20 long runs per cell, with preregistered saturation criteria. Prediction: only the self-description × coevolving × extensible cell keeps growing. Sustained growth anywhere else falsifies part of the steelman.</li>
+<li><strong>Measure engineering.</strong> An open-source suite — assembly index, compression-based depth proxies, statistical complexity — calibrated for agreement on molecular data and digital-organism histories. Until the measures agree, the conjectures are not cleanly falsifiable.</li>
+</ol>
+
+<h2 id="open-questions">Open questions by field</h2>
+<p class="note">These are the questions I keep returning to — phrased for readers coming from each field.</p>
+<h3>Chemistry</h3>
+<ul>
+<li>Under what measurable conditions does an autocatalytic reaction network (a set of reactions whose products speed up the very reactions that make them) go beyond sustaining itself and start <em>accumulating</em> structural complexity? Is there a threshold in energy flux, network size, or catalytic specificity?</li>
+<li>Can a chemistry with no copied template ever show a sustained rise in assembly index over time, or is copying strictly required — and what is the simplest wet-lab experiment that could measure such a trend rather than a one-time level?</li>
+<li>How high can abiotic (non-living, non-evolved) chemistry push the assembly index of its most abundant products, and does that ceiling depend on the driving?</li>
+</ul>
+<h3>Biology</h3>
+<ul>
+<li>At the origin of life, which came first — a copied molecule or a self-sustaining metabolic web? Is that dichotomy even well posed, or did the "recipe" architecture only appear when the two merged?</li>
+<li>How much of the observed rise in maximum complexity is driven by selection, and how much is passive diffusion away from a lower wall of minimal viable complexity?</li>
+<li>Why does the biosphere never seem to saturate, when every closed digital-evolution experiment so far does? Which feature of real ecosystems — physical embodiment, unbounded niches, coevolution — is doing the work?</li>
+</ul>
+<h3>Physics / information</h3>
+<ul>
+<li>Can "entropy went up" and "complexity went up" be captured by a single quantity, or do we irreducibly need two — one counting randomness, one counting stored history?</li>
+<li>Is there a provable exchange rate between dissipated energy and buildable structural depth — a thermodynamic price list for complexity, beyond the known cost of erasing a bit?</li>
+<li>Does any variational principle (a rule of the form "systems select the path that maximizes or minimizes some quantity") actually hold far from equilibrium, given that the leading candidate's general derivation failed?</li>
+</ul>
+<h3>Computer science / AI</h3>
+<ul>
+<li>Is there a provable theorem of the form "no unbounded complexity growth without a copied-and-interpreted self-description," at least in restricted model classes, even though the general question is undecidable?</li>
+<li>What properties must an environment have for artificial evolution to be open-ended — and can a system generate its own endless novelty pressure, or must a designer keep feeding it?</li>
+<li>As AI systems begin to read and modify their own code and weights, does the same ratchet logic predict the conditions under which their complexity growth is sustained rather than saturating?</li>
+</ul>
+
+<h2 id="references">References</h2>
+<p class="note">Tags grade the claim each source supports here: <span class="tag est">established</span> = broadly accepted; <span class="tag con">contested</span> = serious published disagreement; <span class="tag spec">speculative</span> = programmatic or preliminary. Bibliographic details of the load-bearing contested items were re-verified against the publishers' pages in September 2026; entries marked "not independently re-verified" are given from standard knowledge and flagged honestly. No citation here is invented.</p>
+<ol class="refs">
+<li id="r1">Shannon, C. E. (1948). "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em> 27: 379–423, 623–656. <span class="tag est">established</span></li>
+<li id="r2">Kolmogorov, A. N. (1965). "Three approaches to the quantitative definition of information." <em>Problems of Information Transmission</em> 1(1): 3–11. <span class="tag est">established</span></li>
+<li id="r3">Landauer, R. (1961). "Irreversibility and heat generation in the computing process." <em>IBM Journal of Research and Development</em> 5: 183–191. <span class="tag est">established</span></li>
+<li id="r4">Bérut, A., et al. (2012). "Experimental verification of Landauer's principle linking information and thermodynamics." <em>Nature</em> 483: 187–189. <span class="tag est">established</span></li>
+<li id="r5">Bennett, C. H. (1982). "The thermodynamics of computation — a review." <em>International Journal of Theoretical Physics</em> 21: 905–940. <span class="tag est">established</span></li>
+<li id="r6">Bennett, C. H. (1988). "Logical depth and physical complexity." In R. Herken (ed.), <em>The Universal Turing Machine: A Half-Century Survey</em>. Oxford University Press, 227–257. <span class="tag est">established</span></li>
+<li id="r7">Gell-Mann, M. &amp; Lloyd, S. (1996). "Information measures, effective complexity, and total information." <em>Complexity</em> 2(1): 44–52. <span class="tag est">established</span></li>
+<li id="r8">Crutchfield, J. P. &amp; Young, K. (1989). "Inferring statistical complexity." <em>Physical Review Letters</em> 63: 105–108. <span class="tag est">established</span></li>
+<li id="r9">Aaronson, S., Carroll, S. M. &amp; Ouellette, L. (2014). "Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton." arXiv:1405.6903 (preprint). <span class="tag con">preliminary</span></li>
+<li id="r10">Schrödinger, E. (1944). <em>What is Life?</em> Cambridge University Press. <span class="tag est">established</span></li>
+<li id="r11">Nicolis, G. &amp; Prigogine, I. (1977). <em>Self-Organization in Nonequilibrium Systems.</em> Wiley. <span class="tag est">established</span> (mechanism; minimum entropy production valid only near equilibrium)</li>
+<li id="r12">Dewar, R. C. (2003). "Information theory explanation of the fluctuation theorem, maximum entropy production and self-organized criticality in non-equilibrium stationary states." <em>J. Phys. A</em> 36: 631–641. <span class="tag con">contested</span></li>
+<li id="r13">Dewar, R. C. (2005). "Maximum entropy production and the fluctuation theorem." <em>J. Phys. A</em> 38: L371–L381. <span class="tag con">contested</span></li>
+<li id="r14">Grinstein, G. &amp; Linsker, R. (2007). "Comments on a derivation and application of the 'maximum entropy production' principle." <em>J. Phys. A: Math. Theor.</em> 40: 9717–9720. <span class="tag est">established</span> (the refutation)</li>
+<li id="r15">Martyushev, L. M. &amp; Seleznev, V. D. (2006). "Maximum entropy production principle in physics, chemistry and biology." <em>Physics Reports</em> 426: 1–45. <span class="tag est">established</span> (as a review of a contested principle)</li>
+<li id="r16">England, J. L. (2013). "Statistical physics of self-replication." <em>Journal of Chemical Physics</em> 139: 121923. <span class="tag est">established</span> (the bound)</li>
+<li id="r17">England, J. L. (2015). "Dissipative adaptation in driven self-assembly." <em>Nature Nanotechnology</em> 10: 919–923. <span class="tag con">contested</span> (as a mechanism for life)</li>
+<li id="r18">Sharma, A., Czégel, D., Lachmann, M., Kempes, C. P., Walker, S. I. &amp; Cronin, L. (2023). "Assembly theory explains and quantifies selection and evolution." <em>Nature</em> 622: 321–328. <span class="tag con">contested</span></li>
+<li id="r19">Jaeger, J. (2024). "Assembly Theory: What It Does and What It Does Not Do." <em>Journal of Molecular Evolution</em> 92: 87–92. <span class="tag est">established</span> (as a published critique)</li>
+<li id="r20">Zenil, H. and collaborators (2024). "On the salient limitations of the methods of assembly theory and their classification of molecular biosignatures." <em>npj Systems Biology and Applications.</em> (Full author list not re-verified.) <span class="tag est">established</span> (as a published critique)</li>
+<li id="r21">Friston, K. (2010). "The free-energy principle: a unified brain theory?" <em>Nature Reviews Neuroscience</em> 11: 127–138. <span class="tag con">contested</span> (as a universal principle)</li>
+<li id="r22">Biehl, M., Pollock, F. A. &amp; Kanai, R. (2021). "A Technical Critique of Some Parts of the Free Energy Principle." <em>Entropy</em> 23(3): 293. <span class="tag est">established</span> (as a published critique)</li>
+<li id="r23">Friston, K., Da Costa, L. &amp; Parr, T. (2021). "Some Interesting Observations on the Free Energy Principle." <em>Entropy</em> 23(8). <span class="tag con">response</span></li>
+<li id="r24">Friston, K., Thornton, C. &amp; Clark, A. (2012). "Free-energy minimization and the dark-room problem." <em>Frontiers in Psychology</em> 3: 130. <span class="tag est">established</span></li>
+<li id="r25">Maynard Smith, J. &amp; Szathmáry, E. (1995). <em>The Major Transitions in Evolution.</em> Oxford University Press. <span class="tag est">established</span> (explicitly not a law of progress)</li>
+<li id="r26">Szathmáry, E. (2015). "Toward major evolutionary transitions theory 2.0." <em>PNAS</em> 112: 10104–10111. <span class="tag est">established</span></li>
+<li id="r27">Gould, S. J. (1996). <em>Full House.</em> Harmony Books. <span class="tag est">established</span> (the passive-trend null model)</li>
+<li id="r28">McShea, D. W. &amp; Brandon, R. N. (2010). <em>Biology's First Law.</em> University of Chicago Press. <span class="tag con">contested</span> (as a "law")</li>
+<li id="r29">Lynch, M. (2007). "The frailty of adaptive hypotheses for the origins of organismal complexity." <em>PNAS</em> 104 (suppl 1): 8597–8604. <span class="tag est">established</span></li>
+<li id="r30">Van Valen, L. (1973). "A new evolutionary law." <em>Evolutionary Theory</em> 1: 1–30. <span class="tag est">established</span> (Red Queen)</li>
+<li id="r31">Odling-Smee, F. J., Laland, K. N. &amp; Feldman, M. W. (2003). <em>Niche Construction.</em> Princeton University Press. <span class="tag est">established</span></li>
+<li id="r32">Eigen, M. (1971). "Selforganization of matter and the evolution of biological macromolecules." <em>Naturwissenschaften</em> 58: 465–523. <span class="tag est">established</span> (error threshold)</li>
+<li id="r33">Chaisson, E. J. (2001). <em>Cosmic Evolution: The Rise of Complexity in Nature.</em> Harvard University Press. <span class="tag con">contested</span> (as a complexity metric)</li>
+<li id="r34">Chaisson, E. J. (2011). "Energy rate density as a complexity metric and evolutionary driver." <em>Complexity</em> 16(3): 27–40. <span class="tag con">contested</span></li>
+<li id="r35">Gödel, K. (1931). "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." <em>Monatshefte für Mathematik und Physik</em> 38: 173–198. <span class="tag est">established</span></li>
+<li id="r36">Kleene, S. C. (1938). "On notation for ordinal numbers." <em>Journal of Symbolic Logic</em> 3: 150–155 (the recursion theorem). <span class="tag est">established</span></li>
+<li id="r37">Turing, A. M. (1939). "Systems of logic based on ordinals." <em>Proc. London Mathematical Society</em> s2-45: 161–228. <span class="tag est">established</span></li>
+<li id="r38">Feferman, S. (1962). "Transfinite recursive progressions of axiomatic theories." <em>Journal of Symbolic Logic</em> 27: 259–316. <span class="tag est">established</span></li>
+<li id="r39">Rice, H. G. (1953). "Classes of recursively enumerable sets and their decision problems." <em>Transactions of the AMS</em> 74: 358–366. <span class="tag est">established</span></li>
+<li id="r40">von Neumann, J. (1966). <em>Theory of Self-Reproducing Automata</em> (A. W. Burks, ed.). University of Illinois Press. <span class="tag est">established</span></li>
+<li id="r41">Hofstadter, D. R. (1979). <em>Gödel, Escher, Bach</em>; and (2007) <em>I Am a Strange Loop.</em> Basic Books. <span class="tag est">established</span> (conceptual, not theorems)</li>
+<li id="r42">Maturana, H. R. &amp; Varela, F. J. (1980). <em>Autopoiesis and Cognition.</em> D. Reidel. <span class="tag est">established</span> (a self-maintenance concept; claims no complexity growth)</li>
+<li id="r43">Rosen, R. (1991). <em>Life Itself.</em> Columbia University Press. <span class="tag con">contested</span> (its non-computability claim is disputed, e.g. by Chu &amp; Ho 2006, <em>Artificial Life</em> 12(1) — not independently re-verified)</li>
+<li id="r44">Ray, T. S. (1991). "An approach to the synthesis of life." In <em>Artificial Life II.</em> Addison-Wesley, 371–408 (Tierra). <span class="tag est">established</span></li>
+<li id="r45">Lenski, R. E., Ofria, C., Pennock, R. T. &amp; Adami, C. (2003). "The evolutionary origin of complex features." <em>Nature</em> 423: 139–144. <span class="tag est">established</span></li>
+<li id="r46">Ofria, C. &amp; Wilke, C. O. (2004). "Avida: A software platform for research in computational evolutionary biology." <em>Artificial Life</em> 10: 191–229. <span class="tag est">established</span></li>
+<li id="r47">Adami, C., Ofria, C. &amp; Collier, T. C. (2000). "Evolution of biological complexity." <em>PNAS</em> 97: 4463–4468. <span class="tag est">established</span></li>
+<li id="r48">Taylor, T., et al. (2016). "Open-ended evolution: Perspectives from the OEE workshop in York." <em>Artificial Life</em> 22(3): 408–423. <span class="tag est">established</span> (field consensus: no artificial system yet shows biosphere-style open-endedness)</li>
+<li id="r49">Packard, N., et al. (2019). "An overview of open-ended evolution." <em>Artificial Life</em> 25(2): 93–103. <span class="tag est">established</span></li>
+<li id="r50">Bedau, M. A., Snyder, E. &amp; Packard, N. H. (1998). "A classification of long-term evolutionary dynamics." In <em>Artificial Life VI.</em> MIT Press. <span class="tag est">established</span></li>
+<li id="r51">Soros, L. B. &amp; Stanley, K. O. (2014). "Identifying necessary conditions for open-ended evolution through the artificial life world of Chromaria." <em>ALIFE 14.</em> MIT Press. <span class="tag est">established</span> (as a proposal)</li>
+<li id="r52">Fontana, W. &amp; Buss, L. W. (1994). "What would be conserved if 'the tape were played twice'?" <em>PNAS</em> 91: 757–761. <span class="tag est">established</span></li>
+<li id="r53">Kauffman, S. A. (1986). "Autocatalytic sets of proteins." <em>Journal of Theoretical Biology</em> 119: 1–24. <span class="tag est">established</span></li>
+<li id="r54">Hordijk, W. &amp; Steel, M. (2004). "Detecting autocatalytic, self-sustaining sets in chemical reaction systems." <em>Journal of Theoretical Biology</em> 227: 451–461. <span class="tag est">established</span></li>
+<li id="r55">Gács, P. (2001). "Reliable cellular automata with self-organization." <em>Journal of Statistical Physics</em> 103: 45–267. <span class="tag est">established</span></li>
+<li id="r56">Wootters, W. K. &amp; Zurek, W. H. (1982). "A single quantum cannot be cloned." <em>Nature</em> 299: 802–803; independently Dieks, D. (1982), <em>Physics Letters A</em> 92: 271–272. <span class="tag est">established</span></li>
+<li id="r57">Zurek, W. H. (2003). "Decoherence, einselection, and the quantum origins of the classical." <em>Reviews of Modern Physics</em> 75: 715–775. <span class="tag est">established</span></li>
+<li id="r58">Zurek, W. H. (2009). "Quantum Darwinism." <em>Nature Physics</em> 5: 181–188. <span class="tag est">established</span> (as a framework)</li>
+<li id="r59">Marletto, C. (2015). "Constructor theory of life." <em>Journal of the Royal Society Interface</em> 12: 20141226. <span class="tag est">established</span> (within its framework's assumptions)</li>
+<li id="r60">Wheeler, J. A. (1990). "Information, physics, quantum: The search for links." In W. H. Zurek (ed.), <em>Complexity, Entropy, and the Physics of Information.</em> Addison-Wesley. <span class="tag spec">speculative</span> (a program manifesto)</li>
+<li id="r61">Bekenstein, J. D. (1973). "Black holes and entropy." <em>Physical Review D</em> 7: 2333; and (1981) <em>Physical Review D</em> 23: 287. <span class="tag est">established</span></li>
+<li id="r62">'t Hooft, G. (1993). "Dimensional reduction in quantum gravity," arXiv:gr-qc/9310026; Susskind, L. (1995). "The world as a hologram." <em>J. Math. Phys.</em> 36: 6377. <span class="tag est">established</span> (as the holographic proposal)</li>
+<li id="r63">Maldacena, J. (1998). "The large N limit of superconformal field theories and supergravity." <em>Adv. Theor. Math. Phys.</em> 2: 231–252. <span class="tag est">established</span></li>
+<li id="r64">Jacobson, T. (1995). "Thermodynamics of spacetime: The Einstein equation of state." <em>Physical Review Letters</em> 75: 1260–1263. <span class="tag est">established</span> (derivation; interpretation open)</li>
+<li id="r65">Chiribella, G., D'Ariano, G. M. &amp; Perinotti, P. (2011). "Informational derivation of quantum theory." <em>Physical Review A</em> 84: 012311. <span class="tag est">established</span></li>
+<li id="r66">Verlinde, E. (2011). "On the origin of gravity and the laws of Newton." <em>JHEP</em> 2011(4): 29. <span class="tag con">contested</span></li>
+<li id="r67">Vopson, M. M. &amp; Lepadatu, S. (2022). "Second law of information dynamics." <em>AIP Advances</em> 12: 075310; Vopson, M. M. (2019). "The mass-energy-information equivalence principle." <em>AIP Advances</em> 9: 095206. <span class="tag spec">speculative</span> (derivation criticized for a reversibility assumption; no experimental confirmation)</li>
+<li id="r68">Albert, D. Z. (2000). <em>Time and Chance.</em> Harvard University Press. <span class="tag est">established</span> (the "past hypothesis")</li>
+<li id="r69">Penrose, R. (1979). "Singularities and time-asymmetry." In Hawking &amp; Israel (eds.), <em>General Relativity: An Einstein Centenary Survey.</em> Cambridge University Press. <span class="tag con">contested</span> (Weyl curvature hypothesis)</li>
+<li id="r70">Rovelli, C. (1996). "Relational quantum mechanics." <em>International Journal of Theoretical Physics</em> 35: 1637–1678. <span class="tag con">contested</span> (as an interpretation)</li>
+<li id="r71">Breuer, T. (1995). "The impossibility of accurate state self-measurements." <em>Philosophy of Science</em> 62: 197–214. <span class="tag est">flagged</span> — not independently re-verified; treat with care.</li>
+</ol>
+
+</main>
+<footer>
+<p>A static page: no scripts, no external fonts, no trackers. The questions here are my own; the study text and the full evidence-graded source list live alongside this page in the same repository. <a href="index.zh.html" lang="zh-Hans">中文版</a></p>
+</footer>
+</body>
+</html>

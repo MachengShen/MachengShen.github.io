@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自指系统与复杂性之箭——一项结论先行的研究</title>
+<meta name="description" content="宇宙为什么看起来越来越复杂——微生物、大脑、AI？为什么『熵增』解释不了它？对所有严肃候选理论的逐一审计，以及一个关于自指的可证伪猜想。">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/complexity/">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/complexity/index.zh.html">
+<link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/complexity/">
+<link rel="canonical" href="https://machengshen.github.io/complexity/index.zh.html">
+<style>
+:root{
+  --bg:#faf9f6; --fg:#1d1d1f; --muted:#5b5b60; --line:#e2e0da;
+  --accent:#8a4b2d; --boxbg:#f2efe8; --est:#2c6e49; --con:#a05d1c; --spec:#8b3a62;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#171512; --fg:#e8e5df; --muted:#a4a09a; --line:#33302a;
+    --accent:#d99a6c; --boxbg:#221f1a; --est:#7fc79e; --con:#e0a86a; --spec:#d98cb3; }
+}
+*{box-sizing:border-box}
+html{font-size:17px}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font-family:Georgia,'Songti SC','SimSun',serif;line-height:1.8}
+main{max-width:46rem;margin:0 auto;padding:1.2rem 1.2rem 4rem}
+header.site{max-width:46rem;margin:0 auto;padding:1.2rem 1.2rem 0;
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.langlink{font-family:system-ui,sans-serif;font-size:.9rem;white-space:nowrap;
+  border:1px solid var(--line);border-radius:999px;padding:.25rem .8rem;
+  text-decoration:none;color:var(--fg)}
+.langlink:hover{border-color:var(--accent)}
+h1{font-size:1.75rem;line-height:1.35;margin:.6rem 0 .2rem}
+.subtitle{color:var(--muted);margin:0 0 1.5rem}
+h2{font-size:1.28rem;margin:2.4rem 0 .6rem;line-height:1.4}
+h3{font-size:1.05rem;margin:1.6rem 0 .4rem}
+p{margin:.7rem 0}
+a{color:var(--accent)}
+dfn{font-style:normal;font-weight:bold}
+.lead{background:var(--boxbg);border:1px solid var(--line);border-radius:10px;
+  padding:1rem 1.2rem;font-size:1.05rem}
+.lead p{margin:.55rem 0}
+.box{background:var(--boxbg);border:1px solid var(--line);border-left:4px solid var(--accent);
+  border-radius:8px;padding:.9rem 1.1rem;margin:1.1rem 0}
+.box h3{margin-top:.2rem}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.88rem;
+  font-family:system-ui,sans-serif}
+th,td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:var(--boxbg)}
+.tablewrap{overflow-x:auto}
+.tag{display:inline-block;font-family:system-ui,sans-serif;font-size:.72rem;
+  border-radius:999px;padding:.05rem .55rem;border:1px solid currentColor;white-space:nowrap}
+.tag.est{color:var(--est)} .tag.con{color:var(--con)} .tag.spec{color:var(--spec)}
+sup.c{font-family:system-ui,sans-serif;font-size:.72em;line-height:0}
+sup.c a{text-decoration:none}
+ol.refs{font-size:.86rem;font-family:system-ui,sans-serif;padding-left:1.6rem}
+ol.refs li{margin:.45rem 0}
+.note{color:var(--muted);font-size:.9rem}
+footer{max-width:46rem;margin:0 auto;padding:0 1.2rem 3rem;color:var(--muted);
+  font-size:.85rem;font-family:system-ui,sans-serif;border-top:1px solid var(--line)}
+footer p{margin:.8rem 0}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.9em;background:var(--boxbg);
+  padding:.05em .3em;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="site">
+  <span class="note">一项理论研究 · 结论先行</span>
+  <a class="langlink" href="index.html" lang="en" hreflang="en">English</a>
+</header>
+<main>
+
+<h1>自指系统与复杂性之箭</h1>
+<p class="subtitle">宇宙为什么看起来越来越复杂，为什么"熵增"解释不了它，以及什么才能解释。</p>
+
+<div class="lead">
+<p><strong>用大白话说。</strong> 宇宙起初是一锅几乎均匀的热汤，如今却有了细胞、大脑和计算机。流行的解释总是提到"熵"——但熵只度量能量摊得多开、搅得多乱，物理学里没有任何定律说搅乱的东西必须自己组织起来。目前最好的答案分四部分：持续流过的可用能量（比如阳光）让组织化成为<em>可能</em>；携带一份"自身配方"并能复印它的东西，可以把每次改进<em>留住</em>而不是丢掉；竞争决定哪些改进存活；而生物不断改变彼此的生存环境，让这场游戏永远没有终局。只有这四样凑齐的地方，复杂性才增长——而且只发生在最前沿：无论过去还是现在，绝大多数生命仍然是微生物。</p>
+</div>
+
+<p class="note">这个网站是我为检验自己的几个问题而写的一项研究：如果智能体和它的环境本是同一个物理系统，那么表面上"趋向复杂"的驱动力从哪里来？"自指"——一个包含并使用自身配方的东西——是不是那个秘密成分？下文全部结论先行；完整的文献清单在<a href="#references">页尾</a>，每条都标注了证据等级（公认 / 有争议 / 思辨）。</p>
+
+<h2 id="conclusions">核心结论</h2>
+<ol>
+<li><strong>不存在强迫复杂性增长的定律。</strong> 我们逐一审计了所有严肃候选（见下表）。"最大熵产生原理"的一般证明已被驳倒<sup class="c"><a href="#r14">[14]</a></sup>；自由能原理有已发表的技术性反例<sup class="c"><a href="#r22">[22]</a></sup>，而且其中没有任何使东西"增长"的项；装配理论能<em>度量</em>复杂性却不<em>预测</em>其上升，其更强的主张有两篇已发表的批评<sup class="c"><a href="#r19">[19]</a>,<a href="#r20">[20]</a></sup>。在完全封闭的系统里，复杂性先升、到顶、然后衰落<sup class="c"><a href="#r9">[9]</a></sup>。</li>
+<li><strong>存在的是一台四部件的条件引擎。</strong> <em>许可证</em>：持续的<dfn>自由能</dfn>（仍能做有用功的能量）之流，最终可追溯到宇宙极其有序的初始状态<sup class="c"><a href="#r68">[68]</a>,<a href="#r69">[69]</a></sup>。<em>棘轮</em>：一份可复印、可解读的自身描述——DNA 的架构，在其被发现之前就已在纸上被推演出来<sup class="c"><a href="#r40">[40]</a></sup>——它让改进可以被继承而不是丢失。<em>整流器</em>：自然选择。<em>泵</em>：生物不断改变彼此的环境，游戏永远到不了终点<sup class="c"><a href="#r30">[30]</a>,<a href="#r31">[31]</a></sup>。抽掉任何一件，增长就停。</li>
+<li><strong>自指（很可能）必要，但可证明地不充分。</strong> 数学保证复杂性的梯子没有顶<sup class="c"><a href="#r35">[35]</a>,<a href="#r37">[37]</a>,<a href="#r38">[38]</a></sup>；强有力的论证表明，没有"被复印且被解读的自身描述"就不可能有精确遗传<sup class="c"><a href="#r40">[40]</a>,<a href="#r59">[59]</a>,<a href="#r32">[32]</a></sup>。但数字演化实验表明：完全自指的程序群体在封闭世界里照样停滞<sup class="c"><a href="#r44">[44]</a>,<a href="#r48">[48]</a></sup>——驱动力不在自指内部，而在"自指者 + 被驱动的、永不安定的环境"这个组合里。</li>
+<li><strong>自指不可能存在于最微观的物理层面。</strong> 量子物理的一条基本定理（<dfn>不可克隆定理</dfn>：未知的量子态无法被复制<sup class="c"><a href="#r56">[56]</a></sup>）禁止把原始量子态当作可遗传的配方。可遗传的自身描述必须写在稳固的、实际上是经典的记录上——即环境会自然地大量复制的那种状态<sup class="c"><a href="#r57">[57]</a>,<a href="#r58">[58]</a></sup>。所以"携带配方"意义上的自指必然是较高层面上涌现的现象。这是整个研究里最接近定理的一条结论。</li>
+</ol>
+<p><strong>一句话：</strong>熵既不是敌人也不是引擎；引擎是一台"用流过的能量购买记录深度"的棘轮，自指是棘轮必需的架构而非动力，动力来自宇宙的低熵开端，以及自指者彼此制造的永不安定的环境。</p>
+
+<h2 id="entropy">为什么"熵增"在这里什么也解释不了</h2>
+<p>被叫做<dfn>熵</dfn>的其实是三样不同的东西，流行论证把它们混在一起。<em>热力学熵</em>数的是"从外面看起来一样"的微观排列有多少——它取决于你决定忽略哪些细节（即<dfn>粗粒化</dfn>）。<em>香农熵</em><sup class="c"><a href="#r1">[1]</a></sup>度量一个消息来源的平均不可预测性。<em>算法熵</em>（<dfn>柯尔莫哥洛夫复杂度</dfn><sup class="c"><a href="#r2">[2]</a></sup>）是能重现某一个具体对象的最短计算机程序的长度。把三者连在一起的是一个物理事实：抹掉一比特信息有一个最低的发热代价<sup class="c"><a href="#r3">[3]</a>,<a href="#r4">[4]</a>,<a href="#r5">[5]</a></sup>——信息处理是物理过程。</p>
+<p>"熵=无序"作为解释失败的三个精确理由：</p>
+<ol>
+<li><strong>"无序"没有定义。</strong> 同一个微观状态在不同的粗粒化下有不同的熵；不说明粗粒化的熵论断是不完整的。</li>
+<li><strong>总熵上升的同时可以形成有序。</strong> 晶体自发生长、蛋白质自发折叠；热力学第二定律约束的是"系统加环境"的总账，不是看起来整不整齐。生命不是熵的对手——它是<em>加速</em>周围熵产生的通道，同时在内部维持深层结构<sup class="c"><a href="#r10">[10]</a></sup>。</li>
+<li><strong>复杂不等于低熵。</strong> 完美晶体（熵最低）和搅匀的气体（熵最高）都很简单；有趣的结构住在两者之间——这正是封闭系统里复杂性随混合完成而先升后降的原因<sup class="c"><a href="#r9">[9]</a></sup>。度量"有趣"的正确尺子奖励的是存储的历史而不是随机性：<dfn>逻辑深度</dfn>（最短配方要跑多久<sup class="c"><a href="#r6">[6]</a></sup>）和<dfn>装配指数</dfn>（允许重复使用半成品时，造出该对象所需的最少步数<sup class="c"><a href="#r18">[18]</a></sup>）。纯噪声的柯尔莫哥洛夫复杂度最大，而这两个尺子上的分数最低。</li>
+</ol>
+<p>地球躲过封闭系统的命运，靠的是它不封闭：吸收高度集中的阳光，再把同样多的能量以稀释的热辐射还给深空——净输出熵。这股通量（"许可证"）最终来自宇宙开端惊人的低熵<sup class="c"><a href="#r68">[68]</a>,<a href="#r69">[69]</a></sup>。复杂性之箭与时间之箭同源。</p>
+
+<h2 id="audit">候选理论审计</h2>
+<p>所有主要的"复杂性驱动力"候选：它到底预测什么、成立条件、当前地位。（<dfn>耗散结构</dfn>指像漩涡或烛焰那样、只在能量流过时才存在的图样。）</p>
+<div class="tablewrap">
+<table>
+<tr><th>理论</th><th>预测复杂性趋势吗？</th><th>条件 / 备注</th><th>地位</th></tr>
+<tr><td>耗散结构<sup class="c"><a href="#r11">[11]</a></sup></td><td>否——只表明驱动下有序<em>可以</em>出现</td><td>远离平衡；无记忆，撤去驱动即消失</td><td><span class="tag est">公认</span>（机制）</td></tr>
+<tr><td>最小熵产生<sup class="c"><a href="#r11">[11]</a></sup></td><td>否</td><td>仅近平衡区成立</td><td><span class="tag est">公认</span>（窄域）</td></tr>
+<tr><td>最大熵产生（MEP）<sup class="c"><a href="#r12">[12]</a>,<a href="#r13">[13]</a>,<a href="#r15">[15]</a></sup></td><td>声称是；未证明</td><td>一般推导已被驳倒<sup class="c"><a href="#r14">[14]</a></sup></td><td><span class="tag con">有争议</span></td></tr>
+<tr><td>耗散适应<sup class="c"><a href="#r16">[16]</a>,<a href="#r17">[17]</a></sup></td><td>条件性地偏向<em>善于吸收功</em>的状态——与"复杂"不是一回事</td><td>被驱动的多体系统；2013 年的耗散下界是严格的，机制是猜想</td><td><span class="tag est">下界公认</span> · <span class="tag con">机制有争议</span></td></tr>
+<tr><td>柯尔莫哥洛夫复杂度<sup class="c"><a href="#r2">[2]</a></sup></td><td>尺子不对——噪声得分最高</td><td>—</td><td><span class="tag est">公认</span>（作为测度）</td></tr>
+<tr><td>逻辑深度 / 有效复杂性<sup class="c"><a href="#r6">[6]</a>,<a href="#r7">[7]</a>,<a href="#r8">[8]</a></sup></td><td>尺子对路；但无动力学</td><td>没有定理使深度增长</td><td><span class="tag est">公认</span>（测度）</td></tr>
+<tr><td>咖啡自动机<sup class="c"><a href="#r9">[9]</a></sup></td><td><strong>相反方向</strong>：封闭系统先升后降</td><td>封闭 + 粒子有相互作用；预印本</td><td><span class="tag con">初步</span></td></tr>
+<tr><td>装配理论<sup class="c"><a href="#r18">[18]</a></sup></td><td>度量趋势；不预测趋势</td><td>"高装配指数 + 高拷贝数 ⇒ 存在选择性历史"是经验判据；批评<sup class="c"><a href="#r19">[19]</a>,<a href="#r20">[20]</a></sup>指出该指数行为等同已知压缩类指标，"选择"一词用得过宽</td><td><span class="tag con">有争议</span></td></tr>
+<tr><td>自由能原理<sup class="c"><a href="#r21">[21]</a></sup></td><td>否——刻画"持存"而非"增长"（"暗房问题"<sup class="c"><a href="#r24">[24]</a></sup>）</td><td>早期表述有技术性反例<sup class="c"><a href="#r22">[22]</a></sup>，已部分修补<sup class="c"><a href="#r23">[23]</a></sup></td><td><span class="tag con">有争议</span></td></tr>
+<tr><td>重大演化转折<sup class="c"><a href="#r25">[25]</a>,<a href="#r26">[26]</a></sup></td><td>否——回溯性分类</td><td>反复出现的母题：信息存储与传递方式的革命；作者明言各转折是偶然的</td><td><span class="tag est">公认</span>（生物学）；非定律</td></tr>
+<tr><td>能率密度<sup class="c"><a href="#r33">[33]</a>,<a href="#r34">[34]</a></sup></td><td>描述一条经验上升曲线（每克物质的能量流，从星系到大脑到社会）</td><td>沿"通向我们"的谱系取样；高功率 ≠ 复杂</td><td><span class="tag con">有争议</span>（作为定律）</td></tr>
+<tr><td>被动趋势 / 零力演化定律<sup class="c"><a href="#r27">[27]</a>,<a href="#r28">[28]</a></sup></td><td>是——但只是扩散，不是驱动</td><td>存在"最简可存活生命"这堵下限墙时，纪录保持者会无驱动地向上漂移；任何"驱动力"理论必须先打败这个零假设</td><td><span class="tag est">零模型公认</span></td></tr>
+</table>
+</div>
+
+<h2 id="conjecture">猜想：自指本身是否驱动复杂性？</h2>
+<p>我的猜想是：<em>一旦自指系统出现，它就趋向越来越复杂——而且这可能是一个纯数学问题。</em> 这里的<dfn>自指</dfn>取一个具体而强的含义：系统包含自身的配方，并以两种方式使用它——一次<em>当作指令来读</em>（构造自身），一次<em>不加解读地复印</em>（传给后代）<sup class="c"><a href="#r40">[40]</a></sup>。DNA 正是这样工作的，而这套架构在双螺旋被发现的五年之前就已在纸上被推演出来。</p>
+<p>把猜想拆成三档强度，得到三个不同的判决：</p>
+<ul>
+<li><strong>可能性——成立。</strong> 数学表明自指封死了任何"最终完备"状态：任何足够丰富的一致形式系统既不能证明自身的一致性，也不能证明所有真理，因此上方永远有严格更强的系统<sup class="c"><a href="#r35">[35]</a>,<a href="#r37">[37]</a>,<a href="#r38">[38]</a></sup>。梯子没有顶。</li>
+<li><strong>必要性——强论证，接近定理的形状。</strong> 没有被复印且被解读的自身描述，就没有精确遗传<sup class="c"><a href="#r40">[40]</a>,<a href="#r59">[59]</a></sup>；没有精确遗传（复制保真度须高于一个可量化的误差阈值<sup class="c"><a href="#r32">[32]</a></sup>），选择就没有可累积的记忆；没有可累积的记忆，复杂性增长必然有界——只剩转瞬即逝的有序：漩涡与火焰。</li>
+<li><strong>充分性——按字面为假。</strong> 见下面的攻击。</li>
+</ul>
+
+<div class="box">
+<h3>钢人论证（可辩护的最强版本）</h3>
+<p>在一个持续供能、自复制者共享资源的世界里，复杂性前沿的无界增长会从"不可能"变成"统计上可预期"：自身描述使收益可遗传（棘轮）；梯子没有顶（数学）；而关键的一步是——自指者的群体<em>自己制造天气</em>。每一份公开的配方都是他者可以利用的资源：在经典的 Tierra 实验中，寄生者正是靠劫持其他程序的复制例程而出现的<sup class="c"><a href="#r44">[44]</a></sup>。这点燃军备竞赛<sup class="c"><a href="#r30">[30]</a></sup>与环境改造<sup class="c"><a href="#r31">[31]</a></sup>，不断重开机会之门——自指几乎自带了那台"泵"。</p>
+</div>
+
+<div class="box">
+<h3>攻击（字面版猜想为何失败）</h3>
+<ol>
+<li><strong>quine 问题。</strong> 自指在数学上的典范产物是一个原样打印自身的程序<sup class="c"><a href="#r36">[36]</a></sup>。自指保证的是完美的自我复制——自我保存，不是自我超越。不动点定理里没有任何向上的推力。</li>
+<li><strong>停滞反例。</strong> Tierra 和 Avida 中每个个体都完全自指，但在封闭世界里新颖性照样枯竭、系统照样饱和<sup class="c"><a href="#r44">[44]</a>,<a href="#r48">[48]</a>,<a href="#r49">[49]</a></sup>。复杂功能只在环境提供踏脚石式奖励时才演化出来，否则不出现<sup class="c"><a href="#r45">[45]</a></sup>。驱动力在环境的结构里。</li>
+<li><strong>复杂性也会下行。</strong> 选择经常削减复杂性（寄生生物甩掉基因），而且许多已观察到的复杂性可能源自遗传漂变——一个非适应性过程——而非任何向上的推力<sup class="c"><a href="#r29">[29]</a></sup>。</li>
+<li><strong>测度陷阱。</strong> 不先固定复杂性测度和粗粒化，猜想无法证伪；固定之后，不同的测度可能给出相反的判决。</li>
+<li><strong>不可判定性。</strong> 对于丰富到能进行任意计算的世界规则，"这里的复杂性会不会无界增长"在一般情形下不可判定<sup class="c"><a href="#r39">[39]</a></sup>。所以"纯数学问题"只对一半：在受限的系统类上可以证定理，普适的判定程序不存在。</li>
+<li><strong>零假设未排除。</strong> 观察到的上升中有一部分可以用"从下限墙向外扩散"解释<sup class="c"><a href="#r27">[27]</a>,<a href="#r28">[28]</a></sup>，完全不必求助于自指。</li>
+</ol>
+</div>
+
+<p><strong>判决：</strong>可能性成立；必要性是最有希望变成真定理的部分；充分性在封闭世界中为假；钢人版——持续供能下的自指群体几乎能给自己供泵——是真正的开放问题。连 Tierra 的军备竞赛最终也停了，所以"几乎"二字承担着实在的分量。</p>
+
+<h2 id="toy">配套玩具实验（仅作说明）</h2>
+<div class="box">
+<p><strong>设定。</strong> 我做的一个小型人工化学模拟（未发表；8 个随机种子）：两个系统除一处外完全相同——一个系统里，复制事件从单元<em>自己的</em>基因组读取片段（自指）；对照组里，被复制的片段来自外部的随机流。</p>
+<p><strong>结果。</strong> 8 个种子中的 8 个：自指系统在装配指数与逻辑深度代理上得分更<em>高</em>，在香农熵与块熵上得分更<em>低</em>。更多结构与历史、更少随机性——一个干净的、可上手的例证：熵和复杂性是两个可以反向运动的量。</p>
+<p><strong>诚实的批评：这个结果几乎是构造出来的。</strong> 自我复制在机械上必然制造重复片段；重复直接压低熵类得分、直接抬高数重复的装配类得分。两个方向的差异都是复制机制的算术后果，所以实验展示的是<em>重用</em>，不是开放式的复杂性增长。它报告的还是某一时刻两系统间的水平差，而真正的猜想说的是<em>随时间的趋势</em>；而且四个引擎部件它只有一个（没有能量账本、没有选择、没有谱系间的交互）。</p>
+<p><strong>一个非循环检验需要什么：</strong>不奖励重复的新颖性测度（对不断扩张的字典统计首次出现率；统计复杂性<sup class="c"><a href="#r8">[8]</a></sup>；以解压时间为代理的深度）；一个<em>有结构但非自指</em>的对照组（从其他单元或固定模板库复制——这才是真正要对比的差异）；长度与符号构成匹配、并有洗牌基线的两组；检验增长<em>速率</em>是否持续为正还是饱和的长程运行；以及补上缺失的部件——资源代价、选择、共享资源的交互。</p>
+</div>
+
+<h2 id="conjectures">两个可证伪的猜想</h2>
+<div class="box">
+<h3>猜想 A——自指棘轮</h3>
+<p>在一个可构造对象空间无界的驱动随机系统中（想象一个有能量流过的模拟化学），若满足：(i) 持续的自由能通量；(ii) 高于遗传误差阈值<sup class="c"><a href="#r32">[32]</a></sup>的自身描述复制；(iii) 可构造尺寸无上限；(iv) 多个复制谱系共享有限资源——则群体的最大装配指数依概率 1 无界增长。<em>并且</em>：删去 (ii)（无模板复制）或 (iv)（固定世界中的单一谱系），它将永远有界。</p>
+<p class="note">证伪方式：构造一个满足 (i)–(iv) 却可证明饱和的模拟；或构造一个删去 (ii) 仍无界增长的模拟。两种攻击在现有数字演化平台上都可执行<sup class="c"><a href="#r46">[46]</a></sup>。</p>
+</div>
+<div class="box">
+<h3>猜想 B——微观自指禁止</h3>
+<p>任何具有可遗传变异的自复制系统，必须把自身描述存储在实际上是经典的记录中：即环境会冗余复制的稳固状态<sup class="c"><a href="#r57">[57]</a>,<a href="#r58">[58]</a></sup>。等价地：不存在以相干量子态为遗传介质的可演化复制器。对未知量子态，这直接由不可克隆定理<sup class="c"><a href="#r56">[56]</a></sup>推出；对已知但相干的"描述带"，这是一个关于退相干速率与误差阈值之比的真猜想。</p>
+<p class="note">证伪方式：给出一个跨世代维持可遗传变异、且遗传介质为相干量子态的复制器——哪怕只是一个理论模型，也构成候选反例。</p>
+</div>
+
+<h2 id="next">三个具体的下一步</h2>
+<ol>
+<li><strong>必要性定理。</strong> 在最小模型类——被驱动的自催化化学<sup class="c"><a href="#r53">[53]</a>,<a href="#r54">[54]</a></sup>或含噪声的元胞自动机<sup class="c"><a href="#r55">[55]</a></sup>——中陈述并尝试证明：<em>没有被复印且被解读的自身描述，最大装配指数几乎必然有界。</em> 必要性比充分性更像定理；而任何反例本身就是重大发现。</li>
+<li><strong>析因模拟。</strong> 在 Avida 类平台<sup class="c"><a href="#r46">[46]</a></sup>上做 2×2×2 实验：{自身描述复制 vs 外部复印机} × {固定 vs 共演环境} × {有界 vs 可扩展基因组}，每格 ≥20 次长程运行，预登记饱和判据。预测：只有"自身描述 × 共演 × 可扩展"那一格持续增长；其余任何一格的持续增长都证伪钢人论证的相应部分。</li>
+<li><strong>测度工程。</strong> 开源一套测度——装配指数、基于压缩的深度代理、统计复杂性——在分子数据与数字生物历史两类数据上标定一致性。测度不一致之前，猜想谈不上干净的可证伪。</li>
+</ol>
+
+<h2 id="open-questions">各领域的开放问题</h2>
+<p class="note">这些是我反复回到的问题——按不同领域读者的语言分别陈述。</p>
+<h3>化学</h3>
+<ul>
+<li>自催化反应网络（其产物能加速生成它们自身的那些反应）在什么可测量的条件下，会越过"维持自身"而开始<em>累积</em>结构复杂性？能量通量、网络规模或催化特异性上是否存在阈值？</li>
+<li>一个没有任何被复制模板的化学系统，能否随时间展现装配指数的持续上升，还是说复制是严格必需的？能测量这种"趋势"（而不是一次性"水平"）的最简湿实验是什么？</li>
+<li>非生命、未经演化的化学，最多能把其高丰度产物的装配指数推到多高？这个上限是否取决于驱动方式？</li>
+</ul>
+<h3>生物学</h3>
+<ul>
+<li>在生命起源处，先出现的是被复制的分子，还是自我维持的代谢网络？这个二分法本身是否良定——还是说"配方"架构只在两者合并时才出现？</li>
+<li>观察到的最大复杂性上升中，多少由选择驱动，多少只是从"最简可存活"这堵下限墙向外的被动扩散？</li>
+<li>为什么生物圈似乎从不饱和，而迄今所有封闭的数字演化实验都饱和了？真实生态系统的哪个特征——物理体现、无界的生态位、共同演化——在起作用？</li>
+</ul>
+<h3>物理 / 信息</h3>
+<ul>
+<li>"熵升高了"与"复杂性升高了"能否用同一个量刻画，还是不可约地需要两把尺子——一把数随机性，一把数存储的历史？</li>
+<li>在"抹掉一比特的已知代价"之外，是否存在可证明的汇率，把耗散掉的能量与可建造的结构深度联系起来——一张复杂性的热力学价目表？</li>
+<li>在远离平衡处，是否有任何变分原理（"系统选择使某个量取极大/极小的路径"这类规则）真正成立？——毕竟头号候选的一般推导已经失败。</li>
+</ul>
+<h3>计算机科学 / AI</h3>
+<ul>
+<li>"没有被复印且被解读的自身描述，就没有无界的复杂性增长"——这样的定理能否至少在受限模型类上证明？（一般情形已知不可判定。）</li>
+<li>环境需要具备什么性质，人工演化才能开放式地持续下去？一个系统能否自己制造无穷的新颖性压力，还是必须由设计者不断投喂？</li>
+<li>当 AI 系统开始读取并修改自己的代码与权重时，同一套棘轮逻辑能否预测：其复杂性增长在什么条件下持续、在什么条件下饱和？</li>
+</ul>
+
+<h2 id="references">参考文献</h2>
+<p class="note">标签标注的是该文献在本页所支撑论断的等级：<span class="tag est">公认</span>＝领域广泛接受；<span class="tag con">有争议</span>＝存在已发表的严肃分歧；<span class="tag spec">思辨</span>＝纲领性或初步结果。承担争议性论断的关键条目已于 2026 年 9 月对照出版方页面复核；注明"未独立复核"的条目依据标准知识给出并如实标注。本页没有任何虚构引用。</p>
+<ol class="refs">
+<li id="r1">Shannon, C. E. (1948). "A Mathematical Theory of Communication." <em>Bell System Technical Journal</em> 27: 379–423, 623–656. <span class="tag est">公认</span></li>
+<li id="r2">Kolmogorov, A. N. (1965). "Three approaches to the quantitative definition of information." <em>Problems of Information Transmission</em> 1(1): 3–11. <span class="tag est">公认</span></li>
+<li id="r3">Landauer, R. (1961). "Irreversibility and heat generation in the computing process." <em>IBM Journal of Research and Development</em> 5: 183–191. <span class="tag est">公认</span></li>
+<li id="r4">Bérut, A., et al. (2012). "Experimental verification of Landauer's principle linking information and thermodynamics." <em>Nature</em> 483: 187–189. <span class="tag est">公认</span></li>
+<li id="r5">Bennett, C. H. (1982). "The thermodynamics of computation — a review." <em>International Journal of Theoretical Physics</em> 21: 905–940. <span class="tag est">公认</span></li>
+<li id="r6">Bennett, C. H. (1988). "Logical depth and physical complexity." In R. Herken (ed.), <em>The Universal Turing Machine: A Half-Century Survey</em>. Oxford University Press, 227–257. <span class="tag est">公认</span></li>
+<li id="r7">Gell-Mann, M. &amp; Lloyd, S. (1996). "Information measures, effective complexity, and total information." <em>Complexity</em> 2(1): 44–52. <span class="tag est">公认</span></li>
+<li id="r8">Crutchfield, J. P. &amp; Young, K. (1989). "Inferring statistical complexity." <em>Physical Review Letters</em> 63: 105–108. <span class="tag est">公认</span></li>
+<li id="r9">Aaronson, S., Carroll, S. M. &amp; Ouellette, L. (2014). "Quantifying the Rise and Fall of Complexity in Closed Systems: The Coffee Automaton." arXiv:1405.6903（预印本）. <span class="tag con">初步</span></li>
+<li id="r10">Schrödinger, E. (1944). <em>What is Life?</em> Cambridge University Press. <span class="tag est">公认</span></li>
+<li id="r11">Nicolis, G. &amp; Prigogine, I. (1977). <em>Self-Organization in Nonequilibrium Systems.</em> Wiley. <span class="tag est">公认</span>（机制；最小熵产生仅近平衡区成立）</li>
+<li id="r12">Dewar, R. C. (2003). "Information theory explanation of the fluctuation theorem, maximum entropy production and self-organized criticality in non-equilibrium stationary states." <em>J. Phys. A</em> 36: 631–641. <span class="tag con">有争议</span></li>
+<li id="r13">Dewar, R. C. (2005). "Maximum entropy production and the fluctuation theorem." <em>J. Phys. A</em> 38: L371–L381. <span class="tag con">有争议</span></li>
+<li id="r14">Grinstein, G. &amp; Linsker, R. (2007). "Comments on a derivation and application of the 'maximum entropy production' principle." <em>J. Phys. A: Math. Theor.</em> 40: 9717–9720. <span class="tag est">公认</span>（该驳斥本身）</li>
+<li id="r15">Martyushev, L. M. &amp; Seleznev, V. D. (2006). "Maximum entropy production principle in physics, chemistry and biology." <em>Physics Reports</em> 426: 1–45. <span class="tag est">公认</span>（作为对一个有争议原理的综述）</li>
+<li id="r16">England, J. L. (2013). "Statistical physics of self-replication." <em>Journal of Chemical Physics</em> 139: 121923. <span class="tag est">公认</span>（该下界）</li>
+<li id="r17">England, J. L. (2015). "Dissipative adaptation in driven self-assembly." <em>Nature Nanotechnology</em> 10: 919–923. <span class="tag con">有争议</span>（作为生命机制）</li>
+<li id="r18">Sharma, A., Czégel, D., Lachmann, M., Kempes, C. P., Walker, S. I. &amp; Cronin, L. (2023). "Assembly theory explains and quantifies selection and evolution." <em>Nature</em> 622: 321–328. <span class="tag con">有争议</span></li>
+<li id="r19">Jaeger, J. (2024). "Assembly Theory: What It Does and What It Does Not Do." <em>Journal of Molecular Evolution</em> 92: 87–92. <span class="tag est">公认</span>（作为已发表批评）</li>
+<li id="r20">Zenil, H. 及合作者 (2024). "On the salient limitations of the methods of assembly theory and their classification of molecular biosignatures." <em>npj Systems Biology and Applications.</em>（完整作者名单未复核。）<span class="tag est">公认</span>（作为已发表批评）</li>
+<li id="r21">Friston, K. (2010). "The free-energy principle: a unified brain theory?" <em>Nature Reviews Neuroscience</em> 11: 127–138. <span class="tag con">有争议</span>（作为普适原理）</li>
+<li id="r22">Biehl, M., Pollock, F. A. &amp; Kanai, R. (2021). "A Technical Critique of Some Parts of the Free Energy Principle." <em>Entropy</em> 23(3): 293. <span class="tag est">公认</span>（作为已发表批评）</li>
+<li id="r23">Friston, K., Da Costa, L. &amp; Parr, T. (2021). "Some Interesting Observations on the Free Energy Principle." <em>Entropy</em> 23(8). <span class="tag con">回应</span></li>
+<li id="r24">Friston, K., Thornton, C. &amp; Clark, A. (2012). "Free-energy minimization and the dark-room problem." <em>Frontiers in Psychology</em> 3: 130. <span class="tag est">公认</span></li>
+<li id="r25">Maynard Smith, J. &amp; Szathmáry, E. (1995). <em>The Major Transitions in Evolution.</em> Oxford University Press. <span class="tag est">公认</span>（作者明言并非进步定律）</li>
+<li id="r26">Szathmáry, E. (2015). "Toward major evolutionary transitions theory 2.0." <em>PNAS</em> 112: 10104–10111. <span class="tag est">公认</span></li>
+<li id="r27">Gould, S. J. (1996). <em>Full House.</em> Harmony Books. <span class="tag est">公认</span>（被动趋势零模型）</li>
+<li id="r28">McShea, D. W. &amp; Brandon, R. N. (2010). <em>Biology's First Law.</em> University of Chicago Press. <span class="tag con">有争议</span>（作为"定律"）</li>
+<li id="r29">Lynch, M. (2007). "The frailty of adaptive hypotheses for the origins of organismal complexity." <em>PNAS</em> 104 (suppl 1): 8597–8604. <span class="tag est">公认</span></li>
+<li id="r30">Van Valen, L. (1973). "A new evolutionary law." <em>Evolutionary Theory</em> 1: 1–30. <span class="tag est">公认</span>（红皇后）</li>
+<li id="r31">Odling-Smee, F. J., Laland, K. N. &amp; Feldman, M. W. (2003). <em>Niche Construction.</em> Princeton University Press. <span class="tag est">公认</span></li>
+<li id="r32">Eigen, M. (1971). "Selforganization of matter and the evolution of biological macromolecules." <em>Naturwissenschaften</em> 58: 465–523. <span class="tag est">公认</span>（误差阈值）</li>
+<li id="r33">Chaisson, E. J. (2001). <em>Cosmic Evolution: The Rise of Complexity in Nature.</em> Harvard University Press. <span class="tag con">有争议</span>（作为复杂性度量）</li>
+<li id="r34">Chaisson, E. J. (2011). "Energy rate density as a complexity metric and evolutionary driver." <em>Complexity</em> 16(3): 27–40. <span class="tag con">有争议</span></li>
+<li id="r35">Gödel, K. (1931). "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." <em>Monatshefte für Mathematik und Physik</em> 38: 173–198. <span class="tag est">公认</span></li>
+<li id="r36">Kleene, S. C. (1938). "On notation for ordinal numbers." <em>Journal of Symbolic Logic</em> 3: 150–155（递归定理）. <span class="tag est">公认</span></li>
+<li id="r37">Turing, A. M. (1939). "Systems of logic based on ordinals." <em>Proc. London Mathematical Society</em> s2-45: 161–228. <span class="tag est">公认</span></li>
+<li id="r38">Feferman, S. (1962). "Transfinite recursive progressions of axiomatic theories." <em>Journal of Symbolic Logic</em> 27: 259–316. <span class="tag est">公认</span></li>
+<li id="r39">Rice, H. G. (1953). "Classes of recursively enumerable sets and their decision problems." <em>Transactions of the AMS</em> 74: 358–366. <span class="tag est">公认</span></li>
+<li id="r40">von Neumann, J. (1966). <em>Theory of Self-Reproducing Automata</em>（A. W. Burks 编）. University of Illinois Press. <span class="tag est">公认</span></li>
+<li id="r41">Hofstadter, D. R. (1979). <em>Gödel, Escher, Bach</em>；及 (2007) <em>I Am a Strange Loop.</em> Basic Books. <span class="tag est">公认</span>（概念性著作，非定理来源）</li>
+<li id="r42">Maturana, H. R. &amp; Varela, F. J. (1980). <em>Autopoiesis and Cognition.</em> D. Reidel. <span class="tag est">公认</span>（自我维持概念；不主张复杂性增长）</li>
+<li id="r43">Rosen, R. (1991). <em>Life Itself.</em> Columbia University Press. <span class="tag con">有争议</span>（其"不可计算"论断有异议，如 Chu &amp; Ho 2006, <em>Artificial Life</em> 12(1)——未独立复核）</li>
+<li id="r44">Ray, T. S. (1991). "An approach to the synthesis of life." In <em>Artificial Life II.</em> Addison-Wesley, 371–408（Tierra）. <span class="tag est">公认</span></li>
+<li id="r45">Lenski, R. E., Ofria, C., Pennock, R. T. &amp; Adami, C. (2003). "The evolutionary origin of complex features." <em>Nature</em> 423: 139–144. <span class="tag est">公认</span></li>
+<li id="r46">Ofria, C. &amp; Wilke, C. O. (2004). "Avida: A software platform for research in computational evolutionary biology." <em>Artificial Life</em> 10: 191–229. <span class="tag est">公认</span></li>
+<li id="r47">Adami, C., Ofria, C. &amp; Collier, T. C. (2000). "Evolution of biological complexity." <em>PNAS</em> 97: 4463–4468. <span class="tag est">公认</span></li>
+<li id="r48">Taylor, T., et al. (2016). "Open-ended evolution: Perspectives from the OEE workshop in York." <em>Artificial Life</em> 22(3): 408–423. <span class="tag est">公认</span>（领域共识：尚无人工系统展示生物圈式开放演化）</li>
+<li id="r49">Packard, N., et al. (2019). "An overview of open-ended evolution." <em>Artificial Life</em> 25(2): 93–103. <span class="tag est">公认</span></li>
+<li id="r50">Bedau, M. A., Snyder, E. &amp; Packard, N. H. (1998). "A classification of long-term evolutionary dynamics." In <em>Artificial Life VI.</em> MIT Press. <span class="tag est">公认</span></li>
+<li id="r51">Soros, L. B. &amp; Stanley, K. O. (2014). "Identifying necessary conditions for open-ended evolution through the artificial life world of Chromaria." <em>ALIFE 14.</em> MIT Press. <span class="tag est">公认</span>（作为条件清单提案）</li>
+<li id="r52">Fontana, W. &amp; Buss, L. W. (1994). "What would be conserved if 'the tape were played twice'?" <em>PNAS</em> 91: 757–761. <span class="tag est">公认</span></li>
+<li id="r53">Kauffman, S. A. (1986). "Autocatalytic sets of proteins." <em>Journal of Theoretical Biology</em> 119: 1–24. <span class="tag est">公认</span></li>
+<li id="r54">Hordijk, W. &amp; Steel, M. (2004). "Detecting autocatalytic, self-sustaining sets in chemical reaction systems." <em>Journal of Theoretical Biology</em> 227: 451–461. <span class="tag est">公认</span></li>
+<li id="r55">Gács, P. (2001). "Reliable cellular automata with self-organization." <em>Journal of Statistical Physics</em> 103: 45–267. <span class="tag est">公认</span></li>
+<li id="r56">Wootters, W. K. &amp; Zurek, W. H. (1982). "A single quantum cannot be cloned." <em>Nature</em> 299: 802–803；独立结果：Dieks, D. (1982), <em>Physics Letters A</em> 92: 271–272. <span class="tag est">公认</span></li>
+<li id="r57">Zurek, W. H. (2003). "Decoherence, einselection, and the quantum origins of the classical." <em>Reviews of Modern Physics</em> 75: 715–775. <span class="tag est">公认</span></li>
+<li id="r58">Zurek, W. H. (2009). "Quantum Darwinism." <em>Nature Physics</em> 5: 181–188. <span class="tag est">公认</span>（作为理论框架）</li>
+<li id="r59">Marletto, C. (2015). "Constructor theory of life." <em>Journal of the Royal Society Interface</em> 12: 20141226. <span class="tag est">公认</span>（在其框架假设之内）</li>
+<li id="r60">Wheeler, J. A. (1990). "Information, physics, quantum: The search for links." In W. H. Zurek (ed.), <em>Complexity, Entropy, and the Physics of Information.</em> Addison-Wesley. <span class="tag spec">思辨</span>（纲领宣言）</li>
+<li id="r61">Bekenstein, J. D. (1973). "Black holes and entropy." <em>Physical Review D</em> 7: 2333；及 (1981) <em>Physical Review D</em> 23: 287. <span class="tag est">公认</span></li>
+<li id="r62">'t Hooft, G. (1993). "Dimensional reduction in quantum gravity," arXiv:gr-qc/9310026；Susskind, L. (1995). "The world as a hologram." <em>J. Math. Phys.</em> 36: 6377. <span class="tag est">公认</span>（作为全息原理的提出）</li>
+<li id="r63">Maldacena, J. (1998). "The large N limit of superconformal field theories and supergravity." <em>Adv. Theor. Math. Phys.</em> 2: 231–252. <span class="tag est">公认</span></li>
+<li id="r64">Jacobson, T. (1995). "Thermodynamics of spacetime: The Einstein equation of state." <em>Physical Review Letters</em> 75: 1260–1263. <span class="tag est">公认</span>（推导；诠释开放）</li>
+<li id="r65">Chiribella, G., D'Ariano, G. M. &amp; Perinotti, P. (2011). "Informational derivation of quantum theory." <em>Physical Review A</em> 84: 012311. <span class="tag est">公认</span></li>
+<li id="r66">Verlinde, E. (2011). "On the origin of gravity and the laws of Newton." <em>JHEP</em> 2011(4): 29. <span class="tag con">有争议</span></li>
+<li id="r67">Vopson, M. M. &amp; Lepadatu, S. (2022). "Second law of information dynamics." <em>AIP Advances</em> 12: 075310；Vopson, M. M. (2019). "The mass-energy-information equivalence principle." <em>AIP Advances</em> 9: 095206. <span class="tag spec">思辨</span>（推导被指依赖可逆性近似；无实验证实）</li>
+<li id="r68">Albert, D. Z. (2000). <em>Time and Chance.</em> Harvard University Press. <span class="tag est">公认</span>（"过去假设"）</li>
+<li id="r69">Penrose, R. (1979). "Singularities and time-asymmetry." In Hawking &amp; Israel (eds.), <em>General Relativity: An Einstein Centenary Survey.</em> Cambridge University Press. <span class="tag con">有争议</span>（Weyl 曲率假设）</li>
+<li id="r70">Rovelli, C. (1996). "Relational quantum mechanics." <em>International Journal of Theoretical Physics</em> 35: 1637–1678. <span class="tag con">有争议</span>（作为一种诠释）</li>
+<li id="r71">Breuer, T. (1995). "The impossibility of accurate state self-measurements." <em>Philosophy of Science</em> 62: 197–214. <span class="tag est">标注</span>——未独立复核，使用前请核实。</li>
+</ol>
+
+</main>
+<footer>
+<p>静态页面：无脚本、无外部字体、无跟踪器。本页的问题是我自己的问题；研究全文与逐条分级的文献清单与本页同仓库存放。<a href="index.html" lang="en">English version</a></p>
+</footer>
+</body>
+</html>
