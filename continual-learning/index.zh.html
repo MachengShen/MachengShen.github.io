@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>终身学习的机器:持续学习的根本问题与最有希望的方向</title>
+<meta name="description" content="面向公众的研究综述:AI 为什么会灾难性遗忘、什么是可塑性丧失、损失几何与“就近学习”、系统与神经科学路线,以及 8 个排序的开放根本问题。全部引用公开文献。">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/continual-learning/">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/continual-learning/index.zh.html">
+<link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/continual-learning/">
+<style>
+:root{--ink:#1c2230;--muted:#5b6472;--line:#e3e6eb;--accent:#0f5da8;--box:#f6f8fa}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#fff;color:var(--ink);line-height:1.75;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif}
+header,main,footer{max-width:50rem;margin:0 auto;padding:0 1.25rem}
+header{padding-top:1.5rem}
+.topbar{display:flex;justify-content:space-between;align-items:center;font-size:.9rem;color:var(--muted)}
+.topbar nav a{font-weight:600}
+h1{font-size:1.65rem;line-height:1.4;margin:.7rem 0 .4rem}
+.about{font-size:.92rem;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:1rem;margin-bottom:.4rem}
+h2{font-size:1.32rem;line-height:1.45;margin-top:2.6rem;border-bottom:2px solid var(--line);padding-bottom:.35rem}
+h3{font-size:1.1rem;margin-top:1.9rem}
+h4{font-size:1rem;margin-top:1.4rem}
+p{margin:.9rem 0}
+a{color:var(--accent);text-decoration:none;overflow-wrap:break-word}
+a:hover{text-decoration:underline}
+blockquote{background:var(--box);border-left:4px solid var(--accent);margin:1.3rem 0;
+  padding:.4rem 1.15rem;border-radius:0 10px 10px 0;font-size:.95rem}
+blockquote.toy{border-left-color:#8a5cd6;background:#f7f4fd}
+blockquote h3{margin-top:.8rem}
+ol,ul{padding-left:1.5rem;margin:.9rem 0}
+li{margin:.55rem 0}
+hr{border:none;border-top:1px solid var(--line);margin:2.2rem 0}
+.tag{font-size:.78em;padding:.06em .5em;border-radius:1em;border:1px solid;white-space:normal}
+.tag.est{color:#0a6b31;background:#e9f7ee;border-color:#bfe6cc}
+.tag.con{color:#9a5b00;background:#fdf3e3;border-color:#f0d9ae}
+.tag.spe{color:#6b3fa0;background:#f3edfb;border-color:#dccdf0}
+.tag.oth{color:#41506b;background:#eef1f5;border-color:#d5dae2}
+a.cite{font-size:.85em}
+#references p.ref{font-size:.88rem;margin:.55rem 0;padding-left:3.6rem;text-indent:-3.6rem}
+#references .refnum{font-weight:700}
+#references h3{margin-top:2rem}
+#references h4{color:var(--muted)}
+.refnote{font-size:.85rem;color:var(--muted)}
+:target{background:#fff7d6;transition:background .6s}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);margin-top:3rem;padding-top:1.3rem;padding-bottom:3rem}
+@media (max-width:600px){h1{font-size:1.35rem}body{line-height:1.7}}
+</style>
+</head>
+<body>
+<header>
+<div class="topbar"><span>Continual Learning — Public Research Brief</span><nav><a href="index.html">English</a> · <span>中文</span></nav></div>
+<h1>终身学习的机器:持续学习的根本问题与最有希望的方向</h1>
+<p class="about">独立撰写的公开综述,全部基于公开发表的文献;不隶属于任何机构或个人,亦未获其背书。最后更新:2026-09-26。英文版见上方切换。</p>
+</header>
+<main>
+<p><strong>一份面向公众的研究综述</strong> · 结论先行,论证与数据在后,全部文献见 <a href="#references">SOURCES.md</a></p>
+<p><strong>写给所有读者的开场白</strong>:今天的 AI 学东西更像一次性铸造,而不是持续成长——先用海量资料"教"一遍,然后定型投入使用。此后若再教它新东西,新知识往往会覆盖旧知识,因为它的全部本领都写在同一批共享的内部数值上,为学新而调整这些数值,就难免抹掉旧的。人恰恰相反:我们一辈子不断学习,旧本领大多保得住,而且学得越多、再学新东西越快。如果这个差距被解决,AI 将不再是需要定期从头重造的产品,而更像一位随经验成长的同事——共事越久,越懂你的世界。这份报告解释:为什么现在做不到,难点到底在哪,哪些研究路线最有希望。</p>
+<blockquote>
+<p><strong>证据标签说明</strong>:本文对每个关键论断标注证据强度。</p>
+<ul>
+<li><span class="tag est">【已确立】</span>:多个独立研究重复验证,或有严格理论证明,领域内基本无争议;</li>
+<li><span class="tag con">【有争议】</span>:有公开发表的证据支持,但存在相互冲突的结果或未决的解释分歧;</li>
+<li><span class="tag spe">【推测】</span>:合理外推或作者综合判断,尚无直接证据,读者应视为假说。</li>
+</ul>
+<p>本文只使用公开发表的文献(期刊、会议、arXiv 预印本、公开报告),正文中以 [S编号] 引用,完整书目见 <a href="#references">SOURCES.md</a>。初稿文献检索截至 2025 年;2026-09 补充纳入一批经逐条核验的公开文献(SOURCES.md 第 F 节,S100–S127),会议名称仅在直接核验后标注。</p>
+<p><strong>术语约定</strong>:每个专业术语在首次出现处均附有通俗解释(括号内)。若中途翻阅遇到陌生词,可回到其首次出现处查看定义。</p>
+</blockquote>
+<hr>
+<h2>第〇部分:结论先行</h2>
+<p>出发的问题是:<strong>一个真正强大的 AI 应当像人一样,终其一生持续学习。今天没有任何系统做到这一点。要做到,必须解决哪些根本问题?哪些方向最有希望?</strong></p>
+<p>十二条核心结论:</p>
+<ol>
+<li value="1"><strong>今天的深度学习在结构上是"两阶段"的——先训练、后冻结使用——这与终身学习的要求直接冲突。这不是工程细节,而是根本缺陷。</strong>(<strong>深度网络</strong>:由大量可调数值层层堆叠而成的学习系统;这些可调数值叫<strong>参数</strong>或<strong>权重</strong>,模型的全部知识就存在其中。)一旦让标准深度网络<strong>持续学习</strong>(不停用、边用边学,而不是一次性训练),它会同时暴露两种失败:忘掉旧的(<strong>灾难性遗忘</strong>)和学不动新的(<strong>可塑性丧失</strong>;可塑性=还能被新经验改变、学会新东西的能力)。两者都有扎实的实验证据。<span class="tag est">【已确立】</span><a class="cite" href="#S1">[S1]</a><a class="cite" href="#S23">[S23]</a></li>
+<li value="2"><strong>灾难性遗忘自 1989 年就已知,至今没有通用解。</strong> 它的机制是清楚的:<strong>分布式表示</strong>(每条知识分散写在许多共享数值上,而不是各占一格)意味着新旧知识共用参数,学新任务时的<strong>梯度更新</strong>(训练中对参数的逐步微调)会覆写旧任务依赖的权重。三类缓解手段——<strong>正则化</strong>(给参数改动加"惩罚",不许离旧状态太远)、<strong>重放</strong>(留一小份旧数据,学新时混进去复习)、<strong>结构隔离</strong>(给新任务划拨独立的网络部件)——各有代价,没有一种在无任务边界、数据只过一遍、存储受限的真实设定下全面成立。<span class="tag est">【已确立】</span><a class="cite" href="#S1">[S1]</a><a class="cite" href="#S3">[S3]</a><a class="cite" href="#S13">[S13]</a></li>
+<li value="3"><strong>可塑性丧失是近年才被充分确认的"另一半"问题,且更为致命。</strong> Dohare 等在 Nature(2024)证明:标准深度学习方法在持续学习设定下会逐渐丧失学习能力,最终不如浅层网络;仅靠<strong>梯度下降</strong>(沿"错误减少最快"的方向反复微调参数的标准训练算法)不够,需要持续注入随机性(如<strong>持续反向传播</strong>:持续随机重置一小部分不再起作用的神经元,让网络保有"新鲜细胞")才能无限期保持可塑性。<span class="tag est">【已确立,但"随机性是否必需"这一强论断有待更多独立检验→有争议的部分见正文】</span><a class="cite" href="#S23">[S23]</a></li>
+<li value="4"><strong>理论上,"不用记忆、只靠巧妙的参数更新"的完美持续学习基本无望。</strong> Knoblauch 等(ICML 2020)证明最优持续学习一般需要完美记忆且为 <strong>NP 难</strong>(计算复杂度理论中公认无法高效求解的一类问题);这解释了为什么重放/记忆类方法在实证中系统性地强于纯正则化方法。任何认真的终身学习方案都必须包含某种形式的记忆。<span class="tag est">【已确立(定理本身);对实践的约束力属合理推断】</span><a class="cite" href="#S18">[S18]</a></li>
+<li value="5"><strong>损失几何给了"就近学习"一个真实但有限的机会窗口。</strong>(<strong>损失</strong>:衡量模型犯错程度的分数,训练就是把它压低;"损失几何"研究参数空间里这个分数的地形。)<strong>过参数化</strong>(参数远多于"刚好够用")网络的好解不是孤点,而是连成一片的低损失区域(<strong>模式连通性</strong>);从同一<strong>预训练</strong>模型(先在海量通用数据上训练出的底座)出发<strong>微调</strong>(用新数据接着训练)得到的多个解甚至由直线相连,可以直接加权平均合并(model soups、任务算术)。这解释了为什么 EWC、LoRA、正交投影、模型合并这类"待在旧解附近学新"的方法效果不错——尤其在强预训练模型之上。<span class="tag est">【已确立】</span><a class="cite" href="#S32">[S32]</a><a class="cite" href="#S33">[S33]</a><a class="cite" href="#S34">[S34]</a><a class="cite" href="#S40">[S40]</a><a class="cite" href="#S48">[S48]</a><a class="cite" href="#S49">[S49]</a></li>
+<li value="6"><strong>但"就近学习"有原则性上限:约束会累积耗尽容量,而真正的新知识要求特征改变,不能永远线性化。</strong> <strong>正交投影</strong>类方法(只沿不影响旧任务的方向更新参数)的可用方向随任务数递减;EWC 依赖的 <strong>Fisher 估计</strong>(对"哪些参数对旧任务重要"的数学估计)在长序列上失真;<strong>类增量</strong>场景(最难的设定:不告诉模型现在是哪个任务)下纯正则化方法系统性失败;<strong>惰性(NTK)区</strong>的学习(参数几乎不动、模型近似线性的训练状态)恰恰放弃了深度学习最有价值的<strong>特征学习</strong>(网络自己发明新的内部概念)。"就近学习"是强预训练模型上的短中期策略,不是终身学习的完整答案。<span class="tag est">【已确立(各失效点)+ 综合判断】</span><a class="cite" href="#S13">[S13]</a><a class="cite" href="#S37">[S37]</a><a class="cite" href="#S38">[S38]</a><a class="cite" href="#S46">[S46]</a></li>
+<li value="7"><strong>大脑的答案不是单一机制,而是一套多时间尺度的系统架构:互补学习系统(海马快学、皮层慢固化)、睡眠重放、突触内部的多时间尺度状态、稀疏编码与神经调质门控。</strong>(<strong>海马</strong>:大脑中快速记录具体事件的区域;<strong>新皮层</strong>:缓慢提炼规律的区域;<strong>突触</strong>:神经元之间强度可调的连接,相当于大脑的"权重";<strong>固化</strong>:把易失的新记忆转成持久记忆的过程;<strong>稀疏编码</strong>:任一时刻只让少数神经元活跃;<strong>神经调质</strong>:多巴胺等化学信号,控制"何时该学、学多快"。)其中最可迁移的洞见是:<strong>记忆必须分层,固化必须是主动过程,"学多快"本身要被调控</strong>。<span class="tag est">【已确立(生物机制);"可迁移"属有依据的推断】</span><a class="cite" href="#S61">[S61]</a><a class="cite" href="#S86">[S86]</a><a class="cite" href="#S88">[S88]</a><a class="cite" href="#S89">[S89]</a><a class="cite" href="#S90">[S90]</a></li>
+<li value="8"><strong>当前实证上最能打的工程路线是"记忆系统 + 重放 + 慢速固化"的组合,而不是任何单一算法。</strong> 重放是持续学习<strong>基准</strong>(标准化测试集)上最稳健的方法族;<strong>检索增强(RAG)</strong>(模型回答前先到外部资料库查资料,而不是全凭记在参数里的知识)把事实性知识外置,绕开了权重更新;LLM(大语言模型)持续预训练用"<strong>学习率</strong>(每次参数调整的步幅)再升温 + 小比例旧数据重放"已能接近重训效果。<span class="tag est">【已确立(各单项);组合优先级为作者判断】</span><a class="cite" href="#S13">[S13]</a><a class="cite" href="#S64">[S64]</a><a class="cite" href="#S74">[S74]</a></li>
+<li value="9"><strong>上下文内学习(ICL)是一种真实但短暂的持续学习,它提示了一条架构级出路:把"学习"变成推理的一部分。</strong>(<strong>上下文内学习</strong>:不改任何参数,只把示例放进对话窗口,模型就能现学现用;<strong>推理</strong>:模型被使用、生成输出的阶段,区别于训练阶段。)研究表明 Transformer 计算一次输出的过程(<strong>前向传播</strong>)可以隐式地执行梯度下降——等于在"脑内"临时学习;<strong>测试时训练</strong>(TTT 层、Titans)把这一点显式化,让模型在使用中持续更新一个快速记忆模块。这是当前最有想象空间的架构方向之一,但尚未在真正的终身尺度上验证。<span class="tag est">【已确立(机制研究)/【推测】(作为终身学习路线)】</span><a class="cite" href="#S67">[S67]</a><a class="cite" href="#S68">[S68]</a><a class="cite" href="#S69">[S69]</a><a class="cite" href="#S70">[S70]</a></li>
+<li value="10"><strong>领域的标准框架部分问错了问题。</strong> 主流基准把持续学习定义为"在受限条件下逼近<strong>多任务联合训练</strong>(把所有任务数据攒在一起同时训练——被当作理想上限)"——目标是不掉分。但终身学习的真正目标是<strong>知识积累与复利</strong>:学得越多,学新东西越快(<strong>前向迁移</strong>:旧知识帮到新学习),旧知识还能被新经验改善(<strong>后向迁移</strong>)。几乎没有基准直接度量"学习加速度";一个朴素<strong>基线</strong>(最简单的对照方法。GDumb:只存样本、考前重训)能击败大批复杂方法,说明现有评测没有测到真正的能力。<span class="tag est">【已确立(GDumb 等证据)+ 观点(框架批评)】</span><a class="cite" href="#S15">[S15]</a><a class="cite" href="#S16">[S16]</a><a class="cite" href="#S17">[S17]</a></li>
+<li value="11"><strong>神经发生的教训:连生物学自己都还在争论。</strong>(<strong>神经发生</strong>:大脑长出新的神经元。)成人海马是否终身产生新神经元,2018 年两篇顶刊结论直接相反(Sorrells: 检不出;Boldrini: 持续到 79 岁)。对 AI 的启示是方向性的(注入新鲜可塑性单元有价值——这恰是持续反向传播所做的),而非可以照抄的蓝图。<span class="tag con">【有争议(生物事实)】</span><a class="cite" href="#S23">[S23]</a><a class="cite" href="#S94">[S94]</a><a class="cite" href="#S95">[S95]</a></li>
+<li value="12"><strong>最有希望的方向排序(作者综合判断,理由见第六部分)</strong>:① 面向 LLM 的互补学习系统(检索式<strong>情景记忆</strong>〔对具体经历的记忆,区别于对规律的记忆〕+ 周期性固化入权重);② 保持可塑性的优化器与架构(持续反向传播家族);③ 规模化持续预训练的"配方科学";④ 把学习内置于推理的架构(TTT/快速权重);⑤ 几何引导的模型合并与<strong>低秩更新</strong>(冻结模型主体,只训练一小块附加参数,LoRA 即此类)。真正的瓶颈不在任何单点技术,而在<strong>缺少一个诚实的、开放式的终身学习评测与理论目标函数</strong>。<span class="tag spe">【推测(排序本身)】</span></li>
+</ol>
+<hr>
+<h2>第一部分:问题定义——持续学习到底在问什么</h2>
+<h3>1.1 两难的原型:稳定性 vs 可塑性</h3>
+<p>一个学习系统面对源源不断的新经验,有两种对称的死法:太"稳定",新东西学不进去;太"可塑",新东西把旧东西冲掉。Grossberg 在 1980 年就把这命名为<strong>稳定性–可塑性两难</strong>(stability–plasticity dilemma)<a class="cite" href="#S4">[S4]</a>,并在 ART 架构中第一次尝试正面解决 <a class="cite" href="#S5">[S5]</a>。这不是深度学习特有的毛病,而是任何用共享资源存储知识的系统的普遍约束。</p>
+<p>深度网络把这个两难表现得极端:McCloskey 与 Cohen(1989)发现,顺序训练的连接主义网络(神经网络的早期叫法)学习第二个任务时会<strong>灾难性地</strong>摧毁第一个任务的性能 <a class="cite" href="#S1">[S1]</a>,Ratcliff(1990)做了系统定量刻画 <a class="cite" href="#S2">[S2]</a>。French(1999)指出根源:分布式表示的威力恰恰来自参数共享与重叠,而重叠就是干扰的来源——<strong>遗忘不是 bug,是分布式表示这枚硬币的反面</strong> <a class="cite" href="#S3">[S3]</a>。<span class="tag est">【已确立】</span></p>
+<h3>1.2 标准形式化及其度量</h3>
+<p>现代文献通常这样设定:任务序列 T₁, T₂, …, Tₖ 依次到来,学习器每次只能看当前任务的数据,目标是在全部见过的任务上都表现好。Lopez-Paz 与 Ranzato(2017)给出了沿用至今的三个指标 <a class="cite" href="#S15">[S15]</a>:</p>
+<ul>
+<li><strong>平均准确率(ACC)</strong>:全部学完后在所有任务上的平均表现;</li>
+<li><strong>后向迁移(BWT)</strong>:学新任务对旧任务性能的影响(负值=遗忘,正值=温故知新);</li>
+<li><strong>前向迁移(FWT)</strong>:旧知识对尚未学习的任务的帮助。</li>
+</ul>
+<p>van de Ven 等进一步把场景分为三类 <a class="cite" href="#S12">[S12]</a><a class="cite" href="#S13">[S13]</a>:<strong>任务增量</strong>(测试时告诉你是哪个任务)、<strong>域增量</strong>(任务不变、数据分布变)、<strong>类增量</strong>(要在所有见过的类别中做判别,且不告诉你任务身份)。这个区分极其重要,因为方法的成败强烈依赖场景:正则化类方法(EWC 等)在任务增量下尚可,在类增量下系统性失败;类增量基本只有重放和结构方法能撑住 <a class="cite" href="#S13">[S13]</a>。<span class="tag est">【已确立】</span></p>
+<h3>1.3 这个框架问对问题了吗?——我们的论点</h3>
+<p><strong>部分问对,部分问错。</strong> 以下三点批评均有公开证据支撑:</p>
+<p><strong>第一,现行基准度量的是"不退步",不是"会积累"。</strong> 标准指标以"多任务联合训练"为隐含天花板:一个把所有数据攒起来一起训的模型就是最优解,持续学习被定义为在"不能攒数据"的约束下逼近它。但终身学习的原始动机(Ring 1994 <a class="cite" href="#S6">[S6]</a>; Thrun &amp; Mitchell 1995 <a class="cite" href="#S7">[S7]</a>)是<strong>复利式的知识积累</strong>:学得越多,学新东西越快、越好——第 1000 个任务的学习曲线应当远陡于第 1 个。这对应 FWT,而 FWT 在绝大多数论文里是被顺带一提的次要指标,且鲜有工作展示随任务数增长的<strong>学习加速</strong>。一个只会"不忘"而不会"越学越快"的系统,不是人们想要的终身学习者。<span class="tag oth">【观点,但指标现状可查证】</span><a class="cite" href="#S15">[S15]</a></p>
+<p><strong>第二,朴素基线的胜利暴露了评测的失真。</strong> Prabhu 等(2020)的 GDumb 什么持续学习技巧都不用:贪心地往一个小缓冲区里存样本,测试前用缓冲区从头重训一个模型——就这样击败了当时大批专门设计的方法 <a class="cite" href="#S17">[S17]</a>。Farquhar 与 Gal(2018)更早就指出,常用协议(多次遍历数据、测试时已知任务身份、只用两三个任务的短序列)使评测偏向根本不解决真问题的方法 <a class="cite" href="#S16">[S16]</a>。后续在<strong>固定算力预算</strong>下的重新评估进一步发现:许多已发表方法的增益在预算对齐比较中消失,简单方法(重放+合理分配算力)常常胜出 <a class="cite" href="#S124">[S124]</a>。如果基准能被"不学习"的方法打穿、增益经不起预算对齐,说明基准没有测到目标能力。<span class="tag est">【已确立】</span></p>
+<p><strong>第三,真实的终身学习没有任务边界,而"任务"这个概念本身可能是错误抽象。</strong> 现实经验流是连续、非平稳、无标注切分的。Task-free 设定(Aljundi 等 2019 <a class="cite" href="#S19">[S19]</a>)、在线持续学习(单遍数据流;实证综述见 Mai 等 <a class="cite" href="#S122">[S122]</a>)和 general continual learning(Buzzega 等 2020 <a class="cite" href="#S55">[S55]</a>)朝正确方向走了一步,但仍是少数派。Silver 与 Sutton(2025)的"经验时代"论述把要求提得更高:智能体应栖居于<strong>终身经验流</strong>,目标、记忆与学习贯穿整个流,而不是被切成一次次短会话 <a class="cite" href="#S20">[S20]</a>。按这个标准,今天几乎全部持续学习文献研究的是真问题的一个玩具投影。<span class="tag oth">【观点;引文立场为公开发表】</span></p>
+<p><strong>同时要为标准框架说句公道话</strong>:玩具投影不等于无用。灾难性遗忘和可塑性丧失在最干净的小设定里就已出现,机制研究(第二、三部分)正是靠这些受控设定取得的。批评的对象是<strong>把基准分数当成终身学习进展本身</strong>,而不是受控实验方法论。</p>
+<h3>1.4 一个理论锚点:没有免费的记忆</h3>
+<p>Knoblauch 等(ICML 2020)从集合论角度证明:<strong>能在最坏情况下避免灾难性遗忘的最优持续学习器,一般需要解 NP 难问题,并且需要完美记忆</strong>(至少保留每个"等价类"的一个样本)<a class="cite" href="#S18">[S18]</a>。两个推论:</p>
+<ol>
+<li value="1">指望某种巧妙的参数更新规则在<strong>不存储任何过去信息</strong>的前提下通用地解决遗忘,理论上就不成立;</li>
+<li value="2">这解释了实证格局:重放/记忆类方法系统性强于纯正则化方法 <a class="cite" href="#S13">[S13]</a><a class="cite" href="#S17">[S17]</a>。</li>
+</ol>
+<p>因此,问题从"要不要记忆"变成"<strong>记什么、以什么形式记(原始样本/生成模型/权重/外部库)、何时固化、何时丢弃</strong>"。这是本文第四、六部分的主线。<span class="tag est">【已确立(定理);推论为有依据的解读】</span></p>
+<p>还有一个目标层面的细节值得单独指出:<strong>"零遗忘"未必是正确目标。</strong> 在目标本身随时间变化的场景里,遗忘过时的知识可能恰恰是对的——例如推荐系统中,用户兴趣漂移后,过时的偏好不仅无用还有害,PESO 在该场景中明确以此为设计出发点 <a class="cite" href="#S117">[S117]</a>。这提示应区分<strong>干扰</strong>(新学习无意间破坏仍然有效的旧知识,坏)与<strong>修订</strong>(有意覆盖已失效的旧知识,好)——现有指标几乎都把两者混在同一个"遗忘"数字里。<span class="tag est">【已确立(该文的公开论证);"干扰/修订之分应进入指标"为作者观点】</span></p>
+<hr>
+<h2>第二部分:两种失败——灾难性遗忘与可塑性丧失</h2>
+<h3>2.1 灾难性遗忘的机制</h3>
+<p>深度学习时代的系统实证从 Goodfellow 等(2013)开始 <a class="cite" href="#S24">[S24]</a>。机制层面目前最清晰的图景:</p>
+<ul>
+<li><strong>共享参数被覆写</strong>:新任务的梯度不"知道"哪些权重承载旧功能,大学习率、长训练、任务间表征重叠都会加剧覆写 <a class="cite" href="#S3">[S3]</a><a class="cite" href="#S24">[S24]</a>。</li>
+<li><strong>遗忘集中在深层</strong>:Ramasesh 等(2021)发现,靠近输出的深层表示漂移是遗忘的主要来源,浅层特征相对稳定;任务间语义相似度以非单调方式影响遗忘 <a class="cite" href="#S29">[S29]</a>。<span class="tag est">【已确立】</span></li>
+<li><strong>规模是缓解剂而非解药</strong>:Ramasesh 等(2022)发现,模型越大、预训练越充分,微调造成的遗忘越轻——大模型倾向于用更"正交"的方式容纳新任务 <a class="cite" href="#S30">[S30]</a>;Mirzadeh 等(2021)独立发现<strong>加宽</strong>网络显著减少遗忘(加深则不然)<a class="cite" href="#S106">[S106]</a>。这与第三部分的几何图景一致。但注意:是"更轻",不是"消失";LLM 持续微调中的遗忘仍被反复观测到(Luo 等 2023 <a class="cite" href="#S76">[S76]</a>)。<span class="tag est">【已确立】</span></li>
+<li><strong>平坦度相关</strong>:收敛到更平坦的极小点(小学习率衰减、适当正则)遗忘更少 <a class="cite" href="#S39">[S39]</a>。<span class="tag est">【已确立(相关性);因果性有争议】</span></li>
+</ul>
+<h3>2.2 可塑性丧失:另一半问题</h3>
+<p>灾难性遗忘讲的是"忘旧",可塑性丧失讲的是"学不动新"。这个问题长期被忽视,因为标准范式只训练一次。证据链近年迅速齐全:</p>
+<ul>
+<li><strong>温启动惩罚</strong>:Ash 与 Adams(2020)发现,在旧模型上继续训练新数据,泛化差于从头重训——哪怕数据只是变多了 <a class="cite" href="#S25">[S25]</a>。</li>
+<li><strong>深度强化学习(RL,让智能体靠试错和奖励信号学会行为的训练范式)中的首因偏差与休眠神经元</strong>:早期数据把网络"定型",降低后续学习能力(Nikishin 等 2022 <a class="cite" href="#S26">[S26]</a>);ReLU 单元(最常用的一类人工神经元)随训练大量死亡/休眠——输出恒为零、不再参与学习,周期性重置它们能显著提升性能(Sokar 等 2023 <a class="cite" href="#S27">[S27]</a>)。</li>
+<li><strong>决定性证据——Dohare 等(Nature 2024)</strong> <a class="cite" href="#S23">[S23]</a>:在 Continual ImageNet(数千个顺序二分类任务)、缓慢漂移的回归任务(回归:预测连续数值)、以及持续变化的 RL 环境中,<strong>标准反向传播的学习能力随任务数持续衰退,最终不如一个浅层网络</strong>。伴随现象:死单元比例上升、权重幅值增长、表示的有效秩下降(即网络内部实际用到的独立维度越来越少,表达能力萎缩)。关键论断:在他们测试的范围内,<strong>只有持续注入随机多样性的算法能无限期保持可塑性</strong>——他们的"持续反向传播"按效用持续随机重置一小部分低效用单元,即可在监督与 RL 设定下长期维持学习能力。<span class="tag est">【已确立(现象与他们的实验范围内的结论)】</span></li>
+</ul>
+<p>值得单独标注的是其强推论——"<strong>基于梯度下降的方法不够,持续深度学习需要非梯度的随机成分</strong>" <a class="cite" href="#S23">[S23]</a>。这是一个全称命题,而现有证据是存在性的(所试过的确定性方法都失败了)。L2 Init(向<strong>初始参数</strong>而非原点正则化 <a class="cite" href="#S31">[S31]</a>)等确定性方法在较温和的非平稳性下也能维持可塑性,说明边界还没画清。我们标注:现象<span class="tag est">【已确立】</span>,机制解释(曲率丢失、秩坍缩、死单元 <a class="cite" href="#S27">[S27]</a><a class="cite" href="#S28">[S28]</a>)<span class="tag est">【已确立但不完整】</span>,"随机性必需"<span class="tag con">【有争议】</span>。</p>
+<h3>2.3 两种失败是同一枚硬币</h3>
+<p>把两者放回 Grossberg 的两难 <a class="cite" href="#S4">[S4]</a>:遗忘=稳定性不足,可塑性丧失=系统为求稳定(权重增大、表示固化)付出的代价在时间上的累积。任何只解决一半的方法都会在另一半上付账:冻结参数保护旧知识→加速可塑性耗尽;随机重置单元恢复可塑性→局部破坏旧知识。<strong>终身学习的核心不是消灭其中一个,而是找到能同时在两条轴上长期维持的机制</strong>——这正是大脑用多时间尺度架构解决的问题(第五部分)。<span class="tag oth">【综合判断】</span></p>
+<hr>
+<h2>第三部分:几何视角——在参数空间里"就近学习"能走多远</h2>
+<h3>3.1 低损失区域比想象中大得多</h3>
+<p>过参数化网络的一个反直觉事实:<strong>好解不是孤岛,而是连成一片的大陆。</strong></p>
+<ul>
+<li><strong>模式连通性</strong>:Garipov 等与 Draxler 等(2018,独立同期)发现,两次独立训练得到的极小点(损失最低的参数组合)之间存在损失几乎不升高的简单曲线通道 <a class="cite" href="#S32">[S32]</a><a class="cite" href="#S33">[S33]</a>。<span class="tag est">【已确立】</span></li>
+<li><strong>线性模式连通性(LMC)</strong>:Frankle 等(2020)发现,若两个解共享训练早期的起点,它们之间常常<strong>直线</strong>相连而损失不升;网络在训练早期就"稳定"进某个盆地(损失地形中的一片低洼区) <a class="cite" href="#S34">[S34]</a>。<span class="tag est">【已确立】</span></li>
+<li><strong>模除置换后可能只有一个盆地</strong>:Entezari 等(2022)猜想,考虑神经元置换对称(把网络里两个神经元连同各自连线互换,功能完全不变——所以同一个解有海量"换名"版本)后,SGD(随机梯度下降,标准训练算法)的解基本都落在同一线性连通盆地;Git Re-Basin(2023)通过置换对齐实证支持了这一点的很大一部分 <a class="cite" href="#S35">[S35]</a><a class="cite" href="#S36">[S36]</a>。<span class="tag con">【有争议(猜想的普适范围)】</span></li>
+</ul>
+<p>对持续学习最直接的结果来自 Mirzadeh 等(2021):<strong>同初始化条件下,多任务联合训练的解与持续学习的解线性连通</strong>——也就是说,不忘旧任务的好解就躺在持续学习轨迹的"隔壁",遗忘的本质是优化器没有被约束住、走出了那条线性走廊 <a class="cite" href="#S40">[S40]</a>。<span class="tag est">【已确立】</span></p>
+<p>两个补充刻画让这幅"低损失大陆"图景更完整:高维损失地形的大尺度结构分析表明低损失区域呈楔形大面积延展 <a class="cite" href="#S110">[S110]</a>;而"内在维度"实验表明许多任务实际只需要在一个远低于参数总数的子空间里就能解出 <a class="cite" href="#S111">[S111]</a>——解空间的富余正是"附近就有好解"的容量基础。<span class="tag est">【已确立(各实验);两者与持续学习的连接为综合解读】</span></p>
+<h3>3.2 惰性训练:为什么"隔壁"常常够用</h3>
+<p>NTK 理论(Jacot 等 2018 <a class="cite" href="#S37">[S37]</a>)与惰性训练分析(Chizat 等 2019 <a class="cite" href="#S38">[S38]</a>)表明:足够宽的网络在训练中参数移动极小,函数变化近似于在初始点的线性化模型中进行。宽网络+强预训练把模型推向"局部线性、局部可解"的状态:新任务往往只需在旧解附近的一个线性子空间里就能解出。这为整个"就近学习"家族提供了统一的理论直觉。<span class="tag est">【已确立(理论);对实际预训练模型的适用度是近似】</span></p>
+<p>在这一框架内,遗忘本身已经有了可计算的理论刻画:Doan 等(2020)用 <strong>NTK 重叠矩阵</strong>——新旧任务在核特征空间中的重叠程度——定量预测任务间干扰 <a class="cite" href="#S107">[S107]</a>;Bennani 等(2020)给出了 NTK 区内正交梯度下降(OGD)的泛化保证 <a class="cite" href="#S108">[S108]</a>;Evron 等(2022)在线性回归中精确刻画了顺序学习最坏情况下的遗忘量 <a class="cite" href="#S109">[S109]</a>。这条理论线索的含义:<strong>至少在(近似)线性区,"哪些任务组合会互相破坏"原则上是可以事先算出来的</strong>——这直接连到第六部分的 P7。<span class="tag est">【已确立(各定理/结果,均在线性或 NTK 假设下)】</span></p>
+<h3>3.3 "就近学习"方法家族的全景</h3>
+<p>按"如何定义'附近'"分类:</p>
+<ol>
+<li value="1"><strong>软约束(各向异性弹簧)</strong>:最朴素的形式是 L2-SP——直接向出发点(预训练参数)做 L2 正则,迁移学习文献早已确立其有效性 <a class="cite" href="#S101">[S101]</a>;EWC 把这根"弹簧"改为按 Fisher 信息加权的各向异性版本,重要参数拴得紧、次要参数拴得松 <a class="cite" href="#S41">[S41]</a>;SI 在线累积重要性 <a class="cite" href="#S42">[S42]</a>;MAS 用无监督(不需要标注答案)的敏感度估计 <a class="cite" href="#S43">[S43]</a>。</li>
+<li value="2"><strong>函数空间的"就近"</strong>:LwF 不约束参数,而是约束<strong>行为</strong>——用蒸馏让新模型在新数据上继续模仿旧模型的输出 <a class="cite" href="#S100">[S100]</a>。参数距离与函数距离并不等价(见 3.4),所以这是一个实质不同的"附近"定义。</li>
+<li value="3"><strong>硬约束(正交子空间)</strong>:OGD 把新梯度投影到旧任务梯度的正交补 <a class="cite" href="#S44">[S44]</a>;OWM 用正交投影算子并在 Nature Machine Intelligence 上展示了上百任务的顺序学习 <a class="cite" href="#S45">[S45]</a>;GPM 显式维护旧任务的核心梯度子空间 <a class="cite" href="#S46">[S46]</a>;O-LoRA 把同一思想搬到 LLM 的低秩适配器上,让各任务的 LoRA 子空间相互正交 <a class="cite" href="#S114">[S114]</a>。</li>
+<li value="4"><strong>低维增量</strong>:LoRA 冻结主干、只训低秩修正 <a class="cite" href="#S47">[S47]</a>——"附近"被参数化为一个低秩流形;天然支持"每个新领域一个适配器"。大规模实证直接确认了这笔交易的两面:<strong>LoRA 学得更少、忘得也更少</strong>(Biderman 等 2024 <a class="cite" href="#S113">[S113]</a>)——限制更新自由度同时买到了保持与代价。</li>
+<li value="5"><strong>权重空间算术</strong>:任务向量(微调解减预训练解)可以相加获得多任务能力、相减实现遗忘 <a class="cite" href="#S48">[S48]</a>;同一起点的多个微调解可直接平均(model soups <a class="cite" href="#S49">[S49]</a>)或按 Fisher 信息加权合并 <a class="cite" href="#S116">[S116]</a>;TIES 进一步定位并消解合并时的参数干扰(符号冲突、冗余)<a class="cite" href="#S115">[S115]</a>;微调解与原解插值可兼得新旧性能(WiSE-FT <a class="cite" href="#S50">[S50]</a>)。这些只在<strong>共享预训练起点(同一线性盆地)</strong>时成立。</li>
+<li value="6"><strong>持续化的合并与锚定(最新进展)</strong>:上述合并多是"一次性"的;新一代工作把它变成随时间滚动的过程——SLAO 用正交初始化+时间感知缩放,把每个新任务的更新持续合并进<strong>单个</strong> LoRA,内存不随任务数增长(ICLR 2026 <a class="cite" href="#S118">[S118]</a>);PESO 维护一个持续演化的 LoRA,用近端项把当前适配器锚定在其最近的冻结状态附近,并明确论证在其推荐场景中过时知识应当被覆盖(ICLR 2026 <a class="cite" href="#S117">[S117]</a>)。</li>
+<li value="7"><strong>反向的"就近"</strong>:L2 Init 把参数拴向<strong>初始化点</strong>而不是旧解——目的不是防遗忘而是保可塑性 <a class="cite" href="#S31">[S31]</a>。同一几何工具,两个方向的用法,恰好对应两难的两端。</li>
+</ol>
+<p>顺带一提,"限制每步更新的幅度"这个原则比持续学习更普遍:强化学习中的信赖域方法就是同一思想,近期一篇关于循环脉冲网络无梯度优化的公开预印本(arXiv:2601.21572 <a class="cite" href="#S127">[S127]</a>)用按信号能量自适应缩放的信赖域来稳定训练——它是强化学习/优化方向的工作,与持续学习仅间接相关,此处仅作原则相通的旁注。</p>
+<h3>3.4 它在哪里断裂</h3>
+<p><span class="tag est">【已确立】</span>的失效点:</p>
+<ul>
+<li><strong>容量耗尽</strong>:正交投影每学一个任务就占用一块子空间,可用维度单调递减;任务足够多之后要么开始干扰、要么学不动。这是硬约束方法的算术必然,GPM 等论文自己就有讨论 <a class="cite" href="#S46">[S46]</a>。</li>
+<li><strong>重要性估计漂移</strong>:EWC 的 Fisher 是在旧解处的局部二次近似,离得越远越失真;长序列上惩罚项累积也会过约束(Progress &amp; Compress 对此有分析 <a class="cite" href="#S57">[S57]</a>)。</li>
+<li><strong>场景失配</strong>:类增量设定下,正则化方法整体接近失败——它们保得住表示,保不住"新旧类别之间的判别边界",后者需要新旧数据同时在场(或重放)才能校准 <a class="cite" href="#S13">[S13]</a>。</li>
+<li><strong>合并的前提是同一盆地</strong>:任务算术与 soups 对不同初始化的模型直接失效,需要置换对齐且效果打折 <a class="cite" href="#S35">[S35]</a><a class="cite" href="#S36">[S36]</a><a class="cite" href="#S48">[S48]</a>。</li>
+<li><strong>损失接近 ≠ 机制接近</strong>:"机制性模式连通性"研究表明,由低损失路径相连的两个解可能采用<strong>完全不同的内部计算机制</strong>(例如依赖不同的特征)<a class="cite" href="#S112">[S112]</a>;Ramasesh 等也表明参数移动很小时深层表示仍可大幅漂移 <a class="cite" href="#S29">[S29]</a>。所以"参数待在附近"并不保证"模型在旧数据上的行为待在附近"——这正是 LwF 类函数空间约束 <a class="cite" href="#S100">[S100]</a> 与参数空间约束的分野。<strong>"附近"该用哪种度量(各向同性 L2 <a class="cite" href="#S101">[S101]</a>、Fisher 加权 <a class="cite" href="#S41">[S41]</a>、还是函数空间距离 <a class="cite" href="#S100">[S100]</a>)本身就是未决问题。</strong></li>
+<li><strong>最根本的</strong>:惰性区学习=放弃特征学习 <a class="cite" href="#S38">[S38]</a>。真正的新知识(新的表示原语,而不是旧特征的重新组合)要求参数离开线性化邻域。一个永远待在预训练解附近的系统,上限就是"预训练特征的重新混合"。</li>
+</ul>
+<p><strong>结论:几何解释了"就近学习"为什么在强预训练模型上惊人地好用(低损失大陆宽阔、局部近似线性),也解释了它为什么必然不够(大陆再大也有海岸线;线性化学不出新特征)。它是终身学习的重要构件——尤其是"围绕一个强基座做可合并的模块化更新"这条工程路线——但不是完整答案。</strong><span class="tag oth">【综合判断,各支撑点已确立】</span></p>
+<blockquote class="toy">
+<h3>📦 附:我们的玩具实验(仅作示意)</h3>
+<p>为直观感受本部分的几条论断,我们(通过一个配套的可复现实验仓库)跑了一个刻意做小的对照实验。<strong>它是示意性质的演示,不是与上述文献同等地位的证据</strong>:数据集极小、随机种子很少、不做统计显著性声明,以下只报告定性方向。</p>
+<ul>
+<li><strong>设置</strong>:5 个任务的"置换数字"流(sklearn 8×8 手写数字,类 MNIST 的微缩版;每个任务对像素做一次固定重排);numpy 实现的多层感知机,宽度 32/128/512;方法:朴素微调、向上一任务权重的 L2 惩罚(L2-to-previous)、EWC、小重放缓冲、只允许秩 4 的低秩更新。指标:每个任务的参数移动距离、遗忘量、前向迁移、相邻任务解之间线性插值路径上的损失壁垒。CPU 上约 20 秒跑完。</li>
+<li><strong>定性结果</strong>:<strong>重放最强</strong>(最终准确率最高、遗忘最低)——与第四部分的文献格局 <a class="cite" href="#S13">[S13]</a> 和记忆必要性的理论 <a class="cite" href="#S18">[S18]</a> 方向一致;<strong>L2-to-previous 与 EWC 都胜过朴素微调</strong>,其中 L2-to-previous 在全秩方法中参数移动最小——与"就近学习有效"的图景一致;<strong>加宽网络</strong>普遍提高最终准确率、降低微调/L2/重放的遗忘——方向上与过参数化/"附近有好解"的解释 <a class="cite" href="#S30">[S30]</a><a class="cite" href="#S106">[S106]</a> 一致;<strong>秩 4 低秩更新移动最少但欠拟合</strong>——正是 3.3/3.4 所述"限制自由度买保持、付学习能力"权衡(<a class="cite" href="#S113">[S113]</a> 在大规模上的同款现象)的微缩版。</li>
+<li><strong>局限</strong>:玩具数据集、任务高度同构(置换任务间几乎无语义冲突,回避了类增量的难点)、种子数少。它的全部价值是:第三部分的定性预测在一个 20 秒可复现的最小设定里就能观察到——而不是为任何方法的优劣提供新证据。</li>
+</ul>
+</blockquote>
+<hr>
+<h2>第四部分:系统路线——重放、双系统、外部记忆与 LLM 时代</h2>
+<h3>4.1 重放:最不优雅、最有效</h3>
+<p>重放(rehearsal)存一小部分旧数据混入新训练;思想可追溯到 Robins(1995),他同时提出了不存真数据、用网络自己生成"伪样本"复习的<strong>伪重放</strong> <a class="cite" href="#S51">[S51]</a>。现代谱系:iCaRL(类增量+样本管理)<a class="cite" href="#S52">[S52]</a>、GEM/A-GEM(用旧样本梯度约束更新方向)<a class="cite" href="#S15">[S15]</a><a class="cite" href="#S54">[S54]</a>、强化学习设定下的经验重放 <a class="cite" href="#S102">[S102]</a>、DER(重放 logits——模型输出的原始打分,比只重放"正确答案"携带更多信息;一个极强的简单基线)<a class="cite" href="#S55">[S55]</a>、生成式重放(训练生成模型合成旧数据)<a class="cite" href="#S53">[S53]</a>、类脑生成式重放(重放内部表示而非原始像素,类增量下大幅改进)<a class="cite" href="#S103">[S103]</a>。</p>
+<p>实证格局非常一致:<strong>在类增量等困难场景中,重放类方法是最稳健的方法族</strong> <a class="cite" href="#S13">[S13]</a><a class="cite" href="#S14">[S14]</a>。这不是巧合——Knoblauch 的定理说记忆是必需的 <a class="cite" href="#S18">[S18]</a>,重放就是记忆的最朴素形态。生成式重放理论上摆脱了存储原始数据的负担,但把问题转嫁给了"生成模型自己也要持续学习"的递归难题,在复杂分布上尚未真正成立。<span class="tag est">【已确立(格局);生成式重放的评价为综合判断】</span></p>
+<h3>4.2 互补学习系统:大脑给出的架构答案</h3>
+<p>McClelland、McNaughton 与 O'Reilly(1995)的经典理论 <a class="cite" href="#S61">[S61]</a>:大脑用<strong>两个学习系统</strong>解决两难——海马以稀疏表示<strong>快速</strong>记住具体情景;新皮层以重叠分布式表示<strong>缓慢</strong>学习统计结构;海马在离线期(睡眠/静息)反复向皮层<strong>重放</strong>,让皮层以不干扰旧知识的交错方式吸收新经验。Kumaran 等(2016)的更新版明确指出这对 AI 智能体设计的直接含义:快慢双系统 + 交错重放 + 情景记忆支持一次性学习 <a class="cite" href="#S62">[S62]</a>。<span class="tag est">【已确立(理论地位与神经证据,见第五部分)】</span></p>
+<p>工程对应物早已存在,只是常不被这样称呼:</p>
+<ul>
+<li><strong>结构隔离</strong> = 给"快系统"独立容量:Progressive Networks 每任务加一列 <a class="cite" href="#S56">[S56]</a>;PackNet 用剪枝(剪掉不重要的连接)腾出容量 <a class="cite" href="#S58">[S58]</a>;HAT 学任务掩码(按任务开关不同的神经元)<a class="cite" href="#S59">[S59]</a>;XdG 用稀疏情境门控让不同任务激活几乎不重叠的单元,配合突触稳固可在 500 个任务上保持 90%+ 准确率 <a class="cite" href="#S60">[S60]</a>。预训练模型时代的轻量版是提示学习:冻结整个主干,只学一小组可检索的"提示向量"(L2P <a class="cite" href="#S104">[S104]</a>、DualPrompt <a class="cite" href="#S105">[S105]</a>)——把"新任务的容量"缩小到几乎不占参数。</li>
+<li><strong>快学+慢固化</strong> = Progress &amp; Compress:活跃列快速学新任务,再<strong>蒸馏</strong>(让一个网络学习模仿另一个网络的输出,从而把知识压缩转移过去)进受 EWC 保护的知识列 <a class="cite" href="#S57">[S57]</a>。</li>
+<li><strong>睡眠的直接机器版</strong>:Tadros 等(2022)在人工神经网络中插入"睡眠阶段"(噪声输入 + 局部 Hebbian 规则——赫布法则:"一起激活的神经元,连接会加强"),自发重放使已被遗忘的旧任务恢复,表示变得更稀疏、重叠更少 <a class="cite" href="#S82">[S82]</a>。Hinton 等 1995 年的 wake-sleep 算法是这一思想的先声 <a class="cite" href="#S81">[S81]</a>。<span class="tag est">【已确立(各论文结果);睡眠机制的普适工程价值【推测】】</span></li>
+</ul>
+<h3>4.3 把知识放在权重外面:外部记忆与检索</h3>
+<p>另一条思路:既然往权重里写新知识这么危险,那就<strong>别写</strong>。</p>
+<ul>
+<li>可微外部记忆(可微:整个读写过程都能被梯度训练):DNC 证明神经网络可以学会读写一个外部存储器 <a class="cite" href="#S63">[S63]</a>。</li>
+<li>kNN-LM:推理时检索最近邻显著改进语言建模,说明"参数化知识+非参数记忆"的混合天然有效 <a class="cite" href="#S65">[S65]</a>。</li>
+<li>RAG:检索增强生成如今是为 LLM 注入新知识/私有知识的默认工业方案——更新知识=更新文档库,零遗忘、零训练 <a class="cite" href="#S64">[S64]</a>。</li>
+</ul>
+<p>限度同样清楚:检索解决<strong>陈述性知识</strong>(事实、文档)极好,但<strong>程序性能力</strong>(技能、推理模式、品味)不在可检索的颗粒度上;检索库无限增长的管理、以及"检索到了但用不好"的整合问题,都指向仍需某种固化机制把高频使用的记忆压缩进权重。<span class="tag est">【已确立(方法有效性);限度分析为综合判断】</span></p>
+<h3>4.4 上下文内学习:每次前向传播都是一次小型持续学习</h3>
+<p>GPT-3 确立了 ICL 现象:不更新任何权重,只在上下文中给示例,模型就能"学会"新任务 <a class="cite" href="#S69">[S69]</a>。机制研究表明这不只是查表:Transformer 的前向传播可以隐式实现梯度下降 <a class="cite" href="#S70">[S70]</a>,在受控线性设定下 ICL 隐式执行标准学习算法 <a class="cite" href="#S71">[S71]</a>。</p>
+<p>这给终身学习提供了一个重要视角:<strong>上下文就是一块零遗忘、即写即用、但会随会话蒸发的快速记忆</strong>——功能上惊人地像海马的角色。它的三个天花板:容量(上下文窗口)、持久性(会话结束即消失)、成本(注意力的平方开销)。测试时训练路线正是要把这块"蒸发性记忆"变成持久机制:TTT(2020)在测试时用自监督损失(自监督:不需要人工标注,从数据自身构造练习题)更新模型 <a class="cite" href="#S66">[S66]</a>;TTT 层(2024)把循环网络的内部状态本身做成一个在推理中被梯度更新的小模型 <a class="cite" href="#S67">[S67]</a>;Titans 加上"惊讶度驱动写入+自适应遗忘"的神经长期记忆模块,扩展到 200 万 token(token:模型处理文本的基本单位,约为一个词或词的一部分)以上的上下文 <a class="cite" href="#S68">[S68]</a>。<span class="tag est">【已确立(各结果);"这是通往终身学习的架构雏形"【推测】】</span></p>
+<h3>4.5 LLM 的持续预训练与微调:目前最接近实用的战场</h3>
+<ul>
+<li>领域自适应持续预训练(DAPT/TAPT)证明"接着练"有一致收益 <a class="cite" href="#S72">[S72]</a>;Ke 等给出防遗忘的持续预训练方法 <a class="cite" href="#S73">[S73]</a>;Gupta 等(2023)系统研究了学习率<strong>重新升温</strong>(re-warming)这一关键环节 <a class="cite" href="#S119">[S119]</a>。</li>
+<li>Ibrahim 等(2024)的大规模实证给出了目前最实用的配方:<strong>重新升温再衰减学习率 + 混入少比例(如 5%)旧分布数据</strong>,即可在数百 B token 的新分布上接近"合并数据从头重训"的效果,且适用于弱漂移与强漂移(英→德)两种设定 <a class="cite" href="#S74">[S74]</a>。这实际上是重放+可塑性管理在万亿参数尺度上的胜利。<span class="tag est">【已确立】</span></li>
+<li>微调侧:指令微调模型顺序学习大量任务时,只需 1% 旧任务重放就能保持能力(Scialom 等 2022 <a class="cite" href="#S75">[S75]</a>);但 1B–7B 模型持续微调中遗忘依然显著、且随模型在该范围内增大而更明显(Luo 等 2023 <a class="cite" href="#S76">[S76]</a>)——与"规模缓解遗忘"<a class="cite" href="#S30">[S30]</a><a class="cite" href="#S106">[S106]</a> 的关系尚未理清。<span class="tag con">【有争议】</span></li>
+<li>知识编辑(超网络式的 MEND <a class="cite" href="#S121">[S121]</a>;定位-改写式的 ROME/MEMIT <a class="cite" href="#S77">[S77]</a><a class="cite" href="#S78">[S78]</a>)能定点改写事实关联,但<strong>规模化失败的方式已被精确刻画</strong>:随着顺序编辑增多,模型先经历<strong>渐进遗忘</strong>(可编辑性下降、旧编辑被忘、下游能力滑坡),随后某次"致瘫编辑"触发<strong>突然的灾难性崩溃</strong>(Gupta 等 2024 <a class="cite" href="#S120">[S120]</a>)。"外科手术式写入"目前不可无限累积。<span class="tag est">【已确立】</span></li>
+<li>全景综述见两份 LLM 持续学习综述 <a class="cite" href="#S125">[S125]</a><a class="cite" href="#S126">[S126]</a>。</li>
+</ul>
+<h3>4.6 从经验中学习的智能体</h3>
+<p>Voyager 在 Minecraft 中展示了一种回避权重更新的终身学习:把学到的行为沉淀为<strong>代码技能库</strong>,复用与组合技能持续变强 <a class="cite" href="#S79">[S79]</a>;Reflexion 把失败经验写成语言化反思存入情景记忆 <a class="cite" href="#S80">[S80]</a>。这类"经验→文本/代码→检索"的循环是目前 LLM 智能体积累能力的主流方式。它的天花板与 4.3 相同:能力沉淀在权重之外,基座本身不成长。Silver 与 Sutton 的"经验时代"论点 <a class="cite" href="#S20">[S20]</a> 正是主张跨过这道坎:让智能体从终身经验流中直接学习(含权重更新),这把本文讨论的全部难题(遗忘、可塑性、固化)重新推回台前。<span class="tag est">【已确立(系统演示);路线判断为公开发表的立场+作者认同】</span></p>
+<hr>
+<h2>第五部分:大脑如何做到不遗忘——以及哪些机制可迁移</h2>
+<p>生物学习系统运行数十年而不灾难性遗忘,是"终身学习可行"的唯一存在性证明。机制盘点(总览见 Kudithipudi 等 2022 <a class="cite" href="#S22">[S22]</a>):</p>
+<h3>5.1 突触层:记忆写在多时间尺度里</h3>
+<ul>
+<li><strong>树突棘的稳定性</strong>:树突棘是神经元接收连接的微小突起,突触多建在其上。学习形成的一部分树突棘可稳定保持终生,是长期记忆的结构基座(Yang 等 2009 <a class="cite" href="#S83">[S83]</a>);不同任务的可塑性被分配到<strong>不同树突分支</strong>,在亚细胞尺度上实现了"结构隔离"(Cichon &amp; Gan 2015 <a class="cite" href="#S85">[S85]</a>)。<span class="tag est">【已确立】</span></li>
+<li><strong>级联/多状态突触</strong>:Fusi 等(2005)与 Benna &amp; Fusi(2016)的计算模型表明,单个突触内部若有一串快到慢的隐变量(级联状态),记忆容量与寿命可以同时大幅提升,遗忘呈幂律而非指数 <a class="cite" href="#S89">[S89]</a><a class="cite" href="#S90">[S90]</a>。<strong>这是对深度学习最具体的启示之一:标量权重太贫乏,每个权重应当自带多时间尺度状态。</strong>(EWC 的惩罚项、优化器动量、甚至 L2 Init,都可视为该思想的粗糙近似。)<span class="tag est">【已确立(模型);迁移判断为推断】</span></li>
+<li><strong>元可塑性</strong>:突触改变自身"可被改变的难易度"(Abraham &amp; Bear 1996 <a class="cite" href="#S91">[S91]</a>)——学习率不是全局超参数,而是每个突触的受调控状态变量。<span class="tag est">【已确立(生物学);机器对应物散见于各方法】</span></li>
+</ul>
+<h3>5.2 系统层:固化是主动的离线过程</h3>
+<ul>
+<li>海马在睡眠中<strong>重放</strong>清醒期的活动序列(Wilson &amp; McNaughton 1994 <a class="cite" href="#S86">[S86]</a>),是 CLS 理论 <a class="cite" href="#S61">[S61]</a><a class="cite" href="#S62">[S62]</a> 的直接证据;记忆固化需要时间窗口,期间可被干扰(McGaugh 2000 <a class="cite" href="#S87">[S87]</a>)。<span class="tag est">【已确立】</span></li>
+<li>睡眠既做正向工作(促进学习相关的新棘形成,分支特异,Yang 等 2014 <a class="cite" href="#S84">[S84]</a>),也可能做全局收敛工作(突触稳态假说 SHY:睡眠期间全局突触降标,腾出下一天的可塑性空间,Tononi &amp; Cirelli 2014 <a class="cite" href="#S88">[S88]</a>)。SHY 与"睡眠选择性强化"之间的张力在神经科学内部仍有争论。<span class="tag con">【有争议(SHY 的强版本)】</span></li>
+<li>对 AI 的翻译:<strong>训练不应是在线流水;系统需要周期性的"离线整理"阶段</strong>——重放、蒸馏、压缩、正则重置。Tadros 等的睡眠样重放 <a class="cite" href="#S82">[S82]</a>、Progress &amp; Compress 的压缩阶段 <a class="cite" href="#S57">[S57]</a>、乃至 LLM 持续预训练里的重放混合 <a class="cite" href="#S74">[S74]</a>,都是这一原则的碎片化实现。<span class="tag spe">【推断】</span></li>
+</ul>
+<h3>5.3 编码层:稀疏、分离与门控</h3>
+<ul>
+<li>稀疏编码是感觉皮层的基本策略(Olshausen &amp; Field 1996 <a class="cite" href="#S92">[S92]</a>);海马齿状回的模式分离进一步降低相似经验的表示重叠。表示重叠低 → 干扰小,这与 ML 侧"遗忘由表示重叠驱动" <a class="cite" href="#S3">[S3]</a><a class="cite" href="#S29">[S29]</a> 严丝合缝。</li>
+<li>直接的迁移成功案例:XdG 的稀疏情境门控 <a class="cite" href="#S60">[S60]</a> 与 OWM 的情境依赖处理模块 <a class="cite" href="#S45">[S45]</a>,都明确以此为灵感,并拿到了数百任务级的结果。<span class="tag est">【已确立】</span></li>
+<li>代价同样真实:稀疏/分离与<strong>泛化、迁移</strong>此消彼长——完全不重叠的表示之间无法共享知识。大脑的解法看起来是"按需混合":海马极稀疏、皮层高重叠,快慢分工。<span class="tag est">【已确立(权衡的存在);"按需混合"表述为概括】</span></li>
+</ul>
+<h3>5.4 调控层:何时学、学多快,本身是被控制的信号</h3>
+<p>去甲肾上腺素/多巴胺等神经调质按"惊讶度、新颖性、奖励"门控可塑性(Aston-Jones &amp; Cohen 2005 <a class="cite" href="#S99">[S99]</a>)。机器侧的对应物正在出现:Titans 按"惊讶度"决定写入记忆的强度 <a class="cite" href="#S68">[S68]</a>;各类重要性加权 <a class="cite" href="#S41">[S41]</a><a class="cite" href="#S42">[S42]</a><a class="cite" href="#S43">[S43]</a> 是其静态近似。<strong>把"学习率"从超参数升格为由系统自身估计的、逐参数逐时刻的控制信号,是被生物学强烈暗示、而 ML 尚未系统化的方向。</strong><span class="tag spe">【推断/推测】</span></p>
+<h3>5.5 神经发生:一个诚实的警示</h3>
+<p>成人海马神经发生曾被视为"注入新可塑性单元"的漂亮机制(Eriksson 等 1998 <a class="cite" href="#S93">[S93]</a>)。但 2018 年,Sorrells 等(Nature)在成人样本中<strong>检不出</strong>新生神经元 <a class="cite" href="#S94">[S94]</a>,Boldrini 等(Cell Stem Cell)却报告其<strong>持续到 79 岁</strong> <a class="cite" href="#S95">[S95]</a>——方法学争论(死后延迟、标志物降解、立体计数)至今未完全了结。<span class="tag con">【有争议】</span></p>
+<p>两点教训:(1)引用"大脑如何如何"作为 AI 方案依据时必须核对生物学证据的当前状态;(2)有趣的是,<strong>无论生物事实如何,"持续注入新鲜的、未定型的单元"在机器侧已被独立证明有效</strong>——这正是持续反向传播 <a class="cite" href="#S23">[S23]</a> 与休眠神经元重置 <a class="cite" href="#S27">[S27]</a> 所做的事。工程不需要等生物学吵完。</p>
+<h3>5.6 人脑也不是无懈可击的对照组</h3>
+<p>人类同样遗忘,也同样有顺序效应——但方向相反:Flesch 等(2018)发现人类在<strong>分块</strong>(先学完 A 再学 B)训练下比交错训练学得更好,而标准神经网络恰恰相反 <a class="cite" href="#S96">[S96]</a>。这说明大脑并非"抗遗忘的神经网络",而是带着强先验、门控与固化机制的<strong>不同类型的系统</strong>。神经科学对 AI 的正确用法是提取计算原则(多时间尺度、离线固化、稀疏门控、调质控制),而不是复制零件(Hassabis 等 2017 <a class="cite" href="#S97">[S97]</a>; Richards 等 2019 <a class="cite" href="#S98">[S98]</a>)。<span class="tag est">【已确立(实验);方法论立场为公开发表的观点】</span></p>
+<hr>
+<h2>第六部分:开放的根本问题(按重要性排序)与最有希望的方向</h2>
+<p>以下 8 个问题按"对实现终身学习 AI 的瓶颈程度"排序(排序本身是作者判断<span class="tag spe">【推测】</span>,每条的证据基础单独标注)。每条含:为什么根本、当前最佳证据、一个具体可证伪的研究步骤。</p>
+<hr>
+<p><strong>P1. 终身学习的目标函数是什么?——理论空白</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:领域连"学习器应当优化什么"都没有共识。是逼近多任务联合解?最小化受计算/内存约束的长期后悔(regret:每一步决策与"事后看来最优"之间差距的累计)?最大化知识复利(未来学习的加速度)?还是在目标本身漂移时<strong>允许并奖励正确的遗忘</strong>(区分干扰与修订,见 1.4;公开论证的例子是推荐场景 <a class="cite" href="#S117">[S117]</a>)?不同答案导出完全不同的方法与评测。现状是用"平均准确率不掉"代打,而 1.3 节的证据表明这个代打指标可以被不学习的方法(GDumb <a class="cite" href="#S17">[S17]</a>)打穿、也经不起算力预算对齐 <a class="cite" href="#S124">[S124]</a>。</li>
+<li><strong>最佳证据</strong>:Knoblauch 的 NP 难+完美记忆定理是仅有的几块理论基石之一 <a class="cite" href="#S18">[S18]</a>;FWT/BWT 指标框架 <a class="cite" href="#S15">[S15]</a>;评测批评 <a class="cite" href="#S16">[S16]</a><a class="cite" href="#S17">[S17]</a><a class="cite" href="#S124">[S124]</a>。</li>
+<li><strong>可证伪的一步</strong>:构造一个明确以"学习加速度"为主指标的基准——长任务流(≥500 个任务)上度量第 k 个任务达到阈值性能所需样本数 n(k),检验假说"<strong>现有任何方法都不能使 n(k) 随 k 持续下降</strong>"。若某方法做到了,它就是第一个展示知识复利的系统;若全部失败,则证明现有方法族在最重要的维度上为零进展。</li>
+</ul>
+<p><strong>P2. 可塑性丧失的充要条件——随机性是否必需?</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:如果 Dohare 等的强论断("梯度方法不够,需要非梯度随机成分" <a class="cite" href="#S23">[S23]</a>)成立,那么整个基于纯梯度优化的持续学习路线都有天花板,架构与优化器需要重新设计。</li>
+<li><strong>最佳证据</strong>:Nature 2024 的系统实验 <a class="cite" href="#S23">[S23]</a>;机理研究(死单元 <a class="cite" href="#S27">[S27]</a>、曲率/秩 <a class="cite" href="#S28">[S28]</a>);确定性反例候选 L2 Init <a class="cite" href="#S31">[S31]</a>。</li>
+<li><strong>可证伪的一步</strong>:在 Continual ImageNet 与缓慢漂移回归的原始协议上,系统对比确定性方法(L2 Init、逐参数自适应正则、二阶方法)与随机重置类方法,运行到 ≥5000 任务。假说"存在纯确定性优化器长期维持可塑性"是直接可判定的;无论结果如何都重要。</li>
+</ul>
+<p><strong>P3. "就近学习"的容量边界——一个盆地能装下多少知识?</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:第三部分表明当前最实用的路线(LoRA、合并、任务算术、正交投影、持续合并)全部依赖"新知识可以在旧解附近容纳"。没有人知道这个假设在多少任务、多大分布漂移后失效,以及失效是否可预测。</li>
+<li><strong>最佳证据</strong>:线性连通性 <a class="cite" href="#S34">[S34]</a><a class="cite" href="#S40">[S40]</a>、合并有效性 <a class="cite" href="#S48">[S48]</a><a class="cite" href="#S49">[S49]</a><a class="cite" href="#S115">[S115]</a><a class="cite" href="#S116">[S116]</a>、"学得少忘得少"的低秩权衡 <a class="cite" href="#S113">[S113]</a>、正交子空间递减的算术 <a class="cite" href="#S46">[S46]</a><a class="cite" href="#S114">[S114]</a>、持续合并的最新进展与其自述的局限 <a class="cite" href="#S117">[S117]</a><a class="cite" href="#S118">[S118]</a>、类增量下正则化失败 <a class="cite" href="#S13">[S13]</a>、"损失连通≠机制相同"的警示 <a class="cite" href="#S112">[S112]</a>。</li>
+<li><strong>可证伪的一步</strong>:以固定预训练模型为起点,顺序做低秩/正交更新,直接测量:(a)剩余可用子空间维度、(b)与"每次全量重训"解的性能差、(c)线性连通性何时断裂,作为任务数与漂移强度的函数。产出第一条"盆地容量曲线"。假说"容量耗尽点可由谱量(Fisher/NTK 矩阵的特征值分布)提前预测"可直接检验;检验时应同时报告参数空间与函数空间两种距离(见 3.4)。</li>
+</ul>
+<p><strong>P4. 记忆的分工与固化策略——什么进权重、什么进外部库、何时转移?</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:理论(P1 中的定理 <a class="cite" href="#S18">[S18]</a>)与生物学(CLS <a class="cite" href="#S61">[S61]</a><a class="cite" href="#S62">[S62]</a>)都说必须有记忆分层,但"固化策略"——哪些外部记忆、在什么时机、以什么方式蒸馏进权重——目前完全靠手工设计。这是把 RAG 式系统升级为真正成长型系统的关键缺口。</li>
+<li><strong>最佳证据</strong>:重放的稳健性 <a class="cite" href="#S13">[S13]</a>、RAG/kNN-LM 的有效性 <a class="cite" href="#S64">[S64]</a><a class="cite" href="#S65">[S65]</a>、睡眠样固化的概念验证 <a class="cite" href="#S82">[S82]</a>、LLM 持续预训练配方 <a class="cite" href="#S74">[S74]</a>。</li>
+<li><strong>可证伪的一步</strong>:固定总计算预算,在一个长程流式问答+技能混合基准上对比:纯 RAG / 纯持续微调 / RAG+周期性"睡眠"固化(把高频检索条目蒸馏进权重)。假说"固化混合方案在同预算下同时胜过两个纯方案"可判定;若纯 RAG 不败,说明权重固化对陈述性知识可能根本不必要——同样是重大结论。</li>
+</ul>
+<p><strong>P5. 规模化持续预训练的科学——遗忘的 scaling law</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:对 LLM 而言,"终身学习"的现实形态就是持续预训练。目前只有配方(再升温 <a class="cite" href="#S119">[S119]</a>+重放 <a class="cite" href="#S74">[S74]</a>),没有规律:遗忘量如何随模型规模、重放比例、漂移强度、token 预算变化?<a class="cite" href="#S30">[S30]</a><a class="cite" href="#S106">[S106]</a> 说规模/宽度缓解遗忘,<a class="cite" href="#S76">[S76]</a> 在 1B–7B 观察到相反趋势,矛盾未解;知识编辑路线的规模天花板也已被刻画(渐进+突发两阶段退化 <a class="cite" href="#S120">[S120]</a>)。</li>
+<li><strong>最佳证据</strong>:<a class="cite" href="#S30">[S30]</a><a class="cite" href="#S72">[S72]</a><a class="cite" href="#S73">[S73]</a><a class="cite" href="#S74">[S74]</a><a class="cite" href="#S75">[S75]</a><a class="cite" href="#S76">[S76]</a><a class="cite" href="#S106">[S106]</a><a class="cite" href="#S119">[S119]</a><a class="cite" href="#S120">[S120]</a>。</li>
+<li><strong>可证伪的一步</strong>:跨 3 个数量级模型规模、控制数据漂移强度,拟合"持续学习 scaling law":遗忘率 = f(规模, 重放比例, 漂移)。假说"存在规模阈值使得 5% 重放下遗忘趋近于零"可直接检验,并将裁决 <a class="cite" href="#S30">[S30]</a> 与 <a class="cite" href="#S76">[S76]</a> 的矛盾。</li>
+</ul>
+<p><strong>P6. 经验→能力的自动蒸馏——智能体如何把经历变成本领?</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:当前智能体的"学习"停留在文本/代码记忆(Voyager <a class="cite" href="#S79">[S79]</a>、Reflexion <a class="cite" href="#S80">[S80]</a>),基座权重不成长;"经验时代" <a class="cite" href="#S20">[S20]</a> 要求跨过这一步。缺失的是从情景记忆自动提炼程序性能力并安全写入权重的机制——即 CLS 的完整机器实现。</li>
+<li><strong>最佳证据</strong>:技能库智能体的能力累积 <a class="cite" href="#S79">[S79]</a>;蒸馏式固化的原型 <a class="cite" href="#S57">[S57]</a>;知识编辑的规模天花板 <a class="cite" href="#S77">[S77]</a><a class="cite" href="#S78">[S78]</a>。</li>
+<li><strong>可证伪的一步</strong>:在长程环境(如跨越数百任务的 Minecraft 或机器人课程)中对比"冻结基座+技能库"与"技能库+周期性把技能蒸馏入权重"的两个智能体。假说:蒸馏版在<strong>移除技能库后</strong>仍保留大部分能力,且新技能学习速度随累积加快(与 P1 指标对接);若蒸馏总是破坏多于沉淀,则说明权重内固化在当前架构下不可行。</li>
+</ul>
+<p><strong>P7. 表示的干扰几何——能否事先预测"这次更新会毁掉什么"?</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:遗忘的微观机制(哪层、哪些方向、与任务相似度什么关系)已有描绘 <a class="cite" href="#S29">[S29]</a><a class="cite" href="#S30">[S30]</a>,但没有<strong>通用的前瞻性</strong>理论:给定当前模型与新数据,预测将被破坏的旧能力。有了它,持续学习可以从"事后补救"变成"事前规避"。</li>
+<li><strong>最佳证据</strong>:理论起点已经存在——NTK 重叠矩阵在(近似)线性区定量刻画任务间干扰 <a class="cite" href="#S107">[S107]</a>,配套有 OGD 的泛化保证 <a class="cite" href="#S108">[S108]</a> 与线性回归中遗忘的精确刻画 <a class="cite" href="#S109">[S109]</a>;表示层面的实证解剖 <a class="cite" href="#S3">[S3]</a><a class="cite" href="#S29">[S29]</a><a class="cite" href="#S30">[S30]</a><a class="cite" href="#S39">[S39]</a>。缺的是把这些从线性/受控设定推进到真实特征学习区与 LLM 尺度。</li>
+<li><strong>可证伪的一步</strong>:检验假说"新旧任务在 NTK 特征空间/表示空间的重叠度(<a class="cite" href="#S107">[S107]</a> 的量或其变体),可在训练前预测微调后的遗忘量(相关系数显著高于参数距离基线)"。在受控任务族与真实 LLM 微调两个层面各做一次;成立则直接派生出"干扰感知的数据调度"算法。</li>
+</ul>
+<p><strong>P8. 评测本身——开放式终身学习的诚实基准</strong></p>
+<ul>
+<li><strong>为什么根本</strong>:P1–P7 的每一步都需要不被玩坏的测量工具。现有基准的失真已被反复证明 <a class="cite" href="#S16">[S16]</a><a class="cite" href="#S17">[S17]</a>,预算对齐后大量增益消失 <a class="cite" href="#S124">[S124]</a>;无任务边界 <a class="cite" href="#S19">[S19]</a>、单遍在线数据 <a class="cite" href="#S122">[S122]</a>、计算受限 <a class="cite" href="#S55">[S55]</a><a class="cite" href="#S124">[S124]</a>、含学习加速度指标的公共基准仍然稀缺。</li>
+<li><strong>最佳证据</strong>:<a class="cite" href="#S16">[S16]</a><a class="cite" href="#S17">[S17]</a><a class="cite" href="#S19">[S19]</a><a class="cite" href="#S55">[S55]</a><a class="cite" href="#S122">[S122]</a><a class="cite" href="#S124">[S124]</a>;Dohare 的 Continual ImageNet 与漂移回归提供了可塑性侧的模板 <a class="cite" href="#S23">[S23]</a>。</li>
+<li><strong>可证伪的一步</strong>:建立一个满足上述约束的公开长流基准,同时报告 ACC/BWT/FWT/学习加速度/计算与内存账单,然后检验假说"<strong>现有方法在标准基准上的排名与在该基准上的排名显著不同</strong>"。若排名大幅翻转(如 GDumb 现象再现),即证明领域此前的进展度量存在系统性失真。</li>
+</ul>
+<hr>
+<h3>最有希望的方向(作者综合排序,均为<span class="tag spe">【推测】</span>级判断,理由与证据如注)</h3>
+<ol>
+<li value="1"><strong>面向 LLM 的互补学习系统</strong>:检索式情景记忆(即写即用、零遗忘)+ 周期性离线固化(重放/蒸馏进权重)。理由:两端组件均已单独验证(<a class="cite" href="#S64">[S64]</a><a class="cite" href="#S74">[S74]</a><a class="cite" href="#S82">[S82]</a>),缺的只是闭环;它同时回应 P4 与 P6;且与现有 LLM 基础设施兼容,可被工业界立即推进。</li>
+<li value="2"><strong>保持可塑性的优化与架构</strong>(持续反向传播家族、逐参数元可塑性、多时间尺度权重状态 <a class="cite" href="#S23">[S23]</a><a class="cite" href="#S31">[S31]</a><a class="cite" href="#S90">[S90]</a>):任何长期运行的系统都绕不开 P2;这是"地基"性质的方向。</li>
+<li value="3"><strong>持续预训练的配方科学与 scaling law</strong>(P5):最接近实用、数据点最容易产出、每个结论都直接影响生产系统 <a class="cite" href="#S74">[S74]</a>。</li>
+<li value="4"><strong>把学习内置于推理的架构</strong>(TTT 层、Titans 式神经记忆 <a class="cite" href="#S67">[S67]</a><a class="cite" href="#S68">[S68]</a>):若成功,它会消解"训练/推理"的两阶段划分——这正是结论 1 指出的根本缺陷;风险在于尚无终身尺度的证据。</li>
+<li value="5"><strong>几何引导的模块化更新与合并</strong>(LoRA+任务算术+对齐合并 <a class="cite" href="#S47">[S47]</a><a class="cite" href="#S48">[S48]</a><a class="cite" href="#S36">[S36]</a>):短中期收益确定,但受 P3 的容量边界约束,更可能是过渡技术而非终局。</li>
+</ol>
+<p>一句话收束:<strong>灾难性遗忘和可塑性丧失都不是待修的 bug,而是"用单一时间尺度的密集共享参数承载全部知识"这一设计的必然后果。出路不在更聪明的补丁,而在架构层面引入大脑早已采用的分层:多时间尺度的参数、快慢分工的记忆系统、主动的离线固化,以及一个诚实度量"知识复利"的目标函数。</strong></p>
+<hr>
+<h2>方法论与局限</h2>
+<ul>
+<li>本文以文献综述与论证为主;唯一的自有实验是第三部分末尾的玩具演示(已明确标注为示意性质,不作为证据使用)。初稿文献覆盖至 2025 年;2026-09 的更新补充了一批经逐条核验的公开文献(SOURCES.md 第 F 节),包括持续合并/近端锚定的低秩适配器、NTK 干扰理论、预算对齐评测与模型编辑规模化失败等新证据。持续学习是活跃领域,结论 3、9、12 尤其可能随新证据修订。</li>
+<li>引用规范:所有文献以 arXiv 编号或 DOI 为准;会议/期刊名称仅在经直接核验(官方论文集或会议页面)后标注,未核验者不标注。</li>
+<li>排序类内容(第六部分)是作者在证据基础上的综合判断,已统一标注<span class="tag spe">【推测】</span>;读者应将其视为可辩论的立场而非事实。</li>
+<li>所有参考文献均为公开可得;书目信息经在线核对的条目在 <a href="#references">SOURCES.md</a> 末尾注明。若发现引用错误,请以原始文献为准。</li>
+<li>英文版见 <a href="index.html">STUDY.en.md</a>,一页摘要见 <a href="index.zh.html">SUMMARY.zh.md</a>。</li>
+</ul>
+<section id="references">
+<h2>参考文献(全部为公开文献)</h2>
+<p class="refnote">正文以 [S编号] 引用下列条目。所有条目以 arXiv 编号或 DOI 为准;会议/期刊名称仅在经直接核验后标注。</p>
+<h3>A. 问题定义与综述</h3>
+<p class="ref" id="S1"><span class="refnum">[S1]</span> McCloskey, M. &amp; Cohen, N. J. (1989). <em>Catastrophic interference in connectionist networks: The sequential learning problem.</em> Psychology of Learning and Motivation, Vol. 24, 109–165. — 灾难性遗忘的首次系统报告。</p>
+<p class="ref" id="S2"><span class="refnum">[S2]</span> Ratcliff, R. (1990). <em>Connectionist models of recognition memory: Constraints imposed by learning and forgetting functions.</em> Psychological Review, 97(2), 285–308. — 早期对连接主义遗忘的定量刻画。</p>
+<p class="ref" id="S3"><span class="refnum">[S3]</span> French, R. M. (1999). <em>Catastrophic forgetting in connectionist networks.</em> Trends in Cognitive Sciences, 3(4), 128–135. — 经典综述;提出分布式表示的重叠是遗忘根源。</p>
+<p class="ref" id="S4"><span class="refnum">[S4]</span> Grossberg, S. (1980). <em>How does a brain build a cognitive code?</em> Psychological Review, 87(1), 1–51. — "稳定性–可塑性两难"(stability–plasticity dilemma)概念来源。</p>
+<p class="ref" id="S5"><span class="refnum">[S5]</span> Carpenter, G. A. &amp; Grossberg, S. (1987). <em>A massively parallel architecture for a self-organizing neural pattern recognition machine.</em> Computer Vision, Graphics, and Image Processing, 37, 54–115. — 自适应共振理论(ART),最早直面稳定性–可塑性的架构。</p>
+<p class="ref" id="S6"><span class="refnum">[S6]</span> Ring, M. B. (1994). <em>Continual Learning in Reinforcement Environments.</em> PhD thesis, University of Texas at Austin. — "continual learning" 一词在强化学习语境中的奠基性论述。</p>
+<p class="ref" id="S7"><span class="refnum">[S7]</span> Thrun, S. &amp; Mitchell, T. M. (1995). <em>Lifelong robot learning.</em> Robotics and Autonomous Systems, 15, 25–46. — 终身学习(lifelong learning)问题的早期系统提法。</p>
+<p class="ref" id="S8"><span class="refnum">[S8]</span> Chen, Z. &amp; Liu, B. (2018). <em>Lifelong Machine Learning</em> (2nd ed.). Morgan &amp; Claypool. — 终身机器学习专著。</p>
+<p class="ref" id="S9"><span class="refnum">[S9]</span> Mitchell, T. et al. (2018). <em>Never-Ending Learning.</em> Communications of the ACM, 61(5), 103–115. — NELL:运行多年的持续学习系统实例。</p>
+<p class="ref" id="S10"><span class="refnum">[S10]</span> Parisi, G. I., Kemker, R., Part, J. L., Kanan, C. &amp; Wermter, S. (2019). <em>Continual lifelong learning with neural networks: A review.</em> Neural Networks, 113, 54–71. — 神经网络持续学习综述。</p>
+<p class="ref" id="S11"><span class="refnum">[S11]</span> Hadsell, R., Rao, D., Rusu, A. A. &amp; Pascanu, R. (2020). <em>Embracing Change: Continual Learning in Deep Neural Networks.</em> Trends in Cognitive Sciences, 24(12), 1028–1040. — DeepMind 视角的持续学习综述。</p>
+<p class="ref" id="S12"><span class="refnum">[S12]</span> van de Ven, G. M. &amp; Tolias, A. S. (2019). <em>Three scenarios for continual learning.</em> arXiv:1904.07734. <a href="https://arxiv.org/abs/1904.07734">https://arxiv.org/abs/1904.07734</a> — 任务增量/域增量/类增量三种场景的标准划分。</p>
+<p class="ref" id="S13"><span class="refnum">[S13]</span> van de Ven, G. M., Tuytelaars, T. &amp; Tolias, A. S. (2022). <em>Three types of incremental learning.</em> Nature Machine Intelligence, 4, 1185–1197. — <a class="cite" href="#S12">[S12]</a> 的期刊扩展版;系统比较三种场景下各类方法的成败。</p>
+<p class="ref" id="S14"><span class="refnum">[S14]</span> Wang, L., Zhang, X., Su, H. &amp; Zhu, J. (2024). <em>A Comprehensive Survey of Continual Learning: Theory, Method and Application.</em> IEEE TPAMI. arXiv:2302.00487. <a href="https://arxiv.org/abs/2302.00487">https://arxiv.org/abs/2302.00487</a> — 目前覆盖面最广的持续学习综述之一。</p>
+<p class="ref" id="S15"><span class="refnum">[S15]</span> Lopez-Paz, D. &amp; Ranzato, M. (2017). <em>Gradient Episodic Memory for Continual Learning.</em> NeurIPS 2017. arXiv:1706.08840. <a href="https://arxiv.org/abs/1706.08840">https://arxiv.org/abs/1706.08840</a> — GEM;正式定义了前向/后向迁移(FWT/BWT)指标。</p>
+<p class="ref" id="S16"><span class="refnum">[S16]</span> Farquhar, S. &amp; Gal, Y. (2018). <em>Towards Robust Evaluations of Continual Learning.</em> arXiv:1805.09733. <a href="https://arxiv.org/abs/1805.09733">https://arxiv.org/abs/1805.09733</a> — 对标准评测协议的系统批评。</p>
+<p class="ref" id="S17"><span class="refnum">[S17]</span> Prabhu, A., Torr, P. H. S. &amp; Dokania, P. K. (2020). <em>GDumb: A Simple Approach that Questions Our Progress in Continual Learning.</em> ECCV 2020, LNCS 12347, 524–540. — 贪心存样本+从头重训的朴素基线胜过大量复杂方法,对领域进展提出质疑。</p>
+<p class="ref" id="S18"><span class="refnum">[S18]</span> Knoblauch, J., Husain, H. &amp; Diethe, T. (2020). <em>Optimal Continual Learning has Perfect Memory and is NP-hard.</em> ICML 2020, PMLR 119, 5327–5337. arXiv:2006.05188. <a href="https://arxiv.org/abs/2006.05188">https://arxiv.org/abs/2006.05188</a> — 理论结果:最优持续学习一般需要完美记忆且为 NP 难。</p>
+<p class="ref" id="S19"><span class="refnum">[S19]</span> Aljundi, R., Kelchtermans, K. &amp; Tuytelaars, T. (2019). <em>Task-Free Continual Learning.</em> CVPR 2019. arXiv:1812.03596. <a href="https://arxiv.org/abs/1812.03596">https://arxiv.org/abs/1812.03596</a> — 无任务边界的持续学习设定。</p>
+<p class="ref" id="S20"><span class="refnum">[S20]</span> Silver, D. &amp; Sutton, R. S. (2025). <em>Welcome to the Era of Experience.</em> Preprint of a chapter in "Designing an Intelligence" (MIT Press). <a href="https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf">https://storage.googleapis.com/deepmind-media/Era-of-Experience%20/The%20Era%20of%20Experience%20Paper.pdf</a> — 主张智能体应栖居于终身经验流并从中持续学习。</p>
+<p class="ref" id="S21"><span class="refnum">[S21]</span> Sutton, R. S. (2019). <em>The Bitter Lesson.</em> 公开博客文章. <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">http://www.incompleteideas.net/IncIdeas/BitterLesson.html</a> — 通用方法+算力胜过人工先验的著名论断。</p>
+<p class="ref" id="S22"><span class="refnum">[S22]</span> Kudithipudi, D. et al. (2022). <em>Biological underpinnings for lifelong learning machines.</em> Nature Machine Intelligence, 4, 196–210. — 生物终身学习机制面向机器的系统盘点。</p>
+<h3>B. 可塑性丧失与遗忘机制</h3>
+<p class="ref" id="S23"><span class="refnum">[S23]</span> Dohare, S., Hernandez-Garcia, J. F., Lan, Q., Rahman, P., Mahmood, A. R. &amp; Sutton, R. S. (2024). <em>Loss of plasticity in deep continual learning.</em> Nature, 632, 768–774. DOI: 10.1038/s41586-024-07711-7. <a href="https://www.nature.com/articles/s41586-024-07711-7">https://www.nature.com/articles/s41586-024-07711-7</a> — 标准深度学习在持续设定下逐渐丧失可塑性;提出持续反向传播(continual backprop)。</p>
+<p class="ref" id="S24"><span class="refnum">[S24]</span> Goodfellow, I. J., Mirza, M., Xiao, D., Courville, A. &amp; Bengio, Y. (2013). <em>An Empirical Investigation of Catastrophic Forgetting in Gradient-Based Neural Networks.</em> arXiv:1312.6211. <a href="https://arxiv.org/abs/1312.6211">https://arxiv.org/abs/1312.6211</a> — 深度学习时代对灾难性遗忘的早期实证研究。</p>
+<p class="ref" id="S25"><span class="refnum">[S25]</span> Ash, J. T. &amp; Adams, R. P. (2020). <em>On Warm-Starting Neural Network Training.</em> NeurIPS 2020. arXiv:1910.08475. <a href="https://arxiv.org/abs/1910.08475">https://arxiv.org/abs/1910.08475</a> — 温启动损害泛化;提出 shrink-and-perturb。</p>
+<p class="ref" id="S26"><span class="refnum">[S26]</span> Nikishin, E., Schwarzer, M., D'Oro, P., Bacon, P.-L. &amp; Courville, A. (2022). <em>The Primacy Bias in Deep Reinforcement Learning.</em> ICML 2022. arXiv:2205.07802. <a href="https://arxiv.org/abs/2205.07802">https://arxiv.org/abs/2205.07802</a> — 深度 RL 中的"首因偏差"与周期性重置。</p>
+<p class="ref" id="S27"><span class="refnum">[S27]</span> Sokar, G., Agarwal, R., Castro, P. S. &amp; Evci, U. (2023). <em>The Dormant Neuron Phenomenon in Deep Reinforcement Learning.</em> ICML 2023. arXiv:2302.12902. <a href="https://arxiv.org/abs/2302.12902">https://arxiv.org/abs/2302.12902</a> — 休眠神经元随训练累积,削弱表达能力。</p>
+<p class="ref" id="S28"><span class="refnum">[S28]</span> Lyle, C., Zheng, Z., Nikishin, E., Avila Pires, B., Pascanu, R. &amp; Dabney, W. (2023). <em>Understanding Plasticity in Neural Networks.</em> ICML 2023. arXiv:2303.01486. <a href="https://arxiv.org/abs/2303.01486">https://arxiv.org/abs/2303.01486</a> — 可塑性丧失的机理分析(曲率、参数增长等)。</p>
+<p class="ref" id="S29"><span class="refnum">[S29]</span> Ramasesh, V. V., Dyer, E. &amp; Raghu, M. (2021). <em>Anatomy of Catastrophic Forgetting: Hidden Representations and Task Semantics.</em> ICLR 2021. arXiv:2007.07400. <a href="https://arxiv.org/abs/2007.07400">https://arxiv.org/abs/2007.07400</a> — 遗忘主要由深层表示的漂移驱动。</p>
+<p class="ref" id="S30"><span class="refnum">[S30]</span> Ramasesh, V. V., Lewkowycz, A. &amp; Dyer, E. (2022). <em>Effect of scale on catastrophic forgetting in neural networks.</em> ICLR 2022. <a href="https://openreview.net/forum?id=GhVS8_yPeEa">https://openreview.net/forum?id=GhVS8_yPeEa</a> — 模型规模越大、预训练越充分,遗忘越轻。</p>
+<p class="ref" id="S31"><span class="refnum">[S31]</span> Kumar, S., Marklund, H. &amp; Van Roy, B. (2023). <em>Maintaining Plasticity in Continual Learning via Regenerative Regularization.</em> arXiv:2308.11958. <a href="https://arxiv.org/abs/2308.11958">https://arxiv.org/abs/2308.11958</a> — L2 Init:向初始参数正则化以保持可塑性。</p>
+<h3>C. 损失几何与"就近学习"</h3>
+<p class="ref" id="S32"><span class="refnum">[S32]</span> Garipov, T., Izmailov, P., Podoprikhin, D., Vetrov, D. &amp; Wilson, A. G. (2018). <em>Loss Surfaces, Mode Connectivity, and Fast Ensembling of DNNs.</em> NeurIPS 2018. arXiv:1802.10026. <a href="https://arxiv.org/abs/1802.10026">https://arxiv.org/abs/1802.10026</a> — 独立训练的极小点由低损失曲线相连(模式连通性)。</p>
+<p class="ref" id="S33"><span class="refnum">[S33]</span> Draxler, F., Veschgini, K., Salmhofer, M. &amp; Hamprecht, F. A. (2018). <em>Essentially No Barriers in Neural Network Energy Landscape.</em> ICML 2018. arXiv:1803.00885. <a href="https://arxiv.org/abs/1803.00885">https://arxiv.org/abs/1803.00885</a> — 与 <a class="cite" href="#S32">[S32]</a> 同期独立发现:极小点之间基本无能量壁垒。</p>
+<p class="ref" id="S34"><span class="refnum">[S34]</span> Frankle, J., Dziugaite, G. K., Roy, D. M. &amp; Carbin, M. (2020). <em>Linear Mode Connectivity and the Lottery Ticket Hypothesis.</em> ICML 2020. arXiv:1912.05671. <a href="https://arxiv.org/abs/1912.05671">https://arxiv.org/abs/1912.05671</a> — 线性模式连通性(LMC)与训练早期的"稳定化"。</p>
+<p class="ref" id="S35"><span class="refnum">[S35]</span> Entezari, R., Sedghi, H., Saukh, O. &amp; Neyshabur, B. (2022). <em>The Role of Permutation Invariance in Linear Mode Connectivity of Neural Networks.</em> ICLR 2022. arXiv:2110.06296. <a href="https://arxiv.org/abs/2110.06296">https://arxiv.org/abs/2110.06296</a> — 猜想:模除置换对称后,SGD 解基本落在同一线性连通盆地。</p>
+<p class="ref" id="S36"><span class="refnum">[S36]</span> Ainsworth, S. K., Hayase, J. &amp; Srinivasa, S. (2023). <em>Git Re-Basin: Merging Models modulo Permutation Symmetries.</em> ICLR 2023. arXiv:2209.04836. <a href="https://arxiv.org/abs/2209.04836">https://arxiv.org/abs/2209.04836</a> — 通过置换对齐合并独立训练的模型。</p>
+<p class="ref" id="S37"><span class="refnum">[S37]</span> Jacot, A., Gabriel, F. &amp; Hongler, C. (2018). <em>Neural Tangent Kernel: Convergence and Generalization in Neural Networks.</em> NeurIPS 2018. arXiv:1806.07572. <a href="https://arxiv.org/abs/1806.07572">https://arxiv.org/abs/1806.07572</a> — NTK:无限宽极限下网络训练近似线性化。</p>
+<p class="ref" id="S38"><span class="refnum">[S38]</span> Chizat, L., Oyallon, E. &amp; Bach, F. (2019). <em>On Lazy Training in Differentiable Programming.</em> NeurIPS 2019. arXiv:1812.07956. <a href="https://arxiv.org/abs/1812.07956">https://arxiv.org/abs/1812.07956</a> — "惰性训练"机制及其与特征学习的对立。</p>
+<p class="ref" id="S39"><span class="refnum">[S39]</span> Mirzadeh, S. I., Farajtabar, M., Pascanu, R. &amp; Ghasemzadeh, H. (2020). <em>Understanding the Role of Training Regimes in Continual Learning.</em> NeurIPS 2020. arXiv:2006.06958. <a href="https://arxiv.org/abs/2006.06958">https://arxiv.org/abs/2006.06958</a> — 平坦极小点与遗忘的关系;训练制度(学习率、批大小)影响遗忘。</p>
+<p class="ref" id="S40"><span class="refnum">[S40]</span> Mirzadeh, S. I., Farajtabar, M., Gorur, D., Pascanu, R. &amp; Ghasemzadeh, H. (2021). <em>Linear Mode Connectivity in Multitask and Continual Learning.</em> ICLR 2021. arXiv:2010.04495. <a href="https://arxiv.org/abs/2010.04495">https://arxiv.org/abs/2010.04495</a> — 同初始化下,多任务解与持续学习解线性连通;提出 MC-SGD。</p>
+<p class="ref" id="S41"><span class="refnum">[S41]</span> Kirkpatrick, J. et al. (2017). <em>Overcoming catastrophic forgetting in neural networks.</em> PNAS, 114(13), 3521–3526. DOI: 10.1073/pnas.1611835114. arXiv:1612.00796 — EWC:以 Fisher 信息加权的二次惩罚保护旧任务重要参数。</p>
+<p class="ref" id="S42"><span class="refnum">[S42]</span> Zenke, F., Poole, B. &amp; Ganguli, S. (2017). <em>Continual Learning Through Synaptic Intelligence.</em> ICML 2017. arXiv:1703.04200. <a href="https://arxiv.org/abs/1703.04200">https://arxiv.org/abs/1703.04200</a> — SI:在线累积参数重要性。</p>
+<p class="ref" id="S43"><span class="refnum">[S43]</span> Aljundi, R., Babiloni, F., Elhoseiny, M., Rohrbach, M. &amp; Tuytelaars, T. (2018). <em>Memory Aware Synapses: Learning what (not) to forget.</em> ECCV 2018. arXiv:1711.09601. <a href="https://arxiv.org/abs/1711.09601">https://arxiv.org/abs/1711.09601</a> — MAS:无监督估计参数重要性。</p>
+<p class="ref" id="S44"><span class="refnum">[S44]</span> Farajtabar, M., Azizan, N., Mott, A. &amp; Li, A. (2020). <em>Orthogonal Gradient Descent for Continual Learning.</em> AISTATS 2020. arXiv:1910.07104. <a href="https://arxiv.org/abs/1910.07104">https://arxiv.org/abs/1910.07104</a> — OGD:把新任务梯度投影到旧任务梯度的正交补。</p>
+<p class="ref" id="S45"><span class="refnum">[S45]</span> Zeng, G., Chen, Y., Cui, B. &amp; Yu, S. (2019). <em>Continual learning of context-dependent processing in neural networks.</em> Nature Machine Intelligence, 1, 364–372. — OWM:正交权重修改+情境依赖处理模块。</p>
+<p class="ref" id="S46"><span class="refnum">[S46]</span> Saha, G., Garg, I. &amp; Roy, K. (2021). <em>Gradient Projection Memory for Continual Learning.</em> ICLR 2021. arXiv:2103.09762. <a href="https://arxiv.org/abs/2103.09762">https://arxiv.org/abs/2103.09762</a> — GPM:在旧任务核心梯度子空间的正交方向学习。</p>
+<p class="ref" id="S47"><span class="refnum">[S47]</span> Hu, E. J. et al. (2022). <em>LoRA: Low-Rank Adaptation of Large Language Models.</em> ICLR 2022. arXiv:2106.09685. <a href="https://arxiv.org/abs/2106.09685">https://arxiv.org/abs/2106.09685</a> — 低秩增量更新:冻结主干、只学小的低秩修正。</p>
+<p class="ref" id="S48"><span class="refnum">[S48]</span> Ilharco, G. et al. (2023). <em>Editing Models with Task Arithmetic.</em> ICLR 2023. arXiv:2212.04089. <a href="https://arxiv.org/abs/2212.04089">https://arxiv.org/abs/2212.04089</a> — 任务向量可加减:权重空间中的知识算术。</p>
+<p class="ref" id="S49"><span class="refnum">[S49]</span> Wortsman, M. et al. (2022). <em>Model soups: averaging weights of multiple fine-tuned models improves accuracy without increasing inference time.</em> ICML 2022. arXiv:2203.05482. <a href="https://arxiv.org/abs/2203.05482">https://arxiv.org/abs/2203.05482</a> — 同一预训练模型的多个微调解可以直接平均。</p>
+<p class="ref" id="S50"><span class="refnum">[S50]</span> Wortsman, M. et al. (2022). <em>Robust fine-tuning of zero-shot models.</em> CVPR 2022. arXiv:2109.01903. <a href="https://arxiv.org/abs/2109.01903">https://arxiv.org/abs/2109.01903</a> — WiSE-FT:微调权重与原权重线性插值兼得新旧性能。</p>
+<h3>D. 系统路线:重放、双系统、记忆、LLM 与智能体</h3>
+<p class="ref" id="S51"><span class="refnum">[S51]</span> Robins, A. (1995). <em>Catastrophic forgetting, rehearsal and pseudorehearsal.</em> Connection Science, 7(2), 123–146. — 重放与伪重放(用自生成样本复习)的奠基工作。</p>
+<p class="ref" id="S52"><span class="refnum">[S52]</span> Rebuffi, S.-A., Kolesnikov, A., Sperl, G. &amp; Lampert, C. H. (2017). <em>iCaRL: Incremental Classifier and Representation Learning.</em> CVPR 2017. arXiv:1611.07725. <a href="https://arxiv.org/abs/1611.07725">https://arxiv.org/abs/1611.07725</a> — 类增量学习的代表性重放方法。</p>
+<p class="ref" id="S53"><span class="refnum">[S53]</span> Shin, H., Lee, J. K., Kim, J. &amp; Kim, J. (2017). <em>Continual Learning with Deep Generative Replay.</em> NeurIPS 2017. arXiv:1705.08690. <a href="https://arxiv.org/abs/1705.08690">https://arxiv.org/abs/1705.08690</a> — 生成式重放:用生成模型合成旧数据。</p>
+<p class="ref" id="S54"><span class="refnum">[S54]</span> Chaudhry, A., Ranzato, M., Rohrbach, M. &amp; Elhoseiny, M. (2019). <em>Efficient Lifelong Learning with A-GEM.</em> ICLR 2019. arXiv:1812.00420. <a href="https://arxiv.org/abs/1812.00420">https://arxiv.org/abs/1812.00420</a> — GEM 的高效近似。</p>
+<p class="ref" id="S55"><span class="refnum">[S55]</span> Buzzega, P., Boschini, M., Porrello, A., Abati, D. &amp; Calderara, S. (2020). <em>Dark Experience for General Continual Learning: a Strong, Simple Baseline.</em> NeurIPS 2020. arXiv:2004.07211. <a href="https://arxiv.org/abs/2004.07211">https://arxiv.org/abs/2004.07211</a> — DER:重放 logits 的强基线。</p>
+<p class="ref" id="S56"><span class="refnum">[S56]</span> Rusu, A. A. et al. (2016). <em>Progressive Neural Networks.</em> arXiv:1606.04671. <a href="https://arxiv.org/abs/1606.04671">https://arxiv.org/abs/1606.04671</a> — 每个任务新增一列网络,结构上杜绝遗忘。</p>
+<p class="ref" id="S57"><span class="refnum">[S57]</span> Schwarz, J. et al. (2018). <em>Progress &amp; Compress: A scalable framework for continual learning.</em> ICML 2018. arXiv:1805.06370. <a href="https://arxiv.org/abs/1805.06370">https://arxiv.org/abs/1805.06370</a> — 快速学习列+知识蒸馏固化到慢速列。</p>
+<p class="ref" id="S58"><span class="refnum">[S58]</span> Mallya, A. &amp; Lazebnik, S. (2018). <em>PackNet: Adding Multiple Tasks to a Single Network by Iterative Pruning.</em> CVPR 2018. arXiv:1711.05769. <a href="https://arxiv.org/abs/1711.05769">https://arxiv.org/abs/1711.05769</a> — 剪枝腾挪容量、按任务分配子网络。</p>
+<p class="ref" id="S59"><span class="refnum">[S59]</span> Serra, J., Suris, D., Miron, M. &amp; Karatzoglou, A. (2018). <em>Overcoming Catastrophic Forgetting with Hard Attention to the Task.</em> ICML 2018. arXiv:1801.01423. <a href="https://arxiv.org/abs/1801.01423">https://arxiv.org/abs/1801.01423</a> — HAT:学习任务级硬注意力掩码。</p>
+<p class="ref" id="S60"><span class="refnum">[S60]</span> Masse, N. Y., Grant, G. D. &amp; Freedman, D. J. (2018). <em>Alleviating catastrophic forgetting using context-dependent gating and synaptic stabilization.</em> PNAS, 115(44), E10467–E10475. DOI: 10.1073/pnas.1803839115. arXiv:1802.01569 — XdG:稀疏情境门控+突触稳固,在数百个任务上保持高性能。</p>
+<p class="ref" id="S61"><span class="refnum">[S61]</span> McClelland, J. L., McNaughton, B. L. &amp; O'Reilly, R. C. (1995). <em>Why there are complementary learning systems in the hippocampus and neocortex.</em> Psychological Review, 102(3), 419–457. — 互补学习系统(CLS)理论。</p>
+<p class="ref" id="S62"><span class="refnum">[S62]</span> Kumaran, D., Hassabis, D. &amp; McClelland, J. L. (2016). <em>What Learning Systems do Intelligent Agents Need? Complementary Learning Systems Theory Updated.</em> Trends in Cognitive Sciences, 20(7), 512–534. — CLS 理论的更新版,面向智能体设计。</p>
+<p class="ref" id="S63"><span class="refnum">[S63]</span> Graves, A. et al. (2016). <em>Hybrid computing using a neural network with dynamic external memory.</em> Nature, 538, 471–476. — 可微神经计算机(DNC):可读写外部记忆。</p>
+<p class="ref" id="S64"><span class="refnum">[S64]</span> Lewis, P. et al. (2020). <em>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.</em> NeurIPS 2020. arXiv:2005.11401. <a href="https://arxiv.org/abs/2005.11401">https://arxiv.org/abs/2005.11401</a> — RAG:检索增强生成。</p>
+<p class="ref" id="S65"><span class="refnum">[S65]</span> Khandelwal, U., Levy, O., Jurafsky, D., Zettlemoyer, L. &amp; Lewis, M. (2020). <em>Generalization through Memorization: Nearest Neighbor Language Models.</em> ICLR 2020. arXiv:1911.00172. <a href="https://arxiv.org/abs/1911.00172">https://arxiv.org/abs/1911.00172</a> — kNN-LM:显式记忆库改进语言模型。</p>
+<p class="ref" id="S66"><span class="refnum">[S66]</span> Sun, Y., Wang, X., Liu, Z., Miller, J., Efros, A. A. &amp; Hardt, M. (2020). <em>Test-Time Training with Self-Supervision for Generalization under Distribution Shifts.</em> ICML 2020. arXiv:1909.13231. <a href="https://arxiv.org/abs/1909.13231">https://arxiv.org/abs/1909.13231</a> — 测试时训练(TTT)。</p>
+<p class="ref" id="S67"><span class="refnum">[S67]</span> Sun, Y. et al. (2024). <em>Learning to (Learn at Test Time): RNNs with Expressive Hidden States.</em> arXiv:2407.04620. <a href="https://arxiv.org/abs/2407.04620">https://arxiv.org/abs/2407.04620</a> — TTT 层:把隐状态本身变成一个在推理中被训练的模型。</p>
+<p class="ref" id="S68"><span class="refnum">[S68]</span> Behrouz, A., Zhong, P. &amp; Mirrokni, V. (2024). <em>Titans: Learning to Memorize at Test Time.</em> arXiv:2501.00663. <a href="https://arxiv.org/abs/2501.00663">https://arxiv.org/abs/2501.00663</a> — 神经长期记忆模块在推理时按"惊讶度"做梯度写入,带自适应遗忘。</p>
+<p class="ref" id="S69"><span class="refnum">[S69]</span> Brown, T. B. et al. (2020). <em>Language Models are Few-Shot Learners.</em> NeurIPS 2020. arXiv:2005.14165. <a href="https://arxiv.org/abs/2005.14165">https://arxiv.org/abs/2005.14165</a> — GPT-3;上下文内学习(ICL)现象的确立。</p>
+<p class="ref" id="S70"><span class="refnum">[S70]</span> von Oswald, J. et al. (2023). <em>Transformers Learn In-Context by Gradient Descent.</em> ICML 2023. arXiv:2212.07677. <a href="https://arxiv.org/abs/2212.07677">https://arxiv.org/abs/2212.07677</a> — ICL 可实现为前向传播中的隐式梯度下降。</p>
+<p class="ref" id="S71"><span class="refnum">[S71]</span> Akyürek, E., Schuurmans, D., Andreas, J., Ma, T. &amp; Zhou, D. (2023). <em>What learning algorithm is in-context learning? Investigations with linear models.</em> ICLR 2023. arXiv:2211.15661. <a href="https://arxiv.org/abs/2211.15661">https://arxiv.org/abs/2211.15661</a> — ICL 在线性模型上隐式实现标准学习算法。</p>
+<p class="ref" id="S72"><span class="refnum">[S72]</span> Gururangan, S. et al. (2020). <em>Don't Stop Pretraining: Adapt Language Models to Domains and Tasks.</em> ACL 2020. arXiv:2004.10964. <a href="https://arxiv.org/abs/2004.10964">https://arxiv.org/abs/2004.10964</a> — 领域/任务自适应持续预训练(DAPT/TAPT)。</p>
+<p class="ref" id="S73"><span class="refnum">[S73]</span> Ke, Z., Shao, Y., Lin, H., Konishi, T., Kim, G. &amp; Liu, B. (2023). <em>Continual Pre-training of Language Models.</em> ICLR 2023. arXiv:2302.03241. <a href="https://arxiv.org/abs/2302.03241">https://arxiv.org/abs/2302.03241</a> — 语言模型持续预训练的软掩码方法。</p>
+<p class="ref" id="S74"><span class="refnum">[S74]</span> Ibrahim, A., Thérien, B., Gupta, K. et al. (2024). <em>Simple and Scalable Strategies to Continually Pre-train Large Language Models.</em> arXiv:2403.08763. <a href="https://arxiv.org/abs/2403.08763">https://arxiv.org/abs/2403.08763</a> — 学习率再升温+小比例重放即可接近重新训练的效果。</p>
+<p class="ref" id="S75"><span class="refnum">[S75]</span> Scialom, T., Chakrabarty, T. &amp; Muresan, S. (2022). <em>Fine-tuned Language Models are Continual Learners.</em> EMNLP 2022. arXiv:2205.12393. <a href="https://arxiv.org/abs/2205.12393">https://arxiv.org/abs/2205.12393</a> — 指令微调模型在少量重放下的持续学习能力。</p>
+<p class="ref" id="S76"><span class="refnum">[S76]</span> Luo, Y., Yang, Z., Meng, F., Li, Y., Zhou, J. &amp; Zhang, Y. (2023). <em>An Empirical Study of Catastrophic Forgetting in Large Language Models During Continual Fine-tuning.</em> arXiv:2308.08747. <a href="https://arxiv.org/abs/2308.08747">https://arxiv.org/abs/2308.08747</a> — 1B–7B 级 LLM 持续微调中的遗忘实证。</p>
+<p class="ref" id="S77"><span class="refnum">[S77]</span> Meng, K., Bau, D., Andonian, A. &amp; Belinkov, Y. (2022). <em>Locating and Editing Factual Associations in GPT.</em> NeurIPS 2022. arXiv:2202.05262. <a href="https://arxiv.org/abs/2202.05262">https://arxiv.org/abs/2202.05262</a> — ROME:定位并编辑事实关联。</p>
+<p class="ref" id="S78"><span class="refnum">[S78]</span> Meng, K., Sen Sharma, A., Andonian, A., Belinkov, Y. &amp; Bau, D. (2023). <em>Mass-Editing Memory in a Transformer.</em> ICLR 2023. arXiv:2210.07229. <a href="https://arxiv.org/abs/2210.07229">https://arxiv.org/abs/2210.07229</a> — MEMIT:批量知识编辑及其规模极限。</p>
+<p class="ref" id="S79"><span class="refnum">[S79]</span> Wang, G. et al. (2023). <em>Voyager: An Open-Ended Embodied Agent with Large Language Models.</em> arXiv:2305.16291. <a href="https://arxiv.org/abs/2305.16291">https://arxiv.org/abs/2305.16291</a> — 不改权重、以代码技能库积累能力的开放世界智能体。</p>
+<p class="ref" id="S80"><span class="refnum">[S80]</span> Shinn, N., Cassano, F., Gopinath, A., Narasimhan, K. &amp; Yao, S. (2023). <em>Reflexion: Language Agents with Verbal Reinforcement Learning.</em> NeurIPS 2023. arXiv:2303.11366. <a href="https://arxiv.org/abs/2303.11366">https://arxiv.org/abs/2303.11366</a> — 用语言化自我反思(存于情景记忆)代替权重更新。</p>
+<p class="ref" id="S81"><span class="refnum">[S81]</span> Hinton, G. E., Dayan, P., Frey, B. J. &amp; Neal, R. M. (1995). <em>The "wake-sleep" algorithm for unsupervised neural networks.</em> Science, 268, 1158–1161. — 醒–睡两阶段学习算法。</p>
+<p class="ref" id="S82"><span class="refnum">[S82]</span> Tadros, T., Krishnan, G. P., Ramyaa, R. &amp; Bazhenov, M. (2022). <em>Sleep-like unsupervised replay reduces catastrophic forgetting in artificial neural networks.</em> Nature Communications, 13, 7742. DOI: 10.1038/s41467-022-34938-7 — 睡眠样自发重放(局部 Hebbian 规则+噪声输入)恢复被遗忘的旧任务。</p>
+<h3>E. 神经科学</h3>
+<p class="ref" id="S83"><span class="refnum">[S83]</span> Yang, G., Pan, F. &amp; Gan, W.-B. (2009). <em>Stably maintained dendritic spines are associated with lifelong memories.</em> Nature, 462, 920–924. — 树突棘可稳定保持一生,承载长期记忆。</p>
+<p class="ref" id="S84"><span class="refnum">[S84]</span> Yang, G. et al. (2014). <em>Sleep promotes branch-specific formation of dendritic spines after learning.</em> Science, 344, 1173–1178. — 睡眠促进学习后分支特异的新棘形成。</p>
+<p class="ref" id="S85"><span class="refnum">[S85]</span> Cichon, J. &amp; Gan, W.-B. (2015). <em>Branch-specific dendritic Ca²⁺ spikes cause persistent synaptic plasticity.</em> Nature, 520, 180–185. — 不同任务的可塑性被分配到不同树突分支,减少干扰。</p>
+<p class="ref" id="S86"><span class="refnum">[S86]</span> Wilson, M. A. &amp; McNaughton, B. L. (1994). <em>Reactivation of hippocampal ensemble memories during sleep.</em> Science, 265, 676–679. — 海马在睡眠中重放清醒期的神经活动序列。</p>
+<p class="ref" id="S87"><span class="refnum">[S87]</span> McGaugh, J. L. (2000). <em>Memory—a Century of Consolidation.</em> Science, 287, 248–251. — 记忆固化研究百年综述。</p>
+<p class="ref" id="S88"><span class="refnum">[S88]</span> Tononi, G. &amp; Cirelli, C. (2014). <em>Sleep and the Price of Plasticity.</em> Neuron, 81(1), 12–34. — 突触稳态假说(SHY):睡眠期间全局突触降标。</p>
+<p class="ref" id="S89"><span class="refnum">[S89]</span> Fusi, S., Drew, P. J. &amp; Abbott, L. F. (2005). <em>Cascade models of synaptically stored memories.</em> Neuron, 45(4), 599–611. — 多状态级联突触:用内部隐状态权衡记忆强度与寿命。</p>
+<p class="ref" id="S90"><span class="refnum">[S90]</span> Benna, M. K. &amp; Fusi, S. (2016). <em>Computational principles of synaptic memory consolidation.</em> Nature Neuroscience, 19, 1697–1706. — 多时间尺度变量链的突触模型,遗忘呈幂律衰减。</p>
+<p class="ref" id="S91"><span class="refnum">[S91]</span> Abraham, W. C. &amp; Bear, M. F. (1996). <em>Metaplasticity: the plasticity of synaptic plasticity.</em> Trends in Neurosciences, 19(4), 126–130. — 元可塑性:突触改变自身可塑性的能力。</p>
+<p class="ref" id="S92"><span class="refnum">[S92]</span> Olshausen, B. A. &amp; Field, D. J. (1996). <em>Emergence of simple-cell receptive field properties by learning a sparse code for natural images.</em> Nature, 381, 607–609. — 稀疏编码的奠基工作。</p>
+<p class="ref" id="S93"><span class="refnum">[S93]</span> Eriksson, P. S. et al. (1998). <em>Neurogenesis in the adult human hippocampus.</em> Nature Medicine, 4, 1313–1317. — 成人海马神经发生的经典证据。</p>
+<p class="ref" id="S94"><span class="refnum">[S94]</span> Sorrells, S. F. et al. (2018). <em>Human hippocampal neurogenesis drops sharply in children to undetectable levels in adults.</em> Nature, 555, 377–381. DOI: 10.1038/nature25975 — 成人海马神经发生未检出(与 <a class="cite" href="#S95">[S95]</a> 直接冲突)。</p>
+<p class="ref" id="S95"><span class="refnum">[S95]</span> Boldrini, M. et al. (2018). <em>Human Hippocampal Neurogenesis Persists throughout Aging.</em> Cell Stem Cell, 22, 589–599. DOI: 10.1016/j.stem.2018.03.015 — 成人海马神经发生持续到 79 岁(与 <a class="cite" href="#S94">[S94]</a> 直接冲突)。</p>
+<p class="ref" id="S96"><span class="refnum">[S96]</span> Flesch, T., Balaguer, J., Dekker, R., Nili, H. &amp; Summerfield, C. (2018). <em>Comparing continual task learning in minds and machines.</em> PNAS, 115(44), E10313–E10322. — 人类在分块(blocked)训练下学得更好,与标准神经网络相反。</p>
+<p class="ref" id="S97"><span class="refnum">[S97]</span> Hassabis, D., Kumaran, D., Summerfield, C. &amp; Botvinick, M. (2017). <em>Neuroscience-Inspired Artificial Intelligence.</em> Neuron, 95, 245–258. — 神经科学启发 AI 的路线图。</p>
+<p class="ref" id="S98"><span class="refnum">[S98]</span> Richards, B. A. et al. (2019). <em>A deep learning framework for neuroscience.</em> Nature Neuroscience, 22, 1761–1770. — 用深度学习三要素(目标、结构、规则)组织神经科学。</p>
+<p class="ref" id="S99"><span class="refnum">[S99]</span> Aston-Jones, G. &amp; Cohen, J. D. (2005). <em>An integrative theory of locus coeruleus-norepinephrine function: adaptive gain and optimal performance.</em> Annual Review of Neuroscience, 28, 403–450. — 去甲肾上腺素系统对学习/探索增益的调控。</p>
+<h3>F. 补充文献(2026-09 更新)</h3>
+<h4>F.1 正则化与"就近"方法</h4>
+<p class="ref" id="S100"><span class="refnum">[S100]</span> Li, Z. &amp; Hoiem, D. (2016). <em>Learning without Forgetting.</em> arXiv:1606.09282. <a href="https://arxiv.org/abs/1606.09282">https://arxiv.org/abs/1606.09282</a> — LwF:蒸馏式函数空间正则,让新模型在新数据上模仿旧模型的输出。</p>
+<p class="ref" id="S101"><span class="refnum">[S101]</span> Li, X., Grandvalet, Y. &amp; Davoine, F. (2018). <em>Explicit Inductive Bias for Transfer Learning with Convolutional Networks.</em> arXiv:1802.01483. <a href="https://arxiv.org/abs/1802.01483">https://arxiv.org/abs/1802.01483</a> — L2-SP:向预训练起点(而非原点)做 L2 正则,是"拴在旧参数附近"最直接的经典形式。</p>
+<p class="ref" id="S102"><span class="refnum">[S102]</span> Rolnick, D., Ahuja, A., Schwarz, J., Lillicrap, T. P. &amp; Wayne, G. (2018). <em>Experience Replay for Continual Learning.</em> arXiv:1811.11682. <a href="https://arxiv.org/abs/1811.11682">https://arxiv.org/abs/1811.11682</a> — 强化学习设定下经验重放的系统研究。</p>
+<p class="ref" id="S103"><span class="refnum">[S103]</span> van de Ven, G. M., Siegelmann, H. T. &amp; Tolias, A. S. (2020). <em>Brain-inspired replay for continual learning with artificial neural networks.</em> Nature Communications, 11. DOI: 10.1038/s41467-020-17866-2 — 类脑生成式重放:重放内部表示而非原始像素,类增量场景下大幅改进。</p>
+<h4>F.2 几何与理论</h4>
+<p class="ref" id="S104"><span class="refnum">[S104]</span> Wang, Z. et al. (2021). <em>Learning to Prompt for Continual Learning (L2P).</em> arXiv:2112.08654. <a href="https://arxiv.org/abs/2112.08654">https://arxiv.org/abs/2112.08654</a> — 冻结预训练主干,只学一组可检索的提示向量。</p>
+<p class="ref" id="S105"><span class="refnum">[S105]</span> Wang, Z. et al. (2022). <em>DualPrompt: Complementary Prompting for Rehearsal-free Continual Learning.</em> arXiv:2204.04799. <a href="https://arxiv.org/abs/2204.04799">https://arxiv.org/abs/2204.04799</a> — 无重放的双提示持续学习。</p>
+<p class="ref" id="S106"><span class="refnum">[S106]</span> Mirzadeh, S. I. et al. (2021). <em>Wide Neural Networks Forget Less Catastrophically.</em> arXiv:2110.11526. <a href="https://arxiv.org/abs/2110.11526">https://arxiv.org/abs/2110.11526</a> — 网络越宽遗忘越少;系统研究宽度/深度对遗忘的影响。</p>
+<p class="ref" id="S107"><span class="refnum">[S107]</span> Doan, T. et al. (2020). <em>A Theoretical Analysis of Catastrophic Forgetting through the NTK Overlap Matrix.</em> arXiv:2010.04003. <a href="https://arxiv.org/abs/2010.04003">https://arxiv.org/abs/2010.04003</a> — 用 NTK 重叠矩阵定量刻画任务间干扰与遗忘。</p>
+<p class="ref" id="S108"><span class="refnum">[S108]</span> Bennani, M. A., Doan, T. &amp; Sugiyama, M. (2020). <em>Generalisation Guarantees for Continual Learning with Orthogonal Gradient Descent.</em> arXiv:2006.11942. <a href="https://arxiv.org/abs/2006.11942">https://arxiv.org/abs/2006.11942</a> — NTK 区内 OGD 的泛化理论保证。</p>
+<p class="ref" id="S109"><span class="refnum">[S109]</span> Evron, I. et al. (2022). <em>How catastrophic can catastrophic forgetting be in linear regression?</em> arXiv:2205.09588. <a href="https://arxiv.org/abs/2205.09588">https://arxiv.org/abs/2205.09588</a> — 线性回归中遗忘的精确理论刻画。</p>
+<p class="ref" id="S110"><span class="refnum">[S110]</span> Fort, S. &amp; Jastrzebski, S. (2019). <em>Large Scale Structure of Neural Network Loss Landscapes.</em> arXiv:1906.04724. <a href="https://arxiv.org/abs/1906.04724">https://arxiv.org/abs/1906.04724</a> — 高维损失地形的大尺度结构模型。</p>
+<p class="ref" id="S111"><span class="refnum">[S111]</span> Li, C., Farkhoor, H., Liu, R. &amp; Yosinski, J. (2018). <em>Measuring the Intrinsic Dimension of Objective Landscapes.</em> arXiv:1804.08838. <a href="https://arxiv.org/abs/1804.08838">https://arxiv.org/abs/1804.08838</a> — 许多任务的"内在维度"远低于参数总数。</p>
+<p class="ref" id="S112"><span class="refnum">[S112]</span> Lubana, E. S. et al. (2022). <em>Mechanistic Mode Connectivity.</em> arXiv:2211.08422. <a href="https://arxiv.org/abs/2211.08422">https://arxiv.org/abs/2211.08422</a> — 损失连通的两个解可能采用完全不同的内部机制;损失接近≠机制接近。</p>
+<h4>F.3 LLM 时代的持续学习</h4>
+<p class="ref" id="S113"><span class="refnum">[S113]</span> Biderman, D. et al. (2024). <em>LoRA Learns Less and Forgets Less.</em> arXiv:2405.09673. <a href="https://arxiv.org/abs/2405.09673">https://arxiv.org/abs/2405.09673</a> — 大规模实证:低秩更新学到的更少、忘掉的也更少——"就近学习"权衡在 LLM 尺度上的直接证据。</p>
+<p class="ref" id="S114"><span class="refnum">[S114]</span> Wang, X. et al. (2023). <em>Orthogonal Subspace Learning for Language Model Continual Learning (O-LoRA).</em> arXiv:2310.14152. <a href="https://arxiv.org/abs/2310.14152">https://arxiv.org/abs/2310.14152</a> — 在相互正交的低秩子空间中顺序学习任务。</p>
+<p class="ref" id="S115"><span class="refnum">[S115]</span> Yadav, P. et al. (2023). <em>TIES-Merging: Resolving Interference When Merging Models.</em> arXiv:2306.01708. <a href="https://arxiv.org/abs/2306.01708">https://arxiv.org/abs/2306.01708</a> — 定位并消解模型合并中的参数干扰(符号冲突、冗余)。</p>
+<p class="ref" id="S116"><span class="refnum">[S116]</span> Matena, M. &amp; Raffel, C. (2021). <em>Merging Models with Fisher-Weighted Averaging.</em> arXiv:2111.09832. <a href="https://arxiv.org/abs/2111.09832">https://arxiv.org/abs/2111.09832</a> — 以 Fisher 信息加权的模型合并。</p>
+<p class="ref" id="S117"><span class="refnum">[S117]</span> Yoo, H. et al. (2025). <em>Continual Low-Rank Adapters for LLM-based Generative Recommender Systems (PESO).</em> ICLR 2026(会议页面已核验)。arXiv:2510.25093. <a href="https://arxiv.org/abs/2510.25093">https://arxiv.org/abs/2510.25093</a> — 单个持续演化的 LoRA,以近端项锚定其最近的冻结状态;并明确论证在推荐场景中过时知识<strong>应当</strong>被遗忘。</p>
+<p class="ref" id="S118"><span class="refnum">[S118]</span> Qiao, F. &amp; Mahdavi, M. (2025). <em>Merge before Forget: A Single LoRA Continual Learning via Continual Merging (SLAO).</em> ICLR 2026(论文集页面已核验)。arXiv:2512.23017. <a href="https://arxiv.org/abs/2512.23017">https://arxiv.org/abs/2512.23017</a> — 正交初始化+时间感知缩放,把任务更新持续合并进单个 LoRA,内存不随任务数增长。</p>
+<p class="ref" id="S119"><span class="refnum">[S119]</span> Gupta, K. et al. (2023). <em>Continual Pre-Training of Large Language Models: How to (re)warm your model?</em> arXiv:2308.04014. <a href="https://arxiv.org/abs/2308.04014">https://arxiv.org/abs/2308.04014</a> — 学习率重新升温对持续预训练的关键作用。</p>
+<p class="ref" id="S120"><span class="refnum">[S120]</span> Gupta, A., Rao, A. &amp; Anumanchipalli, G. (2024). <em>Model Editing at Scale leads to Gradual and Catastrophic Forgetting.</em> arXiv:2401.07453. <a href="https://arxiv.org/abs/2401.07453">https://arxiv.org/abs/2401.07453</a> — 连续编辑呈两阶段退化:先渐进遗忘,后被单次"致瘫编辑"突然击溃。</p>
+<p class="ref" id="S121"><span class="refnum">[S121]</span> Mitchell, E. et al. (2021). <em>Fast Model Editing at Scale (MEND).</em> arXiv:2110.11309. <a href="https://arxiv.org/abs/2110.11309">https://arxiv.org/abs/2110.11309</a> — 超网络式快速模型编辑。</p>
+<p class="ref" id="S122"><span class="refnum">[S122]</span> Mai, Z. et al. (2021). <em>Online Continual Learning in Image Classification: An Empirical Survey.</em> arXiv:2101.10423. <a href="https://arxiv.org/abs/2101.10423">https://arxiv.org/abs/2101.10423</a> — 在线(单遍、无边界)持续学习的实证综述。</p>
+<p class="ref" id="S123"><span class="refnum">[S123]</span> De Lange, M. et al. (2019). <em>A continual learning survey: Defying forgetting in classification tasks.</em> arXiv:1909.08383. <a href="https://arxiv.org/abs/1909.08383">https://arxiv.org/abs/1909.08383</a> — 分类任务持续学习的系统综述。</p>
+<p class="ref" id="S124"><span class="refnum">[S124]</span> Prabhu, A. et al. (2023). <em>Computationally Budgeted Continual Learning: What Does Matter?</em> arXiv:2303.11165. <a href="https://arxiv.org/abs/2303.11165">https://arxiv.org/abs/2303.11165</a> — 固定算力预算下重新评估:许多已发表的增益在预算对齐比较中消失,简单方法常胜出。</p>
+<p class="ref" id="S125"><span class="refnum">[S125]</span> Wu, T. et al. (2024). <em>Continual Learning for Large Language Models: A Survey.</em> arXiv:2402.01364. <a href="https://arxiv.org/abs/2402.01364">https://arxiv.org/abs/2402.01364</a> — LLM 持续学习综述。</p>
+<p class="ref" id="S126"><span class="refnum">[S126]</span> Shi, H. et al. (2024). <em>Continual Learning of Large Language Models: A Comprehensive Survey.</em> arXiv:2404.16789. <a href="https://arxiv.org/abs/2404.16789">https://arxiv.org/abs/2404.16789</a> — LLM 持续学习综述(另一组)。</p>
+<h4>F.4 相关但间接</h4>
+<p class="ref" id="S127"><span class="refnum">[S127]</span> Li, Jinhao et al. (2026). <em>Signal-Adaptive Trust Regions for Gradient-Free Optimization of Recurrent Spiking Neural Networks.</em> arXiv:2601.21572(公开预印本). <a href="https://arxiv.org/abs/2601.21572">https://arxiv.org/abs/2601.21572</a> — 强化学习/优化方向的工作,与持续学习仅间接相关:体现"把每步更新限制在分布空间的一个信赖域内"的一般原则。<strong>本文仅按预印本引用。</strong></p>
+<p class="refnote"><em>核实说明:标注 DOI 或 arXiv 号的条目均可直接访问;<a class="cite" href="#S17">[S17]</a><a class="cite" href="#S18">[S18]</a><a class="cite" href="#S20">[S20]</a><a class="cite" href="#S23">[S23]</a><a class="cite" href="#S31">[S31]</a><a class="cite" href="#S40">[S40]</a><a class="cite" href="#S60">[S60]</a><a class="cite" href="#S68">[S68]</a><a class="cite" href="#S82">[S82]</a><a class="cite" href="#S94">[S94]</a><a class="cite" href="#S95">[S95]</a> 的书目信息在成文时经在线逐条核对。S23 的 arXiv 预印本版本为 arXiv:2306.13812(预印本标题 "Maintaining Plasticity in Deep Continual Learning",发表版标题不同)。F 节(S100–S127)条目的标题/作者/年份经 arXiv 摘要页或 Crossref 核验;其中会议名称仅在 <a href="Crossref">S103</a>与 <a class="cite" href="#S117">[S117]</a><a class="cite" href="#S118">[S118]</a>(ICLR 2026 官方页面)处经直接核验后标注,其余条目不标注会议名称,以 arXiv 编号为准。若发现任何条目有误,请以原文为准并告知我们更正。</em></p>
+</section>
+</main>
+<footer>
+<p>本页为自包含静态页面:无外部脚本、无外部字体、无跟踪器。所有论断附证据标签(已确立/有争议/推测)与编号引用;引用以 arXiv/DOI 为准。</p>
+</footer>
+</body>
+</html>
