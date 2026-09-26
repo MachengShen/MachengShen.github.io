@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thailand's electricity squeeze: where the waste is and what fixes it fastest</title>
+<meta name="description" content="A public-data study of Thailand's power system: gas/LNG dependence, the evening peak, where energy is lost, and a cost comparison of short-term options, with an air-conditioning policy focus.">
+<link rel="stylesheet" href="style.css">
+<link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/thailand-energy/index.zh.html">
+<link rel="alternate" hreflang="en" href="https://machengshen.github.io/thailand-energy/">
+</head>
+<body>
+<header><div class="wrap">
+<a class="lang" href="index.zh.html" lang="zh">中文</a>
+<p>Research note · Thailand energy</p>
+<h1>Thailand's electricity squeeze: where the waste is, and what fixes it fastest</h1>
+<p><strong>About:</strong> an independent research note compiled from public data and published reports. It is not affiliated with, commissioned by, or reviewed by any Thai government agency, utility or company. <strong>Last updated:</strong> 26 September 2026.</p>
+</div></header>
+<nav><div class="wrap">
+<a href="#key">Key conclusions</a><a href="#problem">1. Problem</a><a href="#losses">2. Losses</a><a href="#views">3. Institutions</a><a href="#cost">4. Costs</a><a href="#ac">5. Air-conditioning</a><a href="#options">6. Policy options</a><a href="#who">7. Who decides</a><a href="#data">8. Data &amp; method</a><a href="#refs">References</a>
+</div></nav>
+<main>
+
+<p><strong>How to read the tags:</strong>
+<span class="tag v">verified</span> figure read in the original source ·
+<span class="tag d">derived</span> computed by us from verified data (scripts below) ·
+<span class="tag r">review estimate</span> screening estimate from an independent review of this study, built on stated but largely unsourced assumptions — indicative only ·
+<span class="tag e">assumption</span> our own modelling choice.</p>
+
+<section id="key">
+<h2>Key conclusions</h2>
+<div class="key"><ol>
+<li><strong>Thailand does not have a capacity shortage; it has a fuel-cost and timing problem.</strong> In 2024 contracted capacity was 51.4 GW against a 36.5 GW peak (≈41% reserve) <span class="tag d">derived</span> [R2]. Gas produced 65.5% of domestic electricity in 2025 <span class="tag d">derived</span> [R1][R7], and imported LNG is now the marginal fuel: at &gt;US$21/MMBtu (July 2026) gas power costs ≈5–5.5 THB/kWh in fuel alone <span class="tag d">derived</span> [R9].</li>
+<li><strong>The system peak has moved to the evening.</strong> On 97% of days in 2023–2024 the daily peak fell between 19:00 and 21:59; the 2024 hourly maximum was 35.6 GW at 21:00 on 29 April <span class="tag d">derived</span> [R3]. Solar without storage contributes nothing at that hour.</li>
+<li><strong>"Energy is wasted by poor efficiency" is half right.</strong> Grid losses (≈7% of output; PEA 5.0%, MEA 2.1%) are mid-range for the region and not the main problem <span class="tag v">verified</span> [R4][R5][R6]. The largest physical waste is in cooling: the best air-conditioners on the Thai market use 41–52% less electricity than the typical model sold <span class="tag d">derived</span> [R18]. On the cost side, analyses by CSIS and the IEA point to a high reserve margin and inflexible take-or-pay terms in fuel contracts as factors that raise system costs [R10][R11].</li>
+<li><strong>The cheapest options are on the demand side.</strong> Screening costs: AC retrofit ≈0.76 THB per kWh saved, building energy management ≈0.9, rooftop solar ≈2.1 per kWh supplied, versus ≈4.2 for a new LNG-fired plant and ≈6.45 for solar-plus-storage delivered in the evening <span class="tag r">review estimate</span>. Our own sourced-input check gives the same ordering but wider ranges (AC 0.9–3.6; rooftop solar 1.6–1.9; new gas 3.0–6.1) <span class="tag d">derived</span>.</li>
+<li><strong>Air-conditioning is the main lever on the evening peak.</strong> AC efficiency could cut roughly 2,150 MW of evening peak versus about 660 MW for the storage block modelled <span class="tag r">review estimate</span>. Most AC electricity is used in homes and small shops, not large buildings. A household replacing an old 1.5-hp (12,000 BTU) unit recovers the cost in about 2–4 years; the barrier is the ≈10,000+ THB upfront price, so zero-interest instalments repaid through the electricity bill are the cheapest tool for government <span class="tag r">review estimate</span>.</li>
+<li><strong>Import tariffs are not the bottleneck for efficient Chinese ACs.</strong> Split/window ACs from China face 5% under the ASEAN–China FTA (30% MFN) <span class="tag v">verified</span> [R31]. Thailand is itself one of the world's largest AC exporters (US$6.9 bn in 2024; ≈22% of world exports in CLASP's 2019 assessment, second to China) <span class="tag v">verified</span> [R32][R18]. The constraints are upfront cost, financing, installation quality and slow replacement of the old stock.</li>
+</ol></div>
+</section>
+
+<section id="problem">
+<h2>1. The problem</h2>
+<h3>1.1 Heavy reliance on gas, with LNG at the margin</h3>
+<table>
+<tr><th>Indicator</th><th>Value</th><th>Status / source</th></tr>
+<tr><td>Gas share of domestic generation, 2025</td><td class="num">65.5%</td><td><span class="tag d">derived</span> EPPO [R1]; Ember gives the same [R7]</td></tr>
+<tr><td>Imports (mostly Lao hydro) share of total supply, 2025</td><td class="num">17.2%</td><td><span class="tag d">derived</span> [R1]</td></tr>
+<tr><td>LNG share of gas supply</td><td>≈29% (2024) · Ember projects 40% (2024) → 60% (2035) on its basis</td><td><span class="tag v">verified</span> [R10][R15]</td></tr>
+<tr><td>Asian LNG price</td><td>≈US$10.5/MMBtu before the 2026 disruption → &gt;US$21 in July 2026</td><td><span class="tag v">verified</span> [R9]</td></tr>
+<tr><td>Capacity payments in the tariff</td><td>≈0.63 THB/kWh, ≈17% of base tariff (early 2026, CSIS estimate)</td><td><span class="tag v">verified</span> [R10]</td></tr>
+<tr><td>Gas-fired plants with capacity factor &lt;10%, 2025 (IEEFA count)</td><td>7 plants</td><td><span class="tag v">verified</span> [R8]</td></tr>
+<tr><td>Average tariff, Sep–Dec 2026 (ex-VAT)</td><td class="num">3.95 THB/kWh</td><td><span class="tag v">verified</span> [R25]</td></tr>
+</table>
+<p class="note">On contract mechanisms: Thai power-purchase agreements generally include capacity (availability) payments, and gas supply contracts include take-or-pay terms. These are standard designs in long-term power and gas contracts internationally and are not in themselves irregular. The joint IEA–EGAT study finds that such terms limit dispatch flexibility [R11]; CSIS and IEEFA argue that, with a high reserve margin, they raise tariffs [R10][R8]. These are the views of the cited institutions.</p>
+<h3>1.2 The evening peak</h3>
+<figure>
+<img src="assets/evening_peak_2024.svg" alt="Hourly EGAT-system demand in 2024: the peak day, April average and annual average all peak between 19:00 and 22:00, after solar hours.">
+<figcaption>EGAT-system hourly demand, 2024 (sum of five regions). Data: EGAT public website, archived by Bunnak (2025), Zenodo, CC-BY-4.0 [R3]. Hourly snapshots understate the instantaneous official peak (36,478 MW in 2024 [R2]; national peak 36,759 MW at 20:50 on 22 April 2026 [R9]). The dashed green line is an <em>illustration only</em>: it subtracts the review estimates for AC efficiency (2,150 MW, 18:00–24:00) and storage (660 MW, 18:00–23:00). It shows the peak shifting to the afternoon (16:00), so the net reduction on this day would be ≈1,760 MW, not the full 2,810 MW — peak-cutting measures have to be sized against the whole daily curve. Script: <code>scripts/hourly_profile.py</code>.</figcaption>
+</figure>
+<table>
+<tr><th>Evening-peak facts</th><th>Value</th><th>Status</th></tr>
+<tr><td>Days whose daily peak fell between 19:00 and 21:59</td><td>96.7% (2023) · 97.0% (2024)</td><td><span class="tag d">derived</span> [R3]</td></tr>
+<tr><td>Average monthly load factor</td><td>80.7% (2019) → 77.6% (2025): peaks rising faster than energy</td><td><span class="tag d">derived</span> [R1]</td></tr>
+<tr><td>Rooftop solar output at 20:00–21:00</td><td>0 MW without storage</td><td>physical</td></tr>
+</table>
+<h3>1.3 What is planned</h3>
+<p>The draft Power Development Plan 2026 (public consultation from 8 September 2026) adds 50.9 GW in 2026–2037: 24.3 GW solar, 14.5 GW battery storage, 9.1 GW combined-cycle gas, 2.7 GW wind and 2.66 GW demand response/distributed resources, a first 300 MW small modular reactor in 2037, and an 8.8 GW high case for data centres <span class="tag v">verified</span> [R23]. Nuclear therefore plays no role in the next few years.</p>
+</section>
+
+<section id="losses">
+<h2>2. Where energy is lost</h2>
+<table>
+<tr><th>Stage</th><th>Thai figure</th><th>Comparison</th><th>What it means</th></tr>
+<tr><td><strong>A. Power plants</strong></td><td>EGAT fleet net heat rate 7,903 Btu/kWh (2024), ≈43% efficiency <span class="tag v">verified</span> [R2]</td><td>Modern combined-cycle plants ≈7,100 Btu/kWh</td><td>Most of the ~57% heat loss is thermodynamics; the improvable part is ~10% of fuel</td></tr>
+<tr><td><strong>B. Reserve capacity &amp; contracts</strong></td><td>≈41% reserve (2024) <span class="tag d">derived</span>; capacity payments ≈0.63 THB/kWh <span class="tag v">verified</span></td><td>Planning reserve typically ≈15%</td><td>A cost issue, not an energy loss; addressed through planning and contract design, not hardware</td></tr>
+<tr><td><strong>C. Grid</strong></td><td>T&amp;D losses 7.16% (2023) <span class="tag v">verified</span> [R4]; PEA 5.03% (2024) [R5]; MEA 2.13% (2022) [R6]</td><td>Vietnam 6.6%, Japan 4.9%, China 3.4% (2023) [R4]</td><td>Reaching Japan's level saves ≈5 TWh/yr, ≈4% of gas generation <span class="tag d">derived</span></td></tr>
+<tr><td><strong>D. End use: cooling</strong></td><td>AC = 57% of hotel electricity (63 hotels) [R28]; typical vs best 12k BTU unit SEER 13.0 vs 27.3 [R18]</td><td>Best-available technology can be made in Thailand [R14]</td><td>Same cooling with 41–52% less power <span class="tag d">derived</span>; standards + labels could cut AC use ≈18% by 2030 [R18]</td></tr>
+<tr><td><strong>E. Other end uses</strong></td><td>Six appliance/equipment standards could save ≈18 TWh/yr by 2040 [R19]</td><td>—</td><td>Lighting, motors, transformers, refrigeration</td></tr>
+</table>
+<div class="note">Scale check (not additive): 2025 gas generation 123 TWh · grid loss reduction to Japan's level ≈5 TWh/yr · equipment standards ≈18 TWh/yr by 2040 (≈11 TWh from AC) · generation minus sales 19 TWh (upper bound of losses and own use) <span class="tag d">derived</span>. <strong>End-use efficiency is 2–3× larger than grid loss reduction.</strong></div>
+</section>
+
+<section id="views">
+<h2>3. What research institutions say — and who plans the system</h2>
+<table>
+<tr><th>Issue</th><th>Broad agreement</th><th>Disagreement</th></tr>
+<tr><td>Gas / LNG</td><td>Rising LNG dependence is the main price and security risk (IEA [R13], Ember [R15], CSIS [R10], IEEFA [R8], Chula ERI–Agora [R16])</td><td>New gas plants: the draft PDP includes 9.1 GW [R23]; Ember's least-cost pathway replaces ≈2 GW of planned new gas with solar + storage [R15]</td></tr>
+<tr><td>Cooling efficiency</td><td>Cooling is the main driver of demand growth; standards can cut it substantially. IEA: cooling 16% of SE-Asian building electricity, ≈30% by 2035 [R13]. LBNL: AC efficiency alone could reduce Thailand's peak demand by 5–12 GW by 2030 [R20]. ERIA: stronger policies cut 2050 primary energy 25% below business-as-usual [R22]. CLASP: −18% AC electricity by 2030 [R18]</td><td>The size varies by method; LBNL finds Thailand's top market is already efficient (inverters ≈48% of sales) — the gap is the old stock and the low end [R21]</td></tr>
+<tr><td>Decarbonisation</td><td>IEA with EGAT and the Ministry of Energy: under PDP2018, power emissions would exceed Thailand's targets by 44% in 2030 and 80% in 2037; 32 GW of extra wind and solar by 2030 closes most of the gap [R12]</td><td>Ember finds wind uncompetitive in Thailand; the draft PDP still includes 2.7 GW [R15][R23]</td></tr>
+<tr><td>Grid losses</td><td>No institution treats Thai grid losses as a major problem (≈7%) [R4][R20]</td><td>—</td></tr>
+<tr><td>Flexibility</td><td>IEA with EGAT: making fuel contracts flexible cuts operating cost by up to ≈2%, versus &lt;0.05% for plant retrofits and &lt;0.1% for storage under 2021 conditions [R11]</td><td>Battery costs have since fallen (≈US$117/kWh global turnkey average, 2025 [R27]); Ember and the draft PDP now include large battery fleets [R15][R23]</td></tr>
+<tr><td>Policy</td><td>TDRI: targeted rather than universal subsidies, time-of-use pricing, "efficiency first" retrofits of AC, lighting and controls, and linking the efficiency plan to the power plan [R17]</td><td>—</td></tr>
+</table>
+<p><strong>Who does the technical planning.</strong> EPPO (Ministry of Energy) is secretariat to the National Energy Policy Council and chairs the load-forecast working group; demand is forecast with econometric and end-use models (Thammasat University models for PDP2015; a NIDA long-term model for the 2024 draft). EGAT drafts the supply plan and built a PLEXOS model of the Thai system with the IEA. EPPO staff were trained on LEAP/NEMO by SEI, and GIZ supports an EPPO data-for-modelling community of practice. The ERC regulates tariffs (including the four-monthly Ft), DEDE runs the building energy code and the efficiency plan (draft EEP 2024: −36% energy intensity by 2037), and the long-term climate strategy uses the AIM/EndUse and AIM/CGE models. Full table with tools, reports and sources: <a href="research/INSTITUTIONS.md">research/INSTITUTIONS.md</a> (<a href="research/INSTITUTIONS.zh.md">中文</a>).</p>
+</section>
+
+<section id="cost">
+<h2>4. Cost comparison</h2>
+<h3>4.1 Screening costs used on this site <span class="tag r">review estimate</span></h3>
+<table>
+<tr><th>Option</th><th>THB per kWh</th><th>Basis</th><th>Evening-peak effect</th></tr>
+<tr><td>AC retrofit + controls</td><td class="num">≈0.76</td><td>saved</td><td>≈2,150 MW</td></tr>
+<tr><td>Building energy management</td><td class="num">≈0.9</td><td>saved</td><td>partial (buildings close in the evening)</td></tr>
+<tr><td>Rooftop solar (self-use)</td><td class="num">≈2.1</td><td>supplied, daytime</td><td>≈0 at 20:00–21:00</td></tr>
+<tr><td>New LNG-fired combined cycle (base LNG US$14)</td><td class="num">≈4.2</td><td>supplied</td><td>firm</td></tr>
+<tr><td>Solar + storage (evening kWh)</td><td class="num">≈6.45</td><td>shifted</td><td>≈660 MW (block modelled)</td></tr>
+</table>
+<div class="note"><strong>Where these numbers come from.</strong> They are reproduced exactly by <code>review/codex-energy/analysis/cost_curve.py</code> from <code>review/codex-energy/assumptions.yaml</code> (6% real discount rate, 35 THB/US$). Most inputs in that file are flagged <code>estimate: true</code> (e.g. AC retrofit 12,000 THB per kW, saving 2,200 kWh/kW/yr). Solar + storage ≈ rooftop solar (2.11) + storage shift (4.35). The 2,150 MW AC figure is 5% of evening demand in a scenario that also adds the 8.8 GW data-centre high case; on today's load, 5% is ≈1,780 MW. These are <strong>not measured values</strong>; they are the review's corrected screening figures and are used here as the headline because they supersede an earlier draft.</div>
+<h3>4.2 Cross-check with sourced inputs <span class="tag d">derived</span></h3>
+<table>
+<tr><th>Option (our model, 6% real)</th><th>THB/kWh</th><th>Main sourced inputs</th></tr>
+<tr><td>AC 24k BTU: buy best-available instead of typical at replacement</td><td class="num">0.94</td><td rowspan="3">Unit prices and SEER of typical vs best Thai-market units, 2,920 h/yr, 10.5-yr life (CLASP 2019) [R18]</td></tr>
+<tr><td>AC 12k BTU: same</td><td class="num">2.25</td></tr>
+<tr><td>AC early retrofit (full new-unit cost), home hours / double hours <span class="tag e">assumption</span></td><td class="num">2.7–3.6 / 1.4–1.8</td></tr>
+<tr><td>Rooftop solar, residential</td><td class="num">1.61–1.93</td><td>25,000–30,000 THB/kWp; 1,370 kWh/kWp/yr (IEEFA 2026) [R9]</td></tr>
+<tr><td>Storage adder per kWh discharged</td><td class="num">≈1.64</td><td>US$117/kWh turnkey (BNEF 2025) [R27]; Thai installed cost not public</td></tr>
+<tr><td>Existing under-used gas plant, fuel only (LNG $10.5 / $21)</td><td class="num">2.5–2.8 / 5.0–5.5</td><td>Heat rate 7,903 Btu/kWh (EGAT fleet) [R2]; 7,137 modern combined-cycle benchmark <span class="tag e">assumption</span></td></tr>
+<tr><td>New combined cycle on LNG (LNG $10.5 / $21), CF 50% <span class="tag e">assumption</span></td><td class="num">3.0–3.3 / 5.5–6.1</td><td>US$923/kW (EGAT tender via IEEFA) [R8]</td></tr>
+<tr><td>Benchmarks</td><td>avg tariff 3.95 · TOU peak 5.11 · off-peak 2.60</td><td>[R25][R26]</td></tr>
+</table>
+<p>Both approaches agree on the ranking: <strong>AC efficiency &lt; rooftop solar &lt; new gas</strong>, with evening storage the most expensive per kWh but the only non-fuel option that is firm at 21:00. Measures without a public cost (building controls, demand response, loss reduction) are shown in <code>model/breakeven.csv</code> as the maximum affordable upfront cost.</p>
+</section>
+
+<section id="ac">
+<h2>5. Air-conditioning policy</h2>
+<h3>5.1 Where the waste is</h3>
+<ul>
+<li>AC is the largest single end use in Thai homes that have it: 26.5% of household electricity in a national survey (2018), 60–65% in EPPO- and DEDE-based figures cited in later studies, which use different bases (e.g. only homes with AC) [R35].</li>
+<li>About 55% of households own an AC (2026, as reported) [R34]; national statistics give 39–44% depending on year and definition [R33]. Annual sales are ≈1.6 million units (2023) [R36].</li>
+<li>Most of the stock is still fixed-speed: inverters were 32% of models in 2019 [R18] and ≈48% of sales by 2021 [R21]; the old minimum standard (2010) allowed EER ≈2.5–2.8 W/W versus 5.6 W/W for the best Thai-made unit [R18][R14].</li>
+<li>Screening split of AC demand: ≈64 TWh/yr, ≈21.6 million units, ≈13 GW at 20:00 (≈38% of the evening peak, range 31–46%). By volume the largest shares are homes (≈35 TWh) and small shops/SMEs (≈19 TWh); hotels, malls, offices and government together are ≈10 TWh <span class="tag r">review estimate</span>. Hotels are a good entry point (AC 57% of their electricity [R28]) but not the largest volume.</li>
+<li>Operation matters too: each +1 °C on the thermostat saves ≈4.5% (EGAT) to 6–10% (U4E) [R39][R19]; since March 2026 government offices must set 26–27 °C and cut use 10%, expected to save 7.2 million kWh per month [R38].</li>
+</ul>
+<h3>5.2 Household economics and programme scale <span class="tag r">review estimate</span></h3>
+<table>
+<tr><th>Old fixed-speed → efficient inverter (at 4.2 THB/kWh)</th><th>Night use (8 h/day)</th><th>All-day use (14 h/day)</th></tr>
+<tr><td>9,000 BTU</td><td>payback 4.5 yrs</td><td>2.6 yrs</td></tr>
+<tr><td>12,000 BTU (1.5 hp)</td><td>4.0 yrs</td><td>2.3 yrs</td></tr>
+<tr><td>18,000 BTU</td><td>3.8 yrs</td><td>2.2 yrs</td></tr>
+</table>
+<table>
+<tr><th>Programme design</th><th>Government cost per kW of peak cut</th><th>Government cost per lifetime kWh saved</th></tr>
+<tr><td>Rebate 3,000 THB/unit</td><td class="num">≈8,300 THB</td><td class="num">≈0.17 THB</td></tr>
+<tr><td>Rebate 5,000 THB/unit</td><td class="num">≈13,900 THB</td><td class="num">≈0.28 THB</td></tr>
+<tr><td>On-bill 0% instalments (government risk-share 1,500 THB/unit)</td><td class="num">≈4,200 THB</td><td class="num">≈0.08 THB</td></tr>
+</table>
+<p>Scale: every 1 million units replaced cuts the evening peak by ≈360 MW; 5 million units ≈1.8 GW <span class="tag r">review estimate</span>. Script: <code>review/codex-ac/build_research_outputs.py</code> (fetches public tariff, trade and statistics data).</p>
+<h3>5.3 Tariffs and trade</h3>
+<ul>
+<li>HS 8415.10.10 (split/window ACs ≤26.38 kW): MFN 30%, ASEAN–China FTA 5% in 2024–2026 <span class="tag v">verified</span> [R31]. Excise on ACs up to 72,000 BTU was cut from 15% to zero in 2009 [R37].</li>
+<li>Thailand exported US$6.89 bn of HS 8415 goods in 2024 <span class="tag v">verified</span> [R32]; CLASP (2019) put Thailand at ≈9% of world RAC production and ≈22% of world exports, second only to China [R18].</li>
+<li>Retail price samples do not show Chinese-market units being systematically cheaper after duty and VAT <span class="tag r">review estimate</span>. Conclusion: lowering tariffs further would do little; <strong>financing, installer quality, scrapping old units and stricter standards matter more</strong>.</li>
+</ul>
+<h3>5.4 A practical AC package</h3>
+<ol>
+<li><strong>On-bill 0% instalments</strong> through MEA/PEA for top-label inverter units, with the old unit collected and destroyed.</li>
+<li><strong>Targeted rebates</strong> (e.g. 3,000–4,000 THB/unit) for low-income households and small shops, limited to the highest efficiency tier <span class="tag r">review option</span>.</li>
+<li><strong>Bulk procurement</strong> to push down prices of top-tier units, sourcing from factories already in Thailand.</li>
+<li><strong>Ratchet the minimum standard and label</strong> (last major revision of the MEPS was 2010) [R18].</li>
+<li><strong>Setpoint, cleaning and installer-training campaigns</strong>; measure savings on a sample of metered homes and buildings (M&amp;V).</li>
+</ol>
+</section>
+
+<section id="options">
+<h2>6. Policy options</h2>
+<table>
+<tr><th>Horizon</th><th>Option</th><th>Why</th></tr>
+<tr><td rowspan="5">0–2 years</td><td>AC replacement and setpoint programme (section 5)</td><td>Cheapest kWh; hits the 21:00 peak</td></tr>
+<tr><td>Expand time-of-use pricing and paid demand response</td><td>EGAT's pilot is 50 MW [R29]; EPPO once estimated up to 1,250 MW of potential [R40]</td></tr>
+<tr><td>Reform rooftop-solar rules (e.g. net metering, faster approvals), pair with storage for the evening</td><td>IEEFA: 2.2 THB buy-back below retail discourages uptake [R9]</td></tr>
+<tr><td>Make fuel and power-purchase contracts more flexible</td><td>IEA–EGAT: up to ≈2% lower operating cost [R11]</td></tr>
+<tr><td>Building energy management and chiller upgrades in commercial buildings</td><td>≈0.9 THB/kWh <span class="tag r">review estimate</span>; building code applies only to new/modified buildings ≥2,000 m²</td></tr>
+<tr><td rowspan="3">2–10 years</td><td>Large-scale solar + storage as in the draft PDP (24.3 GW / 14.5 GW)</td><td>Displaces LNG; storage covers the evening [R23][R15]</td></tr>
+<tr><td>Targeted distribution upgrades</td><td>Worthwhile but capped at ≈5 TWh/yr of savings</td></tr>
+<tr><td>Data-centre demand with direct green power purchase and efficient cooling</td><td>8.8 GW high case would reshape the evening peak [R23]</td></tr>
+<tr><td>After 2037</td><td>Small modular reactors</td><td>First unit planned for 2037; a pre-feasibility study was signed in Sept 2026 [R30]</td></tr>
+</table>
+</section>
+
+<section id="who">
+<h2>7. Who decides what</h2>
+<table>
+<tr><th>Decision</th><th>Institution</th></tr>
+<tr><td>National energy policy, PDP approval, energy pricing rules</td><td>National Energy Policy Council → Cabinet</td></tr>
+<tr><td>Drafting plans (PDP, EEP, AEDP), load forecasts, energy funds</td><td>Ministry of Energy / EPPO</td></tr>
+<tr><td>Supply plan, system operation, demand-response and storage procurement</td><td>EGAT</td></tr>
+<tr><td>Tariffs, Ft, TOU and demand-response tariffs, third-party access charges, licensing</td><td>Energy Regulatory Commission (ERC)</td></tr>
+<tr><td>Efficiency standards, labels, building code, efficiency subsidies</td><td>DEDE (with EGAT's No. 5 label)</td></tr>
+<tr><td>Metering, billing (channel for on-bill finance), rooftop-solar connection</td><td>MEA (Bangkok area) / PEA (rest of the country)</td></tr>
+<tr><td>Investment incentives for data centres and equipment makers</td><td>Board of Investment (BOI) [R24]</td></tr>
+</table>
+</section>
+
+<section id="data">
+<h2>8. Data &amp; method</h2>
+<h3>8.1 Downloads</h3>
+<table>
+<tr><th>File</th><th>What it is</th></tr>
+<tr><td><a href="data/derived_annual_2010_2025.csv">data/derived_annual_2010_2025.csv</a></td><td>Generation by fuel, gas share, sales, generation–sales gap, peak, load factor (from EPPO)</td></tr>
+<tr><td><a href="data/derived_sales_share_by_tariff_class.csv">data/derived_sales_share_by_tariff_class.csv</a></td><td>Sales share by tariff class, 2015–2025</td></tr>
+<tr><td><a href="data/derived_td_losses_peers_WB.csv">data/derived_td_losses_peers_WB.csv</a></td><td>T&amp;D losses, Thailand and peers (World Bank/IEA)</td></tr>
+<tr><td><a href="data/eppo_11_27.csv">eppo_11_27</a>, <a href="data/eppo_11_28.csv">11_28</a>, <a href="data/eppo_11_34.csv">11_34</a>, <a href="data/eppo_11_37.csv">11_37</a></td><td>Raw EPPO tables used (generation by fuel; peak &amp; load factor; sales by tariff; sales by sector)</td></tr>
+<tr><td><a href="data/system_2023.csv">data/system_2023.csv</a>, <a href="data/system_2024.csv">system_2024.csv</a></td><td>Hourly EGAT-system data (Zenodo 17109911, CC-BY-4.0)</td></tr>
+<tr><td><a href="data/hourly_mean_profile.csv">hourly_mean_profile.csv</a>, <a href="data/peak_day_2024.csv">peak_day_2024.csv</a>, <a href="data/daily_peak_hour_counts.csv">daily_peak_hour_counts.csv</a></td><td>Evening-peak outputs</td></tr>
+<tr><td><a href="model/inputs.csv">model/inputs.csv</a>, <a href="model/results.csv">results.csv</a>, <a href="model/breakeven.csv">breakeven.csv</a>, <a href="model/peak_check.csv">peak_check.csv</a></td><td>Our cost model: every input carries a status and source</td></tr>
+<tr><td><a href="review/codex-energy/assumptions.yaml">review/codex-energy/assumptions.yaml</a>, <a href="review/codex-energy/outputs/cost_curve/cost_curve_metrics.csv">cost_curve_metrics.csv</a></td><td>Independent review: screening assumptions and outputs behind section 4.1</td></tr>
+</table>
+<h3>8.2 Scripts (Python 3, pandas)</h3>
+<ul>
+<li><a href="model/analysis.py">model/analysis.py</a> — derives annual indicators from EPPO tables. Run from the site root: <code>python model/analysis.py</code></li>
+<li><a href="model/model.py">model/model.py</a> — levelized-cost comparison (3/6/10% discount rates) and break-even costs</li>
+<li><a href="scripts/hourly_profile.py">scripts/hourly_profile.py</a> — hourly evening-peak analysis and chart</li>
+<li><a href="review/codex-energy/analysis/cost_curve.py">review/codex-energy/analysis/cost_curve.py</a> — review cost curve (needs pyyaml, matplotlib); <a href="review/codex-energy/analysis/hourly_model.py">hourly_model.py</a> — review hourly option model (expects a processed hourly file built from the Zenodo data)</li>
+<li><a href="review/codex-ac/build_research_outputs.py">review/codex-ac/build_research_outputs.py</a> — review AC economics, tariffs and trade (calls public APIs)</li>
+</ul>
+<h3>8.3 Key assumptions</h3>
+<ul>
+<li>Real discount rate 6% (sensitivity 3% and 10%); exchange rate 33.2 THB/US$ (our model) or 35 (review model).</li>
+<li>LNG US$10.5 and US$21/MMBtu (our model); US$8/14/22 (review model).</li>
+<li>Generation minus sales is treated as an upper bound for losses plus own use, not as technical loss.</li>
+</ul>
+<h3>8.4 Limitations</h3>
+<ul>
+<li>No public Thai data split the evening peak by end use; the AC share at 20:00 is a modelled estimate.</li>
+<li>Thai installed costs for storage, building controls, demand response and grid-loss projects are not public.</li>
+<li>The hourly data are hourly snapshots of the EGAT system (excluding behind-the-meter solar), archived by a third party.</li>
+<li>Review estimates (orange tags) rest on placeholder inputs and were not independently verified; they should be replaced by metered pilot results and local quotes before any investment decision.</li>
+<li>EPPO fuel-use tables show an implausible jump in implied gas-plant efficiency after 2023, so they were not used for heat rates.</li>
+</ul>
+</section>
+
+<section id="refs">
+<h2>References</h2>
+<p>All accessed 25–26 September 2026 (UTC). Institution sources N1–N36 are listed in <a href="research/INSTITUTIONS.md">research/INSTITUTIONS.md</a>.</p>
+<ol class="refs">
+<li id="R1">[R1] EPPO open data, electricity tables 11_26–11_38 (monthly, 1986–2026). https://www.eppo.go.th</li>
+<li id="R2">[R2] EGAT Annual Report 2024 (net heat rate, contracted capacity, peak). https://www.egat.co.th</li>
+<li id="R3">[R3] Bunnak, P. (2025). Thai Power System: Hourly Power Generation, Demand, and Cross-Border Flows (from EGAT). Zenodo, CC-BY-4.0. https://zenodo.org/records/17109911</li>
+<li id="R4">[R4] World Bank WDI, EG.ELC.LOSS.ZS (IEA data). https://data.worldbank.org/indicator/EG.ELC.LOSS.ZS?locations=TH</li>
+<li id="R5">[R5] PEA Sustainability Report 2024 (distribution loss 5.03%). https://www.pea.co.th</li>
+<li id="R6">[R6] MEA electricity sales report, December 2022 (loss 2.13%). https://www.mea.or.th</li>
+<li id="R7">[R7] Ember, yearly electricity data and Thailand country page (updated 2026-04-22). https://ember-energy.org/countries-and-regions/thailand/</li>
+<li id="R8">[R8] IEEFA (2026-03). Thailand's gas conundrum. https://ieefa.org/sites/default/files/2026-03/IEEFA_Thailand%20gas%20conundrun%20report_updated%20March2026.pdf</li>
+<li id="R9">[R9] IEEFA (2026-08). Reforming Thailand's rooftop solar policy framework to reduce gas dependence. https://ieefa.org/sites/default/files/2026-08/IEEFA%20Report_Reforming%20Thailand%27s%20rooftop%20solar%20policy%20framework%20to%20reduce%20gas%20dependence_August%202026.pdf</li>
+<li id="R10">[R10] CSIS (2026-08-27). The uncertain future of Thailand's gas sector. https://www.csis.org/analysis/uncertain-future-thailands-gas-sector</li>
+<li id="R11">[R11] IEA (2021). Thailand Power System Flexibility Study. https://iea.blob.core.windows.net/assets/ba95b0f3-ec1d-42d3-8288-78438dafad03/ThailandPowerSystemFlexibilityStudy.pdf</li>
+<li id="R12">[R12] IEA (2023-08-08). Thailand's Clean Electricity Transition. https://iea.blob.core.windows.net/assets/dd5b10b2-b655-4c7d-8c09-d3d7efe6bd50/ThailandsCleanElectricityTransition.pdf</li>
+<li id="R13">[R13] IEA (2024-10). Southeast Asia Energy Outlook 2024. https://www.iea.org/reports/southeast-asia-energy-outlook-2024</li>
+<li id="R14">[R14] IEA (2019). The Future of Cooling in Southeast Asia. https://www.iea.org/reports/the-future-of-cooling-in-southeast-asia</li>
+<li id="R15">[R15] Ember (2025-09). Thailand's cost-optimal pathway to a sustainable economy. https://ember-energy.org/app/uploads/2025/09/Report-Thailands-cost-optimal-pathway-to-a-sustainable-economy-PDF.pdf</li>
+<li id="R16">[R16] Agora Energiewende &amp; Chulalongkorn University Energy Research Institute (2025). Thailand's Natural Gas Crossroads. https://www.agora-energiewende.org/fileadmin/Partnerpublikationen/2025/Thailands-Natural-Gas-Crossroads-Report.pdf</li>
+<li id="R17">[R17] TDRI (2026-04). Energy policy: stability and structural transition. https://tdri.or.th/2026/04/energy-policy-stability-structural-transition/</li>
+<li id="R18">[R18] CLASP (2019). Thailand Room Air Conditioner Market Assessment and Policy Options Analysis. https://www.clasp.ngo/wp-content/uploads/2021/01/2019-Thailand-Room-Air-Conditioner-Market-Assessment-and-Policy-Options-Analysis.pdf</li>
+<li id="R19">[R19] UNEP U4E (2022-07). Thailand Country Savings Assessment. https://united4efficiency.org/wp-content/uploads/2022/08/THA_U4E-Country-Saving-Assessment_Jul-22.pdf</li>
+<li id="R20">[R20] LBNL (2015). Benefits of Leapfrogging to Superefficiency and Low GWP Refrigerants in Room Air Conditioning (LBNL-1003671). https://eta-publications.lbl.gov/sites/default/files/lbnl-1003671.pdf</li>
+<li id="R21">[R21] LBNL (2021-05). Harmonizing Energy-Efficiency Standards for Room Air Conditioners in Southeast Asia. https://eta-publications.lbl.gov/sites/default/files/asean_ac_ee_harmonization_final_may_2021.pdf</li>
+<li id="R22">[R22] ERIA (2023). Energy Outlook and Energy Saving Potential in East Asia 2023, Ch.16 Thailand. https://www.eria.org/uploads/media/Books/2023-Energy-Outlook/22_Ch.16-Thailand.pdf</li>
+<li id="R23">[R23] Nation Thailand (2026-09-02). Draft PDP 2026 consultation. https://www.nationthailand.com/sustaination/40070547</li>
+<li id="R24">[R24] Nation Thailand (2026-08-28). Direct PPA, data-centre tariff, solar and LNG power costs. https://www.nationthailand.com/news/policy/40070384 ; Dentons (2026-08-14) Direct PPA pilot for data centres. https://www.dentons.com/en/insights/alerts/2026/august/14/thailands-direct-ppa-pilot-for-data-centres-what-has-changed-since-early-2026</li>
+<li id="R25">[R25] Thairath English (2026-07-23). Ft for Sep–Dec 2026; average tariff 3.95 THB/kWh. https://en.thairath.co.th/news/governmentpolicy/2948113 ; ERC Ft page https://www.erc.or.th/th/automatic</li>
+<li id="R26">[R26] PEA Electricity Tariffs (May 2023, EN) — TOU 5.1135 / 2.6037 THB/kWh. https://www.pea.co.th/sites/default/files/documents/tariff/EN_Electricity_Tariffs_May_2023.pdf</li>
+<li id="R27">[R27] Energy-Storage.news, reporting BNEF Energy Storage Systems Cost Survey 2025 (US$117/kWh). https://www.energy-storage.news/battery-storage-system-prices-continue-to-fall-sharply-bnef-and-ember-reports-find/</li>
+<li id="R28">[R28] Tangon et al. (2018). Energy use in 63 Thai hotels. Asia-Pacific Journal of Science and Technology. https://so01.tci-thaijo.org/index.php/APST/article/view/112302</li>
+<li id="R29">[R29] EGAT (2023-08-24). Renewable Energy Forecast Center and Demand Response Control Center; 50 MW DR pilot. https://www.egat.co.th/home/en/20230824e/</li>
+<li id="R30">[R30] EGAT (2026-09-15). SMR pre-feasibility study grant signed. https://www.egat.co.th/home/en/20260915e/</li>
+<li id="R31">[R31] Thailand National Trade Repository, tariff search HS 84.15 (MFN / ACFTA). https://thailandntr.com/en/goods/tariff/search?hs=84.15&amp;countries%5B%5D=4&amp;agreements%5B%5D=2&amp;agreements%5B%5D=20&amp;start=2024&amp;end=2026</li>
+<li id="R32">[R32] UN Comtrade public API, Thailand exports HS 8415, 2024. https://comtradeapi.un.org/public/v1/preview/C/A/HS?reporterCode=764&amp;period=2024&amp;partnerCode=0&amp;cmdCode=8415&amp;flowCode=X</li>
+<li id="R33">[R33] National Statistical Office household surveys (via review). https://www.nso.go.th/nsoweb/storage/survey_detail/2024/20240718144458_11714.pdf</li>
+<li id="R34">[R34] Nation Thailand (2026). Household AC ownership and setpoint savings. https://www.nationthailand.com/news/general/40063575</li>
+<li id="R35">[R35] Pooltananan et al. (2019). Residential electricity consumption in Thailand (AC 26.5%). https://www.sciencedirect.com/science/article/pii/S2352484719309886</li>
+<li id="R36">[R36] JRAIA (2024-07). World Air Conditioner Demand by Region. https://www.jraia.or.jp/english/statistics/file/World_AC_Demand_July2024.pdf</li>
+<li id="R37">[R37] Nation Thailand (2012). Excise on air-conditioners (zero since Sept 2009). https://www.nationthailand.com/business/30178801</li>
+<li id="R38">[R38] Government Public Relations Department (2026-03). Government agencies to cut energy use 10%, AC at 26–27 °C. https://thailand.prd.go.th/en/content/category/detail/id/52/iid/486432</li>
+<li id="R39">[R39] EGAT (2023-04). Peak demand and energy-saving advice (+1 °C ≈4.5%). https://www.egat.co.th/home/en/20230426e/</li>
+<li id="R40">[R40] GMSARN International Journal (2021). Demand response tariffs and potential in Thailand. https://gmsarnjournal.com/home/wp-content/uploads/2021/05/vol16no1-9.pdf</li>
+</ol>
+</section>
+</main>
+<footer><div class="wrap">
+Independent research note based on public sources; figures tagged "review estimate" are screening values, not measurements. Not investment advice. Data from the Zenodo hourly archive are CC-BY-4.0 (Bunnak 2025). Last updated 26 September 2026. <a href="index.zh.html">中文版</a>
+</div></footer>
+</body>
+</html>

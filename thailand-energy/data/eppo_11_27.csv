@@ -1,0 +1,3382 @@
+﻿Year,Month,Fuel Type,Quantity,UNIT
+1986,January,Hydro Electricity,218.9,GWh
+1986,January,Fuel Oil,229.46,GWh
+1986,January,Coal & Lignite,512.63,GWh
+1986,January,Natural Gas,880.34,GWh
+1986,January,Diesel,0.19,GWh
+1986,January,Imported,57,GWh
+1986,February,Hydro Electricity,391.76,GWh
+1986,February,Fuel Oil,288.67,GWh
+1986,February,Coal & Lignite,323.55,GWh
+1986,February,Natural Gas,755.35,GWh
+1986,February,Diesel,2.05,GWh
+1986,February,Imported,52.14,GWh
+1986,March,Hydro Electricity,629.74,GWh
+1986,March,Fuel Oil,227.37,GWh
+1986,March,Coal & Lignite,331.95,GWh
+1986,March,Natural Gas,899.54,GWh
+1986,March,Diesel,4.97,GWh
+1986,March,Imported,41.86,GWh
+1986,April,Hydro Electricity,633.91,GWh
+1986,April,Fuel Oil,333.95,GWh
+1986,April,Coal & Lignite,336.14,GWh
+1986,April,Natural Gas,817.25,GWh
+1986,April,Diesel,0.49,GWh
+1986,April,Imported,33.79,GWh
+1986,May,Hydro Electricity,498.05,GWh
+1986,May,Fuel Oil,302.11,GWh
+1986,May,Coal & Lignite,404.26,GWh
+1986,May,Natural Gas,900.01,GWh
+1986,May,Diesel,0.64,GWh
+1986,May,Imported,47.28,GWh
+1986,June,Hydro Electricity,615.11,GWh
+1986,June,Fuel Oil,208.12,GWh
+1986,June,Coal & Lignite,449.51,GWh
+1986,June,Natural Gas,845.57,GWh
+1986,June,Diesel,0.6,GWh
+1986,June,Imported,65.32,GWh
+1986,July,Hydro Electricity,525.44,GWh
+1986,July,Fuel Oil,243.03,GWh
+1986,July,Coal & Lignite,496.77,GWh
+1986,July,Natural Gas,820.81,GWh
+1986,July,Diesel,0.38,GWh
+1986,July,Imported,92.74,GWh
+1986,August,Hydro Electricity,542,GWh
+1986,August,Fuel Oil,246.9,GWh
+1986,August,Coal & Lignite,517.4,GWh
+1986,August,Natural Gas,800.96,GWh
+1986,August,Diesel,0.38,GWh
+1986,August,Imported,91.24,GWh
+1986,September,Hydro Electricity,478.09,GWh
+1986,September,Fuel Oil,369.95,GWh
+1986,September,Coal & Lignite,503.67,GWh
+1986,September,Natural Gas,740.33,GWh
+1986,September,Diesel,0.17,GWh
+1986,September,Imported,96.78,GWh
+1986,October,Hydro Electricity,362.4,GWh
+1986,October,Fuel Oil,357.69,GWh
+1986,October,Coal & Lignite,579.68,GWh
+1986,October,Natural Gas,901.73,GWh
+1986,October,Diesel,0.17,GWh
+1986,October,Imported,75.31,GWh
+1986,November,Hydro Electricity,407.21,GWh
+1986,November,Fuel Oil,261.86,GWh
+1986,November,Coal & Lignite,496.34,GWh
+1986,November,Natural Gas,923.61,GWh
+1986,November,Diesel,0.11,GWh
+1986,November,Imported,61.92,GWh
+1986,December,Hydro Electricity,229.09,GWh
+1986,December,Fuel Oil,265.77,GWh
+1986,December,Coal & Lignite,589.38,GWh
+1986,December,Natural Gas,966.21,GWh
+1986,December,Diesel,0.09,GWh
+1986,December,Imported,43,GWh
+1987,January,Hydro Electricity,265.68,GWh
+1987,January,Fuel Oil,227.8,GWh
+1987,January,Coal & Lignite,579.36,GWh
+1987,January,Natural Gas,1013.43,GWh
+1987,January,Diesel,0.21,GWh
+1987,January,Imported,39.23,GWh
+1987,February,Hydro Electricity,402.57,GWh
+1987,February,Fuel Oil,182.33,GWh
+1987,February,Coal & Lignite,457.4,GWh
+1987,February,Natural Gas,1014.48,GWh
+1987,February,Diesel,0.15,GWh
+1987,February,Imported,33.13,GWh
+1987,March,Hydro Electricity,541.6,GWh
+1987,March,Fuel Oil,137.06,GWh
+1987,March,Coal & Lignite,610.99,GWh
+1987,March,Natural Gas,1150.4,GWh
+1987,March,Diesel,0.57,GWh
+1987,March,Imported,31.59,GWh
+1987,April,Hydro Electricity,485.04,GWh
+1987,April,Fuel Oil,197.22,GWh
+1987,April,Coal & Lignite,598.14,GWh
+1987,April,Natural Gas,1134.38,GWh
+1987,April,Diesel,0.17,GWh
+1987,April,Imported,34.66,GWh
+1987,May,Hydro Electricity,409.23,GWh
+1987,May,Fuel Oil,245.44,GWh
+1987,May,Coal & Lignite,576.18,GWh
+1987,May,Natural Gas,1267.82,GWh
+1987,May,Diesel,0.2,GWh
+1987,May,Imported,29.97,GWh
+1987,June,Hydro Electricity,340.68,GWh
+1987,June,Fuel Oil,136.2,GWh
+1987,June,Coal & Lignite,512.04,GWh
+1987,June,Natural Gas,1445.47,GWh
+1987,June,Diesel,0.18,GWh
+1987,June,Imported,31.82,GWh
+1987,July,Hydro Electricity,384.67,GWh
+1987,July,Fuel Oil,152.56,GWh
+1987,July,Coal & Lignite,585.69,GWh
+1987,July,Natural Gas,1405.16,GWh
+1987,July,Diesel,0.24,GWh
+1987,July,Imported,17.9,GWh
+1987,August,Hydro Electricity,379.76,GWh
+1987,August,Fuel Oil,156.56,GWh
+1987,August,Coal & Lignite,607.47,GWh
+1987,August,Natural Gas,1375.53,GWh
+1987,August,Diesel,0.19,GWh
+1987,August,Imported,24.92,GWh
+1987,September,Hydro Electricity,252.05,GWh
+1987,September,Fuel Oil,185.67,GWh
+1987,September,Coal & Lignite,491.4,GWh
+1987,September,Natural Gas,1510.7,GWh
+1987,September,Diesel,0.06,GWh
+1987,September,Imported,8.34,GWh
+1987,October,Hydro Electricity,230.43,GWh
+1987,October,Fuel Oil,141.8,GWh
+1987,October,Coal & Lignite,630.07,GWh
+1987,October,Natural Gas,1502.91,GWh
+1987,October,Diesel,0.33,GWh
+1987,October,Imported,48.21,GWh
+1987,October,Renewable Energy,2.57,GWh
+1987,November,Hydro Electricity,241.01,GWh
+1987,November,Fuel Oil,195.15,GWh
+1987,November,Coal & Lignite,515.53,GWh
+1987,November,Natural Gas,1467.48,GWh
+1987,November,Diesel,0.08,GWh
+1987,November,Imported,50.73,GWh
+1987,November,Renewable Energy,1.39,GWh
+1987,December,Hydro Electricity,123.51,GWh
+1987,December,Fuel Oil,230.59,GWh
+1987,December,Coal & Lignite,533.74,GWh
+1987,December,Natural Gas,1335.9,GWh
+1987,December,Diesel,0.03,GWh
+1987,December,Imported,64.95,GWh
+1987,December,Renewable Energy,0.96,GWh
+1988,January,Hydro Electricity,220.18,GWh
+1988,January,Fuel Oil,167.19,GWh
+1988,January,Coal & Lignite,535.64,GWh
+1988,January,Natural Gas,1505.89,GWh
+1988,January,Diesel,0.14,GWh
+1988,January,Imported,43.13,GWh
+1988,January,Renewable Energy,1.55,GWh
+1988,February,Hydro Electricity,340.26,GWh
+1988,February,Fuel Oil,138.86,GWh
+1988,February,Coal & Lignite,478.44,GWh
+1988,February,Natural Gas,1469.13,GWh
+1988,February,Diesel,0.15,GWh
+1988,February,Imported,43.73,GWh
+1988,February,Renewable Energy,1.24,GWh
+1988,March,Hydro Electricity,550.48,GWh
+1988,March,Fuel Oil,238.96,GWh
+1988,March,Coal & Lignite,546.34,GWh
+1988,March,Natural Gas,1529.92,GWh
+1988,March,Diesel,0.25,GWh
+1988,March,Imported,29.84,GWh
+1988,March,Renewable Energy,0.54,GWh
+1988,April,Hydro Electricity,442.62,GWh
+1988,April,Fuel Oil,226.39,GWh
+1988,April,Coal & Lignite,599.86,GWh
+1988,April,Natural Gas,1478.56,GWh
+1988,April,Diesel,0.09,GWh
+1988,April,Imported,28.99,GWh
+1988,April,Renewable Energy,0.54,GWh
+1988,May,Hydro Electricity,288.26,GWh
+1988,May,Fuel Oil,279.42,GWh
+1988,May,Coal & Lignite,616.65,GWh
+1988,May,Natural Gas,1572.08,GWh
+1988,May,Diesel,0.06,GWh
+1988,May,Imported,26.89,GWh
+1988,May,Renewable Energy,0.16,GWh
+1988,June,Hydro Electricity,269.66,GWh
+1988,June,Fuel Oil,264.55,GWh
+1988,June,Coal & Lignite,607.74,GWh
+1988,June,Natural Gas,1584.31,GWh
+1988,June,Diesel,0.08,GWh
+1988,June,Imported,32.51,GWh
+1988,June,Renewable Energy,1.74,GWh
+1988,July,Hydro Electricity,305.17,GWh
+1988,July,Fuel Oil,275.28,GWh
+1988,July,Coal & Lignite,633.22,GWh
+1988,July,Natural Gas,1554.37,GWh
+1988,July,Diesel,0.05,GWh
+1988,July,Imported,31.19,GWh
+1988,July,Renewable Energy,7.26,GWh
+1988,August,Hydro Electricity,287.39,GWh
+1988,August,Fuel Oil,295.65,GWh
+1988,August,Coal & Lignite,588.84,GWh
+1988,August,Natural Gas,1641.23,GWh
+1988,August,Diesel,0.09,GWh
+1988,August,Imported,44.71,GWh
+1988,August,Renewable Energy,8.95,GWh
+1988,September,Hydro Electricity,288.55,GWh
+1988,September,Fuel Oil,400.62,GWh
+1988,September,Coal & Lignite,504.19,GWh
+1988,September,Natural Gas,1611.5,GWh
+1988,September,Diesel,0.04,GWh
+1988,September,Imported,35.51,GWh
+1988,September,Renewable Energy,2.75,GWh
+1988,October,Hydro Electricity,251.65,GWh
+1988,October,Fuel Oil,301.82,GWh
+1988,October,Coal & Lignite,618.78,GWh
+1988,October,Natural Gas,1642.22,GWh
+1988,October,Diesel,0.8,GWh
+1988,October,Imported,40.68,GWh
+1988,October,Renewable Energy,2.13,GWh
+1988,November,Hydro Electricity,247.79,GWh
+1988,November,Fuel Oil,263.84,GWh
+1988,November,Coal & Lignite,540.05,GWh
+1988,November,Natural Gas,1545.27,GWh
+1988,November,Diesel,1.11,GWh
+1988,November,Imported,39.05,GWh
+1988,November,Renewable Energy,1.86,GWh
+1988,December,Hydro Electricity,226.16,GWh
+1988,December,Fuel Oil,289.45,GWh
+1988,December,Coal & Lignite,529.75,GWh
+1988,December,Natural Gas,1585.4,GWh
+1988,December,Diesel,0.61,GWh
+1988,December,Imported,33.55,GWh
+1988,December,Renewable Energy,1.47,GWh
+1989,January,Hydro Electricity,332.65,GWh
+1989,January,Fuel Oil,413.52,GWh
+1989,January,Coal & Lignite,527.57,GWh
+1989,January,Natural Gas,1619.19,GWh
+1989,January,Diesel,0.3,GWh
+1989,January,Imported,27.07,GWh
+1989,January,Renewable Energy,0.75,GWh
+1989,February,Hydro Electricity,466.02,GWh
+1989,February,Fuel Oil,235.23,GWh
+1989,February,Coal & Lignite,544.21,GWh
+1989,February,Natural Gas,1396.71,GWh
+1989,February,Diesel,0.36,GWh
+1989,February,Imported,25.21,GWh
+1989,February,Renewable Energy,0.67,GWh
+1989,March,Hydro Electricity,675.91,GWh
+1989,March,Fuel Oil,314.37,GWh
+1989,March,Coal & Lignite,608.9,GWh
+1989,March,Natural Gas,1575.68,GWh
+1989,March,Diesel,0.75,GWh
+1989,March,Imported,27.94,GWh
+1989,March,Renewable Energy,0.63,GWh
+1989,April,Hydro Electricity,679.34,GWh
+1989,April,Fuel Oil,329.2,GWh
+1989,April,Coal & Lignite,621.21,GWh
+1989,April,Natural Gas,1543.28,GWh
+1989,April,Diesel,0.39,GWh
+1989,April,Imported,28.85,GWh
+1989,April,Renewable Energy,0.59,GWh
+1989,May,Hydro Electricity,601.83,GWh
+1989,May,Fuel Oil,357.02,GWh
+1989,May,Coal & Lignite,623.16,GWh
+1989,May,Natural Gas,1691.85,GWh
+1989,May,Diesel,0.38,GWh
+1989,May,Imported,28.44,GWh
+1989,May,Renewable Energy,0.88,GWh
+1989,June,Hydro Electricity,423.75,GWh
+1989,June,Fuel Oil,382.57,GWh
+1989,June,Coal & Lignite,637.37,GWh
+1989,June,Natural Gas,1692,GWh
+1989,June,Diesel,0.41,GWh
+1989,June,Imported,38.09,GWh
+1989,June,Renewable Energy,1.47,GWh
+1989,July,Hydro Electricity,325.62,GWh
+1989,July,Fuel Oil,403.84,GWh
+1989,July,Coal & Lignite,719.31,GWh
+1989,July,Natural Gas,1735.76,GWh
+1989,July,Diesel,0.06,GWh
+1989,July,Imported,56.55,GWh
+1989,July,Renewable Energy,1.87,GWh
+1989,August,Hydro Electricity,537.38,GWh
+1989,August,Fuel Oil,356.25,GWh
+1989,August,Coal & Lignite,697.36,GWh
+1989,August,Natural Gas,1635.85,GWh
+1989,August,Diesel,0.87,GWh
+1989,August,Imported,66.61,GWh
+1989,August,Renewable Energy,2.23,GWh
+1989,September,Hydro Electricity,458.28,GWh
+1989,September,Fuel Oil,380.97,GWh
+1989,September,Coal & Lignite,682.84,GWh
+1989,September,Natural Gas,1642.24,GWh
+1989,September,Diesel,0.75,GWh
+1989,September,Imported,97.1,GWh
+1989,September,Renewable Energy,6.8,GWh
+1989,October,Hydro Electricity,333.38,GWh
+1989,October,Fuel Oil,516.67,GWh
+1989,October,Coal & Lignite,695.37,GWh
+1989,October,Natural Gas,1720.46,GWh
+1989,October,Diesel,0.09,GWh
+1989,October,Imported,80.99,GWh
+1989,October,Renewable Energy,3.34,GWh
+1989,November,Hydro Electricity,439.41,GWh
+1989,November,Fuel Oil,582.26,GWh
+1989,November,Coal & Lignite,707.56,GWh
+1989,November,Natural Gas,1420.03,GWh
+1989,November,Diesel,4.73,GWh
+1989,November,Imported,84.79,GWh
+1989,November,Renewable Energy,1.42,GWh
+1989,December,Hydro Electricity,238.64,GWh
+1989,December,Fuel Oil,466.93,GWh
+1989,December,Coal & Lignite,804.71,GWh
+1989,December,Natural Gas,1521.7,GWh
+1989,December,Diesel,7.36,GWh
+1989,December,Imported,81.51,GWh
+1989,December,Renewable Energy,0.92,GWh
+1990,January,Hydro Electricity,317,GWh
+1990,January,Fuel Oil,643.61,GWh
+1990,January,Coal & Lignite,856.46,GWh
+1990,January,Natural Gas,1508.3,GWh
+1990,January,Diesel,16.19,GWh
+1990,January,Imported,67.57,GWh
+1990,January,Renewable Energy,1.01,GWh
+1990,February,Hydro Electricity,397.38,GWh
+1990,February,Fuel Oil,781.93,GWh
+1990,February,Coal & Lignite,714.83,GWh
+1990,February,Natural Gas,1363.23,GWh
+1990,February,Diesel,13.95,GWh
+1990,February,Imported,51.83,GWh
+1990,February,Renewable Energy,0.95,GWh
+1990,March,Hydro Electricity,575.93,GWh
+1990,March,Fuel Oil,772.41,GWh
+1990,March,Coal & Lignite,821.44,GWh
+1990,March,Natural Gas,1568.29,GWh
+1990,March,Diesel,17.25,GWh
+1990,March,Imported,48.2,GWh
+1990,March,Renewable Energy,1.38,GWh
+1990,April,Hydro Electricity,490.12,GWh
+1990,April,Fuel Oil,738.4,GWh
+1990,April,Coal & Lignite,949.72,GWh
+1990,April,Natural Gas,1470.67,GWh
+1990,April,Diesel,19.68,GWh
+1990,April,Imported,39.76,GWh
+1990,April,Renewable Energy,1.49,GWh
+1990,May,Hydro Electricity,444.34,GWh
+1990,May,Fuel Oil,829.17,GWh
+1990,May,Coal & Lignite,945.47,GWh
+1990,May,Natural Gas,1597.16,GWh
+1990,May,Diesel,26.15,GWh
+1990,May,Imported,32.66,GWh
+1990,May,Renewable Energy,2.44,GWh
+1990,June,Hydro Electricity,373.01,GWh
+1990,June,Fuel Oil,884.11,GWh
+1990,June,Coal & Lignite,1010.32,GWh
+1990,June,Natural Gas,1470.7,GWh
+1990,June,Diesel,33.69,GWh
+1990,June,Imported,48.59,GWh
+1990,June,Renewable Energy,3.16,GWh
+1990,July,Hydro Electricity,369.89,GWh
+1990,July,Fuel Oil,980.33,GWh
+1990,July,Coal & Lignite,913.81,GWh
+1990,July,Natural Gas,1439.4,GWh
+1990,July,Diesel,43.49,GWh
+1990,July,Imported,56.34,GWh
+1990,July,Renewable Energy,3.87,GWh
+1990,August,Hydro Electricity,413.36,GWh
+1990,August,Fuel Oil,1017.24,GWh
+1990,August,Coal & Lignite,921.94,GWh
+1990,August,Natural Gas,1464.95,GWh
+1990,August,Diesel,34.05,GWh
+1990,August,Imported,64.41,GWh
+1990,August,Renewable Energy,3.89,GWh
+1990,September,Hydro Electricity,438.74,GWh
+1990,September,Fuel Oil,853.58,GWh
+1990,September,Coal & Lignite,888.9,GWh
+1990,September,Natural Gas,1513.7,GWh
+1990,September,Diesel,41.44,GWh
+1990,September,Imported,60.39,GWh
+1990,September,Renewable Energy,2.86,GWh
+1990,October,Hydro Electricity,423.62,GWh
+1990,October,Fuel Oil,818.86,GWh
+1990,October,Coal & Lignite,1079.32,GWh
+1990,October,Natural Gas,1426.84,GWh
+1990,October,Diesel,53.44,GWh
+1990,October,Imported,65.95,GWh
+1990,October,Renewable Energy,1.71,GWh
+1990,November,Hydro Electricity,390.6,GWh
+1990,November,Fuel Oil,784.6,GWh
+1990,November,Coal & Lignite,987.8,GWh
+1990,November,Natural Gas,1515.03,GWh
+1990,November,Diesel,27.48,GWh
+1990,November,Imported,56.41,GWh
+1990,November,Renewable Energy,1.37,GWh
+1990,December,Hydro Electricity,266.12,GWh
+1990,December,Fuel Oil,908.39,GWh
+1990,December,Coal & Lignite,962.84,GWh
+1990,December,Natural Gas,1426.79,GWh
+1990,December,Diesel,30.04,GWh
+1990,December,Imported,60.21,GWh
+1990,December,Renewable Energy,0.86,GWh
+1991,January,Hydro Electricity,383.46,GWh
+1991,January,Fuel Oil,983.85,GWh
+1991,January,Coal & Lignite,1025.72,GWh
+1991,January,Natural Gas,1495.83,GWh
+1991,January,Diesel,33.26,GWh
+1991,January,Imported,40.98,GWh
+1991,January,Renewable Energy,0.84,GWh
+1991,February,Hydro Electricity,332.91,GWh
+1991,February,Fuel Oil,816.13,GWh
+1991,February,Coal & Lignite,908.8,GWh
+1991,February,Natural Gas,1428.92,GWh
+1991,February,Diesel,9.49,GWh
+1991,February,Imported,42.69,GWh
+1991,February,Renewable Energy,1.09,GWh
+1991,March,Hydro Electricity,463.44,GWh
+1991,March,Fuel Oil,1044.46,GWh
+1991,March,Coal & Lignite,1030.34,GWh
+1991,March,Natural Gas,1797.33,GWh
+1991,March,Diesel,12,GWh
+1991,March,Imported,41.99,GWh
+1991,March,Renewable Energy,1.43,GWh
+1991,April,Hydro Electricity,420.96,GWh
+1991,April,Fuel Oil,1023.43,GWh
+1991,April,Coal & Lignite,994.83,GWh
+1991,April,Natural Gas,1641.54,GWh
+1991,April,Diesel,13.65,GWh
+1991,April,Imported,55.24,GWh
+1991,April,Renewable Energy,3.56,GWh
+1991,May,Hydro Electricity,307.44,GWh
+1991,May,Fuel Oil,1078.68,GWh
+1991,May,Coal & Lignite,1128.88,GWh
+1991,May,Natural Gas,1898.31,GWh
+1991,May,Diesel,17.62,GWh
+1991,May,Imported,35.24,GWh
+1991,May,Renewable Energy,1.97,GWh
+1991,June,Hydro Electricity,231.26,GWh
+1991,June,Fuel Oil,882.96,GWh
+1991,June,Coal & Lignite,1166.19,GWh
+1991,June,Natural Gas,1933.54,GWh
+1991,June,Diesel,14.72,GWh
+1991,June,Imported,40.22,GWh
+1991,June,Renewable Energy,3.02,GWh
+1991,July,Hydro Electricity,276.64,GWh
+1991,July,Fuel Oil,1086.16,GWh
+1991,July,Coal & Lignite,1190.82,GWh
+1991,July,Natural Gas,1795.7,GWh
+1991,July,Diesel,2.46,GWh
+1991,July,Imported,69.66,GWh
+1991,July,Renewable Energy,1.2,GWh
+1991,August,Hydro Electricity,410.1,GWh
+1991,August,Fuel Oil,1126.44,GWh
+1991,August,Coal & Lignite,1743.68,GWh
+1991,August,Natural Gas,994.92,GWh
+1991,August,Diesel,0.54,GWh
+1991,August,Imported,85.75,GWh
+1991,August,Renewable Energy,1.09,GWh
+1991,September,Hydro Electricity,486.9,GWh
+1991,September,Fuel Oil,1121.62,GWh
+1991,September,Coal & Lignite,1044.08,GWh
+1991,September,Natural Gas,1648.71,GWh
+1991,September,Diesel,2.09,GWh
+1991,September,Imported,56.58,GWh
+1991,September,Renewable Energy,3.43,GWh
+1991,October,Hydro Electricity,405.94,GWh
+1991,October,Fuel Oil,1213.62,GWh
+1991,October,Coal & Lignite,1153.05,GWh
+1991,October,Natural Gas,1601.55,GWh
+1991,October,Diesel,0.58,GWh
+1991,October,Imported,50.27,GWh
+1991,October,Renewable Energy,6.84,GWh
+1991,November,Hydro Electricity,456.49,GWh
+1991,November,Fuel Oil,1030.93,GWh
+1991,November,Coal & Lignite,1166.32,GWh
+1991,November,Natural Gas,1467.22,GWh
+1991,November,Diesel,3.59,GWh
+1991,November,Imported,49.49,GWh
+1991,November,Renewable Energy,3.1,GWh
+1991,December,Hydro Electricity,329.81,GWh
+1991,December,Fuel Oil,1228.11,GWh
+1991,December,Coal & Lignite,1232.51,GWh
+1991,December,Natural Gas,1347.62,GWh
+1991,December,Diesel,2.57,GWh
+1991,December,Imported,25,GWh
+1991,December,Renewable Energy,2.08,GWh
+1992,January,Hydro Electricity,338.98,GWh
+1992,January,Fuel Oil,1128.07,GWh
+1992,January,Coal & Lignite,1301.86,GWh
+1992,January,Natural Gas,1436.21,GWh
+1992,January,Diesel,0.97,GWh
+1992,January,Imported,23.44,GWh
+1992,January,Renewable Energy,1.69,GWh
+1992,February,Hydro Electricity,404.93,GWh
+1992,February,Fuel Oil,1213.75,GWh
+1992,February,Coal & Lignite,1173.14,GWh
+1992,February,Natural Gas,1368.82,GWh
+1992,February,Diesel,1.25,GWh
+1992,February,Imported,35.23,GWh
+1992,February,Renewable Energy,1.89,GWh
+1992,March,Hydro Electricity,561.37,GWh
+1992,March,Fuel Oil,1559.49,GWh
+1992,March,Coal & Lignite,1277.74,GWh
+1992,March,Natural Gas,1500.77,GWh
+1992,March,Diesel,6.39,GWh
+1992,March,Imported,21.03,GWh
+1992,March,Renewable Energy,1.85,GWh
+1992,April,Hydro Electricity,475.98,GWh
+1992,April,Fuel Oil,1420.89,GWh
+1992,April,Coal & Lignite,1238.02,GWh
+1992,April,Natural Gas,1723.41,GWh
+1992,April,Diesel,2.48,GWh
+1992,April,Imported,29.11,GWh
+1992,April,Renewable Energy,2.03,GWh
+1992,May,Hydro Electricity,402.01,GWh
+1992,May,Fuel Oil,1435.44,GWh
+1992,May,Coal & Lignite,1220.56,GWh
+1992,May,Natural Gas,2004.46,GWh
+1992,May,Diesel,4.04,GWh
+1992,May,Imported,34.38,GWh
+1992,May,Renewable Energy,1.61,GWh
+1992,June,Hydro Electricity,335.12,GWh
+1992,June,Fuel Oil,1370.41,GWh
+1992,June,Coal & Lignite,1298.16,GWh
+1992,June,Natural Gas,1830.98,GWh
+1992,June,Diesel,21.92,GWh
+1992,June,Imported,46.55,GWh
+1992,June,Renewable Energy,0.43,GWh
+1992,July,Hydro Electricity,281.89,GWh
+1992,July,Fuel Oil,1274.84,GWh
+1992,July,Coal & Lignite,1406.82,GWh
+1992,July,Natural Gas,1941.91,GWh
+1992,July,Diesel,31.39,GWh
+1992,July,Imported,69.72,GWh
+1992,July,Renewable Energy,0.57,GWh
+1992,August,Hydro Electricity,206.71,GWh
+1992,August,Fuel Oil,1174.85,GWh
+1992,August,Coal & Lignite,1376.16,GWh
+1992,August,Natural Gas,2127.24,GWh
+1992,August,Diesel,16.92,GWh
+1992,August,Imported,75.4,GWh
+1992,August,Renewable Energy,0.7,GWh
+1992,September,Hydro Electricity,281.96,GWh
+1992,September,Fuel Oil,1118.62,GWh
+1992,September,Coal & Lignite,1237.45,GWh
+1992,September,Natural Gas,2282.63,GWh
+1992,September,Diesel,12.91,GWh
+1992,September,Imported,50.58,GWh
+1992,September,Renewable Energy,2.35,GWh
+1992,October,Hydro Electricity,276.86,GWh
+1992,October,Fuel Oil,994.01,GWh
+1992,October,Coal & Lignite,1330.35,GWh
+1992,October,Natural Gas,2197.44,GWh
+1992,October,Diesel,57.25,GWh
+1992,October,Imported,47.08,GWh
+1992,October,Renewable Energy,3.74,GWh
+1992,November,Hydro Electricity,269.54,GWh
+1992,November,Fuel Oil,1133.13,GWh
+1992,November,Coal & Lignite,996.25,GWh
+1992,November,Natural Gas,2214.63,GWh
+1992,November,Diesel,4.84,GWh
+1992,November,Imported,27.64,GWh
+1992,November,Renewable Energy,2.32,GWh
+1992,December,Hydro Electricity,323.59,GWh
+1992,December,Fuel Oil,1105.42,GWh
+1992,December,Coal & Lignite,958.54,GWh
+1992,December,Natural Gas,2314.54,GWh
+1992,December,Diesel,0.98,GWh
+1992,December,Imported,19.73,GWh
+1992,December,Renewable Energy,1.66,GWh
+1993,January,Hydro Electricity,220.241,GWh
+1993,January,Fuel Oil,1320.047,GWh
+1993,January,Coal & Lignite,896.118,GWh
+1993,January,Natural Gas,2252.209,GWh
+1993,January,Diesel,8.17,GWh
+1993,January,Imported,22.758,GWh
+1993,January,Renewable Energy,1.75,GWh
+1993,February,Hydro Electricity,352.839,GWh
+1993,February,Fuel Oil,1260.039,GWh
+1993,February,Coal & Lignite,753.727,GWh
+1993,February,Natural Gas,2233.516,GWh
+1993,February,Diesel,10.262,GWh
+1993,February,Imported,15.832,GWh
+1993,February,Renewable Energy,1.541,GWh
+1993,March,Hydro Electricity,451.642,GWh
+1993,March,Fuel Oil,1616.844,GWh
+1993,March,Coal & Lignite,924.019,GWh
+1993,March,Natural Gas,2454.566,GWh
+1993,March,Diesel,18.527,GWh
+1993,March,Imported,20.703,GWh
+1993,March,Renewable Energy,1.748,GWh
+1993,April,Hydro Electricity,394.094,GWh
+1993,April,Fuel Oil,1365.171,GWh
+1993,April,Coal & Lignite,1049.818,GWh
+1993,April,Natural Gas,2367.726,GWh
+1993,April,Diesel,24.092,GWh
+1993,April,Imported,24.685,GWh
+1993,April,Renewable Energy,1.729,GWh
+1993,May,Hydro Electricity,345.901,GWh
+1993,May,Fuel Oil,1470.185,GWh
+1993,May,Coal & Lignite,1409.093,GWh
+1993,May,Natural Gas,2336.6,GWh
+1993,May,Diesel,57.87,GWh
+1993,May,Imported,31.914,GWh
+1993,May,Renewable Energy,2.18,GWh
+1993,June,Hydro Electricity,324.463,GWh
+1993,June,Fuel Oil,1460.094,GWh
+1993,June,Coal & Lignite,1389.994,GWh
+1993,June,Natural Gas,2234.096,GWh
+1993,June,Diesel,54.445,GWh
+1993,June,Imported,45.453,GWh
+1993,June,Renewable Energy,1.871,GWh
+1993,July,Hydro Electricity,274.168,GWh
+1993,July,Fuel Oil,1539.638,GWh
+1993,July,Coal & Lignite,1438.831,GWh
+1993,July,Natural Gas,2392.839,GWh
+1993,July,Diesel,36.898,GWh
+1993,July,Imported,77.836,GWh
+1993,July,Renewable Energy,2.065,GWh
+1993,August,Hydro Electricity,328.449,GWh
+1993,August,Fuel Oil,1361.452,GWh
+1993,August,Coal & Lignite,1409.205,GWh
+1993,August,Natural Gas,2189.237,GWh
+1993,August,Diesel,40.928,GWh
+1993,August,Imported,116.289,GWh
+1993,August,Renewable Energy,2.766,GWh
+1993,September,Hydro Electricity,237.451,GWh
+1993,September,Fuel Oil,1293.892,GWh
+1993,September,Coal & Lignite,1276.059,GWh
+1993,September,Natural Gas,2385.936,GWh
+1993,September,Diesel,143.081,GWh
+1993,September,Imported,120.092,GWh
+1993,September,Renewable Energy,4.523,GWh
+1993,October,Hydro Electricity,201.966,GWh
+1993,October,Fuel Oil,1567.683,GWh
+1993,October,Coal & Lignite,1130,GWh
+1993,October,Natural Gas,2473.185,GWh
+1993,October,Diesel,127.873,GWh
+1993,October,Imported,82.616,GWh
+1993,October,Renewable Energy,4.84,GWh
+1993,November,Hydro Electricity,309.103,GWh
+1993,November,Fuel Oil,1747.871,GWh
+1993,November,Coal & Lignite,883.544,GWh
+1993,November,Natural Gas,2255.369,GWh
+1993,November,Diesel,132.375,GWh
+1993,November,Imported,37.278,GWh
+1993,November,Renewable Energy,3.061,GWh
+1993,December,Hydro Electricity,172.184,GWh
+1993,December,Fuel Oil,1491.604,GWh
+1993,December,Coal & Lignite,943.346,GWh
+1993,December,Natural Gas,2377.881,GWh
+1993,December,Diesel,89.444,GWh
+1993,December,Imported,49.06,GWh
+1993,December,Renewable Energy,1.355,GWh
+1994,January,Hydro Electricity,228.668,GWh
+1994,January,Fuel Oil,1679.718,GWh
+1994,January,Coal & Lignite,931.351,GWh
+1994,January,Natural Gas,2399.783,GWh
+1994,January,Diesel,173.633,GWh
+1994,January,Imported,47.307,GWh
+1994,January,Renewable Energy,1.88268,GWh
+1994,February,Hydro Electricity,286.588,GWh
+1994,February,Fuel Oil,1518.985,GWh
+1994,February,Coal & Lignite,984.73,GWh
+1994,February,Natural Gas,2311.103,GWh
+1994,February,Diesel,141.056,GWh
+1994,February,Imported,42.804,GWh
+1994,February,Renewable Energy,1.94904,GWh
+1994,March,Hydro Electricity,330.83,GWh
+1994,March,Fuel Oil,1504.255,GWh
+1994,March,Coal & Lignite,1341.485,GWh
+1994,March,Natural Gas,2770.875,GWh
+1994,March,Diesel,105.138,GWh
+1994,March,Imported,47.606,GWh
+1994,March,Renewable Energy,3.22956,GWh
+1994,April,Hydro Electricity,302.072,GWh
+1994,April,Fuel Oil,1627.016,GWh
+1994,April,Coal & Lignite,1372.251,GWh
+1994,April,Natural Gas,2504.81,GWh
+1994,April,Diesel,87.899,GWh
+1994,April,Imported,42.141,GWh
+1994,April,Renewable Energy,3.73356,GWh
+1994,May,Hydro Electricity,298.404,GWh
+1994,May,Fuel Oil,1782.952,GWh
+1994,May,Coal & Lignite,1405.696,GWh
+1994,May,Natural Gas,2550.16,GWh
+1994,May,Diesel,168.474,GWh
+1994,May,Imported,50.381,GWh
+1994,May,Renewable Energy,3.0557,GWh
+1994,June,Hydro Electricity,197.665,GWh
+1994,June,Fuel Oil,1636.891,GWh
+1994,June,Coal & Lignite,1383.009,GWh
+1994,June,Natural Gas,2628.598,GWh
+1994,June,Diesel,155.773,GWh
+1994,June,Imported,60.647,GWh
+1994,June,Renewable Energy,1.979,GWh
+1994,July,Hydro Electricity,204.278,GWh
+1994,July,Fuel Oil,1576.329,GWh
+1994,July,Coal & Lignite,1439.127,GWh
+1994,July,Natural Gas,2712.596,GWh
+1994,July,Diesel,62.691,GWh
+1994,July,Imported,103.992,GWh
+1994,July,Renewable Energy,3.269,GWh
+1994,August,Hydro Electricity,374.321,GWh
+1994,August,Fuel Oil,1542.95,GWh
+1994,August,Coal & Lignite,1304.278,GWh
+1994,August,Natural Gas,2712.51,GWh
+1994,August,Diesel,114.696,GWh
+1994,August,Imported,116.486,GWh
+1994,August,Renewable Energy,7.244,GWh
+1994,September,Hydro Electricity,525.312,GWh
+1994,September,Fuel Oil,1615.872,GWh
+1994,September,Coal & Lignite,1228.281,GWh
+1994,September,Natural Gas,2625.924,GWh
+1994,September,Diesel,52.799,GWh
+1994,September,Imported,120.688,GWh
+1994,September,Renewable Energy,9.2714,GWh
+1994,October,Hydro Electricity,507.186,GWh
+1994,October,Fuel Oil,1665.935,GWh
+1994,October,Coal & Lignite,1051.375,GWh
+1994,October,Natural Gas,2776.361,GWh
+1994,October,Diesel,56.494,GWh
+1994,October,Imported,113.87,GWh
+1994,October,Renewable Energy,4.71,GWh
+1994,November,Hydro Electricity,625.504,GWh
+1994,November,Fuel Oil,1759.012,GWh
+1994,November,Coal & Lignite,845.265,GWh
+1994,November,Natural Gas,2714.084,GWh
+1994,November,Diesel,114.664,GWh
+1994,November,Imported,64.505,GWh
+1994,November,Renewable Energy,1.77908,GWh
+1994,December,Hydro Electricity,522.774,GWh
+1994,December,Fuel Oil,1737.266,GWh
+1994,December,Coal & Lignite,844.06,GWh
+1994,December,Natural Gas,2777.994,GWh
+1994,December,Diesel,151.859,GWh
+1994,December,Imported,60.388,GWh
+1994,December,Renewable Energy,8.66052,GWh
+1995,January,Hydro Electricity,445.311,GWh
+1995,January,Fuel Oil,1800.687,GWh
+1995,January,Coal & Lignite,854.997,GWh
+1995,January,Natural Gas,2749.659,GWh
+1995,January,Diesel,107.733,GWh
+1995,January,Imported,44.81,GWh
+1995,January,Renewable Energy,10.78802,GWh
+1995,February,Hydro Electricity,544.458,GWh
+1995,February,Fuel Oil,1720.765,GWh
+1995,February,Coal & Lignite,874.842,GWh
+1995,February,Natural Gas,2486.585,GWh
+1995,February,Diesel,67.868,GWh
+1995,February,Imported,46.852,GWh
+1995,February,Renewable Energy,17.5996,GWh
+1995,March,Hydro Electricity,742.33,GWh
+1995,March,Fuel Oil,2136.12,GWh
+1995,March,Coal & Lignite,1246.389,GWh
+1995,March,Natural Gas,2833.769,GWh
+1995,March,Diesel,90.683,GWh
+1995,March,Imported,40.29,GWh
+1995,March,Renewable Energy,18.46088,GWh
+1995,April,Hydro Electricity,597.263,GWh
+1995,April,Fuel Oil,1944.334,GWh
+1995,April,Coal & Lignite,1358.165,GWh
+1995,April,Natural Gas,2643.776,GWh
+1995,April,Diesel,104.32,GWh
+1995,April,Imported,38.78,GWh
+1995,April,Renewable Energy,18.42652,GWh
+1995,May,Hydro Electricity,611.279,GWh
+1995,May,Fuel Oil,2101.789,GWh
+1995,May,Coal & Lignite,1386.826,GWh
+1995,May,Natural Gas,2777.014,GWh
+1995,May,Diesel,199.434,GWh
+1995,May,Imported,39.004,GWh
+1995,May,Renewable Energy,9.31608,GWh
+1995,June,Hydro Electricity,592.064,GWh
+1995,June,Fuel Oil,1842.817,GWh
+1995,June,Coal & Lignite,1590.92,GWh
+1995,June,Natural Gas,2688.568,GWh
+1995,June,Diesel,247.148,GWh
+1995,June,Imported,41.035,GWh
+1995,June,Renewable Energy,11.75248,GWh
+1995,July,Hydro Electricity,389.964,GWh
+1995,July,Fuel Oil,1613.707,GWh
+1995,July,Coal & Lignite,1688.384,GWh
+1995,July,Natural Gas,2953.92835,GWh
+1995,July,Diesel,257.503,GWh
+1995,July,Imported,54.341,GWh
+1995,July,Renewable Energy,10.2754,GWh
+1995,August,Hydro Electricity,507.521,GWh
+1995,August,Fuel Oil,1461.3,GWh
+1995,August,Coal & Lignite,1539.60556,GWh
+1995,August,Natural Gas,3087.4491,GWh
+1995,August,Diesel,310.037,GWh
+1995,August,Imported,93.07,GWh
+1995,August,Renewable Energy,16.476,GWh
+1995,September,Hydro Electricity,598.929,GWh
+1995,September,Fuel Oil,1592.674,GWh
+1995,September,Coal & Lignite,1263.48024,GWh
+1995,September,Natural Gas,2959.2358,GWh
+1995,September,Diesel,236.87,GWh
+1995,September,Imported,104.83,GWh
+1995,September,Renewable Energy,11.0682,GWh
+1995,October,Hydro Electricity,577.047,GWh
+1995,October,Fuel Oil,1870.02,GWh
+1995,October,Coal & Lignite,1087.69932,GWh
+1995,October,Natural Gas,3065.1877,GWh
+1995,October,Diesel,238.444,GWh
+1995,October,Imported,83.298,GWh
+1995,October,Renewable Energy,5.3996,GWh
+1995,November,Hydro Electricity,593.439,GWh
+1995,November,Fuel Oil,1805.39,GWh
+1995,November,Coal & Lignite,1113.30812,GWh
+1995,November,Natural Gas,2818.1495,GWh
+1995,November,Diesel,270.311,GWh
+1995,November,Imported,57.684,GWh
+1995,November,Renewable Energy,2.2406,GWh
+1995,December,Hydro Electricity,393.406,GWh
+1995,December,Fuel Oil,1822.287,GWh
+1995,December,Coal & Lignite,1160.4964,GWh
+1995,December,Natural Gas,2799.9408,GWh
+1995,December,Diesel,130.829,GWh
+1995,December,Imported,55.127,GWh
+1995,December,Renewable Energy,10.94568,GWh
+1996,January,Hydro Electricity,544.692,GWh
+1996,January,Fuel Oil,1980.691,GWh
+1996,January,Coal & Lignite,1186.68312,GWh
+1996,January,Natural Gas,2746.8602,GWh
+1996,January,Diesel,195.679,GWh
+1996,January,Imported,40.475,GWh
+1996,January,Renewable Energy,18.7005,GWh
+1996,February,Hydro Electricity,635.918,GWh
+1996,February,Fuel Oil,1879.178,GWh
+1996,February,Coal & Lignite,1211.0552,GWh
+1996,February,Natural Gas,2504.4673,GWh
+1996,February,Diesel,135.025,GWh
+1996,February,Imported,43.774,GWh
+1996,February,Renewable Energy,19.7541,GWh
+1996,March,Hydro Electricity,831.624,GWh
+1996,March,Fuel Oil,2093.849,GWh
+1996,March,Coal & Lignite,1473.92404,GWh
+1996,March,Natural Gas,2882.4945,GWh
+1996,March,Diesel,312.268,GWh
+1996,March,Imported,35.377,GWh
+1996,March,Renewable Energy,21.40618,GWh
+1996,April,Hydro Electricity,688.477,GWh
+1996,April,Fuel Oil,1982.105,GWh
+1996,April,Coal & Lignite,1521.319,GWh
+1996,April,Natural Gas,2850.2997,GWh
+1996,April,Diesel,210.723,GWh
+1996,April,Imported,33.807,GWh
+1996,April,Renewable Energy,15.96016,GWh
+1996,May,Hydro Electricity,641.186,GWh
+1996,May,Fuel Oil,2066.306,GWh
+1996,May,Coal & Lignite,1491.27748,GWh
+1996,May,Natural Gas,3090.87075,GWh
+1996,May,Diesel,339.987,GWh
+1996,May,Imported,38.915,GWh
+1996,May,Renewable Energy,17.1016,GWh
+1996,June,Hydro Electricity,637.305,GWh
+1996,June,Fuel Oil,1798.401,GWh
+1996,June,Coal & Lignite,1599.33032,GWh
+1996,June,Natural Gas,2871.87545,GWh
+1996,June,Diesel,443.943,GWh
+1996,June,Imported,54.63,GWh
+1996,June,Renewable Energy,17.42016,GWh
+1996,July,Hydro Electricity,505.823,GWh
+1996,July,Fuel Oil,1648.37,GWh
+1996,July,Coal & Lignite,1814.84972,GWh
+1996,July,Natural Gas,3106.67725,GWh
+1996,July,Diesel,493.731,GWh
+1996,July,Imported,64.617,GWh
+1996,July,Renewable Energy,16.57594,GWh
+1996,August,Hydro Electricity,612.149,GWh
+1996,August,Fuel Oil,1831.335,GWh
+1996,August,Coal & Lignite,1756.50184,GWh
+1996,August,Natural Gas,2963.5681,GWh
+1996,August,Diesel,430.404,GWh
+1996,August,Imported,99.189,GWh
+1996,August,Renewable Energy,21.6085,GWh
+1996,September,Hydro Electricity,572.704,GWh
+1996,September,Fuel Oil,1733.358,GWh
+1996,September,Coal & Lignite,1360.37736,GWh
+1996,September,Natural Gas,3068.96465,GWh
+1996,September,Diesel,526.615,GWh
+1996,September,Imported,114.069,GWh
+1996,September,Renewable Energy,16.0012,GWh
+1996,October,Hydro Electricity,492.479,GWh
+1996,October,Fuel Oil,1524.378,GWh
+1996,October,Coal & Lignite,1364.7144,GWh
+1996,October,Natural Gas,3592.59605,GWh
+1996,October,Diesel,573.924,GWh
+1996,October,Imported,113.679,GWh
+1996,October,Renewable Energy,8.70772,GWh
+1996,November,Hydro Electricity,628.69,GWh
+1996,November,Fuel Oil,1221.484,GWh
+1996,November,Coal & Lignite,1402.29956,GWh
+1996,November,Natural Gas,3457.064,GWh
+1996,November,Diesel,525.643,GWh
+1996,November,Imported,81.433,GWh
+1996,November,Renewable Energy,11.78864,GWh
+1996,December,Hydro Electricity,423.955,GWh
+1996,December,Fuel Oil,1224.276,GWh
+1996,December,Coal & Lignite,1397.74,GWh
+1996,December,Natural Gas,3297.60625,GWh
+1996,December,Diesel,384.421,GWh
+1996,December,Imported,85.641,GWh
+1996,December,Renewable Energy,22.09611,GWh
+1997,January,Hydro Electricity,505.833,GWh
+1997,January,Fuel Oil,1412.28,GWh
+1997,January,Coal & Lignite,1377.19978,GWh
+1997,January,Natural Gas,3471.69055,GWh
+1997,January,Diesel,300.422,GWh
+1997,January,Imported,45.756,GWh
+1997,January,Renewable Energy,26.20292,GWh
+1997,February,Hydro Electricity,635.524,GWh
+1997,February,Fuel Oil,1357.856,GWh
+1997,February,Coal & Lignite,1471.31401,GWh
+1997,February,Natural Gas,3221.88768,GWh
+1997,February,Diesel,240.948,GWh
+1997,February,Imported,40.476,GWh
+1997,February,Renewable Energy,19.4391,GWh
+1997,March,Hydro Electricity,770.979,GWh
+1997,March,Fuel Oil,1826.188,GWh
+1997,March,Coal & Lignite,1835.72142,GWh
+1997,March,Natural Gas,3557.35735,GWh
+1997,March,Diesel,247.633,GWh
+1997,March,Imported,32.406,GWh
+1997,March,Renewable Energy,25.5433,GWh
+1997,April,Hydro Electricity,645.554,GWh
+1997,April,Fuel Oil,1718.265,GWh
+1997,April,Coal & Lignite,1613.63759,GWh
+1997,April,Natural Gas,3445.04517,GWh
+1997,April,Diesel,161.372,GWh
+1997,April,Imported,43.659,GWh
+1997,April,Renewable Energy,29.67434,GWh
+1997,May,Hydro Electricity,704.518,GWh
+1997,May,Fuel Oil,2011.486,GWh
+1997,May,Coal & Lignite,1641.97898,GWh
+1997,May,Natural Gas,3788.38471,GWh
+1997,May,Diesel,325.471,GWh
+1997,May,Imported,44.016,GWh
+1997,May,Renewable Energy,29.06714,GWh
+1997,June,Hydro Electricity,578.613,GWh
+1997,June,Fuel Oil,1947.64,GWh
+1997,June,Coal & Lignite,1797.56853,GWh
+1997,June,Natural Gas,3704.68559,GWh
+1997,June,Diesel,234.094,GWh
+1997,June,Imported,42.257,GWh
+1997,June,Renewable Energy,18.972988,GWh
+1997,July,Hydro Electricity,546.704,GWh
+1997,July,Fuel Oil,1639.275,GWh
+1997,July,Coal & Lignite,1875.08213,GWh
+1997,July,Natural Gas,3916.66188,GWh
+1997,July,Diesel,124.928,GWh
+1997,July,Imported,69.28,GWh
+1997,July,Renewable Energy,15.4923,GWh
+1997,August,Hydro Electricity,584.115,GWh
+1997,August,Fuel Oil,1622.804,GWh
+1997,August,Coal & Lignite,1703.44314,GWh
+1997,August,Natural Gas,3895.52004,GWh
+1997,August,Diesel,112.3,GWh
+1997,August,Imported,99.792,GWh
+1997,August,Renewable Energy,22.555948,GWh
+1997,September,Hydro Electricity,538.505,GWh
+1997,September,Fuel Oil,1590.941776,GWh
+1997,September,Coal & Lignite,1421.17333,GWh
+1997,September,Natural Gas,3798.52487,GWh
+1997,September,Diesel,241.149,GWh
+1997,September,Imported,104.663,GWh
+1997,September,Renewable Energy,17.606992,GWh
+1997,October,Hydro Electricity,591.512,GWh
+1997,October,Fuel Oil,1502.576686,GWh
+1997,October,Coal & Lignite,1511.31932,GWh
+1997,October,Natural Gas,3925.75185,GWh
+1997,October,Diesel,195.707,GWh
+1997,October,Imported,105.172,GWh
+1997,October,Renewable Energy,15.40175,GWh
+1997,November,Hydro Electricity,470.883,GWh
+1997,November,Fuel Oil,1431.752107,GWh
+1997,November,Coal & Lignite,1368.60144,GWh
+1997,November,Natural Gas,3921.23666,GWh
+1997,November,Diesel,72.304,GWh
+1997,November,Imported,66.286,GWh
+1997,November,Renewable Energy,11.80202,GWh
+1997,December,Hydro Electricity,509.26,GWh
+1997,December,Fuel Oil,1219.868638,GWh
+1997,December,Coal & Lignite,1408.75482,GWh
+1997,December,Natural Gas,3926.927282,GWh
+1997,December,Diesel,184.351,GWh
+1997,December,Imported,51.865,GWh
+1997,December,Renewable Energy,26.92126,GWh
+1998,January,Hydro Electricity,522.061,GWh
+1998,January,Fuel Oil,1245.272596,GWh
+1998,January,Coal & Lignite,1342.81084,GWh
+1998,January,Natural Gas,3887.49691,GWh
+1998,January,Diesel,124.323,GWh
+1998,January,Imported,71.987,GWh
+1998,January,Renewable Energy,33.191013,GWh
+1998,February,Hydro Electricity,539.197,GWh
+1998,February,Fuel Oil,1437.814673,GWh
+1998,February,Coal & Lignite,1324.38092,GWh
+1998,February,Natural Gas,3774.14586,GWh
+1998,February,Diesel,14.355,GWh
+1998,February,Imported,102.902,GWh
+1998,February,Renewable Energy,28.482591,GWh
+1998,March,Hydro Electricity,726.376,GWh
+1998,March,Fuel Oil,1682.132124,GWh
+1998,March,Coal & Lignite,1476.96308,GWh
+1998,March,Natural Gas,4265.98591,GWh
+1998,March,Diesel,43.817,GWh
+1998,March,Imported,87.181,GWh
+1998,March,Renewable Energy,49.21778,GWh
+1998,April,Hydro Electricity,675.033,GWh
+1998,April,Fuel Oil,1794.647959,GWh
+1998,April,Coal & Lignite,1519.53292,GWh
+1998,April,Natural Gas,3585.3766,GWh
+1998,April,Diesel,125.444,GWh
+1998,April,Imported,92.214,GWh
+1998,April,Renewable Energy,34.56264,GWh
+1998,May,Hydro Electricity,512.948,GWh
+1998,May,Fuel Oil,1979.98062,GWh
+1998,May,Coal & Lignite,1396.89958,GWh
+1998,May,Natural Gas,4123.09792,GWh
+1998,May,Diesel,111.806,GWh
+1998,May,Imported,101.403,GWh
+1998,May,Renewable Energy,17.73128,GWh
+1998,June,Hydro Electricity,387.07,GWh
+1998,June,Fuel Oil,1740.528649,GWh
+1998,June,Coal & Lignite,1541.908,GWh
+1998,June,Natural Gas,3934.37737,GWh
+1998,June,Diesel,52.932,GWh
+1998,June,Imported,181.123,GWh
+1998,June,Renewable Energy,13.61436,GWh
+1998,July,Hydro Electricity,306.634,GWh
+1998,July,Fuel Oil,1626.94354,GWh
+1998,July,Coal & Lignite,1499.2509,GWh
+1998,July,Natural Gas,4153.31845,GWh
+1998,July,Diesel,17.991,GWh
+1998,July,Imported,197.53,GWh
+1998,July,Renewable Energy,11.52208,GWh
+1998,August,Hydro Electricity,361.877,GWh
+1998,August,Fuel Oil,1224.972062,GWh
+1998,August,Coal & Lignite,1439.9383,GWh
+1998,August,Natural Gas,4368.82767,GWh
+1998,August,Diesel,78.895,GWh
+1998,August,Imported,151.91,GWh
+1998,August,Renewable Energy,15.26454,GWh
+1998,September,Hydro Electricity,279.023,GWh
+1998,September,Fuel Oil,1440.942676,GWh
+1998,September,Coal & Lignite,1104.55798,GWh
+1998,September,Natural Gas,4349.52472,GWh
+1998,September,Diesel,82.686,GWh
+1998,September,Imported,191.391,GWh
+1998,September,Renewable Energy,12.81254,GWh
+1998,October,Hydro Electricity,274.348,GWh
+1998,October,Fuel Oil,1182.309044,GWh
+1998,October,Coal & Lignite,1329.01189,GWh
+1998,October,Natural Gas,4412.85913,GWh
+1998,October,Diesel,202.537,GWh
+1998,October,Imported,174.336,GWh
+1998,October,Renewable Energy,15.30354,GWh
+1998,November,Hydro Electricity,305.488,GWh
+1998,November,Fuel Oil,1116.164496,GWh
+1998,November,Coal & Lignite,1280.16953,GWh
+1998,November,Natural Gas,4151.08063,GWh
+1998,November,Diesel,105.26,GWh
+1998,November,Imported,130.025,GWh
+1998,November,Renewable Energy,16.77252,GWh
+1998,December,Hydro Electricity,198.767,GWh
+1998,December,Fuel Oil,1100.809232,GWh
+1998,December,Coal & Lignite,1335.05428,GWh
+1998,December,Natural Gas,4015.036803,GWh
+1998,December,Diesel,28.927,GWh
+1998,December,Imported,140.71,GWh
+1998,December,Renewable Energy,22.61854,GWh
+1999,January,Hydro Electricity,249.82,GWh
+1999,January,Fuel Oil,1106.182976,GWh
+1999,January,Coal & Lignite,1424.91954,GWh
+1999,January,Natural Gas,4080.215313,GWh
+1999,January,Diesel,16.786,GWh
+1999,January,Imported,102.681,GWh
+1999,January,Renewable Energy,40.81398,GWh
+1999,February,Hydro Electricity,311.838,GWh
+1999,February,Fuel Oil,1003.359664,GWh
+1999,February,Coal & Lignite,1368.60381,GWh
+1999,February,Natural Gas,3924.79108,GWh
+1999,February,Diesel,18.388,GWh
+1999,February,Imported,63.178,GWh
+1999,February,Renewable Energy,34.25344,GWh
+1999,March,Hydro Electricity,435.195,GWh
+1999,March,Fuel Oil,1472.702304,GWh
+1999,March,Coal & Lignite,1473.57948,GWh
+1999,March,Natural Gas,4644.89741,GWh
+1999,March,Diesel,114.105,GWh
+1999,March,Imported,61.91,GWh
+1999,March,Renewable Energy,40.33883,GWh
+1999,April,Hydro Electricity,329.101,GWh
+1999,April,Fuel Oil,1289.483023,GWh
+1999,April,Coal & Lignite,1384.330492,GWh
+1999,April,Natural Gas,4509.683387,GWh
+1999,April,Diesel,74.792,GWh
+1999,April,Imported,76.946,GWh
+1999,April,Renewable Energy,42.466915,GWh
+1999,May,Hydro Electricity,185.616,GWh
+1999,May,Fuel Oil,1634.462573,GWh
+1999,May,Coal & Lignite,1244.690618,GWh
+1999,May,Natural Gas,4717.242386,GWh
+1999,May,Diesel,29.307,GWh
+1999,May,Imported,177.146,GWh
+1999,May,Renewable Energy,38.965096,GWh
+1999,June,Hydro Electricity,217.549,GWh
+1999,June,Fuel Oil,1578.230613,GWh
+1999,June,Coal & Lignite,1232.354888,GWh
+1999,June,Natural Gas,4852.835814,GWh
+1999,June,Diesel,22.681,GWh
+1999,June,Imported,199.057,GWh
+1999,June,Renewable Energy,42.886906,GWh
+1999,July,Hydro Electricity,279.732,GWh
+1999,July,Fuel Oil,1582.970264,GWh
+1999,July,Coal & Lignite,1444.56462,GWh
+1999,July,Natural Gas,4463.91212,GWh
+1999,July,Diesel,66.839,GWh
+1999,July,Imported,241.722,GWh
+1999,July,Renewable Energy,24.610956,GWh
+1999,August,Hydro Electricity,348.832,GWh
+1999,August,Fuel Oil,1490.158952,GWh
+1999,August,Coal & Lignite,1394.702304,GWh
+1999,August,Natural Gas,4457.33482,GWh
+1999,August,Diesel,35.449,GWh
+1999,August,Imported,258.48,GWh
+1999,August,Renewable Energy,29.718095,GWh
+1999,September,Hydro Electricity,297.17,GWh
+1999,September,Fuel Oil,1408.475024,GWh
+1999,September,Coal & Lignite,1473.67584,GWh
+1999,September,Natural Gas,4440.555119,GWh
+1999,September,Diesel,10.944,GWh
+1999,September,Imported,277.656,GWh
+1999,September,Renewable Energy,38.357017,GWh
+1999,October,Hydro Electricity,242.449,GWh
+1999,October,Fuel Oil,1253.5922,GWh
+1999,October,Coal & Lignite,1312.15615,GWh
+1999,October,Natural Gas,4791.77218,GWh
+1999,October,Diesel,30.658,GWh
+1999,October,Imported,283.139,GWh
+1999,October,Renewable Energy,20.252011,GWh
+1999,November,Hydro Electricity,275.303,GWh
+1999,November,Fuel Oil,1051.733568,GWh
+1999,November,Coal & Lignite,1420.06646,GWh
+1999,November,Natural Gas,4622.44683,GWh
+1999,November,Diesel,22.179,GWh
+1999,November,Imported,262.92,GWh
+1999,November,Renewable Energy,21.960249,GWh
+1999,December,Hydro Electricity,237.063,GWh
+1999,December,Fuel Oil,601.187368,GWh
+1999,December,Coal & Lignite,1459.55133,GWh
+1999,December,Natural Gas,4298.74817,GWh
+1999,December,Diesel,15.201,GWh
+1999,December,Imported,250.826,GWh
+1999,December,Renewable Energy,29.525263,GWh
+2000,January,Hydro Electricity,425.261,GWh
+2000,January,Fuel Oil,1173.403304,GWh
+2000,January,Coal & Lignite,1146.94567,GWh
+2000,January,Natural Gas,4648.67078,GWh
+2000,January,Diesel,3.806,GWh
+2000,January,Imported,176.639,GWh
+2000,January,Renewable Energy,40.651168,GWh
+2000,February,Hydro Electricity,566.829,GWh
+2000,February,Fuel Oil,862.626624,GWh
+2000,February,Coal & Lignite,1241.03464,GWh
+2000,February,Natural Gas,4526.928351,GWh
+2000,February,Diesel,3.886,GWh
+2000,February,Imported,137.867,GWh
+2000,February,Renewable Energy,54.039902,GWh
+2000,March,Hydro Electricity,659.817,GWh
+2000,March,Fuel Oil,1169.23648,GWh
+2000,March,Coal & Lignite,1598.30728,GWh
+2000,March,Natural Gas,4948.285713,GWh
+2000,March,Diesel,4.084,GWh
+2000,March,Imported,167.361,GWh
+2000,March,Renewable Energy,58.826983,GWh
+2000,April,Hydro Electricity,599.123,GWh
+2000,April,Fuel Oil,1229.185624,GWh
+2000,April,Coal & Lignite,1512.62438,GWh
+2000,April,Natural Gas,4420.73473,GWh
+2000,April,Diesel,11.179,GWh
+2000,April,Imported,192.371,GWh
+2000,April,Renewable Energy,44.041526,GWh
+2000,May,Hydro Electricity,577.702,GWh
+2000,May,Fuel Oil,996.06488,GWh
+2000,May,Coal & Lignite,1594.20182,GWh
+2000,May,Natural Gas,5198.17426,GWh
+2000,May,Diesel,44.217,GWh
+2000,May,Imported,294.31,GWh
+2000,May,Renewable Energy,45.386629,GWh
+2000,June,Hydro Electricity,371.107,GWh
+2000,June,Fuel Oil,984.085992,GWh
+2000,June,Coal & Lignite,1562.10884,GWh
+2000,June,Natural Gas,5198.32109,GWh
+2000,June,Diesel,3.41,GWh
+2000,June,Imported,267.332,GWh
+2000,June,Renewable Energy,34.794015,GWh
+2000,July,Hydro Electricity,357.477,GWh
+2000,July,Fuel Oil,828.535264,GWh
+2000,July,Coal & Lignite,1586.44521,GWh
+2000,July,Natural Gas,5341.41618,GWh
+2000,July,Diesel,2.761,GWh
+2000,July,Imported,301.01,GWh
+2000,July,Renewable Energy,34.481311,GWh
+2000,August,Hydro Electricity,502.494,GWh
+2000,August,Fuel Oil,676.019456,GWh
+2000,August,Coal & Lignite,1598.58649,GWh
+2000,August,Natural Gas,5393.856992,GWh
+2000,August,Diesel,2.344,GWh
+2000,August,Imported,320.312,GWh
+2000,August,Renewable Energy,45.17533,GWh
+2000,September,Hydro Electricity,481.403,GWh
+2000,September,Fuel Oil,672.183048,GWh
+2000,September,Coal & Lignite,1563.09176,GWh
+2000,September,Natural Gas,5237.57235,GWh
+2000,September,Diesel,12.061,GWh
+2000,September,Imported,336.509,GWh
+2000,September,Renewable Energy,21.804566,GWh
+2000,October,Hydro Electricity,380.136,GWh
+2000,October,Fuel Oil,635.349776,GWh
+2000,October,Coal & Lignite,1672.97637,GWh
+2000,October,Natural Gas,5474.55431,GWh
+2000,October,Diesel,5.072,GWh
+2000,October,Imported,298.645,GWh
+2000,October,Renewable Energy,28.529666,GWh
+2000,November,Hydro Electricity,485.676,GWh
+2000,November,Fuel Oil,244.637784,GWh
+2000,November,Coal & Lignite,1622.97717,GWh
+2000,November,Natural Gas,5172.79987,GWh
+2000,November,Diesel,13.264,GWh
+2000,November,Imported,246.174,GWh
+2000,November,Renewable Energy,34.1656,GWh
+2000,December,Hydro Electricity,484.419,GWh
+2000,December,Fuel Oil,172.21672,GWh
+2000,December,Coal & Lignite,1498.03906,GWh
+2000,December,Natural Gas,5533.24424,GWh
+2000,December,Diesel,1.864,GWh
+2000,December,Imported,227.723,GWh
+2000,December,Renewable Energy,52.873843,GWh
+2001,January,Hydro Electricity,544.013,GWh
+2001,January,Fuel Oil,160.778392,GWh
+2001,January,Coal & Lignite,1578.41643,GWh
+2001,January,Natural Gas,5560.4985,GWh
+2001,January,Diesel,4.154,GWh
+2001,January,Imported,206.111,GWh
+2001,January,Renewable Energy,71.602523,GWh
+2001,February,Hydro Electricity,643.156,GWh
+2001,February,Fuel Oil,238.929096,GWh
+2001,February,Coal & Lignite,1474.23906,GWh
+2001,February,Natural Gas,5342.99356,GWh
+2001,February,Diesel,2.787,GWh
+2001,February,Imported,158.355,GWh
+2001,February,Renewable Energy,66.618838,GWh
+2001,March,Hydro Electricity,623.353,GWh
+2001,March,Fuel Oil,285.34228,GWh
+2001,March,Coal & Lignite,1701.18442,GWh
+2001,March,Natural Gas,6064.242045,GWh
+2001,March,Diesel,7.552,GWh
+2001,March,Imported,171.131,GWh
+2001,March,Renewable Energy,74.55174,GWh
+2001,April,Hydro Electricity,685.136,GWh
+2001,April,Fuel Oil,289.010096,GWh
+2001,April,Coal & Lignite,1648.12921,GWh
+2001,April,Natural Gas,6151.69431,GWh
+2001,April,Diesel,7.561,GWh
+2001,April,Imported,138.515,GWh
+2001,April,Renewable Energy,61.677974,GWh
+2001,May,Hydro Electricity,483.325,GWh
+2001,May,Fuel Oil,255.992128,GWh
+2001,May,Coal & Lignite,1757.96446,GWh
+2001,May,Natural Gas,6333.50064,GWh
+2001,May,Diesel,6.923,GWh
+2001,May,Imported,205.79,GWh
+2001,May,Renewable Energy,46.557671,GWh
+2001,June,Hydro Electricity,313.569,GWh
+2001,June,Fuel Oil,267.272608,GWh
+2001,June,Coal & Lignite,1703.35327,GWh
+2001,June,Natural Gas,6285.1374,GWh
+2001,June,Diesel,4.822,GWh
+2001,June,Imported,279.938,GWh
+2001,June,Renewable Energy,43.437147,GWh
+2001,July,Hydro Electricity,434.982,GWh
+2001,July,Fuel Oil,164.992648,GWh
+2001,July,Coal & Lignite,1670.7955,GWh
+2001,July,Natural Gas,6363.87015,GWh
+2001,July,Diesel,18.952,GWh
+2001,July,Imported,318.688,GWh
+2001,July,Renewable Energy,41.075559,GWh
+2001,August,Hydro Electricity,519.548,GWh
+2001,August,Fuel Oil,119.172648,GWh
+2001,August,Coal & Lignite,1869.14779,GWh
+2001,August,Natural Gas,6115.26375,GWh
+2001,August,Diesel,78.048,GWh
+2001,August,Imported,316.532,GWh
+2001,August,Renewable Energy,39.782731,GWh
+2001,September,Hydro Electricity,713.242,GWh
+2001,September,Fuel Oil,231.494584,GWh
+2001,September,Coal & Lignite,1681.86232,GWh
+2001,September,Natural Gas,5854.92609,GWh
+2001,September,Diesel,3.464,GWh
+2001,September,Imported,312.69,GWh
+2001,September,Renewable Energy,35.863613,GWh
+2001,October,Hydro Electricity,405.177,GWh
+2001,October,Fuel Oil,183.513832,GWh
+2001,October,Coal & Lignite,1656.83235,GWh
+2001,October,Natural Gas,6267.65499,GWh
+2001,October,Diesel,2.125,GWh
+2001,October,Imported,302.729,GWh
+2001,October,Renewable Energy,28.525146,GWh
+2001,November,Hydro Electricity,351.103,GWh
+2001,November,Fuel Oil,129.979304,GWh
+2001,November,Coal & Lignite,1750.7018,GWh
+2001,November,Natural Gas,5505.06672,GWh
+2001,November,Diesel,50.212,GWh
+2001,November,Imported,257.962,GWh
+2001,November,Renewable Energy,27.28815,GWh
+2001,December,Hydro Electricity,457.741,GWh
+2001,December,Fuel Oil,130.030904,GWh
+2001,December,Coal & Lignite,1803.4025,GWh
+2001,December,Natural Gas,5383.93116,GWh
+2001,December,Diesel,61.463,GWh
+2001,December,Imported,213.273,GWh
+2001,December,Renewable Energy,47.559227,GWh
+2002,January,Hydro Electricity,512.577,GWh
+2002,January,Fuel Oil,168.271544,GWh
+2002,January,Coal & Lignite,1623.39279,GWh
+2002,January,Natural Gas,5689.22297,GWh
+2002,January,Diesel,8.204,GWh
+2002,January,Imported,190.302,GWh
+2002,January,Renewable Energy,71.802924,GWh
+2002,February,Hydro Electricity,588.929,GWh
+2002,February,Fuel Oil,138.011848,GWh
+2002,February,Coal & Lignite,1552.04965,GWh
+2002,February,Natural Gas,5683.19541,GWh
+2002,February,Diesel,8.296,GWh
+2002,February,Imported,149.192,GWh
+2002,February,Renewable Energy,68.277408,GWh
+2002,March,Hydro Electricity,797.977,GWh
+2002,March,Fuel Oil,218.26056,GWh
+2002,March,Coal & Lignite,1775.31055,GWh
+2002,March,Natural Gas,6674.43073,GWh
+2002,March,Diesel,5.007,GWh
+2002,March,Imported,146.5,GWh
+2002,March,Renewable Energy,69.627113,GWh
+2002,April,Hydro Electricity,718.75,GWh
+2002,April,Fuel Oil,250.780328,GWh
+2002,April,Coal & Lignite,1772.49563,GWh
+2002,April,Natural Gas,6399.17806,GWh
+2002,April,Diesel,3.39,GWh
+2002,April,Imported,163.458,GWh
+2002,April,Renewable Energy,70.304774,GWh
+2002,May,Hydro Electricity,602.437,GWh
+2002,May,Fuel Oil,186.544644,GWh
+2002,May,Coal & Lignite,1536.42657,GWh
+2002,May,Natural Gas,7023.38373,GWh
+2002,May,Diesel,15.528,GWh
+2002,May,Imported,221.697,GWh
+2002,May,Renewable Energy,68.653387,GWh
+2002,June,Hydro Electricity,413.523,GWh
+2002,June,Fuel Oil,163.845232,GWh
+2002,June,Coal & Lignite,1414.12534,GWh
+2002,June,Natural Gas,7156.95644,GWh
+2002,June,Diesel,4.988,GWh
+2002,June,Imported,271.794,GWh
+2002,June,Renewable Energy,58.922459,GWh
+2002,July,Hydro Electricity,483.933,GWh
+2002,July,Fuel Oil,141.29256,GWh
+2002,July,Coal & Lignite,1406.55346,GWh
+2002,July,Natural Gas,7340.67118,GWh
+2002,July,Diesel,23.763,GWh
+2002,July,Imported,301.329,GWh
+2002,July,Renewable Energy,54.45689,GWh
+2002,August,Hydro Electricity,551.233,GWh
+2002,August,Fuel Oil,160.446584,GWh
+2002,August,Coal & Lignite,1499.10156,GWh
+2002,August,Natural Gas,6982.19439,GWh
+2002,August,Diesel,46.727,GWh
+2002,August,Imported,313.36,GWh
+2002,August,Renewable Energy,46.471705,GWh
+2002,September,Hydro Electricity,597.483,GWh
+2002,September,Fuel Oil,191.170232,GWh
+2002,September,Coal & Lignite,1681.69258,GWh
+2002,September,Natural Gas,6518.40515,GWh
+2002,September,Diesel,27.925,GWh
+2002,September,Imported,289.412,GWh
+2002,September,Renewable Energy,33.1233,GWh
+2002,October,Hydro Electricity,669.569,GWh
+2002,October,Fuel Oil,155.426904,GWh
+2002,October,Coal & Lignite,1665.9632,GWh
+2002,October,Natural Gas,6734.45434,GWh
+2002,October,Diesel,3.094,GWh
+2002,October,Imported,300.716,GWh
+2002,October,Renewable Energy,45.319131,GWh
+2002,November,Hydro Electricity,788.591,GWh
+2002,November,Fuel Oil,113.487048,GWh
+2002,November,Coal & Lignite,1694.58788,GWh
+2002,November,Natural Gas,6290.70407,GWh
+2002,November,Diesel,1.809,GWh
+2002,November,Imported,241.297,GWh
+2002,November,Renewable Energy,49.463449,GWh
+2002,December,Hydro Electricity,641.938,GWh
+2002,December,Fuel Oil,119.20912,GWh
+2002,December,Coal & Lignite,1669.806628,GWh
+2002,December,Natural Gas,6417.44485,GWh
+2002,December,Diesel,2.252,GWh
+2002,December,Imported,223.118,GWh
+2002,December,Renewable Energy,78.618023,GWh
+2003,January,Hydro Electricity,687.911,GWh
+2003,January,Fuel Oil,111.114048,GWh
+2003,January,Coal & Lignite,1761.148784,GWh
+2003,January,Natural Gas,6115.80199,GWh
+2003,January,Diesel,2.984,GWh
+2003,January,Imported,189.802,GWh
+2003,January,Renewable Energy,109.114954,GWh
+2003,February,Hydro Electricity,696.466,GWh
+2003,February,Fuel Oil,141.805728,GWh
+2003,February,Coal & Lignite,1689.866336,GWh
+2003,February,Natural Gas,6048.95529,GWh
+2003,February,Diesel,1.519,GWh
+2003,February,Imported,140.375,GWh
+2003,February,Renewable Energy,100.927502,GWh
+2003,March,Hydro Electricity,801.516,GWh
+2003,March,Fuel Oil,141.61828,GWh
+2003,March,Coal & Lignite,1705.042726,GWh
+2003,March,Natural Gas,7309.72838,GWh
+2003,March,Diesel,3,GWh
+2003,March,Imported,146.974,GWh
+2003,March,Renewable Energy,107.232232,GWh
+2003,April,Hydro Electricity,734.497,GWh
+2003,April,Fuel Oil,176.409984,GWh
+2003,April,Coal & Lignite,1613.403413,GWh
+2003,April,Natural Gas,7204.7557,GWh
+2003,April,Diesel,4.322,GWh
+2003,April,Imported,114.733,GWh
+2003,April,Renewable Energy,114.981309,GWh
+2003,May,Hydro Electricity,815.871,GWh
+2003,May,Fuel Oil,293.332272,GWh
+2003,May,Coal & Lignite,1565.88494,GWh
+2003,May,Natural Gas,7574.82505,GWh
+2003,May,Diesel,4.752,GWh
+2003,May,Imported,174.739,GWh
+2003,May,Renewable Energy,110.6692,GWh
+2003,June,Hydro Electricity,624.997,GWh
+2003,June,Fuel Oil,163.463416,GWh
+2003,June,Coal & Lignite,1705.830186,GWh
+2003,June,Natural Gas,7181.36041,GWh
+2003,June,Diesel,3.017,GWh
+2003,June,Imported,223.706,GWh
+2003,June,Renewable Energy,109.153799,GWh
+2003,July,Hydro Electricity,454.966,GWh
+2003,July,Fuel Oil,136.755232,GWh
+2003,July,Coal & Lignite,1628.010973,GWh
+2003,July,Natural Gas,7497.97172,GWh
+2003,July,Diesel,2.783,GWh
+2003,July,Imported,237.112,GWh
+2003,July,Renewable Energy,94.813143,GWh
+2003,August,Hydro Electricity,471.435,GWh
+2003,August,Fuel Oil,238.507312,GWh
+2003,August,Coal & Lignite,1492.685173,GWh
+2003,August,Natural Gas,7706.70627,GWh
+2003,August,Diesel,7.588,GWh
+2003,August,Imported,259.511,GWh
+2003,August,Renewable Energy,87.157688,GWh
+2003,September,Hydro Electricity,353.666,GWh
+2003,September,Fuel Oil,357.86832,GWh
+2003,September,Coal & Lignite,1466.992858,GWh
+2003,September,Natural Gas,7399.12303,GWh
+2003,September,Diesel,8.051,GWh
+2003,September,Imported,284.298,GWh
+2003,September,Renewable Energy,91.81716,GWh
+2003,October,Hydro Electricity,388.326,GWh
+2003,October,Fuel Oil,271.64884,GWh
+2003,October,Coal & Lignite,1406.871743,GWh
+2003,October,Natural Gas,7817.93321,GWh
+2003,October,Diesel,10.983,GWh
+2003,October,Imported,298.834,GWh
+2003,October,Renewable Energy,71.844447,GWh
+2003,November,Hydro Electricity,612.745,GWh
+2003,November,Fuel Oil,232.25508,GWh
+2003,November,Coal & Lignite,1568.637608,GWh
+2003,November,Natural Gas,7254.98481,GWh
+2003,November,Diesel,19.722,GWh
+2003,November,Imported,221.68,GWh
+2003,November,Renewable Energy,75.116576,GWh
+2003,December,Hydro Electricity,565.359,GWh
+2003,December,Fuel Oil,206.752488,GWh
+2003,December,Coal & Lignite,1697.005164,GWh
+2003,December,Natural Gas,6575.68065,GWh
+2003,December,Diesel,6.575,GWh
+2003,December,Imported,181.648,GWh
+2003,December,Renewable Energy,121.413302,GWh
+2004,January,Hydro Electricity,566.563,GWh
+2004,January,Fuel Oil,367.853016,GWh
+2004,January,Coal & Lignite,1796.957242,GWh
+2004,January,Natural Gas,6535.61385,GWh
+2004,January,Diesel,37.412,GWh
+2004,January,Imported,151.658,GWh
+2004,January,Renewable Energy,130.137436,GWh
+2004,February,Hydro Electricity,579.454,GWh
+2004,February,Fuel Oil,336.377596,GWh
+2004,February,Coal & Lignite,1634.018338,GWh
+2004,February,Natural Gas,6580.05258,GWh
+2004,February,Diesel,142.936,GWh
+2004,February,Imported,182.149,GWh
+2004,February,Renewable Energy,131.040818,GWh
+2004,March,Hydro Electricity,704.088,GWh
+2004,March,Fuel Oil,683.92176,GWh
+2004,March,Coal & Lignite,1576.762162,GWh
+2004,March,Natural Gas,7953.72999,GWh
+2004,March,Diesel,12.128,GWh
+2004,March,Imported,148.301,GWh
+2004,March,Renewable Energy,122.709382,GWh
+2004,April,Hydro Electricity,620.529,GWh
+2004,April,Fuel Oil,527.045256,GWh
+2004,April,Coal & Lignite,1582.52317,GWh
+2004,April,Natural Gas,7591.44379,GWh
+2004,April,Diesel,16.151,GWh
+2004,April,Imported,310.092,GWh
+2004,April,Renewable Energy,128.846673,GWh
+2004,May,Hydro Electricity,400.861,GWh
+2004,May,Fuel Oil,742.651444,GWh
+2004,May,Coal & Lignite,1870.304418,GWh
+2004,May,Natural Gas,7815.15899,GWh
+2004,May,Diesel,7.809,GWh
+2004,May,Imported,216.585,GWh
+2004,May,Renewable Energy,123.008964,GWh
+2004,June,Hydro Electricity,286.088,GWh
+2004,June,Fuel Oil,528.973436,GWh
+2004,June,Coal & Lignite,1866.466993,GWh
+2004,June,Natural Gas,7569.8802,GWh
+2004,June,Diesel,1.121,GWh
+2004,June,Imported,282.325,GWh
+2004,June,Renewable Energy,113.59117,GWh
+2004,July,Hydro Electricity,417.505,GWh
+2004,July,Fuel Oil,633.089916,GWh
+2004,July,Coal & Lignite,1623.903352,GWh
+2004,July,Natural Gas,7967.66697,GWh
+2004,July,Diesel,2.477,GWh
+2004,July,Imported,361.387,GWh
+2004,July,Renewable Energy,101.619412,GWh
+2004,August,Hydro Electricity,374.244,GWh
+2004,August,Fuel Oil,430.331952,GWh
+2004,August,Coal & Lignite,1665.432596,GWh
+2004,August,Natural Gas,7971.6038,GWh
+2004,August,Diesel,2.526,GWh
+2004,August,Imported,382.178,GWh
+2004,August,Renewable Energy,96.650865,GWh
+2004,September,Hydro Electricity,399.71,GWh
+2004,September,Fuel Oil,349.13602,GWh
+2004,September,Coal & Lignite,1736.567777,GWh
+2004,September,Natural Gas,7817.64226,GWh
+2004,September,Diesel,3.68,GWh
+2004,September,Imported,362.984,GWh
+2004,September,Renewable Energy,110.516579,GWh
+2004,October,Hydro Electricity,434.266,GWh
+2004,October,Fuel Oil,454.68467,GWh
+2004,October,Coal & Lignite,1653.597694,GWh
+2004,October,Natural Gas,7923.651878,GWh
+2004,October,Diesel,0.969,GWh
+2004,October,Imported,373.341,GWh
+2004,October,Renewable Energy,218.019975,GWh
+2004,November,Hydro Electricity,611.65,GWh
+2004,November,Fuel Oil,341.28679,GWh
+2004,November,Coal & Lignite,1615.87807,GWh
+2004,November,Natural Gas,7627.171938,GWh
+2004,November,Diesel,2.384,GWh
+2004,November,Imported,352.356,GWh
+2004,November,Renewable Energy,202.233476,GWh
+2004,December,Hydro Electricity,501.336,GWh
+2004,December,Fuel Oil,234.49567,GWh
+2004,December,Coal & Lignite,1782.067256,GWh
+2004,December,Natural Gas,6935.434831,GWh
+2004,December,Diesel,3.356,GWh
+2004,December,Imported,254.498,GWh
+2004,December,Renewable Energy,201.367619,GWh
+2005,January,Hydro Electricity,574.425,GWh
+2005,January,Fuel Oil,245.91872,GWh
+2005,January,Coal & Lignite,1649.300951,GWh
+2005,January,Natural Gas,7271.004517,GWh
+2005,January,Diesel,11.083,GWh
+2005,January,Imported,234.066,GWh
+2005,January,Renewable Energy,241.69109,GWh
+2005,February,Hydro Electricity,634.716,GWh
+2005,February,Fuel Oil,586.170892,GWh
+2005,February,Coal & Lignite,1405.497212,GWh
+2005,February,Natural Gas,7351.06654,GWh
+2005,February,Diesel,26.311,GWh
+2005,February,Imported,193.955,GWh
+2005,February,Renewable Energy,163.708583,GWh
+2005,March,Hydro Electricity,635.748,GWh
+2005,March,Fuel Oil,732.409608,GWh
+2005,March,Coal & Lignite,1798.187611,GWh
+2005,March,Natural Gas,8215.16984,GWh
+2005,March,Diesel,9.492,GWh
+2005,March,Imported,304.439,GWh
+2005,March,Renewable Energy,177.87104,GWh
+2005,April,Hydro Electricity,558.81,GWh
+2005,April,Fuel Oil,861.586826,GWh
+2005,April,Coal & Lignite,1706.600272,GWh
+2005,April,Natural Gas,7676.46322,GWh
+2005,April,Diesel,42.594,GWh
+2005,April,Imported,311.016,GWh
+2005,April,Renewable Energy,144.1061,GWh
+2005,May,Hydro Electricity,571.589,GWh
+2005,May,Fuel Oil,836.67379,GWh
+2005,May,Coal & Lignite,1766.799588,GWh
+2005,May,Natural Gas,8709.35498,GWh
+2005,May,Diesel,36.85,GWh
+2005,May,Imported,282.501,GWh
+2005,May,Renewable Energy,149.713409,GWh
+2005,June,Hydro Electricity,427.05,GWh
+2005,June,Fuel Oil,683.696608,GWh
+2005,June,Coal & Lignite,1859.793106,GWh
+2005,June,Natural Gas,8117.14056,GWh
+2005,June,Diesel,5.147,GWh
+2005,June,Imported,409.149,GWh
+2005,June,Renewable Energy,135.254778,GWh
+2005,July,Hydro Electricity,338.344,GWh
+2005,July,Fuel Oil,625.531858,GWh
+2005,July,Coal & Lignite,1833.89824,GWh
+2005,July,Natural Gas,8047.26175,GWh
+2005,July,Diesel,2.193,GWh
+2005,July,Imported,434.848,GWh
+2005,July,Renewable Energy,137.538541,GWh
+2005,August,Hydro Electricity,272.309,GWh
+2005,August,Fuel Oil,634.012132,GWh
+2005,August,Coal & Lignite,1733.893719,GWh
+2005,August,Natural Gas,8202.29487,GWh
+2005,August,Diesel,3.582,GWh
+2005,August,Imported,489.889,GWh
+2005,August,Renewable Energy,134.493809,GWh
+2005,September,Hydro Electricity,285.245,GWh
+2005,September,Fuel Oil,844.317466,GWh
+2005,September,Coal & Lignite,1605.420442,GWh
+2005,September,Natural Gas,7866.96994,GWh
+2005,September,Diesel,30.452,GWh
+2005,September,Imported,493.778,GWh
+2005,September,Renewable Energy,124.006097,GWh
+2005,October,Hydro Electricity,382.632,GWh
+2005,October,Fuel Oil,932.578756,GWh
+2005,October,Coal & Lignite,1708.584104,GWh
+2005,October,Natural Gas,8025.5183,GWh
+2005,October,Diesel,5.493,GWh
+2005,October,Imported,376.636,GWh
+2005,October,Renewable Energy,114.420277,GWh
+2005,November,Hydro Electricity,452.166,GWh
+2005,November,Fuel Oil,383.11465,GWh
+2005,November,Coal & Lignite,1777.964455,GWh
+2005,November,Natural Gas,7866.012181,GWh
+2005,November,Diesel,1.796,GWh
+2005,November,Imported,440.681,GWh
+2005,November,Renewable Energy,102.078442,GWh
+2005,December,Hydro Electricity,538.147,GWh
+2005,December,Fuel Oil,365.029426,GWh
+2005,December,Coal & Lignite,1768.364954,GWh
+2005,December,Natural Gas,7119.365768,GWh
+2005,December,Diesel,1.855,GWh
+2005,December,Imported,400.927,GWh
+2005,December,Renewable Energy,140.347141,GWh
+2006,January,Hydro Electricity,629.125,GWh
+2006,January,Fuel Oil,540.717864,GWh
+2006,January,Coal & Lignite,1681.44187,GWh
+2006,January,Natural Gas,7335.65297,GWh
+2006,January,Diesel,3.396,GWh
+2006,January,Imported,377.456,GWh
+2006,January,Renewable Energy,189.009354,GWh
+2006,February,Hydro Electricity,683.335,GWh
+2006,February,Fuel Oil,1271.690062,GWh
+2006,February,Coal & Lignite,1458.10025,GWh
+2006,February,Natural Gas,6813.991013,GWh
+2006,February,Diesel,10.863,GWh
+2006,February,Imported,366.694,GWh
+2006,February,Renewable Energy,164.069844,GWh
+2006,March,Hydro Electricity,756.242,GWh
+2006,March,Fuel Oil,1018.207718,GWh
+2006,March,Coal & Lignite,1676.366429,GWh
+2006,March,Natural Gas,8573.072352,GWh
+2006,March,Diesel,37.429,GWh
+2006,March,Imported,449.858,GWh
+2006,March,Renewable Energy,208.863571,GWh
+2006,April,Hydro Electricity,661.971,GWh
+2006,April,Fuel Oil,810.60293,GWh
+2006,April,Coal & Lignite,1731.951195,GWh
+2006,April,Natural Gas,7827.542709,GWh
+2006,April,Diesel,9.975,GWh
+2006,April,Imported,409.014,GWh
+2006,April,Renewable Energy,176.411746,GWh
+2006,May,Hydro Electricity,535.934,GWh
+2006,May,Fuel Oil,860.924422,GWh
+2006,May,Coal & Lignite,2043.893389,GWh
+2006,May,Natural Gas,8544.187164,GWh
+2006,May,Diesel,3.298,GWh
+2006,May,Imported,294.487,GWh
+2006,May,Renewable Energy,153.685199,GWh
+2006,June,Hydro Electricity,516.006,GWh
+2006,June,Fuel Oil,1122.24898,GWh
+2006,June,Coal & Lignite,1998.356454,GWh
+2006,June,Natural Gas,7985.80043,GWh
+2006,June,Diesel,2.356,GWh
+2006,June,Imported,437.643,GWh
+2006,June,Renewable Energy,118.257787,GWh
+2006,July,Hydro Electricity,541.743,GWh
+2006,July,Fuel Oil,973.595306,GWh
+2006,July,Coal & Lignite,2010.547929,GWh
+2006,July,Natural Gas,8084.406616,GWh
+2006,July,Diesel,1.056,GWh
+2006,July,Imported,496.196,GWh
+2006,July,Renewable Energy,164.968011,GWh
+2006,August,Hydro Electricity,667.715,GWh
+2006,August,Fuel Oil,593.414238,GWh
+2006,August,Coal & Lignite,2209.809809,GWh
+2006,August,Natural Gas,8067.034485,GWh
+2006,August,Diesel,2.428,GWh
+2006,August,Imported,511.427,GWh
+2006,August,Renewable Energy,181.357249,GWh
+2006,September,Hydro Electricity,705.986,GWh
+2006,September,Fuel Oil,287.25913,GWh
+2006,September,Coal & Lignite,2344.394678,GWh
+2006,September,Natural Gas,7876.828326,GWh
+2006,September,Diesel,3.817,GWh
+2006,September,Imported,505.986,GWh
+2006,September,Renewable Energy,160.903022,GWh
+2006,October,Hydro Electricity,846.2,GWh
+2006,October,Fuel Oil,136.19386,GWh
+2006,October,Coal & Lignite,2476.186634,GWh
+2006,October,Natural Gas,7954.942198,GWh
+2006,October,Diesel,0.609,GWh
+2006,October,Imported,434.085,GWh
+2006,October,Renewable Energy,160.401497,GWh
+2006,November,Hydro Electricity,663.127,GWh
+2006,November,Fuel Oil,120.416852,GWh
+2006,November,Coal & Lignite,2503.036292,GWh
+2006,November,Natural Gas,8023.881754,GWh
+2006,November,Diesel,0.704,GWh
+2006,November,Imported,478.716,GWh
+2006,November,Renewable Energy,135.418914,GWh
+2006,December,Hydro Electricity,742.666,GWh
+2006,December,Fuel Oil,101.517834,GWh
+2006,December,Coal & Lignite,2334.294623,GWh
+2006,December,Natural Gas,7351.116343,GWh
+2006,December,Diesel,0.991,GWh
+2006,December,Imported,390.292,GWh
+2006,December,Renewable Energy,182.771505,GWh
+2007,January,Hydro Electricity,754.107,GWh
+2007,January,Fuel Oil,19.919432,GWh
+2007,January,Coal & Lignite,2587.882068,GWh
+2007,January,Natural Gas,7315.043858,GWh
+2007,January,Diesel,2.131,GWh
+2007,January,Imported,335.497,GWh
+2007,January,Renewable Energy,244.763252,GWh
+2007,February,Hydro Electricity,777.031,GWh
+2007,February,Fuel Oil,107.039714,GWh
+2007,February,Coal & Lignite,2481.475121,GWh
+2007,February,Natural Gas,7042.446179,GWh
+2007,February,Diesel,1.916,GWh
+2007,February,Imported,278.82,GWh
+2007,February,Renewable Energy,214.568313,GWh
+2007,March,Hydro Electricity,844.966,GWh
+2007,March,Fuel Oil,268.15284,GWh
+2007,March,Coal & Lignite,2679.405536,GWh
+2007,March,Natural Gas,8829.521519,GWh
+2007,March,Diesel,1.26,GWh
+2007,March,Imported,386.005,GWh
+2007,March,Renewable Energy,252.884214,GWh
+2007,April,Hydro Electricity,732.705,GWh
+2007,April,Fuel Oil,295.126874,GWh
+2007,April,Coal & Lignite,2587.084794,GWh
+2007,April,Natural Gas,8001.947277,GWh
+2007,April,Diesel,4.933,GWh
+2007,April,Imported,365.275,GWh
+2007,April,Renewable Energy,227.417897,GWh
+2007,May,Hydro Electricity,540.524,GWh
+2007,May,Fuel Oil,207.888302,GWh
+2007,May,Coal & Lignite,2613.367628,GWh
+2007,May,Natural Gas,8681.213512,GWh
+2007,May,Diesel,1.964,GWh
+2007,May,Imported,400.039,GWh
+2007,May,Renewable Energy,217.564908,GWh
+2007,June,Hydro Electricity,677.785,GWh
+2007,June,Fuel Oil,278.15542,GWh
+2007,June,Coal & Lignite,2656.62715,GWh
+2007,June,Natural Gas,8621.458083,GWh
+2007,June,Diesel,2.519,GWh
+2007,June,Imported,333.761,GWh
+2007,June,Renewable Energy,197.365766,GWh
+2007,July,Hydro Electricity,705.674,GWh
+2007,July,Fuel Oil,33.193488,GWh
+2007,July,Coal & Lignite,2759.544358,GWh
+2007,July,Natural Gas,8457.310532,GWh
+2007,July,Diesel,2.816,GWh
+2007,July,Imported,422.916,GWh
+2007,July,Renewable Energy,195.517557,GWh
+2007,August,Hydro Electricity,644.381,GWh
+2007,August,Fuel Oil,429.558496,GWh
+2007,August,Coal & Lignite,2579.858436,GWh
+2007,August,Natural Gas,8554.81963,GWh
+2007,August,Diesel,2.448,GWh
+2007,August,Imported,335.659,GWh
+2007,August,Renewable Energy,187.841126,GWh
+2007,September,Hydro Electricity,530.348,GWh
+2007,September,Fuel Oil,238.259598,GWh
+2007,September,Coal & Lignite,2685.243759,GWh
+2007,September,Natural Gas,8819.507071,GWh
+2007,September,Diesel,1.086,GWh
+2007,September,Imported,273.483,GWh
+2007,September,Renewable Energy,171.862466,GWh
+2007,October,Hydro Electricity,439.721,GWh
+2007,October,Fuel Oil,437.098952,GWh
+2007,October,Coal & Lignite,2644.250846,GWh
+2007,October,Natural Gas,8278.434966,GWh
+2007,October,Diesel,2.116,GWh
+2007,October,Imported,502.59,GWh
+2007,October,Renewable Energy,175.084006,GWh
+2007,November,Hydro Electricity,552.933,GWh
+2007,November,Fuel Oil,221.468,GWh
+2007,November,Coal & Lignite,2368.203997,GWh
+2007,November,Natural Gas,7847.089784,GWh
+2007,November,Diesel,1.813,GWh
+2007,November,Imported,435.945,GWh
+2007,November,Renewable Energy,151.361909,GWh
+2007,December,Hydro Electricity,761.182,GWh
+2007,December,Fuel Oil,452.785,GWh
+2007,December,Coal & Lignite,2238.168654,GWh
+2007,December,Natural Gas,7794.678222,GWh
+2007,December,Diesel,3.236,GWh
+2007,December,Imported,418.368,GWh
+2007,December,Renewable Energy,198.480324,GWh
+2008,January,Hydro Electricity,739.385,GWh
+2008,January,Fuel Oil,2.54,GWh
+2008,January,Coal & Lignite,2623.58396,GWh
+2008,January,Natural Gas,7950.281067,GWh
+2008,January,Diesel,2.057,GWh
+2008,January,Imported,342.253,GWh
+2008,January,Renewable Energy,221.005796,GWh
+2008,February,Hydro Electricity,714.014,GWh
+2008,February,Fuel Oil,95.989,GWh
+2008,February,Coal & Lignite,2533.468385,GWh
+2008,February,Natural Gas,7817.421619,GWh
+2008,February,Diesel,1.321,GWh
+2008,February,Imported,170.173,GWh
+2008,February,Renewable Energy,198.566456,GWh
+2008,March,Hydro Electricity,823.863,GWh
+2008,March,Fuel Oil,449.244,GWh
+2008,March,Coal & Lignite,2698.223838,GWh
+2008,March,Natural Gas,8954.575709,GWh
+2008,March,Diesel,2.636,GWh
+2008,March,Imported,152.479,GWh
+2008,March,Renewable Energy,206.740812,GWh
+2008,April,Hydro Electricity,824.427,GWh
+2008,April,Fuel Oil,344.63064,GWh
+2008,April,Coal & Lignite,2780.01118,GWh
+2008,April,Natural Gas,8181.950588,GWh
+2008,April,Diesel,5.975,GWh
+2008,April,Imported,260.317,GWh
+2008,April,Renewable Energy,194.647495,GWh
+2008,May,Hydro Electricity,542.474,GWh
+2008,May,Fuel Oil,95.725528,GWh
+2008,May,Coal & Lignite,2730.874569,GWh
+2008,May,Natural Gas,9342.356519,GWh
+2008,May,Diesel,1.014,GWh
+2008,May,Imported,167.29,GWh
+2008,May,Renewable Energy,178.143394,GWh
+2008,June,Hydro Electricity,530.028,GWh
+2008,June,Fuel Oil,4.284,GWh
+2008,June,Coal & Lignite,2603.571985,GWh
+2008,June,Natural Gas,9243.194407,GWh
+2008,June,Diesel,1.817,GWh
+2008,June,Imported,227.364,GWh
+2008,June,Renewable Energy,174.376207,GWh
+2008,July,Hydro Electricity,520.522,GWh
+2008,July,Fuel Oil,4.147704,GWh
+2008,July,Coal & Lignite,2498.428783,GWh
+2008,July,Natural Gas,9590.386107,GWh
+2008,July,Diesel,1.424,GWh
+2008,July,Imported,275.81,GWh
+2008,July,Renewable Energy,179.783562,GWh
+2008,August,Hydro Electricity,436.718,GWh
+2008,August,Fuel Oil,4.541592,GWh
+2008,August,Coal & Lignite,2514.746148,GWh
+2008,August,Natural Gas,9641.281555,GWh
+2008,August,Diesel,1.292,GWh
+2008,August,Imported,271.387,GWh
+2008,August,Renewable Energy,168.790371,GWh
+2008,September,Hydro Electricity,388.364,GWh
+2008,September,Fuel Oil,6.248872,GWh
+2008,September,Coal & Lignite,2581.747094,GWh
+2008,September,Natural Gas,8898.961308,GWh
+2008,September,Diesel,1.799,GWh
+2008,September,Imported,327.002,GWh
+2008,September,Renewable Energy,169.259969,GWh
+2008,October,Hydro Electricity,376.447,GWh
+2008,October,Fuel Oil,3.836828,GWh
+2008,October,Coal & Lignite,2593.788919,GWh
+2008,October,Natural Gas,9301.842434,GWh
+2008,October,Diesel,1.28,GWh
+2008,October,Imported,268.448,GWh
+2008,October,Renewable Energy,171.966192,GWh
+2008,November,Hydro Electricity,428.336,GWh
+2008,November,Fuel Oil,2.917098,GWh
+2008,November,Coal & Lignite,2417.589355,GWh
+2008,November,Natural Gas,8194.622183,GWh
+2008,November,Diesel,1.295,GWh
+2008,November,Imported,183.027,GWh
+2008,November,Renewable Energy,119.857027,GWh
+2008,December,Hydro Electricity,626.112,GWh
+2008,December,Fuel Oil,2.701504,GWh
+2008,December,Coal & Lignite,2261.605686,GWh
+2008,December,Natural Gas,7341.047469,GWh
+2008,December,Diesel,1.372,GWh
+2008,December,Imported,138.023,GWh
+2008,December,Renewable Energy,167.884186,GWh
+2009,January,Hydro Electricity,742.812,GWh
+2009,January,Fuel Oil,36.210276,GWh
+2009,January,Coal & Lignite,2688.467512,GWh
+2009,January,Natural Gas,6572.126107,GWh
+2009,January,Diesel,1.249,GWh
+2009,January,Imported,171.113,GWh
+2009,January,Renewable Energy,197.362209,GWh
+2009,February,Hydro Electricity,715.348,GWh
+2009,February,Fuel Oil,2.762794,GWh
+2009,February,Coal & Lignite,2280.617187,GWh
+2009,February,Natural Gas,7680.213357,GWh
+2009,February,Diesel,1.011,GWh
+2009,February,Imported,106.098,GWh
+2009,February,Renewable Energy,308.134602,GWh
+2009,March,Hydro Electricity,810.435,GWh
+2009,March,Fuel Oil,2.540134,GWh
+2009,March,Coal & Lignite,2584.955862,GWh
+2009,March,Natural Gas,9168.347062,GWh
+2009,March,Diesel,12.907,GWh
+2009,March,Imported,130.432,GWh
+2009,March,Renewable Energy,189.797167,GWh
+2009,April,Hydro Electricity,718.984,GWh
+2009,April,Fuel Oil,2.489016,GWh
+2009,April,Coal & Lignite,2579.322352,GWh
+2009,April,Natural Gas,8579.835954,GWh
+2009,April,Diesel,8.242,GWh
+2009,April,Imported,108.284,GWh
+2009,April,Renewable Energy,168.052438,GWh
+2009,May,Hydro Electricity,539.557,GWh
+2009,May,Fuel Oil,4.151812,GWh
+2009,May,Coal & Lignite,2623.533771,GWh
+2009,May,Natural Gas,9283.291566,GWh
+2009,May,Diesel,6.781,GWh
+2009,May,Imported,147.446,GWh
+2009,May,Renewable Energy,177.194499,GWh
+2009,June,Hydro Electricity,367.899,GWh
+2009,June,Fuel Oil,9.652624,GWh
+2009,June,Coal & Lignite,2664.167116,GWh
+2009,June,Natural Gas,9273.553772,GWh
+2009,June,Diesel,1.165,GWh
+2009,June,Imported,182.692,GWh
+2009,June,Renewable Energy,173.22676,GWh
+2009,July,Hydro Electricity,368.54,GWh
+2009,July,Fuel Oil,4.551672,GWh
+2009,July,Coal & Lignite,2734.530936,GWh
+2009,July,Natural Gas,9262.071536,GWh
+2009,July,Diesel,1.943,GWh
+2009,July,Imported,236.854,GWh
+2009,July,Renewable Energy,194.764947,GWh
+2009,August,Hydro Electricity,584.436,GWh
+2009,August,Fuel Oil,152.472276,GWh
+2009,August,Coal & Lignite,2547.782291,GWh
+2009,August,Natural Gas,9417.869056,GWh
+2009,August,Diesel,0.434,GWh
+2009,August,Imported,275.083,GWh
+2009,August,Renewable Energy,179.613221,GWh
+2009,September,Hydro Electricity,391.913,GWh
+2009,September,Fuel Oil,5.806538,GWh
+2009,September,Coal & Lignite,2485.537012,GWh
+2009,September,Natural Gas,9486.151247,GWh
+2009,September,Diesel,2.915,GWh
+2009,September,Imported,205.877,GWh
+2009,September,Renewable Energy,172.519338,GWh
+2009,October,Hydro Electricity,476.091,GWh
+2009,October,Fuel Oil,183.672718,GWh
+2009,October,Coal & Lignite,2281.191519,GWh
+2009,October,Natural Gas,9738.345998,GWh
+2009,October,Diesel,1.802,GWh
+2009,October,Imported,273.762,GWh
+2009,October,Renewable Energy,158.065009,GWh
+2009,November,Hydro Electricity,516.949,GWh
+2009,November,Fuel Oil,32.957078,GWh
+2009,November,Coal & Lignite,2143.0883,GWh
+2009,November,Natural Gas,9086.124972,GWh
+2009,November,Diesel,2.796,GWh
+2009,November,Imported,336.007,GWh
+2009,November,Renewable Energy,154.767121,GWh
+2009,December,Hydro Electricity,732.772,GWh
+2009,December,Fuel Oil,41.54183,GWh
+2009,December,Coal & Lignite,2194.869037,GWh
+2009,December,Natural Gas,8795.379648,GWh
+2009,December,Diesel,3.826,GWh
+2009,December,Imported,277.762,GWh
+2009,December,Renewable Energy,192.216947,GWh
+2010,January,Hydro Electricity,618.823,GWh
+2010,January,Fuel Oil,18.308738,GWh
+2010,January,Coal & Lignite,2648.717854,GWh
+2010,January,Natural Gas,8883.912628,GWh
+2010,January,Diesel,2.711,GWh
+2010,January,Imported,164.141,GWh
+2010,January,Renewable Energy,357.744412,GWh
+2010,February,Hydro Electricity,638.585,GWh
+2010,February,Fuel Oil,5.498138,GWh
+2010,February,Coal & Lignite,2335.242832,GWh
+2010,February,Natural Gas,9265.130892,GWh
+2010,February,Diesel,4.432,GWh
+2010,February,Imported,143.127,GWh
+2010,February,Renewable Energy,322.337165,GWh
+2010,March,Hydro Electricity,769.184,GWh
+2010,March,Fuel Oil,155.182024,GWh
+2010,March,Coal & Lignite,2724.347536,GWh
+2010,March,Natural Gas,10044.71981,GWh
+2010,March,Diesel,5.05,GWh
+2010,March,Imported,568.333,GWh
+2010,March,Renewable Energy,366.175006,GWh
+2010,April,Hydro Electricity,512.757,GWh
+2010,April,Fuel Oil,19.00809,GWh
+2010,April,Coal & Lignite,2671.780532,GWh
+2010,April,Natural Gas,9750.902334,GWh
+2010,April,Diesel,3.169,GWh
+2010,April,Imported,741.429,GWh
+2010,April,Renewable Energy,332.701141,GWh
+2010,May,Hydro Electricity,520.918,GWh
+2010,May,Fuel Oil,53.543802,GWh
+2010,May,Coal & Lignite,2731.541696,GWh
+2010,May,Natural Gas,10583.45392,GWh
+2010,May,Diesel,2.787,GWh
+2010,May,Imported,791.993,GWh
+2010,May,Renewable Energy,302.065454,GWh
+2010,June,Hydro Electricity,415.507,GWh
+2010,June,Fuel Oil,23.219022,GWh
+2010,June,Coal & Lignite,2490.842544,GWh
+2010,June,Natural Gas,10327.3115,GWh
+2010,June,Diesel,2.561,GWh
+2010,June,Imported,789.052,GWh
+2010,June,Renewable Energy,275.514747,GWh
+2010,July,Hydro Electricity,334.902,GWh
+2010,July,Fuel Oil,170.020189,GWh
+2010,July,Coal & Lignite,2488.464711,GWh
+2010,July,Natural Gas,10238.2475,GWh
+2010,July,Diesel,7.687,GWh
+2010,July,Imported,801.08,GWh
+2010,July,Renewable Energy,252.881696,GWh
+2010,August,Hydro Electricity,340.785,GWh
+2010,August,Fuel Oil,56.064192,GWh
+2010,August,Coal & Lignite,2647.256101,GWh
+2010,August,Natural Gas,9761.264867,GWh
+2010,August,Diesel,1.78,GWh
+2010,August,Imported,768.501,GWh
+2010,August,Renewable Energy,233.281353,GWh
+2010,September,Hydro Electricity,245.456,GWh
+2010,September,Fuel Oil,39.587336,GWh
+2010,September,Coal & Lignite,2408.748261,GWh
+2010,September,Natural Gas,10006.29488,GWh
+2010,September,Diesel,2.73,GWh
+2010,September,Imported,780.247,GWh
+2010,September,Renewable Energy,222.725232,GWh
+2010,October,Hydro Electricity,170.852,GWh
+2010,October,Fuel Oil,9.750906,GWh
+2010,October,Coal & Lignite,2353.635489,GWh
+2010,October,Natural Gas,10142.01921,GWh
+2010,October,Diesel,2.392,GWh
+2010,October,Imported,795.422,GWh
+2010,October,Renewable Energy,229.147951,GWh
+2010,November,Hydro Electricity,328.707,GWh
+2010,November,Fuel Oil,1.929538,GWh
+2010,November,Coal & Lignite,2256.927993,GWh
+2010,November,Natural Gas,9694.455994,GWh
+2010,November,Diesel,2.868,GWh
+2010,November,Imported,486.988,GWh
+2010,November,Renewable Energy,206.85765,GWh
+2010,December,Hydro Electricity,450.277,GWh
+2010,December,Fuel Oil,25.256706,GWh
+2010,December,Coal & Lignite,2006.498456,GWh
+2010,December,Natural Gas,9740.437472,GWh
+2010,December,Diesel,3.418,GWh
+2010,December,Imported,423.471,GWh
+2010,December,Renewable Energy,305.725002,GWh
+2011,January,Hydro Electricity,576.868,GWh
+2011,January,Fuel Oil,29.679782,GWh
+2011,January,Coal & Lignite,2799.679927,GWh
+2011,January,Natural Gas,8566.364178,GWh
+2011,January,Diesel,1.696,GWh
+2011,January,Imported,412.365,GWh
+2011,January,Renewable Energy,374.736071,GWh
+2011,February,Hydro Electricity,651.589,GWh
+2011,February,Fuel Oil,31.053,GWh
+2011,February,Coal & Lignite,2484.702891,GWh
+2011,February,Natural Gas,8573.823918,GWh
+2011,February,Diesel,1.539,GWh
+2011,February,Imported,638.013,GWh
+2011,February,Renewable Energy,323.171615,GWh
+2011,March,Hydro Electricity,583.678,GWh
+2011,March,Fuel Oil,0.430906,GWh
+2011,March,Coal & Lignite,2710.573477,GWh
+2011,March,Natural Gas,9552.369226,GWh
+2011,March,Diesel,1.73,GWh
+2011,March,Imported,789.541,GWh
+2011,March,Renewable Energy,393.938017,GWh
+2011,April,Hydro Electricity,470.471,GWh
+2011,April,Fuel Oil,107.432294,GWh
+2011,April,Coal & Lignite,2713.993539,GWh
+2011,April,Natural Gas,8822.743526,GWh
+2011,April,Diesel,2.052,GWh
+2011,April,Imported,1019.115,GWh
+2011,April,Renewable Energy,365.15201,GWh
+2011,May,Hydro Electricity,374.064,GWh
+2011,May,Fuel Oil,101.684546,GWh
+2011,May,Coal & Lignite,2856.242382,GWh
+2011,May,Natural Gas,10019.10809,GWh
+2011,May,Diesel,1.005,GWh
+2011,May,Imported,1075.411,GWh
+2011,May,Renewable Energy,362.706382,GWh
+2011,June,Hydro Electricity,394.086,GWh
+2011,June,Fuel Oil,231.682726,GWh
+2011,June,Coal & Lignite,2700.632702,GWh
+2011,June,Natural Gas,9653.175492,GWh
+2011,June,Diesel,6.521,GWh
+2011,June,Imported,1072.215,GWh
+2011,June,Renewable Energy,344.195755,GWh
+2011,July,Hydro Electricity,392.173,GWh
+2011,July,Fuel Oil,284.728574,GWh
+2011,July,Coal & Lignite,2891.144936,GWh
+2011,July,Natural Gas,9335.425861,GWh
+2011,July,Diesel,5.902,GWh
+2011,July,Imported,1315.343,GWh
+2011,July,Renewable Energy,350.483788,GWh
+2011,August,Hydro Electricity,901.683,GWh
+2011,August,Fuel Oil,130.276574,GWh
+2011,August,Coal & Lignite,2671.718136,GWh
+2011,August,Natural Gas,9777.934574,GWh
+2011,August,Diesel,3.164,GWh
+2011,August,Imported,792.654,GWh
+2011,August,Renewable Energy,323.321358,GWh
+2011,September,Hydro Electricity,999.192,GWh
+2011,September,Fuel Oil,271.110114,GWh
+2011,September,Coal & Lignite,2637.18837,GWh
+2011,September,Natural Gas,8921.360458,GWh
+2011,September,Diesel,1.957,GWh
+2011,September,Imported,1120.573,GWh
+2011,September,Renewable Energy,256.214263,GWh
+2011,October,Hydro Electricity,1137.351,GWh
+2011,October,Fuel Oil,66.334824,GWh
+2011,October,Coal & Lignite,2689.586066,GWh
+2011,October,Natural Gas,8210.108334,GWh
+2011,October,Diesel,3.105,GWh
+2011,October,Imported,1164.634,GWh
+2011,October,Renewable Energy,236.942503,GWh
+2011,November,Hydro Electricity,631.558,GWh
+2011,November,Fuel Oil,40.976116,GWh
+2011,November,Coal & Lignite,2233.057773,GWh
+2011,November,Natural Gas,8447.818373,GWh
+2011,November,Diesel,1.262,GWh
+2011,November,Imported,909.586,GWh
+2011,November,Renewable Energy,307.4976,GWh
+2011,December,Hydro Electricity,822.209,GWh
+2011,December,Fuel Oil,20.18898,GWh
+2011,December,Coal & Lignite,2323.208969,GWh
+2011,December,Natural Gas,8381.09018,GWh
+2011,December,Diesel,6.044,GWh
+2011,December,Imported,464.959,GWh
+2011,December,Renewable Energy,417.619461,GWh
+2012,January,Hydro Electricity,1138.309,GWh
+2012,January,Fuel Oil,17.553514,GWh
+2012,January,Coal & Lignite,2864.72106,GWh
+2012,January,Natural Gas,8580.060131,GWh
+2012,January,Diesel,1.371,GWh
+2012,January,Imported,484.49,GWh
+2012,January,Renewable Energy,426.359258,GWh
+2012,February,Hydro Electricity,1252.158,GWh
+2012,February,Fuel Oil,67.26218,GWh
+2012,February,Coal & Lignite,2576.731113,GWh
+2012,February,Natural Gas,8976.232934,GWh
+2012,February,Diesel,2.897,GWh
+2012,February,Imported,799.212,GWh
+2012,February,Renewable Energy,409.978722,GWh
+2012,March,Hydro Electricity,1073.26,GWh
+2012,March,Fuel Oil,14.32095,GWh
+2012,March,Coal & Lignite,2942.007609,GWh
+2012,March,Natural Gas,10132.76661,GWh
+2012,March,Diesel,6.89,GWh
+2012,March,Imported,1163.708,GWh
+2012,March,Renewable Energy,466.168779,GWh
+2012,April,Hydro Electricity,849.048,GWh
+2012,April,Fuel Oil,389.53225,GWh
+2012,April,Coal & Lignite,3150.952892,GWh
+2012,April,Natural Gas,8968.933121,GWh
+2012,April,Diesel,2.857,GWh
+2012,April,Imported,1135.509,GWh
+2012,April,Renewable Energy,441.903704,GWh
+2012,May,Hydro Electricity,745.832,GWh
+2012,May,Fuel Oil,392.14001,GWh
+2012,May,Coal & Lignite,3039.887455,GWh
+2012,May,Natural Gas,10252.72693,GWh
+2012,May,Diesel,5.752,GWh
+2012,May,Imported,1076.041,GWh
+2012,May,Renewable Energy,467.250541,GWh
+2012,June,Hydro Electricity,481.095,GWh
+2012,June,Fuel Oil,117.91371,GWh
+2012,June,Coal & Lignite,2827.823983,GWh
+2012,June,Natural Gas,10331.07157,GWh
+2012,June,Diesel,2.907,GWh
+2012,June,Imported,937.377,GWh
+2012,June,Renewable Energy,412.468712,GWh
+2012,July,Hydro Electricity,440.31,GWh
+2012,July,Fuel Oil,60.92354,GWh
+2012,July,Coal & Lignite,2733.733218,GWh
+2012,July,Natural Gas,10724.10947,GWh
+2012,July,Diesel,8.108,GWh
+2012,July,Imported,946.702,GWh
+2012,July,Renewable Energy,427.643846,GWh
+2012,August,Hydro Electricity,448.998,GWh
+2012,August,Fuel Oil,113.00583,GWh
+2012,August,Coal & Lignite,3011.754031,GWh
+2012,August,Natural Gas,10077.21265,GWh
+2012,August,Diesel,4.494,GWh
+2012,August,Imported,1114.621,GWh
+2012,August,Renewable Energy,413.141326,GWh
+2012,September,Hydro Electricity,401.054,GWh
+2012,September,Fuel Oil,37.98445,GWh
+2012,September,Coal & Lignite,2964.797237,GWh
+2012,September,Natural Gas,9734.949418,GWh
+2012,September,Diesel,14.165,GWh
+2012,September,Imported,1140.617,GWh
+2012,September,Renewable Energy,383.024207,GWh
+2012,October,Hydro Electricity,410.567,GWh
+2012,October,Fuel Oil,85.21709,GWh
+2012,October,Coal & Lignite,3034.934746,GWh
+2012,October,Natural Gas,10582.45455,GWh
+2012,October,Diesel,4.118,GWh
+2012,October,Imported,797.106,GWh
+2012,October,Renewable Energy,409.241248,GWh
+2012,November,Hydro Electricity,597.356,GWh
+2012,November,Fuel Oil,31.02721,GWh
+2012,November,Coal & Lignite,2753.411327,GWh
+2012,November,Natural Gas,10723.24296,GWh
+2012,November,Diesel,5.133,GWh
+2012,November,Imported,519.156,GWh
+2012,November,Renewable Energy,392.840209,GWh
+2012,December,Hydro Electricity,593.23,GWh
+2012,December,Fuel Oil,3.04177,GWh
+2012,December,Coal & Lignite,2681.852894,GWh
+2012,December,Natural Gas,10284.68889,GWh
+2012,December,Diesel,4.07,GWh
+2012,December,Imported,412.887,GWh
+2012,December,Renewable Energy,531.202889,GWh
+2013,January,Hydro Electricity,597.776,GWh
+2013,January,Fuel Oil,131.4681,GWh
+2013,January,Coal & Lignite,3239.639262,GWh
+2013,January,Natural Gas,9339.460221,GWh
+2013,January,Diesel,4.157,GWh
+2013,January,Imported,362.234,GWh
+2013,January,Renewable Energy,600.188657,GWh
+2013,February,Hydro Electricity,594.825,GWh
+2013,February,Fuel Oil,104.69937,GWh
+2013,February,Coal & Lignite,2854.886202,GWh
+2013,February,Natural Gas,9825.969502,GWh
+2013,February,Diesel,2.771,GWh
+2013,February,Imported,555.799,GWh
+2013,February,Renewable Energy,565.827609,GWh
+2013,March,Hydro Electricity,549.101,GWh
+2013,March,Fuel Oil,65.53448,GWh
+2013,March,Coal & Lignite,3075.096168,GWh
+2013,March,Natural Gas,11240.80652,GWh
+2013,March,Diesel,7.383,GWh
+2013,March,Imported,818.237,GWh
+2013,March,Renewable Energy,639.656212,GWh
+2013,April,Hydro Electricity,543.046,GWh
+2013,April,Fuel Oil,230.38072,GWh
+2013,April,Coal & Lignite,3174.740491,GWh
+2013,April,Natural Gas,9571.353735,GWh
+2013,April,Diesel,40.438,GWh
+2013,April,Imported,1140.099,GWh
+2013,April,Renewable Energy,625.042181,GWh
+2013,May,Hydro Electricity,573.962,GWh
+2013,May,Fuel Oil,24.77855,GWh
+2013,May,Coal & Lignite,3191.257441,GWh
+2013,May,Natural Gas,10942.80527,GWh
+2013,May,Diesel,61.737,GWh
+2013,May,Imported,1310.006,GWh
+2013,May,Renewable Energy,643.3070795,GWh
+2013,June,Hydro Electricity,431.899,GWh
+2013,June,Fuel Oil,130.31043,GWh
+2013,June,Coal & Lignite,2696.409394,GWh
+2013,June,Natural Gas,10263.78396,GWh
+2013,June,Diesel,16.24,GWh
+2013,June,Imported,1268.211,GWh
+2013,June,Renewable Energy,579.005248,GWh
+2013,July,Hydro Electricity,322.847,GWh
+2013,July,Fuel Oil,138.67811,GWh
+2013,July,Coal & Lignite,3020.86041,GWh
+2013,July,Natural Gas,9983.52333,GWh
+2013,July,Diesel,8.678,GWh
+2013,July,Imported,1297.321,GWh
+2013,July,Renewable Energy,591.0700398,GWh
+2013,August,Hydro Electricity,355.459,GWh
+2013,August,Fuel Oil,135.20981,GWh
+2013,August,Coal & Lignite,3071.255464,GWh
+2013,August,Natural Gas,9781.436653,GWh
+2013,August,Diesel,8.528,GWh
+2013,August,Imported,1515.479,GWh
+2013,August,Renewable Energy,607.360347,GWh
+2013,September,Hydro Electricity,360.405,GWh
+2013,September,Fuel Oil,89.3982,GWh
+2013,September,Coal & Lignite,2936.527637,GWh
+2013,September,Natural Gas,9467.417028,GWh
+2013,September,Diesel,9.854,GWh
+2013,September,Imported,1596.693,GWh
+2013,September,Renewable Energy,460.683013,GWh
+2013,October,Hydro Electricity,367.391,GWh
+2013,October,Fuel Oil,110.20432,GWh
+2013,October,Coal & Lignite,2767.656787,GWh
+2013,October,Natural Gas,9893.83009,GWh
+2013,October,Diesel,7.324,GWh
+2013,October,Imported,1341.599,GWh
+2013,October,Renewable Energy,552.400338,GWh
+2013,November,Hydro Electricity,295.641,GWh
+2013,November,Fuel Oil,13.02689,GWh
+2013,November,Coal & Lignite,2640.165989,GWh
+2013,November,Natural Gas,10065.87516,GWh
+2013,November,Diesel,5.115,GWh
+2013,November,Imported,1044.408,GWh
+2013,November,Renewable Energy,577.989812,GWh
+2013,December,Hydro Electricity,419.732,GWh
+2013,December,Fuel Oil,92.836,GWh
+2013,December,Coal & Lignite,2683.698174,GWh
+2013,December,Natural Gas,8841.637727,GWh
+2013,December,Diesel,6.913,GWh
+2013,December,Imported,321.704,GWh
+2013,December,Renewable Energy,763.2999724,GWh
+2014,January,Hydro Electricity,574.507,GWh
+2014,January,Fuel Oil,139.32166,GWh
+2014,January,Coal & Lignite,3164.156561,GWh
+2014,January,Natural Gas,8129.28044,GWh
+2014,January,Diesel,3.824,GWh
+2014,January,Imported,591.194,GWh
+2014,January,Renewable Energy,822.030852,GWh
+2014,February,Hydro Electricity,583.206,GWh
+2014,February,Fuel Oil,138.00108,GWh
+2014,February,Coal & Lignite,2822.592354,GWh
+2014,February,Natural Gas,8500.794101,GWh
+2014,February,Diesel,4.242,GWh
+2014,February,Imported,845.46,GWh
+2014,February,Renewable Energy,728.171939,GWh
+2014,March,Hydro Electricity,584.372,GWh
+2014,March,Fuel Oil,173.91569,GWh
+2014,March,Coal & Lignite,3264.80772,GWh
+2014,March,Natural Gas,10367.77042,GWh
+2014,March,Diesel,2.474,GWh
+2014,March,Imported,1302.479,GWh
+2014,March,Renewable Energy,838.0634425,GWh
+2014,April,Hydro Electricity,544.176,GWh
+2014,April,Fuel Oil,230.60113,GWh
+2014,April,Coal & Lignite,3251.739834,GWh
+2014,April,Natural Gas,9826.009021,GWh
+2014,April,Diesel,1.065,GWh
+2014,April,Imported,1222.559,GWh
+2014,April,Renewable Energy,789.125375,GWh
+2014,May,Hydro Electricity,501.296,GWh
+2014,May,Fuel Oil,114.72059,GWh
+2014,May,Coal & Lignite,3385.723763,GWh
+2014,May,Natural Gas,11197.84201,GWh
+2014,May,Diesel,3.525,GWh
+2014,May,Imported,1203.938,GWh
+2014,May,Renewable Energy,816.579513,GWh
+2014,June,Hydro Electricity,565.134,GWh
+2014,June,Fuel Oil,156.344346,GWh
+2014,June,Coal & Lignite,3304.244141,GWh
+2014,June,Natural Gas,10299.649,GWh
+2014,June,Diesel,21.88,GWh
+2014,June,Imported,1085.918,GWh
+2014,June,Renewable Energy,766.388879,GWh
+2014,July,Hydro Electricity,488.93,GWh
+2014,July,Fuel Oil,220.05889,GWh
+2014,July,Coal & Lignite,3307.149098,GWh
+2014,July,Natural Gas,10219.93972,GWh
+2014,July,Diesel,8.525,GWh
+2014,July,Imported,1177.907,GWh
+2014,July,Renewable Energy,745.841625,GWh
+2014,August,Hydro Electricity,300.688,GWh
+2014,August,Fuel Oil,85.26853,GWh
+2014,August,Coal & Lignite,3159.655517,GWh
+2014,August,Natural Gas,10356.4587,GWh
+2014,August,Diesel,4.856,GWh
+2014,August,Imported,1270.629,GWh
+2014,August,Renewable Energy,685.293473,GWh
+2014,September,Hydro Electricity,220.842,GWh
+2014,September,Fuel Oil,82.07211,GWh
+2014,September,Coal & Lignite,3058.774542,GWh
+2014,September,Natural Gas,10330.32348,GWh
+2014,September,Diesel,2.518,GWh
+2014,September,Imported,1331.876,GWh
+2014,September,Renewable Energy,631.393404,GWh
+2014,October,Hydro Electricity,252.732,GWh
+2014,October,Fuel Oil,101.72658,GWh
+2014,October,Coal & Lignite,2880.123558,GWh
+2014,October,Natural Gas,10842.93633,GWh
+2014,October,Diesel,3.261,GWh
+2014,October,Imported,1017.368,GWh
+2014,October,Renewable Energy,659.035523,GWh
+2014,November,Hydro Electricity,281.814,GWh
+2014,November,Fuel Oil,81.9946,GWh
+2014,November,Coal & Lignite,2923.229358,GWh
+2014,November,Natural Gas,10633.86087,GWh
+2014,November,Diesel,3.925,GWh
+2014,November,Imported,717.108,GWh
+2014,November,Renewable Energy,680.82561,GWh
+2014,December,Hydro Electricity,265.876,GWh
+2014,December,Fuel Oil,82.40223,GWh
+2014,December,Coal & Lignite,3049.721141,GWh
+2014,December,Natural Gas,9609.296676,GWh
+2014,December,Diesel,2.503,GWh
+2014,December,Imported,493.277,GWh
+2014,December,Renewable Energy,882.755507,GWh
+2015,January,Hydro Electricity,298.922,GWh
+2015,January,Fuel Oil,82.58896,GWh
+2015,January,Coal & Lignite,2737.754341,GWh
+2015,January,Natural Gas,9686.728588,GWh
+2015,January,Diesel,2.298,GWh
+2015,January,Imported,355.394,GWh
+2015,January,Renewable Energy,934.561079,GWh
+2015,February,Hydro Electricity,268.646,GWh
+2015,February,Fuel Oil,72.81249,GWh
+2015,February,Coal & Lignite,2588.981613,GWh
+2015,February,Natural Gas,9487.650887,GWh
+2015,February,Diesel,3.821,GWh
+2015,February,Imported,726.002,GWh
+2015,February,Renewable Energy,855.620599,GWh
+2015,March,Hydro Electricity,321.726,GWh
+2015,March,Fuel Oil,68.48368,GWh
+2015,March,Coal & Lignite,2624.203454,GWh
+2015,March,Natural Gas,11831.41174,GWh
+2015,March,Diesel,7.883,GWh
+2015,March,Imported,1106.605,GWh
+2015,March,Renewable Energy,886.411229,GWh
+2015,April,Hydro Electricity,371.008,GWh
+2015,April,Fuel Oil,138.41362,GWh
+2015,April,Coal & Lignite,2922.419259,GWh
+2015,April,Natural Gas,10164.86172,GWh
+2015,April,Diesel,1.517,GWh
+2015,April,Imported,1464.628,GWh
+2015,April,Renewable Energy,893.908097,GWh
+2015,May,Hydro Electricity,484.338,GWh
+2015,May,Fuel Oil,72.32299,GWh
+2015,May,Coal & Lignite,2724.770461,GWh
+2015,May,Natural Gas,11920.02831,GWh
+2015,May,Diesel,4.604,GWh
+2015,May,Imported,1621.936,GWh
+2015,May,Renewable Energy,883.151942,GWh
+2015,June,Hydro Electricity,367.079,GWh
+2015,June,Fuel Oil,8.07774,GWh
+2015,June,Coal & Lignite,3029.729624,GWh
+2015,June,Natural Gas,11409.88776,GWh
+2015,June,Diesel,1.893,GWh
+2015,June,Imported,1162.287,GWh
+2015,June,Renewable Energy,857.510885,GWh
+2015,July,Hydro Electricity,333.547,GWh
+2015,July,Fuel Oil,39.02272,GWh
+2015,July,Coal & Lignite,3021.780555,GWh
+2015,July,Natural Gas,11643.35396,GWh
+2015,July,Diesel,84.694,GWh
+2015,July,Imported,758.72,GWh
+2015,July,Renewable Energy,840.902003,GWh
+2015,August,Hydro Electricity,293.975,GWh
+2015,August,Fuel Oil,28.97101,GWh
+2015,August,Coal & Lignite,2949.30713,GWh
+2015,August,Natural Gas,10875.32797,GWh
+2015,August,Diesel,2.159,GWh
+2015,August,Imported,1373.86,GWh
+2015,August,Renewable Energy,822.70332,GWh
+2015,September,Hydro Electricity,236.941,GWh
+2015,September,Fuel Oil,25.28353,GWh
+2015,September,Coal & Lignite,2955.220691,GWh
+2015,September,Natural Gas,10400.48791,GWh
+2015,September,Diesel,6.419,GWh
+2015,September,Imported,1634.129,GWh
+2015,September,Renewable Energy,740.663617,GWh
+2015,October,Hydro Electricity,255.234,GWh
+2015,October,Fuel Oil,30.676337,GWh
+2015,October,Coal & Lignite,3151.984377,GWh
+2015,October,Natural Gas,10368.2079,GWh
+2015,October,Diesel,1.699,GWh
+2015,October,Imported,1668.695,GWh
+2015,October,Renewable Energy,737.354078,GWh
+2015,November,Hydro Electricity,261.416,GWh
+2015,November,Fuel Oil,133.8622325,GWh
+2015,November,Coal & Lignite,2798.524256,GWh
+2015,November,Natural Gas,10702.43098,GWh
+2015,November,Diesel,2.41,GWh
+2015,November,Imported,1395.43,GWh
+2015,November,Renewable Energy,726.2836026,GWh
+2015,December,Hydro Electricity,267.901,GWh
+2015,December,Fuel Oil,96.398725,GWh
+2015,December,Coal & Lignite,3077.435488,GWh
+2015,December,Natural Gas,10034.61844,GWh
+2015,December,Diesel,6.303,GWh
+2015,December,Imported,1146.8,GWh
+2015,December,Renewable Energy,862.4148707,GWh
+2016,January,Hydro Electricity,342.964,GWh
+2016,January,Fuel Oil,62.85818,GWh
+2016,January,Coal & Lignite,2905.964789,GWh
+2016,January,Natural Gas,9751.152172,GWh
+2016,January,Diesel,5.18,GWh
+2016,January,Imported,1147.661,GWh
+2016,January,Renewable Energy,1140.61847,GWh
+2016,February,Hydro Electricity,251.38,GWh
+2016,February,Fuel Oil,20.21718,GWh
+2016,February,Coal & Lignite,2890.905812,GWh
+2016,February,Natural Gas,9339.165574,GWh
+2016,February,Diesel,2.409,GWh
+2016,February,Imported,1096.506,GWh
+2016,February,Renewable Energy,1053.254107,GWh
+2016,March,Hydro Electricity,296.994,GWh
+2016,March,Fuel Oil,43.633225,GWh
+2016,March,Coal & Lignite,3322.853051,GWh
+2016,March,Natural Gas,11539.15227,GWh
+2016,March,Diesel,10.485,GWh
+2016,March,Imported,1339.11,GWh
+2016,March,Renewable Energy,1147.319365,GWh
+2016,April,Hydro Electricity,280.517,GWh
+2016,April,Fuel Oil,32.07379,GWh
+2016,April,Coal & Lignite,3252.849653,GWh
+2016,April,Natural Gas,11481.91536,GWh
+2016,April,Diesel,3.202,GWh
+2016,April,Imported,1394.444,GWh
+2016,April,Renewable Energy,1085.803266,GWh
+2016,May,Hydro Electricity,280.146,GWh
+2016,May,Fuel Oil,52.998673,GWh
+2016,May,Coal & Lignite,3335.296081,GWh
+2016,May,Natural Gas,11907.29798,GWh
+2016,May,Diesel,2.237,GWh
+2016,May,Imported,1910.5,GWh
+2016,May,Renewable Energy,1055.034209,GWh
+2016,June,Hydro Electricity,311.577,GWh
+2016,June,Fuel Oil,4.715983,GWh
+2016,June,Coal & Lignite,2975.103252,GWh
+2016,June,Natural Gas,10751.99649,GWh
+2016,June,Diesel,1.245,GWh
+2016,June,Imported,1701.863,GWh
+2016,June,Renewable Energy,995.389125,GWh
+2016,July,Hydro Electricity,337.565,GWh
+2016,July,Fuel Oil,2.661825,GWh
+2016,July,Coal & Lignite,2738.174615,GWh
+2016,July,Natural Gas,10525.93845,GWh
+2016,July,Diesel,5.52,GWh
+2016,July,Imported,2098.942,GWh
+2016,July,Renewable Energy,1035.674331,GWh
+2016,August,Hydro Electricity,302.066,GWh
+2016,August,Fuel Oil,45.413478,GWh
+2016,August,Coal & Lignite,3315.695351,GWh
+2016,August,Natural Gas,10223.38752,GWh
+2016,August,Diesel,122.197,GWh
+2016,August,Imported,2251.957,GWh
+2016,August,Renewable Energy,1015.958949,GWh
+2016,September,Hydro Electricity,251.598,GWh
+2016,September,Fuel Oil,32.334827,GWh
+2016,September,Coal & Lignite,3256.147461,GWh
+2016,September,Natural Gas,10494.96138,GWh
+2016,September,Diesel,8.919,GWh
+2016,September,Imported,1553.249,GWh
+2016,September,Renewable Energy,939.490318,GWh
+2016,October,Hydro Electricity,207.952,GWh
+2016,October,Fuel Oil,2.799838,GWh
+2016,October,Coal & Lignite,3042.885593,GWh
+2016,October,Natural Gas,10672.0764,GWh
+2016,October,Diesel,5.314,GWh
+2016,October,Imported,1943.287,GWh
+2016,October,Renewable Energy,942.459419,GWh
+2016,November,Hydro Electricity,292.058,GWh
+2016,November,Fuel Oil,0,GWh
+2016,November,Coal & Lignite,3073.040295,GWh
+2016,November,Natural Gas,9858.117127,GWh
+2016,November,Diesel,4.031,GWh
+2016,November,Imported,2146.719,GWh
+2016,November,Renewable Energy,966.925925,GWh
+2016,December,Hydro Electricity,388.261,GWh
+2016,December,Fuel Oil,18.10005,GWh
+2016,December,Coal & Lignite,2998.240308,GWh
+2016,December,Natural Gas,9604.429703,GWh
+2016,December,Diesel,2.951,GWh
+2016,December,Imported,1241.117,GWh
+2016,December,Renewable Energy,1159.274858,GWh
+2017,January,Hydro Electricity,426.542,GWh
+2017,January,Fuel Oil,2.4813,GWh
+2017,January,Coal & Lignite,2782.043568,GWh
+2017,January,Natural Gas,9811.118934,GWh
+2017,January,Diesel,3.933,GWh
+2017,January,Imported,1162.701,GWh
+2017,January,Renewable Energy,1320.455816,GWh
+2017,February,Hydro Electricity,444.088,GWh
+2017,February,Fuel Oil,1.821733,GWh
+2017,February,Coal & Lignite,2774.827275,GWh
+2017,February,Natural Gas,9006.218148,GWh
+2017,February,Diesel,5.321,GWh
+2017,February,Imported,1445.836,GWh
+2017,February,Renewable Energy,1237.119773,GWh
+2017,March,Hydro Electricity,467.157,GWh
+2017,March,Fuel Oil,14.958517,GWh
+2017,March,Coal & Lignite,3148.68693,GWh
+2017,March,Natural Gas,10923.08468,GWh
+2017,March,Diesel,8.965,GWh
+2017,March,Imported,2128.955,GWh
+2017,March,Renewable Energy,1341.24483,GWh
+2017,April,Hydro Electricity,432.569,GWh
+2017,April,Fuel Oil,6.586225,GWh
+2017,April,Coal & Lignite,3241.829747,GWh
+2017,April,Natural Gas,9703.00188,GWh
+2017,April,Diesel,2.933,GWh
+2017,April,Imported,2223.182,GWh
+2017,April,Renewable Energy,1271.293416,GWh
+2017,May,Hydro Electricity,452.526,GWh
+2017,May,Fuel Oil,1.82317,GWh
+2017,May,Coal & Lignite,3325.419244,GWh
+2017,May,Natural Gas,10732.8529,GWh
+2017,May,Diesel,4.736,GWh
+2017,May,Imported,2174.086,GWh
+2017,May,Renewable Energy,1239.696689,GWh
+2017,June,Hydro Electricity,342.951,GWh
+2017,June,Fuel Oil,15.610748,GWh
+2017,June,Coal & Lignite,3254.355052,GWh
+2017,June,Natural Gas,10130.12511,GWh
+2017,June,Diesel,43.469,GWh
+2017,June,Imported,2231.133,GWh
+2017,June,Renewable Energy,1212.922257,GWh
+2017,July,Hydro Electricity,360.717,GWh
+2017,July,Fuel Oil,48.482232,GWh
+2017,July,Coal & Lignite,3172.502063,GWh
+2017,July,Natural Gas,9747.300032,GWh
+2017,July,Diesel,61.971,GWh
+2017,July,Imported,2415.044,GWh
+2017,July,Renewable Energy,1223.963679,GWh
+2017,August,Hydro Electricity,298.631,GWh
+2017,August,Fuel Oil,2.36864,GWh
+2017,August,Coal & Lignite,3094.214165,GWh
+2017,August,Natural Gas,10877.68781,GWh
+2017,August,Diesel,6.485,GWh
+2017,August,Imported,2198.499,GWh
+2017,August,Renewable Energy,1222.117398,GWh
+2017,September,Hydro Electricity,332.477,GWh
+2017,September,Fuel Oil,0.047728,GWh
+2017,September,Coal & Lignite,2754.118208,GWh
+2017,September,Natural Gas,10706.09781,GWh
+2017,September,Diesel,3.858,GWh
+2017,September,Imported,2509.371,GWh
+2017,September,Renewable Energy,1113.172455,GWh
+2017,October,Hydro Electricity,275.665,GWh
+2017,October,Fuel Oil,21.999118,GWh
+2017,October,Coal & Lignite,2905.950363,GWh
+2017,October,Natural Gas,10401.19734,GWh
+2017,October,Diesel,24.374,GWh
+2017,October,Imported,2079.954,GWh
+2017,October,Renewable Energy,1133.873591,GWh
+2017,November,Hydro Electricity,272.805,GWh
+2017,November,Fuel Oil,13.531423,GWh
+2017,November,Coal & Lignite,2633.374603,GWh
+2017,November,Natural Gas,10145.42127,GWh
+2017,November,Diesel,25.623,GWh
+2017,November,Imported,2048.442,GWh
+2017,November,Renewable Energy,1132.316248,GWh
+2017,December,Hydro Electricity,581.058,GWh
+2017,December,Fuel Oil,2.806632,GWh
+2017,December,Coal & Lignite,2645.128893,GWh
+2017,December,Natural Gas,8860.057223,GWh
+2017,December,Diesel,6.114,GWh
+2017,December,Imported,1810.221,GWh
+2017,December,Renewable Energy,1495.841771,GWh
+2018,January,Hydro Electricity,629.927,GWh
+2018,January,Fuel Oil,3.006663,GWh
+2018,January,Coal & Lignite,3088.828318,GWh
+2018,January,Natural Gas,8922.589161,GWh
+2018,January,Diesel,3.522,GWh
+2018,January,Imported,1862.926,GWh
+2018,January,Renewable Energy,1496.433225,GWh
+2018,February,Hydro Electricity,646.594,GWh
+2018,February,Fuel Oil,24.637838,GWh
+2018,February,Coal & Lignite,2822.427074,GWh
+2018,February,Natural Gas,8382.736516,GWh
+2018,February,Diesel,6.741,GWh
+2018,February,Imported,1734.961,GWh
+2018,February,Renewable Energy,1437.271141,GWh
+2018,March,Hydro Electricity,682.032,GWh
+2018,March,Fuel Oil,2.64759,GWh
+2018,March,Coal & Lignite,3223.347626,GWh
+2018,March,Natural Gas,10428.74663,GWh
+2018,March,Diesel,27.997,GWh
+2018,March,Imported,2228.097,GWh
+2018,March,Renewable Energy,1554.567665,GWh
+2018,April,Hydro Electricity,620.326,GWh
+2018,April,Fuel Oil,2.688475,GWh
+2018,April,Coal & Lignite,3111.886096,GWh
+2018,April,Natural Gas,9425.509463,GWh
+2018,April,Diesel,3.477,GWh
+2018,April,Imported,2055.592,GWh
+2018,April,Renewable Energy,1489.86487,GWh
+2018,May,Hydro Electricity,589.403,GWh
+2018,May,Fuel Oil,6.00833,GWh
+2018,May,Coal & Lignite,3302.701773,GWh
+2018,May,Natural Gas,10359.9274,GWh
+2018,May,Diesel,1.9,GWh
+2018,May,Imported,2259.2,GWh
+2018,May,Renewable Energy,1463.452258,GWh
+2018,June,Hydro Electricity,545.727,GWh
+2018,June,Fuel Oil,2.57972,GWh
+2018,June,Coal & Lignite,3172.099949,GWh
+2018,June,Natural Gas,10169.64173,GWh
+2018,June,Diesel,3.32,GWh
+2018,June,Imported,2149.223,GWh
+2018,June,Renewable Energy,1476.978666,GWh
+2018,July,Hydro Electricity,545.967,GWh
+2018,July,Fuel Oil,8.472327,GWh
+2018,July,Coal & Lignite,3227.797035,GWh
+2018,July,Natural Gas,9891.722103,GWh
+2018,July,Diesel,4.735,GWh
+2018,July,Imported,2220.686,GWh
+2018,July,Renewable Energy,1544.390661,GWh
+2018,August,Hydro Electricity,869.82,GWh
+2018,August,Fuel Oil,4.507012,GWh
+2018,August,Coal & Lignite,2973.389936,GWh
+2018,August,Natural Gas,9562.586434,GWh
+2018,August,Diesel,41.743,GWh
+2018,August,Imported,2535.925,GWh
+2018,August,Renewable Energy,1535.541505,GWh
+2018,September,Hydro Electricity,807.462,GWh
+2018,September,Fuel Oil,2.446095,GWh
+2018,September,Coal & Lignite,2642.391627,GWh
+2018,September,Natural Gas,9453.639272,GWh
+2018,September,Diesel,4.116,GWh
+2018,September,Imported,2801.865,GWh
+2018,September,Renewable Energy,1365.450397,GWh
+2018,October,Hydro Electricity,503.168,GWh
+2018,October,Fuel Oil,2.889565,GWh
+2018,October,Coal & Lignite,2849.823363,GWh
+2018,October,Natural Gas,10112.57309,GWh
+2018,October,Diesel,4.98,GWh
+2018,October,Imported,2677.597,GWh
+2018,October,Renewable Energy,1430.073548,GWh
+2018,November,Hydro Electricity,544.716,GWh
+2018,November,Fuel Oil,2.720495,GWh
+2018,November,Coal & Lignite,2428.712837,GWh
+2018,November,Natural Gas,10332.74909,GWh
+2018,November,Diesel,5.032,GWh
+2018,November,Imported,2201.469,GWh
+2018,November,Renewable Energy,1396.363784,GWh
+2018,December,Hydro Electricity,611.871,GWh
+2018,December,Fuel Oil,2.822465,GWh
+2018,December,Coal & Lignite,2953.018046,GWh
+2018,December,Natural Gas,9222.755196,GWh
+2018,December,Diesel,4.209,GWh
+2018,December,Imported,1941.9,GWh
+2018,December,Renewable Energy,1732.35622,GWh
+2019,January,Hydro Electricity,643.452,GWh
+2019,January,Fuel Oil,12.959,GWh
+2019,January,Coal & Lignite,2817.72678,GWh
+2019,January,Natural Gas,9268.110355,GWh
+2019,January,Diesel,7.292,GWh
+2019,January,Imported,1736.828,GWh
+2019,January,Renewable Energy,1887.657545,GWh
+2019,February,Hydro Electricity,624.774,GWh
+2019,February,Fuel Oil,72.07256,GWh
+2019,February,Coal & Lignite,2733.240344,GWh
+2019,February,Natural Gas,9287.208683,GWh
+2019,February,Diesel,7.693,GWh
+2019,February,Imported,1843.687,GWh
+2019,February,Renewable Energy,1609.582503,GWh
+2019,March,Hydro Electricity,686.396,GWh
+2019,March,Fuel Oil,143.90327,GWh
+2019,March,Coal & Lignite,3196.016213,GWh
+2019,March,Natural Gas,10952.86686,GWh
+2019,March,Diesel,4.794,GWh
+2019,March,Imported,2184.221,GWh
+2019,March,Renewable Energy,1851.599638,GWh
+2019,April,Hydro Electricity,620.196,GWh
+2019,April,Fuel Oil,143.752,GWh
+2019,April,Coal & Lignite,3167.244559,GWh
+2019,April,Natural Gas,10900.05521,GWh
+2019,April,Diesel,4.34,GWh
+2019,April,Imported,2045.211,GWh
+2019,April,Renewable Energy,1700.911655,GWh
+2019,May,Hydro Electricity,635.047,GWh
+2019,May,Fuel Oil,167.616,GWh
+2019,May,Coal & Lignite,3120.048776,GWh
+2019,May,Natural Gas,11788.12852,GWh
+2019,May,Diesel,5.025,GWh
+2019,May,Imported,2039.723,GWh
+2019,May,Renewable Energy,1735.744708,GWh
+2019,June,Hydro Electricity,542.537,GWh
+2019,June,Fuel Oil,146.031,GWh
+2019,June,Coal & Lignite,3099.320195,GWh
+2019,June,Natural Gas,10707.57233,GWh
+2019,June,Diesel,4.363,GWh
+2019,June,Imported,2066.199,GWh
+2019,June,Renewable Energy,1810.844482,GWh
+2019,July,Hydro Electricity,551.121,GWh
+2019,July,Fuel Oil,158.245,GWh
+2019,July,Coal & Lignite,3338.716923,GWh
+2019,July,Natural Gas,10164.99062,GWh
+2019,July,Diesel,85.449,GWh
+2019,July,Imported,1975.863,GWh
+2019,July,Renewable Energy,1893.835757,GWh
+2019,August,Hydro Electricity,400.878,GWh
+2019,August,Fuel Oil,142.999,GWh
+2019,August,Coal & Lignite,3051.524334,GWh
+2019,August,Natural Gas,9293.480345,GWh
+2019,August,Diesel,4.197,GWh
+2019,August,Imported,2939.376,GWh
+2019,August,Renewable Energy,1921.63238,GWh
+2019,September,Hydro Electricity,348.517,GWh
+2019,September,Fuel Oil,0,GWh
+2019,September,Coal & Lignite,2923.648034,GWh
+2019,September,Natural Gas,9352.44177,GWh
+2019,September,Diesel,3.434,GWh
+2019,September,Imported,2683.757,GWh
+2019,September,Renewable Energy,1702.170107,GWh
+2019,October,Hydro Electricity,422.52,GWh
+2019,October,Fuel Oil,0,GWh
+2019,October,Coal & Lignite,3101.234827,GWh
+2019,October,Natural Gas,10614.26231,GWh
+2019,October,Diesel,2.467,GWh
+2019,October,Imported,2417.555,GWh
+2019,October,Renewable Energy,1605.771764,GWh
+2019,November,Hydro Electricity,438.427,GWh
+2019,November,Fuel Oil,0,GWh
+2019,November,Coal & Lignite,2719.379813,GWh
+2019,November,Natural Gas,10660.78283,GWh
+2019,November,Diesel,3.853,GWh
+2019,November,Imported,1539.577,GWh
+2019,November,Renewable Energy,1645.457672,GWh
+2019,December,Hydro Electricity,396.093,GWh
+2019,December,Fuel Oil,0,GWh
+2019,December,Coal & Lignite,2557.11966,GWh
+2019,December,Natural Gas,8850.720823,GWh
+2019,December,Diesel,4.317,GWh
+2019,December,Imported,2074.658,GWh
+2019,December,Renewable Energy,2037.216756,GWh
+2020,January,Hydro Electricity,427.728,GWh
+2020,January,Fuel Oil,13.362,GWh
+2020,January,Coal & Lignite,3257.306816,GWh
+2020,January,Natural Gas,9831.99389,GWh
+2020,January,Diesel,4.013,GWh
+2020,January,Imported,2002.866,GWh
+2020,January,Renewable Energy,1845.414152,GWh
+2020,February,Hydro Electricity,434.694,GWh
+2020,February,Fuel Oil,63.286,GWh
+2020,February,Coal & Lignite,2947.246979,GWh
+2020,February,Natural Gas,9402.861442,GWh
+2020,February,Diesel,3.499,GWh
+2020,February,Imported,2005.625,GWh
+2020,February,Renewable Energy,1841.840052,GWh
+2020,March,Hydro Electricity,509.536,GWh
+2020,March,Fuel Oil,21.401,GWh
+2020,March,Coal & Lignite,3250.299713,GWh
+2020,March,Natural Gas,11020.38944,GWh
+2020,March,Diesel,2.507,GWh
+2020,March,Imported,2321.505,GWh
+2020,March,Renewable Energy,1799.393624,GWh
+2020,April,Hydro Electricity,471.457,GWh
+2020,April,Fuel Oil,3.694,GWh
+2020,April,Coal & Lignite,3114.654487,GWh
+2020,April,Natural Gas,9448.76131,GWh
+2020,April,Diesel,6.275,GWh
+2020,April,Imported,2132.777,GWh
+2020,April,Renewable Energy,1753.946418,GWh
+2020,May,Hydro Electricity,475.026,GWh
+2020,May,Fuel Oil,167.209,GWh
+2020,May,Coal & Lignite,3482.349803,GWh
+2020,May,Natural Gas,10076.965,GWh
+2020,May,Diesel,1.188,GWh
+2020,May,Imported,2229.731,GWh
+2020,May,Renewable Energy,1735.479453,GWh
+2020,June,Hydro Electricity,348.574,GWh
+2020,June,Fuel Oil,104.732,GWh
+2020,June,Coal & Lignite,3186.162578,GWh
+2020,June,Natural Gas,9624.485319,GWh
+2020,June,Diesel,2.756,GWh
+2020,June,Imported,2189.107,GWh
+2020,June,Renewable Energy,1607.851749,GWh
+2020,July,Hydro Electricity,345.894,GWh
+2020,July,Fuel Oil,0,GWh
+2020,July,Coal & Lignite,2664.912339,GWh
+2020,July,Natural Gas,10765.2595,GWh
+2020,July,Diesel,3.314,GWh
+2020,July,Imported,2088.547,GWh
+2020,July,Renewable Energy,1674.541239,GWh
+2020,August,Hydro Electricity,357.384,GWh
+2020,August,Fuel Oil,57.801,GWh
+2020,August,Coal & Lignite,3151.39426,GWh
+2020,August,Natural Gas,8872.891992,GWh
+2020,August,Diesel,20.131,GWh
+2020,August,Imported,3341.81,GWh
+2020,August,Renewable Energy,1643.63308,GWh
+2020,September,Hydro Electricity,369.001,GWh
+2020,September,Fuel Oil,135.697,GWh
+2020,September,Coal & Lignite,2937.900541,GWh
+2020,September,Natural Gas,9068.174484,GWh
+2020,September,Diesel,41.029,GWh
+2020,September,Imported,3283.604,GWh
+2020,September,Renewable Energy,1443.764951,GWh
+2020,October,Hydro Electricity,228.931,GWh
+2020,October,Fuel Oil,23.073,GWh
+2020,October,Coal & Lignite,3100.067909,GWh
+2020,October,Natural Gas,8657.616585,GWh
+2020,October,Diesel,3.112,GWh
+2020,October,Imported,2983.278,GWh
+2020,October,Renewable Energy,1484.225191,GWh
+2020,November,Hydro Electricity,245.234,GWh
+2020,November,Fuel Oil,0.68,GWh
+2020,November,Coal & Lignite,2949.487882,GWh
+2020,November,Natural Gas,8959.80378,GWh
+2020,November,Diesel,4.922,GWh
+2020,November,Imported,2515.586,GWh
+2020,November,Renewable Energy,1710.888029,GWh
+2020,December,Hydro Electricity,326.389,GWh
+2020,December,Fuel Oil,33.142,GWh
+2020,December,Coal & Lignite,2781.38477,GWh
+2020,December,Natural Gas,8129.95063,GWh
+2020,December,Diesel,4.738,GWh
+2020,December,Imported,2456.134,GWh
+2020,December,Renewable Energy,1960.049558,GWh
+2021,January,Hydro Electricity,417.227,GWh
+2021,January,Fuel Oil,6.217,GWh
+2021,January,Coal & Lignite,2632.405775,GWh
+2021,January,Natural Gas,8311.97191,GWh
+2021,January,Diesel,0.871,GWh
+2021,January,Imported,2043.605,GWh
+2021,January,Renewable Energy,2087.116266,GWh
+2021,February,Hydro Electricity,418.707,GWh
+2021,February,Fuel Oil,0,GWh
+2021,February,Coal & Lignite,2833.675213,GWh
+2021,February,Natural Gas,8679.572698,GWh
+2021,February,Diesel,6.125,GWh
+2021,February,Imported,1769.58,GWh
+2021,February,Renewable Energy,1850.306942,GWh
+2021,March,Hydro Electricity,446.041,GWh
+2021,March,Fuel Oil,4.014,GWh
+2021,March,Coal & Lignite,2918.072925,GWh
+2021,March,Natural Gas,11378.9595,GWh
+2021,March,Diesel,7.215,GWh
+2021,March,Imported,2690.819,GWh
+2021,March,Renewable Energy,1898.948014,GWh
+2021,April,Hydro Electricity,377.491,GWh
+2021,April,Fuel Oil,5.383,GWh
+2021,April,Coal & Lignite,3015.52778,GWh
+2021,April,Natural Gas,9959.442921,GWh
+2021,April,Diesel,10.143,GWh
+2021,April,Imported,2567.607,GWh
+2021,April,Renewable Energy,1669.690026,GWh
+2021,May,Hydro Electricity,389.065,GWh
+2021,May,Fuel Oil,58.249,GWh
+2021,May,Coal & Lignite,2874.495466,GWh
+2021,May,Natural Gas,11240.19872,GWh
+2021,May,Diesel,3.982,GWh
+2021,May,Imported,2824.509,GWh
+2021,May,Renewable Energy,1778.054331,GWh
+2021,June,Hydro Electricity,459.821,GWh
+2021,June,Fuel Oil,129.593,GWh
+2021,June,Coal & Lignite,3055.678385,GWh
+2021,June,Natural Gas,9720.701381,GWh
+2021,June,Diesel,4.22,GWh
+2021,June,Imported,3191.182,GWh
+2021,June,Renewable Energy,1888.417089,GWh
+2021,July,Hydro Electricity,398.008,GWh
+2021,July,Fuel Oil,11.919,GWh
+2021,July,Coal & Lignite,3458.792058,GWh
+2021,July,Natural Gas,8695.670051,GWh
+2021,July,Diesel,2.912,GWh
+2021,July,Imported,3374.964,GWh
+2021,July,Renewable Energy,1932.692886,GWh
+2021,August,Hydro Electricity,378.377,GWh
+2021,August,Fuel Oil,19.115,GWh
+2021,August,Coal & Lignite,3380.131982,GWh
+2021,August,Natural Gas,8512.23965,GWh
+2021,August,Diesel,66.008,GWh
+2021,August,Imported,3742.936,GWh
+2021,August,Renewable Energy,1820.743166,GWh
+2021,September,Hydro Electricity,283.951,GWh
+2021,September,Fuel Oil,52.013,GWh
+2021,September,Coal & Lignite,2583.596686,GWh
+2021,September,Natural Gas,9244.845778,GWh
+2021,September,Diesel,22.765,GWh
+2021,September,Imported,3374.003,GWh
+2021,September,Renewable Energy,1577.068519,GWh
+2021,October,Hydro Electricity,313.292,GWh
+2021,October,Fuel Oil,132.274,GWh
+2021,October,Coal & Lignite,3150.20454,GWh
+2021,October,Natural Gas,9808.030438,GWh
+2021,October,Diesel,11.664,GWh
+2021,October,Imported,2850.703,GWh
+2021,October,Renewable Energy,1615.70827,GWh
+2021,November,Hydro Electricity,272.854,GWh
+2021,November,Fuel Oil,0.476,GWh
+2021,November,Coal & Lignite,3069.471598,GWh
+2021,November,Natural Gas,9592.283491,GWh
+2021,November,Diesel,117.621,GWh
+2021,November,Imported,2465.338,GWh
+2021,November,Renewable Energy,1685.588857,GWh
+2021,December,Hydro Electricity,385.158,GWh
+2021,December,Fuel Oil,2.682,GWh
+2021,December,Coal & Lignite,3092.572359,GWh
+2021,December,Natural Gas,7968.942952,GWh
+2021,December,Diesel,40.911,GWh
+2021,December,Imported,2461.042,GWh
+2021,December,Renewable Energy,2122.300579,GWh
+2022,January,Hydro Electricity,488.946,GWh
+2022,January,Fuel Oil,0,GWh
+2022,January,Coal & Lignite,2723.061262,GWh
+2022,January,Natural Gas,9355.226787,GWh
+2022,January,Diesel,131.656,GWh
+2022,January,Imported,2293.78,GWh
+2022,January,Renewable Energy,1997.880399,GWh
+2022,February,Hydro Electricity,513.474,GWh
+2022,February,Fuel Oil,3.038,GWh
+2022,February,Coal & Lignite,2472.67622,GWh
+2022,February,Natural Gas,9340.146839,GWh
+2022,February,Diesel,8.417,GWh
+2022,February,Imported,1905.475,GWh
+2022,February,Renewable Energy,1855.63187,GWh
+2022,March,Hydro Electricity,695.158,GWh
+2022,March,Fuel Oil,0,GWh
+2022,March,Coal & Lignite,2863.233675,GWh
+2022,March,Natural Gas,11309.68093,GWh
+2022,March,Diesel,42.291,GWh
+2022,March,Imported,2936.54,GWh
+2022,March,Renewable Energy,1891.889632,GWh
+2022,April,Hydro Electricity,705.974,GWh
+2022,April,Fuel Oil,0,GWh
+2022,April,Coal & Lignite,2774.043526,GWh
+2022,April,Natural Gas,9931.830806,GWh
+2022,April,Diesel,148.923,GWh
+2022,April,Imported,2878.973,GWh
+2022,April,Renewable Energy,1892.807118,GWh
+2022,May,Hydro Electricity,652.592,GWh
+2022,May,Fuel Oil,2.44,GWh
+2022,May,Coal & Lignite,3364.239788,GWh
+2022,May,Natural Gas,9802.426569,GWh
+2022,May,Diesel,60.252,GWh
+2022,May,Imported,3223.064,GWh
+2022,May,Renewable Energy,1894.908857,GWh
+2022,June,Hydro Electricity,645.403,GWh
+2022,June,Fuel Oil,0,GWh
+2022,June,Coal & Lignite,2876.025248,GWh
+2022,June,Natural Gas,10109.21327,GWh
+2022,June,Diesel,76.323,GWh
+2022,June,Imported,3460.838,GWh
+2022,June,Renewable Energy,1803.683031,GWh
+2022,July,Hydro Electricity,604.438,GWh
+2022,July,Fuel Oil,3.295,GWh
+2022,July,Coal & Lignite,3207.774929,GWh
+2022,July,Natural Gas,9321.177116,GWh
+2022,July,Diesel,101.776,GWh
+2022,July,Imported,3878.508,GWh
+2022,July,Renewable Energy,1825.852293,GWh
+2022,August,Hydro Electricity,548.646,GWh
+2022,August,Fuel Oil,84.731,GWh
+2022,August,Coal & Lignite,3400.039123,GWh
+2022,August,Natural Gas,8884.584255,GWh
+2022,August,Diesel,149.33,GWh
+2022,August,Imported,3872.273,GWh
+2022,August,Renewable Energy,1790.183236,GWh
+2022,September,Hydro Electricity,437.471,GWh
+2022,September,Fuel Oil,0,GWh
+2022,September,Coal & Lignite,2863.996449,GWh
+2022,September,Natural Gas,9340.173489,GWh
+2022,September,Diesel,73.748,GWh
+2022,September,Imported,3416.562,GWh
+2022,September,Renewable Energy,1595.770772,GWh
+2022,October,Hydro Electricity,324.588,GWh
+2022,October,Fuel Oil,7.199,GWh
+2022,October,Coal & Lignite,3247.582161,GWh
+2022,October,Natural Gas,8740.225486,GWh
+2022,October,Diesel,281.364,GWh
+2022,October,Imported,3144.125,GWh
+2022,October,Renewable Energy,1738.551743,GWh
+2022,November,Hydro Electricity,407.948,GWh
+2022,November,Fuel Oil,4.755,GWh
+2022,November,Coal & Lignite,3134.843985,GWh
+2022,November,Natural Gas,10024.15097,GWh
+2022,November,Diesel,326.334,GWh
+2022,November,Imported,2088.742,GWh
+2022,November,Renewable Energy,1489.67962,GWh
+2022,December,Hydro Electricity,574.183,GWh
+2022,December,Fuel Oil,0,GWh
+2022,December,Coal & Lignite,2595.195281,GWh
+2022,December,Natural Gas,8477.968256,GWh
+2022,December,Diesel,225.787,GWh
+2022,December,Imported,2372.876,GWh
+2022,December,Renewable Energy,2099.251986,GWh
+2023,January,Hydro Electricity,705.665,GWh
+2023,January,Fuel Oil,0,GWh
+2023,January,Coal & Lignite,2513.350408,GWh
+2023,January,Natural Gas,8084.158635,GWh
+2023,January,Diesel,225.94,GWh
+2023,January,Imported,2307.077,GWh
+2023,January,Renewable Energy,2166.920086,GWh
+2023,February,Hydro Electricity,703.07,GWh
+2023,February,Fuel Oil,0,GWh
+2023,February,Coal & Lignite,2458.192968,GWh
+2023,February,Natural Gas,8987.365273,GWh
+2023,February,Diesel,159.418,GWh
+2023,February,Imported,1984.746,GWh
+2023,February,Renewable Energy,889.272745,GWh
+2023,March,Hydro Electricity,749.319,GWh
+2023,March,Fuel Oil,4.186,GWh
+2023,March,Coal & Lignite,2671.153266,GWh
+2023,March,Natural Gas,11056.52105,GWh
+2023,March,Diesel,159.761,GWh
+2023,March,Imported,2535.453,GWh
+2023,March,Renewable Energy,978.690045,GWh
+2023,April,Hydro Electricity,688.027,GWh
+2023,April,Fuel Oil,0,GWh
+2023,April,Coal & Lignite,2686.222646,GWh
+2023,April,Natural Gas,11863.01303,GWh
+2023,April,Diesel,286.725,GWh
+2023,April,Imported,2310.63,GWh
+2023,April,Renewable Energy,892.784611,GWh
+2023,May,Hydro Electricity,701.106,GWh
+2023,May,Fuel Oil,0,GWh
+2023,May,Coal & Lignite,2681.376568,GWh
+2023,May,Natural Gas,13234.88257,GWh
+2023,May,Diesel,6.609,GWh
+2023,May,Imported,2530.19,GWh
+2023,May,Renewable Energy,1910.613819,GWh
+2023,June,Hydro Electricity,621.675,GWh
+2023,June,Fuel Oil,0,GWh
+2023,June,Coal & Lignite,2673.457828,GWh
+2023,June,Natural Gas,11834.39405,GWh
+2023,June,Diesel,2.227,GWh
+2023,June,Imported,2388.136,GWh
+2023,June,Renewable Energy,1932.330304,GWh
+2023,July,Hydro Electricity,515.846,GWh
+2023,July,Fuel Oil,0,GWh
+2023,July,Coal & Lignite,2536.835974,GWh
+2023,July,Natural Gas,11895.3505,GWh
+2023,July,Diesel,8.411,GWh
+2023,July,Imported,2697.208,GWh
+2023,July,Renewable Energy,1909.002874,GWh
+2023,August,Hydro Electricity,485.889,GWh
+2023,August,Fuel Oil,1.972,GWh
+2023,August,Coal & Lignite,2413.00739,GWh
+2023,August,Natural Gas,11213.66379,GWh
+2023,August,Diesel,3.38,GWh
+2023,August,Imported,3299.362,GWh
+2023,August,Renewable Energy,1946.113578,GWh
+2023,September,Hydro Electricity,302.422,GWh
+2023,September,Fuel Oil,0,GWh
+2023,September,Coal & Lignite,2662.881916,GWh
+2023,September,Natural Gas,10031.42335,GWh
+2023,September,Diesel,13.055,GWh
+2023,September,Imported,3741.591,GWh
+2023,September,Renewable Energy,1686.961411,GWh
+2023,October,Hydro Electricity,230.486,GWh
+2023,October,Fuel Oil,0,GWh
+2023,October,Coal & Lignite,2508.121662,GWh
+2023,October,Natural Gas,10633.4926,GWh
+2023,October,Diesel,5.181,GWh
+2023,October,Imported,3663.124,GWh
+2023,October,Renewable Energy,1667.336709,GWh
+2023,November,Hydro Electricity,318.56,GWh
+2023,November,Fuel Oil,4.785,GWh
+2023,November,Coal & Lignite,2552.007104,GWh
+2023,November,Natural Gas,10569.06966,GWh
+2023,November,Diesel,3.347,GWh
+2023,November,Imported,2550.601,GWh
+2023,November,Renewable Energy,1746.685641,GWh
+2023,December,Hydro Electricity,566.149,GWh
+2023,December,Fuel Oil,0,GWh
+2023,December,Coal & Lignite,2076.144935,GWh
+2023,December,Natural Gas,9998.679307,GWh
+2023,December,Diesel,2.927,GWh
+2023,December,Imported,2797.034,GWh
+2023,December,Renewable Energy,2128.037177,GWh
+2024,January,Hydro Electricity,649.653,GWh
+2024,January,Fuel Oil,0,GWh
+2024,January,Coal & Lignite,2596.178616,GWh
+2024,January,Natural Gas,10801.56444,GWh
+2024,January,Diesel,1.497,GWh
+2024,January,Imported,2143.292,GWh
+2024,January,Renewable Energy,2108.568436,GWh
+2024,February,Hydro Electricity,625.162,GWh
+2024,February,Fuel Oil,4.37,GWh
+2024,February,Coal & Lignite,2926.915808,GWh
+2024,February,Natural Gas,11020.982893,GWh
+2024,February,Diesel,5.016,GWh
+2024,February,Imported,2050.547,GWh
+2024,February,Renewable Energy,1999.569783,GWh
+2024,March,Hydro Electricity,648.986,GWh
+2024,March,Fuel Oil,0,GWh
+2024,March,Coal & Lignite,3056.239817,GWh
+2024,March,Natural Gas,12990.405049,GWh
+2024,March,Diesel,3.805,GWh
+2024,March,Imported,2687.751,GWh
+2024,March,Renewable Energy,2013.753133,GWh
+2024,April,Hydro Electricity,672.547,GWh
+2024,April,Fuel Oil,0,GWh
+2024,April,Coal & Lignite,2949.052335,GWh
+2024,April,Natural Gas,13252.44061,GWh
+2024,April,Diesel,2.586,GWh
+2024,April,Imported,2854.629,GWh
+2024,April,Renewable Energy,2104.551259,GWh
+2024,May,Hydro Electricity,646.737,GWh
+2024,May,Fuel Oil,10.78,GWh
+2024,May,Coal & Lignite,3012.505365,GWh
+2024,May,Natural Gas,13563.08702,GWh
+2024,May,Diesel,4.492,GWh
+2024,May,Imported,2691.007,GWh
+2024,May,Renewable Energy,1876.301464,GWh
+2024,June,Hydro Electricity,485.647,GWh
+2024,June,Fuel Oil,0,GWh
+2024,June,Coal & Lignite,2478.963325,GWh
+2024,June,Natural Gas,12301.85773,GWh
+2024,June,Diesel,3.476,GWh
+2024,June,Imported,2853.091,GWh
+2024,June,Renewable Energy,1958.214437,GWh
+2024,July,Hydro Electricity,410.772,GWh
+2024,July,Fuel Oil,0,GWh
+2024,July,Coal & Lignite,2516.493768,GWh
+2024,July,Natural Gas,10711.372262,GWh
+2024,July,Diesel,32.711,GWh
+2024,July,Imported,3804.053,GWh
+2024,July,Renewable Energy,1948.657642,GWh
+2024,August,Hydro Electricity,391.758,GWh
+2024,August,Fuel Oil,23.563,GWh
+2024,August,Coal & Lignite,2245.781099,GWh
+2024,August,Natural Gas,11766.21198,GWh
+2024,August,Diesel,150.796,GWh
+2024,August,Imported,3524.402,GWh
+2024,August,Renewable Energy,1830.239286,GWh
+2024,September,Hydro Electricity,411.036,GWh
+2024,September,Fuel Oil,0,GWh
+2024,September,Coal & Lignite,2845.61199,GWh
+2024,September,Natural Gas,10001.27893,GWh
+2024,September,Diesel,18.441,GWh
+2024,September,Imported,3959.712,GWh
+2024,September,Renewable Energy,1727.114862,GWh
+2024,October,Hydro Electricity,298.869,GWh
+2024,October,Fuel Oil,0,GWh
+2024,October,Coal & Lignite,3131.77971,GWh
+2024,October,Natural Gas,10443.2613,GWh
+2024,October,Diesel,4.338,GWh
+2024,October,Imported,4025.897,GWh
+2024,October,Renewable Energy,1621.544496,GWh
+2024,November,Hydro Electricity,421.397,GWh
+2024,November,Fuel Oil,0.687,GWh
+2024,November,Coal & Lignite,2959.837139,GWh
+2024,November,Natural Gas,10408.04689,GWh
+2024,November,Diesel,7.363,GWh
+2024,November,Imported,2824.822,GWh
+2024,November,Renewable Energy,1829.484937,GWh
+2024,December,Hydro Electricity,752.23,GWh
+2024,December,Fuel Oil,0,GWh
+2024,December,Coal & Lignite,2540.105313,GWh
+2024,December,Natural Gas,9112.361574,GWh
+2024,December,Diesel,2.457,GWh
+2024,December,Imported,2565.84,GWh
+2024,December,Renewable Energy,2185.874024,GWh
+2025,January,Hydro Electricity,787.34,GWh
+2025,January,Fuel Oil,0,GWh
+2025,January,Coal & Lignite,2051.257394,GWh
+2025,January,Natural Gas,9140.708562,GWh
+2025,January,Diesel,1.492,GWh
+2025,January,Imported,2215.532,GWh
+2025,January,Renewable Energy,2307.017479,GWh
+2025,February,Hydro Electricity,727.822,GWh
+2025,February,Fuel Oil,4.715,GWh
+2025,February,Coal & Lignite,2762.692642,GWh
+2025,February,Natural Gas,9756.024363999997,GWh
+2025,February,Diesel,1.708,GWh
+2025,February,Imported,1929.714,GWh
+2025,February,Renewable Energy,1948.332857,GWh
+2025,March,Hydro Electricity,697.031,GWh
+2025,March,Fuel Oil,0,GWh
+2025,March,Coal & Lignite,3183.313489,GWh
+2025,March,Natural Gas,11530.85142,GWh
+2025,March,Diesel,2.325,GWh
+2025,March,Imported,3001.011,GWh
+2025,March,Renewable Energy,2223.488598,GWh
+2025,April,Hydro Electricity,655.7,GWh
+2025,April,Fuel Oil,0,GWh
+2025,April,Coal & Lignite,2551.10556,GWh
+2025,April,Natural Gas,11877.540146000001,GWh
+2025,April,Diesel,2.849,GWh
+2025,April,Imported,2806.938,GWh
+2025,April,Renewable Energy,2013.858107,GWh
+2025,May,Hydro Electricity,627.136,GWh
+2025,May,Fuel Oil,0,GWh
+2025,May,Coal & Lignite,3067.6989,GWh
+2025,May,Natural Gas,11604.009976000001,GWh
+2025,May,Diesel,2.594,GWh
+2025,May,Imported,3252.124,GWh
+2025,May,Renewable Energy,1863.591962,GWh
+2025,June,Hydro Electricity,504.016,GWh
+2025,June,Fuel Oil,0,GWh
+2025,June,Coal & Lignite,3122.305368,GWh
+2025,June,Natural Gas,10362.877186,GWh
+2025,June,Diesel,1.591,GWh
+2025,June,Imported,3596.648,GWh
+2025,June,Renewable Energy,1959.526372,GWh
+2025,July,Hydro Electricity,445.793,GWh
+2025,July,Fuel Oil,2.519,GWh
+2025,July,Coal & Lignite,3034.876598,GWh
+2025,July,Natural Gas,10214.60362,GWh
+2025,July,Diesel,2.645,GWh
+2025,July,Imported,3913.353,GWh
+2025,July,Renewable Energy,2149.658462,GWh
+2025,August,Hydro Electricity,703.032,GWh
+2025,August,Fuel Oil,0,GWh
+2025,August,Coal & Lignite,3118.888707,GWh
+2025,August,Natural Gas,9900.311641,GWh
+2025,August,Diesel,2.336,GWh
+2025,August,Imported,4390.294,GWh
+2025,August,Renewable Energy,1982.780778,GWh
+2025,September,Hydro Electricity,493.093,GWh
+2025,September,Fuel Oil,0,GWh
+2025,September,Coal & Lignite,3037.918543,GWh
+2025,September,Natural Gas,9427.882726,GWh
+2025,September,Diesel,3.387,GWh
+2025,September,Imported,4455.08,GWh
+2025,September,Renewable Energy,1657.8117,GWh
+2025,October,Hydro Electricity,567.329,GWh
+2025,October,Fuel Oil,0,GWh
+2025,October,Coal & Lignite,2998.377117,GWh
+2025,October,Natural Gas,10120.21834598,GWh
+2025,October,Diesel,3.89,GWh
+2025,October,Imported,4052.188,GWh
+2025,October,Renewable Energy,1699.406768,GWh
+2025,November,Hydro Electricity,654.214,GWh
+2025,November,Fuel Oil,16.493,GWh
+2025,November,Coal & Lignite,2525.208631,GWh
+2025,November,Natural Gas,9276.867472,GWh
+2025,November,Diesel,1.596,GWh
+2025,November,Imported,3073.963,GWh
+2025,November,Renewable Energy,1771.37549,GWh
+2025,December,Hydro Electricity,756.461,GWh
+2025,December,Fuel Oil,76.635,GWh
+2025,December,Coal & Lignite,2125.15318,GWh
+2025,December,Natural Gas,10122.495437,GWh
+2025,December,Diesel,6.446,GWh
+2025,December,Imported,2449.029,GWh
+2025,December,Renewable Energy,2045.97385,GWh
+2026,January,Hydro Electricity,923.888,GWh
+2026,January,Fuel Oil,43.043,GWh
+2026,January,Coal & Lignite,1144.810624,GWh
+2026,January,Natural Gas,10115.912563,GWh
+2026,January,Diesel,2.127,GWh
+2026,January,Imported,2674.997,GWh
+2026,January,Renewable Energy,2224.600187,GWh
+2026,February,Hydro Electricity,901.71,GWh
+2026,February,Fuel Oil,0,GWh
+2026,February,Coal & Lignite,1446.828957,GWh
+2026,February,Natural Gas,11298.654476000002,GWh
+2026,February,Diesel,0.668,GWh
+2026,February,Imported,2298.912,GWh
+2026,February,Renewable Energy,1955.146595,GWh
+2026,March,Hydro Electricity,1148.386,GWh
+2026,March,Fuel Oil,0,GWh
+2026,March,Coal & Lignite,1899.63814,GWh
+2026,March,Natural Gas,12380.725288000001,GWh
+2026,March,Diesel,1.182,GWh
+2026,March,Imported,3202.459,GWh
+2026,March,Renewable Energy,2296.819516,GWh
+2026,April,Hydro Electricity,963.368,GWh
+2026,April,Fuel Oil,0,GWh
+2026,April,Coal & Lignite,2245.83875,GWh
+2026,April,Natural Gas,13181.957170999998,GWh
+2026,April,Diesel,2.155,GWh
+2026,April,Imported,2928.975,GWh
+2026,April,Renewable Energy,2136.316583,GWh
+2026,May,Hydro Electricity,752.202,GWh
+2026,May,Fuel Oil,1,GWh
+2026,May,Coal & Lignite,2237.1286,GWh
+2026,May,Natural Gas,13263.608922,GWh
+2026,May,Diesel,1.475,GWh
+2026,May,Imported,3388.621,GWh
+2026,May,Renewable Energy,1982.025965,GWh
+2026,June,Hydro Electricity,605.71,GWh
+2026,June,Fuel Oil,0,GWh
+2026,June,Coal & Lignite,2146.4302,GWh
+2026,June,Natural Gas,12829.11435,GWh
+2026,June,Diesel,6.218,GWh
+2026,June,Imported,3136.355,GWh
+2026,June,Renewable Energy,2081.319472,GWh

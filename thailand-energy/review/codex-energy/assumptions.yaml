@@ -1,0 +1,165 @@
+meta:
+  currency: THB_2026
+  notes:
+    - "All values are public-data based or explicitly marked estimates."
+    - "Replace estimates when MODEL_SPEC.md finalizes parameter standards."
+
+macroeconomic:
+  fx_thb_per_usd:
+    value: 35.0
+    unit: "THB/USD"
+    estimate: true
+    source: "Bank of Thailand daily rates (to be pinned in future update)."
+  real_discount_rate:
+    value: 0.06
+    unit: "fraction"
+    estimate: true
+    source: "Generic screening WACC for first-cut energy options."
+
+tariffs:
+  tou_peak_energy_charge:
+    value: 5.1135
+    unit: "THB/kWh"
+    estimate: false
+    source: "PEA Electricity Tariffs (May 2023), schedule TOU 22-33kV."
+  tou_offpeak_energy_charge:
+    value: 2.6037
+    unit: "THB/kWh"
+    estimate: false
+    source: "PEA Electricity Tariffs (May 2023), schedule TOU 22-33kV."
+
+fuel_scenarios:
+  lng_usd_per_mmbtu:
+    low:
+      value: 8.0
+      source: "Low scenario around post-2020 non-crisis spot periods; estimate."
+      estimate: true
+    base:
+      value: 14.0
+      source: "Mid-range scenario between pre-crisis and stressed periods; estimate."
+      estimate: true
+    high:
+      value: 22.0
+      source: "Aligned with crisis-level values cited in IEEFA source chapter."
+      estimate: false
+  ccgt_heat_rate_mmbtu_per_mwh:
+    value: 6.8
+    unit: "MMBtu/MWh"
+    estimate: true
+    source: "Typical efficient CCGT heat-rate benchmark."
+  gas_variable_om_thb_per_mwh:
+    value: 140
+    unit: "THB/MWh"
+    estimate: true
+    source: "First-cut O&M placeholder for model comparison."
+
+loss_model:
+  gas_energy_content_mmbtu_per_mmscf:
+    value: 1037.0
+    unit: "MMBtu/MMSCF"
+    estimate: false
+    source: "Standard natural-gas gross heating value convention."
+
+cost_curve_options:
+  aircon_retrofit_controls:
+    label: "Aircon retrofit + controls"
+    capex_thb_per_kw: 12000
+    fixed_om_fraction_of_capex: 0.02
+    lifetime_years: 12
+    annual_energy_delta_kwh_per_kw: -2200
+    evening_peak_delta_kw_per_kw: -0.85
+    estimate: true
+    source: "Screening value based on Thai commercial-building efficiency studies and ESCO ranges."
+
+  building_ems:
+    label: "Building EMS optimization"
+    capex_thb_per_kw: 6500
+    fixed_om_fraction_of_capex: 0.03
+    lifetime_years: 10
+    annual_energy_delta_kwh_per_kw: -1200
+    evening_peak_delta_kw_per_kw: -0.55
+    estimate: true
+    source: "Screening value; replace with project bids."
+
+  rooftop_solar_self_use:
+    label: "Rooftop solar self-use"
+    capex_thb_per_kw: 32760
+    fixed_om_fraction_of_capex: 0.015
+    lifetime_years: 25
+    annual_energy_delta_kwh_per_kw: -1450
+    evening_peak_delta_kw_per_kw: -0.08
+    estimate: true
+    source: "IEEFA rooftop CAPEX ~USD936/kW converted at 35 THB/USD; evening peak effect small."
+
+  bess_shift:
+    label: "Battery storage (4h) for peak shift"
+    capex_thb_per_kw: 42000
+    fixed_om_fraction_of_capex: 0.02
+    lifetime_years: 15
+    annual_energy_delta_kwh_per_kw: 0
+    evening_peak_delta_kw_per_kw: -0.9
+    roundtrip_efficiency: 0.88
+    estimate: true
+    source: "Indicative 2026 utility/commercial BESS screening cost."
+
+  tou_demand_response:
+    label: "TOU + automated demand response"
+    capex_thb_per_kw: 4200
+    fixed_om_fraction_of_capex: 0.04
+    lifetime_years: 8
+    annual_energy_delta_kwh_per_kw: -350
+    evening_peak_delta_kw_per_kw: -0.65
+    estimate: true
+    source: "Pilot-scale DR aggregator program benchmark."
+
+  distribution_loss_reduction:
+    label: "Distribution loss reduction"
+    capex_thb_per_kw: 28000
+    fixed_om_fraction_of_capex: 0.02
+    lifetime_years: 20
+    annual_energy_delta_kwh_per_kw: -900
+    evening_peak_delta_kw_per_kw: -0.2
+    estimate: true
+    source: "Distribution reinforcement + anti-theft + smart metering blended estimate."
+
+  new_ccgt_lng:
+    label: "New CCGT on LNG"
+    capex_thb_per_kw: 31000
+    fixed_om_fraction_of_capex: 0.03
+    lifetime_years: 30
+    annual_energy_delta_kwh_per_kw: 4200
+    evening_peak_delta_kw_per_kw: -1.0
+    estimate: true
+    source: "Generic modern CCGT overnight cost + utilization screening."
+
+  smr:
+    label: "SMR"
+    capex_thb_per_kw: 185000
+    fixed_om_fraction_of_capex: 0.04
+    lifetime_years: 40
+    annual_energy_delta_kwh_per_kw: 7300
+    evening_peak_delta_kw_per_kw: -0.95
+    estimate: true
+    source: "International first-of-a-kind SMR cost ranges; Thailand value not yet public."
+
+  imported_hydro:
+    label: "Imported hydro (PPA)"
+    capex_thb_per_kw: 22000
+    fixed_om_fraction_of_capex: 0.025
+    lifetime_years: 30
+    annual_energy_delta_kwh_per_kw: 4300
+    evening_peak_delta_kw_per_kw: -0.7
+    estimate: true
+    source: "Indicative cross-border hydro PPA equivalent capacity cost."
+
+hourly_model:
+  representative_year: 2024
+  data_centre_peak_2037_gw: 8.8
+  data_centre_load_factor:
+    value: 0.92
+    estimate: true
+    source: "Hyperscale data-centre operations are typically high load-factor."
+  data_centre_evening_peak_coincidence:
+    value: 0.95
+    estimate: true
+    source: "IT load assumed near-baseload with slight cooling-related uplift."

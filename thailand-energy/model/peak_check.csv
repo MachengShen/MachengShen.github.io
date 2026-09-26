@@ -1,0 +1,8 @@
+option,MW_per_MW_nameplate_at_evening_peak,basis
+Rooftop solar (no storage),0.0,peak at 20:50-20:56 is after sunset (EGAT AR2024; IEEFA)
+BESS,1.0,full rated power if dispatched at peak
+AC efficiency (residential),,needs hourly end-use data: residential AC evening share unknown -> GAP
+AC efficiency / controls (hotels),,"hotel AC runs ~24h (Tangon 2018) -> high coincidence, magnitude unknown"
+Demand response,1.0,by design if called at peak; EGAT pilot 50 MW
+Grid loss reduction,,"losses scale ~ with load^2, so peak-hour benefit > average; no Thai hourly loss data"
+New CCGT / SMR,1.0,firm capacity; SMR earliest 2037

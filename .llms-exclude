@@ -27,3 +27,5 @@ reports/ccd-hcloud-habitat-lens/index.html   # withdrawn tombstone (wrong entity
 reports/habitat-intelligence-lens/index.html # WeChat desk lens for social distribution; outside intellectual index until externally cold-read (same doctrine as long-term-memory/)
 reports/endogenous-objectives/index.html     # public desk map / tech-report landing for social handoff; outside intellectual index until cold-read
 sophon/logo-sophon.png                 # interim brand mark asset for /sophon/ landing; not a standalone publication
+thailand-energy/*                     # Thailand power/AC-efficiency policy research brief for a partner handoff (public sources only); outside the theory intellectual index, same doctrine as reports/
+thailand-energy/**                    # data, model scripts and institution tables supporting the brief above; not standalone claims

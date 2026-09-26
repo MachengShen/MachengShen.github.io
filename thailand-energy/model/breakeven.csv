@@ -1,0 +1,7 @@
+benchmark,THB_per_kWh,measure_life_yr,max_upfront_THB_per_annual_kWh_saved
+avg retail tariff,3.95,5,16.64
+avg retail tariff,3.95,10,29.07
+avg retail tariff,3.95,15,38.36
+TOU peak rate,5.1135,5,21.54
+TOU peak rate,5.1135,10,37.64
+TOU peak rate,5.1135,15,49.66

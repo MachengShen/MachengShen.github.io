@@ -1,0 +1,44 @@
+discount_rate,option,basis,THB_per_kWh,note
+0.03,AC 12k Btu/h: buy best-available instead of typical (at replacement),saved,1.93,saves 1413 kWh/yr/unit @ 2920 h/yr
+0.03,"AC 12k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,3.05,upper bound; hotels run more hours -> lower cost
+0.03,"AC 12k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,1.52,hours doubled = assumption
+0.03,AC 24k Btu/h: buy best-available instead of typical (at replacement),saved,0.81,saves 2196 kWh/yr/unit @ 2920 h/yr
+0.03,"AC 24k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,2.34,upper bound; hotels run more hours -> lower cost
+0.03,"AC 24k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,1.17,hours doubled = assumption
+0.03,Rooftop solar (10kw residential capex),supplied,1.23,daytime only; 0 MW at 20:00-21:00 peak
+0.03,Rooftop solar (5kw residential capex),supplied,1.48,daytime only; 0 MW at 20:00-21:00 peak
+0.03,"New CCGT on LNG (HR 7137, LNG $10.5)",supplied,2.89,fuel 2.49 + capital 0.40 (CF 0.5); excl. fixed O&M
+0.03,"New CCGT on LNG (HR 7137, LNG $21.0)",supplied,5.38,fuel 4.98 + capital 0.40 (CF 0.5); excl. fixed O&M
+0.03,"New CCGT on LNG (HR 7903, LNG $10.5)",supplied,3.16,fuel 2.75 + capital 0.40 (CF 0.5); excl. fixed O&M
+0.03,"New CCGT on LNG (HR 7903, LNG $21.0)",supplied,5.91,fuel 5.51 + capital 0.40 (CF 0.5); excl. fixed O&M
+0.03,"BESS (4h-class, BNEF global turnkey price) - storage adder per kWh discharged",shifted,1.38,add cost of charging energy; Thai installed cost unknown
+0.06,AC 12k Btu/h: buy best-available instead of typical (at replacement),saved,2.25,saves 1413 kWh/yr/unit @ 2920 h/yr
+0.06,"AC 12k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,3.56,upper bound; hotels run more hours -> lower cost
+0.06,"AC 12k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,1.78,hours doubled = assumption
+0.06,AC 24k Btu/h: buy best-available instead of typical (at replacement),saved,0.94,saves 2196 kWh/yr/unit @ 2920 h/yr
+0.06,"AC 24k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,2.73,upper bound; hotels run more hours -> lower cost
+0.06,"AC 24k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,1.37,hours doubled = assumption
+0.06,Rooftop solar (10kw residential capex),supplied,1.61,daytime only; 0 MW at 20:00-21:00 peak
+0.06,Rooftop solar (5kw residential capex),supplied,1.93,daytime only; 0 MW at 20:00-21:00 peak
+0.06,"New CCGT on LNG (HR 7137, LNG $10.5)",supplied,3.04,fuel 2.49 + capital 0.55 (CF 0.5); excl. fixed O&M
+0.06,"Existing under-used gas plant, fuel only (HR 7137, LNG $10.5)",supplied,2.49,capacity already paid via availability payments
+0.06,"New CCGT on LNG (HR 7137, LNG $21.0)",supplied,5.52,fuel 4.98 + capital 0.55 (CF 0.5); excl. fixed O&M
+0.06,"Existing under-used gas plant, fuel only (HR 7137, LNG $21.0)",supplied,4.98,capacity already paid via availability payments
+0.06,"New CCGT on LNG (HR 7903, LNG $10.5)",supplied,3.3,fuel 2.75 + capital 0.55 (CF 0.5); excl. fixed O&M
+0.06,"Existing under-used gas plant, fuel only (HR 7903, LNG $10.5)",supplied,2.75,capacity already paid via availability payments
+0.06,"New CCGT on LNG (HR 7903, LNG $21.0)",supplied,6.06,fuel 5.51 + capital 0.55 (CF 0.5); excl. fixed O&M
+0.06,"Existing under-used gas plant, fuel only (HR 7903, LNG $21.0)",supplied,5.51,capacity already paid via availability payments
+0.06,"BESS (4h-class, BNEF global turnkey price) - storage adder per kWh discharged",shifted,1.64,add cost of charging energy; Thai installed cost unknown
+0.1,AC 12k Btu/h: buy best-available instead of typical (at replacement),saved,2.72,saves 1413 kWh/yr/unit @ 2920 h/yr
+0.1,"AC 12k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,4.29,upper bound; hotels run more hours -> lower cost
+0.1,"AC 12k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,2.14,hours doubled = assumption
+0.1,AC 24k Btu/h: buy best-available instead of typical (at replacement),saved,1.14,saves 2196 kWh/yr/unit @ 2920 h/yr
+0.1,"AC 24k Btu/h: early retrofit (full new-unit cost, residential hours)",saved,3.29,upper bound; hotels run more hours -> lower cost
+0.1,"AC 24k Btu/h: early retrofit, 2x hours (hotel-like, ASSUMPTION)",saved,1.65,hours doubled = assumption
+0.1,Rooftop solar (10kw residential capex),supplied,2.19,daytime only; 0 MW at 20:00-21:00 peak
+0.1,Rooftop solar (5kw residential capex),supplied,2.63,daytime only; 0 MW at 20:00-21:00 peak
+0.1,"New CCGT on LNG (HR 7137, LNG $10.5)",supplied,3.26,fuel 2.49 + capital 0.77 (CF 0.5); excl. fixed O&M
+0.1,"New CCGT on LNG (HR 7137, LNG $21.0)",supplied,5.75,fuel 4.98 + capital 0.77 (CF 0.5); excl. fixed O&M
+0.1,"New CCGT on LNG (HR 7903, LNG $10.5)",supplied,3.53,fuel 2.75 + capital 0.77 (CF 0.5); excl. fixed O&M
+0.1,"New CCGT on LNG (HR 7903, LNG $21.0)",supplied,6.28,fuel 5.51 + capital 0.77 (CF 0.5); excl. fixed O&M
+0.1,"BESS (4h-class, BNEF global turnkey price) - storage adder per kWh discharged",shifted,2.02,add cost of charging energy; Thai installed cost unknown

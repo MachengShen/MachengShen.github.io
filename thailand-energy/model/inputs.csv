@@ -1,0 +1,33 @@
+param,value,unit,status,source
+fx_thb_per_usd,33.2,THB/USD,verified-snippet,BOT weighted-average interbank 33.206 on 2026-09-23 (thaifxrates.net/ER_PDF_EN.pdf; BOT app)
+discount_rate,0.06,-,ASSUMPTION,real discount rate chosen for comparison; sensitivity 0.03/0.10 in script
+retail_avg_tariff,3.95,THB/kWh,verified,ERC Sep-Dec 2026 average excl VAT (Thairath 2026-07-23)
+tou_peak,5.1135,THB/kWh,verified,IEEFA rooftop report Aug 2026 Appx II
+tou_offpeak,2.6037,THB/kWh,verified,IEEFA rooftop report Aug 2026 Appx II
+lng_price_low,10.5,USD/MMBtu,verified,IEEFA Aug 2026: pre-Hormuz Asian LNG level
+lng_price_high,21.0,USD/MMBtu,verified,IEEFA Aug 2026: Asian LNG >USD21 in Jul 2026
+ccgt_heat_rate,7137,Btu/kWh,ASSUMPTION,modern Thai combined-cycle benchmark (2015 public rating document; search-snippet only); EGAT fleet avg 7903 (verified EGAT AR2024) used as upper sensitivity
+egat_fleet_heat_rate,7903,Btu/kWh,verified,EGAT Annual Report 2024 net heat rate
+ccgt_capex,923,USD/kW,verified,IEEFA gas report Mar 2026 citing EGAT tender estimate (THB20.3bn)
+ccgt_capacity_factor,0.5,-,ASSUMPTION,planning-style CF; actual 2025 IPP CFs much lower (IEEFA: 7 IPPs <10%)
+ccgt_life,25,yr,ASSUMPTION,
+utility_solar_price,2.16,THB/kWh,verified,Ministry of Energy figure as reported by Nation 2026-08-28 (not an LCOE study)
+rooftop_capex_5kw,30000,THB/kWp,verified,IEEFA Aug 2026 Appx II (5 kW residential)
+rooftop_capex_10kw,25000,THB/kWp,verified,IEEFA Aug 2026 Appx II (10 kW residential)
+rooftop_yield,1370,kWh/kWp/yr,derived,IEEFA Appx II: 5 kW system 571 kWh/month (Global Solar Atlas) -> 571*12/5
+rooftop_om_frac,0.01,1/yr of capex,ASSUMPTION,
+rooftop_life,25,yr,ASSUMPTION,
+ac_hours_res,2920,h/yr,verified,CLASP 2019 Thailand RAC assessment (manufacturer estimates)
+ac_life,10.5,yr,verified,CLASP 2019
+ac12_base_seer,13.0,Btu/Wh,verified,CLASP Table 9 (labeled 12k most popular)
+ac12_base_price,14039,THB,verified,CLASP Table 9
+ac12_bat_seer,27.33,Btu/Wh,verified,CLASP Table 12
+ac12_bat_price,38328,THB,verified,CLASP Table 12
+ac24_base_seer,13.2,Btu/Wh,verified,CLASP Table 9
+ac24_base_price,29944,THB,verified,CLASP Table 9
+ac24_bat_seer,22.51,Btu/Wh,verified,CLASP Table 12
+ac24_bat_price,45724,THB,verified,CLASP Table 12
+bess_capex,117,USD/kWh,verified-snippet,BNEF Dec 2025 global avg turnkey BESS (energy-storage.news); Thai installed cost not found
+bess_rte,0.85,-,verified,Ember 2025 Thailand report assumption
+bess_life_cycles,4000,cycles,ASSUMPTION,
+bess_cycles_per_year,330,cycles/yr,ASSUMPTION,

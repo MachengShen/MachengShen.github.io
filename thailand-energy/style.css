@@ -1,0 +1,28 @@
+:root{--ink:#1d2327;--muted:#5b6770;--accent:#1f6fb2;--bg:#fff;--soft:#f4f7fa;--line:#dde3e8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+header{background:#0f3350;color:#fff;padding:2rem 1rem 1.5rem}
+header .wrap,main,footer .wrap{max-width:980px;margin:0 auto;padding:0 1rem}
+header h1{margin:.2rem 0 .4rem;font-size:1.8rem;line-height:1.25}
+header p{margin:.2rem 0;color:#d6e4f0}
+.lang{float:right;background:#fff;color:#0f3350;padding:.25rem .7rem;border-radius:4px;text-decoration:none;font-weight:600}
+nav{background:var(--soft);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+nav .wrap{max-width:980px;margin:0 auto;padding:.4rem 1rem;display:flex;flex-wrap:wrap;gap:.2rem 1rem;font-size:.9rem}
+nav a{color:var(--accent);text-decoration:none}
+h2{margin-top:2.4rem;border-bottom:2px solid var(--line);padding-bottom:.3rem}
+h3{margin-top:1.6rem}
+table{border-collapse:collapse;width:100%;margin:.8rem 0;font-size:.92rem}
+th,td{border:1px solid var(--line);padding:.4rem .5rem;vertical-align:top;text-align:left}
+th{background:var(--soft)}
+td.num{text-align:right;white-space:nowrap}
+.key{background:#eef6ff;border-left:4px solid var(--accent);padding:.6rem 1rem;margin:1rem 0}
+.key li{margin:.45rem 0}
+.note{background:#fff8e6;border-left:4px solid #e0a800;padding:.6rem 1rem;margin:1rem 0;font-size:.93rem}
+.tag{display:inline-block;font-size:.72rem;padding:0 .35rem;border-radius:3px;margin-left:.2rem;vertical-align:middle;white-space:nowrap}
+.v{background:#e3f4e8;color:#1e6b35}.d{background:#e7eefc;color:#274b9f}.e{background:#fdeaea;color:#9b2c2c}.r{background:#fff1d6;color:#8a5a00}
+figure{margin:1rem 0}figure img{width:100%;height:auto;border:1px solid var(--line)}
+figcaption{font-size:.85rem;color:var(--muted)}
+.refs li{margin:.25rem 0;font-size:.88rem;word-break:break-word}
+code{background:var(--soft);padding:0 .25rem;border-radius:3px}
+footer{margin-top:3rem;background:var(--soft);border-top:1px solid var(--line);padding:1.2rem 0;font-size:.85rem;color:var(--muted)}
+@media (max-width:640px){header h1{font-size:1.4rem}table{font-size:.82rem;display:block;overflow-x:auto}}

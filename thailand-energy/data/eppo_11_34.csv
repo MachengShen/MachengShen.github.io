@@ -1,0 +1,3823 @@
+﻿Year,Month,Tariff,Quantity,UNIT
+2002,January,Residential (< 150),488.424223,GWh
+2002,January,Residential (> 150),1035.660954,GWh
+2002,January,Small  General,693.458475,GWh
+2002,January,Medium  General,1415.308196,GWh
+2002,January,Large General,2957.601319,GWh
+2002,January,Specific  Business,235.740123,GWh
+2002,January,Government & Nonprofit,246.117053,GWh
+2002,January,Agriculture Pumping,19.36733,GWh
+2002,January,Temporary,28.80745,GWh
+2002,January,Stand By Rate,0.67215,GWh
+2002,January,Interruptible Rate,0,GWh
+2002,January,Free of Charge,77.511626,GWh
+2002,January,Direct Customer,128.1361,GWh
+2002,February,Residential (< 150),509.544568,GWh
+2002,February,Residential (> 150),1087.921563,GWh
+2002,February,Small  General,719.099588,GWh
+2002,February,Medium  General,1405.784701,GWh
+2002,February,Large General,2797.007014,GWh
+2002,February,Specific  Business,237.757505,GWh
+2002,February,Government & Nonprofit,259.673866,GWh
+2002,February,Agriculture Pumping,25.541219,GWh
+2002,February,Temporary,30.761647,GWh
+2002,February,Stand By Rate,0.56836,GWh
+2002,February,Interruptible Rate,76.362734,GWh
+2002,February,Free of Charge,73.601203,GWh
+2002,February,Direct Customer,135.438377,GWh
+2002,March,Residential (< 150),596.52585,GWh
+2002,March,Residential (> 150),1245.535352,GWh
+2002,March,Small  General,816.166851,GWh
+2002,March,Medium  General,1663.900237,GWh
+2002,March,Large General,3199.417347,GWh
+2002,March,Specific  Business,277.07637,GWh
+2002,March,Government & Nonprofit,300.596615,GWh
+2002,March,Agriculture Pumping,24.229577,GWh
+2002,March,Temporary,30.616596,GWh
+2002,March,Stand By Rate,0.477401,GWh
+2002,March,Interruptible Rate,85.197681,GWh
+2002,March,Free of Charge,76.068583,GWh
+2002,March,Direct Customer,155.442558,GWh
+2002,April,Residential (< 150),661.996358,GWh
+2002,April,Residential (> 150),1386.724014,GWh
+2002,April,Small  General,863.480627,GWh
+2002,April,Medium  General,1573.977095,GWh
+2002,April,Large General,3013.990902,GWh
+2002,April,Specific  Business,290.302569,GWh
+2002,April,Government & Nonprofit,286.972177,GWh
+2002,April,Agriculture Pumping,23.081002,GWh
+2002,April,Temporary,34.013617,GWh
+2002,April,Stand By Rate,0.495873,GWh
+2002,April,Interruptible Rate,86.437952,GWh
+2002,April,Free of Charge,85.951362,GWh
+2002,April,Direct Customer,153.654537,GWh
+2002,May,Residential (< 150),652.222252,GWh
+2002,May,Residential (> 150),1337.649917,GWh
+2002,May,Small  General,883.57313,GWh
+2002,May,Medium  General,1669.527057,GWh
+2002,May,Large General,3229.906097,GWh
+2002,May,Specific  Business,277.9524,GWh
+2002,May,Government & Nonprofit,305.830666,GWh
+2002,May,Agriculture Pumping,14.897882,GWh
+2002,May,Temporary,34.06383,GWh
+2002,May,Stand By Rate,1.062218,GWh
+2002,May,Interruptible Rate,97.755807,GWh
+2002,May,Free of Charge,77.305921,GWh
+2002,May,Direct Customer,148.54727,GWh
+2002,June,Residential (< 150),588.045744,GWh
+2002,June,Residential (> 150),1330.563978,GWh
+2002,June,Small  General,855.439391,GWh
+2002,June,Medium  General,1643.717774,GWh
+2002,June,Large General,3205.805025,GWh
+2002,June,Specific  Business,264.298528,GWh
+2002,June,Government & Nonprofit,331.824559,GWh
+2002,June,Agriculture Pumping,13.931768,GWh
+2002,June,Temporary,33.677999,GWh
+2002,June,Stand By Rate,0.833832,GWh
+2002,June,Interruptible Rate,96.385825,GWh
+2002,June,Free of Charge,75.644181,GWh
+2002,June,Direct Customer,163.654224,GWh
+2002,July,Residential (< 150),587.175378,GWh
+2002,July,Residential (> 150),1355.786412,GWh
+2002,July,Small  General,852.014464,GWh
+2002,July,Medium  General,1682.320069,GWh
+2002,July,Large General,3302.144931,GWh
+2002,July,Specific  Business,276.586999,GWh
+2002,July,Government & Nonprofit,341.537835,GWh
+2002,July,Agriculture Pumping,23.056514,GWh
+2002,July,Temporary,32.581229,GWh
+2002,July,Stand By Rate,0.870528,GWh
+2002,July,Interruptible Rate,99.903891,GWh
+2002,July,Free of Charge,78.192417,GWh
+2002,July,Direct Customer,160.365817,GWh
+2002,August,Residential (< 150),573.119913,GWh
+2002,August,Residential (> 150),1308.853831,GWh
+2002,August,Small  General,830.148604,GWh
+2002,August,Medium  General,1639.224849,GWh
+2002,August,Large General,3312.680827,GWh
+2002,August,Specific  Business,275.154982,GWh
+2002,August,Government & Nonprofit,323.306597,GWh
+2002,August,Agriculture Pumping,17.182434,GWh
+2002,August,Temporary,34.515311,GWh
+2002,August,Stand By Rate,0.6825,GWh
+2002,August,Interruptible Rate,91.713118,GWh
+2002,August,Free of Charge,79.837121,GWh
+2002,August,Direct Customer,164.041046,GWh
+2002,September,Residential (< 150),543.055996,GWh
+2002,September,Residential (> 150),1262.871952,GWh
+2002,September,Small  General,811.13711,GWh
+2002,September,Medium  General,1605.842138,GWh
+2002,September,Large General,3263.961336,GWh
+2002,September,Specific  Business,253.596991,GWh
+2002,September,Government & Nonprofit,318.642682,GWh
+2002,September,Agriculture Pumping,5.487429,GWh
+2002,September,Temporary,33.715643,GWh
+2002,September,Stand By Rate,1.034,GWh
+2002,September,Interruptible Rate,86.654709,GWh
+2002,September,Free of Charge,80.79806,GWh
+2002,September,Direct Customer,161.031816,GWh
+2002,October,Residential (< 150),566.412767,GWh
+2002,October,Residential (> 150),1278.620121,GWh
+2002,October,Small  General,816.336117,GWh
+2002,October,Medium  General,1622.022301,GWh
+2002,October,Large General,3322.942148,GWh
+2002,October,Specific  Business,273.077753,GWh
+2002,October,Government & Nonprofit,313.211507,GWh
+2002,October,Agriculture Pumping,13.532049,GWh
+2002,October,Temporary,34.393821,GWh
+2002,October,Stand By Rate,0.73745,GWh
+2002,October,Interruptible Rate,145.318704,GWh
+2002,October,Free of Charge,83.212809,GWh
+2002,October,Direct Customer,159.005549,GWh
+2002,November,Residential (< 150),548.719807,GWh
+2002,November,Residential (> 150),1235.717289,GWh
+2002,November,Small  General,792.464497,GWh
+2002,November,Medium  General,1564.505578,GWh
+2002,November,Large General,3241.122534,GWh
+2002,November,Specific  Business,253.371309,GWh
+2002,November,Government & Nonprofit,308.918156,GWh
+2002,November,Agriculture Pumping,2.669416,GWh
+2002,November,Temporary,35.518615,GWh
+2002,November,Stand By Rate,1.87664,GWh
+2002,November,Interruptible Rate,149.440491,GWh
+2002,November,Free of Charge,83.760401,GWh
+2002,November,Direct Customer,150.850018,GWh
+2002,December,Residential (< 150),545.585061,GWh
+2002,December,Residential (> 150),1236.441118,GWh
+2002,December,Small  General,817.444216,GWh
+2002,December,Medium  General,1585.488192,GWh
+2002,December,Large General,3107.605172,GWh
+2002,December,Specific  Business,255.803693,GWh
+2002,December,Government & Nonprofit,298.549872,GWh
+2002,December,Agriculture Pumping,9.154013,GWh
+2002,December,Temporary,33.955965,GWh
+2002,December,Stand By Rate,0.69109,GWh
+2002,December,Interruptible Rate,143.835011,GWh
+2002,December,Free of Charge,87.40452,GWh
+2002,December,Direct Customer,148.18468,GWh
+2003,January,Residential (< 150),533.049931,GWh
+2003,January,Residential (> 150),1154.410863,GWh
+2003,January,Small  General,757.776958,GWh
+2003,January,Medium  General,1498.879855,GWh
+2003,January,Large General,3200.093018,GWh
+2003,January,Specific  Business,252.604974,GWh
+2003,January,Government & Nonprofit,261.131776,GWh
+2003,January,Agriculture Pumping,19.636697,GWh
+2003,January,Temporary,34.093793,GWh
+2003,January,Stand By Rate,3.60596,GWh
+2003,January,Interruptible Rate,143.886673,GWh
+2003,January,Free of Charge,87.684362,GWh
+2003,January,Direct Customer,168.117457,GWh
+2003,February,Residential (< 150),503.194307,GWh
+2003,February,Residential (> 150),1143.631608,GWh
+2003,February,Small  General,758.889416,GWh
+2003,February,Medium  General,1471.806191,GWh
+2003,February,Large General,3085.429787,GWh
+2003,February,Specific  Business,255.058476,GWh
+2003,February,Government & Nonprofit,268.101641,GWh
+2003,February,Agriculture Pumping,26.147801,GWh
+2003,February,Temporary,33.083225,GWh
+2003,February,Stand By Rate,1.31968,GWh
+2003,February,Interruptible Rate,142.221455,GWh
+2003,February,Free of Charge,83.875033,GWh
+2003,February,Direct Customer,133.042975,GWh
+2003,March,Residential (< 150),599.286412,GWh
+2003,March,Residential (> 150),1361.970506,GWh
+2003,March,Small  General,876.750098,GWh
+2003,March,Medium  General,1729.986069,GWh
+2003,March,Large General,3520.838853,GWh
+2003,March,Specific  Business,286.378047,GWh
+2003,March,Government & Nonprofit,303.719248,GWh
+2003,March,Agriculture Pumping,25.139998,GWh
+2003,March,Temporary,36.581873,GWh
+2003,March,Stand By Rate,2.738169,GWh
+2003,March,Interruptible Rate,168.873124,GWh
+2003,March,Free of Charge,88.26729,GWh
+2003,March,Direct Customer,153.077635,GWh
+2003,April,Residential (< 150),659.947888,GWh
+2003,April,Residential (> 150),1481.579358,GWh
+2003,April,Small  General,903.016093,GWh
+2003,April,Medium  General,1567.723371,GWh
+2003,April,Large General,3243.300864,GWh
+2003,April,Specific  Business,283.084558,GWh
+2003,April,Government & Nonprofit,295.793441,GWh
+2003,April,Agriculture Pumping,22.416649,GWh
+2003,April,Temporary,34.88389,GWh
+2003,April,Stand By Rate,2.284616,GWh
+2003,April,Interruptible Rate,139.459642,GWh
+2003,April,Free of Charge,88.265244,GWh
+2003,April,Direct Customer,138.65085,GWh
+2003,May,Residential (< 150),677.037024,GWh
+2003,May,Residential (> 150),1511.320974,GWh
+2003,May,Small  General,944.976583,GWh
+2003,May,Medium  General,1746.589197,GWh
+2003,May,Large General,3517.593952,GWh
+2003,May,Specific  Business,276.568477,GWh
+2003,May,Government & Nonprofit,312.09514,GWh
+2003,May,Agriculture Pumping,19.556591,GWh
+2003,May,Temporary,38.43992,GWh
+2003,May,Stand By Rate,2.350784,GWh
+2003,May,Interruptible Rate,152.273107,GWh
+2003,May,Free of Charge,88.506464,GWh
+2003,May,Direct Customer,149.34225,GWh
+2003,June,Residential (< 150),613.141369,GWh
+2003,June,Residential (> 150),1433.08585,GWh
+2003,June,Small  General,911.957596,GWh
+2003,June,Medium  General,1710.294628,GWh
+2003,June,Large General,3453.579885,GWh
+2003,June,Specific  Business,262.478128,GWh
+2003,June,Government & Nonprofit,334.414138,GWh
+2003,June,Agriculture Pumping,15.619719,GWh
+2003,June,Temporary,36.365326,GWh
+2003,June,Stand By Rate,0.457123,GWh
+2003,June,Interruptible Rate,137.480987,GWh
+2003,June,Free of Charge,90.09514,GWh
+2003,June,Direct Customer,146.624973,GWh
+2003,July,Residential (< 150),591.396611,GWh
+2003,July,Residential (> 150),1391.058087,GWh
+2003,July,Small  General,902.172487,GWh
+2003,July,Medium  General,1704.979957,GWh
+2003,July,Large General,3467.375522,GWh
+2003,July,Specific  Business,269.693042,GWh
+2003,July,Government & Nonprofit,350.393658,GWh
+2003,July,Agriculture Pumping,18.464063,GWh
+2003,July,Temporary,33.908803,GWh
+2003,July,Stand By Rate,0.862002,GWh
+2003,July,Interruptible Rate,128.266389,GWh
+2003,July,Free of Charge,90.385741,GWh
+2003,July,Direct Customer,139.892329,GWh
+2003,August,Residential (< 150),599.052006,GWh
+2003,August,Residential (> 150),1453.164121,GWh
+2003,August,Small  General,871.598621,GWh
+2003,August,Medium  General,1748.698865,GWh
+2003,August,Large General,3618.020897,GWh
+2003,August,Specific  Business,282.331792,GWh
+2003,August,Government & Nonprofit,344.037976,GWh
+2003,August,Agriculture Pumping,20.433754,GWh
+2003,August,Temporary,36.773874,GWh
+2003,August,Stand By Rate,1.598843,GWh
+2003,August,Interruptible Rate,129.196218,GWh
+2003,August,Free of Charge,88.253298,GWh
+2003,August,Direct Customer,150.468616,GWh
+2003,September,Residential (< 150),567.479719,GWh
+2003,September,Residential (> 150),1349.155854,GWh
+2003,September,Small  General,853.473565,GWh
+2003,September,Medium  General,1716.208263,GWh
+2003,September,Large General,3444.349752,GWh
+2003,September,Specific  Business,258.515924,GWh
+2003,September,Government & Nonprofit,329.68383,GWh
+2003,September,Agriculture Pumping,9.606603,GWh
+2003,September,Temporary,36.197156,GWh
+2003,September,Stand By Rate,1.931424,GWh
+2003,September,Interruptible Rate,140.207545,GWh
+2003,September,Free of Charge,88.41882,GWh
+2003,September,Direct Customer,145.311864,GWh
+2003,October,Residential (< 150),603.121122,GWh
+2003,October,Residential (> 150),1407.944336,GWh
+2003,October,Small  General,896.053965,GWh
+2003,October,Medium  General,1748.284373,GWh
+2003,October,Large General,3629.865812,GWh
+2003,October,Specific  Business,273.245358,GWh
+2003,October,Government & Nonprofit,325.605981,GWh
+2003,October,Agriculture Pumping,14.072119,GWh
+2003,October,Temporary,37.802247,GWh
+2003,October,Stand By Rate,1.556177,GWh
+2003,October,Interruptible Rate,135.986442,GWh
+2003,October,Free of Charge,95.623439,GWh
+2003,October,Direct Customer,151.073694,GWh
+2003,November,Residential (< 150),558.712305,GWh
+2003,November,Residential (> 150),1380.309822,GWh
+2003,November,Small  General,866.166109,GWh
+2003,November,Medium  General,1747.740041,GWh
+2003,November,Large General,3559.045973,GWh
+2003,November,Specific  Business,276.90657,GWh
+2003,November,Government & Nonprofit,334.804228,GWh
+2003,November,Agriculture Pumping,17.781716,GWh
+2003,November,Temporary,36.414448,GWh
+2003,November,Stand By Rate,2.538233,GWh
+2003,November,Interruptible Rate,123.518135,GWh
+2003,November,Free of Charge,95.443449,GWh
+2003,November,Direct Customer,151.206236,GWh
+2003,December,Residential (< 150),533.617451,GWh
+2003,December,Residential (> 150),1222.878444,GWh
+2003,December,Small  General,799.762059,GWh
+2003,December,Medium  General,1615.993185,GWh
+2003,December,Large General,3401.611306,GWh
+2003,December,Specific  Business,250.893063,GWh
+2003,December,Government & Nonprofit,241.322959,GWh
+2003,December,Agriculture Pumping,19.003434,GWh
+2003,December,Temporary,38.634746,GWh
+2003,December,Stand By Rate,1.167437,GWh
+2003,December,Interruptible Rate,137.5371,GWh
+2003,December,Free of Charge,99.055659,GWh
+2003,December,Direct Customer,164.801168,GWh
+2004,January,Residential (< 150),547.190106,GWh
+2004,January,Residential (> 150),1207.822933,GWh
+2004,January,Small  General,794.73033646,GWh
+2004,January,Medium  General,1562.179978,GWh
+2004,January,Large General,3446.680219,GWh
+2004,January,Specific  Business,271.667465,GWh
+2004,January,Government & Nonprofit,273.677472,GWh
+2004,January,Agriculture Pumping,27.698104,GWh
+2004,January,Temporary,34.728061,GWh
+2004,January,Stand By Rate,3.10448,GWh
+2004,January,Interruptible Rate,157.576253,GWh
+2004,January,Free of Charge,98.967957,GWh
+2004,January,Direct Customer,143.530598,GWh
+2004,February,Residential (< 150),523.790884,GWh
+2004,February,Residential (> 150),1190.914675,GWh
+2004,February,Small  General,790.586456,GWh
+2004,February,Medium  General,1537.362753,GWh
+2004,February,Large General,3633.863459,GWh
+2004,February,Specific  Business,256.780186,GWh
+2004,February,Government & Nonprofit,280.41625,GWh
+2004,February,Agriculture Pumping,25.495165,GWh
+2004,February,Temporary,38.280023,GWh
+2004,February,Stand By Rate,0.121565,GWh
+2004,February,Interruptible Rate,143.072429,GWh
+2004,February,Free of Charge,98.16387,GWh
+2004,February,Direct Customer,155.30722534,GWh
+2004,March,Residential (< 150),641.263768,GWh
+2004,March,Residential (> 150),1453.126804,GWh
+2004,March,Small  General,930.870654,GWh
+2004,March,Medium  General,1745.18886084,GWh
+2004,March,Large General,3964.52415,GWh
+2004,March,Specific  Business,298.185644,GWh
+2004,March,Government & Nonprofit,314.914573,GWh
+2004,March,Agriculture Pumping,33.288955,GWh
+2004,March,Temporary,41.189165,GWh
+2004,March,Stand By Rate,0.967416,GWh
+2004,March,Interruptible Rate,150.322505,GWh
+2004,March,Free of Charge,99.630698,GWh
+2004,March,Direct Customer,159.101138,GWh
+2004,April,Residential (< 150),714.534384,GWh
+2004,April,Residential (> 150),1639.97337,GWh
+2004,April,Small  General,983.541366,GWh
+2004,April,Medium  General,1639.838183,GWh
+2004,April,Large General,3659.73331,GWh
+2004,April,Specific  Business,317.786827,GWh
+2004,April,Government & Nonprofit,320.117339,GWh
+2004,April,Agriculture Pumping,29.415242,GWh
+2004,April,Temporary,40.777789,GWh
+2004,April,Stand By Rate,6.987015,GWh
+2004,April,Interruptible Rate,140.968925,GWh
+2004,April,Free of Charge,98.54825,GWh
+2004,April,Direct Customer,138.46583,GWh
+2004,May,Residential (< 150),703.079885,GWh
+2004,May,Residential (> 150),1594.646613,GWh
+2004,May,Small  General,990.489011,GWh
+2004,May,Medium  General,1819.069548,GWh
+2004,May,Large General,3975.556576,GWh
+2004,May,Specific  Business,305.63912,GWh
+2004,May,Government & Nonprofit,326.183651,GWh
+2004,May,Agriculture Pumping,16.238015,GWh
+2004,May,Temporary,42.871768,GWh
+2004,May,Stand By Rate,2.026649,GWh
+2004,May,Interruptible Rate,141.11256,GWh
+2004,May,Free of Charge,98.757508,GWh
+2004,May,Direct Customer,154.891047,GWh
+2004,June,Residential (< 150),617.655089,GWh
+2004,June,Residential (> 150),1471.072958,GWh
+2004,June,Small  General,934.301518,GWh
+2004,June,Medium  General,1680.575203,GWh
+2004,June,Large General,3873.24145,GWh
+2004,June,Specific  Business,274.254984,GWh
+2004,June,Government & Nonprofit,346.461176,GWh
+2004,June,Agriculture Pumping,10.102518,GWh
+2004,June,Temporary,40.880217,GWh
+2004,June,Stand By Rate,1.704784,GWh
+2004,June,Interruptible Rate,144.799935,GWh
+2004,June,Free of Charge,97.605021,GWh
+2004,June,Direct Customer,164.084975,GWh
+2004,July,Residential (< 150),606.080972,GWh
+2004,July,Residential (> 150),1525.010058,GWh
+2004,July,Small  General,949.259557,GWh
+2004,July,Medium  General,1783.920791,GWh
+2004,July,Large General,3997.505079,GWh
+2004,July,Specific  Business,300.970679,GWh
+2004,July,Government & Nonprofit,340.566135,GWh
+2004,July,Agriculture Pumping,20.921656,GWh
+2004,July,Temporary,42.975975,GWh
+2004,July,Stand By Rate,4.923708,GWh
+2004,July,Interruptible Rate,156.549451,GWh
+2004,July,Free of Charge,99.005148,GWh
+2004,July,Direct Customer,173.39355,GWh
+2004,August,Residential (< 150),598.856976,GWh
+2004,August,Residential (> 150),1496.097627,GWh
+2004,August,Small  General,931.747097,GWh
+2004,August,Medium  General,1724.30204,GWh
+2004,August,Large General,3990.149374,GWh
+2004,August,Specific  Business,300.438598,GWh
+2004,August,Government & Nonprofit,339.519901,GWh
+2004,August,Agriculture Pumping,7.716441,GWh
+2004,August,Temporary,41.083686,GWh
+2004,August,Stand By Rate,3.286998,GWh
+2004,August,Interruptible Rate,132.119565,GWh
+2004,August,Free of Charge,99.247854,GWh
+2004,August,Direct Customer,158.853104,GWh
+2004,September,Residential (< 150),609.152888,GWh
+2004,September,Residential (> 150),1475.789099,GWh
+2004,September,Small  General,941.584914,GWh
+2004,September,Medium  General,1670.460823,GWh
+2004,September,Large General,4032.739593,GWh
+2004,September,Specific  Business,280.455676,GWh
+2004,September,Government & Nonprofit,347.969974,GWh
+2004,September,Agriculture Pumping,10.976238,GWh
+2004,September,Temporary,44.808542,GWh
+2004,September,Stand By Rate,6.754593,GWh
+2004,September,Interruptible Rate,124.904596,GWh
+2004,September,Free of Charge,98.586316,GWh
+2004,September,Direct Customer,161.744019,GWh
+2004,October,Residential (< 150),604.021322,GWh
+2004,October,Residential (> 150),1487.859721,GWh
+2004,October,Small  General,961.437491,GWh
+2004,October,Medium  General,1700.697488,GWh
+2004,October,Large General,4154.745484,GWh
+2004,October,Specific  Business,294.404538,GWh
+2004,October,Government & Nonprofit,322.45912,GWh
+2004,October,Agriculture Pumping,24.203817,GWh
+2004,October,Temporary,43.388266,GWh
+2004,October,Stand By Rate,4.612551,GWh
+2004,October,Interruptible Rate,180.457416,GWh
+2004,October,Free of Charge,99.428133,GWh
+2004,October,Direct Customer,165.014088,GWh
+2004,November,Residential (< 150),594.927249,GWh
+2004,November,Residential (> 150),1468.302742,GWh
+2004,November,Small  General,958.806118,GWh
+2004,November,Medium  General,1671.923895,GWh
+2004,November,Large General,3967.54326,GWh
+2004,November,Specific  Business,292.076713,GWh
+2004,November,Government & Nonprofit,319.741012,GWh
+2004,November,Agriculture Pumping,22.970197,GWh
+2004,November,Temporary,44.055683,GWh
+2004,November,Stand By Rate,5.722716,GWh
+2004,November,Interruptible Rate,161.98836,GWh
+2004,November,Free of Charge,97.769025,GWh
+2004,November,Direct Customer,126.624817,GWh
+2004,December,Residential (< 150),550.540105,GWh
+2004,December,Residential (> 150),1216.612657,GWh
+2004,December,Small  General,865.92137,GWh
+2004,December,Medium  General,1571.561021,GWh
+2004,December,Large General,3800.8564,GWh
+2004,December,Specific  Business,266.791258,GWh
+2004,December,Government & Nonprofit,282.446278,GWh
+2004,December,Agriculture Pumping,21.73577,GWh
+2004,December,Temporary,40.248162,GWh
+2004,December,Stand By Rate,1.567188,GWh
+2004,December,Interruptible Rate,184.079236,GWh
+2004,December,Free of Charge,98.378394,GWh
+2004,December,Direct Customer,160.48904,GWh
+2005,January,Residential (< 150),548.597109,GWh
+2005,January,Residential (> 150),1209.535996,GWh
+2005,January,Small  General,855.129106,GWh
+2005,January,Medium  General,1529.541441,GWh
+2005,January,Large General,3892.322772,GWh
+2005,January,Specific  Business,257.169118,GWh
+2005,January,Government & Nonprofit,270.918216,GWh
+2005,January,Agriculture Pumping,29.310106,GWh
+2005,January,Temporary,40.222976,GWh
+2005,January,Stand By Rate,8.728846,GWh
+2005,January,Interruptible Rate,187.633875,GWh
+2005,January,Free of Charge,109.007609,GWh
+2005,January,Direct Customer,153.530179,GWh
+2005,February,Residential (< 150),575.827701,GWh
+2005,February,Residential (> 150),1349.295817,GWh
+2005,February,Small  General,920.302917,GWh
+2005,February,Medium  General,1569.520365,GWh
+2005,February,Large General,3791.256087,GWh
+2005,February,Specific  Business,278.733308,GWh
+2005,February,Government & Nonprofit,303.927074,GWh
+2005,February,Agriculture Pumping,32.946426,GWh
+2005,February,Temporary,44.537263,GWh
+2005,February,Stand By Rate,5.761752,GWh
+2005,February,Interruptible Rate,158.272169,GWh
+2005,February,Free of Charge,97.472907,GWh
+2005,February,Direct Customer,152.040642,GWh
+2005,March,Residential (< 150),654.415432,GWh
+2005,March,Residential (> 150),1474.521291,GWh
+2005,March,Small  General,1003.356064,GWh
+2005,March,Medium  General,1813.44673,GWh
+2005,March,Large General,4383.273519,GWh
+2005,March,Specific  Business,296.645626,GWh
+2005,March,Government & Nonprofit,327.1079,GWh
+2005,March,Agriculture Pumping,36.097487,GWh
+2005,March,Temporary,46.054124,GWh
+2005,March,Stand By Rate,2.167399,GWh
+2005,March,Interruptible Rate,194.876249,GWh
+2005,March,Free of Charge,103.245262,GWh
+2005,March,Direct Customer,178.885767,GWh
+2005,April,Residential (< 150),715.330834,GWh
+2005,April,Residential (> 150),1638.933928,GWh
+2005,April,Small  General,1044.451135,GWh
+2005,April,Medium  General,1671.360865,GWh
+2005,April,Large General,3943.999693,GWh
+2005,April,Specific  Business,324.144885,GWh
+2005,April,Government & Nonprofit,305.772652,GWh
+2005,April,Agriculture Pumping,23.87323,GWh
+2005,April,Temporary,44.681087,GWh
+2005,April,Stand By Rate,9.845523,GWh
+2005,April,Interruptible Rate,153.532542,GWh
+2005,April,Free of Charge,104.866872,GWh
+2005,April,Direct Customer,164.594693,GWh
+2005,May,Residential (< 150),745.582235,GWh
+2005,May,Residential (> 150),1749.554933,GWh
+2005,May,Small  General,1119.783731,GWh
+2005,May,Medium  General,1864.719363,GWh
+2005,May,Large General,4347.215487,GWh
+2005,May,Specific  Business,317.346747,GWh
+2005,May,Government & Nonprofit,346.099453,GWh
+2005,May,Agriculture Pumping,21.929536,GWh
+2005,May,Temporary,48.42922,GWh
+2005,May,Stand By Rate,2.513571,GWh
+2005,May,Interruptible Rate,185.281307,GWh
+2005,May,Free of Charge,104.083275,GWh
+2005,May,Direct Customer,161.693173,GWh
+2005,June,Residential (< 150),656.512672,GWh
+2005,June,Residential (> 150),1624.51021,GWh
+2005,June,Small  General,1062.765867,GWh
+2005,June,Medium  General,1833.313762,GWh
+2005,June,Large General,4225.484892,GWh
+2005,June,Specific  Business,302.507433,GWh
+2005,June,Government & Nonprofit,360.938337,GWh
+2005,June,Agriculture Pumping,16.69163,GWh
+2005,June,Temporary,46.795153,GWh
+2005,June,Stand By Rate,2.781869,GWh
+2005,June,Interruptible Rate,172.882413,GWh
+2005,June,Free of Charge,103.815814,GWh
+2005,June,Direct Customer,173.311869,GWh
+2005,July,Residential (< 150),620.200205,GWh
+2005,July,Residential (> 150),1568.409722,GWh
+2005,July,Small  General,1022.285473,GWh
+2005,July,Medium  General,1788.004739,GWh
+2005,July,Large General,4163.691352,GWh
+2005,July,Specific  Business,304.859916,GWh
+2005,July,Government & Nonprofit,340.800531,GWh
+2005,July,Agriculture Pumping,19.397872,GWh
+2005,July,Temporary,45.921694,GWh
+2005,July,Stand By Rate,1.67609,GWh
+2005,July,Interruptible Rate,173.619146,GWh
+2005,July,Free of Charge,103.318574,GWh
+2005,July,Direct Customer,172.277568,GWh
+2005,August,Residential (< 150),600.520085,GWh
+2005,August,Residential (> 150),1542.654341,GWh
+2005,August,Small  General,1003.707096,GWh
+2005,August,Medium  General,1780.888871,GWh
+2005,August,Large General,4184.764275,GWh
+2005,August,Specific  Business,310.221809,GWh
+2005,August,Government & Nonprofit,333.946555,GWh
+2005,August,Agriculture Pumping,18.296106,GWh
+2005,August,Temporary,46.635762,GWh
+2005,August,Stand By Rate,2.218465,GWh
+2005,August,Interruptible Rate,167.791402,GWh
+2005,August,Free of Charge,104.191097,GWh
+2005,August,Direct Customer,163.430482,GWh
+2005,September,Residential (< 150),598.814994,GWh
+2005,September,Residential (> 150),1539.519437,GWh
+2005,September,Small  General,1001.279619,GWh
+2005,September,Medium  General,1781.24941,GWh
+2005,September,Large General,4143.19558,GWh
+2005,September,Specific  Business,293.618634,GWh
+2005,September,Government & Nonprofit,359.517157,GWh
+2005,September,Agriculture Pumping,10.465815,GWh
+2005,September,Temporary,47.543382,GWh
+2005,September,Stand By Rate,5.996337,GWh
+2005,September,Interruptible Rate,174.785415,GWh
+2005,September,Free of Charge,105.05958,GWh
+2005,September,Direct Customer,153.607959,GWh
+2005,October,Residential (< 150),625.861334,GWh
+2005,October,Residential (> 150),1550.171642,GWh
+2005,October,Small  General,1009.967943,GWh
+2005,October,Medium  General,1803.409553,GWh
+2005,October,Large General,4275.091059,GWh
+2005,October,Specific  Business,297.544783,GWh
+2005,October,Government & Nonprofit,314.650123,GWh
+2005,October,Agriculture Pumping,13.376761,GWh
+2005,October,Temporary,48.981196,GWh
+2005,October,Stand By Rate,3.285166,GWh
+2005,October,Interruptible Rate,177.268309,GWh
+2005,October,Free of Charge,110.257575,GWh
+2005,October,Direct Customer,156.629277,GWh
+2005,November,Residential (< 150),598.585361,GWh
+2005,November,Residential (> 150),1437.89173,GWh
+2005,November,Small  General,960.366848,GWh
+2005,November,Medium  General,1764.502528,GWh
+2005,November,Large General,4145.692067,GWh
+2005,November,Specific  Business,289.950103,GWh
+2005,November,Government & Nonprofit,308.384786,GWh
+2005,November,Agriculture Pumping,11.497776,GWh
+2005,November,Temporary,47.139997,GWh
+2005,November,Stand By Rate,10.652803,GWh
+2005,November,Interruptible Rate,162.163873,GWh
+2005,November,Free of Charge,108.419979,GWh
+2005,November,Direct Customer,167.358742,GWh
+2005,December,Residential (< 150),561.548712,GWh
+2005,December,Residential (> 150),1295.100553,GWh
+2005,December,Small  General,890.732147,GWh
+2005,December,Medium  General,1660.755897,GWh
+2005,December,Large General,3935.497752,GWh
+2005,December,Specific  Business,269.411046,GWh
+2005,December,Government & Nonprofit,276.41259,GWh
+2005,December,Agriculture Pumping,15.474702,GWh
+2005,December,Temporary,45.802968,GWh
+2005,December,Stand By Rate,9.115661,GWh
+2005,December,Interruptible Rate,185.759942,GWh
+2005,December,Free of Charge,110.218892,GWh
+2005,December,Direct Customer,159.146189,GWh
+2006,January,Residential (< 150),568.671848,GWh
+2006,January,Residential (> 150),1319.430925,GWh
+2006,January,Small  General,906.779417,GWh
+2006,January,Medium  General,1649.110101,GWh
+2006,January,Large General,3957.91889,GWh
+2006,January,Specific  Business,293.264698,GWh
+2006,January,Government & Nonprofit,273.842657,GWh
+2006,January,Agriculture Pumping,27.593315,GWh
+2006,January,Temporary,45.552777,GWh
+2006,January,Stand By Rate,14.061762,GWh
+2006,January,Interruptible Rate,174.421089,GWh
+2006,January,Free of Charge,115.92783429,GWh
+2006,January,Direct Customer,170.76525,GWh
+2006,February,Residential (< 150),561.775656,GWh
+2006,February,Residential (> 150),1396.408643,GWh
+2006,February,Small  General,946.484827,GWh
+2006,February,Medium  General,1678.190892,GWh
+2006,February,Large General,3937.893352,GWh
+2006,February,Specific  Business,291.311698,GWh
+2006,February,Government & Nonprofit,289.073835,GWh
+2006,February,Agriculture Pumping,32.848124,GWh
+2006,February,Temporary,49.190153,GWh
+2006,February,Stand By Rate,26.310641,GWh
+2006,February,Interruptible Rate,174.556747,GWh
+2006,February,Free of Charge,110.86073475,GWh
+2006,February,Direct Customer,157.422022,GWh
+2006,March,Residential (< 150),688.295685,GWh
+2006,March,Residential (> 150),1632.795843,GWh
+2006,March,Small  General,1082.54976,GWh
+2006,March,Medium  General,1986.798399,GWh
+2006,March,Large General,4539.063416,GWh
+2006,March,Specific  Business,344.021641,GWh
+2006,March,Government & Nonprofit,342.412865,GWh
+2006,March,Agriculture Pumping,35.136667,GWh
+2006,March,Temporary,50.565411,GWh
+2006,March,Stand By Rate,27.842923,GWh
+2006,March,Interruptible Rate,183.2346,GWh
+2006,March,Free of Charge,117.87885335,GWh
+2006,March,Direct Customer,153.269851,GWh
+2006,April,Residential (< 150),736.510796,GWh
+2006,April,Residential (> 150),1709.909984,GWh
+2006,April,Small  General,1081.311342,GWh
+2006,April,Medium  General,1759.266609,GWh
+2006,April,Large General,4060.622893,GWh
+2006,April,Specific  Business,332.138027,GWh
+2006,April,Government & Nonprofit,310.030919,GWh
+2006,April,Agriculture Pumping,27.995449,GWh
+2006,April,Temporary,48.772611,GWh
+2006,April,Stand By Rate,19.186047,GWh
+2006,April,Interruptible Rate,182.751,GWh
+2006,April,Free of Charge,115.6403608,GWh
+2006,April,Direct Customer,170.532703,GWh
+2006,May,Residential (< 150),716.447544,GWh
+2006,May,Residential (> 150),1686.825732,GWh
+2006,May,Small  General,1100.251702,GWh
+2006,May,Medium  General,1932.630851,GWh
+2006,May,Large General,4536.27761,GWh
+2006,May,Specific  Business,328.462199,GWh
+2006,May,Government & Nonprofit,317.806931,GWh
+2006,May,Agriculture Pumping,17.774755,GWh
+2006,May,Temporary,49.540869,GWh
+2006,May,Stand By Rate,30.77291,GWh
+2006,May,Interruptible Rate,178.723727,GWh
+2006,May,Free of Charge,114.95134573,GWh
+2006,May,Direct Customer,180.847312,GWh
+2006,June,Residential (< 150),657.995691,GWh
+2006,June,Residential (> 150),1655.956298,GWh
+2006,June,Small  General,1072.909056,GWh
+2006,June,Medium  General,1908.616842,GWh
+2006,June,Large General,4436.707274,GWh
+2006,June,Specific  Business,314.955348,GWh
+2006,June,Government & Nonprofit,353.256635,GWh
+2006,June,Agriculture Pumping,15.236818,GWh
+2006,June,Temporary,50.144775,GWh
+2006,June,Stand By Rate,5.053208,GWh
+2006,June,Interruptible Rate,175.321482,GWh
+2006,June,Free of Charge,209.75381529,GWh
+2006,June,Direct Customer,187.226318,GWh
+2006,July,Residential (< 150),646.638699,GWh
+2006,July,Residential (> 150),1653.797509,GWh
+2006,July,Small  General,1074.38288,GWh
+2006,July,Medium  General,1907.102885,GWh
+2006,July,Large General,4490.071955,GWh
+2006,July,Specific  Business,329.190937,GWh
+2006,July,Government & Nonprofit,357.05726,GWh
+2006,July,Agriculture Pumping,19.217771,GWh
+2006,July,Temporary,51.107056,GWh
+2006,July,Stand By Rate,2.774424,GWh
+2006,July,Interruptible Rate,183.414764,GWh
+2006,July,Free of Charge,116.66507524,GWh
+2006,July,Direct Customer,175.236601,GWh
+2006,August,Residential (< 150),633.262857,GWh
+2006,August,Residential (> 150),1652.599255,GWh
+2006,August,Small  General,1079.13771,GWh
+2006,August,Medium  General,1924.542622,GWh
+2006,August,Large General,4494.840569,GWh
+2006,August,Specific  Business,326.921147,GWh
+2006,August,Government & Nonprofit,353.784421,GWh
+2006,August,Agriculture Pumping,20.125907,GWh
+2006,August,Temporary,51.33539,GWh
+2006,August,Stand By Rate,5.647279,GWh
+2006,August,Interruptible Rate,176.612718,GWh
+2006,August,Free of Charge,119.20418188,GWh
+2006,August,Direct Customer,176.656277,GWh
+2006,September,Residential (< 150),630.939093,GWh
+2006,September,Residential (> 150),1642.158582,GWh
+2006,September,Small  General,1067.140711,GWh
+2006,September,Medium  General,1892.658683,GWh
+2006,September,Large General,4432.133785,GWh
+2006,September,Specific  Business,304.552278,GWh
+2006,September,Government & Nonprofit,376.813163,GWh
+2006,September,Agriculture Pumping,10.840956,GWh
+2006,September,Temporary,52.06552,GWh
+2006,September,Stand By Rate,3.572894,GWh
+2006,September,Interruptible Rate,176.414236,GWh
+2006,September,Free of Charge,120.44555996,GWh
+2006,September,Direct Customer,157.318502,GWh
+2006,October,Residential (< 150),638.781932,GWh
+2006,October,Residential (> 150),1613.377986,GWh
+2006,October,Small  General,1057.63763,GWh
+2006,October,Medium  General,1872.211151,GWh
+2006,October,Large General,4493.414905,GWh
+2006,October,Specific  Business,313.349123,GWh
+2006,October,Government & Nonprofit,342.449602,GWh
+2006,October,Agriculture Pumping,4.884018,GWh
+2006,October,Temporary,53.653955,GWh
+2006,October,Stand By Rate,5.645079,GWh
+2006,October,Interruptible Rate,159.633922,GWh
+2006,October,Free of Charge,125.64377134,GWh
+2006,October,Direct Customer,163.126571,GWh
+2006,November,Residential (< 150),616.452112,GWh
+2006,November,Residential (> 150),1635.196224,GWh
+2006,November,Small  General,1070.501545,GWh
+2006,November,Medium  General,1896.273577,GWh
+2006,November,Large General,4409.183239,GWh
+2006,November,Specific  Business,319.691096,GWh
+2006,November,Government & Nonprofit,337.953379,GWh
+2006,November,Agriculture Pumping,10.012378,GWh
+2006,November,Temporary,53.151975,GWh
+2006,November,Stand By Rate,4.249412,GWh
+2006,November,Interruptible Rate,164.549205,GWh
+2006,November,Free of Charge,133.48286737,GWh
+2006,November,Direct Customer,154.144769,GWh
+2006,December,Residential (< 150),600.623892,GWh
+2006,December,Residential (> 150),1552.530129,GWh
+2006,December,Small  General,1019.393016,GWh
+2006,December,Medium  General,1799.384586,GWh
+2006,December,Large General,4029.948415,GWh
+2006,December,Specific  Business,307.406486,GWh
+2006,December,Government & Nonprofit,324.576867,GWh
+2006,December,Agriculture Pumping,18.351515,GWh
+2006,December,Temporary,55.418919,GWh
+2006,December,Stand By Rate,7.817236,GWh
+2006,December,Interruptible Rate,181.138655,GWh
+2006,December,Free of Charge,135.56723393,GWh
+2006,December,Direct Customer,167.447964,GWh
+2007,January,Residential (< 150),559.352761,GWh
+2007,January,Residential (> 150),1352.87739,GWh
+2007,January,Small  General,939.214141,GWh
+2007,January,Medium  General,1744.90145,GWh
+2007,January,Large General,4228.744822,GWh
+2007,January,Specific  Business,304.924929,GWh
+2007,January,Government & Nonprofit,290.131079,GWh
+2007,January,Agriculture Pumping,31.916677,GWh
+2007,January,Temporary,49.306431,GWh
+2007,January,Stand By Rate,0.36,GWh
+2007,January,Interruptible Rate,166.390478,GWh
+2007,January,Free of Charge,133.521926,GWh
+2007,January,Direct Customer,172.209193,GWh
+2007,February,Residential (< 150),543.200859,GWh
+2007,February,Residential (> 150),1411.389255,GWh
+2007,February,Small  General,956.153152,GWh
+2007,February,Medium  General,1707.145921,GWh
+2007,February,Large General,4056.651755,GWh
+2007,February,Specific  Business,296.039182,GWh
+2007,February,Government & Nonprofit,297.293394,GWh
+2007,February,Agriculture Pumping,36.922969,GWh
+2007,February,Temporary,50.187634,GWh
+2007,February,Stand By Rate,1.896685,GWh
+2007,February,Interruptible Rate,154.896149,GWh
+2007,February,Free of Charge,126.893847,GWh
+2007,February,Direct Customer,154.869914,GWh
+2007,March,Residential (< 150),698.60245,GWh
+2007,March,Residential (> 150),1787.604391,GWh
+2007,March,Small  General,1157.137156,GWh
+2007,March,Medium  General,2058.941432,GWh
+2007,March,Large General,4704.224553,GWh
+2007,March,Specific  Business,368.04346,GWh
+2007,March,Government & Nonprofit,358.790257,GWh
+2007,March,Agriculture Pumping,37.62985,GWh
+2007,March,Temporary,54.655187,GWh
+2007,March,Stand By Rate,4.25157,GWh
+2007,March,Interruptible Rate,192.076909,GWh
+2007,March,Free of Charge,132.1598,GWh
+2007,March,Direct Customer,174.651813,GWh
+2007,April,Residential (< 150),730.670858,GWh
+2007,April,Residential (> 150),1826.02929,GWh
+2007,April,Small  General,1145.355066,GWh
+2007,April,Medium  General,1866.338495,GWh
+2007,April,Large General,4185.334183,GWh
+2007,April,Specific  Business,356.637021,GWh
+2007,April,Government & Nonprofit,333.052993,GWh
+2007,April,Agriculture Pumping,33.08263,GWh
+2007,April,Temporary,53.890391,GWh
+2007,April,Stand By Rate,5.188238,GWh
+2007,April,Interruptible Rate,177.422687,GWh
+2007,April,Free of Charge,131.768475,GWh
+2007,April,Direct Customer,189.557977,GWh
+2007,May,Residential (< 150),721.805209,GWh
+2007,May,Residential (> 150),1769.685855,GWh
+2007,May,Small  General,1148.460242,GWh
+2007,May,Medium  General,1964.943419,GWh
+2007,May,Large General,4689.339018,GWh
+2007,May,Specific  Business,339.676864,GWh
+2007,May,Government & Nonprofit,343.229438,GWh
+2007,May,Agriculture Pumping,12.556293,GWh
+2007,May,Temporary,52.571252,GWh
+2007,May,Stand By Rate,6.620581,GWh
+2007,May,Interruptible Rate,162.368791,GWh
+2007,May,Free of Charge,128.873429,GWh
+2007,May,Direct Customer,176.09684,GWh
+2007,June,Residential (< 150),686.360866,GWh
+2007,June,Residential (> 150),1865.489252,GWh
+2007,June,Small  General,1186.077837,GWh
+2007,June,Medium  General,2007.733951,GWh
+2007,June,Large General,4613.237577,GWh
+2007,June,Specific  Business,344.166603,GWh
+2007,June,Government & Nonprofit,399.971596,GWh
+2007,June,Agriculture Pumping,16.453938,GWh
+2007,June,Temporary,54.691044,GWh
+2007,June,Stand By Rate,2.35018,GWh
+2007,June,Interruptible Rate,161.968896,GWh
+2007,June,Free of Charge,126.808652,GWh
+2007,June,Direct Customer,160.698324,GWh
+2007,July,Residential (< 150),655.621518,GWh
+2007,July,Residential (> 150),1747.475426,GWh
+2007,July,Small  General,1135.607649,GWh
+2007,July,Medium  General,1909.059086,GWh
+2007,July,Large General,4691.267074,GWh
+2007,July,Specific  Business,341.667909,GWh
+2007,July,Government & Nonprofit,393.182505,GWh
+2007,July,Agriculture Pumping,27.914618,GWh
+2007,July,Temporary,53.613791,GWh
+2007,July,Stand By Rate,2.20471,GWh
+2007,July,Interruptible Rate,187.534213,GWh
+2007,July,Free of Charge,130.540558,GWh
+2007,July,Direct Customer,180.421083,GWh
+2007,August,Residential (< 150),656.61768,GWh
+2007,August,Residential (> 150),1783.340523,GWh
+2007,August,Small  General,1140.461222,GWh
+2007,August,Medium  General,1915.148065,GWh
+2007,August,Large General,4737.038283,GWh
+2007,August,Specific  Business,351.091191,GWh
+2007,August,Government & Nonprofit,380.299971,GWh
+2007,August,Agriculture Pumping,22.2462,GWh
+2007,August,Temporary,55.136744,GWh
+2007,August,Stand By Rate,2.794547,GWh
+2007,August,Interruptible Rate,181.57078,GWh
+2007,August,Free of Charge,134.054901,GWh
+2007,August,Direct Customer,185.97488,GWh
+2007,September,Residential (< 150),635.098368,GWh
+2007,September,Residential (> 150),1767.150089,GWh
+2007,September,Small  General,1136.077815,GWh
+2007,September,Medium  General,1904.692764,GWh
+2007,September,Large General,4663.784966,GWh
+2007,September,Specific  Business,336.462863,GWh
+2007,September,Government & Nonprofit,410.127213,GWh
+2007,September,Agriculture Pumping,10.72114,GWh
+2007,September,Temporary,55.748634,GWh
+2007,September,Stand By Rate,3.192225,GWh
+2007,September,Interruptible Rate,169.403761,GWh
+2007,September,Free of Charge,136.516093,GWh
+2007,September,Direct Customer,166.493576,GWh
+2007,October,Residential (< 150),641.800856,GWh
+2007,October,Residential (> 150),1715.622634,GWh
+2007,October,Small  General,1119.40739,GWh
+2007,October,Medium  General,1887.01419,GWh
+2007,October,Large General,4769.863965,GWh
+2007,October,Specific  Business,334.710105,GWh
+2007,October,Government & Nonprofit,353.573902,GWh
+2007,October,Agriculture Pumping,8.794073,GWh
+2007,October,Temporary,56.418179,GWh
+2007,October,Stand By Rate,3.380554,GWh
+2007,October,Interruptible Rate,160.321927,GWh
+2007,October,Free of Charge,141.49442,GWh
+2007,October,Direct Customer,179.235095,GWh
+2007,November,Residential (< 150),617.65013,GWh
+2007,November,Residential (> 150),1604.796748,GWh
+2007,November,Small  General,1076.539571,GWh
+2007,November,Medium  General,1842.31809,GWh
+2007,November,Large General,4578.68245,GWh
+2007,November,Specific  Business,316.462852,GWh
+2007,November,Government & Nonprofit,333.940199,GWh
+2007,November,Agriculture Pumping,11.092792,GWh
+2007,November,Temporary,55.574111,GWh
+2007,November,Stand By Rate,3.28422,GWh
+2007,November,Interruptible Rate,165.683545,GWh
+2007,November,Free of Charge,145.642041,GWh
+2007,November,Direct Customer,177.751115,GWh
+2007,December,Residential (< 150),596.744881,GWh
+2007,December,Residential (> 150),1562.997641,GWh
+2007,December,Small  General,1066.445757,GWh
+2007,December,Medium  General,1817.700029,GWh
+2007,December,Large General,4399.730203,GWh
+2007,December,Specific  Business,338.496084,GWh
+2007,December,Government & Nonprofit,336.203674,GWh
+2007,December,Agriculture Pumping,18.434405,GWh
+2007,December,Temporary,56.907502,GWh
+2007,December,Stand By Rate,2.64096,GWh
+2007,December,Interruptible Rate,188.286091,GWh
+2007,December,Free of Charge,154.96439443,GWh
+2007,December,Direct Customer,202.128069,GWh
+2008,January,Residential (< 150),591.75301,GWh
+2008,January,Residential (> 150),1572.89772,GWh
+2008,January,Small  General,1064.515402,GWh
+2008,January,Medium  General,1809.342456,GWh
+2008,January,Large General,4548.501649,GWh
+2008,January,Specific  Business,345.041044,GWh
+2008,January,Government & Nonprofit,326.989261,GWh
+2008,January,Agriculture Pumping,35.778718,GWh
+2008,January,Temporary,51.201353,GWh
+2008,January,Stand By Rate,3.20723,GWh
+2008,January,Interruptible Rate,163.771782,GWh
+2008,January,Free of Charge,159.019913,GWh
+2008,January,Direct Customer,174.408492,GWh
+2008,February,Residential (< 150),586.616695,GWh
+2008,February,Residential (> 150),1591.79186,GWh
+2008,February,Small  General,1069.037507,GWh
+2008,February,Medium  General,1780.013965,GWh
+2008,February,Large General,4406.076998,GWh
+2008,February,Specific  Business,332.045901,GWh
+2008,February,Government & Nonprofit,330.357735,GWh
+2008,February,Agriculture Pumping,35.28588,GWh
+2008,February,Temporary,55.099417,GWh
+2008,February,Stand By Rate,2.57621,GWh
+2008,February,Interruptible Rate,165.082655,GWh
+2008,February,Free of Charge,153.2192194,GWh
+2008,February,Direct Customer,175.391971,GWh
+2008,March,Residential (< 150),661.166378,GWh
+2008,March,Residential (> 150),1733.893797,GWh
+2008,March,Small  General,1146.193071,GWh
+2008,March,Medium  General,2010.574795,GWh
+2008,March,Large General,4947.898523,GWh
+2008,March,Specific  Business,381.243161,GWh
+2008,March,Government & Nonprofit,354.999101,GWh
+2008,March,Agriculture Pumping,43.276351,GWh
+2008,March,Temporary,58.492548,GWh
+2008,March,Stand By Rate,4.10216,GWh
+2008,March,Interruptible Rate,158.9652,GWh
+2008,March,Free of Charge,144.614943,GWh
+2008,March,Direct Customer,204.668079,GWh
+2008,April,Residential (< 150),732.477479,GWh
+2008,April,Residential (> 150),1956.294122,GWh
+2008,April,Small  General,1208.669858,GWh
+2008,April,Medium  General,1843.461784,GWh
+2008,April,Large General,4445.726101,GWh
+2008,April,Specific  Business,378.971313,GWh
+2008,April,Government & Nonprofit,342.596313,GWh
+2008,April,Agriculture Pumping,38.377554,GWh
+2008,April,Temporary,56.548048,GWh
+2008,April,Stand By Rate,6.095325,GWh
+2008,April,Interruptible Rate,140.615582,GWh
+2008,April,Free of Charge,141.338692,GWh
+2008,April,Direct Customer,180.621038,GWh
+2008,May,Residential (< 150),705.467034,GWh
+2008,May,Residential (> 150),1840.797708,GWh
+2008,May,Small  General,1193.006329,GWh
+2008,May,Medium  General,2005.930015,GWh
+2008,May,Large General,4911.985955,GWh
+2008,May,Specific  Business,371.023292,GWh
+2008,May,Government & Nonprofit,357.160257,GWh
+2008,May,Agriculture Pumping,14.467746,GWh
+2008,May,Temporary,57.037271,GWh
+2008,May,Stand By Rate,10.655709,GWh
+2008,May,Interruptible Rate,143.703971,GWh
+2008,May,Free of Charge,142.585969,GWh
+2008,May,Direct Customer,180.241642,GWh
+2008,June,Residential (< 150),664.410298,GWh
+2008,June,Residential (> 150),1789.788562,GWh
+2008,June,Small  General,1173.209958,GWh
+2008,June,Medium  General,1963.387289,GWh
+2008,June,Large General,4789.839092,GWh
+2008,June,Specific  Business,353.226045,GWh
+2008,June,Government & Nonprofit,400.810305,GWh
+2008,June,Agriculture Pumping,14.900989,GWh
+2008,June,Temporary,58.120901,GWh
+2008,June,Stand By Rate,14.85499,GWh
+2008,June,Interruptible Rate,161.729909,GWh
+2008,June,Free of Charge,141.09750222,GWh
+2008,June,Direct Customer,195.718208,GWh
+2008,July,Residential (< 150),664.951135,GWh
+2008,July,Residential (> 150),1833.431445,GWh
+2008,July,Small  General,1192.184463,GWh
+2008,July,Medium  General,1985.879603,GWh
+2008,July,Large General,4913.783783,GWh
+2008,July,Specific  Business,367.266513,GWh
+2008,July,Government & Nonprofit,394.767636,GWh
+2008,July,Agriculture Pumping,26.561025,GWh
+2008,July,Temporary,59.362487,GWh
+2008,July,Stand By Rate,12.365502,GWh
+2008,July,Interruptible Rate,158.777327,GWh
+2008,July,Free of Charge,146.25121137,GWh
+2008,July,Direct Customer,188.438072,GWh
+2008,August,Residential (< 150),671.973705,GWh
+2008,August,Residential (> 150),1850.158354,GWh
+2008,August,Small  General,1208.532527,GWh
+2008,August,Medium  General,2003.580675,GWh
+2008,August,Large General,4857.697106,GWh
+2008,August,Specific  Business,373.64797,GWh
+2008,August,Government & Nonprofit,410.596429,GWh
+2008,August,Agriculture Pumping,20.504493,GWh
+2008,August,Temporary,59.783929,GWh
+2008,August,Stand By Rate,4.94997,GWh
+2008,August,Interruptible Rate,155.319764,GWh
+2008,August,Free of Charge,148.29565501,GWh
+2008,August,Direct Customer,216.263823,GWh
+2008,September,Residential (< 150),652.457784,GWh
+2008,September,Residential (> 150),1786.101198,GWh
+2008,September,Small  General,1170.353513,GWh
+2008,September,Medium  General,1945.537939,GWh
+2008,September,Large General,4561.394234,GWh
+2008,September,Specific  Business,337.557989,GWh
+2008,September,Government & Nonprofit,426.588248,GWh
+2008,September,Agriculture Pumping,13.86442,GWh
+2008,September,Temporary,59.245954,GWh
+2008,September,Stand By Rate,7.04883,GWh
+2008,September,Interruptible Rate,129.310709,GWh
+2008,September,Free of Charge,146.756369,GWh
+2008,September,Direct Customer,174.455649,GWh
+2008,October,Residential (< 150),685.140835,GWh
+2008,October,Residential (> 150),1865.002542,GWh
+2008,October,Small  General,1205.967799,GWh
+2008,October,Medium  General,1931.733003,GWh
+2008,October,Large General,4637.575611,GWh
+2008,October,Specific  Business,363.868528,GWh
+2008,October,Government & Nonprofit,384.8977,GWh
+2008,October,Agriculture Pumping,11.860464,GWh
+2008,October,Temporary,61.687296,GWh
+2008,October,Stand By Rate,11.61297,GWh
+2008,October,Interruptible Rate,147.970036,GWh
+2008,October,Free of Charge,152.27712164,GWh
+2008,October,Direct Customer,157.715234,GWh
+2008,November,Residential (< 150),614.139905,GWh
+2008,November,Residential (> 150),1621.780445,GWh
+2008,November,Small  General,1086.423289,GWh
+2008,November,Medium  General,1811.301455,GWh
+2008,November,Large General,4197.642318,GWh
+2008,November,Specific  Business,327.268863,GWh
+2008,November,Government & Nonprofit,354.22165,GWh
+2008,November,Agriculture Pumping,5.979275,GWh
+2008,November,Temporary,57.714642,GWh
+2008,November,Stand By Rate,8.425399,GWh
+2008,November,Interruptible Rate,136.304218,GWh
+2008,November,Free of Charge,150.084524,GWh
+2008,November,Direct Customer,141.641548,GWh
+2008,December,Residential (< 150),573.848384,GWh
+2008,December,Residential (> 150),1444.874754,GWh
+2008,December,Small  General,1011.602607,GWh
+2008,December,Medium  General,1616.154095,GWh
+2008,December,Large General,3779.448581,GWh
+2008,December,Specific  Business,303.29178,GWh
+2008,December,Government & Nonprofit,307.57721,GWh
+2008,December,Agriculture Pumping,20.59963,GWh
+2008,December,Temporary,55.048088,GWh
+2008,December,Stand By Rate,6.9499,GWh
+2008,December,Interruptible Rate,127.660691,GWh
+2008,December,Free of Charge,151.889797,GWh
+2008,December,Direct Customer,149.04646,GWh
+2009,January,Residential (< 150),593.13147,GWh
+2009,January,Residential (> 150),1426.185337,GWh
+2009,January,Small  General,986.390448,GWh
+2009,January,Medium  General,1541.26727,GWh
+2009,January,Large General,3694.524818,GWh
+2009,January,Specific  Business,311.013805,GWh
+2009,January,Government & Nonprofit,299.805112,GWh
+2009,January,Agriculture Pumping,38.06113,GWh
+2009,January,Temporary,52.57157,GWh
+2009,January,Stand By Rate,7.02374,GWh
+2009,January,Interruptible Rate,136.522618,GWh
+2009,January,Free of Charge,157.706901,GWh
+2009,January,Direct Customer,144.612039,GWh
+2009,February,Residential (< 150),619.000741,GWh
+2009,February,Residential (> 150),1591.097088,GWh
+2009,February,Small  General,1078.512125,GWh
+2009,February,Medium  General,1659.760408,GWh
+2009,February,Large General,3794.964537,GWh
+2009,February,Specific  Business,336.273483,GWh
+2009,February,Government & Nonprofit,339.605186,GWh
+2009,February,Agriculture Pumping,44.724893,GWh
+2009,February,Temporary,56.956394,GWh
+2009,February,Stand By Rate,12.35206,GWh
+2009,February,Interruptible Rate,134.472018,GWh
+2009,February,Free of Charge,144.293701,GWh
+2009,February,Direct Customer,142.329664,GWh
+2009,March,Residential (< 150),785.637867,GWh
+2009,March,Residential (> 150),1903.662252,GWh
+2009,March,Small  General,1267.638614,GWh
+2009,March,Medium  General,1924.253193,GWh
+2009,March,Large General,4408.100606,GWh
+2009,March,Specific  Business,392.430199,GWh
+2009,March,Government & Nonprofit,408.377351,GWh
+2009,March,Agriculture Pumping,45.879076,GWh
+2009,March,Temporary,59.313224,GWh
+2009,March,Stand By Rate,5.92024,GWh
+2009,March,Interruptible Rate,148.030364,GWh
+2009,March,Free of Charge,158.163553,GWh
+2009,March,Direct Customer,143.80676,GWh
+2009,April,Residential (< 150),806.361989,GWh
+2009,April,Residential (> 150),1960.364185,GWh
+2009,April,Small  General,1233.772831,GWh
+2009,April,Medium  General,1760.748828,GWh
+2009,April,Large General,3967.801614,GWh
+2009,April,Specific  Business,382.132827,GWh
+2009,April,Government & Nonprofit,347.889349,GWh
+2009,April,Agriculture Pumping,33.134111,GWh
+2009,April,Temporary,54.999827,GWh
+2009,April,Stand By Rate,24.272361,GWh
+2009,April,Interruptible Rate,143.996873,GWh
+2009,April,Free of Charge,151.824994,GWh
+2009,April,Direct Customer,136.945554,GWh
+2009,May,Residential (< 150),798.430598,GWh
+2009,May,Residential (> 150),1941.688516,GWh
+2009,May,Small  General,1261.670523,GWh
+2009,May,Medium  General,1944.910693,GWh
+2009,May,Large General,4477.217445,GWh
+2009,May,Specific  Business,373.158814,GWh
+2009,May,Government & Nonprofit,390.77943,GWh
+2009,May,Agriculture Pumping,20.17442,GWh
+2009,May,Temporary,57.346179,GWh
+2009,May,Stand By Rate,3.031207,GWh
+2009,May,Interruptible Rate,153.427945,GWh
+2009,May,Free of Charge,154.343574,GWh
+2009,May,Direct Customer,172.274615,GWh
+2009,June,Residential (< 150),694.782645,GWh
+2009,June,Residential (> 150),1895.952102,GWh
+2009,June,Small  General,1222.870651,GWh
+2009,June,Medium  General,1895.438712,GWh
+2009,June,Large General,4573.249836,GWh
+2009,June,Specific  Business,361.554884,GWh
+2009,June,Government & Nonprofit,427.475246,GWh
+2009,June,Agriculture Pumping,18.991934,GWh
+2009,June,Temporary,57.399855,GWh
+2009,June,Stand By Rate,3.847238,GWh
+2009,June,Interruptible Rate,128.820418,GWh
+2009,June,Free of Charge,151.379428,GWh
+2009,June,Direct Customer,137.332518,GWh
+2009,July,Residential (< 150),696.69247,GWh
+2009,July,Residential (> 150),1913.122142,GWh
+2009,July,Small  General,1226.525376,GWh
+2009,July,Medium  General,1938.248093,GWh
+2009,July,Large General,4665.696825,GWh
+2009,July,Specific  Business,373.468288,GWh
+2009,July,Government & Nonprofit,411.845856,GWh
+2009,July,Agriculture Pumping,24.069295,GWh
+2009,July,Temporary,55.265828,GWh
+2009,July,Stand By Rate,9.79554,GWh
+2009,July,Interruptible Rate,129.975745,GWh
+2009,July,Free of Charge,155.271981,GWh
+2009,July,Direct Customer,149.988042,GWh
+2009,August,Residential (< 150),706.866527,GWh
+2009,August,Residential (> 150),1993.911408,GWh
+2009,August,Small  General,1265.789161,GWh
+2009,August,Medium  General,1988.839003,GWh
+2009,August,Large General,4727.314093,GWh
+2009,August,Specific  Business,389.542781,GWh
+2009,August,Government & Nonprofit,436.600895,GWh
+2009,August,Agriculture Pumping,25.999077,GWh
+2009,August,Temporary,57.665403,GWh
+2009,August,Stand By Rate,3.95515,GWh
+2009,August,Interruptible Rate,131.211891,GWh
+2009,August,Free of Charge,159.292683,GWh
+2009,August,Direct Customer,151.496525,GWh
+2009,September,Residential (< 150),691.149291,GWh
+2009,September,Residential (> 150),1934.3413,GWh
+2009,September,Small  General,1243.44409,GWh
+2009,September,Medium  General,1943.092624,GWh
+2009,September,Large General,4640.259557,GWh
+2009,September,Specific  Business,364.602376,GWh
+2009,September,Government & Nonprofit,468.041093,GWh
+2009,September,Agriculture Pumping,16.937158,GWh
+2009,September,Temporary,55.77301,GWh
+2009,September,Stand By Rate,7.08196,GWh
+2009,September,Interruptible Rate,124.319946,GWh
+2009,September,Free of Charge,113.016432,GWh
+2009,September,Direct Customer,138.057408,GWh
+2009,October,Residential (< 150),703.84643,GWh
+2009,October,Residential (> 150),1897.247742,GWh
+2009,October,Small  General,1225.606733,GWh
+2009,October,Medium  General,1956.939261,GWh
+2009,October,Large General,4883.420048,GWh
+2009,October,Specific  Business,377.796012,GWh
+2009,October,Government & Nonprofit,409.070013,GWh
+2009,October,Agriculture Pumping,10.158358,GWh
+2009,October,Temporary,56.665034,GWh
+2009,October,Stand By Rate,6.23386,GWh
+2009,October,Interruptible Rate,122.965364,GWh
+2009,October,Free of Charge,165.2617603,GWh
+2009,October,Direct Customer,134.363063,GWh
+2009,November,Residential (< 150),643.814257,GWh
+2009,November,Residential (> 150),1794.648612,GWh
+2009,November,Small  General,1180.627977,GWh
+2009,November,Medium  General,1887.841421,GWh
+2009,November,Large General,4595.704239,GWh
+2009,November,Specific  Business,350.693139,GWh
+2009,November,Government & Nonprofit,385.837474,GWh
+2009,November,Agriculture Pumping,12.209803,GWh
+2009,November,Temporary,54.047373,GWh
+2009,November,Stand By Rate,5.51742,GWh
+2009,November,Interruptible Rate,126.278145,GWh
+2009,November,Free of Charge,164.053506,GWh
+2009,November,Direct Customer,136.606491,GWh
+2009,December,Residential (< 150),603.325989,GWh
+2009,December,Residential (> 150),1661.24218,GWh
+2009,December,Small  General,1149.449255,GWh
+2009,December,Medium  General,1843.246357,GWh
+2009,December,Large General,4535.390405,GWh
+2009,December,Specific  Business,366.544972,GWh
+2009,December,Government & Nonprofit,351.297108,GWh
+2009,December,Agriculture Pumping,27.520746,GWh
+2009,December,Temporary,52.98151,GWh
+2009,December,Stand By Rate,4.0345,GWh
+2009,December,Interruptible Rate,145.797892,GWh
+2009,December,Free of Charge,168.498446,GWh
+2009,December,Direct Customer,139.31805,GWh
+2010,January,Residential (< 150),656.661226,GWh
+2010,January,Residential (> 150),1771.087871,GWh
+2010,January,Small  General,1188.888305,GWh
+2010,January,Medium  General,1832.320359,GWh
+2010,January,Large General,4664.948091,GWh
+2010,January,Specific  Business,383.530893,GWh
+2010,January,Government & Nonprofit,371.115607,GWh
+2010,January,Agriculture Pumping,43.650804,GWh
+2010,January,Temporary,55.681226,GWh
+2010,January,Stand By Rate,4.70078,GWh
+2010,January,Interruptible Rate,145.287545,GWh
+2010,January,Free of Charge,174.142973,GWh
+2010,January,Direct Customer,141.19227,GWh
+2010,February,Residential (< 150),651.242937,GWh
+2010,February,Residential (> 150),1813.330069,GWh
+2010,February,Small  General,1211.592234,GWh
+2010,February,Medium  General,1820.827957,GWh
+2010,February,Large General,4624.030346,GWh
+2010,February,Specific  Business,384.705745,GWh
+2010,February,Government & Nonprofit,391.163272,GWh
+2010,February,Agriculture Pumping,48.47587,GWh
+2010,February,Temporary,55.053362,GWh
+2010,February,Stand By Rate,2.39057,GWh
+2010,February,Interruptible Rate,130.200582,GWh
+2010,February,Free of Charge,161.969407,GWh
+2010,February,Direct Customer,135.139629,GWh
+2010,March,Residential (< 150),777.312775,GWh
+2010,March,Residential (> 150),2095.302418,GWh
+2010,March,Small  General,1344.719287,GWh
+2010,March,Medium  General,2092.792055,GWh
+2010,March,Large General,5238.71294,GWh
+2010,March,Specific  Business,432.145189,GWh
+2010,March,Government & Nonprofit,416.433552,GWh
+2010,March,Agriculture Pumping,55.488253,GWh
+2010,March,Temporary,63.272094,GWh
+2010,March,Stand By Rate,4.22703,GWh
+2010,March,Interruptible Rate,142.724945,GWh
+2010,March,Free of Charge,173.647134,GWh
+2010,March,Direct Customer,138.629026,GWh
+2010,April,Residential (< 150),844.200701,GWh
+2010,April,Residential (> 150),2290.186574,GWh
+2010,April,Small  General,1378.663164,GWh
+2010,April,Medium  General,1949.406283,GWh
+2010,April,Large General,4697.118256,GWh
+2010,April,Specific  Business,428.391736,GWh
+2010,April,Government & Nonprofit,399.273114,GWh
+2010,April,Agriculture Pumping,42.418242,GWh
+2010,April,Temporary,64.017582,GWh
+2010,April,Stand By Rate,3.059752,GWh
+2010,April,Interruptible Rate,133.669418,GWh
+2010,April,Free of Charge,168.962326,GWh
+2010,April,Direct Customer,148.35508,GWh
+2010,May,Residential (< 150),862.250529,GWh
+2010,May,Residential (> 150),2442.081415,GWh
+2010,May,Small  General,1450.252927,GWh
+2010,May,Medium  General,2109.480618,GWh
+2010,May,Large General,5174.790955,GWh
+2010,May,Specific  Business,418.328949,GWh
+2010,May,Government & Nonprofit,440.154912,GWh
+2010,May,Agriculture Pumping,27.335258,GWh
+2010,May,Temporary,80.886284,GWh
+2010,May,Stand By Rate,4.00517,GWh
+2010,May,Interruptible Rate,150.842291,GWh
+2010,May,Free of Charge,169.044694,GWh
+2010,May,Direct Customer,149.305859,GWh
+2010,June,Residential (< 150),740.321557,GWh
+2010,June,Residential (> 150),2266.981511,GWh
+2010,June,Small  General,1375.225965,GWh
+2010,June,Medium  General,2072.007266,GWh
+2010,June,Large General,5088.829762,GWh
+2010,June,Specific  Business,391.843071,GWh
+2010,June,Government & Nonprofit,476.136147,GWh
+2010,June,Agriculture Pumping,27.448874,GWh
+2010,June,Temporary,75.165618,GWh
+2010,June,Stand By Rate,3.61907,GWh
+2010,June,Interruptible Rate,142.812473,GWh
+2010,June,Free of Charge,165.216849,GWh
+2010,June,Direct Customer,142.6419,GWh
+2010,July,Residential (< 150),712.254944,GWh
+2010,July,Residential (> 150),2194.336491,GWh
+2010,July,Small  General,1349.377844,GWh
+2010,July,Medium  General,2071.682559,GWh
+2010,July,Large General,5243.233192,GWh
+2010,July,Specific  Business,407.196056,GWh
+2010,July,Government & Nonprofit,472.266208,GWh
+2010,July,Agriculture Pumping,30.425272,GWh
+2010,July,Temporary,61.609244,GWh
+2010,July,Stand By Rate,10.52805,GWh
+2010,July,Interruptible Rate,147.380455,GWh
+2010,July,Free of Charge,175.061059,GWh
+2010,July,Direct Customer,190.596259,GWh
+2010,August,Residential (< 150),679.668578,GWh
+2010,August,Residential (> 150),2081.889895,GWh
+2010,August,Small  General,1293.269775,GWh
+2010,August,Medium  General,2019.339862,GWh
+2010,August,Large General,5189.752777,GWh
+2010,August,Specific  Business,392.529209,GWh
+2010,August,Government & Nonprofit,441.201444,GWh
+2010,August,Agriculture Pumping,11.565443,GWh
+2010,August,Temporary,59.380591,GWh
+2010,August,Stand By Rate,6.703125,GWh
+2010,August,Interruptible Rate,136.646436,GWh
+2010,August,Free of Charge,173.921032,GWh
+2010,August,Direct Customer,145.968464,GWh
+2010,September,Residential (< 150),663.628662,GWh
+2010,September,Residential (> 150),2038.147452,GWh
+2010,September,Small  General,1278.685105,GWh
+2010,September,Medium  General,2024.364782,GWh
+2010,September,Large General,5134.802839,GWh
+2010,September,Specific  Business,382.655643,GWh
+2010,September,Government & Nonprofit,464.497406,GWh
+2010,September,Agriculture Pumping,8.522557,GWh
+2010,September,Temporary,60.043982,GWh
+2010,September,Stand By Rate,4.628918,GWh
+2010,September,Interruptible Rate,120.521782,GWh
+2010,September,Free of Charge,162.215989,GWh
+2010,September,Direct Customer,152.025862,GWh
+2010,October,Residential (< 150),693.552817,GWh
+2010,October,Residential (> 150),2016.425974,GWh
+2010,October,Small  General,1279.066042,GWh
+2010,October,Medium  General,1968.979838,GWh
+2010,October,Large General,5283.378698,GWh
+2010,October,Specific  Business,385.913166,GWh
+2010,October,Government & Nonprofit,415.563266,GWh
+2010,October,Agriculture Pumping,9.463842,GWh
+2010,October,Temporary,62.612948,GWh
+2010,October,Stand By Rate,7.90062,GWh
+2010,October,Interruptible Rate,133.921964,GWh
+2010,October,Free of Charge,182.424215,GWh
+2010,October,Direct Customer,143.619827,GWh
+2010,November,Residential (< 150),617.225496,GWh
+2010,November,Residential (> 150),1819.360625,GWh
+2010,November,Small  General,1185.143738,GWh
+2010,November,Medium  General,1894.082236,GWh
+2010,November,Large General,5042.797738,GWh
+2010,November,Specific  Business,358.820167,GWh
+2010,November,Government & Nonprofit,374.053289,GWh
+2010,November,Agriculture Pumping,9.624238,GWh
+2010,November,Temporary,59.188336,GWh
+2010,November,Stand By Rate,19.69108,GWh
+2010,November,Interruptible Rate,127.599891,GWh
+2010,November,Free of Charge,174.302083,GWh
+2010,November,Direct Customer,141.776538,GWh
+2010,December,Residential (< 150),638.001683,GWh
+2010,December,Residential (> 150),1848.352475,GWh
+2010,December,Small  General,1221.472851,GWh
+2010,December,Medium  General,1890.784458,GWh
+2010,December,Large General,4943.62643,GWh
+2010,December,Specific  Business,383.865814,GWh
+2010,December,Government & Nonprofit,387.529957,GWh
+2010,December,Agriculture Pumping,20.869798,GWh
+2010,December,Temporary,64.927518,GWh
+2010,December,Stand By Rate,10.63806,GWh
+2010,December,Interruptible Rate,130.783636,GWh
+2010,December,Free of Charge,186.15238,GWh
+2010,December,Direct Customer,141.638337,GWh
+2011,January,Residential (< 150),627.396185,GWh
+2011,January,Residential (> 150),1712.650329,GWh
+2011,January,Small  General,1156.944315,GWh
+2011,January,Medium  General,1795.354573,GWh
+2011,January,Large General,4959.23885,GWh
+2011,January,Specific  Business,367.92731,GWh
+2011,January,Government & Nonprofit,347.904498,GWh
+2011,January,Agriculture Pumping,46.8668,GWh
+2011,January,Temporary,62.002962,GWh
+2011,January,Stand By Rate,2.77484,GWh
+2011,January,Interruptible Rate,137.356709,GWh
+2011,January,Free of Charge,183.493113,GWh
+2011,January,Direct Customer,144.460777,GWh
+2011,February,Residential (< 150),620.555272,GWh
+2011,February,Residential (> 150),1739.667946,GWh
+2011,February,Small  General,1162.926067,GWh
+2011,February,Medium  General,1780.84028,GWh
+2011,February,Large General,4872.642712,GWh
+2011,February,Specific  Business,376.101584,GWh
+2011,February,Government & Nonprofit,354.113006,GWh
+2011,February,Agriculture Pumping,54.529978,GWh
+2011,February,Temporary,60.457865,GWh
+2011,February,Stand By Rate,7.21511,GWh
+2011,February,Interruptible Rate,125.211364,GWh
+2011,February,Free of Charge,165.956807,GWh
+2011,February,Direct Customer,129.717334,GWh
+2011,March,Residential (< 150),747.005312,GWh
+2011,March,Residential (> 150),1950.392272,GWh
+2011,March,Small  General,1284.658579,GWh
+2011,March,Medium  General,2028.965875,GWh
+2011,March,Large General,5425.398007,GWh
+2011,March,Specific  Business,400.121967,GWh
+2011,March,Government & Nonprofit,392.672548,GWh
+2011,March,Agriculture Pumping,47.467446,GWh
+2011,March,Temporary,70.037647,GWh
+2011,March,Stand By Rate,4.73277,GWh
+2011,March,Interruptible Rate,151.372164,GWh
+2011,March,Free of Charge,186.888278,GWh
+2011,March,Direct Customer,132.969068,GWh
+2011,April,Residential (< 150),765.435973,GWh
+2011,April,Residential (> 150),1975.924197,GWh
+2011,April,Small  General,1251.240262,GWh
+2011,April,Medium  General,1852.537522,GWh
+2011,April,Large General,4828.621776,GWh
+2011,April,Specific  Business,401.623876,GWh
+2011,April,Government & Nonprofit,348.202098,GWh
+2011,April,Agriculture Pumping,36.919049,GWh
+2011,April,Temporary,64.37078,GWh
+2011,April,Stand By Rate,4.93061,GWh
+2011,April,Interruptible Rate,132.197564,GWh
+2011,April,Free of Charge,175.124755,GWh
+2011,April,Direct Customer,140.272251,GWh
+2011,May,Residential (< 150),822.322908,GWh
+2011,May,Residential (> 150),2223.245753,GWh
+2011,May,Small  General,1396.444364,GWh
+2011,May,Medium  General,2100.378022,GWh
+2011,May,Large General,5310.096804,GWh
+2011,May,Specific  Business,426.204331,GWh
+2011,May,Government & Nonprofit,413.50666,GWh
+2011,May,Agriculture Pumping,14.958875,GWh
+2011,May,Temporary,70.769196,GWh
+2011,May,Stand By Rate,6.54405,GWh
+2011,May,Interruptible Rate,138.868582,GWh
+2011,May,Free of Charge,177.650679,GWh
+2011,May,Direct Customer,150.853708,GWh
+2011,June,Residential (< 150),756.595195,GWh
+2011,June,Residential (> 150),2156.279408,GWh
+2011,June,Small  General,1375.337105,GWh
+2011,June,Medium  General,2090.881855,GWh
+2011,June,Large General,5311.263487,GWh
+2011,June,Specific  Business,405.468064,GWh
+2011,June,Government & Nonprofit,467.34997,GWh
+2011,June,Agriculture Pumping,14.234614,GWh
+2011,June,Temporary,71.742871,GWh
+2011,June,Stand By Rate,3.1265,GWh
+2011,June,Interruptible Rate,132.549527,GWh
+2011,June,Free of Charge,170.646912,GWh
+2011,June,Direct Customer,134.451359,GWh
+2011,July,Residential (< 150),760.185774,GWh
+2011,July,Residential (> 150),2172.714603,GWh
+2011,July,Small  General,1370.252499,GWh
+2011,July,Medium  General,2068.872707,GWh
+2011,July,Large General,5436.078018,GWh
+2011,July,Specific  Business,419.764198,GWh
+2011,July,Government & Nonprofit,461.114571,GWh
+2011,July,Agriculture Pumping,20.693755,GWh
+2011,July,Temporary,70.725636,GWh
+2011,July,Stand By Rate,8.5998,GWh
+2011,July,Interruptible Rate,141.533782,GWh
+2011,July,Free of Charge,176.320394,GWh
+2011,July,Direct Customer,148.357407,GWh
+2011,August,Residential (< 150),727.795468,GWh
+2011,August,Residential (> 150),2173.52556,GWh
+2011,August,Small  General,1361.345901,GWh
+2011,August,Medium  General,2072.756221,GWh
+2011,August,Large General,5431.327899,GWh
+2011,August,Specific  Business,421.304192,GWh
+2011,August,Government & Nonprofit,456.417279,GWh
+2011,August,Agriculture Pumping,10.778812,GWh
+2011,August,Temporary,70.572472,GWh
+2011,August,Stand By Rate,11.070085,GWh
+2011,August,Interruptible Rate,139.210764,GWh
+2011,August,Free of Charge,181.204768,GWh
+2011,August,Direct Customer,154.13497,GWh
+2011,September,Residential (< 150),710.920563,GWh
+2011,September,Residential (> 150),2128.532012,GWh
+2011,September,Small  General,1327.1864,GWh
+2011,September,Medium  General,2017.602851,GWh
+2011,September,Large General,5486.305618,GWh
+2011,September,Specific  Business,403.147205,GWh
+2011,September,Government & Nonprofit,496.652672,GWh
+2011,September,Agriculture Pumping,5.741872,GWh
+2011,September,Temporary,72.939595,GWh
+2011,September,Stand By Rate,6.023051,GWh
+2011,September,Interruptible Rate,130.32909,GWh
+2011,September,Free of Charge,179.44993505,GWh
+2011,September,Direct Customer,148.060658,GWh
+2011,October,Residential (< 150),719.024216,GWh
+2011,October,Residential (> 150),2080.122028,GWh
+2011,October,Small  General,1300.832688,GWh
+2011,October,Medium  General,1864.044801,GWh
+2011,October,Large General,4966.210514,GWh
+2011,October,Specific  Business,403.993036,GWh
+2011,October,Government & Nonprofit,397.36955,GWh
+2011,October,Agriculture Pumping,5.620211,GWh
+2011,October,Temporary,74.376689,GWh
+2011,October,Stand By Rate,8.031503,GWh
+2011,October,Interruptible Rate,131.432819,GWh
+2011,October,Free of Charge,180.28641397,GWh
+2011,October,Direct Customer,146.047715,GWh
+2011,November,Residential (< 150),691.462866,GWh
+2011,November,Residential (> 150),2013.757053,GWh
+2011,November,Small  General,1252.193308,GWh
+2011,November,Medium  General,1701.886181,GWh
+2011,November,Large General,4449.45788,GWh
+2011,November,Specific  Business,399.777644,GWh
+2011,November,Government & Nonprofit,389.632682,GWh
+2011,November,Agriculture Pumping,10.922574,GWh
+2011,November,Temporary,73.222316,GWh
+2011,November,Stand By Rate,3.85326,GWh
+2011,November,Interruptible Rate,124.318255,GWh
+2011,November,Free of Charge,192.787609,GWh
+2011,November,Direct Customer,137.29737,GWh
+2011,December,Residential (< 150),652.646203,GWh
+2011,December,Residential (> 150),1871.298395,GWh
+2011,December,Small  General,1206.833485,GWh
+2011,December,Medium  General,1742.353502,GWh
+2011,December,Large General,4623.045795,GWh
+2011,December,Specific  Business,373.873141,GWh
+2011,December,Government & Nonprofit,363.288327,GWh
+2011,December,Agriculture Pumping,27.977679,GWh
+2011,December,Temporary,79.408544,GWh
+2011,December,Stand By Rate,1.66957,GWh
+2011,December,Interruptible Rate,134.107834,GWh
+2011,December,Free of Charge,198.576466,GWh
+2011,December,Direct Customer,146.741471,GWh
+2012,January,Residential (< 150),675.009162,GWh
+2012,January,Residential (> 150),1965.580969,GWh
+2012,January,Small  General,1245.531214,GWh
+2012,January,Medium  General,1803.21958,GWh
+2012,January,Large General,4970.478977,GWh
+2012,January,Specific  Business,417.437905,GWh
+2012,January,Government & Nonprofit,351.018415,GWh
+2012,January,Agriculture Pumping,46.32596,GWh
+2012,January,Temporary,82.876689,GWh
+2012,January,Stand By Rate,9.15343,GWh
+2012,January,Interruptible Rate,138.046784,GWh
+2012,January,Free of Charge,190.930828,GWh
+2012,January,Direct Customer,147.944676,GWh
+2012,February,Residential (< 150),682.863886,GWh
+2012,February,Residential (> 150),2062.611145,GWh
+2012,February,Small  General,1300.399879,GWh
+2012,February,Medium  General,1903.273368,GWh
+2012,February,Large General,5205.658951,GWh
+2012,February,Specific  Business,427.454387,GWh
+2012,February,Government & Nonprofit,392.168692,GWh
+2012,February,Agriculture Pumping,50.419137,GWh
+2012,February,Temporary,82.998957,GWh
+2012,February,Stand By Rate,41.84453,GWh
+2012,February,Interruptible Rate,134.680527,GWh
+2012,February,Free of Charge,178.029734,GWh
+2012,February,Direct Customer,147.000045,GWh
+2012,March,Residential (< 150),808.221412,GWh
+2012,March,Residential (> 150),2379.503124,GWh
+2012,March,Small  General,1456.87658,GWh
+2012,March,Medium  General,2129.614866,GWh
+2012,March,Large General,5766.36753,GWh
+2012,March,Specific  Business,480.898373,GWh
+2012,March,Government & Nonprofit,431.006129,GWh
+2012,March,Agriculture Pumping,50.920389,GWh
+2012,March,Temporary,94.223632,GWh
+2012,March,Stand By Rate,49.474637,GWh
+2012,March,Interruptible Rate,150.468145,GWh
+2012,March,Free of Charge,186.311115,GWh
+2012,March,Direct Customer,153.604157,GWh
+2012,April,Residential (< 150),817.958771,GWh
+2012,April,Residential (> 150),2483.590202,GWh
+2012,April,Small  General,1432.528553,GWh
+2012,April,Medium  General,1929.908897,GWh
+2012,April,Large General,5154.270142,GWh
+2012,April,Specific  Business,473.855711,GWh
+2012,April,Government & Nonprofit,371.302907,GWh
+2012,April,Agriculture Pumping,38.242963,GWh
+2012,April,Temporary,91.83464,GWh
+2012,April,Stand By Rate,54.480531,GWh
+2012,April,Interruptible Rate,133.614327,GWh
+2012,April,Free of Charge,177.267389,GWh
+2012,April,Direct Customer,146.26545,GWh
+2012,May,Residential (< 150),845.107235,GWh
+2012,May,Residential (> 150),2623.54568,GWh
+2012,May,Small  General,1523.727889,GWh
+2012,May,Medium  General,2151.540656,GWh
+2012,May,Large General,5816.316486,GWh
+2012,May,Specific  Business,473.644991,GWh
+2012,May,Government & Nonprofit,431.067134,GWh
+2012,May,Agriculture Pumping,22.665139,GWh
+2012,May,Temporary,98.421175,GWh
+2012,May,Stand By Rate,62.030106,GWh
+2012,May,Interruptible Rate,129.548891,GWh
+2012,May,Free of Charge,179.951912,GWh
+2012,May,Direct Customer,153.913954,GWh
+2012,June,Residential (< 150),715.536095,GWh
+2012,June,Residential (> 150),2353.946645,GWh
+2012,June,Small  General,1403.040467,GWh
+2012,June,Medium  General,2048.124577,GWh
+2012,June,Large General,5643.155189,GWh
+2012,June,Specific  Business,442.428206,GWh
+2012,June,Government & Nonprofit,443.473121,GWh
+2012,June,Agriculture Pumping,20.76081,GWh
+2012,June,Temporary,98.311785,GWh
+2012,June,Stand By Rate,53.777175,GWh
+2012,June,Interruptible Rate,125.288345,GWh
+2012,June,Free of Charge,171.263517,GWh
+2012,June,Direct Customer,173.835544,GWh
+2012,July,Residential (< 150),709.972237,GWh
+2012,July,Residential (> 150),2335.450829,GWh
+2012,July,Small  General,1395.485444,GWh
+2012,July,Medium  General,2077.280943,GWh
+2012,July,Large General,5802.95711,GWh
+2012,July,Specific  Business,451.773579,GWh
+2012,July,Government & Nonprofit,456.692998,GWh
+2012,July,Agriculture Pumping,32.412231,GWh
+2012,July,Temporary,100.279525,GWh
+2012,July,Stand By Rate,60.082123,GWh
+2012,July,Interruptible Rate,148.257455,GWh
+2012,July,Free of Charge,177.302557,GWh
+2012,July,Direct Customer,157.310075,GWh
+2012,August,Residential (< 150),693.346887,GWh
+2012,August,Residential (> 150),2312.042005,GWh
+2012,August,Small  General,1380.272627,GWh
+2012,August,Medium  General,2028.545196,GWh
+2012,August,Large General,5640.195515,GWh
+2012,August,Specific  Business,457.524279,GWh
+2012,August,Government & Nonprofit,424.945556,GWh
+2012,August,Agriculture Pumping,32.857253,GWh
+2012,August,Temporary,102.614957,GWh
+2012,August,Stand By Rate,64.828221,GWh
+2012,August,Interruptible Rate,145.112364,GWh
+2012,August,Free of Charge,180.038211,GWh
+2012,August,Direct Customer,160.056605,GWh
+2012,September,Residential (< 150),676.783452,GWh
+2012,September,Residential (> 150),2209.896494,GWh
+2012,September,Small  General,1342.690744,GWh
+2012,September,Medium  General,2002.222813,GWh
+2012,September,Large General,5607.955624,GWh
+2012,September,Specific  Business,419.169672,GWh
+2012,September,Government & Nonprofit,460.520071,GWh
+2012,September,Agriculture Pumping,11.508825,GWh
+2012,September,Temporary,101.595012,GWh
+2012,September,Stand By Rate,58.61644,GWh
+2012,September,Interruptible Rate,142.770236,GWh
+2012,September,Free of Charge,170.594272,GWh
+2012,September,Direct Customer,146.539114,GWh
+2012,October,Residential (< 150),717.651095,GWh
+2012,October,Residential (> 150),2312.201623,GWh
+2012,October,Small  General,1506.901442,GWh
+2012,October,Medium  General,2292.485007,GWh
+2012,October,Large General,5750.210734,GWh
+2012,October,Specific  Business,446.459225,GWh
+2012,October,Government & Nonprofit,8.708843,GWh
+2012,October,Agriculture Pumping,23.49967,GWh
+2012,October,Temporary,104.84605,GWh
+2012,October,Stand By Rate,55.69042,GWh
+2012,October,Interruptible Rate,149.058145,GWh
+2012,October,Free of Charge,189.070718,GWh
+2012,October,Direct Customer,146.923423,GWh
+2012,November,Residential (< 150),716.630223,GWh
+2012,November,Residential (> 150),2355.079828,GWh
+2012,November,Small  General,1528.079545,GWh
+2012,November,Medium  General,2314.424254,GWh
+2012,November,Large General,5682.569459,GWh
+2012,November,Specific  Business,452.203261,GWh
+2012,November,Government & Nonprofit,13.010838,GWh
+2012,November,Agriculture Pumping,18.990939,GWh
+2012,November,Temporary,105.272715,GWh
+2012,November,Stand By Rate,39.54549,GWh
+2012,November,Interruptible Rate,142.702345,GWh
+2012,November,Free of Charge,191.834073,GWh
+2012,November,Direct Customer,140.726751,GWh
+2012,December,Residential (< 150),713.954292,GWh
+2012,December,Residential (> 150),2280.727989,GWh
+2012,December,Small  General,1497.757715,GWh
+2012,December,Medium  General,2209.480593,GWh
+2012,December,Large General,5362.942251,GWh
+2012,December,Specific  Business,461.645599,GWh
+2012,December,Government & Nonprofit,14.871713,GWh
+2012,December,Agriculture Pumping,28.505039,GWh
+2012,December,Temporary,108.78696,GWh
+2012,December,Stand By Rate,36.47203,GWh
+2012,December,Interruptible Rate,138.962745,GWh
+2012,December,Free of Charge,198.798106,GWh
+2012,December,Direct Customer,142.81047,GWh
+2013,January,Residential (< 150),662.103167,GWh
+2013,January,Residential (> 150),2142.641693,GWh
+2013,January,Small  General,1429.726371,GWh
+2013,January,Medium  General,2136.782715,GWh
+2013,January,Large General,5503.398143,GWh
+2013,January,Specific  Business,448.645066,GWh
+2013,January,Government & Nonprofit,13.982514,GWh
+2013,January,Agriculture Pumping,48.240641,GWh
+2013,January,Temporary,100.786087,GWh
+2013,January,Stand By Rate,5.57936,GWh
+2013,January,Interruptible Rate,133.295836,GWh
+2013,January,Free of Charge,197.955463,GWh
+2013,January,Direct Customer,135.780477,GWh
+2013,February,Residential (< 150),624.321937,GWh
+2013,February,Residential (> 150),2139.773787,GWh
+2013,February,Small  General,1400.69674,GWh
+2013,February,Medium  General,2109.352138,GWh
+2013,February,Large General,5272.86741,GWh
+2013,February,Specific  Business,444.577805,GWh
+2013,February,Government & Nonprofit,12.979524,GWh
+2013,February,Agriculture Pumping,44.516869,GWh
+2013,February,Temporary,100.699453,GWh
+2013,February,Stand By Rate,5.57453,GWh
+2013,February,Interruptible Rate,125.088109,GWh
+2013,February,Free of Charge,181.845343,GWh
+2013,February,Direct Customer,133.960013,GWh
+2013,March,Residential (< 150),753.738686,GWh
+2013,March,Residential (> 150),2503.368156,GWh
+2013,March,Small  General,1588.714223,GWh
+2013,March,Medium  General,2422.227893,GWh
+2013,March,Large General,6082.093263,GWh
+2013,March,Specific  Business,520.064927,GWh
+2013,March,Government & Nonprofit,11.937612,GWh
+2013,March,Agriculture Pumping,47.369198,GWh
+2013,March,Temporary,114.777386,GWh
+2013,March,Stand By Rate,3.54799,GWh
+2013,March,Interruptible Rate,145.981836,GWh
+2013,March,Free of Charge,196.464534,GWh
+2013,March,Direct Customer,141.693665,GWh
+2013,April,Residential (< 150),830.171313,GWh
+2013,April,Residential (> 150),2735.559531,GWh
+2013,April,Small  General,1621.703676,GWh
+2013,April,Medium  General,2191.607497,GWh
+2013,April,Large General,5309.025502,GWh
+2013,April,Specific  Business,503.67551,GWh
+2013,April,Government & Nonprofit,11.78186,GWh
+2013,April,Agriculture Pumping,38.240451,GWh
+2013,April,Temporary,110.084932,GWh
+2013,April,Stand By Rate,1.83834,GWh
+2013,April,Interruptible Rate,123.721909,GWh
+2013,April,Free of Charge,187.678919,GWh
+2013,April,Direct Customer,146.4349,GWh
+2013,May,Residential (< 150),849.776715,GWh
+2013,May,Residential (> 150),2858.055436,GWh
+2013,May,Small  General,1708.374264,GWh
+2013,May,Medium  General,2457.163809,GWh
+2013,May,Large General,5981.353364,GWh
+2013,May,Specific  Business,519.751883,GWh
+2013,May,Government & Nonprofit,13.336339,GWh
+2013,May,Agriculture Pumping,24.636886,GWh
+2013,May,Temporary,119.868727,GWh
+2013,May,Stand By Rate,1.92615,GWh
+2013,May,Interruptible Rate,135.837873,GWh
+2013,May,Free of Charge,190.045084,GWh
+2013,May,Direct Customer,148.500926,GWh
+2013,June,Residential (< 150),737.21938,GWh
+2013,June,Residential (> 150),2558.358955,GWh
+2013,June,Small  General,1594.986781,GWh
+2013,June,Medium  General,2349.854224,GWh
+2013,June,Large General,5788.160328,GWh
+2013,June,Specific  Business,463.129399,GWh
+2013,June,Government & Nonprofit,12.543783,GWh
+2013,June,Agriculture Pumping,22.615578,GWh
+2013,June,Temporary,115.804696,GWh
+2013,June,Stand By Rate,5.82157,GWh
+2013,June,Interruptible Rate,145.214964,GWh
+2013,June,Free of Charge,187.695962,GWh
+2013,June,Direct Customer,146.654888,GWh
+2013,July,Residential (< 150),714.985759,GWh
+2013,July,Residential (> 150),2496.29659,GWh
+2013,July,Small  General,1567.891311,GWh
+2013,July,Medium  General,2327.237249,GWh
+2013,July,Large General,5774.193328,GWh
+2013,July,Specific  Business,466.250981,GWh
+2013,July,Government & Nonprofit,12.449934,GWh
+2013,July,Agriculture Pumping,31.413651,GWh
+2013,July,Temporary,114.943738,GWh
+2013,July,Stand By Rate,5.07984,GWh
+2013,July,Interruptible Rate,138.365545,GWh
+2013,July,Free of Charge,201.209978,GWh
+2013,July,Direct Customer,151.03478,GWh
+2013,August,Residential (< 150),696.772935,GWh
+2013,August,Residential (> 150),2490.246875,GWh
+2013,August,Small  General,1554.712524,GWh
+2013,August,Medium  General,2362.183737,GWh
+2013,August,Large General,5840.425305,GWh
+2013,August,Specific  Business,477.197486,GWh
+2013,August,Government & Nonprofit,12.541021,GWh
+2013,August,Agriculture Pumping,26.522554,GWh
+2013,August,Temporary,116.151186,GWh
+2013,August,Stand By Rate,6.60692,GWh
+2013,August,Interruptible Rate,139.091891,GWh
+2013,August,Free of Charge,219.543815,GWh
+2013,August,Direct Customer,151.441676,GWh
+2013,September,Residential (< 150),680.341602,GWh
+2013,September,Residential (> 150),2397.496302,GWh
+2013,September,Small  General,1544.482437,GWh
+2013,September,Medium  General,2308.347577,GWh
+2013,September,Large General,5711.017958,GWh
+2013,September,Specific  Business,445.96163,GWh
+2013,September,Government & Nonprofit,12.127743,GWh
+2013,September,Agriculture Pumping,17.654278,GWh
+2013,September,Temporary,115.179255,GWh
+2013,September,Stand By Rate,4.02522,GWh
+2013,September,Interruptible Rate,140.421564,GWh
+2013,September,Free of Charge,189.291672,GWh
+2013,September,Direct Customer,146.061646,GWh
+2013,October,Residential (< 150),697.795252,GWh
+2013,October,Residential (> 150),2415.46291,GWh
+2013,October,Small  General,1528.549956,GWh
+2013,October,Medium  General,2272.085021,GWh
+2013,October,Large General,5794.674696,GWh
+2013,October,Specific  Business,447.897928,GWh
+2013,October,Government & Nonprofit,12.257428,GWh
+2013,October,Agriculture Pumping,12.852654,GWh
+2013,October,Temporary,117.340116,GWh
+2013,October,Stand By Rate,4.555833,GWh
+2013,October,Interruptible Rate,139.162655,GWh
+2013,October,Free of Charge,208.537451,GWh
+2013,October,Direct Customer,149.832311,GWh
+2013,November,Residential (< 150),663.361892,GWh
+2013,November,Residential (> 150),2320.246053,GWh
+2013,November,Small  General,1480.919326,GWh
+2013,November,Medium  General,2283.4955,GWh
+2013,November,Large General,5679.289209,GWh
+2013,November,Specific  Business,449.573011,GWh
+2013,November,Government & Nonprofit,12.131358,GWh
+2013,November,Agriculture Pumping,13.326037,GWh
+2013,November,Temporary,113.81951,GWh
+2013,November,Stand By Rate,4.87874,GWh
+2013,November,Interruptible Rate,135.364727,GWh
+2013,November,Free of Charge,205.630032,GWh
+2013,November,Direct Customer,140.856919,GWh
+2013,December,Residential (< 150),638.566575,GWh
+2013,December,Residential (> 150),2050.713631,GWh
+2013,December,Small  General,1353.391931,GWh
+2013,December,Medium  General,1998.812628,GWh
+2013,December,Large General,5109.438664,GWh
+2013,December,Specific  Business,399.893543,GWh
+2013,December,Government & Nonprofit,10.779515,GWh
+2013,December,Agriculture Pumping,26.231892,GWh
+2013,December,Temporary,106.886265,GWh
+2013,December,Stand By Rate,2.34012,GWh
+2013,December,Interruptible Rate,139.296364,GWh
+2013,December,Free of Charge,212.943171,GWh
+2013,December,Direct Customer,145.363261,GWh
+2014,January,Residential (< 150),602.410606,GWh
+2014,January,Residential (> 150),1884.427578,GWh
+2014,January,Small  General,1280.008942,GWh
+2014,January,Medium  General,1982.229664,GWh
+2014,January,Large General,5247.696991,GWh
+2014,January,Specific  Business,394.897637,GWh
+2014,January,Government & Nonprofit,10.008948,GWh
+2014,January,Agriculture Pumping,50.770889,GWh
+2014,January,Temporary,103.196455,GWh
+2014,January,Stand By Rate,5.99351,GWh
+2014,January,Interruptible Rate,147.801364,GWh
+2014,January,Free of Charge,216.054817,GWh
+2014,January,Direct Customer,142.940125,GWh
+2014,February,Residential (< 150),597.506893,GWh
+2014,February,Residential (> 150),1939.853715,GWh
+2014,February,Small  General,1303.677823,GWh
+2014,February,Medium  General,2029.104832,GWh
+2014,February,Large General,5242.599576,GWh
+2014,February,Specific  Business,409.121495,GWh
+2014,February,Government & Nonprofit,10.446931,GWh
+2014,February,Agriculture Pumping,57.70655,GWh
+2014,February,Temporary,101.487557,GWh
+2014,February,Stand By Rate,8.99155,GWh
+2014,February,Interruptible Rate,149.069491,GWh
+2014,February,Free of Charge,196.735311,GWh
+2014,February,Direct Customer,119.940117,GWh
+2014,March,Residential (< 150),806.067707,GWh
+2014,March,Residential (> 150),2462.790894,GWh
+2014,March,Small  General,1593.464003,GWh
+2014,March,Medium  General,2441.330522,GWh
+2014,March,Large General,6057.641625,GWh
+2014,March,Specific  Business,505.62089,GWh
+2014,March,Government & Nonprofit,12.51644,GWh
+2014,March,Agriculture Pumping,62.973192,GWh
+2014,March,Temporary,118.426744,GWh
+2014,March,Stand By Rate,15.63442,GWh
+2014,March,Interruptible Rate,161.408509,GWh
+2014,March,Free of Charge,213.687034,GWh
+2014,March,Direct Customer,154.441281,GWh
+2014,April,Residential (< 150),862.753297,GWh
+2014,April,Residential (> 150),2723.561795,GWh
+2014,April,Small  General,1640.513375,GWh
+2014,April,Medium  General,2251.435858,GWh
+2014,April,Large General,5402.670563,GWh
+2014,April,Specific  Business,518.648445,GWh
+2014,April,Government & Nonprofit,12.984489,GWh
+2014,April,Agriculture Pumping,46.773607,GWh
+2014,April,Temporary,113.573919,GWh
+2014,April,Stand By Rate,13.91876,GWh
+2014,April,Interruptible Rate,130.412327,GWh
+2014,April,Free of Charge,204.743519,GWh
+2014,April,Direct Customer,153.967541,GWh
+2014,May,Residential (< 150),925.965734,GWh
+2014,May,Residential (> 150),2976.837828,GWh
+2014,May,Small  General,1771.277035,GWh
+2014,May,Medium  General,2521.053071,GWh
+2014,May,Large General,6071.183726,GWh
+2014,May,Specific  Business,525.054551,GWh
+2014,May,Government & Nonprofit,14.772469,GWh
+2014,May,Agriculture Pumping,25.677143,GWh
+2014,May,Temporary,124.718134,GWh
+2014,May,Stand By Rate,8.06071,GWh
+2014,May,Interruptible Rate,154.268291,GWh
+2014,May,Free of Charge,209.840457,GWh
+2014,May,Direct Customer,162.670249,GWh
+2014,June,Residential (< 150),783.068259,GWh
+2014,June,Residential (> 150),2848.246508,GWh
+2014,June,Small  General,1705.391931,GWh
+2014,June,Medium  General,2445.979124,GWh
+2014,June,Large General,5915.237949,GWh
+2014,June,Specific  Business,469.187282,GWh
+2014,June,Government & Nonprofit,13.724197,GWh
+2014,June,Agriculture Pumping,26.112556,GWh
+2014,June,Temporary,120.1672,GWh
+2014,June,Stand By Rate,8.22072,GWh
+2014,June,Interruptible Rate,145.192345,GWh
+2014,June,Free of Charge,205.723338,GWh
+2014,June,Direct Customer,150.565284,GWh
+2014,July,Residential (< 150),741.683261,GWh
+2014,July,Residential (> 150),2754.388865,GWh
+2014,July,Small  General,1648.531108,GWh
+2014,July,Medium  General,2416.636664,GWh
+2014,July,Large General,5971.911086,GWh
+2014,July,Specific  Business,482.990234,GWh
+2014,July,Government & Nonprofit,13.52992,GWh
+2014,July,Agriculture Pumping,32.391079,GWh
+2014,July,Temporary,120.350736,GWh
+2014,July,Stand By Rate,16.95558,GWh
+2014,July,Interruptible Rate,148.276927,GWh
+2014,July,Free of Charge,217.047198,GWh
+2014,July,Direct Customer,134.673845,GWh
+2014,August,Residential (< 150),699.552332,GWh
+2014,August,Residential (> 150),2679.757216,GWh
+2014,August,Small  General,1625.188872,GWh
+2014,August,Medium  General,2422.224732,GWh
+2014,August,Large General,5978.321297,GWh
+2014,August,Specific  Business,488.313543,GWh
+2014,August,Government & Nonprofit,13.221418,GWh
+2014,August,Agriculture Pumping,25.373781,GWh
+2014,August,Temporary,122.882318,GWh
+2014,August,Stand By Rate,20.3204,GWh
+2014,August,Interruptible Rate,145.620945,GWh
+2014,August,Free of Charge,225.434785,GWh
+2014,August,Direct Customer,161.917642,GWh
+2014,September,Residential (< 150),670.899347,GWh
+2014,September,Residential (> 150),2566.880383,GWh
+2014,September,Small  General,1601.780363,GWh
+2014,September,Medium  General,2414.883544,GWh
+2014,September,Large General,5915.227569,GWh
+2014,September,Specific  Business,459.331135,GWh
+2014,September,Government & Nonprofit,12.713768,GWh
+2014,September,Agriculture Pumping,20.23449,GWh
+2014,September,Temporary,119.932875,GWh
+2014,September,Stand By Rate,18.27895,GWh
+2014,September,Interruptible Rate,141.928455,GWh
+2014,September,Free of Charge,201.208357,GWh
+2014,September,Direct Customer,140.124822,GWh
+2014,October,Residential (< 150),696.842711,GWh
+2014,October,Residential (> 150),2605.845597,GWh
+2014,October,Small  General,1587.59349,GWh
+2014,October,Medium  General,2390.40351,GWh
+2014,October,Large General,6005.456106,GWh
+2014,October,Specific  Business,471.603205,GWh
+2014,October,Government & Nonprofit,12.827206,GWh
+2014,October,Agriculture Pumping,29.158787,GWh
+2014,October,Temporary,120.773611,GWh
+2014,October,Stand By Rate,9.19905,GWh
+2014,October,Interruptible Rate,141.162164,GWh
+2014,October,Free of Charge,227.459769,GWh
+2014,October,Direct Customer,139.225371,GWh
+2014,November,Residential (< 150),666.30546,GWh
+2014,November,Residential (> 150),2516.312007,GWh
+2014,November,Small  General,1560.763205,GWh
+2014,November,Medium  General,2372.819705,GWh
+2014,November,Large General,5875.717119,GWh
+2014,November,Specific  Business,472.95291,GWh
+2014,November,Government & Nonprofit,12.875289,GWh
+2014,November,Agriculture Pumping,15.16438,GWh
+2014,November,Temporary,117.534142,GWh
+2014,November,Stand By Rate,10.58134,GWh
+2014,November,Interruptible Rate,146.034909,GWh
+2014,November,Free of Charge,231.68,GWh
+2014,November,Direct Customer,143.490917,GWh
+2014,December,Residential (< 150),649.840354,GWh
+2014,December,Residential (> 150),2331.370539,GWh
+2014,December,Small  General,1488.738366,GWh
+2014,December,Medium  General,2195.346513,GWh
+2014,December,Large General,5473.357668,GWh
+2014,December,Specific  Business,452.758871,GWh
+2014,December,Government & Nonprofit,12.225502,GWh
+2014,December,Agriculture Pumping,22.004744,GWh
+2014,December,Temporary,113.437888,GWh
+2014,December,Stand By Rate,5.28669,GWh
+2014,December,Interruptible Rate,149.704764,GWh
+2014,December,Free of Charge,232.705411,GWh
+2014,December,Direct Customer,143.072546,GWh
+2015,January,Residential (< 150),609.835812,GWh
+2015,January,Residential (> 150),2066.228485,GWh
+2015,January,Small  General,1365.371145,GWh
+2015,January,Medium  General,2082.293844,GWh
+2015,January,Large General,5475.319543,GWh
+2015,January,Specific  Business,430.928465,GWh
+2015,January,Government & Nonprofit,11.117673,GWh
+2015,January,Agriculture Pumping,29.606737,GWh
+2015,January,Temporary,103.377053,GWh
+2015,January,Stand By Rate,41.41593,GWh
+2015,January,Interruptible Rate,157.236127,GWh
+2015,January,Free of Charge,227.593812,GWh
+2015,January,Direct Customer,145.348848,GWh
+2015,February,Residential (< 150),583.685892,GWh
+2015,February,Residential (> 150),2097.802409,GWh
+2015,February,Small  General,1383.366886,GWh
+2015,February,Medium  General,2122.035563,GWh
+2015,February,Large General,5412.93728,GWh
+2015,February,Specific  Business,435.265133,GWh
+2015,February,Government & Nonprofit,11.588567,GWh
+2015,February,Agriculture Pumping,32.745523,GWh
+2015,February,Temporary,103.763688,GWh
+2015,February,Stand By Rate,16.64048,GWh
+2015,February,Interruptible Rate,154.852564,GWh
+2015,February,Free of Charge,207.433607,GWh
+2015,February,Direct Customer,126.900593,GWh
+2015,March,Residential (< 150),795.279505,GWh
+2015,March,Residential (> 150),2682.524956,GWh
+2015,March,Small  General,1669.819274,GWh
+2015,March,Medium  General,2522.001293,GWh
+2015,March,Large General,6191.593801,GWh
+2015,March,Specific  Business,538.598462,GWh
+2015,March,Government & Nonprofit,11.883542,GWh
+2015,March,Agriculture Pumping,37.272705,GWh
+2015,March,Temporary,120.058657,GWh
+2015,March,Stand By Rate,3.5852,GWh
+2015,March,Interruptible Rate,172.356,GWh
+2015,March,Free of Charge,244.857418,GWh
+2015,March,Direct Customer,159.135686,GWh
+2015,April,Residential (< 150),823.63664,GWh
+2015,April,Residential (> 150),2785.928676,GWh
+2015,April,Small  General,1656.259034,GWh
+2015,April,Medium  General,2289.495814,GWh
+2015,April,Large General,5477.097779,GWh
+2015,April,Specific  Business,523.315251,GWh
+2015,April,Government & Nonprofit,17.757686,GWh
+2015,April,Agriculture Pumping,33.291253,GWh
+2015,April,Temporary,113.97847,GWh
+2015,April,Stand By Rate,3.812213,GWh
+2015,April,Interruptible Rate,148.218327,GWh
+2015,April,Free of Charge,220.668405,GWh
+2015,April,Direct Customer,162.382602,GWh
+2015,May,Residential (< 150),895.406386,GWh
+2015,May,Residential (> 150),3087.852311,GWh
+2015,May,Small  General,1811.358758,GWh
+2015,May,Medium  General,2618.890605,GWh
+2015,May,Large General,6172.677183,GWh
+2015,May,Specific  Business,557.191538,GWh
+2015,May,Government & Nonprofit,16.614656,GWh
+2015,May,Agriculture Pumping,31.559815,GWh
+2015,May,Temporary,123.751853,GWh
+2015,May,Stand By Rate,7.213175,GWh
+2015,May,Interruptible Rate,163.187091,GWh
+2015,May,Free of Charge,224.701732,GWh
+2015,May,Direct Customer,171.514539,GWh
+2015,June,Residential (< 150),789.501859,GWh
+2015,June,Residential (> 150),3075.623804,GWh
+2015,June,Small  General,1788.67298,GWh
+2015,June,Medium  General,2531.985115,GWh
+2015,June,Large General,5982.070734,GWh
+2015,June,Specific  Business,504.920732,GWh
+2015,June,Government & Nonprofit,15.739533,GWh
+2015,June,Agriculture Pumping,41.936042,GWh
+2015,June,Temporary,122.09436,GWh
+2015,June,Stand By Rate,3.75141,GWh
+2015,June,Interruptible Rate,156.515927,GWh
+2015,June,Free of Charge,220.073089,GWh
+2015,June,Direct Customer,157.37127,GWh
+2015,July,Residential (< 150),759.376083,GWh
+2015,July,Residential (> 150),2966.790557,GWh
+2015,July,Small  General,1758.373346,GWh
+2015,July,Medium  General,2547.29813,GWh
+2015,July,Large General,6000.882689,GWh
+2015,July,Specific  Business,523.794568,GWh
+2015,July,Government & Nonprofit,16.175887,GWh
+2015,July,Agriculture Pumping,44.625343,GWh
+2015,July,Temporary,121.530751,GWh
+2015,July,Stand By Rate,3.93812,GWh
+2015,July,Interruptible Rate,160.307018,GWh
+2015,July,Free of Charge,227.47034,GWh
+2015,July,Direct Customer,148.946236,GWh
+2015,August,Residential (< 150),688.605657,GWh
+2015,August,Residential (> 150),2862.748265,GWh
+2015,August,Small  General,1688.792878,GWh
+2015,August,Medium  General,2472.888684,GWh
+2015,August,Large General,5908.558037,GWh
+2015,August,Specific  Business,518.19094,GWh
+2015,August,Government & Nonprofit,15.57708,GWh
+2015,August,Agriculture Pumping,31.266962,GWh
+2015,August,Temporary,120.513561,GWh
+2015,August,Stand By Rate,5.22519,GWh
+2015,August,Interruptible Rate,165.883418,GWh
+2015,August,Free of Charge,231.677447,GWh
+2015,August,Direct Customer,152.850792,GWh
+2015,September,Residential (< 150),678.369669,GWh
+2015,September,Residential (> 150),2790.424268,GWh
+2015,September,Small  General,1693.317904,GWh
+2015,September,Medium  General,2450.497248,GWh
+2015,September,Large General,5941.739687,GWh
+2015,September,Specific  Business,477.995145,GWh
+2015,September,Government & Nonprofit,15.398509,GWh
+2015,September,Agriculture Pumping,33.136769,GWh
+2015,September,Temporary,116.990277,GWh
+2015,September,Stand By Rate,15.387665,GWh
+2015,September,Interruptible Rate,163.056764,GWh
+2015,September,Free of Charge,218.549192,GWh
+2015,September,Direct Customer,146.883076,GWh
+2015,October,Residential (< 150),692.246208,GWh
+2015,October,Residential (> 150),2765.05516,GWh
+2015,October,Small  General,1650.396703,GWh
+2015,October,Medium  General,2445.086435,GWh
+2015,October,Large General,6066.811163,GWh
+2015,October,Specific  Business,491.849379,GWh
+2015,October,Government & Nonprofit,15.459558,GWh
+2015,October,Agriculture Pumping,28.993362,GWh
+2015,October,Temporary,120.11151,GWh
+2015,October,Stand By Rate,29.687436,GWh
+2015,October,Interruptible Rate,171.622509,GWh
+2015,October,Free of Charge,238.237461,GWh
+2015,October,Direct Customer,149.453811,GWh
+2015,November,Residential (< 150),677.12701,GWh
+2015,November,Residential (> 150),2776.595753,GWh
+2015,November,Small  General,1665.214151,GWh
+2015,November,Medium  General,2470.623475,GWh
+2015,November,Large General,5907.867584,GWh
+2015,November,Specific  Business,500.145138,GWh
+2015,November,Government & Nonprofit,15.850442,GWh
+2015,November,Agriculture Pumping,22.026521,GWh
+2015,November,Temporary,117.421369,GWh
+2015,November,Stand By Rate,24.098481,GWh
+2015,November,Interruptible Rate,158.6804,GWh
+2015,November,Free of Charge,235.405795,GWh
+2015,November,Direct Customer,142.645205,GWh
+2015,December,Residential (< 150),662.848844,GWh
+2015,December,Residential (> 150),2672.359579,GWh
+2015,December,Small  General,1636.619727,GWh
+2015,December,Medium  General,2360.829395,GWh
+2015,December,Large General,5681.07589,GWh
+2015,December,Specific  Business,501.815928,GWh
+2015,December,Government & Nonprofit,15.832129,GWh
+2015,December,Agriculture Pumping,20.217396,GWh
+2015,December,Temporary,117.808624,GWh
+2015,December,Stand By Rate,17.391131,GWh
+2015,December,Interruptible Rate,173.464418,GWh
+2015,December,Free of Charge,246.730113,GWh
+2015,December,Direct Customer,151.699061,GWh
+2016,January,Residential (< 150),657.714822,GWh
+2016,January,Residential (> 150),2555.769497,GWh
+2016,January,Small  General,1576.431773,GWh
+2016,January,Medium  General,2263.534881,GWh
+2016,January,Large General,5744.410718,GWh
+2016,January,Specific  Business,501.600996,GWh
+2016,January,Government & Nonprofit,13.938818,GWh
+2016,January,Agriculture Pumping,24.206988,GWh
+2016,January,Temporary,112.250077,GWh
+2016,January,Stand By Rate,4.652426,GWh
+2016,January,Interruptible Rate,177.616,GWh
+2016,January,Free of Charge,248.234628,GWh
+2016,January,Direct Customer,164.635351,GWh
+2016,February,Residential (< 150),593.680701,GWh
+2016,February,Residential (> 150),2333.348769,GWh
+2016,February,Small  General,1475.698964,GWh
+2016,February,Medium  General,2205.167862,GWh
+2016,February,Large General,5651.989784,GWh
+2016,February,Specific  Business,473.993191,GWh
+2016,February,Government & Nonprofit,13.989151,GWh
+2016,February,Agriculture Pumping,25.204058,GWh
+2016,February,Temporary,108.6413,GWh
+2016,February,Stand By Rate,7.9676,GWh
+2016,February,Interruptible Rate,166.965091,GWh
+2016,February,Free of Charge,232.076275,GWh
+2016,February,Direct Customer,139.901987,GWh
+2016,March,Residential (< 150),748.665855,GWh
+2016,March,Residential (> 150),2922.648277,GWh
+2016,March,Small  General,1754.393487,GWh
+2016,March,Medium  General,2593.372216,GWh
+2016,March,Large General,6453.022566,GWh
+2016,March,Specific  Business,575.672177,GWh
+2016,March,Government & Nonprofit,16.781206,GWh
+2016,March,Agriculture Pumping,30.432717,GWh
+2016,March,Temporary,120.639262,GWh
+2016,March,Stand By Rate,8.82288,GWh
+2016,March,Interruptible Rate,179.496927,GWh
+2016,March,Free of Charge,246.4704,GWh
+2016,March,Direct Customer,159.474,GWh
+2016,April,Residential (< 150),859.758134,GWh
+2016,April,Residential (> 150),3335.09408,GWh
+2016,April,Small  General,1840.715497,GWh
+2016,April,Medium  General,2447.199924,GWh
+2016,April,Large General,5834.996551,GWh
+2016,April,Specific  Business,597.696653,GWh
+2016,April,Government & Nonprofit,17.106376,GWh
+2016,April,Agriculture Pumping,27.348097,GWh
+2016,April,Temporary,115.605876,GWh
+2016,April,Stand By Rate,9.896429,GWh
+2016,April,Interruptible Rate,159.851691,GWh
+2016,April,Free of Charge,235.372954,GWh
+2016,April,Direct Customer,147.932103,GWh
+2016,May,Residential (< 150),927.456286,GWh
+2016,May,Residential (> 150),3643.98259,GWh
+2016,May,Small  General,1987.473044,GWh
+2016,May,Medium  General,2687.583891,GWh
+2016,May,Large General,6422.074362,GWh
+2016,May,Specific  Business,602.61041,GWh
+2016,May,Government & Nonprofit,18.229254,GWh
+2016,May,Agriculture Pumping,17.941611,GWh
+2016,May,Temporary,126.128025,GWh
+2016,May,Stand By Rate,14.34429,GWh
+2016,May,Interruptible Rate,173.634182,GWh
+2016,May,Free of Charge,240.87311,GWh
+2016,May,Direct Customer,163.732227,GWh
+2016,June,Residential (< 150),755.178801,GWh
+2016,June,Residential (> 150),3118.646327,GWh
+2016,June,Small  General,1800.035698,GWh
+2016,June,Medium  General,2553.565994,GWh
+2016,June,Large General,6171.56531,GWh
+2016,June,Specific  Business,508.573712,GWh
+2016,June,Government & Nonprofit,17.489433,GWh
+2016,June,Agriculture Pumping,16.39691,GWh
+2016,June,Temporary,118.93057,GWh
+2016,June,Stand By Rate,3.0613,GWh
+2016,June,Interruptible Rate,157.504164,GWh
+2016,June,Free of Charge,240.107565,GWh
+2016,June,Direct Customer,148.600323,GWh
+2016,July,Residential (< 150),705.329563,GWh
+2016,July,Residential (> 150),2999.511532,GWh
+2016,July,Small  General,1742.916972,GWh
+2016,July,Medium  General,2498.211618,GWh
+2016,July,Large General,6135.488166,GWh
+2016,July,Specific  Business,535.65172,GWh
+2016,July,Government & Nonprofit,17.542573,GWh
+2016,July,Agriculture Pumping,21.733931,GWh
+2016,July,Temporary,114.980842,GWh
+2016,July,Stand By Rate,4.2411,GWh
+2016,July,Interruptible Rate,162.910527,GWh
+2016,July,Free of Charge,243.426258,GWh
+2016,July,Direct Customer,145.721464,GWh
+2016,August,Residential (< 150),693.741006,GWh
+2016,August,Residential (> 150),3141.600121,GWh
+2016,August,Small  General,1790.833611,GWh
+2016,August,Medium  General,2582.260697,GWh
+2016,August,Large General,6306.559901,GWh
+2016,August,Specific  Business,549.423972,GWh
+2016,August,Government & Nonprofit,18.353215,GWh
+2016,August,Agriculture Pumping,33.705855,GWh
+2016,August,Temporary,118.358689,GWh
+2016,August,Stand By Rate,22.61318,GWh
+2016,August,Interruptible Rate,166.425673,GWh
+2016,August,Free of Charge,251.010226,GWh
+2016,August,Direct Customer,144.432674,GWh
+2016,September,Residential (< 150),673.365368,GWh
+2016,September,Residential (> 150),2975.983816,GWh
+2016,September,Small  General,1748.976591,GWh
+2016,September,Medium  General,2515.664019,GWh
+2016,September,Large General,6252.999169,GWh
+2016,September,Specific  Business,499.518804,GWh
+2016,September,Government & Nonprofit,17.416982,GWh
+2016,September,Agriculture Pumping,19.569939,GWh
+2016,September,Temporary,117.776141,GWh
+2016,September,Stand By Rate,21.16165,GWh
+2016,September,Interruptible Rate,158.171382,GWh
+2016,September,Free of Charge,251.37947,GWh
+2016,September,Direct Customer,132.172874,GWh
+2016,October,Residential (< 150),686.300392,GWh
+2016,October,Residential (> 150),2943.101397,GWh
+2016,October,Small  General,1718.326954,GWh
+2016,October,Medium  General,2509.637461,GWh
+2016,October,Large General,6356.621883,GWh
+2016,October,Specific  Business,504.255822,GWh
+2016,October,Government & Nonprofit,17.473033,GWh
+2016,October,Agriculture Pumping,14.866064,GWh
+2016,October,Temporary,123.924305,GWh
+2016,October,Stand By Rate,19.80128,GWh
+2016,October,Interruptible Rate,168.809182,GWh
+2016,October,Free of Charge,257.369942,GWh
+2016,October,Direct Customer,146.599516,GWh
+2016,November,Residential (< 150),626.752678,GWh
+2016,November,Residential (> 150),2794.628764,GWh
+2016,November,Small  General,1666.683971,GWh
+2016,November,Medium  General,2476.184862,GWh
+2016,November,Large General,6249.176887,GWh
+2016,November,Specific  Business,495.332606,GWh
+2016,November,Government & Nonprofit,17.020393,GWh
+2016,November,Agriculture Pumping,10.547242,GWh
+2016,November,Temporary,113.65894,GWh
+2016,November,Stand By Rate,8.35289,GWh
+2016,November,Interruptible Rate,159.613109,GWh
+2016,November,Free of Charge,251.80602,GWh
+2016,November,Direct Customer,136.70435,GWh
+2016,December,Residential (< 150),626.933421,GWh
+2016,December,Residential (> 150),2613.15853,GWh
+2016,December,Small  General,1604.387627,GWh
+2016,December,Medium  General,2312.553238,GWh
+2016,December,Large General,5919.658595,GWh
+2016,December,Specific  Business,482.392318,GWh
+2016,December,Government & Nonprofit,15.844236,GWh
+2016,December,Agriculture Pumping,25.369886,GWh
+2016,December,Temporary,113.34786,GWh
+2016,December,Stand By Rate,13.088125,GWh
+2016,December,Interruptible Rate,170.223164,GWh
+2016,December,Free of Charge,264.528536,GWh
+2016,December,Direct Customer,133.448075,GWh
+2017,January,Residential (< 150),648.051639,GWh
+2017,January,Residential (> 150),2596.41434,GWh
+2017,January,Small  General,1582.072699,GWh
+2017,January,Medium  General,2258.482038,GWh
+2017,January,Large General,5884.359951,GWh
+2017,January,Specific  Business,491.787485,GWh
+2017,January,Government & Nonprofit,15.838842,GWh
+2017,January,Agriculture Pumping,41.873083,GWh
+2017,January,Temporary,108.177939,GWh
+2017,January,Stand By Rate,1.51466,GWh
+2017,January,Interruptible Rate,176.001036,GWh
+2017,January,Free of Charge,268.225619,GWh
+2017,January,Direct Customer,129.862077,GWh
+2017,February,Residential (< 150),596.118708,GWh
+2017,February,Residential (> 150),2428.593955,GWh
+2017,February,Small  General,1514.153148,GWh
+2017,February,Medium  General,2222.056088,GWh
+2017,February,Large General,5761.337882,GWh
+2017,February,Specific  Business,474.158464,GWh
+2017,February,Government & Nonprofit,14.723367,GWh
+2017,February,Agriculture Pumping,51.976331,GWh
+2017,February,Temporary,104.997966,GWh
+2017,February,Stand By Rate,2.647159,GWh
+2017,February,Interruptible Rate,171.086327,GWh
+2017,February,Free of Charge,241.524892,GWh
+2017,February,Direct Customer,130.068809,GWh
+2017,March,Residential (< 150),770.09097,GWh
+2017,March,Residential (> 150),3027.264104,GWh
+2017,March,Small  General,1799.454402,GWh
+2017,March,Medium  General,2656.500012,GWh
+2017,March,Large General,6668.845741,GWh
+2017,March,Specific  Business,576.20166,GWh
+2017,March,Government & Nonprofit,17.931495,GWh
+2017,March,Agriculture Pumping,55.287921,GWh
+2017,March,Temporary,122.145989,GWh
+2017,March,Stand By Rate,4.09801,GWh
+2017,March,Interruptible Rate,176.5154,GWh
+2017,March,Free of Charge,262.639535,GWh
+2017,March,Direct Customer,153.107541,GWh
+2017,April,Residential (< 150),816.551141,GWh
+2017,April,Residential (> 150),3187.678887,GWh
+2017,April,Small  General,1781.308378,GWh
+2017,April,Medium  General,2384.60491,GWh
+2017,April,Large General,5842.244802,GWh
+2017,April,Specific  Business,564.529657,GWh
+2017,April,Government & Nonprofit,17.329059,GWh
+2017,April,Agriculture Pumping,36.752414,GWh
+2017,April,Temporary,114.652495,GWh
+2017,April,Stand By Rate,6.595339,GWh
+2017,April,Interruptible Rate,167.742727,GWh
+2017,April,Free of Charge,255.42546,GWh
+2017,April,Direct Customer,148.936467,GWh
+2017,May,Residential (< 150),865.721238,GWh
+2017,May,Residential (> 150),3344.708397,GWh
+2017,May,Small  General,1888.161917,GWh
+2017,May,Medium  General,2654.624597,GWh
+2017,May,Large General,6503.706157,GWh
+2017,May,Specific  Business,563.994644,GWh
+2017,May,Government & Nonprofit,18.234445,GWh
+2017,May,Agriculture Pumping,19.562186,GWh
+2017,May,Temporary,126.55327,GWh
+2017,May,Stand By Rate,18.570725,GWh
+2017,May,Interruptible Rate,173.345509,GWh
+2017,May,Free of Charge,259.481303,GWh
+2017,May,Direct Customer,131.212567,GWh
+2017,June,Residential (< 150),744.278145,GWh
+2017,June,Residential (> 150),3163.978305,GWh
+2017,June,Small  General,1828.074063,GWh
+2017,June,Medium  General,2612.272013,GWh
+2017,June,Large General,6328.061594,GWh
+2017,June,Specific  Business,527.366904,GWh
+2017,June,Government & Nonprofit,17.603243,GWh
+2017,June,Agriculture Pumping,12.452496,GWh
+2017,June,Temporary,115.926886,GWh
+2017,June,Stand By Rate,5.808052,GWh
+2017,June,Interruptible Rate,156.667873,GWh
+2017,June,Free of Charge,255.633329,GWh
+2017,June,Direct Customer,129.239838,GWh
+2017,July,Residential (< 150),717.716923,GWh
+2017,July,Residential (> 150),3125.691223,GWh
+2017,July,Small  General,1802.496332,GWh
+2017,July,Medium  General,2535.200717,GWh
+2017,July,Large General,6354.311091,GWh
+2017,July,Specific  Business,539.808766,GWh
+2017,July,Government & Nonprofit,17.150325,GWh
+2017,July,Agriculture Pumping,18.648789,GWh
+2017,July,Temporary,115.086719,GWh
+2017,July,Stand By Rate,5.12667,GWh
+2017,July,Interruptible Rate,150.7672,GWh
+2017,July,Free of Charge,262.993503,GWh
+2017,July,Direct Customer,129.777399,GWh
+2017,August,Residential (< 150),702.33838,GWh
+2017,August,Residential (> 150),3243.757884,GWh
+2017,August,Small  General,1854.597938,GWh
+2017,August,Medium  General,2663.740997,GWh
+2017,August,Large General,6579.058767,GWh
+2017,August,Specific  Business,558.669154,GWh
+2017,August,Government & Nonprofit,16.497427,GWh
+2017,August,Agriculture Pumping,14.342215,GWh
+2017,August,Temporary,119.069976,GWh
+2017,August,Stand By Rate,6.194934,GWh
+2017,August,Interruptible Rate,163.717491,GWh
+2017,August,Free of Charge,266.131306,GWh
+2017,August,Direct Customer,124.746915,GWh
+2017,September,Residential (< 150),688.64533,GWh
+2017,September,Residential (> 150),3162.851836,GWh
+2017,September,Small  General,1833.118711,GWh
+2017,September,Medium  General,2628.951571,GWh
+2017,September,Large General,6524.175546,GWh
+2017,September,Specific  Business,528.421442,GWh
+2017,September,Government & Nonprofit,15.78229,GWh
+2017,September,Agriculture Pumping,9.382632,GWh
+2017,September,Temporary,118.593476,GWh
+2017,September,Stand By Rate,4.85714,GWh
+2017,September,Interruptible Rate,161.9272,GWh
+2017,September,Free of Charge,250.733814,GWh
+2017,September,Direct Customer,113.6273,GWh
+2017,October,Residential (< 150),692.52898,GWh
+2017,October,Residential (> 150),3071.29424,GWh
+2017,October,Small  General,1767.647694,GWh
+2017,October,Medium  General,2471.724892,GWh
+2017,October,Large General,6358.320727,GWh
+2017,October,Specific  Business,523.804716,GWh
+2017,October,Government & Nonprofit,15.317558,GWh
+2017,October,Agriculture Pumping,5.756718,GWh
+2017,October,Temporary,115.157069,GWh
+2017,October,Stand By Rate,11.4545,GWh
+2017,October,Interruptible Rate,135.718945,GWh
+2017,October,Free of Charge,270.682423,GWh
+2017,October,Direct Customer,110.549969,GWh
+2017,November,Residential (< 150),626.638901,GWh
+2017,November,Residential (> 150),2832.509507,GWh
+2017,November,Small  General,1676.038288,GWh
+2017,November,Medium  General,2473.934921,GWh
+2017,November,Large General,6320.829195,GWh
+2017,November,Specific  Business,501.338288,GWh
+2017,November,Government & Nonprofit,16.385422,GWh
+2017,November,Agriculture Pumping,8.453552,GWh
+2017,November,Temporary,110.704748,GWh
+2017,November,Stand By Rate,9.4634,GWh
+2017,November,Interruptible Rate,145.048473,GWh
+2017,November,Free of Charge,267.721243,GWh
+2017,November,Direct Customer,98.125217,GWh
+2017,December,Residential (< 150),622.799502,GWh
+2017,December,Residential (> 150),2697.736042,GWh
+2017,December,Small  General,1635.112136,GWh
+2017,December,Medium  General,2291.374418,GWh
+2017,December,Large General,5947.225262,GWh
+2017,December,Specific  Business,489.074612,GWh
+2017,December,Government & Nonprofit,15.04815,GWh
+2017,December,Agriculture Pumping,23.745279,GWh
+2017,December,Temporary,109.588649,GWh
+2017,December,Stand By Rate,3.34592,GWh
+2017,December,Interruptible Rate,146.627618,GWh
+2017,December,Free of Charge,273.593094,GWh
+2017,December,Direct Customer,107.148943,GWh
+2018,January,Residential (< 150),607.679377,GWh
+2018,January,Residential (> 150),2493.081046,GWh
+2018,January,Small  General,1559.452103,GWh
+2018,January,Medium  General,2332.33499,GWh
+2018,January,Large General,6112.452646,GWh
+2018,January,Specific  Business,510.475719,GWh
+2018,January,Government & Nonprofit,15.542849,GWh
+2018,January,Agriculture Pumping,41.316916,GWh
+2018,January,Temporary,101.674994,GWh
+2018,January,Stand By Rate,6.76024,GWh
+2018,January,Interruptible Rate,142.721909,GWh
+2018,January,Free of Charge,280.572055,GWh
+2018,January,Direct Customer,125.884036,GWh
+2018,February,Residential (< 150),599.565873,GWh
+2018,February,Residential (> 150),2531.512317,GWh
+2018,February,Small  General,1555.771856,GWh
+2018,February,Medium  General,2252.098508,GWh
+2018,February,Large General,5784.200969,GWh
+2018,February,Specific  Business,490.903772,GWh
+2018,February,Government & Nonprofit,14.816775,GWh
+2018,February,Agriculture Pumping,47.916173,GWh
+2018,February,Temporary,103.585693,GWh
+2018,February,Stand By Rate,8.97304,GWh
+2018,February,Interruptible Rate,128.449012,GWh
+2018,February,Free of Charge,253.165191,GWh
+2018,February,Direct Customer,126.168944,GWh
+2018,March,Residential (< 150),766.811127,GWh
+2018,March,Residential (> 150),3079.456984,GWh
+2018,March,Small  General,1822.31352,GWh
+2018,March,Medium  General,2679.864413,GWh
+2018,March,Large General,6651.867156,GWh
+2018,March,Specific  Business,597.264096,GWh
+2018,March,Government & Nonprofit,17.667052,GWh
+2018,March,Agriculture Pumping,48.663441,GWh
+2018,March,Temporary,117.826329,GWh
+2018,March,Stand By Rate,7.17372,GWh
+2018,March,Interruptible Rate,174.388036,GWh
+2018,March,Free of Charge,273.977773,GWh
+2018,March,Direct Customer,133.4783,GWh
+2018,April,Residential (< 150),799.409539,GWh
+2018,April,Residential (> 150),3176.554665,GWh
+2018,April,Small  General,1786.19789,GWh
+2018,April,Medium  General,2399.740071,GWh
+2018,April,Large General,5823.254583,GWh
+2018,April,Specific  Business,565.02624,GWh
+2018,April,Government & Nonprofit,16.359103,GWh
+2018,April,Agriculture Pumping,31.37815,GWh
+2018,April,Temporary,109.076335,GWh
+2018,April,Stand By Rate,4.13412,GWh
+2018,April,Interruptible Rate,180.073818,GWh
+2018,April,Free of Charge,262.359474,GWh
+2018,April,Direct Customer,121.242303,GWh
+2018,May,Residential (< 150),844.431826,GWh
+2018,May,Residential (> 150),3322.348876,GWh
+2018,May,Small  General,1891.61849,GWh
+2018,May,Medium  General,2682.194708,GWh
+2018,May,Large General,6501.762175,GWh
+2018,May,Specific  Business,560.005403,GWh
+2018,May,Government & Nonprofit,17.422727,GWh
+2018,May,Agriculture Pumping,18.255057,GWh
+2018,May,Temporary,118.201473,GWh
+2018,May,Stand By Rate,6.18848,GWh
+2018,May,Interruptible Rate,172.566327,GWh
+2018,May,Free of Charge,267.796029,GWh
+2018,May,Direct Customer,129.869894,GWh
+2018,June,Residential (< 150),743.279558,GWh
+2018,June,Residential (> 150),3263.965215,GWh
+2018,June,Small  General,1863.630525,GWh
+2018,June,Medium  General,2651.480513,GWh
+2018,June,Large General,6426.190548,GWh
+2018,June,Specific  Business,532.179464,GWh
+2018,June,Government & Nonprofit,20.706574,GWh
+2018,June,Agriculture Pumping,23.623288,GWh
+2018,June,Temporary,115.320394,GWh
+2018,June,Stand By Rate,7.901076,GWh
+2018,June,Interruptible Rate,186.008018,GWh
+2018,June,Free of Charge,266.949537,GWh
+2018,June,Direct Customer,121.868401,GWh
+2018,July,Residential (< 150),735.728791,GWh
+2018,July,Residential (> 150),3259.336515,GWh
+2018,July,Small  General,1847.35363,GWh
+2018,July,Medium  General,2613.751467,GWh
+2018,July,Large General,6421.959701,GWh
+2018,July,Specific  Business,556.327404,GWh
+2018,July,Government & Nonprofit,17.288849,GWh
+2018,July,Agriculture Pumping,28.60126,GWh
+2018,July,Temporary,115.348136,GWh
+2018,July,Stand By Rate,12.26001,GWh
+2018,July,Interruptible Rate,142.722836,GWh
+2018,July,Free of Charge,267.587781,GWh
+2018,July,Direct Customer,115.763516,GWh
+2018,August,Residential (< 150),691.543296,GWh
+2018,August,Residential (> 150),3203.753308,GWh
+2018,August,Small  General,1820.686989,GWh
+2018,August,Medium  General,2665.939622,GWh
+2018,August,Large General,6565.121194,GWh
+2018,August,Specific  Business,550.140368,GWh
+2018,August,Government & Nonprofit,17.171507,GWh
+2018,August,Agriculture Pumping,23.99446,GWh
+2018,August,Temporary,116.03979,GWh
+2018,August,Stand By Rate,15.582309,GWh
+2018,August,Interruptible Rate,167.488345,GWh
+2018,August,Free of Charge,277.773551,GWh
+2018,August,Direct Customer,109.041611,GWh
+2018,September,Residential (< 150),662.512351,GWh
+2018,September,Residential (> 150),3067.72711,GWh
+2018,September,Small  General,1797.468535,GWh
+2018,September,Medium  General,2600.950635,GWh
+2018,September,Large General,6428.086272,GWh
+2018,September,Specific  Business,515.37201,GWh
+2018,September,Government & Nonprofit,16.845627,GWh
+2018,September,Agriculture Pumping,20.830135,GWh
+2018,September,Temporary,115.720756,GWh
+2018,September,Stand By Rate,5.02318,GWh
+2018,September,Interruptible Rate,161.773255,GWh
+2018,September,Free of Charge,259.562045,GWh
+2018,September,Direct Customer,137.205764,GWh
+2018,October,Residential (< 150),704.859945,GWh
+2018,October,Residential (> 150),3276.362908,GWh
+2018,October,Small  General,1840.367649,GWh
+2018,October,Medium  General,2606.572798,GWh
+2018,October,Large General,6509.804176,GWh
+2018,October,Specific  Business,535.156817,GWh
+2018,October,Government & Nonprofit,17.311214,GWh
+2018,October,Agriculture Pumping,31.328158,GWh
+2018,October,Temporary,117.912248,GWh
+2018,October,Stand By Rate,19.725935,GWh
+2018,October,Interruptible Rate,185.891291,GWh
+2018,October,Free of Charge,277.393768,GWh
+2018,October,Direct Customer,137.715375,GWh
+2018,November,Residential (< 150),650.959494,GWh
+2018,November,Residential (> 150),3079.52499,GWh
+2018,November,Small  General,1773.850675,GWh
+2018,November,Medium  General,2591.776557,GWh
+2018,November,Large General,6329.720593,GWh
+2018,November,Specific  Business,527.442338,GWh
+2018,November,Government & Nonprofit,16.782455,GWh
+2018,November,Agriculture Pumping,17.549583,GWh
+2018,November,Temporary,112.259947,GWh
+2018,November,Stand By Rate,7.44154,GWh
+2018,November,Interruptible Rate,153.586109,GWh
+2018,November,Free of Charge,279.309922,GWh
+2018,November,Direct Customer,132.241597,GWh
+2018,December,Residential (< 150),654.679192,GWh
+2018,December,Residential (> 150),2989.798136,GWh
+2018,December,Small  General,1760.17305,GWh
+2018,December,Medium  General,2472.912483,GWh
+2018,December,Large General,5964.989387,GWh
+2018,December,Specific  Business,542.949156,GWh
+2018,December,Government & Nonprofit,16.386507,GWh
+2018,December,Agriculture Pumping,31.832614,GWh
+2018,December,Temporary,113.570755,GWh
+2018,December,Stand By Rate,11.185764,GWh
+2018,December,Interruptible Rate,140.817835,GWh
+2018,December,Free of Charge,288.465452,GWh
+2018,December,Direct Customer,135.468928,GWh
+2019,January,Residential (< 150),646.126577,GWh
+2019,January,Residential (> 150),2909.781936,GWh
+2019,January,Small  General,1711.706002,GWh
+2019,January,Medium  General,2423.343087,GWh
+2019,January,Large General,6070.333776,GWh
+2019,January,Specific  Business,528.646282,GWh
+2019,January,Government & Nonprofit,15.745195,GWh
+2019,January,Agriculture Pumping,46.839719,GWh
+2019,January,Temporary,109.807946,GWh
+2019,January,Stand By Rate,2.77798,GWh
+2019,January,Interruptible Rate,121.007745,GWh
+2019,January,Free of Charge,291.204898,GWh
+2019,January,Direct Customer,127.346635,GWh
+2019,February,Residential (< 150),622.999791,GWh
+2019,February,Residential (> 150),2910.687831,GWh
+2019,February,Small  General,1698.776523,GWh
+2019,February,Medium  General,2415.941433,GWh
+2019,February,Large General,5817.094091,GWh
+2019,February,Specific  Business,542.251586,GWh
+2019,February,Government & Nonprofit,15.935751,GWh
+2019,February,Agriculture Pumping,49.254167,GWh
+2019,February,Temporary,107.880792,GWh
+2019,February,Stand By Rate,9.751101,GWh
+2019,February,Interruptible Rate,141.288364,GWh
+2019,February,Free of Charge,263.383072,GWh
+2019,February,Direct Customer,112.344304,GWh
+2019,March,Residential (< 150),782.866768,GWh
+2019,March,Residential (> 150),3472.838649,GWh
+2019,March,Small  General,1950.275479,GWh
+2019,March,Medium  General,2804.752348,GWh
+2019,March,Large General,6679.442905,GWh
+2019,March,Specific  Business,616.619444,GWh
+2019,March,Government & Nonprofit,18.522779,GWh
+2019,March,Agriculture Pumping,57.387259,GWh
+2019,March,Temporary,121.663314,GWh
+2019,March,Stand By Rate,10.8452,GWh
+2019,March,Interruptible Rate,132.660109,GWh
+2019,March,Free of Charge,288.083272,GWh
+2019,March,Direct Customer,123.794019,GWh
+2019,April,Residential (< 150),848.987071,GWh
+2019,April,Residential (> 150),3848.325119,GWh
+2019,April,Small  General,1989.657576,GWh
+2019,April,Medium  General,2614.552961,GWh
+2019,April,Large General,6043.158971,GWh
+2019,April,Specific  Business,639.969733,GWh
+2019,April,Government & Nonprofit,18.721628,GWh
+2019,April,Agriculture Pumping,42.343237,GWh
+2019,April,Temporary,115.983437,GWh
+2019,April,Stand By Rate,15.041035,GWh
+2019,April,Interruptible Rate,116.699709,GWh
+2019,April,Free of Charge,275.107881,GWh
+2019,April,Direct Customer,118.393566,GWh
+2019,May,Residential (< 150),897.483505,GWh
+2019,May,Residential (> 150),4098.949714,GWh
+2019,May,Small  General,2098.495455,GWh
+2019,May,Medium  General,2845.67069,GWh
+2019,May,Large General,6598.946505,GWh
+2019,May,Specific  Business,613.740294,GWh
+2019,May,Government & Nonprofit,19.314091,GWh
+2019,May,Agriculture Pumping,30.207081,GWh
+2019,May,Temporary,126.85713,GWh
+2019,May,Stand By Rate,4.5465,GWh
+2019,May,Interruptible Rate,112.689982,GWh
+2019,May,Free of Charge,285.378086,GWh
+2019,May,Direct Customer,121.40993,GWh
+2019,June,Residential (< 150),730.585154,GWh
+2019,June,Residential (> 150),3626.678594,GWh
+2019,June,Small  General,1939.750949,GWh
+2019,June,Medium  General,2732.019741,GWh
+2019,June,Large General,6350.243929,GWh
+2019,June,Specific  Business,564.393667,GWh
+2019,June,Government & Nonprofit,18.095422,GWh
+2019,June,Agriculture Pumping,30.370843,GWh
+2019,June,Temporary,121.373136,GWh
+2019,June,Stand By Rate,12.2821,GWh
+2019,June,Interruptible Rate,158.297927,GWh
+2019,June,Free of Charge,273.386814,GWh
+2019,June,Direct Customer,118.351846,GWh
+2019,July,Residential (< 150),716.479296,GWh
+2019,July,Residential (> 150),3641.538559,GWh
+2019,July,Small  General,1934.591164,GWh
+2019,July,Medium  General,2707.500907,GWh
+2019,July,Large General,6343.257442,GWh
+2019,July,Specific  Business,582.513102,GWh
+2019,July,Government & Nonprofit,17.966898,GWh
+2019,July,Agriculture Pumping,52.868623,GWh
+2019,July,Temporary,122.490719,GWh
+2019,July,Stand By Rate,6.80462,GWh
+2019,July,Interruptible Rate,115.859891,GWh
+2019,July,Free of Charge,278.76293,GWh
+2019,July,Direct Customer,122.565229,GWh
+2019,August,Residential (< 150),663.347792,GWh
+2019,August,Residential (> 150),3517.646529,GWh
+2019,August,Small  General,1897.495287,GWh
+2019,August,Medium  General,2708.925431,GWh
+2019,August,Large General,6393.556183,GWh
+2019,August,Specific  Business,575.5238,GWh
+2019,August,Government & Nonprofit,18.364295,GWh
+2019,August,Agriculture Pumping,33.363285,GWh
+2019,August,Temporary,121.533143,GWh
+2019,August,Stand By Rate,33.82854,GWh
+2019,August,Interruptible Rate,132.842455,GWh
+2019,August,Free of Charge,289.381532,GWh
+2019,August,Direct Customer,123.46715,GWh
+2019,September,Residential (< 150),624.986444,GWh
+2019,September,Residential (> 150),3245.776244,GWh
+2019,September,Small  General,1809.385189,GWh
+2019,September,Medium  General,2584.189419,GWh
+2019,September,Large General,6155.626173,GWh
+2019,September,Specific  Business,517.816481,GWh
+2019,September,Government & Nonprofit,17.395135,GWh
+2019,September,Agriculture Pumping,23.1934,GWh
+2019,September,Temporary,116.642045,GWh
+2019,September,Stand By Rate,36.17218,GWh
+2019,September,Interruptible Rate,131.734891,GWh
+2019,September,Free of Charge,273.402652,GWh
+2019,September,Direct Customer,114.744136,GWh
+2019,October,Residential (< 150),664.470892,GWh
+2019,October,Residential (> 150),3448.950794,GWh
+2019,October,Small  General,1865.018407,GWh
+2019,October,Medium  General,2657.490898,GWh
+2019,October,Large General,6333.857573,GWh
+2019,October,Specific  Business,570.190817,GWh
+2019,October,Government & Nonprofit,18.356331,GWh
+2019,October,Agriculture Pumping,43.854071,GWh
+2019,October,Temporary,121.378099,GWh
+2019,October,Stand By Rate,13.22097,GWh
+2019,October,Interruptible Rate,120.431691,GWh
+2019,October,Free of Charge,293.858476,GWh
+2019,October,Direct Customer,121.554228,GWh
+2019,November,Residential (< 150),627.511487,GWh
+2019,November,Residential (> 150),3222.363587,GWh
+2019,November,Small  General,1782.847757,GWh
+2019,November,Medium  General,2555.942125,GWh
+2019,November,Large General,6105.007316,GWh
+2019,November,Specific  Business,527.731213,GWh
+2019,November,Government & Nonprofit,16.89477,GWh
+2019,November,Agriculture Pumping,23.976135,GWh
+2019,November,Temporary,117.532222,GWh
+2019,November,Stand By Rate,19.3995,GWh
+2019,November,Interruptible Rate,139.979473,GWh
+2019,November,Free of Charge,293.544454,GWh
+2019,November,Direct Customer,108.370576,GWh
+2019,December,Residential (< 150),591.373088,GWh
+2019,December,Residential (> 150),2841.149543,GWh
+2019,December,Small  General,1663.504061,GWh
+2019,December,Medium  General,2333.859838,GWh
+2019,December,Large General,5691.880159,GWh
+2019,December,Specific  Business,514.460357,GWh
+2019,December,Government & Nonprofit,15.66918,GWh
+2019,December,Agriculture Pumping,34.16829,GWh
+2019,December,Temporary,111.705239,GWh
+2019,December,Stand By Rate,11.1674,GWh
+2019,December,Interruptible Rate,116.805959,GWh
+2019,December,Free of Charge,304.346954,GWh
+2019,December,Direct Customer,124.604398,GWh
+2020,January,Residential (< 150),653.610423,GWh
+2020,January,Residential (> 150),3204.595796,GWh
+2020,January,Small  General,1800.596596,GWh
+2020,January,Medium  General,2487.8075,GWh
+2020,January,Large General,6025.959851,GWh
+2020,January,Specific  Business,579.345533,GWh
+2020,January,Government & Nonprofit,17.022833,GWh
+2020,January,Agriculture Pumping,47.185323,GWh
+2020,January,Temporary,116.325477,GWh
+2020,January,Stand By Rate,7.757352,GWh
+2020,January,Interruptible Rate,129.858164,GWh
+2020,January,Free of Charge,306.712491,GWh
+2020,January,Direct Customer,132.465373,GWh
+2020,February,Residential (< 150),640.665056,GWh
+2020,February,Residential (> 150),3091.240325,GWh
+2020,February,Small  General,1746.813442,GWh
+2020,February,Medium  General,2431.309067,GWh
+2020,February,Large General,5915.225377,GWh
+2020,February,Specific  Business,510.214639,GWh
+2020,February,Government & Nonprofit,16.199646,GWh
+2020,February,Agriculture Pumping,50.61948,GWh
+2020,February,Temporary,111.751939,GWh
+2020,February,Stand By Rate,13.3024,GWh
+2020,February,Interruptible Rate,170.968709,GWh
+2020,February,Free of Charge,285.637584,GWh
+2020,February,Direct Customer,159.173941,GWh
+2020,March,Residential (< 150),784.403113,GWh
+2020,March,Residential (> 150),3645.795052,GWh
+2020,March,Small  General,1935.957961,GWh
+2020,March,Medium  General,2667.876535,GWh
+2020,March,Large General,6284.350554,GWh
+2020,March,Specific  Business,495.485814,GWh
+2020,March,Government & Nonprofit,17.833796,GWh
+2020,March,Agriculture Pumping,50.015631,GWh
+2020,March,Temporary,121.099472,GWh
+2020,March,Stand By Rate,9.934414,GWh
+2020,March,Interruptible Rate,121.774608,GWh
+2020,March,Free of Charge,298.608669,GWh
+2020,March,Direct Customer,126.476692,GWh
+2020,April,Residential (< 150),902.799742,GWh
+2020,April,Residential (> 150),4066.338251,GWh
+2020,April,Small  General,1876.287799,GWh
+2020,April,Medium  General,2322.426856,GWh
+2020,April,Large General,5191.994466,GWh
+2020,April,Specific  Business,286.765376,GWh
+2020,April,Government & Nonprofit,16.729885,GWh
+2020,April,Agriculture Pumping,37.99915,GWh
+2020,April,Temporary,116.153013,GWh
+2020,April,Stand By Rate,4.675027,GWh
+2020,April,Interruptible Rate,138.274782,GWh
+2020,April,Free of Charge,283.899703,GWh
+2020,April,Direct Customer,119.029986,GWh
+2020,May,Residential (< 150),1010.073895,GWh
+2020,May,Residential (> 150),4523.740474,GWh
+2020,May,Small  General,1770.493209,GWh
+2020,May,Medium  General,2468.076188,GWh
+2020,May,Large General,5339.927246,GWh
+2020,May,Specific  Business,303.722872,GWh
+2020,May,Government & Nonprofit,17.933447,GWh
+2020,May,Agriculture Pumping,29.695716,GWh
+2020,May,Temporary,120.758036,GWh
+2020,May,Stand By Rate,4.313549,GWh
+2020,May,Interruptible Rate,118.257018,GWh
+2020,May,Free of Charge,287.532736,GWh
+2020,May,Direct Customer,124.275548,GWh
+2020,June,Residential (< 150),937.347198,GWh
+2020,June,Residential (> 150),4046.314548,GWh
+2020,June,Small  General,1726.349338,GWh
+2020,June,Medium  General,2410.688046,GWh
+2020,June,Large General,5423.742803,GWh
+2020,June,Specific  Business,308.053074,GWh
+2020,June,Government & Nonprofit,17.025769,GWh
+2020,June,Agriculture Pumping,33.399149,GWh
+2020,June,Temporary,115.321256,GWh
+2020,June,Stand By Rate,5.73392,GWh
+2020,June,Interruptible Rate,117.389473,GWh
+2020,June,Free of Charge,278.450268,GWh
+2020,June,Direct Customer,110.400869,GWh
+2020,July,Residential (< 150),929.441975,GWh
+2020,July,Residential (> 150),3908.94641,GWh
+2020,July,Small  General,1822.083729,GWh
+2020,July,Medium  General,2548.447792,GWh
+2020,July,Large General,5737.685974,GWh
+2020,July,Specific  Business,380.974867,GWh
+2020,July,Government & Nonprofit,17.537003,GWh
+2020,July,Agriculture Pumping,45.843712,GWh
+2020,July,Temporary,115.961131,GWh
+2020,July,Stand By Rate,14.92476,GWh
+2020,July,Interruptible Rate,118.078709,GWh
+2020,July,Free of Charge,287.803534,GWh
+2020,July,Direct Customer,119.295768,GWh
+2020,August,Residential (< 150),828.024955,GWh
+2020,August,Residential (> 150),3723.297908,GWh
+2020,August,Small  General,1793.014314,GWh
+2020,August,Medium  General,2624.891651,GWh
+2020,August,Large General,5974.75368,GWh
+2020,August,Specific  Business,387.850723,GWh
+2020,August,Government & Nonprofit,17.574189,GWh
+2020,August,Agriculture Pumping,29.920319,GWh
+2020,August,Temporary,114.215119,GWh
+2020,August,Stand By Rate,4.78174,GWh
+2020,August,Interruptible Rate,115.785236,GWh
+2020,August,Free of Charge,304.528373,GWh
+2020,August,Direct Customer,108.537022,GWh
+2020,September,Residential (< 150),779.147337,GWh
+2020,September,Residential (> 150),3711.480958,GWh
+2020,September,Small  General,1782.819518,GWh
+2020,September,Medium  General,2575.77493,GWh
+2020,September,Large General,6050.328348,GWh
+2020,September,Specific  Business,398.656167,GWh
+2020,September,Government & Nonprofit,17.314738,GWh
+2020,September,Agriculture Pumping,31.288813,GWh
+2020,September,Temporary,113.595812,GWh
+2020,September,Stand By Rate,15.4249,GWh
+2020,September,Interruptible Rate,85.301909,GWh
+2020,September,Free of Charge,299.893817,GWh
+2020,September,Direct Customer,112.242024,GWh
+2020,October,Residential (< 150),644.806949,GWh
+2020,October,Residential (> 150),3349.214858,GWh
+2020,October,Small  General,1674.732886,GWh
+2020,October,Medium  General,2500.690911,GWh
+2020,October,Large General,6115.207272,GWh
+2020,October,Specific  Business,363.699129,GWh
+2020,October,Government & Nonprofit,16.670984,GWh
+2020,October,Agriculture Pumping,15.319749,GWh
+2020,October,Temporary,108.131232,GWh
+2020,October,Stand By Rate,10.859239,GWh
+2020,October,Interruptible Rate,117.172164,GWh
+2020,October,Free of Charge,318.208178,GWh
+2020,October,Direct Customer,121.296187,GWh
+2020,November,Residential (< 150),584.622884,GWh
+2020,November,Residential (> 150),3161.328056,GWh
+2020,November,Small  General,1590.690504,GWh
+2020,November,Medium  General,2431.353957,GWh
+2020,November,Large General,6064.940891,GWh
+2020,November,Specific  Business,374.647249,GWh
+2020,November,Government & Nonprofit,16.16232,GWh
+2020,November,Agriculture Pumping,12.451268,GWh
+2020,November,Temporary,99.501679,GWh
+2020,November,Stand By Rate,12.6294,GWh
+2020,November,Interruptible Rate,134.269036,GWh
+2020,November,Free of Charge,310.945433,GWh
+2020,November,Direct Customer,109.0425,GWh
+2020,December,Residential (< 150),594.937927,GWh
+2020,December,Residential (> 150),3138.210186,GWh
+2020,December,Small  General,1595.920818,GWh
+2020,December,Medium  General,2326.187438,GWh
+2020,December,Large General,5787.621621,GWh
+2020,December,Specific  Business,358.884663,GWh
+2020,December,Government & Nonprofit,15.842866,GWh
+2020,December,Agriculture Pumping,33.113318,GWh
+2020,December,Temporary,100.159841,GWh
+2020,December,Stand By Rate,4.491185,GWh
+2020,December,Interruptible Rate,120.176218,GWh
+2020,December,Free of Charge,323.716508,GWh
+2020,December,Direct Customer,116.789608,GWh
+2021,January,Residential (< 150),599.039183,GWh
+2021,January,Residential (> 150),2882.602687,GWh
+2021,January,Small  General,1484.234998,GWh
+2021,January,Medium  General,2163.921776,GWh
+2021,January,Large General,5742.637612,GWh
+2021,January,Specific  Business,278.600967,GWh
+2021,January,Government & Nonprofit,14.464493,GWh
+2021,January,Agriculture Pumping,53.102306,GWh
+2021,January,Temporary,92.693228,GWh
+2021,January,Stand By Rate,10.70981,GWh
+2021,January,Interruptible Rate,194.193818,GWh
+2021,January,Free of Charge,319.915228,GWh
+2021,January,Direct Customer,114.698139,GWh
+2021,February,Residential (< 150),608.681016,GWh
+2021,February,Residential (> 150),2962.627674,GWh
+2021,February,Small  General,1502.036448,GWh
+2021,February,Medium  General,2231.534737,GWh
+2021,February,Large General,5633.560718,GWh
+2021,February,Specific  Business,295.70264,GWh
+2021,February,Government & Nonprofit,14.61025,GWh
+2021,February,Agriculture Pumping,51.569042,GWh
+2021,February,Temporary,90.913333,GWh
+2021,February,Stand By Rate,3.81605,GWh
+2021,February,Interruptible Rate,114.7122,GWh
+2021,February,Free of Charge,295.630939,GWh
+2021,February,Direct Customer,109.252459,GWh
+2021,March,Residential (< 150),804.85234,GWh
+2021,March,Residential (> 150),3703.287782,GWh
+2021,March,Small  General,1816.52035,GWh
+2021,March,Medium  General,2767.044898,GWh
+2021,March,Large General,6645.981657,GWh
+2021,March,Specific  Business,399.673199,GWh
+2021,March,Government & Nonprofit,18.278854,GWh
+2021,March,Agriculture Pumping,57.456219,GWh
+2021,March,Temporary,109.361072,GWh
+2021,March,Stand By Rate,13.61189,GWh
+2021,March,Interruptible Rate,143.464145,GWh
+2021,March,Free of Charge,311.495986,GWh
+2021,March,Direct Customer,102.16643,GWh
+2021,April,Residential (< 150),878.786664,GWh
+2021,April,Residential (> 150),3979.368446,GWh
+2021,April,Small  General,1812.24871,GWh
+2021,April,Medium  General,2453.825215,GWh
+2021,April,Large General,5895.444008,GWh
+2021,April,Specific  Business,374.885319,GWh
+2021,April,Government & Nonprofit,16.678588,GWh
+2021,April,Agriculture Pumping,30.23464,GWh
+2021,April,Temporary,105.42262,GWh
+2021,April,Stand By Rate,29.13412,GWh
+2021,April,Interruptible Rate,148.571364,GWh
+2021,April,Free of Charge,304.964975,GWh
+2021,April,Direct Customer,109.486569,GWh
+2021,May,Residential (< 150),934.903698,GWh
+2021,May,Residential (> 150),4384.805787,GWh
+2021,May,Small  General,1866.004404,GWh
+2021,May,Medium  General,2643.821836,GWh
+2021,May,Large General,6396.04806,GWh
+2021,May,Specific  Business,336.176588,GWh
+2021,May,Government & Nonprofit,17.431173,GWh
+2021,May,Agriculture Pumping,22.336491,GWh
+2021,May,Temporary,114.085865,GWh
+2021,May,Stand By Rate,6.264527,GWh
+2021,May,Interruptible Rate,113.686582,GWh
+2021,May,Free of Charge,309.374126,GWh
+2021,May,Direct Customer,109.066948,GWh
+2021,June,Residential (< 150),794.48781,GWh
+2021,June,Residential (> 150),4451.551056,GWh
+2021,June,Small  General,1886.28965,GWh
+2021,June,Medium  General,2597.326117,GWh
+2021,June,Large General,6228.371547,GWh
+2021,June,Specific  Business,332.70192,GWh
+2021,June,Government & Nonprofit,19.081859,GWh
+2021,June,Agriculture Pumping,35.674371,GWh
+2021,June,Temporary,111.008849,GWh
+2021,June,Stand By Rate,10.45354,GWh
+2021,June,Interruptible Rate,96.655491,GWh
+2021,June,Free of Charge,305.818501,GWh
+2021,June,Direct Customer,105.27666,GWh
+2021,July,Residential (< 150),732.920053,GWh
+2021,July,Residential (> 150),4357.36518,GWh
+2021,July,Small  General,1842.085021,GWh
+2021,July,Medium  General,2524.438794,GWh
+2021,July,Large General,6044.640359,GWh
+2021,July,Specific  Business,324.827284,GWh
+2021,July,Government & Nonprofit,15.84184,GWh
+2021,July,Agriculture Pumping,38.21251,GWh
+2021,July,Temporary,107.013568,GWh
+2021,July,Stand By Rate,4.4103,GWh
+2021,July,Interruptible Rate,101.631273,GWh
+2021,July,Free of Charge,314.642408,GWh
+2021,July,Direct Customer,98.610666,GWh
+2021,August,Residential (< 150),690.466917,GWh
+2021,August,Residential (> 150),4355.520305,GWh
+2021,August,Small  General,1782.231528,GWh
+2021,August,Medium  General,2503.847314,GWh
+2021,August,Large General,5899.265557,GWh
+2021,August,Specific  Business,320.570815,GWh
+2021,August,Government & Nonprofit,17.334027,GWh
+2021,August,Agriculture Pumping,44.743169,GWh
+2021,August,Temporary,108.224033,GWh
+2021,August,Stand By Rate,5.10272,GWh
+2021,August,Interruptible Rate,130.584273,GWh
+2021,August,Free of Charge,325.60996,GWh
+2021,August,Direct Customer,99.686403,GWh
+2021,September,Residential (< 150),630.262513,GWh
+2021,September,Residential (> 150),3941.833205,GWh
+2021,September,Small  General,1698.745293,GWh
+2021,September,Medium  General,2421.440985,GWh
+2021,September,Large General,6057.759533,GWh
+2021,September,Specific  Business,308.041124,GWh
+2021,September,Government & Nonprofit,16.690089,GWh
+2021,September,Agriculture Pumping,15.64788,GWh
+2021,September,Temporary,103.348416,GWh
+2021,September,Stand By Rate,5.50674,GWh
+2021,September,Interruptible Rate,132.012295,GWh
+2021,September,Free of Charge,310.876334,GWh
+2021,September,Direct Customer,105.090461,GWh
+2021,October,Residential (< 150),628.258668,GWh
+2021,October,Residential (> 150),3949.929667,GWh
+2021,October,Small  General,1742.146247,GWh
+2021,October,Medium  General,2491.918999,GWh
+2021,October,Large General,6371.919822,GWh
+2021,October,Specific  Business,345.79006,GWh
+2021,October,Government & Nonprofit,17.269773,GWh
+2021,October,Agriculture Pumping,12.265373,GWh
+2021,October,Temporary,105.961757,GWh
+2021,October,Stand By Rate,24.49269,GWh
+2021,October,Interruptible Rate,154.273436,GWh
+2021,October,Free of Charge,332.218763,GWh
+2021,October,Direct Customer,109.401193,GWh
+2021,November,Residential (< 150),578.731096,GWh
+2021,November,Residential (> 150),3668.979336,GWh
+2021,November,Small  General,1687.212054,GWh
+2021,November,Medium  General,2480.822054,GWh
+2021,November,Large General,6309.641416,GWh
+2021,November,Specific  Business,346.456791,GWh
+2021,November,Government & Nonprofit,16.794601,GWh
+2021,November,Agriculture Pumping,9.590642,GWh
+2021,November,Temporary,102.272409,GWh
+2021,November,Stand By Rate,20.5371,GWh
+2021,November,Interruptible Rate,128.289345,GWh
+2021,November,Free of Charge,328.105236,GWh
+2021,November,Direct Customer,91.917749,GWh
+2021,December,Residential (< 150),548.912913,GWh
+2021,December,Residential (> 150),3222.303847,GWh
+2021,December,Small  General,1597.00054,GWh
+2021,December,Medium  General,2309.132533,GWh
+2021,December,Large General,5961.50393,GWh
+2021,December,Specific  Business,355.853487,GWh
+2021,December,Government & Nonprofit,16.075666,GWh
+2021,December,Agriculture Pumping,27.122337,GWh
+2021,December,Temporary,98.498925,GWh
+2021,December,Stand By Rate,19.39393,GWh
+2021,December,Interruptible Rate,176.742091,GWh
+2021,December,Free of Charge,335.13546,GWh
+2021,December,Direct Customer,81.693537,GWh
+2022,January,Residential (< 150),584.878711,GWh
+2022,January,Residential (> 150),3427.605064,GWh
+2022,January,Small  General,1652.715777,GWh
+2022,January,Medium  General,2367.817565,GWh
+2022,January,Large General,6098.431855,GWh
+2022,January,Specific  Business,375.80693,GWh
+2022,January,Government & Nonprofit,17.173261,GWh
+2022,January,Agriculture Pumping,51.73375,GWh
+2022,January,Temporary,97.778844,GWh
+2022,January,Stand By Rate,14.27803,GWh
+2022,January,Interruptible Rate,136.628927,GWh
+2022,January,Free of Charge,340.778024,GWh
+2022,January,Direct Customer,99.777835,GWh
+2022,February,Residential (< 150),595.134668,GWh
+2022,February,Residential (> 150),3349.810938,GWh
+2022,February,Small  General,1605.147451,GWh
+2022,February,Medium  General,2286.669875,GWh
+2022,February,Large General,5892.635701,GWh
+2022,February,Specific  Business,353.105713,GWh
+2022,February,Government & Nonprofit,16.091951,GWh
+2022,February,Agriculture Pumping,44.431218,GWh
+2022,February,Temporary,96.500946,GWh
+2022,February,Stand By Rate,18.00236,GWh
+2022,February,Interruptible Rate,130.747691,GWh
+2022,February,Free of Charge,307.986052,GWh
+2022,February,Direct Customer,89.25146499,GWh
+2022,March,Residential (< 150),765.017232,GWh
+2022,March,Residential (> 150),3943.953038,GWh
+2022,March,Small  General,1833.368454,GWh
+2022,March,Medium  General,2732.489776,GWh
+2022,March,Large General,6835.988212,GWh
+2022,March,Specific  Business,449.858835,GWh
+2022,March,Government & Nonprofit,19.089715,GWh
+2022,March,Agriculture Pumping,46.146668,GWh
+2022,March,Temporary,110.44125,GWh
+2022,March,Stand By Rate,41.39908,GWh
+2022,March,Interruptible Rate,151.301655,GWh
+2022,March,Free of Charge,332.635592,GWh
+2022,March,Direct Customer,103.023139,GWh
+2022,April,Residential (< 150),790.225927,GWh
+2022,April,Residential (> 150),4092.191432,GWh
+2022,April,Small  General,1817.723581,GWh
+2022,April,Medium  General,2485.167353,GWh
+2022,April,Large General,6101.504559,GWh
+2022,April,Specific  Business,450.756366,GWh
+2022,April,Government & Nonprofit,17.89456,GWh
+2022,April,Agriculture Pumping,33.851893,GWh
+2022,April,Temporary,105.869153,GWh
+2022,April,Stand By Rate,89.8795,GWh
+2022,April,Interruptible Rate,179.442309,GWh
+2022,April,Free of Charge,321.568435,GWh
+2022,April,Direct Customer,111.5187,GWh
+2022,May,Residential (< 150),817.941076,GWh
+2022,May,Residential (> 150),4193.792662,GWh
+2022,May,Small  General,1891.562539,GWh
+2022,May,Medium  General,2696.789989,GWh
+2022,May,Large General,6659.232369,GWh
+2022,May,Specific  Business,446.974613,GWh
+2022,May,Government & Nonprofit,18.36734,GWh
+2022,May,Agriculture Pumping,17.061303,GWh
+2022,May,Temporary,112.444708,GWh
+2022,May,Stand By Rate,62.64788,GWh
+2022,May,Interruptible Rate,163.915491,GWh
+2022,May,Free of Charge,331.038929,GWh
+2022,May,Direct Customer,133.921263,GWh
+2022,June,Residential (< 150),710.50844,GWh
+2022,June,Residential (> 150),4190.66915,GWh
+2022,June,Small  General,1915.400684,GWh
+2022,June,Medium  General,2743.821186,GWh
+2022,June,Large General,6450.700513,GWh
+2022,June,Specific  Business,450.446943,GWh
+2022,June,Government & Nonprofit,18.880377,GWh
+2022,June,Agriculture Pumping,28.217355,GWh
+2022,June,Temporary,113.410497,GWh
+2022,June,Stand By Rate,72.58082,GWh
+2022,June,Interruptible Rate,175.139582,GWh
+2022,June,Free of Charge,326.840318,GWh
+2022,June,Direct Customer,103.463192,GWh
+2022,July,Residential (< 150),701.447899,GWh
+2022,July,Residential (> 150),4131.289887,GWh
+2022,July,Small  General,1910.882661,GWh
+2022,July,Medium  General,2720.958871,GWh
+2022,July,Large General,6501.726995,GWh
+2022,July,Specific  Business,477.889927,GWh
+2022,July,Government & Nonprofit,18.77986,GWh
+2022,July,Agriculture Pumping,29.637428,GWh
+2022,July,Temporary,115.177683,GWh
+2022,July,Stand By Rate,70.90822,GWh
+2022,July,Interruptible Rate,192.100255,GWh
+2022,July,Free of Charge,336.692683,GWh
+2022,July,Direct Customer,121.753536,GWh
+2022,August,Residential (< 150),660.588169,GWh
+2022,August,Residential (> 150),4046.489189,GWh
+2022,August,Small  General,1895.715467,GWh
+2022,August,Medium  General,2733.017564,GWh
+2022,August,Large General,6611.559187,GWh
+2022,August,Specific  Business,478.861421,GWh
+2022,August,Government & Nonprofit,18.787607,GWh
+2022,August,Agriculture Pumping,15.921114,GWh
+2022,August,Temporary,115.052614,GWh
+2022,August,Stand By Rate,70.9479,GWh
+2022,August,Interruptible Rate,174.509,GWh
+2022,August,Free of Charge,347.039073,GWh
+2022,August,Direct Customer,107.279281,GWh
+2022,September,Residential (< 150),626.284259,GWh
+2022,September,Residential (> 150),3794.284059,GWh
+2022,September,Small  General,1837.943332,GWh
+2022,September,Medium  General,2642.314693,GWh
+2022,September,Large General,6415.65849,GWh
+2022,September,Specific  Business,444.746577,GWh
+2022,September,Government & Nonprofit,18.380863,GWh
+2022,September,Agriculture Pumping,15.026822,GWh
+2022,September,Temporary,109.434699,GWh
+2022,September,Stand By Rate,40.25006,GWh
+2022,September,Interruptible Rate,127.803655,GWh
+2022,September,Free of Charge,335.685804,GWh
+2022,September,Direct Customer,99.933973,GWh
+2022,October,Residential (< 150),605.029515,GWh
+2022,October,Residential (> 150),3579.330199,GWh
+2022,October,Small  General,1766.320564,GWh
+2022,October,Medium  General,2516.194498,GWh
+2022,October,Large General,6316.440003,GWh
+2022,October,Specific  Business,451.569439,GWh
+2022,October,Government & Nonprofit,17.717923,GWh
+2022,October,Agriculture Pumping,13.933824,GWh
+2022,October,Temporary,107.430182,GWh
+2022,October,Stand By Rate,49.55161,GWh
+2022,October,Interruptible Rate,145.618891,GWh
+2022,October,Free of Charge,362.19917,GWh
+2022,October,Direct Customer,100.884911,GWh
+2022,November,Residential (< 150),585.534702,GWh
+2022,November,Residential (> 150),3567.765523,GWh
+2022,November,Small  General,1759.264545,GWh
+2022,November,Medium  General,2572.23967,GWh
+2022,November,Large General,6306.21643,GWh
+2022,November,Specific  Business,461.160728,GWh
+2022,November,Government & Nonprofit,17.617479,GWh
+2022,November,Agriculture Pumping,13.782553,GWh
+2022,November,Temporary,106.762922,GWh
+2022,November,Stand By Rate,82.74623,GWh
+2022,November,Interruptible Rate,137.663,GWh
+2022,November,Free of Charge,358.533723,GWh
+2022,November,Direct Customer,92.15989,GWh
+2022,December,Residential (< 150),604.410599,GWh
+2022,December,Residential (> 150),3383.191277,GWh
+2022,December,Small  General,1719.966766,GWh
+2022,December,Medium  General,2397.716986,GWh
+2022,December,Large General,5817.911096,GWh
+2022,December,Specific  Business,455.15613,GWh
+2022,December,Government & Nonprofit,17.004908,GWh
+2022,December,Agriculture Pumping,25.54008,GWh
+2022,December,Temporary,106.330464,GWh
+2022,December,Stand By Rate,66.03921,GWh
+2022,December,Interruptible Rate,143.009109,GWh
+2022,December,Free of Charge,366.61819,GWh
+2022,December,Direct Customer,88.17738,GWh
+2023,January,Residential (< 150),580.346749,GWh
+2023,January,Residential (> 150),3058.035844,GWh
+2023,January,Small  General,1620.012487,GWh
+2023,January,Medium  General,2335.762978,GWh
+2023,January,Large General,5848.910373,GWh
+2023,January,Specific  Business,450.11137,GWh
+2023,January,Government & Nonprofit,16.354822,GWh
+2023,January,Agriculture Pumping,52.853539,GWh
+2023,January,Temporary,100.069125,GWh
+2023,January,Stand By Rate,30.69751,GWh
+2023,January,Interruptible Rate,141.544255,GWh
+2023,January,Free of Charge,357.629943,GWh
+2023,January,Direct Customer,87.113043,GWh
+2023,February,Residential (< 150),581.626212,GWh
+2023,February,Residential (> 150),3128.690046,GWh
+2023,February,Small  General,1619.875598,GWh
+2023,February,Medium  General,2378.251827,GWh
+2023,February,Large General,5823.22137,GWh
+2023,February,Specific  Business,458.042783,GWh
+2023,February,Government & Nonprofit,16.148578,GWh
+2023,February,Agriculture Pumping,56.091081,GWh
+2023,February,Temporary,100.298122,GWh
+2023,February,Stand By Rate,42.97992,GWh
+2023,February,Interruptible Rate,142.724309,GWh
+2023,February,Free of Charge,325.18052,GWh
+2023,February,Direct Customer,84.547103,GWh
+2023,March,Residential (< 150),710.826346,GWh
+2023,March,Residential (> 150),3727.576039,GWh
+2023,March,Small  General,1842.344388,GWh
+2023,March,Medium  General,2743.013391,GWh
+2023,March,Large General,6590.691462,GWh
+2023,March,Specific  Business,551.753912,GWh
+2023,March,Government & Nonprofit,19.215026,GWh
+2023,March,Agriculture Pumping,67.421748,GWh
+2023,March,Temporary,115.150338,GWh
+2023,March,Stand By Rate,60.62704,GWh
+2023,March,Interruptible Rate,147.947091,GWh
+2023,March,Free of Charge,352.037777,GWh
+2023,March,Direct Customer,94.739739,GWh
+2023,April,Residential (< 150),933.975842,GWh
+2023,April,Residential (> 150),4762.80925,GWh
+2023,April,Small  General,2056.022771,GWh
+2023,April,Medium  General,2711.208603,GWh
+2023,April,Large General,5940.138967,GWh
+2023,April,Specific  Business,597.596885,GWh
+2023,April,Government & Nonprofit,20.017665,GWh
+2023,April,Agriculture Pumping,55.178811,GWh
+2023,April,Temporary,123.294285,GWh
+2023,April,Stand By Rate,52.01991,GWh
+2023,April,Interruptible Rate,120.582145,GWh
+2023,April,Free of Charge,343.391453,GWh
+2023,April,Direct Customer,109.865111,GWh
+2023,May,Residential (< 150),953.768635,GWh
+2023,May,Residential (> 150),4995.565255,GWh
+2023,May,Small  General,2138.788429,GWh
+2023,May,Medium  General,2971.367003,GWh
+2023,May,Large General,6541.8813,GWh
+2023,May,Specific  Business,592.367478,GWh
+2023,May,Government & Nonprofit,20.571902,GWh
+2023,May,Agriculture Pumping,34.088781,GWh
+2023,May,Temporary,131.637813,GWh
+2023,May,Stand By Rate,11.95266,GWh
+2023,May,Interruptible Rate,129.497673,GWh
+2023,May,Free of Charge,354.49335,GWh
+2023,May,Direct Customer,99.475811,GWh
+2023,June,Residential (< 150),800.570964,GWh
+2023,June,Residential (> 150),4548.113488,GWh
+2023,June,Small  General,2018.887731,GWh
+2023,June,Medium  General,2839.570217,GWh
+2023,June,Large General,6262.919342,GWh
+2023,June,Specific  Business,545.218652,GWh
+2023,June,Government & Nonprofit,19.899332,GWh
+2023,June,Agriculture Pumping,35.636567,GWh
+2023,June,Temporary,125.654702,GWh
+2023,June,Stand By Rate,17.10764,GWh
+2023,June,Interruptible Rate,123.564291,GWh
+2023,June,Free of Charge,347.042397,GWh
+2023,June,Direct Customer,96.38285,GWh
+2023,July,Residential (< 150),672.725639,GWh
+2023,July,Residential (> 150),4575.223212,GWh
+2023,July,Small  General,2018.429025,GWh
+2023,July,Medium  General,2834.826199,GWh
+2023,July,Large General,6379.032025,GWh
+2023,July,Specific  Business,571.893886,GWh
+2023,July,Government & Nonprofit,20.078244,GWh
+2023,July,Agriculture Pumping,42.700523,GWh
+2023,July,Temporary,127.621311,GWh
+2023,July,Stand By Rate,26.22417,GWh
+2023,July,Interruptible Rate,171.931345,GWh
+2023,July,Free of Charge,357.795646,GWh
+2023,July,Direct Customer,103.857099,GWh
+2023,August,Residential (< 150),635.399241,GWh
+2023,August,Residential (> 150),4511.856676,GWh
+2023,August,Small  General,1983.177509,GWh
+2023,August,Medium  General,2837.517721,GWh
+2023,August,Large General,6445.883124,GWh
+2023,August,Specific  Business,578.60056,GWh
+2023,August,Government & Nonprofit,20.216748,GWh
+2023,August,Agriculture Pumping,43.009722,GWh
+2023,August,Temporary,124.957835,GWh
+2023,August,Stand By Rate,47.94368,GWh
+2023,August,Interruptible Rate,147.306073,GWh
+2023,August,Free of Charge,361.871909,GWh
+2023,August,Direct Customer,125.059171,GWh
+2023,September,Residential (< 150),598.955034,GWh
+2023,September,Residential (> 150),4222.624484,GWh
+2023,September,Small  General,1921.216868,GWh
+2023,September,Medium  General,2750.866077,GWh
+2023,September,Large General,6331.280541,GWh
+2023,September,Specific  Business,515.389087,GWh
+2023,September,Government & Nonprofit,20.13705,GWh
+2023,September,Agriculture Pumping,24.717535,GWh
+2023,September,Temporary,120.962619,GWh
+2023,September,Stand By Rate,16.922033,GWh
+2023,September,Interruptible Rate,129.482255,GWh
+2023,September,Free of Charge,358.307371,GWh
+2023,September,Direct Customer,113.824423,GWh
+2023,October,Residential (< 150),607.561518,GWh
+2023,October,Residential (> 150),4181.899123,GWh
+2023,October,Small  General,1899.349112,GWh
+2023,October,Medium  General,2689.114447,GWh
+2023,October,Large General,6449.150671,GWh
+2023,October,Specific  Business,541.768937,GWh
+2023,October,Government & Nonprofit,19.894257,GWh
+2023,October,Agriculture Pumping,16.680382,GWh
+2023,October,Temporary,123.300027,GWh
+2023,October,Stand By Rate,27.1961,GWh
+2023,October,Interruptible Rate,94.881891,GWh
+2023,October,Free of Charge,431.022885,GWh
+2023,October,Direct Customer,98.598045,GWh
+2023,November,Residential (< 150),578.859221,GWh
+2023,November,Residential (> 150),3955.942867,GWh
+2023,November,Small  General,1835.686345,GWh
+2023,November,Medium  General,2649.303579,GWh
+2023,November,Large General,6329.11854,GWh
+2023,November,Specific  Business,513.530962,GWh
+2023,November,Government & Nonprofit,18.874242,GWh
+2023,November,Agriculture Pumping,15.231366,GWh
+2023,November,Temporary,115.7133,GWh
+2023,November,Stand By Rate,31.0807,GWh
+2023,November,Interruptible Rate,103.899,GWh
+2023,November,Free of Charge,422.632414,GWh
+2023,November,Direct Customer,91.202619,GWh
+2023,December,Residential (< 150),573.839036,GWh
+2023,December,Residential (> 150),3829.080968,GWh
+2023,December,Small  General,1827.52988,GWh
+2023,December,Medium  General,2556.224793,GWh
+2023,December,Large General,6000.467993,GWh
+2023,December,Specific  Business,547.755999,GWh
+2023,December,Government & Nonprofit,11.054108,GWh
+2023,December,Agriculture Pumping,40.746632,GWh
+2023,December,Temporary,117.37482,GWh
+2023,December,Stand By Rate,24.35319,GWh
+2023,December,Interruptible Rate,107.452273,GWh
+2023,December,Free of Charge,416.710601,GWh
+2023,December,Direct Customer,96.154172,GWh
+2024,January,Residential (< 150),580.933521,GWh
+2024,January,Residential (> 150),3764.30572,GWh
+2024,January,Small  General,1816.237999,GWh
+2024,January,Medium  General,2590.27723,GWh
+2024,January,Large General,6203.77902,GWh
+2024,January,Specific  Business,563.443484,GWh
+2024,January,Government & Nonprofit,18.207008,GWh
+2024,January,Agriculture Pumping,65.08126,GWh
+2024,January,Temporary,116.71883,GWh
+2024,January,Stand By Rate,26.12355,GWh
+2024,January,Interruptible Rate,105.3126,GWh
+2024,January,Free of Charge,396.32802,GWh
+2024,January,Direct Customer,126.007797,GWh
+2024,February,Residential (< 150),592.284293,GWh
+2024,February,Residential (> 150),3845.58221,GWh
+2024,February,Small  General,1829.178465,GWh
+2024,February,Medium  General,2626.734604,GWh
+2024,February,Large General,6176.483538,GWh
+2024,February,Specific  Business,580.782731,GWh
+2024,February,Government & Nonprofit,19.307824,GWh
+2024,February,Agriculture Pumping,66.673183,GWh
+2024,February,Temporary,117.523269,GWh
+2024,February,Stand By Rate,11.18082,GWh
+2024,February,Interruptible Rate,110.015782,GWh
+2024,February,Free of Charge,374.161157,GWh
+2024,February,Direct Customer,101.188356,GWh
+2024,March,Residential (< 150),774.307589,GWh
+2024,March,Residential (> 150),4670.464609,GWh
+2024,March,Small  General,2092.620836,GWh
+2024,March,Medium  General,2970.002576,GWh
+2024,March,Large General,6826.531563,GWh
+2024,March,Specific  Business,652.053969,GWh
+2024,March,Government & Nonprofit,21.706111,GWh
+2024,March,Agriculture Pumping,65.238859,GWh
+2024,March,Temporary,134.06663,GWh
+2024,March,Stand By Rate,4.29323,GWh
+2024,March,Interruptible Rate,168.34501,GWh
+2024,March,Free of Charge,391.308661,GWh
+2024,March,Direct Customer,129.134653,GWh
+2024,April,Residential (< 150),876.613947,GWh
+2024,April,Residential (> 150),5358.563605,GWh
+2024,April,Small  General,2174.43788,GWh
+2024,April,Medium  General,2885.080656,GWh
+2024,April,Large General,6176.466297,GWh
+2024,April,Specific  Business,694.006159,GWh
+2024,April,Government & Nonprofit,22.271825,GWh
+2024,April,Agriculture Pumping,52.442827,GWh
+2024,April,Temporary,135.914085,GWh
+2024,April,Stand By Rate,8.59296,GWh
+2024,April,Interruptible Rate,113.137909,GWh
+2024,April,Free of Charge,375.850502,GWh
+2024,April,Direct Customer,111.125299,GWh
+2024,May,Residential (< 150),926.254643,GWh
+2024,May,Residential (> 150),5631.961569,GWh
+2024,May,Small  General,2275.172421,GWh
+2024,May,Medium  General,3105.080579,GWh
+2024,May,Large General,6822.315737,GWh
+2024,May,Specific  Business,657.166618,GWh
+2024,May,Government & Nonprofit,22.234064,GWh
+2024,May,Agriculture Pumping,35.736417,GWh
+2024,May,Temporary,142.038334,GWh
+2024,May,Stand By Rate,4.8834,GWh
+2024,May,Interruptible Rate,115.386091,GWh
+2024,May,Free of Charge,384.283966,GWh
+2024,May,Direct Customer,118.877476,GWh
+2024,June,Residential (< 150),665.627183,GWh
+2024,June,Residential (> 150),4907.124286,GWh
+2024,June,Small  General,2075.359053,GWh
+2024,June,Medium  General,2934.457511,GWh
+2024,June,Large General,6505.404624,GWh
+2024,June,Specific  Business,603.324111,GWh
+2024,June,Government & Nonprofit,21.430037,GWh
+2024,June,Agriculture Pumping,30.052095,GWh
+2024,June,Temporary,130.006844,GWh
+2024,June,Stand By Rate,6.77797,GWh
+2024,June,Interruptible Rate,88.387164,GWh
+2024,June,Free of Charge,371.753884,GWh
+2024,June,Direct Customer,105.449561,GWh
+2024,July,Residential (< 150),601.452183,GWh
+2024,July,Residential (> 150),4565.508123,GWh
+2024,July,Small  General,2006.128075,GWh
+2024,July,Medium  General,2895.65903,GWh
+2024,July,Large General,6603.684628,GWh
+2024,July,Specific  Business,599.489875,GWh
+2024,July,Government & Nonprofit,20.979874,GWh
+2024,July,Agriculture Pumping,30.146131,GWh
+2024,July,Temporary,126.245984,GWh
+2024,July,Stand By Rate,8.251,GWh
+2024,July,Interruptible Rate,118.519418,GWh
+2024,July,Free of Charge,381.690636,GWh
+2024,July,Direct Customer,116.032979,GWh
+2024,August,Residential (< 150),583.788723,GWh
+2024,August,Residential (> 150),4669.578196,GWh
+2024,August,Small  General,2033.810715,GWh
+2024,August,Medium  General,2978.103372,GWh
+2024,August,Large General,6646.856219,GWh
+2024,August,Specific  Business,622.66008,GWh
+2024,August,Government & Nonprofit,22.154774,GWh
+2024,August,Agriculture Pumping,24.586291,GWh
+2024,August,Temporary,129.180947,GWh
+2024,August,Stand By Rate,4.59719,GWh
+2024,August,Interruptible Rate,98.577282,GWh
+2024,August,Free of Charge,394.915043,GWh
+2024,August,Direct Customer,109.43269,GWh
+2024,September,Residential (< 150),569.041506,GWh
+2024,September,Residential (> 150),4454.728954,GWh
+2024,September,Small  General,1970.534725,GWh
+2024,September,Medium  General,2845.89733,GWh
+2024,September,Large General,6438.436914,GWh
+2024,September,Specific  Business,559.716894,GWh
+2024,September,Government & Nonprofit,21.084316,GWh
+2024,September,Agriculture Pumping,20.440631,GWh
+2024,September,Temporary,124.891268,GWh
+2024,September,Stand By Rate,3.94337,GWh
+2024,September,Interruptible Rate,106.745627,GWh
+2024,September,Free of Charge,385.899361,GWh
+2024,September,Direct Customer,106.443893,GWh
+2024,October,Residential (< 150),596.342218,GWh
+2024,October,Residential (> 150),4444.235667,GWh
+2024,October,Small  General,1968.236445,GWh
+2024,October,Medium  General,2860.724617,GWh
+2024,October,Large General,6650.114424,GWh
+2024,October,Specific  Business,586.586556,GWh
+2024,October,Government & Nonprofit,20.929207,GWh
+2024,October,Agriculture Pumping,19.113763,GWh
+2024,October,Temporary,125.632333,GWh
+2024,October,Stand By Rate,6.55957,GWh
+2024,October,Interruptible Rate,113.808236,GWh
+2024,October,Free of Charge,400.049815,GWh
+2024,October,Direct Customer,107.486042,GWh
+2024,November,Residential (< 150),558.739496,GWh
+2024,November,Residential (> 150),4230.018805,GWh
+2024,November,Small  General,1906.012087,GWh
+2024,November,Medium  General,2824.939005,GWh
+2024,November,Large General,6379.13422,GWh
+2024,November,Specific  Business,576.622606,GWh
+2024,November,Government & Nonprofit,20.002558,GWh
+2024,November,Agriculture Pumping,17.953499,GWh
+2024,November,Temporary,122.267754,GWh
+2024,November,Stand By Rate,8.49089,GWh
+2024,November,Interruptible Rate,90.361727,GWh
+2024,November,Free of Charge,396.602298,GWh
+2024,November,Direct Customer,100.75509,GWh
+2024,December,Residential (< 150),540.025449,GWh
+2024,December,Residential (> 150),3780.030421,GWh
+2024,December,Small  General,1812.582303,GWh
+2024,December,Medium  General,2585.329876,GWh
+2024,December,Large General,5852.912177,GWh
+2024,December,Specific  Business,550.393174,GWh
+2024,December,Government & Nonprofit,18.379438,GWh
+2024,December,Agriculture Pumping,48.685615,GWh
+2024,December,Temporary,123.352195,GWh
+2024,December,Stand By Rate,14.76294,GWh
+2024,December,Interruptible Rate,101.474145,GWh
+2024,December,Free of Charge,408.309461,GWh
+2024,December,Direct Customer,106.201371,GWh
+2025,January,Residential (< 150),507.907586,GWh
+2025,January,Residential (> 150),3247.888872,GWh
+2025,January,Small  General,1655.315564,GWh
+2025,January,Medium  General,2443.298167,GWh
+2025,January,Large General,5870.137419,GWh
+2025,January,Specific  Business,524.001439,GWh
+2025,January,Government & Nonprofit,17.241702,GWh
+2025,January,Agriculture Pumping,70.277992,GWh
+2025,January,Temporary,112.673535,GWh
+2025,January,Stand By Rate,13.92651,GWh
+2025,January,Interruptible Rate,117.451927,GWh
+2025,January,Free of Charge,412.207885,GWh
+2025,January,Direct Customer,98.744206,GWh
+2025,February,Residential (< 150),519.111933,GWh
+2025,February,Residential (> 150),3436.504637,GWh
+2025,February,Small  General,1685.68877,GWh
+2025,February,Medium  General,2514.581809,GWh
+2025,February,Large General,5829.948589,GWh
+2025,February,Specific  Business,537.535144,GWh
+2025,February,Government & Nonprofit,17.977567,GWh
+2025,February,Agriculture Pumping,68.095896,GWh
+2025,February,Temporary,112.004622,GWh
+2025,February,Stand By Rate,18.88154,GWh
+2025,February,Interruptible Rate,95.205182,GWh
+2025,February,Free of Charge,374.943058,GWh
+2025,February,Direct Customer,122.582895,GWh
+2025,March,Residential (< 150),733.567496,GWh
+2025,March,Residential (> 150),4404.087257,GWh
+2025,March,Small  General,2013.32381,GWh
+2025,March,Medium  General,2958.660605,GWh
+2025,March,Large General,6678.291217,GWh
+2025,March,Specific  Business,642.585573,GWh
+2025,March,Government & Nonprofit,21.43793,GWh
+2025,March,Agriculture Pumping,64.432147,GWh
+2025,March,Temporary,130.561044,GWh
+2025,March,Stand By Rate,26.04868,GWh
+2025,March,Interruptible Rate,112.154464,GWh
+2025,March,Free of Charge,406.91772,GWh
+2025,March,Direct Customer,119.662325,GWh
+2025,April,Residential (< 150),802.197197,GWh
+2025,April,Residential (> 150),4732.879528,GWh
+2025,April,Small  General,2024.612012,GWh
+2025,April,Medium  General,2780.100088,GWh
+2025,April,Large General,6055.867681,GWh
+2025,April,Specific  Business,634.68076,GWh
+2025,April,Government & Nonprofit,21.212066,GWh
+2025,April,Agriculture Pumping,42.61283,GWh
+2025,April,Temporary,127.738512,GWh
+2025,April,Stand By Rate,12.69969,GWh
+2025,April,Interruptible Rate,101.574145,GWh
+2025,April,Free of Charge,388.079556,GWh
+2025,April,Direct Customer,116.500426,GWh
+2025,May,Residential (< 150),856.314473,GWh
+2025,May,Residential (> 150),4922.441006,GWh
+2025,May,Small  General,2108.279186,GWh
+2025,May,Medium  General,3023.032818,GWh
+2025,May,Large General,6721.290331,GWh
+2025,May,Specific  Business,602.713521,GWh
+2025,May,Government & Nonprofit,21.768221,GWh
+2025,May,Agriculture Pumping,20.797034,GWh
+2025,May,Temporary,136.364563,GWh
+2025,May,Stand By Rate,2.30596,GWh
+2025,May,Interruptible Rate,92.505855,GWh
+2025,May,Free of Charge,396.73321,GWh
+2025,May,Direct Customer,119.831986,GWh
+2025,June,Residential (< 150),680.344292,GWh
+2025,June,Residential (> 150),4692.643771,GWh
+2025,June,Small  General,2041.57218,GWh
+2025,June,Medium  General,2903.091942,GWh
+2025,June,Large General,6346.913221,GWh
+2025,June,Specific  Business,577.155561,GWh
+2025,June,Government & Nonprofit,20.923789,GWh
+2025,June,Agriculture Pumping,22.669055,GWh
+2025,June,Temporary,129.432255,GWh
+2025,June,Stand By Rate,7.3412,GWh
+2025,June,Interruptible Rate,98.706045,GWh
+2025,June,Free of Charge,389.687188,GWh
+2025,June,Direct Customer,108.70997,GWh
+2025,July,Residential (< 150),636.292233,GWh
+2025,July,Residential (> 150),4682.037225,GWh
+2025,July,Small  General,2060.167356,GWh
+2025,July,Medium  General,2938.801472,GWh
+2025,July,Large General,6546.444997,GWh
+2025,July,Specific  Business,608.426057,GWh
+2025,July,Government & Nonprofit,21.353661,GWh
+2025,July,Agriculture Pumping,27.009781,GWh
+2025,July,Temporary,129.302648,GWh
+2025,July,Stand By Rate,25.22784,GWh
+2025,July,Interruptible Rate,88.365918,GWh
+2025,July,Free of Charge,405.036953,GWh
+2025,July,Direct Customer,108.608536,GWh
+2025,August,Residential (< 150),618.230071,GWh
+2025,August,Residential (> 150),4863.129619,GWh
+2025,August,Small  General,2098.518252,GWh
+2025,August,Medium  General,2995.754957,GWh
+2025,August,Large General,6556.316867,GWh
+2025,August,Specific  Business,620.415057,GWh
+2025,August,Government & Nonprofit,22.147555,GWh
+2025,August,Agriculture Pumping,33.026165,GWh
+2025,August,Temporary,126.054162,GWh
+2025,August,Stand By Rate,6.17711,GWh
+2025,August,Interruptible Rate,82.404045,GWh
+2025,August,Free of Charge,413.454391,GWh
+2025,August,Direct Customer,113.10594,GWh
+2025,September,Residential (< 150),571.383027,GWh
+2025,September,Residential (> 150),4385.76971,GWh
+2025,September,Small  General,1978.074596,GWh
+2025,September,Medium  General,2876.285989,GWh
+2025,September,Large General,6455.463048,GWh
+2025,September,Specific  Business,555.152829,GWh
+2025,September,Government & Nonprofit,21.029249,GWh
+2025,September,Agriculture Pumping,15.85425,GWh
+2025,September,Temporary,117.292132,GWh
+2025,September,Stand By Rate,4.60008,GWh
+2025,September,Interruptible Rate,91.874164,GWh
+2025,September,Free of Charge,401.68426,GWh
+2025,September,Direct Customer,122.248258,GWh
+2025,October,Residential (< 150),595.325163,GWh
+2025,October,Residential (> 150),4510.697878,GWh
+2025,October,Small  General,1996.399832,GWh
+2025,October,Medium  General,2867.985539,GWh
+2025,October,Large General,6608.423356,GWh
+2025,October,Specific  Business,579.924649,GWh
+2025,October,Government & Nonprofit,21.163338,GWh
+2025,October,Agriculture Pumping,15.910515,GWh
+2025,October,Temporary,122.292542,GWh
+2025,October,Stand By Rate,7.15486,GWh
+2025,October,Interruptible Rate,88.013036,GWh
+2025,October,Free of Charge,424.60891,GWh
+2025,October,Direct Customer,104.76927,GWh
+2025,November,Residential (< 150),532.331622,GWh
+2025,November,Residential (> 150),3948.946361,GWh
+2025,November,Small  General,1842.142048,GWh
+2025,November,Medium  General,2675.030828,GWh
+2025,November,Large General,6257.831999,GWh
+2025,November,Specific  Business,512.878051,GWh
+2025,November,Government & Nonprofit,19.119493,GWh
+2025,November,Agriculture Pumping,9.757003,GWh
+2025,November,Temporary,113.515633,GWh
+2025,November,Stand By Rate,8.07087,GWh
+2025,November,Interruptible Rate,84.560564,GWh
+2025,November,Free of Charge,416.87257,GWh
+2025,November,Direct Customer,156.202738,GWh
+2025,December,Residential (< 150),491.354991,GWh
+2025,December,Residential (> 150),3491.661356,GWh
+2025,December,Small  General,1732.23571,GWh
+2025,December,Medium  General,2611.71158,GWh
+2025,December,Large General,6111.606847,GWh
+2025,December,Specific  Business,549.985476,GWh
+2025,December,Government & Nonprofit,18.674629,GWh
+2025,December,Agriculture Pumping,29.095227,GWh
+2025,December,Temporary,115.790449,GWh
+2025,December,Stand By Rate,7.04369,GWh
+2025,December,Interruptible Rate,99.537336,GWh
+2025,December,Free of Charge,419.44562,GWh
+2025,December,Direct Customer,187.568219,GWh
+2026,January,Residential (< 150),523.387289,GWh
+2026,January,Residential (> 150),3581.734685,GWh
+2026,January,Small  General,1752.859871,GWh
+2026,January,Medium  General,2550.101227,GWh
+2026,January,Large General,6108.821628,GWh
+2026,January,Specific  Business,543.220896,GWh
+2026,January,Government & Nonprofit,18.32098,GWh
+2026,January,Agriculture Pumping,59.886059,GWh
+2026,January,Temporary,112.417449,GWh
+2026,January,Stand By Rate,15.26879,GWh
+2026,January,Interruptible Rate,87.347136,GWh
+2026,January,Free of Charge,441.813769,GWh
+2026,January,Direct Customer,98.134671,GWh
+2026,February,Residential (< 150),562.711327,GWh
+2026,February,Residential (> 150),3818.789525,GWh
+2026,February,Small  General,1811.097624,GWh
+2026,February,Medium  General,2664.193244,GWh
+2026,February,Large General,6051.639819,GWh
+2026,February,Specific  Business,574.820352,GWh
+2026,February,Government & Nonprofit,19.160356,GWh
+2026,February,Agriculture Pumping,62.786263,GWh
+2026,February,Temporary,113.365108,GWh
+2026,February,Stand By Rate,6.33644,GWh
+2026,February,Interruptible Rate,86.026082,GWh
+2026,February,Free of Charge,398.095269,GWh
+2026,February,Direct Customer,101.533321,GWh
+2026,March,Residential (< 150),770.700967,GWh
+2026,March,Residential (> 150),4725.052128,GWh
+2026,March,Small  General,2105.711772,GWh
+2026,March,Medium  General,3048.962033,GWh
+2026,March,Large General,6790.547089,GWh
+2026,March,Specific  Business,657.961044,GWh
+2026,March,Government & Nonprofit,21.759096,GWh
+2026,March,Agriculture Pumping,65.542048,GWh
+2026,March,Temporary,133.112581,GWh
+2026,March,Stand By Rate,12.33841,GWh
+2026,March,Interruptible Rate,94.300618,GWh
+2026,March,Free of Charge,425.602309,GWh
+2026,March,Direct Customer,111.289891,GWh
+2026,April,Residential (< 150),923.959242,GWh
+2026,April,Residential (> 150),5518.155505,GWh
+2026,April,Small  General,2236.865135,GWh
+2026,April,Medium  General,2982.241364,GWh
+2026,April,Large General,6333.839144,GWh
+2026,April,Specific  Business,682.110755,GWh
+2026,April,Government & Nonprofit,22.621498,GWh
+2026,April,Agriculture Pumping,55.407937,GWh
+2026,April,Temporary,140.409966,GWh
+2026,April,Stand By Rate,7.93976,GWh
+2026,April,Interruptible Rate,84.1807,GWh
+2026,April,Free of Charge,428.989891,GWh
+2026,April,Direct Customer,110.887559,GWh
+2026,May,Residential (< 150),878.740447,GWh
+2026,May,Residential (> 150),5406.459678,GWh
+2026,May,Small  General,2244.934034,GWh
+2026,May,Medium  General,3174.149299,GWh
+2026,May,Large General,6885.253638,GWh
+2026,May,Specific  Business,650.262926,GWh
+2026,May,Government & Nonprofit,22.825181,GWh
+2026,May,Agriculture Pumping,27.768975,GWh
+2026,May,Temporary,142.97083,GWh
+2026,May,Stand By Rate,4.04636,GWh
+2026,May,Interruptible Rate,100.516645,GWh
+2026,May,Free of Charge,427.958935,GWh
+2026,May,Direct Customer,130.99148,GWh
+2026,June,Residential (< 150),680.557021,GWh
+2026,June,Residential (> 150),5172.135072,GWh
+2026,June,Small  General,2156.757455,GWh
+2026,June,Medium  General,3057.889916,GWh
+2026,June,Large General,6593.383788,GWh
+2026,June,Specific  Business,609.010654,GWh
+2026,June,Government & Nonprofit,21.477769,GWh
+2026,June,Agriculture Pumping,38.840534,GWh
+2026,June,Temporary,138.783895,GWh
+2026,June,Stand By Rate,15.93742,GWh
+2026,June,Interruptible Rate,97.883036,GWh
+2026,June,Free of Charge,407.015627,GWh
+2026,June,Direct Customer,104.83279,GWh
