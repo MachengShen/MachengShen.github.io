@@ -29,3 +29,4 @@ reports/endogenous-objectives/index.html     # public desk map / tech-report lan
 sophon/logo-sophon.png                 # interim brand mark asset for /sophon/ landing; not a standalone publication
 thailand-energy/*                     # Thailand power/AC-efficiency policy research brief for a partner handoff (public sources only); outside the theory intellectual index, same doctrine as reports/
 thailand-energy/**                    # data, model scripts and institution tables supporting the brief above; not standalone claims
+global-climate/*                      # global climate x livelihoods policy research study (public sources only); outside the theory intellectual index, same doctrine as reports/
