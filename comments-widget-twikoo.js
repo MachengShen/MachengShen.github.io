@@ -53,6 +53,42 @@
     root.appendChild(note);
   }
 
+
+  function findTextarea(host) {
+    return host.querySelector(".tk-submit textarea, .tk-input textarea, textarea");
+  }
+
+  function applyTag(host, tag) {
+    var ta = findTextarea(host);
+    if (!ta) { return; }
+    var v = ta.value.replace(/^\s*(?:[@\uff20]\s*ai|[\[\u3010]\s*bug\s*[\]\u3011])\s*/i, "");
+    ta.value = tag + " " + v;
+    ta.dispatchEvent(new Event("input", { bubbles: true }));
+    ta.focus();
+    try { ta.setSelectionRange(ta.value.length, ta.value.length); } catch (e) {}
+  }
+
+  function addTagButtons(root, host, lang) {
+    if (root.querySelector(".pc-tags")) { return; }
+    var bar = document.createElement("div");
+    bar.className = "pc-tags";
+    var label = document.createElement("span");
+    label.className = "pc-tags-label";
+    label.textContent = lang === "zh" ? "点一下插入标签：" : "Tap to add a tag:";
+    bar.appendChild(label);
+    [["@AI", lang === "zh" ? "请 AI 回答" : "ask the AI"], ["[bug]", lang === "zh" ? "报告页面错误" : "report a problem"]].forEach(function (t) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "pc-tag";
+      b.innerHTML = "<code></code><span></span>";
+      b.firstChild.textContent = t[0];
+      b.lastChild.textContent = t[1];
+      b.addEventListener("click", function () { applyTag(host, t[0]); });
+      bar.appendChild(b);
+    });
+    root.insertBefore(bar, host);
+  }
+
   function loadTwikooScript(src) {
     return new Promise(function (resolve, reject) {
       if (window.twikoo && typeof window.twikoo.init === "function") {
@@ -137,6 +173,7 @@
         if (region) {
           options.region = region;
         }
+        addTagButtons(root, host, lang);
         return twikoo.init(options);
       })
       .catch(function () {
@@ -156,7 +193,6 @@
     }
     var lang = detectLanguage();
     ensureCss();
-    addAiNote(root, lang);
     mountTwikoo(root, lang);
   }
 

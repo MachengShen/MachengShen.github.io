@@ -15,9 +15,17 @@
   max-width: none;
 }
 
-.pc-banner code {
+.pc-banner code,
+.pc-comments-hint code,
+.pc-tag code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.88em;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: #ffffff !important;
+  background: #2563eb !important;
+  padding: 0.08em 0.45em;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .pc-comments {
@@ -47,4 +55,35 @@
 
 .pc-twikoo-host {
   min-height: 2rem;
+}
+
+.pc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.8rem;
+  font-size: 0.88rem;
+}
+
+.pc-tags-label {
+  color: var(--ink-soft, #4a545f);
+}
+
+.pc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid #2563eb;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.pc-tag:hover,
+.pc-tag:focus-visible {
+  background: rgba(37, 99, 235, 0.12);
 }
