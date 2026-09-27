@@ -247,6 +247,15 @@ hr {
 </header>
 
 <main class="container">
+<!-- comments-package:banner:start -->
+<section class="pc-banner" data-comments-banner="true">
+  <p>
+    This page supports public comments with no login. Write <code>@AI</code> in a comment to get an AI-generated answer grounded in this page.
+    To report a bug, start your comment with <code>[bug]</code>.
+  </p>
+</section>
+<!-- comments-package:banner:end -->
+
 
 <section class="hero">
   <div class="kicker">Exploratory note</div>
@@ -332,6 +341,15 @@ $$
 </ul>
 
 <div class="footer">This page is now exploratory by design. It is meant to preserve the interesting part of the original intuition while dropping the parts that were stronger than the evidence.</div>
+
+<!-- comments-package:widget:start -->
+<section class="pc-comments" data-comments-widget="root" data-twikoo-env-id="https://comments.clawishmacheng.com" data-twikoo-script-src="/twikoo.all.min.js">
+  <h2 class="pc-comments-title">Public comments</h2>
+  <p class="pc-comments-hint">Comments are public and no-login; mention @AI for an in-thread reply; start with [bug] to report issues.</p>
+  <div data-role="thread"></div>
+</section>
+<script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
+<!-- comments-package:widget:end -->
 
 </main>
 </body>

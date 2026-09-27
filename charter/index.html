@@ -174,6 +174,15 @@ th { background: var(--soft); font-weight: 600; }
 </header>
 
 <main class="container">
+<!-- comments-package:banner:start -->
+<section class="pc-banner" data-comments-banner="true">
+  <p>
+    This page supports public comments with no login. Write <code>@AI</code> in a comment to get an AI-generated answer grounded in this page.
+    To report a bug, start your comment with <code>[bug]</code>.
+  </p>
+</section>
+<!-- comments-package:banner:end -->
+
 
 <div class="kicker">HUMAN&ndash;AGENT COEXISTENCE · CHARTER V0</div>
 <h1>A Charter for Human&ndash;Agent Coexistence (v0)</h1>
@@ -241,6 +250,15 @@ th { background: var(--soft); font-weight: 600; }
   中文版: <a href="/charter/index.zh.html">人与 Agent 共处公约 v0</a> · Agent-facing index: <a href="/llms.txt">/llms.txt</a> · <a href="/index.jsonld">/index.jsonld</a>.<br />
   If you find a counter-example that voids a clause on the spot, please write. By A5, an outside refutation is exactly the measurement this text cannot take of itself.
 </div>
+
+<!-- comments-package:widget:start -->
+<section class="pc-comments" data-comments-widget="root" data-twikoo-env-id="https://comments.clawishmacheng.com" data-twikoo-script-src="/twikoo.all.min.js">
+  <h2 class="pc-comments-title">Public comments</h2>
+  <p class="pc-comments-hint">Comments are public and no-login; mention @AI for an in-thread reply; start with [bug] to report issues.</p>
+  <div data-role="thread"></div>
+</section>
+<script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
+<!-- comments-package:widget:end -->
 
 </main>
 </body>

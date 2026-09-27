@@ -275,6 +275,15 @@ hr {
 </header>
 
 <main class="container">
+<!-- comments-package:banner:start -->
+<section class="pc-banner" data-comments-banner="true">
+  <p>
+    本页支持免登录公开评论。在评论中写 <code>@AI</code> 可获得基于本页内容的 AI 生成回复。
+    若要报告缺陷，请将评论开头写成 <code>[bug]</code>。
+  </p>
+</section>
+<!-- comments-package:banner:end -->
+
 
 <section class="hero">
   <div class="kicker">页面修订中</div>
@@ -296,6 +305,15 @@ hr {
 <p>如果之后要恢复短版页面，建议只保留“问题是什么、哪些已被支持、哪些仍未证明”这三层，而不要再把“第一性原理严格推出 BP”当成已完成的结论。</p>
 
 <div class="footer">状态：存档页面。路径保留，内容已降级为 revision note。</div>
+
+<!-- comments-package:widget:start -->
+<section class="pc-comments" data-comments-widget="root" data-twikoo-env-id="https://comments.clawishmacheng.com" data-twikoo-script-src="/twikoo.all.min.js">
+  <h2 class="pc-comments-title">公开评论</h2>
+  <p class="pc-comments-hint">评论公开可见、无需登录；写 @AI 获取线程内回复；以 [bug] 开头可提交缺陷。</p>
+  <div data-role="thread"></div>
+</section>
+<script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
+<!-- comments-package:widget:end -->
 
 </main>
 </body>

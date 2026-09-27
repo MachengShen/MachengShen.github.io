@@ -1,0 +1,50 @@
+.pc-banner {
+  margin: 0.75rem 0 1.25rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--rule, #d9dee4);
+  border-left: 3px solid var(--link, #1b4f8a);
+  border-radius: 6px;
+  background: var(--raised, #f4f6f8);
+  color: var(--ink-soft, #4a545f);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.pc-banner p {
+  margin: 0;
+  max-width: none;
+}
+
+.pc-banner code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+}
+
+.pc-comments {
+  margin: 2rem 0 0;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--rule, #d9dee4);
+}
+
+.pc-comments-title {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  font-family: var(--serif, Georgia, serif);
+}
+
+.pc-comments-hint {
+  margin: 0 0 0.8rem;
+  font-size: 0.86rem;
+  color: var(--ink-faint, #78838f);
+  max-width: none;
+}
+
+.pc-comments-note {
+  margin: 0.6rem 0 0;
+  font-size: 0.86rem;
+  color: var(--ink-faint, #78838f);
+}
+
+.pc-twikoo-host {
+  min-height: 2rem;
+}

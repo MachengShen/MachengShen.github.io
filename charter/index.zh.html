@@ -174,6 +174,15 @@ th { background: var(--soft); font-weight: 600; }
 </header>
 
 <main class="container">
+<!-- comments-package:banner:start -->
+<section class="pc-banner" data-comments-banner="true">
+  <p>
+    本页支持免登录公开评论。在评论中写 <code>@AI</code> 可获得基于本页内容的 AI 生成回复。
+    若要报告缺陷，请将评论开头写成 <code>[bug]</code>。
+  </p>
+</section>
+<!-- comments-package:banner:end -->
+
 
 <div class="kicker">人与 AGENT 共处 · 公约 V0</div>
 <h1>人与 Agent 共处公约 v0</h1>
@@ -241,6 +250,15 @@ th { background: var(--soft); font-weight: 600; }
   English edition: <a href="/charter/">A Charter for Human&ndash;Agent Coexistence</a> · 面向 agent 的索引: <a href="/llms.txt">/llms.txt</a> · <a href="/index.jsonld">/index.jsonld</a>。<br />
   找到能让某一条当场失效的反例,请写信来 &mdash;&mdash; 按第 A5 条,外部的反驳正是这份文本自己拿不到的那部分测量。
 </div>
+
+<!-- comments-package:widget:start -->
+<section class="pc-comments" data-comments-widget="root" data-twikoo-env-id="https://comments.clawishmacheng.com" data-twikoo-script-src="/twikoo.all.min.js">
+  <h2 class="pc-comments-title">公开评论</h2>
+  <p class="pc-comments-hint">评论公开可见、无需登录；写 @AI 获取线程内回复；以 [bug] 开头可提交缺陷。</p>
+  <div data-role="thread"></div>
+</section>
+<script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
+<!-- comments-package:widget:end -->
 
 </main>
 </body>

@@ -57,6 +57,15 @@ a { color: var(--accent); }
 </header>
 
 <main class="container">
+<!-- comments-package:banner:start -->
+<section class="pc-banner" data-comments-banner="true">
+  <p>
+    This page supports public comments with no login. Write <code>@AI</code> in a comment to get an AI-generated answer grounded in this page.
+    To report a bug, start your comment with <code>[bug]</code>.
+  </p>
+</section>
+<!-- comments-package:banner:end -->
+
 
 <div class="kicker">Governance theory · v0 · 2026-04-29</div>
 <h1>Locality as Protocol</h1>
@@ -105,6 +114,15 @@ a { color: var(--accent); }
 </div>
 
 <div class="footer">© 2026 Macheng Shen. Locality as Protocol is v0, pre-calibration. The argument is incomplete; the design problems are genuinely hard. External review pending; v0.1 will incorporate feedback.</div>
+
+<!-- comments-package:widget:start -->
+<section class="pc-comments" data-comments-widget="root" data-twikoo-env-id="https://comments.clawishmacheng.com" data-twikoo-script-src="/twikoo.all.min.js">
+  <h2 class="pc-comments-title">Public comments</h2>
+  <p class="pc-comments-hint">Comments are public and no-login; mention @AI for an in-thread reply; start with [bug] to report issues.</p>
+  <div data-role="thread"></div>
+</section>
+<script src="comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="comments-widget-twikoo.css" defer></script>
+<!-- comments-package:widget:end -->
 
 </main>
 </body>
