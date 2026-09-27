@@ -117,7 +117,78 @@
     <li>We do not claim that there is only one position within the traditions, nor that these bridges are novel without comparison.</li>
   </ul>
 
-  <h2 id="references">11. References</h2>
+  <h2 id="conscience">11. Where conscience comes from: theory of mind, games and karma</h2>
+  <p class="note-small"><span class="tag partial">Updated · 2026-09-27</span> The round-2 preregistered models C1–C4 and the post-hoc exploratory arm are complete; all round-1 verdicts remain unchanged.</p>
+  <div class="callout lead"><strong>Plain-language conclusion:</strong> Across both rounds, internalizing others, memory, and intention evaluation produce distinctive behavior; yet selection can erode them, mimics can exploit them, and coordination structure can leave them unable to stop harm. Conscience mechanisms are not sufficient for cooperation or morality. The reader-submitted intuition is half right: weighting others is a necessary bridge, but the story that conscience is merely a cooperation tool does not hold up.</div>
+
+  <h3>The submitted intuition and a one-shot theorem</h3>
+  <p>A reader-submitted intuition worth testing is that, among agents sharing similar models of minds and meeting repeatedly, conscience may be an internalized tool for escaping the Prisoner’s Dilemma. We treat this neutrally as a research hypothesis, not a conclusion. The strict boundary is: in a one-shot Prisoner’s Dilemma, if utility contains only one’s own material payoff, theory of mind (ToM) improves prediction of the other player but does not alter dominant defection. Knowing that “the other is like me” does not itself put that person’s welfare into my objective.</p>
+  <p>With other-regard (U_i=\pi_i+w\pi_j), the general threshold for cooperation against either action is:</p>
+  <div class="formula">$$w\geq\max\left\{\frac{T-R}{R-S},\frac{P-S}{T-P}\right\}.$$</div>
+  <p>Replace “≥” with “&gt;” for strict preference. When the partner cooperates, (w=1) suffices iff (2R&gt;T+S). When the partner defects, it additionally requires (T+S\geq2P) (or (T+S&gt;2P) for strict preference), which the definition (T&gt;R&gt;P&gt;S) does not guarantee. For (T=4,R=3,P=2,S=0), the agent is exactly indifferent.</p>
+
+  <h3>Karma in four layers only</h3>
+  <div class="table-wrap"><table><thead><tr><th>Layer</th><th>Limited formal counterpart</th><th>Boundary</th></tr></thead><tbody>
+    <tr><td>K1 social reputation</td><td>Observed and assessed conduct feeds back through third-party help: indirect reciprocity</td><td>Requires observers and a same-generation public reputation; not karma as a whole</td></tr>
+    <tr><td>K2 intention-sensitive assessment</td><td>Observers infer intention before judging; norms such as standing can be extended this way</td><td>Needs an explicit ToM-accuracy and misclassification model; AN 6.63 identifies karma with intention (<em>cetanā</em>)</td></tr>
+    <tr><td>K3 internal dispositions</td><td>A state with memory and path dependence, or hysteresis</td><td>Round-1 preregistered hysteresis failed; a behavioral state is not a stream of consciousness</td></tr>
+    <tr><td>K4 doctrinal karmic result</td><td>No reliable game-theoretic counterpart</td><td>The karmic results discussed in MN 135 are not formalized here</td></tr>
+  </tbody></table></div>
+
+  <h3>Round-1 preregistered results</h3>
+  <ul>
+    <li><strong>Noisy repeated Prisoner’s Dilemma: killed.</strong> At 10% action and observation noise, the fixed-weight conscience type ended near <strong>8.3%</strong>, below the preregistered 10% kill line, with instability across runs. No superiority over TFT or WSLS may be claimed.</li>
+    <li><strong>Indirect reciprocity: passed its limited criterion.</strong> Standing earned more than image scoring at both 10% and 25% assessment error. This supports only the limited robustness of a public-reputation rule.</li>
+    <li><strong>Hysteresis: failed.</strong> The trajectories look bistable but miss the preregistered adjacent-shock threshold. A curve built to be bistable is not evidence about real conscience.</li>
+    <li><strong>One-shot anonymous help and anti-cartel: passed.</strong> The other-regarding model donated in 49.74% of cases versus 0 for reciprocity-only, and it rejected collusion after an outsider’s loss was included while a coalition-only rule joined. This shows a proximate preference can express the difference; it does not explain the preference’s origin or prove moral value.</li>
+  </ul>
+  <div class="grid">
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c_repeated.png" alt="Round-1 noisy repeated Prisoner's Dilemma results" /><figcaption>Repeated game: fixed-weight conscience hits the kill line at 10% noise.</figcaption></figure>
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c_indirect.png" alt="Round-1 indirect reciprocity results" /><figcaption>Indirect reciprocity: standing passes the limited comparison with image scoring.</figcaption></figure>
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c_hysteresis.png" alt="Round-1 hysteresis results" /><figcaption>Hysteresis: the shape appears, but the preregistered discrete criterion fails.</figcaption></figure>
+  </div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/c_oneshot.png" alt="Round-1 anonymous help and anti-cartel results" /><figcaption>One-shot anonymous help and anti-cartel behavior pass the preregistered proximate-expression criteria.</figcaption></figure>
+
+  <h3>Round-2 preregistered results</h3>
+  <ul>
+    <li><strong>C1 evolutionary retention: killed.</strong> Under moderate repetition and imperfect cues, each conscience type remained at only about <strong>0.4%–0.5%</strong>, far below the preregistered 10% retention line; mimics reached about <strong>31%–32%</strong>. Internalized preferences changed behavior relative to purely self-interested theory of mind, but did not establish under selection.</li>
+    <li><strong>C3 hysteresis: passed, as a mechanism demonstration only.</strong> The equation with written-in self-reinforcement and a social threshold produced a social loop area of about <strong>0.15</strong>, versus about <strong>0</strong> in the non-social control. This shows that the specified dynamics can generate path dependence; it does not show that real conscience has those dynamics.</li>
+    <li><strong>C2 intention-based reputation: narrowly passed.</strong> At high execution error and intention accuracy around 0.9, several rules raised cooperation by about <strong>2.5–3.9 percentage points</strong>. The effect was not universal and cannot be compressed into “adding intention inference always improves cooperation.”</li>
+    <li><strong>C4 cartel predictions: failed, with two kills.</strong> Widening the scope of sympathy alone did not stop collective harm: even fully including the harmed outsider left all-player collusion as an equilibrium. Preference fixes need institutional fixes that change exit, coordination, or harm-blocking structure.</li>
+  </ul>
+  <div class="grid">
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c2_c1.png" alt="Round-2 C1 evolutionary-retention results" /><figcaption>C1: conscience weights were not retained under selection, while mimics flourished.</figcaption></figure>
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c2_c3.png" alt="Round-2 C3 social-hysteresis results" /><figcaption>C3: the social loop met its criterion, but only as a mechanism demonstration.</figcaption></figure>
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c2_c2.png" alt="Round-2 C2 intention-reputation results" /><figcaption>C2: intention-based assessment improved cooperation only narrowly, at high execution error and high inference accuracy.</figcaption></figure>
+    <figure class="figure card"><img src="dharma-decision-theory-assets/c2_c4.png" alt="Round-2 C4 cartel results" /><figcaption>C4: broader concern did not change the structure in which unilateral exit could not prevent harm.</figcaption></figure>
+  </div>
+
+  <h3>Post-hoc exploratory: conditional conscience weight (not preregistered)</h3>
+  <div class="callout caution"><strong>Post-hoc exploratory / 事后探索:</strong> This arm was added after seeing both rounds. It was not preregistered and cannot overturn or rewrite any verdict above. The conditional-weight type ended at <strong>0.82%</strong>, versus <strong>0.38%</strong> for the fixed-weight type, while ALLD reached about <strong>97%</strong>. At most, this suggests that lowering weight in response to an opponent’s reputation may reduce exploitation slightly; it does not support stable cooperation.</div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/c2_explore_conditional_w.png" alt="Post-hoc exploratory conditional-conscience-weight results" /><figcaption>Post-hoc exploration: conditional weight modestly exceeded fixed weight, but both were overwhelmed by roughly 97% ALLD.</figcaption></figure>
+
+  <h3>Three tensions with classical texts</h3>
+  <ol>
+    <li><strong>Mencius’s three exclusions in the child-at-the-well passage:</strong> the impulse is not to gain favor with the parents, win praise from the community, or avoid the sound of distress. At the proximate level these exclude direct reciprocity, reputational return, and mere relief of one’s own discomfort.</li>
+    <li><strong>The scope gradient in Wang Yangming’s “Questions on the Great Learning”:</strong> unity extends from a child to birds and beasts, plants, and finally tiles and stones. At the endpoint there is no mind to model and no possible reciprocity, so similarity weighting (w s_{ij}) goes to zero while the classical claim continues—an explicit boundary of the model.</li>
+    <li><strong>Zhuangzi’s “Even robbers have a Way”:</strong> cooperative norms can serve thieves and cartels, so cooperation is not morality. Similarity weighting also naturally predicts parochial altruism: favoring similar others can coevolve with intergroup conflict.</li>
+  </ol>
+
+  <h3>Proximate, ultimate, and an explicit disagreement</h3>
+  <p>An ultimate account asks why a tendency with (w&gt;0) might have been retained through selection, partner choice, or reputation. A proximate account describes the person directly experiencing compassion, shame, or moral judgment now, without calculating repayment. A commitment-device account can reconcile those levels, but it does not cover beneficiaries who cannot repay, tiles and stones, or normative authority. The two preregistered rounds sharpen the boundary: fixed weight failed in round 1's noisy environment, and evolvable weight did not establish in round 2. Constructed social hysteresis and intention-based assessment demonstrate limited functions of memory and intention discrimination, but do not overturn the evolutionary kills. The commitment function and broader hysteresis analogy remain mechanism claims for further tests, not substitutes for these empirical verdicts.</p>
+  <p>The account can also predict the opposite of <em>extending innate knowing</em> (<em>zhi liangzhi</em>): an evolutionary/commitment story often predicts that, once people know an interaction is one-shot, reflection weakens intuitive cooperation. Rand et al. (2012) reported that direction, but Bouwmeester et al. (2017) did not reproduce it in a multilab registered replication, so its empirical status is uncertain. The Wangian prediction instead says reflection that removes selfish obscuration strengthens conscience.</p>
+  <div class="callout caution"><strong>Origin is not justification.</strong> Even if evolution or games explain why a conscientious tendency appeared, that does not show it ought to be followed; discovering an instrumental origin does not refute its normative value either.</div>
+
+  <h3>Do not claim from this section</h3>
+  <ul>
+    <li>Do not claim that game theory proves conscience, that conscience is merely enlightened self-interest, or that ToM automatically produces cooperation.</li>
+    <li>Do not equate cooperation with morality or karma with reputation, and do not generalize one-shot toys into causal claims about real people.</li>
+    <li>Do not present K1 success as K2–K4, or define “good” as an other-regard weight.</li>
+    <li>Do not use round 2's narrow passes to erase its kills, or present post-hoc exploration as preregistered confirmation.</li>
+    <li>Do not use the retracted Whitehouse et al. (2019) article as evidence.</li>
+  </ul>
+
+  <h2 id="references">12. References</h2>
   <p class="note-small">Only entries that already had links in the two research drafts are listed. “Verified” retains the drafts’ verification labels; this synthesis did not revisit every external page. All others are marked “unverified.”</p>
   <ul class="refs">
     <li>Friston, K. (2010). “The free-energy principle: a unified brain theory?” <em>Nature Reviews Neuroscience</em>, 11, 127–138. <a href="https://doi.org/10.1038/nrn2787">DOI</a> (verified)</li>
@@ -133,7 +204,193 @@
     <li>Wang Yangming. <em>Instructions for Practical Living and Other Neo-Confucian Writings</em>, trans. Wing-tsit Chan (1963). <a href="https://openlibrary.org/books/OL20073468M/Instructions_for_practical_living_and_other_neo-Confucian_writings">Open Library</a> (bibliographic record verified)</li>
     <li><em>Dao De Jing</em>. <a href="https://ctext.org/dao-de-jing">Chinese Text Project</a> (entry point verified; chapter versions still require separate checking)</li>
     <li>Early Buddhist text entry points: <a href="https://suttacentral.net/sn12">SN 12</a>, <a href="https://suttacentral.net/sn22.59">SN 22.59</a>, <a href="https://suttacentral.net/sn56.11">SN 56.11</a>, and <a href="https://suttacentral.net/dn22/en/sujato">DN 22</a> (entry points verified; interpretations vary across traditions)</li>
+    <li>Axelrod, R., &amp; Hamilton, W. D. (1981). “The evolution of cooperation.” <em>Science</em>, 211, 1390–1396. <a href="https://doi.org/10.1126/science.7466396">DOI</a> (verified)</li>
+    <li>Nowak, M. A., &amp; Sigmund, K. (1998). “Evolution of indirect reciprocity by image scoring.” <em>Nature</em>, 393, 573–577. <a href="https://doi.org/10.1038/31225">DOI</a> (verified)</li>
+    <li>Nowak, M. A., &amp; Sigmund, K. (2005). “Evolution of indirect reciprocity.” <em>Nature</em>, 437, 1291–1298. <a href="https://doi.org/10.1038/nature04131">DOI</a> (verified)</li>
+    <li>Choi, J.-K., &amp; Bowles, S. (2007). “The coevolution of parochial altruism and war.” <em>Science</em>, 318, 636–640. <a href="https://doi.org/10.1126/science.1144237">DOI</a> (verified)</li>
+    <li>Rand, D. G., Greene, J. D., &amp; Nowak, M. A. (2012). “Spontaneous giving and calculated greed.” <em>Nature</em>, 489, 427–430. <a href="https://doi.org/10.1038/nature11467">DOI</a> (verified)</li>
+    <li>Bouwmeester, S., et al. (2017). “Registered Replication Report: Rand, Greene, and Nowak (2012).” <em>Perspectives on Psychological Science</em>, 12, 527–542. <a href="https://doi.org/10.1177/1745691617693624">DOI</a> (unverified)</li>
+    <li><em>Mencius</em>, “Gongsun Chou I,” child at the well. <a href="https://ctext.org/mengzi/gong-sun-chou-i">Chinese Text Project</a> (primary-text entry verified)</li>
+    <li>Wang Yangming, “Questions on the Great Learning,” unity extending to tiles and stones. <a href="https://zh.wikisource.org/zh-hant/王陽明集/卷02">Wikisource</a> (primary-text entry verified)</li>
+    <li><em>Zhuangzi</em>, “Cutting Open Satchels,” “Even robbers have a Way.” <a href="https://ctext.org/zhuangzi/cutting-open-satchels">Chinese Text Project</a> (primary-text entry verified)</li>
+    <li>AN 6.63 (karma and intention). <a href="https://suttacentral.net/an6.63/en/thanissaro">SuttaCentral</a> (entry verified); MN 135 (karmic results). <a href="https://suttacentral.net/mn135/en/sujato">SuttaCentral</a> (entry verified)</li>
+    <li><s>Whitehouse, H., et al. (2019). “Complex societies precede moralizing gods throughout world history.” <em>Nature</em>, 568, 226–229.</s> <a href="https://doi.org/10.1038/s41586-021-03656-3">Retraction notice</a> (retracted; not evidence)</li>
   </ul>
+  <section id="math-primer">
+  <h2>Math primer for readers</h2>
+  <h3>Reader’s primer: the “hard concepts” on the Dharma × decision theory page</h3>
+  <p><strong>For whom</strong>: readers with practical AI experience and a deep interest in Buddhist and Daoist thought, but no mathematics degree. <strong>How to use it</strong>: each entry first states literally, in 1–3 sentences, what the concept is (without substituting metaphor for mechanism), then gives 1–2 strong introductory resources, preferably free. Use Ctrl+F for unfamiliar terms on the page. <strong>Source verification</strong>: every link was tested on 2026-09-27. The “free” status of items marked ⚠️ is unverified.</p>
+  <blockquote>
+    <p>One reminder: all of these are <strong>tools</strong>. Being expressible as a formula does not mean a concept captures what actually happens in practice—the page’s section on where formalization fails matters just as much.</p>
+  </blockquote>
+  <h4>I. Describing an agent making decisions in a world</h4>
+  <p><strong>Markov decision process (MDP)</strong> A format for a decision problem: there is a set of states; at each step an agent chooses an action; the environment moves probabilistically to a new state and gives a reward; the goal is a rule (policy) saying what to do in each state so as to maximize long-run cumulative reward. “Markov” means the next step depends only on the current state and action, not on earlier history.</p>
+  <ul>
+    <li>Introduction: Sutton &amp; Barto, <em>Reinforcement Learning</em>, chapter 3 (free book) <a href="http://incompleteideas.net/book/the-book-2nd.html">http://incompleteideas.net/book/the-book-2nd.html</a></li>
+    <li>Quick reference: Wikipedia, <em>Markov decision process</em> <a href="https://en.wikipedia.org/wiki/Markov_decision_process">https://en.wikipedia.org/wiki/Markov_decision_process</a></li>
+  </ul>
+  <p><strong>Partially observable MDP (POMDP)</strong> An MDP in which the agent cannot see the true state and receives only noisy observations. It must maintain a probability distribution over where it may be (a belief) and act on that belief. Active inference and experiment T2 on this page use this format.</p>
+  <ul>
+    <li>Introduction: Wikipedia <a href="https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process">https://en.wikipedia.org/wiki/Partially_observable_Markov_decision_process</a></li>
+    <li>Classic paper: Kaelbling, Littman, Cassandra 1998 <a href="https://doi.org/10.1016/S0004-3702(98)00023-X">https://doi.org/10.1016/S0004-3702(98)00023-X</a> (not free)</li>
+  </ul>
+  <p><strong>Reward prediction error (RPE)</strong> The reward actually received minus the reward expected. Reinforcement learning uses it to update expectations; in neuroscience, dopamine-neuron firing correlates with this quantity in many experiments. The page stresses: suffering ≠ RPE.</p>
+  <ul>
+    <li>Introduction: Sutton &amp; Barto, chapters 6 (temporal difference) and 15 (neuroscience) <a href="http://incompleteideas.net/book/the-book-2nd.html">http://incompleteideas.net/book/the-book-2nd.html</a></li>
+    <li>Original paper: Schultz, Dayan, Montague 1997</li>
+  </ul>
+  <h4>II. Probability and belief</h4>
+  <p><strong>Bayesian updating</strong> A rule for revising belief: the new belief (posterior) is proportional to the old belief (prior) times the probability of the present evidence if the hypothesis were true (likelihood). Evidence that a hypothesis made very surprising reduces its weight more strongly.</p>
+  <ul>
+    <li>Video: 3Blue1Brown, <em>Bayes theorem</em> <a href="https://www.youtube.com/watch?v=HZGCoVF3YvM">https://www.youtube.com/watch?v=HZGCoVF3YvM</a></li>
+    <li>Free book: Downey, <em>Think Bayes 2</em> <a href="https://allendowney.github.io/ThinkBayes2/">https://allendowney.github.io/ThinkBayes2/</a></li>
+  </ul>
+  <p><strong>Prior precision</strong> Precision is inverse variance: how certain a belief is and how resistant it is to evidence. A high-precision prior outweighs conflicting observations; a low-precision one is easily revised. γ_self and γ_C on the page are precisions of priors about the self and preferred outcomes.</p>
+  <ul>
+    <li>Introduction: Bogacz 2017, free-energy tutorial <a href="https://doi.org/10.1016/j.jmp.2015.11.003">https://doi.org/10.1016/j.jmp.2015.11.003</a> ⚠️</li>
+    <li>Supplement: Smith, Friston, Whyte 2022 step-by-step tutorial <a href="https://doi.org/10.1016/j.jmp.2021.102632">https://doi.org/10.1016/j.jmp.2021.102632</a></li>
+  </ul>
+  <p><strong>Maximum a posteriori (MAP) / Bayesian model comparison</strong> MAP selects the candidate with highest posterior probability. Model comparison treats the model structure that best explains the data as something to infer; evidence may accumulate continuously while the top-ranked model changes discretely at one moment (used here to characterize sudden and gradual awakening).</p>
+  <ul>
+    <li>Introduction: Wikipedia <a href="https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation">https://en.wikipedia.org/wiki/Maximum_a_posteriori_estimation</a></li>
+    <li>Free deeper reading: MacKay, <em>Information Theory, Inference, and Learning Algorithms</em>, chapter 28 <a href="http://www.inference.org.uk/itprnn/book.html">http://www.inference.org.uk/itprnn/book.html</a></li>
+  </ul>
+  <p><strong>KL divergence</strong> A number measuring information lost when distribution Q approximates distribution P: zero when they are identical and larger when they differ; it is asymmetric. This page defines “control cost” as the KL divergence between actual behavior and the natural distribution when nothing is done.</p>
+  <ul>
+    <li>Quick reference: Wikipedia <a href="https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence">https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence</a></li>
+    <li>Free deeper reading: MacKay, chapter 2 <a href="http://www.inference.org.uk/itprnn/book.html">http://www.inference.org.uk/itprnn/book.html</a></li>
+  </ul>
+  <p><strong>Solomonoff prior</strong> A theoretical “universal prior” assigning probability to every possible law of a world, with higher probability for laws having shorter descriptions (shorter generating programs). It has elegant convergence theorems but is uncomputable and serves only as a theoretical reference. The page lists “Dao = Solomonoff prior” only as a rhetorical correspondence.</p>
+  <ul>
+    <li>Free introduction: Rathmanner &amp; Hutter 2011 <a href="https://arxiv.org/abs/1105.5721">https://arxiv.org/abs/1105.5721</a></li>
+  </ul>
+  <p><strong>Model class, coarse-graining, identifiability</strong> A model class is the family of candidate models one allows; coarse-graining merges many detailed variables into fewer macroscopic ones; non-identifiability means two distinct internal structures generate exactly the same observations and cannot be distinguished from data alone. The page uses these as a partial engineering correspondence to emptiness (strength: only “partial”).</p>
+  <ul>
+    <li>Quick reference: Wikipedia <a href="https://en.wikipedia.org/wiki/Identifiability">https://en.wikipedia.org/wiki/Identifiability</a> ; <a href="https://en.wikipedia.org/wiki/Coarse-grained_modeling">https://en.wikipedia.org/wiki/Coarse-grained_modeling</a></li>
+  </ul>
+  <h4>III. Writing “action” as “inference”</h4>
+  <p><strong>Active inference / free-energy principle</strong> A theoretical framework in which an agent has a generative model of how observations arise and reduces variational free energy in two ways: revising beliefs (perception) and changing the world so observations match expectations (action). Policy selection uses expected free energy, containing distance from preferred outcomes (risk) and expected learning (information gain). It is a modeling framework; its status as a “law of the brain” is disputed.</p>
+  <ul>
+    <li>Free book: Parr, Pezzulo, Friston 2022, <em>Active Inference</em> <a href="https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind">https://direct.mit.edu/books/oa-monograph/5299/Active-InferenceThe-Free-Energy-Principle-in-Mind</a></li>
+    <li>Tutorial: Smith, Friston, Whyte 2022 <a href="https://doi.org/10.1016/j.jmp.2021.102632">https://doi.org/10.1016/j.jmp.2021.102632</a></li>
+  </ul>
+  <p><strong>Variational free energy vs thermodynamic free energy</strong> Variational free energy is a <strong>statistic about beliefs</strong> (an upper bound on a model’s surprise at observations); thermodynamic free energy is a physical system’s energy quantity. Their formulas have similar shapes, but they are not the same thing.</p>
+  <ul>
+    <li>Quick reference, including criticism: <a href="https://en.wikipedia.org/wiki/Free_energy_principle">https://en.wikipedia.org/wiki/Free_energy_principle</a></li>
+  </ul>
+  <p><strong>Meta-awareness / second-order precision</strong> Second-order inference does not infer the outside world, but how much precision to assign to one’s own attention or beliefs. The page uses it as a computational proposal for meditative stabilization and observation and for meta-awareness.</p>
+  <ul>
+    <li>Original paper: Sandved-Smith et al. 2021 <a href="https://doi.org/10.1093/nc/niab018">https://doi.org/10.1093/nc/niab018</a></li>
+  </ul>
+  <p><strong>Control as inference</strong> A mathematical rewriting that introduces a virtual variable for whether a step is optimal and makes its probability grow exponentially with reward. Finding an optimal policy becomes inferring the most likely action trajectory conditional on optimality, naturally producing an entropy term that favors retaining randomness.</p>
+  <ul>
+    <li>Free tutorial: Levine 2018 <a href="https://arxiv.org/abs/1805.00909">https://arxiv.org/abs/1805.00909</a></li>
+  </ul>
+  <p><strong>KL control / linearly solvable MDP (LMDP) / passive dynamics</strong> Passive dynamics describe how the system evolves if the agent does nothing. An LMDP writes each step’s cost as state cost plus the KL divergence of actual transitions from passive dynamics. The optimal control then has a closed form: passive transition times exponentiated target value, normalized. The page uses this to write part of wu wei as following natural dynamics and adding minimal control at critical points.</p>
+  <ul>
+    <li>Free original PDF: Todorov 2006 NIPS <a href="https://homes.cs.washington.edu/~todorov/papers/TodorovNIPS06.pdf">https://homes.cs.washington.edu/~todorov/papers/TodorovNIPS06.pdf</a></li>
+    <li>Systematic account: Todorov 2009 PNAS <a href="https://doi.org/10.1073/pnas.0710743106">https://doi.org/10.1073/pnas.0710743106</a></li>
+  </ul>
+  <p><strong>Risk term</strong> In expected free energy, risk is the KL divergence between outcomes expected under a policy and preferred outcomes. The more rigid the preference and uncontrollable the outcome, the longer this term remains high; the page uses it to approximate conflict in “seeking but not obtaining.”</p>
+  <ul>
+    <li>See Smith et al. 2022 <a href="https://doi.org/10.1016/j.jmp.2021.102632">https://doi.org/10.1016/j.jmp.2021.102632</a></li>
+  </ul>
+  <p><strong>Amortized inference / distillation</strong> Amortized inference trains a network to map inputs directly to answers instead of slowly recalculating each case. Distillation trains a smaller, faster model to imitate outputs from a slower, stronger one. The page uses these to characterize the skill layer of the unity of knowledge and action.</p>
+  <ul>
+    <li>Free introduction: Kingma &amp; Welling 2019 <a href="https://arxiv.org/abs/1906.02691">https://arxiv.org/abs/1906.02691</a></li>
+    <li>Free original distillation paper: Hinton, Vinyals, Dean 2015 <a href="https://arxiv.org/abs/1503.02531">https://arxiv.org/abs/1503.02531</a></li>
+  </ul>
+  <p><strong>Empowerment</strong> The maximum information (channel capacity) between an agent’s action sequence and its state several steps later. High empowerment means different actions from here can reliably reach many different futures.</p>
+  <ul>
+    <li>Free introduction: Salge, Glackin, Polani 2013 <a href="https://arxiv.org/abs/1310.1863">https://arxiv.org/abs/1310.1863</a></li>
+  </ul>
+  <h4>IV. Causality</h4>
+  <p><strong>Causal intervention (do operator) / confounding / structural causal model</strong> A structural causal model writes the generating mechanism among variables as equations and arrows. P(Y | X) is Y’s distribution when X is observed; P(Y | do(X)) is its distribution after X is forcibly set. With confounding they generally differ, and some causal effects can be identified only through intervention (action). This yields a strict weak version of “without acting, knowledge remains incomplete.”</p>
+  <ul>
+    <li>Free introduction: Pearl 2009 <a href="https://doi.org/10.1214/09-SS057">https://doi.org/10.1214/09-SS057</a></li>
+    <li>Free course: Brady Neal, <em>Introduction to Causal Inference</em> <a href="https://www.bradyneal.com/causal-inference-course">https://www.bradyneal.com/causal-inference-course</a></li>
+  </ul>
+  <h4>V. Dynamics and experimental method</h4>
+  <p><strong>Attractor / negative feedback / phase transition</strong> An attractor is a state toward which a dynamical system is drawn and then remains; negative feedback acts to push deviations back; a phase transition is a sudden qualitative change in stable state when a parameter crosses a critical value.</p>
+  <ul>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Attractor">https://en.wikipedia.org/wiki/Attractor</a> ; <a href="https://en.wikipedia.org/wiki/Phase_transition">https://en.wikipedia.org/wiki/Phase_transition</a></li>
+  </ul>
+  <p><strong>Hysteresis</strong> The current state depends not only on current conditions but on the path taken: when a parameter rises the system flips at a, while on the way down it flips back only at a lower b, making a loop. To distinguish true hysteresis from lag, vary the parameter arbitrarily slowly: lag disappears, whereas a true hysteresis loop remains.</p>
+  <ul>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Hysteresis">https://en.wikipedia.org/wiki/Hysteresis</a></li>
+    <li>Classic example: Scheffer et al. 2001 <a href="https://doi.org/10.1038/35098000">https://doi.org/10.1038/35098000</a></li>
+  </ul>
+  <p><strong>Pareto frontier / “elbow”</strong> With two conflicting objectives, the Pareto frontier contains solutions where one objective cannot improve without sacrificing the other. An elbow is the point beyond which a little more cost brings almost no gain. T1 sought such a “wu-wei point” and missed its preregistered threshold.</p>
+  <ul>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Pareto_front">https://en.wikipedia.org/wiki/Pareto_front</a></li>
+  </ul>
+  <p><strong>Preregistration / kill condition</strong> Before running an experiment, state what counts as success and failure; do not change it afterward. This prevents choosing favorable interpretations after seeing results.</p>
+  <ul>
+    <li>Introduction: Nosek et al. 2018 <a href="https://doi.org/10.1073/pnas.1708274114">https://doi.org/10.1073/pnas.1708274114</a> ⚠️</li>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Preregistration_(science)">https://en.wikipedia.org/wiki/Preregistration_(science)</a></li>
+  </ul>
+  <p><strong>Difference-in-differences</strong> The treatment group’s change minus the control group’s change. T3 uses it for the interaction between the bridge condition and exploration.</p>
+  <ul>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Difference_in_differences">https://en.wikipedia.org/wiki/Difference_in_differences</a></li>
+  </ul>
+  <h4>VI. Multiple agents: games and conscience</h4>
+  <p><strong>Theory of mind (ToM) / level-k / I-POMDP</strong> Theory of mind models others as agents with their own beliefs, desires, and intentions, then predicts their behavior. Computational approaches often assume approximately rational planning and infer goals and beliefs backward from action (Bayesian inverse planning). Level-k limits the depth of “I think that you think…”; an I-POMDP puts models of others directly into one’s state for planning.</p>
+  <ul>
+    <li>Introduction: SEP, <em>Folk Psychology as a Theory</em> <a href="https://plato.stanford.edu/entries/folkpsych-theory/">https://plato.stanford.edu/entries/folkpsych-theory/</a></li>
+    <li>Computational introduction: Jara-Ettinger 2019 <a href="https://doi.org/10.1016/j.cobeha.2019.04.010">https://doi.org/10.1016/j.cobeha.2019.04.010</a> ; machine version: Rabinowitz et al. 2018 <a href="https://arxiv.org/abs/1802.07740">https://arxiv.org/abs/1802.07740</a></li>
+  </ul>
+  <p><strong>Nash equilibrium</strong> A strategy profile in which no player can gain by changing unilaterally while everyone else stays fixed. It need not be best for everyone, fair, or moral.</p>
+  <ul>
+    <li>Free interactive introduction: Nicky Case, <em>The Evolution of Trust</em> <a href="https://ncase.me/trust/">https://ncase.me/trust/</a></li>
+    <li>Textbook: Osborne &amp; Rubinstein, <em>A Course in Game Theory</em>, author page <a href="https://arielrubinstein.tau.ac.il/books.html">https://arielrubinstein.tau.ac.il/books.html</a> ⚠️</li>
+  </ul>
+  <p><strong>Prisoner’s Dilemma (PD)</strong> Two people choose cooperation or defection; payoffs rank as: I defect while you cooperate (T) &gt; both cooperate (R) &gt; both defect (P) &gt; I cooperate while you defect (S). Whatever the other chooses, defection pays me more, so two “rational” players defect and each gets P even though mutual cooperation would give each R.</p>
+  <ul>
+    <li>Free introduction: SEP <a href="https://plato.stanford.edu/entries/prisoner-dilemma/">https://plato.stanford.edu/entries/prisoner-dilemma/</a></li>
+  </ul>
+  <p><strong>Repeated game / folk theorem</strong> When two people repeatedly play the same game and value the future enough, conditional strategies such as retaliation after defection can make cooperation an equilibrium. The folk theorem says any payoff profile giving each person at least their worst guaranteed payoff can become an equilibrium when players are patient enough—including unfair profiles.</p>
+  <ul>
+    <li>Introduction: SEP, “Repeated PD” <a href="https://plato.stanford.edu/entries/prisoner-dilemma/">https://plato.stanford.edu/entries/prisoner-dilemma/</a></li>
+    <li>Quick reference: <a href="https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)">https://en.wikipedia.org/wiki/Folk_theorem_(game_theory)</a></li>
+  </ul>
+  <p><strong>Indirect reciprocity / reputation / assessment norm</strong> “I help you; someone else helps me”: whether to help depends on reputation, which observers assign under a norm—for example, helping a good person is good and refusing a bad person can also be good. Only a few norms sustain cooperation under error; disagreement among observers readily erodes it. The page uses this as a formal analogy for karma’s social layer.</p>
+  <ul>
+    <li>Open-access introduction: Okada 2020 <a href="https://doi.org/10.3390/g11030027">https://doi.org/10.3390/g11030027</a></li>
+  </ul>
+  <p><strong>Social preferences / inequity aversion</strong> Add others’ payoffs to the utility function. In the Fehr–Schmidt model, people dislike both having less than others and having more than others.</p>
+  <ul>
+    <li>Original paper: Fehr &amp; Schmidt 1999 <a href="https://doi.org/10.1162/003355399556151">https://doi.org/10.1162/003355399556151</a></li>
+  </ul>
+  <p><strong>Kantian optimization (Roemer)</strong> Instead of asking what unilateral change benefits me while others remain fixed, ask whether I would want everyone to change their action in the same way. In a symmetric Prisoner’s Dilemma, this selects cooperation.</p>
+  <ul>
+    <li>Original paper: Roemer 2010 <a href="https://doi.org/10.1111/j.1467-9442.2009.01592.x">https://doi.org/10.1111/j.1467-9442.2009.01592.x</a></li>
+  </ul>
+  <p><strong>Commitment device</strong> An arrangement that binds one in advance against future temptation; because the commitment is credible, others become more willing to cooperate. Frank argues that moral emotions such as guilt and indignation serve this function: precisely because they do not calculate, they can be credible.</p>
+  <ul>
+    <li>Original book: Frank 1988, <em>Passions Within Reason</em> <a href="https://openlibrary.org/works/OL1980817W">https://openlibrary.org/works/OL1980817W</a></li>
+  </ul>
+  <p><strong>Program equilibrium</strong> If both sides submit mutually readable programs, programs like “cooperate only if the other program can be proved to cooperate with me” can cooperate in a one-shot Prisoner’s Dilemma. This requires transparent code, which humans and present neural networks do not have.</p>
+  <ul>
+    <li>Original papers: Tennenholtz 2004 <a href="https://doi.org/10.1016/j.geb.2004.02.002">https://doi.org/10.1016/j.geb.2004.02.002</a> ; Barasz et al. 2014 <a href="https://arxiv.org/abs/1401.5577">https://arxiv.org/abs/1401.5577</a></li>
+  </ul>
+  <p><strong>Evolutionary game / replicator dynamics</strong> Treat strategies as types reproducing in a population: a strategy earning more than average increases its share. This asks which tendencies, such as conscience weight w, are selected over time.</p>
+  <ul>
+    <li>Free introduction: SEP <a href="https://plato.stanford.edu/entries/game-evolutionary/">https://plato.stanford.edu/entries/game-evolutionary/</a></li>
+  </ul>
+  <p><strong>Sequential social dilemma (multi-agent reinforcement learning)</strong> Extend the Prisoner’s Dilemma into persistent, multi-step behavior in a grid world, such as overharvesting a commons, and use reinforcement-learning agents to study how cooperation emerges or collapses. Common additions include inequity-aversion rewards, social-influence rewards, and opponent shaping (LOLA).</p>
+  <ul>
+    <li>Free paper: Leibo et al. 2017 <a href="https://arxiv.org/abs/1702.03037">https://arxiv.org/abs/1702.03037</a> ; review: Dafoe et al. 2020 <a href="https://arxiv.org/abs/2012.08630">https://arxiv.org/abs/2012.08630</a></li>
+  </ul>
+  <p><strong>Evolutionary altruism vs psychological altruism (ultimate vs proximate cause)</strong> Evolutionary altruism is defined by effects on reproductive fitness; psychological altruism by the actor’s motive (genuinely wanting to help). SEP notes that neither implies the other. This distinction is central to reconciling “conscience as a tool” with Mencius’s claim that conscience seeks no return.</p>
+  <ul>
+    <li>Free introduction: SEP <a href="https://plato.stanford.edu/entries/altruism-biological/">https://plato.stanford.edu/entries/altruism-biological/</a></li>
+  </ul>
+  <h4>VII. Safe to skip at first</h4>
+  <ul>
+    <li><strong>Markov blanket</strong>: boundary variables separating a system’s inside and outside so that, conditional on them, inside and outside are statistically independent; the free-energy principle uses them to define a “thing.” <a href="https://en.wikipedia.org/wiki/Markov_blanket">https://en.wikipedia.org/wiki/Markov_blanket</a></li>
+    <li><strong>Information bottleneck</strong>: a method that trades off compressing an input as much as possible against preserving information useful for a target.</li>
+  </ul>
+  </section>
 </main>
 <footer class="footer"><div class="container"><p><a href="/">← Home</a> · <a href="/dharma-decision-theory.zh.html">中文</a> · <a href="/theory-mainline-index.html">Theory mainline</a></p><p>Macheng Shen (research initiator), in collaboration with an AI research assistant · 2026-09-27</p></div></footer>
 <!-- COMMENTS_SLOT -->
