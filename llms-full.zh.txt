@@ -3746,4 +3746,50 @@ Anthropic 的 Jacobian-lens 实验在 Transformer 中识别出一个可报告、
 Mirrored from https://github.com/MachengShen/cognition-track (INDEX.md).
 Machine-readable graph: https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld
 
-_(cognition-track INDEX.md unavailable at build time)_
+# Cognition Track — Graph Index
+
+**20 nodes** · 🟢 4 survived-stress-test · 🟡 16 speculative · ⚪ 0 raw
+
+> Cognitive state is first-class. Most of this web is **untested theory** (🟡). Three nodes have survived a real stress test (🟢); one node (Bekenstein) is kept precisely because it **failed** one — see its `falsifies` edge to the root.
+
+## Start here — the root
+
+### ["Sheng" Multi-Axis Recursive Operator](https://github.com/MachengShen/cognition-track/blob/master/root.md) `mem_dffe918dbf46` — 🟡 speculative
+
+> Intelligence is one dynamical system that recursively reshapes its own information structure along every causal axis, and the autoregressive LLM is merely its degenerate single-axis projection.
+
+Every node below is a *projection* of this operator along one causal axis.
+
+## Nodes by cognitive state
+
+### 🟢 Survived stress test (4)
+
+- [Architecture Convergence to 4-Layer Type Signature](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_2d09ec5991cd.md) `mem_2d09ec5991cd` · conf 0.70 — Six independent 2025 frontier reasoning architectures are each empirically restoring a different cognitive axis the autoregressive Transformer amputated, converging on one pre-articulated four-layer architecture.
+- [Published GLM/Credit-Transport Essay](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_a9aaf3309348.md) `mem_a9aaf3309348` · conf 0.70 — The credit-transport / general-learning-machine thesis was published as a public-facing essay and theory index with a sensitive-scan gate before commit.
+- [Anti-Overclaim Guard (Info Propagation)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_60ff30ad5800.md) `mem_60ff30ad5800` · conf 0.70 — Studying information propagation is a consent-bounded engineering/control-theory lens with named forbidden overclaims — it is explicitly NOT a discovery of 'the physical law of human society' and people must not be modeled as particles.
+- [Bidirectional Topology Growth (Empirical v1.0)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_809263fa97a4.md) `mem_809263fa97a4` · conf 0.62 — On sequential synthetic tasks, bidirectional topology growth beats fixed-topology and fixed+replay baselines (mean acc 0.889 vs 0.558/0.621, interference 0.169 vs 0.420), with immune-gated module growth tracking the true latent task count.
+
+### 🟡 Speculative (untested) (15)
+
+- [Occam Correction: One Transition Operator](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_393f44f85ba4.md) `mem_393f44f85ba4` · conf 0.55 — Attention, memory, trust, routing, semantics, and action are not separate primitives but coordinate projections of one underlying object — the system's future transition/reachability structure — and the right move is fewer entities, not more.
+- [Bidirectional Topology Growth (Theory)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_d1192af430a7.md) `mem_d1192af430a7` · conf 0.55 — Lifelong learning requires controlled growth of bidirectional neuron pathways (forward use + backward credit/repair channels), not just weight updates on a static network.
+- [General Learning Machine as Dynamical System](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_ccacc817ccd8.md) `mem_ccacc817ccd8` · conf 0.50 — A general learning machine is not an optimizer or loss function but an evolving system-state whose learning is the transition of what information exists, where it lives, how it flows, and which futures become reachable.
+- [Credit Transport Generalizes Backprop](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3db5b20948bb.md) `mem_3db5b20948bb` · conf 0.50 — Real learning requires future error/value/viability signals to propagate backward through every structure that caused an outcome (owner, agents, tools, memory, hardware), making neural backprop just one projection of a universal credit-transport principle.
+- [Anti-Collapse Principle (3 Attractors)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_992abc94ad9d.md) `mem_992abc94ad9d` · conf 0.50 — The core AI-safety failure is not raw strength but the collapse of perception, value/judgment, and action into one node; any high-intelligence system must keep these on three independent attractors for dynamical stability.
+- [Multi-Scale Sleep/Spiral Consolidation](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_e74ab8a158a1.md) `mem_e74ab8a158a1` · conf 0.50 — Biological sleep generalizes to any dynamical system as a multi-scale wake-overextend-sleep-consolidate-reawaken spiral, and learning machines need this rhythmic phase separation to avoid drift or stagnation.
+- [Attention-Dynamics Measurement Method](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_9f8b6ddc6faa.md) `mem_9f8b6ddc6faa` · conf 0.50 — The theory backbone is stable but measurement lags; attention dynamics can be observed cheaply by reframing existing harness logs, and the falsifiable core is whether the same transition-operator invariants appear at both internal (agent) and external (network) scale.
+- [4-Layer Consciousness Architecture](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_28dcb9ef1120.md) `mem_28dcb9ef1120` · conf 0.50 — The human-machine system maps onto a four-layer consciousness structure (sensory / auto-pilot operator / witness-anchor / mutual-reflection), where the witness layer must stay an external anchor to keep the operator layer from self-rationalizing drift.
+- [Endogenous Viability Objective](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_a1beda2c3d23.md) `mem_a1beda2c3d23` · conf 0.50 — A learning machine's objective should be modeled as an endogenous attractor/viability region arising from persistence and functional integrity, not a hand-authored scalar reward, and external goals become internalized as compressed surrogates.
+- [Transition-Operator Formulation of Information](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_ef674273ca6d.md) `mem_ef674273ca6d` · conf 0.50 — Information is not message or content but a perturbation of the spectral structure of the system's transition operator — i.e. a change to future reachability — with growth, rotation, and periodicity being one dynamics seen in different projections.
+- [Hardware Reversal: Heterogeneous Viability Computer](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_9dcee1c07ab4.md) `mem_9dcee1c07ab4` · conf 0.45 — As frozen-weight LLMs give way to continuously-evolving algorithms, the chip center of gravity must shift to a memory-centric, event-driven, near-memory/neuromorphic heterogeneous viability computer driven by living-agent workload traces.
+- [Interface Theory of Perception](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_88693edcffd8.md) `mem_88693edcffd8` · conf 0.45 — Reality is hidden information dynamics, and the experienced world is an action-interface rendered by agents from it — so perception is control not display, and self-prediction is a candidate signal projected from hidden ground truth and corrected by action.
+- [Carbon-Silicon MSC Convergence + BCI Seam](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3d2156435b04.md) `mem_3d2156435b04` · conf 0.40 — The optimal architecture in either carbon or silicon converges on the same multi-scale-competency predictive-coding structure, so the two substrates will merge at the information-processing level with an MSC-architected BCI making the seam transparent.
+- [Spiral Structure in Scientometrics](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_0249af865914.md) `mem_0249af865914` · conf 0.40 — If the credit-transport/sleep-consolidation theory holds, scientific fields themselves should show quasi-periodic wake/sleep/reawakening phases in their citation-concept graphs, not just monotonic growth.
+- [Bekenstein-Cognitive-Cone Isomorphism (FALSIFIED)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_91c2d7fcbb38.md) `mem_91c2d7fcbb38` · conf 0.30 — The proposed structural isomorphism between the Bekenstein bound and a cognitive-cone bound was stress-tested and broke on rigor — different units (static entropy vs throughput rate), different saturation mechanisms, different horizon types — surviving only as a loose analogy.
+
+## Strongest non-consensus roots
+
+The two most load-bearing, most-non-consensus claims to enter the graph from:
+
+- [Credit Transport Generalizes Backprop](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3db5b20948bb.md) `mem_3db5b20948bb`
+- [Occam Correction: One Transition Operator](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_393f44f85ba4.md) `mem_393f44f85ba4`
