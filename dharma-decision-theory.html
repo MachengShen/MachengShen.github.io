@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dharma and Daoist Concepts in Decision Theory: T1 Falsified by Its Preregistered Threshold</title>
+  <meta name="description" content="Decision theory, active inference, and information-theoretic control test the formalizable parts of enlightenment, wu wei, no-self, and the unity of knowledge and action, with negative results and limits stated openly." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://machengshen.github.io/dharma-decision-theory.html" />
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/dharma-decision-theory.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/dharma-decision-theory.zh.html" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <style>
+    :root{--bg:#fafbfc;--panel:#fff;--text:#24292f;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:920px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0;position:sticky;top:0;z-index:5}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,a{color:var(--accent)}main{padding:2.2rem 0 3rem}h1{font-size:clamp(1.8rem,5vw,2.55rem);line-height:1.25;margin:.35rem 0 .6rem}h2{font-size:1.28rem;margin:2.7rem 0 .7rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:1rem 0 .3rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.lead{font-size:1.06rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:1rem 1.1rem;margin:.85rem 0}.callout{border-left:4px solid var(--accent)}.negative{border-left-color:var(--bad);background:var(--badbg)}.caution{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .48rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem;white-space:nowrap}.strong{background:var(--okbg);color:var(--ok)}.partial{background:#ddf4ff;color:#0550ae}.rhetoric{background:var(--warnbg);color:var(--warn)}.failed{background:var(--badbg);color:var(--bad)}.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;background:var(--panel)}table{border-collapse:collapse;width:100%;min-width:720px}th,td{padding:.7rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}th{background:var(--soft)}tr:last-child td{border-bottom:0}ul,ol{padding-left:1.4rem}li{margin-bottom:.5rem}.formula{overflow-x:auto;background:var(--soft);border-radius:7px;padding:.7rem .9rem;margin:.7rem 0}.figure{margin:1.2rem 0}.figure img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:#fff}.figure figcaption{color:var(--muted);font-size:.88rem;margin-top:.4rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.grid .card{margin:0}.refs li{overflow-wrap:anywhere}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}code{background:var(--soft);padding:.08rem .28rem;border-radius:4px}@media(max-width:720px){.grid{grid-template-columns:1fr}.site-header{position:static}table{min-width:650px}}
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.html">Start here</a> · <a href="/theory-mainline-index.html">Theory mainline</a></div><div><a href="/dharma-decision-theory.zh.html">中文</a></div></div></header>
+<main class="container">
+  <div class="kicker">Decision theory × Buddhist and Daoist thought · research synthesis · 2026-09-27</div>
+  <h1>Dharma and Daoist Concepts in Decision Theory: Computable Bridges, Boundaries, and a Falsified T1 Threshold</h1>
+  <p class="note-small">Macheng Shen (research initiator), in collaboration with an AI research assistant</p>
+
+  <h2 id="plain">1. Plain-language conclusion</h2>
+  <div class="callout lead">
+    <p>It is intuitively tempting to understand “enlightenment” as knowing more and more, but more complete knowledge does not automatically loosen attachment. The more defensible H-Bridge says that increased understanding can reduce inner conflict only when a model can also see its own limits and allows knowledge that “some things are uncontrollable” to revise existing preferences. The part of wu wei most amenable to formalization is using the environment’s own dynamics and applying only the necessary control at critical points—not doing nothing. The unity of knowledge and action can be divided into three researchable layers: perception and action share an objective; skilled action is distilled from planning; and some causal knowledge can be acquired only through intervention. The toy experiments support the H-Bridge’s conditional interaction and a trade-off at moderate self-precision, but those successes belong only to the models specified in advance. By contrast, the wu-wei experiment did not meet its preregistered success threshold, so its attractive energy-saving result cannot be presented as validation. Mathematics can clarify structure and generate counterexamples, but it cannot define “pure awareness,” the moral source of conscience, complete intentionlessness, or existential suffering. The formalization here should be treated as a testable map, not as religious experience or the traditions themselves.</p>
+  </div>
+
+  <h2 id="mapping">2. Concept-by-concept correspondence</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Traditional concept</th><th>Formal object</th><th>Strength</th><th>Main distortion</th></tr></thead>
+    <tbody>
+      <tr><td>Wu wei</td><td>LMDP: reweight passive dynamics by desirability, pricing control deviation with KL</td><td><span class="tag strong">strong</span> control problem</td><td>Still presupposes an objective function and cannot express “letting go even of the objective”</td></tr>
+      <tr><td>Unity of knowledge and action</td><td>Control as inference; planning distillation; the causal difference between observation and intervention</td><td><span class="tag strong">strong</span> to <span class="tag partial">partial</span></td><td>Captures structure but loses conscience, mind-as-principle, and moral motivation</td></tr>
+      <tr><td>Enlightenment</td><td>Task-relative world-model error, preference precision, and its updateability</td><td><span class="tag partial">partial</span></td><td>“A complete model is enlightenment” is too strong; knowledge can also intensify conflict</td></tr>
+      <tr><td>No-self</td><td>A latent self-variable and its precision (gamma_{self})</td><td><span class="tag partial">partial</span></td><td>Reducing rigid priors is not realizing no-self, nor is it deleting the agent</td></tr>
+      <tr><td>Attachment, craving, and suffering</td><td>High preference precision and persistent risk terms in uncontrollable situations</td><td><span class="tag partial">partial</span></td><td>Can only approximate the conflict of frustrated desire; cannot exhaust aging, illness, death, or pervasive conditioned suffering</td></tr>
+      <tr><td>Emptiness</td><td>Model classes, coarse-graining, and statistical non-identifiability</td><td><span class="tag rhetoric">rhetorical</span> to partial</td><td>Engineering-level “lack of intrinsic essence in representations” cannot replace Madhyamaka argument; this formalization is itself not an ultimate description</td></tr>
+      <tr><td>Dependent origination</td><td>Structural causal models and interventional distributions</td><td><span class="tag partial">partial</span></td><td>Fixes variables and causal edges and cannot carry all the ethical and ontological meaning of dependent origination</td></tr>
+      <tr><td>Calm and insight, meta-awareness</td><td>Second-order inference over the allocation of attentional precision</td><td><span class="tag partial">partial</span></td><td>A computational proposal, not a confirmed neural mechanism of meditation</td></tr>
+      <tr><td>Sudden and gradual awakening</td><td>Continuous evidence accumulation and a discrete flip in the MAP model</td><td><span class="tag partial">partial</span></td><td>Does not include liberation, ethical transformation, or lineage recognition</td></tr>
+      <tr><td>Middle Way</td><td>A Pareto frontier under explicit objectives</td><td><span class="tag rhetoric">rhetorical</span> to partial</td><td>Not a midpoint parameter value or generic compromise</td></tr>
+      <tr><td>The Dao follows what is natural; highest goodness is like water; reversal is the movement of the Dao</td><td>Generative processes, compliant control, and negative feedback</td><td><span class="tag rhetoric">rhetorical</span></td><td>Without independent predictions, these are merely renamings in modern terminology</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="bridge">3. The enlightenment tension: A / B / Bridge and T3</h2>
+  <div class="grid">
+    <div class="card"><h3>H-A: epistemic completeness</h3><p>The more thorough the exploration and the more accurate the model, the lower the conflict. The problem is that factual knowledge does not determine preferences: knowing more accurately that a bad outcome is unavoidable may make fixed attachment more painful.</p></div>
+    <div class="card"><h3>H-B: release of attachment</h3><p>Reducing attachment itself is sufficient to lower conflict, independent of increased understanding. The problem is that if one cannot see one’s own impulse to control and its consequences, preferences are difficult to revise in a targeted way.</p></div>
+    <div class="card"><h3>H-Bridge: conditional bridge</h3><p>Increased understanding leads to release only when both bridge factors are present: the model can represent its own modeling and control limits; and preferences can be updated by evidence of uncontrollability.</p></div>
+  </div>
+  <div class="formula">$$A\Rightarrow B\quad\text{only when}\quad M\supseteq\text{its own modeling process}\;\land\;\gamma_C\text{ can update with evidence of uncontrollability}$$</div>
+  <p>In a generative toy experiment with 16 conditions and 800 runs per cell, T3 shows a clear interaction: under the complete bridge, high exploration changes distress by <strong>−1.509</strong>; without the bridge, the change is <strong>+4.369</strong>; the difference-in-differences is <strong>−5.878</strong>. The prespecified kill condition—an exploration-effect difference of less than 1 inside versus outside the bridge—was not triggered. This counts against the unconditional sufficiency of H-A and supports the distinguishable structure of H-Bridge within this model; because the mechanism was written into the model according to H-Bridge, the result is not independent validation of a real psychological mechanism.</p>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t3.png" alt="T3: factorial results for exploration intensity, preference updating, and the self-modeling metavariable" /><figcaption>T3: high exploration lowers the model’s conflict readout only when both bridge factors are present.</figcaption></figure>
+
+  <h2 id="wuwei">4. Wu wei: LMDP and T1’s negative result</h2>
+  <p>A linearly solvable Markov decision process writes the cost at each step as a state cost plus a KL cost for deviation from passive dynamics:</p>
+  <div class="formula">$$J(u)=\mathbb E_u\sum_t\left[q(s_t)+\beta D_{\mathrm{KL}}\!\left(u(\cdot\mid s_t)\Vert p_0(\cdot\mid s_t)\right)\right],\qquad u^*(s'\mid s)\propto p_0(s'\mid s)z(s')$$</div>
+  <p>This yields a precise, weak engineering version: good control does not reduce action to zero; it reweights the natural flow and concentrates control where it genuinely changes reachable outcomes. It can distinguish compliant control, random drift, and sustained brute force.</p>
+  <div class="callout negative"><strong>T1 was falsified by its preregistered threshold.</strong> The best point in the scan had a success rate of about <strong>0.927 &lt; 0.95</strong>. Therefore, even though its KL was only about <strong>0.043 times</strong> that of brute force, the prespecified “wu-wei point” cannot be claimed. The share of control concentrated in the barrier region was 0.286, above the random baseline of 0.083, and the curve showed a descriptive bend, but these secondary phenomena cannot override failure on the primary threshold.</div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t1.png" alt="T1: scan of success rate and KL control cost" /><figcaption>T1: highly economical in control cost, but the success rate did not cross the prespecified 0.95 threshold.</figcaption></figure>
+
+  <h2 id="knowledge-action">5. Three layers of the unity of knowledge and action</h2>
+  <ol>
+    <li><strong>Unified objective:</strong> active inference places state estimation and action selection within the same optimization objective. “Knowledge” and “action” constrain each other computationally rather than forming completely independent sequential modules.</li>
+    <li><strong>Amortized distillation:</strong> a slow planner produces a policy, which is then distilled into a fast parametric policy. Repeated practice compiles explicit deliberation into fluent skill, explaining the difference between “knowing how to do it” and “being able to do it.”</li>
+    <li><strong>Interventional knowledge:</strong> under confounding, observation (P(Y\mid X)) generally cannot identify the intervention (P(Y\mid do(X))). Some causal knowledge must therefore be acquired through action; this is a rigorous weak version of “knowing without acting.”</li>
+  </ol>
+  <p>These three layers do not formalize what Wang Yangming called conscience. They describe unified control, skill formation, and causal identification; they neither prove that moral knowledge is innate nor derive “mind is principle” from performance metrics.</p>
+
+  <h2 id="self-precision">6. T2: the commitment–recovery trade-off in self-precision</h2>
+  <p>T2 scans (gamma_{self}\in\{0,0.35,1,3\}) in a POMDP whose rules change. Moderate precision at (gamma_{self}=1.0) produces the highest total return, <strong>40.029</strong>: when precision is near zero, recovery is fast but sustained commitment is harder to form; when precision is high, commitment is strong but recovery after the rule reversal is slow and cumulative risk is higher. The preregistered kill condition—the endpoint return is highest, or precision affects neither recovery nor commitment—was not triggered.</p>
+  <div class="callout caution"><strong>Readout limitation:</strong> <code>futile_control_rate</code> equals 1 under every condition because an action must still be chosen at each step during the uncontrollable phase. This metric has degenerated and has no discriminative power; the conclusion depends only on cumulative risk, recovery, commitment, and total return.</div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t2.png" alt="T2: commitment and recovery trade-off under different levels of self-precision" /><figcaption>T2: intermediate precision achieves the best total return in this toy task, but that does not validate “no-self.”</figcaption></figure>
+
+  <h2 id="limits">7. Where formalization breaks</h2>
+  <ul>
+    <li><strong>Awareness itself:</strong> equations can describe attended contents and how attentional resources are allocated, but they do not explain why experience exists.</li>
+    <li><strong>The moral ontology of conscience:</strong> priors can encode preferences, but an inferential framework alone cannot explain why moral law is valid or where it comes from.</li>
+    <li><strong>The intentionlessness of wu wei:</strong> every control model presupposes an objective; “pursuing an objective efficiently” is not “falling away from the objective itself.”</li>
+    <li><strong>The full spectrum of suffering:</strong> risk terms can simulate conflict between desire and uncontrollability, but cannot compress conditioned suffering, aging, illness, death, or existential dissatisfaction into one prediction error.</li>
+    <li><strong>Emptiness’s reflexive constraint on descriptive language:</strong> statistical non-identifiability is only an analogy; elevating information or models into ultimate entities would itself become an object of critique.</li>
+    <li><strong>Differences within the traditions:</strong> Buddhist traditions do not offer one answer about the relation between awakening and omniscience; neither the sudden–gradual debate nor Laozi, Zhuangzi, and later Daoism can be unified by one learning curve.</li>
+  </ul>
+
+  <h2 id="disagreement">8. Disagreements between the two analyses, and the general governance question</h2>
+  <div class="card"><h3>On “emptiness”</h3><p>One analysis treats model dependence, coarse-graining, and non-identifiability as a partially operational correspondence; the other emphasizes that this remains an epistemic analogy, and that Madhyamaka would go on to question whether “information” itself has ultimate standing. The merged position is that the engineering correspondence is usable, but its strength must not exceed “partial,” and it cannot be used to establish a new substantialism.</p></div>
+  <div class="card"><h3>The blind spot in “wu wei”</h3><p>The formal draft highlights the strong mathematical structure and killable experiment of an LMDP; the critical draft emphasizes that its objective function never disappears. The merged position is that the correspondence is strong for “control that deviates less from natural dynamics,” but only partial or rhetorical for intentionlessness, spontaneity, and political ethics in the classical context.</p></div>
+  <div class="card"><h3>Tight coupling does not imply concentrated power</h3><p>Tight perception–action coupling within an individual or single system is a design for rapid information return; concentrating perception, judgment, execution, and review in the same node of organizational governance weakens correction and accountability. The two can coexist, but layer boundaries must be explicit: the execution loop can be tight while authorization and verification remain separate; a locally unified objective cannot automatically justify institutional centralization.</p></div>
+
+  <h2 id="predictions">9. Falsifiable predictions</h2>
+  <ol>
+    <li><strong>Wu-wei control:</strong> if the objective aligns with a natural attractor, there should be a high-success, low-KL control point, with control cost concentrated near the barrier. T1 failed because its 0.927 success rate did not reach 0.95.</li>
+    <li><strong>Self-precision:</strong> moderate (gamma_{self}) should outperform both endpoints while showing a commitment–recovery trade-off; if an endpoint is best or neither readout changes, the operationalization fails. T2 has not yet triggered this condition.</li>
+    <li><strong>H-Bridge:</strong> exploration’s effect in reducing conflict should depend on “preferences are updateable” and “the model includes its own limits” holding simultaneously; if the effect difference inside versus outside the bridge is less than 1, the design is not distinguishable. T3 has not yet triggered this condition.</li>
+    <li><strong>Interventional knowledge:</strong> in tasks with confounding, active interveners should have lower causal error than pure observers with equal samples; if there is no difference, the causal weak version of the unity of knowledge and action fails.</li>
+    <li><strong>Distillation:</strong> distillation after planning should reduce action latency while retaining transfer performance; if there is no speed benefit or transfer degrades substantially, the skill-layer mapping fails.</li>
+    <li><strong>Sudden–gradual mechanism:</strong> continuous evidence can accompany a discrete flip in MAP structure selection; if pure parameter learners show the same jump, or the structural model shows no threshold behavior, the explanation loses discriminative force.</li>
+    <li><strong>Meta-awareness:</strong> updateable second-order precision should recover calibration after a rule change faster than fixed attentional gain, without impairing discrimination during stable periods; otherwise the modeling proposal is weakened.</li>
+  </ol>
+
+  <h2 id="no-claims">10. Do-not-claim list</h2>
+  <ul>
+    <li>We do not claim that Buddhism, Daoist thought, or enlightenment has been proven by simulation.</li>
+    <li>We do not claim that the free-energy principle solves the hard problem of consciousness, nor do we unconditionally equate variational free energy with thermodynamic free energy.</li>
+    <li>We do not equate suffering with reward-prediction error, negative reward, or a single KL term.</li>
+    <li>We do not equate no-self with deleting self-states, depersonalization, incapacity, or exemption from responsibility.</li>
+    <li>We do not equate emptiness with nihilism, statistical uncertainty, or “everything is information.”</li>
+    <li>We do not equate wu wei with inaction, a random policy, minimum energy consumption, or a particular temperature limit.</li>
+    <li>We do not equate the Middle Way with setting a parameter to 0.5, nor sudden awakening with a neural-network phase transition.</li>
+    <li>We do not equate the unity of knowledge and action with “act first, talk later,” still less treat tight coupling inside a system as justification for centralized authority.</li>
+    <li>We do not equate conscience with a reward function, nor the Dao with a generative process or a Solomonoff prior.</li>
+    <li>We do not promote toy experiments, engineering success, or attractor diagrams into ontological evidence.</li>
+    <li>We do not claim that there is only one position within the traditions, nor that these bridges are novel without comparison.</li>
+  </ul>
+
+  <h2 id="references">11. References</h2>
+  <p class="note-small">Only entries that already had links in the two research drafts are listed. “Verified” retains the drafts’ verification labels; this synthesis did not revisit every external page. All others are marked “unverified.”</p>
+  <ul class="refs">
+    <li>Friston, K. (2010). “The free-energy principle: a unified brain theory?” <em>Nature Reviews Neuroscience</em>, 11, 127–138. <a href="https://doi.org/10.1038/nrn2787">DOI</a> (verified)</li>
+    <li>Todorov, E. (2007). “Linearly-solvable Markov decision problems.” <em>NeurIPS 19</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2006/hash/d806ca13ca3449af72a1ea5aedbed26a-Abstract.html">Proceedings</a> (verified)</li>
+    <li>Kappen, H. J. (2005). “Path integrals and symmetry breaking for optimal control theory.” <em>JSTAT</em>, P11011. <a href="https://arxiv.org/abs/physics/0505066">arXiv</a> (verified)</li>
+    <li>Ortega, P. A., &amp; Braun, D. A. (2013). “Thermodynamics as a theory of decision-making with information-processing costs.” <em>Proceedings A</em>. <a href="https://arxiv.org/abs/1204.6481">arXiv</a> (verified)</li>
+    <li>Leike, J., &amp; Hutter, M. (2015). “Bad Universal Priors and Notions of Optimality.” <em>COLT / PMLR 40</em>. <a href="https://proceedings.mlr.press/v40/Leike15.html">Proceedings</a> (verified)</li>
+    <li>Laukkonen, R. E., &amp; Slagter, H. A. (2021). “From many to (n)one.” <em>Neuroscience &amp; Biobehavioral Reviews</em>, 128, 199–217. <a href="https://pubmed.ncbi.nlm.nih.gov/34139248/">PubMed</a> (verified)</li>
+    <li>Van Dam, N. T., et al. (2018). “Mind the Hype.” <em>Perspectives on Psychological Science</em>, 13(1), 36–61. <a href="https://pubmed.ncbi.nlm.nih.gov/29016274/">PubMed</a> (verified)</li>
+    <li>Seth, A. K. (2013). “Interoceptive inference, emotion, and the embodied self.” <em>Trends in Cognitive Sciences</em>, 17, 565–573. <a href="https://pubmed.ncbi.nlm.nih.gov/24126130/">PubMed</a> (verified)</li>
+    <li>Deane, G. (2020). “Losing Ourselves: Active Inference, Depersonalization, and Meditation.” <em>Frontiers in Psychology</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7673417/">PMC</a> (verified)</li>
+    <li>Sandved-Smith, L., et al. Related work on meta-awareness and deep-parametric active inference. <a href="https://arxiv.org/abs/2405.12941">arXiv</a> (unverified)</li>
+    <li>Wang Yangming. <em>Instructions for Practical Living and Other Neo-Confucian Writings</em>, trans. Wing-tsit Chan (1963). <a href="https://openlibrary.org/books/OL20073468M/Instructions_for_practical_living_and_other_neo-Confucian_writings">Open Library</a> (bibliographic record verified)</li>
+    <li><em>Dao De Jing</em>. <a href="https://ctext.org/dao-de-jing">Chinese Text Project</a> (entry point verified; chapter versions still require separate checking)</li>
+    <li>Early Buddhist text entry points: <a href="https://suttacentral.net/sn12">SN 12</a>, <a href="https://suttacentral.net/sn22.59">SN 22.59</a>, <a href="https://suttacentral.net/sn56.11">SN 56.11</a>, and <a href="https://suttacentral.net/dn22/en/sujato">DN 22</a> (entry points verified; interpretations vary across traditions)</li>
+  </ul>
+</main>
+<footer class="footer"><div class="container"><p><a href="/">← Home</a> · <a href="/dharma-decision-theory.zh.html">中文</a> · <a href="/theory-mainline-index.html">Theory mainline</a></p><p>Macheng Shen (research initiator), in collaboration with an AI research assistant · 2026-09-27</p></div></footer>
+<!-- COMMENTS_SLOT -->
+</body>
+</html>

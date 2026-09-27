@@ -530,6 +530,22 @@
       "workTranslation": "https://machengshen.github.io/matter-info-energy-ledger.zh.html"
     },
     {
+      "id": "dharma-decision-theory",
+      "label": {
+        "en": "Dharma and Daoist concepts in decision theory",
+        "zh": "佛道概念的决策论形式化"
+      },
+      "description": {
+        "en": "Enlightenment revised to a conditional H-Bridge (self-modeling plus preference update); toy simulations with T1's preregistered wu-wei threshold falsified, T3 supporting H-Bridge within its written-in mechanism, and T2 weakly favoring mid self-precision; wu wei approximated by Todorov LMDP KL control; three layers of unity of knowledge and action; formalization limits and a do-not-claim list.",
+        "zh": "将开悟修订为有条件的 H-Bridge（自我建模加偏好更新）；玩具模拟中 T1 的无为预注册阈值被否证、T3 在其写入机制内支持 H-Bridge、T2 弱支持适中自我精度；无为近似为 Todorov LMDP 的 KL 控制；知行合一三层；形式化边界与不宣称清单。"
+      },
+      "url": "https://machengshen.github.io/dharma-decision-theory.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/dharma-decision-theory.zh.html"
+    },
+    {
       "id": "observer-local-time-objectivity",
       "label": {
         "en": "No shared clock ≠ no shared world",
