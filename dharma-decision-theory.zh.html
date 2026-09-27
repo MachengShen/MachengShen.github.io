@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>佛道概念的决策论形式化：可计算的桥与边界</title>
+  <meta name="description" content="用决策论、主动推断与信息论控制检验开悟、无为、无我和知行合一的可形式化部分，并公开负面结果与适用边界。" />
+  <meta name="robots" content="index,follow" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <style>
+    :root{--bg:#fafbfc;--panel:#fff;--text:#24292f;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:920px;margin:0 auto;padding:0 1.25rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0;position:sticky;top:0;z-index:5}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,a{color:var(--accent)}main{padding:2.2rem 0 3rem}h1{font-size:clamp(1.8rem,5vw,2.55rem);line-height:1.25;margin:.35rem 0 .6rem}h2{font-size:1.28rem;margin:2.7rem 0 .7rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}h3{font-size:1.04rem;margin:1rem 0 .3rem}.kicker,.note-small{color:var(--muted);font-size:.88rem}.lead{font-size:1.06rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:9px;padding:1rem 1.1rem;margin:.85rem 0}.callout{border-left:4px solid var(--accent)}.negative{border-left-color:var(--bad);background:var(--badbg)}.caution{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .48rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem;white-space:nowrap}.strong{background:var(--okbg);color:var(--ok)}.partial{background:#ddf4ff;color:#0550ae}.rhetoric{background:var(--warnbg);color:var(--warn)}.failed{background:var(--badbg);color:var(--bad)}.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;background:var(--panel)}table{border-collapse:collapse;width:100%;min-width:720px}th,td{padding:.7rem .75rem;text-align:left;vertical-align:top;border-bottom:1px solid var(--border)}th{background:var(--soft)}tr:last-child td{border-bottom:0}ul,ol{padding-left:1.4rem}li{margin-bottom:.5rem}.formula{overflow-x:auto;background:var(--soft);border-radius:7px;padding:.7rem .9rem;margin:.7rem 0}.figure{margin:1.2rem 0}.figure img{display:block;width:100%;height:auto;border:1px solid var(--border);border-radius:8px;background:#fff}.figure figcaption{color:var(--muted);font-size:.88rem;margin-top:.4rem}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}.grid .card{margin:0}.refs li{overflow-wrap:anywhere}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}code{background:var(--soft);padding:.08rem .28rem;border-radius:4px}@media(max-width:720px){.grid{grid-template-columns:1fr}.site-header{position:static}table{min-width:650px}}
+  </style>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}],throwOnError:false});"></script>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.zh.html">从这里开始</a> · <a href="/theory-mainline-index.zh.html">理论主线</a></div><div>中文 · 单页研究报告</div></div></header>
+<main class="container">
+  <div class="kicker">决策论 × 佛道思想 · 研究合成稿 · 2026-09-27</div>
+  <h1>佛道概念的决策论形式化：可计算的桥与边界</h1>
+  <p class="note-small">沈马成（研究发起）与 AI 研究助手协作</p>
+
+  <h2 id="plain">1. 白话结论</h2>
+  <div class="callout lead">
+    <p>把“开悟”理解成知道得越来越多，直觉上很诱人，但知识更完整并不自动让人放下执著。更稳妥的 H-Bridge 说：只有当一个模型也能看见自己的局限，并允许“有些事不可控”的知识修订原有偏好时，认识增加才可能减少内在冲突。无为最能被形式化的部分，是借助环境自身的动力，只在关键处付出必要控制，而不是什么都不做。知行合一可拆成三个可研究层次：感知与行动共享目标、熟练行动由规划蒸馏而来、某些因果知识必须经干预才能获得。玩具实验支持 H-Bridge 的条件交互和适中自我精度的权衡，但其中的成功只属于预先写下的模型。无为实验反而没有达到预注册成功阈值，因此不能把漂亮的节能结果说成验证。数学能够澄清结构、提出反例，却无法给“纯粹觉知”、良知的道德来源、彻底无意图或存在性之苦下定义。这里的形式化应当被当成可检验的地图，而不是宗教体验或传统本身。</p>
+  </div>
+
+  <h2 id="mapping">2. 逐概念对照表</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>传统概念</th><th>形式对象</th><th>强度</th><th>主要失真</th></tr></thead>
+    <tbody>
+      <tr><td>无为</td><td>LMDP：在被动动力学上按可欲性重加权，控制偏离用 KL 计价</td><td><span class="tag strong">强</span>控制问题</td><td>仍预设目标函数，无法表达“连目标也放下”</td></tr>
+      <tr><td>知行合一</td><td>控制即推断；规划蒸馏；观察与干预的因果差异</td><td><span class="tag strong">强</span>至<span class="tag partial">部分</span></td><td>抓到结构，却丢失良知、心即理和道德动机</td></tr>
+      <tr><td>开悟</td><td>任务相对的世界模型误差、偏好精度及其可更新性</td><td><span class="tag partial">部分</span></td><td>“完整模型即开悟”过强；知识也可能加剧冲突</td></tr>
+      <tr><td>无我</td><td>自我隐变量及其精度 \(\gamma_{self}\)</td><td><span class="tag partial">部分</span></td><td>降低僵硬先验不等于证得无我，也不等于删除行动者</td></tr>
+      <tr><td>执著、渴爱与苦</td><td>不可控情境中的高偏好精度与持续风险项</td><td><span class="tag partial">部分</span></td><td>只能近似“求不得”的冲突，不能穷尽生老病死与行苦</td></tr>
+      <tr><td>空</td><td>模型族、粗粒化与统计不可识别性</td><td><span class="tag rhetoric">修辞</span>至部分</td><td>工程上的“表征无自性”不能替代中观论证；该形式化本身也非终极描述</td></tr>
+      <tr><td>缘起</td><td>结构因果模型与干预分布</td><td><span class="tag partial">部分</span></td><td>固定变量和因果边，无法承载缘起的全部伦理与本体含义</td></tr>
+      <tr><td>止观、元觉知</td><td>对注意精度分配的二阶推断</td><td><span class="tag partial">部分</span></td><td>是计算提议，不是已确证的冥想神经机制</td></tr>
+      <tr><td>顿悟与渐悟</td><td>连续证据累积与 MAP 模型的离散翻转</td><td><span class="tag partial">部分</span></td><td>不包含解脱、伦理转变与传承认证</td></tr>
+      <tr><td>中道</td><td>明确目标下的帕累托前沿</td><td><span class="tag rhetoric">修辞</span>至部分</td><td>不是参数取中间值，也不是一般折中主义</td></tr>
+      <tr><td>道法自然、上善若水、反者道之动</td><td>生成过程、柔顺控制、负反馈</td><td><span class="tag rhetoric">修辞</span></td><td>若不产生独立预测，就只是现代术语重命名</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="bridge">3. 开悟张力：A / B / Bridge 与 T3</h2>
+  <div class="grid">
+    <div class="card"><h3>H-A：认识完备</h3><p>探索越充分、模型越准确，冲突就越低。问题是事实知识并不决定偏好：更准确地知道坏结果不可避免，也可能令固定执取更痛苦。</p></div>
+    <div class="card"><h3>H-B：执取释放</h3><p>减少执取本身足以降低冲突，不依赖认识增长。问题是若看不见自己的控制冲动及其后果，偏好很难被有针对性地修订。</p></div>
+    <div class="card"><h3>H-Bridge：条件桥</h3><p>认识增长只有在两个桥因子同时存在时才导向释放：模型能表征自身建模与控制局限；偏好能被“不可控”的证据更新。</p></div>
+  </div>
+  <div class="formula">$$A\Rightarrow B\quad\text{仅当}\quad M\supseteq\text{自身建模过程}\;\land\;\gamma_C\text{可随不可控证据更新}$$</div>
+  <p>T3 在 16 个条件、每格 800 次的生成性玩具实验中给出清楚的交互：完整桥下，高探索使 distress 改变量为 <strong>−1.509</strong>；无桥时为 <strong>+4.369</strong>；双重差分为 <strong>−5.878</strong>。预设的“桥内外探索效应差小于 1”杀死条件没有触发。它反对 H-A 的无条件充分性，并支持 H-Bridge 在这个模型中的可区分结构；由于机制本来就按 H-Bridge 写入，结果不是对现实心理机制的独立验证。</p>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t3.png" alt="T3：探索强度、偏好更新与自我建模元变量的析因结果" /><figcaption>T3：只有两个桥因子齐备时，高探索才降低模型中的冲突读出。</figcaption></figure>
+
+  <h2 id="wuwei">4. 无为：LMDP 与 T1 负面结果</h2>
+  <p>线性可解马尔可夫决策过程把每一步代价写成状态代价与偏离被动动力学的 KL 代价：</p>
+  <div class="formula">$$J(u)=\mathbb E_u\sum_t\left[q(s_t)+\beta D_{\mathrm{KL}}\!\left(u(\cdot\mid s_t)\Vert p_0(\cdot\mid s_t)\right)\right],\qquad u^*(s'\mid s)\propto p_0(s'\mid s)z(s')$$</div>
+  <p>这给出一个精确的工程弱版：好控制不是动作归零，而是在自然流上重加权，把控制集中到真正改变可达结果的关键处。它能区分顺势控制、随机漂移和持续蛮力。</p>
+  <div class="callout negative"><strong>T1 按预注册阈值被否证。</strong> 最佳扫描点成功率约 <strong>0.927 &lt; 0.95</strong>，因此即使其 KL 仅约为蛮力的 <strong>0.043 倍</strong>，仍不能宣称预设的“无为点”成立。控制在势垒区的集中比例为 0.286，高于随机基线 0.083；曲线也出现描述性弯折，但这些次级现象不能覆盖主阈值失败。</div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t1.png" alt="T1：成功率与 KL 控制成本扫描" /><figcaption>T1：很省控制成本，但成功率没有越过预先规定的 0.95 门槛。</figcaption></figure>
+
+  <h2 id="knowledge-action">5. 知行合一三层</h2>
+  <ol>
+    <li><strong>统一目标：</strong>主动推断把状态估计和行动选择写进同一个优化目标。“知”与“行”在计算上相互约束，而不是先后完全独立的模块。</li>
+    <li><strong>摊销蒸馏：</strong>慢速规划器产生策略，再把它蒸馏进快速参数策略。反复实践把显式推演编译成流畅技能，解释“知道如何做”与“做得出来”的差别。</li>
+    <li><strong>干预知识：</strong>在存在混杂时，观察 \(P(Y\mid X)\) 一般不能识别干预 \(P(Y\mid do(X))\)。因此某些因果知识必须通过行动获得；这是“知而不行”的严格弱版本。</li>
+  </ol>
+  <p>这三层没有形式化王阳明所说的良知。它们描述统一控制、技能形成与因果识别，而不是证明道德知识先天存在，也不能从性能指标推出“心即理”。</p>
+
+  <h2 id="self-precision">6. T2：自我精度的承诺—恢复权衡</h2>
+  <p>T2 在规则改变的 POMDP 中扫描 \(\gamma_{self}\in\{0,0.35,1,3\}\)。适中精度 \(\gamma_{self}=1.0\) 的总回报最高，为 <strong>40.029</strong>：精度接近零时恢复快，却较难形成长期承诺；精度很高时承诺强，却在规则反转后恢复慢、累计风险更高。预注册的杀死条件——端点回报最高，或精度既不影响恢复也不影响承诺——没有触发。</p>
+  <div class="callout caution"><strong>读出限制：</strong><code>futile_control_rate</code> 在所有条件下都等于 1，因为不可控阶段每一步仍被迫选一个动作；这个指标已退化、没有辨别力，结论只依赖累计风险、恢复、承诺与总回报。</div>
+  <figure class="figure"><img src="dharma-decision-theory-assets/t2.png" alt="T2：不同自我精度下的承诺与恢复权衡" /><figcaption>T2：中间精度在这项玩具任务中取得最佳总回报，但不等于验证了“无我”。</figcaption></figure>
+
+  <h2 id="limits">7. 形式化失效处</h2>
+  <ul>
+    <li><strong>觉知本身：</strong>方程可以描述被注意的内容和注意资源如何分配，却没有解释为什么存在体验。</li>
+    <li><strong>良知的道德本体：</strong>先验可以编码偏好，却不能仅凭推断框架说明道德法则为何有效、从何而来。</li>
+    <li><strong>无为的无意图性：</strong>所有控制模型都预设目标；“高效追求目标”不是“从目标本身脱落”。</li>
+    <li><strong>苦的完整谱系：</strong>风险项能模拟欲求与不可控之间的冲突，不能把行苦、生老病死或存在性不满足压成一个预测误差。</li>
+    <li><strong>空对描述语言的反身限制：</strong>统计不可识别性只是类比；把信息或模型抬成终极实体，同样会成为被批判的对象。</li>
+    <li><strong>传统内部差异：</strong>不同佛教传统对觉悟与全知的关系并无单一答案；顿渐之争、老庄与后世道教也不能被一条学习曲线统一。</li>
+  </ul>
+
+  <h2 id="disagreement">8. 两份分析的分歧，以及一般性治理问题</h2>
+  <div class="card"><h3>关于“空”</h3><p>一份分析把模型依赖、粗粒化与不可识别性视为部分可操作对应；另一份更强调：这仍只是认识论类比，中观会进一步质疑“信息”本身是否有终极地位。合并后的立场是：工程对应可用，但强度不得高于“部分”，更不能借它建立新的实体论。</p></div>
+  <div class="card"><h3>关于“无为”的盲区</h3><p>形式稿突出 LMDP 的强数学结构和可杀实验；批判稿强调其目标函数从未消失。合并后的立场是：对“少偏离自然动力学的控制”，对应很强；对经典语境中的无意图、自发性与政治伦理，只能部分甚至修辞对应。</p></div>
+  <div class="card"><h3>紧耦合不等于权力集中</h3><p>个体或单一系统中的感知—行动紧耦合，是信息快速回流的设计；组织治理中把感知、判断、执行和审查集中给同一节点，则会削弱纠错与问责。二者可兼容，但层级边界必须明确：执行回路可以紧，授权与验证仍应分离；局部的统一目标不能自动成为制度集权的理由。</p></div>
+
+  <h2 id="predictions">9. 可证伪预测</h2>
+  <ol>
+    <li><strong>无为控制：</strong>若目标与自然吸引子对齐，应存在高成功率、低 KL 的控制点，且控制成本集中在势垒附近。T1 已因成功率 0.927 未达到 0.95 而失败。</li>
+    <li><strong>自我精度：</strong>适中 \(\gamma_{self}\) 应同时优于两个端点，并展示承诺—恢复权衡；若端点最佳或两个读出均不变，则该操作化失败。T2 暂未触发此条件。</li>
+    <li><strong>H-Bridge：</strong>探索降低冲突的效果应依赖“偏好可更新”和“模型含自身局限”同时成立；若桥内外效应差小于 1，设计不可区分。T3 暂未触发此条件。</li>
+    <li><strong>干预知识：</strong>含混杂的任务中，主动干预者的因果误差应低于等量纯观察者；若无差异，知行合一的因果弱版失败。</li>
+    <li><strong>蒸馏：</strong>规划后蒸馏应在保留迁移性能时降低行动延迟；若没有速度收益或迁移明显恶化，技能层映射失败。</li>
+    <li><strong>顿渐机制：</strong>连续证据可伴随 MAP 结构选择的离散翻转；若纯参数学习者出现同样跳变，或结构模型没有阈值行为，该解释失去区分力。</li>
+    <li><strong>元觉知：</strong>可更新的二阶精度应在规则改变后比固定注意增益更快恢复校准，且不损害稳定期辨别力；否则该建模提议被削弱。</li>
+  </ol>
+
+  <h2 id="no-claims">10. 不宣称清单</h2>
+  <ul>
+    <li>不宣称佛学、道家思想或开悟已被模拟证明。</li>
+    <li>不宣称自由能原理解决了意识难题，也不把变分自由能无条件等同热力学自由能。</li>
+    <li>不把苦等同奖励预测误差、负奖励或单个 KL 项。</li>
+    <li>不把无我等同删除自我状态、人格解体、失能或免除责任。</li>
+    <li>不把空等同虚无主义、统计不确定性或“万物皆信息”。</li>
+    <li>不把无为等同不行动、随机策略、最低能耗或某个温度极限。</li>
+    <li>不把中道等同参数取 0.5，也不把顿悟等同神经网络相变。</li>
+    <li>不把知行合一等同“先做再说”，更不把系统内紧耦合当作集中授权的正当性。</li>
+    <li>不把良知等同奖励函数，不把道等同生成过程或 Solomonoff 先验。</li>
+    <li>不把玩具实验、工程成功或吸引子图升级为本体论证据。</li>
+    <li>不宣称传统内部只有一种立场，也不宣称这里的桥接具有未经比较的新颖性。</li>
+  </ul>
+
+  <h2 id="references">11. 参考文献</h2>
+  <p class="note-small">只列两份研究稿中原本带有链接的条目。“已核验”沿用稿件的核验标记；本次合并未重新逐条访问外部页面。其余一律标为“未核验”。</p>
+  <ul class="refs">
+    <li>Friston, K. (2010). “The free-energy principle: a unified brain theory?” <em>Nature Reviews Neuroscience</em>, 11, 127–138. <a href="https://doi.org/10.1038/nrn2787">DOI</a>（已核验）</li>
+    <li>Todorov, E. (2007). “Linearly-solvable Markov decision problems.” <em>NeurIPS 19</em>. <a href="https://proceedings.neurips.cc/paper_files/paper/2006/hash/d806ca13ca3449af72a1ea5aedbed26a-Abstract.html">Proceedings</a>（已核验）</li>
+    <li>Kappen, H. J. (2005). “Path integrals and symmetry breaking for optimal control theory.” <em>JSTAT</em>, P11011. <a href="https://arxiv.org/abs/physics/0505066">arXiv</a>（已核验）</li>
+    <li>Ortega, P. A., &amp; Braun, D. A. (2013). “Thermodynamics as a theory of decision-making with information-processing costs.” <em>Proceedings A</em>. <a href="https://arxiv.org/abs/1204.6481">arXiv</a>（已核验）</li>
+    <li>Leike, J., &amp; Hutter, M. (2015). “Bad Universal Priors and Notions of Optimality.” <em>COLT / PMLR 40</em>. <a href="https://proceedings.mlr.press/v40/Leike15.html">Proceedings</a>（已核验）</li>
+    <li>Laukkonen, R. E., &amp; Slagter, H. A. (2021). “From many to (n)one.” <em>Neuroscience &amp; Biobehavioral Reviews</em>, 128, 199–217. <a href="https://pubmed.ncbi.nlm.nih.gov/34139248/">PubMed</a>（已核验）</li>
+    <li>Van Dam, N. T., et al. (2018). “Mind the Hype.” <em>Perspectives on Psychological Science</em>, 13(1), 36–61. <a href="https://pubmed.ncbi.nlm.nih.gov/29016274/">PubMed</a>（已核验）</li>
+    <li>Seth, A. K. (2013). “Interoceptive inference, emotion, and the embodied self.” <em>Trends in Cognitive Sciences</em>, 17, 565–573. <a href="https://pubmed.ncbi.nlm.nih.gov/24126130/">PubMed</a>（已核验）</li>
+    <li>Deane, G. (2020). “Losing Ourselves: Active Inference, Depersonalization, and Meditation.” <em>Frontiers in Psychology</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7673417/">PMC</a>（已核验）</li>
+    <li>Sandved-Smith, L., et al. 相关元觉知与深参数主动推断工作。<a href="https://arxiv.org/abs/2405.12941">arXiv</a>（未核验）</li>
+    <li>Wang Yangming. <em>Instructions for Practical Living and Other Neo-Confucian Writings</em>, trans. Wing-tsit Chan (1963). <a href="https://openlibrary.org/books/OL20073468M/Instructions_for_practical_living_and_other_neo-Confucian_writings">Open Library</a>（已核验书目）</li>
+    <li><em>Dao De Jing</em>. <a href="https://ctext.org/dao-de-jing">Chinese Text Project</a>（已核验入口；章节版本仍须单独核对）</li>
+    <li>早期佛典检索入口：<a href="https://suttacentral.net/sn12">SN 12</a>、<a href="https://suttacentral.net/sn22.59">SN 22.59</a>、<a href="https://suttacentral.net/sn56.11">SN 56.11</a>、<a href="https://suttacentral.net/dn22/en/sujato">DN 22</a>（已核验入口；传统解释不唯一）</li>
+  </ul>
+</main>
+<footer class="footer"><div class="container"><p><a href="/">← Home</a> · <a href="/theory-mainline-index.zh.html">理论主线</a></p><p>沈马成（研究发起）与 AI 研究助手协作 · 2026-09-27</p></div></footer>
+<!-- COMMENTS_SLOT -->
+</body>
+</html>
