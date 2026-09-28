@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>佛法 × 决策论 第三轮：换表征能否解开形式化难题（预览）</title>
+<style>
+body{font:16px/1.75 system-ui,-apple-system,"PingFang SC",sans-serif;max-width:46rem;margin:2.5rem auto;padding:0 1.2rem;color:#1d1d1f}
+h1{font-size:1.6rem;line-height:1.35}h2{margin-top:2.2rem;font-size:1.2rem;border-bottom:1px solid #e5e5e5;padding-bottom:.3rem}
+.tldr{background:#f3f7ff;border-left:4px solid #3a6ff7;padding:1rem 1.2rem;border-radius:6px}
+.note{background:#fff8e6;border-left:4px solid #e0a800;padding:.8rem 1.1rem;border-radius:6px;font-size:.95rem}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:1rem 0}th,td{border:1px solid #ddd;padding:.45rem .6rem;text-align:left;vertical-align:top}th{background:#fafafa}
+.fail{color:#b3261e;font-weight:600}.void{color:#8a6d00;font-weight:600}
+img{max-width:100%;border:1px solid #eee;border-radius:6px}
+.meta{color:#777;font-size:.88rem}
+</style>
+</head>
+<body>
+<p class="meta">预览稿 · 未公开 · 2026-09-28</p>
+<h1>佛法 × 决策论 第三轮：换一种世界表征，能否让难以形式化的概念变得可形式化？</h1>
+
+<div class="tldr">
+<p><strong>结论：不能。</strong>卡住形式化的不是框架。</p>
+<p>我们用自己的世界表征重做了一遍：一版是「压缩 + 纯高斯噪声」（版本 A），一版是「马尔可夫部分 + 记忆核 + 正交噪声」（版本 B，Mori–Zwanzig 分解）。两个独立模型复核后的结论一致：作为描述世界的方式，A 和 B 都没有比 POMDP 信念状态、AIXI/Solomonoff、贝叶斯非参数、主动推断多表达任何东西。开放的、会增长的状态空间，这些框架早已覆盖。</p>
+<p>真正多出来的只是一条对智能体的约束：<strong>残差保留不丢弃，且残差带有时间结构</strong>。它只在版本 B 里有意义，与「噪声是否纯」无关。</p>
+<p>预注册测试中，没有任何一项给出独立的正面证据。公开页现有的结论不需要改写。</p>
+</div>
+
+<h2>1. 问题是什么</h2>
+<p>此前的判断是：纯粹觉知、良知本体、无意图的无为、行苦、中观对信息本体论的清空，这几个概念无法在经典决策论里形式化，属于范畴错误。本轮要检验的假设是：这也许只是因为经典决策论预设了一个事先给定的、有限的状态空间；如果换成我们自己的世界表征，障碍可能就消失了。</p>
+<p>为此我们提出一个对照问题：新表征相对已有框架到底多了什么？并给每个概念设计了可以被证伪的测试，判据在运行前写定并锁成只读。</p>
+
+<h2>2. 理论复核</h2>
+<p>表征本身不增加表达力这一先验成立。A 和 B 可以分别嵌入已有框架：A 是带噪声观测的压缩信念，B 是带记忆项的广义朗之万描述，二者都在 POMDP 与贝叶斯非参数的表达范围之内。</p>
+<p>有操作意义的只有三条智能体层面的约束：结构与残差的边界由智能体自己选；智能体对残差不赋予偏好；残差被保留而不是丢弃。在版本 A 中，残差是独立同分布的噪声，保留它什么也不改变；只有在版本 B 中，残差有时间结构，保留它才会影响后续行为。这属于信号处理常识，不是表征上的创新。</p>
+<p>五条范畴错误的判定都与框架无关。「应然不能从实然推出」和意识的困难问题，不是任何计算框架的一个可替换假设，换表征碰不到它们。</p>
+
+<h2>3. 预注册测试结果</h2>
+<table>
+<tr><th>测试</th><th>对应概念</th><th>判据</th><th>A</th><th>B</th><th>说明</th></tr>
+<tr><td>1 弱新因子检出</td><td>纯粹觉知</td><td>比 CUSUM 检测快至少 20%</td><td class="fail">未通过</td><td class="fail">未通过</td><td>中位延迟：CUSUM 9 步，A 54 步，B 27 步</td></tr>
+<tr><td>2 共享可压缩结构</td><td>良知本体</td><td>关怀与共享结构相关，且在噪声下存活</td><td class="fail">未通过</td><td class="void">无信息</td><td>B 的数值通过，但「关怀」的定义就是用来打分的共享压缩量，通过是同义反复</td></tr>
+<tr><td>3a 无为膝点</td><td>无意图的无为</td><td>零噪声下膝点强度 ≥ 0.15，且随噪声减弱</td><td class="fail">未通过</td><td class="fail">未通过</td><td>强度约 0.0018，且随噪声增强，方向与假设相反</td></tr>
+<tr><td>3b 低维控制</td><td>无为</td><td>秩 1 与全秩得分比 ≥ 0.90，能量失配 ≤ 5%</td><td class="fail">未通过</td><td class="fail">未通过</td><td>得分比约 0.84，能量失配约 95%</td></tr>
+<tr><td>4a H-Bridge 留出集</td><td>觉悟</td><td>留出集成功率 ≥ 80%</td><td class="fail">未通过</td><td class="fail">未通过</td><td>A 0%，B 20%</td></tr>
+<tr><td>4b 噪声下的良知</td><td>良知</td><td>关怀在 0–30% 噪声下保持</td><td class="fail">未通过</td><td class="void">无信息</td><td>B 相关约 1.00 / 0.99 / 0.98 / 0.93，但与测试 2 同样是同义反复</td></tr>
+</table>
+<p><img src="summary.png" alt="各项预注册测试 A/B 结果汇总图"/></p>
+<div class="note">
+<p><strong>为什么把两项「通过」标成无信息：</strong>版本 B 中，智能体的「关怀」被直接定义为预先冻结的共享压缩量，而测试的评价目标也是同一个量。所以它通过，只说明这个量在噪声下比较稳定，并不是对道德行为的独立预测。版本 A 在这里只产出常数分。对照策略（宽容以牙还牙）与压缩共享结构无关，也无法充当有效基线。</p>
+</div>
+
+<h2>4. 预注册与可复现性</h2>
+<p>判据文件在运行前写定并设为只读，随机种子与判据按注册执行。前三次运行因早期实现问题中止，失败产物全部保留；最终运行改为并行批处理，但没有改动注册的方程与判据。批处理与逐条实现之间有一处约 0.063 的浮点差异，远低于未达标的幅度，不影响判定。探索性的后续分析单独存放，不计入判定。</p>
+
+<h2>5. 旁证的边界</h2>
+<p>arXiv 2609.29755（Hartl、Montero、Barylli、Risi、Levin）核实为一篇合著论文，只能当作结构上的类比，不构成决策论或意识方面的证据。</p>
+
+<h2>6. 下一步（待定）</h2>
+<ul>
+<li>是否把本轮结论作为一节补进公开页。</li>
+<li>是否按已写好的防同义反复规格重做测试 2 和测试 4：关怀必须用一个独立于评价目标的量来定义，并加入与共享结构真正相关的对照基线。即使重做后通过，也只说明操作机制成立，不改写已发表的哲学结论。</li>
+</ul>
+<p class="meta">本页为预览，未收录进索引。</p>
+</body>
+</html>

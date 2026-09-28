@@ -33,3 +33,4 @@ global-climate/*                      # global climate x livelihoods policy rese
 continual-learning/*                  # continual-learning research study (public literature only); outside the theory intellectual index, same doctrine as reports/
 complexity/*                          # research survey on why complexity grows (public literature + open questions); outside the theory intellectual index until externally cold-read, same doctrine as reports/
 company-architecture/*   # futures study; full page, keep out of llms-full
+reports/dharma-v3-review/index.html   # private preview of dharma v3 review for owner; noindex; outside intellectual index until owner decides
