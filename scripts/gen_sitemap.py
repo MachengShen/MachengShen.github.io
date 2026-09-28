@@ -71,6 +71,9 @@ def entries() -> list[tuple[str, str]]:
         # Drafts and sources are not published surfaces.
         if p.suffix == ".md" and "_draft" in p.name:
             continue
+        # Pages that opt out of indexing must not be advertised in the sitemap.
+        if p.suffix.lower() == ".html" and 'name="robots" content="noindex' in p.read_text(errors="ignore")[:4000]:
+            continue
         out.append((url_for(p), last_commit_date(p)))
     return out
 
