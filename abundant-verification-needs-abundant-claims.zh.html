@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen</title>
-  <meta name="description" content="一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。" />
+  <meta name="description" content="一封写给一位公开评论者 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。" />
 
   <link rel="canonical" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
 <meta property="og:type" content="article" />
@@ -31,7 +31,7 @@
   "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
   "headline": "廉价的 verification 还不够，还得有可解析的 claim",
   "name": "廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen",
-  "description": "一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。",
+  "description": "一封写给一位公开评论者 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。",
   "inLanguage": "zh-Hans",
   "datePublished": "2026-08-06",
   "dateModified": "2026-08-06",
@@ -161,18 +161,18 @@ td.num, th.num { text-align: right; }
 
 <div class="kicker">研究笔记 · 跨线笔记</div>
 <h1>廉价的 verification 还不够，还得有可解析的 claim</h1>
-<p class="note-small"><em>写给付杰这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06</em></p>
+<p class="note-small"><em>写给一位公开评论者这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06</em></p>
 
 <h2>这是什么</h2>
 
-<p>这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。这条线是付杰的（IQuest Research 研究科学家；此前在 Mila 师从 Yoshua Bengio 做博后），他公开的纲领是 <em>"preserve and flourish humanity by providing abundant verification"</em>。</p>
+<p>这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。一位公开评论者把这条线的纲领表述为 <em>"preserve and flourish humanity by providing abundant verification"</em>。</p>
 
-<p>其中三项贡献在本文里是承重的，而它们属于他，不属于我们：</p>
+<p>其中三项贡献在本文里是承重的，而它们不属于我们：</p>
 
 <ol>
-<li><strong>Re:Form</strong>（<a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu）。诊断是：对于用 RL 训练的自然语言 LLM，<em>提供训练信号的那个 verification 过程本身既不可靠也不可扩展</em>。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：<strong>DafnyComp</strong>，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 <strong>0.5B</strong> 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 <em>"reducing human priors"</em> 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。</li>
+<li><strong>Re:Form</strong>（<a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, 一位公开评论者）。诊断是：对于用 RL 训练的自然语言 LLM，<em>提供训练信号的那个 verification 过程本身既不可靠也不可扩展</em>。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：<strong>DafnyComp</strong>，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 <strong>0.5B</strong> 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 <em>"reducing human priors"</em> 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。</li>
 
-<li><strong>Autoformalization 议程</strong>（<a href="https://bigaidream.github.io/project/auto/">项目页</a>）：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。</li>
+<li><strong>Autoformalization 议程</strong>：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。</li>
 
 <li><strong>2026-08-05 的一条笔记</strong>（小红书，note <code>6a73027b</code>）：宣布用稀疏矩阵分解做高效 mechanistic interpretability（MI），据称只需主流方法约 <strong>1%</strong> 的数据而效果几乎保持；更重要的是其中陈述的愿景 —— 在 David Dalrymple 的 Guaranteed Safe AI 框架里（<a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>），让 verifier 不只验证模型的输出，也用更快的方式验证模型 internals —— 君子论迹，也论心 —— 从而压低全流程 verification 成本，为社会提供更便宜可靠的 <strong>verification tokens</strong>。同一条笔记也自陈了局限：reductionist 假设与 LLM 的 emergent capability 不符；找到的 circuits 都是 local 的，而且可能不唯一。<em>（截至 2026-08-06 我们没有找到对应的预印本；此处引用的是那条笔记本身，论文出现后应替换。）</em></li>
 </ol>
@@ -237,8 +237,8 @@ td.num, th.num { text-align: right; }
 
 <ul class="refs">
 <li>Chuanhao Yan et al., <em>Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny</em>, <a href="https://arxiv.org/abs/2507.16331">arXiv:2507.16331</a>, TMLR（2026 年 5 月）。代码与模型：<a href="https://github.com/Veri-Code/ReForm">Veri-Code/ReForm</a>。</li>
-<li>Jie Fu, <a href="https://bigaidream.github.io/project/auto/"><em>Autoformalization and Formally Verifiable AI</em></a>，以及<a href="https://bigaidream.github.io/">个人主页</a>。</li>
-<li>付杰，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note <code>6a73027b</code>，2026-08-05。</li>
+<li>一位公开评论者，<em>Autoformalization and Formally Verifiable AI</em>。</li>
+<li>一位公开评论者，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note <code>6a73027b</code>，2026-08-05。</li>
 <li>David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, <em>Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems</em>, <a href="https://arxiv.org/abs/2405.06624">arXiv:2405.06624</a>。</li>
 <li>Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, <em>"Other-Play" for Zero-Shot Coordination</em>, <a href="https://arxiv.org/abs/2003.02979">arXiv:2003.02979</a>, ICML 2020。</li>
 <li>Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, <em>On the Pitfalls of Measuring Emergent Communication</em>, <a href="https://arxiv.org/abs/1903.05168">arXiv:1903.05168</a>, AAMAS 2019。</li>

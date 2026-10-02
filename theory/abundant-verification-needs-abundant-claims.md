@@ -2,17 +2,17 @@
 
 # Abundant verification needs abundant claims
 
-*A cross-line note addressed to Jie Fu's verification line — one convergence, one measured number, three objections, and one thing we would rather take than give · Macheng Shen × agent · 2026-08-06*
+*A cross-line note addressed to a public commentator's verification line — one convergence, one measured number, three objections, and one thing we would rather take than give · Macheng Shen × agent · 2026-08-06*
 
 ## What this is
 
-This is a note addressed to a specific public line of work, in the same genre as the earlier note addressed to a parallel information-ontology channel: an invitation, not a scorecard. The line is Jie Fu's (付杰, Research Scientist at IQuest Research; previously a postdoctoral fellow with Yoshua Bengio at Mila), whose stated program is to *"preserve and flourish humanity by providing abundant verification."*
+This is a note addressed to a specific public line of work, in the same genre as the earlier note addressed to a parallel information-ontology channel: an invitation, not a scorecard. A public commentator stated its program as *"preserve and flourish humanity by providing abundant verification."*
 
-Three of his contributions are load-bearing here, and they are his, not ours:
+Three contributions from that line are load-bearing here, and they are not ours:
 
-1. **Re:Form** ([arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR May 2026; Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu). The diagnosis: for LLMs trained with RL on informal language, *the verification process that supplies the training signal is neither reliable nor scalable.* The remedy: generate inside a formal space — Dafny — where verification is automatic and provable. The results: **DafnyComp**, a benchmark of compositional formal programs with auto-formalized specifications; an SFT stage after which even a **0.5B** model emits syntactically valid, verifiable Dafny and beats proprietary models on it; RL with regularization improving out-of-domain generalization. The framing that matters most to this note is the *"reducing human priors"* one — no engineer writes per-sample preconditions, postconditions or invariants; the pipeline harvests verifier diagnostics and iterates.
+1. **Re:Form** ([arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR May 2026; Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, and a public commentator). The diagnosis: for LLMs trained with RL on informal language, *the verification process that supplies the training signal is neither reliable nor scalable.* The remedy: generate inside a formal space — Dafny — where verification is automatic and provable. The results: **DafnyComp**, a benchmark of compositional formal programs with auto-formalized specifications; an SFT stage after which even a **0.5B** model emits syntactically valid, verifiable Dafny and beats proprietary models on it; RL with regularization improving out-of-domain generalization. The framing that matters most to this note is the *"reducing human priors"* one — no engineer writes per-sample preconditions, postconditions or invariants; the pipeline harvests verifier diagnostics and iterates.
 
-2. **The autoformalization agenda** ([project page](https://bigaidream.github.io/project/auto/)): converting natural-language content into verifiable formalization, on the explicit premise that current LLMs "cannot do genuine logical reasoning or self-verification on their own."
+2. **The autoformalization agenda**: converting natural-language content into verifiable formalization, on the explicit premise that current LLMs "cannot do genuine logical reasoning or self-verification on their own."
 
 3. **A note dated 2026-08-05** (小红书, note `6a73027b`) announcing sparse matrix factorization as an efficient mechanistic-interpretability method — reportedly matching mainstream MI at roughly **1%** of the data — and, more importantly, stating the vision: inside David Dalrymple's Guaranteed Safe AI frame ([arXiv:2405.06624](https://arxiv.org/abs/2405.06624)), let the verifier check not only a model's *outputs* but, cheaply, its *internals* — 君子论迹，也论心 — driving whole-pipeline verification cost down so society gets cheaper, more reliable **verification tokens**. The same note lists its own limitations: the reductionist assumption sits badly with emergent capability, and the circuits found are local and possibly non-unique. *(As of 2026-08-06 we could not locate the corresponding preprint; the citation is the note, and it should be replaced with the paper when it appears.)*
 
@@ -70,8 +70,8 @@ The asymmetry is honest and runs the other way. Our shadow checker is a hand-rol
 ## References
 
 - Chuanhao Yan et al., *Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny*, [arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR (May 2026). Code and models: [Veri-Code/ReForm](https://github.com/Veri-Code/ReForm).
-- Jie Fu, [*Autoformalization and Formally Verifiable AI*](https://bigaidream.github.io/project/auto/), and [homepage](https://bigaidream.github.io/).
-- Jie Fu, note on sparse matrix factorization for mechanistic interpretability and abundant verification tokens, 小红书 note `6a73027b`, 2026-08-05.
+- A public commentator, *Autoformalization and Formally Verifiable AI*.
+- A public commentator, note on sparse matrix factorization for mechanistic interpretability and abundant verification tokens, 小红书 note `6a73027b`, 2026-08-05.
 - David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, *Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems*, [arXiv:2405.06624](https://arxiv.org/abs/2405.06624).
 - Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, *"Other-Play" for Zero-Shot Coordination*, [arXiv:2003.02979](https://arxiv.org/abs/2003.02979), ICML 2020.
 - Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, *On the Pitfalls of Measuring Emergent Communication*, [arXiv:1903.05168](https://arxiv.org/abs/1903.05168), AAMAS 2019.

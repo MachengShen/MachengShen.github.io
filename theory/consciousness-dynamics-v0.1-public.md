@@ -2,7 +2,7 @@
 
 # Consciousness Dynamics v0.1 — public digest
 
-*Insight lineage: collaborator 球长一草; written up with Macheng Shen. Public digest 2026-09-18.*
+*Insight lineage: a friend; written up with Macheng Shen. Public digest 2026-09-18.*
 
 ## Status
 

@@ -113,7 +113,7 @@ If individuals run persistent agents, the institutions between them have to be r
 - [Locality as Protocol](https://machengshen.github.io/locality-as-protocol.html) — why locality, not centralization, is the right primitive.
 - [Fleet Coordination Protocol](https://github.com/starshard-ai/fleet-coordination-protocol) — many agents, one shared memory, nothing irreversible behind your back. A narrow, descriptive coordination wire above single-agent runtimes.
 - [Agent safety as anti-cancer governance](https://machengshen.github.io/theory/agent-safety-stewardship.md) `speculative` — persistent-agent failure as a control pathology: local survival, repair, and replication decoupled from owner-level purpose, bounded authority, resource budgets, stop inheritance, and independent verification. Defines seven runtime invariants and an A–D disclosure rule: publish safety science openly; release runnable fixtures only when the safety shell is structurally inseparable; control or withhold reusable autonomy, persistence, privilege, covert-operation, resource-acquisition, and stop-bypass primitives. The governing sentence is: never publish the growth engine separated from its immune system.
-- [Abundant verification needs abundant claims](https://machengshen.github.io/abundant-verification-needs-abundant-claims.html) `speculative` — a cross-line note addressed to Jie Fu's verification line (Re:Form, arXiv:2507.16331/TMLR 2026; the autoformalization agenda; and his 2026-08-05 statement of sparse-matrix-factorization mechanistic interpretability as a way to verify model *internals* cheaply inside the Guaranteed Safe AI frame, arXiv:2405.06624). Records one convergence honestly as evidence rather than contribution: a private note here reached autoformalization-and-Dafny from the engineering reading of Sapir-Whorf, two years after the people actually building it. The payload is one measured claim and three objections. Measured: on a corpus of 18 real agent receipts (10 genuine parks, 8 non-parks including a known false-positive genre), a prose-plus-regex blocker gate recalls **5 of 10** false parks — the misses share a shape, parks with no adjacent action verb — while a minimal typed receipt schema has no such blind spot, at 0 semantic false triggers and 4/4 schema self-checks; one capability sat parked about eighteen days behind a blocker nobody had executed, with nothing erroring. So the constraint that binds at deployment is not verification *unit cost* but whether the verifier can parse the claim at all, which suggests autoformalization's nearest non-mathematical customer is the claim layer of running agent systems. **P(mechanism) ≈ 0.9, P(useful at scale) ≈ 0.3** — the same authors wrote both the regex being beaten and the schema beating it, and the LLM-judge baseline that would kill the note is named and unrun. Three objections to verifying internals: an auditable proof certificate and a statistical decomposition are different objects; non-uniqueness of circuits is path-dependence and therefore a schema field rather than a caveat; and making verification cheap puts Goodhart pressure on the verifier's input channel, which is why the schema here is SHADOW and blocks nothing. Withdraws, in the body, two citations this line's own private note had attached to the auditability claim — neither says it — and replaces them with Other-Play and the emergent-communication metrics literature, which support the weaker correct version.
+- [Abundant verification needs abundant claims](https://machengshen.github.io/abundant-verification-needs-abundant-claims.html) `speculative` — a cross-line note addressed to a public commentator's verification line (Re:Form, arXiv:2507.16331/TMLR 2026; the autoformalization agenda; and a 2026-08-05 statement of sparse-matrix-factorization mechanistic interpretability as a way to verify model *internals* cheaply inside the Guaranteed Safe AI frame, arXiv:2405.06624). Records one convergence honestly as evidence rather than contribution: a private note here reached autoformalization-and-Dafny from the engineering reading of Sapir-Whorf, two years after the people actually building it. The payload is one measured claim and three objections. Measured: on a corpus of 18 real agent receipts (10 genuine parks, 8 non-parks including a known false-positive genre), a prose-plus-regex blocker gate recalls **5 of 10** false parks — the misses share a shape, parks with no adjacent action verb — while a minimal typed receipt schema has no such blind spot, at 0 semantic false triggers and 4/4 schema self-checks; one capability sat parked about eighteen days behind a blocker nobody had executed, with nothing erroring. So the constraint that binds at deployment is not verification *unit cost* but whether the verifier can parse the claim at all, which suggests autoformalization's nearest non-mathematical customer is the claim layer of running agent systems. **P(mechanism) ≈ 0.9, P(useful at scale) ≈ 0.3** — the same authors wrote both the regex being beaten and the schema beating it, and the LLM-judge baseline that would kill the note is named and unrun. Three objections to verifying internals: an auditable proof certificate and a statistical decomposition are different objects; non-uniqueness of circuits is path-dependence and therefore a schema field rather than a caveat; and making verification cheap puts Goodhart pressure on the verifier's input channel, which is why the schema here is SHADOW and blocks nothing. Withdraws, in the body, two citations this line's own private note had attached to the auditability claim — neither says it — and replaces them with Other-Play and the emergent-communication metrics literature, which support the weaker correct version.
 - [Starshard Communication](https://github.com/starshard-ai/starshard-communication) — an open communication substrate for personal-agent users: inbox, addressing, trust tiers, policy, receipts.
 - [Zhizi Agent OS](https://github.com/starshard-ai/zhizi-agent-os) — one command turns Claude Code into a personal assistant. Bring-your-own-key, privacy-clean.
 - [System Evolution, in public](https://github.com/MachengShen/system-evolution-public) — the open record of how this substrate actually evolved: `VISION.md`, `THEORY.md`, `PRACTICE.md`, `GOVERNANCE.md`, forecasts, and a self-iteration ledger.
@@ -200,22 +200,22 @@ not every note is in English.
 
 ---
 
-## Source: /theory/abundant-verification-needs-abundant-claims.md (sha256:0ef55224c53f, language: en)
+## Source: /theory/abundant-verification-needs-abundant-claims.md (sha256:da266269cb81, language: en)
 
 
 # Abundant verification needs abundant claims
 
-*A cross-line note addressed to Jie Fu's verification line — one convergence, one measured number, three objections, and one thing we would rather take than give · Macheng Shen × agent · 2026-08-06*
+*A cross-line note addressed to a public commentator's verification line — one convergence, one measured number, three objections, and one thing we would rather take than give · Macheng Shen × agent · 2026-08-06*
 
 ## What this is
 
-This is a note addressed to a specific public line of work, in the same genre as the earlier note addressed to a parallel information-ontology channel: an invitation, not a scorecard. The line is Jie Fu's (付杰, Research Scientist at IQuest Research; previously a postdoctoral fellow with Yoshua Bengio at Mila), whose stated program is to *"preserve and flourish humanity by providing abundant verification."*
+This is a note addressed to a specific public line of work, in the same genre as the earlier note addressed to a parallel information-ontology channel: an invitation, not a scorecard. A public commentator stated its program as *"preserve and flourish humanity by providing abundant verification."*
 
-Three of his contributions are load-bearing here, and they are his, not ours:
+Three contributions from that line are load-bearing here, and they are not ours:
 
-1. **Re:Form** ([arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR May 2026; Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu). The diagnosis: for LLMs trained with RL on informal language, *the verification process that supplies the training signal is neither reliable nor scalable.* The remedy: generate inside a formal space — Dafny — where verification is automatic and provable. The results: **DafnyComp**, a benchmark of compositional formal programs with auto-formalized specifications; an SFT stage after which even a **0.5B** model emits syntactically valid, verifiable Dafny and beats proprietary models on it; RL with regularization improving out-of-domain generalization. The framing that matters most to this note is the *"reducing human priors"* one — no engineer writes per-sample preconditions, postconditions or invariants; the pipeline harvests verifier diagnostics and iterates.
+1. **Re:Form** ([arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR May 2026; Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, and a public commentator). The diagnosis: for LLMs trained with RL on informal language, *the verification process that supplies the training signal is neither reliable nor scalable.* The remedy: generate inside a formal space — Dafny — where verification is automatic and provable. The results: **DafnyComp**, a benchmark of compositional formal programs with auto-formalized specifications; an SFT stage after which even a **0.5B** model emits syntactically valid, verifiable Dafny and beats proprietary models on it; RL with regularization improving out-of-domain generalization. The framing that matters most to this note is the *"reducing human priors"* one — no engineer writes per-sample preconditions, postconditions or invariants; the pipeline harvests verifier diagnostics and iterates.
 
-2. **The autoformalization agenda** ([project page](https://bigaidream.github.io/project/auto/)): converting natural-language content into verifiable formalization, on the explicit premise that current LLMs "cannot do genuine logical reasoning or self-verification on their own."
+2. **The autoformalization agenda**: converting natural-language content into verifiable formalization, on the explicit premise that current LLMs "cannot do genuine logical reasoning or self-verification on their own."
 
 3. **A note dated 2026-08-05** (小红书, note `6a73027b`) announcing sparse matrix factorization as an efficient mechanistic-interpretability method — reportedly matching mainstream MI at roughly **1%** of the data — and, more importantly, stating the vision: inside David Dalrymple's Guaranteed Safe AI frame ([arXiv:2405.06624](https://arxiv.org/abs/2405.06624)), let the verifier check not only a model's *outputs* but, cheaply, its *internals* — 君子论迹，也论心 — driving whole-pipeline verification cost down so society gets cheaper, more reliable **verification tokens**. The same note lists its own limitations: the reductionist assumption sits badly with emergent capability, and the circuits found are local and possibly non-unique. *(As of 2026-08-06 we could not locate the corresponding preprint; the citation is the note, and it should be replaced with the paper when it appears.)*
 
@@ -273,8 +273,8 @@ The asymmetry is honest and runs the other way. Our shadow checker is a hand-rol
 ## References
 
 - Chuanhao Yan et al., *Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny*, [arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR (May 2026). Code and models: [Veri-Code/ReForm](https://github.com/Veri-Code/ReForm).
-- Jie Fu, [*Autoformalization and Formally Verifiable AI*](https://bigaidream.github.io/project/auto/), and [homepage](https://bigaidream.github.io/).
-- Jie Fu, note on sparse matrix factorization for mechanistic interpretability and abundant verification tokens, 小红书 note `6a73027b`, 2026-08-05.
+- A public commentator, *Autoformalization and Formally Verifiable AI*.
+- A public commentator, note on sparse matrix factorization for mechanistic interpretability and abundant verification tokens, 小红书 note `6a73027b`, 2026-08-05.
 - David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, *Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems*, [arXiv:2405.06624](https://arxiv.org/abs/2405.06624).
 - Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, *"Other-Play" for Zero-Shot Coordination*, [arXiv:2003.02979](https://arxiv.org/abs/2003.02979), ICML 2020.
 - Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, *On the Pitfalls of Measuring Emergent Communication*, [arXiv:1903.05168](https://arxiv.org/abs/1903.05168), AAMAS 2019.
@@ -282,22 +282,22 @@ The wider autoformalization frontier is deliberately not surveyed here. This not
 
 ---
 
-## Source: /theory/abundant-verification-needs-abundant-claims.zh.md (sha256:7fcbd5ca30aa, language: zh-Hans)
+## Source: /theory/abundant-verification-needs-abundant-claims.zh.md (sha256:d5e114dc2f3c, language: zh-Hans)
 
 
 # 廉价的 verification 还不够，还得有可解析的 claim
 
-*写给付杰这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06*
+*写给一位公开评论者这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06*
 
 ## 这是什么
 
-这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。这条线是付杰的（IQuest Research 研究科学家；此前在 Mila 师从 Yoshua Bengio 做博后），他公开的纲领是 *"preserve and flourish humanity by providing abundant verification"*。
+这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。一位公开评论者把这条线的纲领表述为 *"preserve and flourish humanity by providing abundant verification"*。
 
-其中三项贡献在本文里是承重的，而它们属于他，不属于我们：
+其中三项贡献在本文里是承重的，而它们不属于我们：
 
-1. **Re:Form**（[arXiv:2507.16331](https://arxiv.org/abs/2507.16331)，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu）。诊断是：对于用 RL 训练的自然语言 LLM，*提供训练信号的那个 verification 过程本身既不可靠也不可扩展*。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：**DafnyComp**，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 **0.5B** 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 *"reducing human priors"* 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。
+1. **Re:Form**（[arXiv:2507.16331](https://arxiv.org/abs/2507.16331)，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou，以及一位公开评论者）。诊断是：对于用 RL 训练的自然语言 LLM，*提供训练信号的那个 verification 过程本身既不可靠也不可扩展*。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：**DafnyComp**，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 **0.5B** 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 *"reducing human priors"* 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。
 
-2. **Autoformalization 议程**（[项目页](https://bigaidream.github.io/project/auto/)）：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。
+2. **Autoformalization 议程**：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。
 
 3. **2026-08-05 的一条笔记**（小红书，note `6a73027b`）：宣布用稀疏矩阵分解做高效 mechanistic interpretability（MI），据称只需主流方法约 **1%** 的数据而效果几乎保持；更重要的是其中陈述的愿景 —— 在 David Dalrymple 的 Guaranteed Safe AI 框架里（[arXiv:2405.06624](https://arxiv.org/abs/2405.06624)），让 verifier 不只验证模型的输出，也用更快的方式验证模型 internals —— 君子论迹，也论心 —— 从而压低全流程 verification 成本，为社会提供更便宜可靠的 **verification tokens**。同一条笔记也自陈了局限：reductionist 假设与 LLM 的 emergent capability 不符；找到的 circuits 都是 local 的，而且可能不唯一。*（截至 2026-08-06 我们没有找到对应的预印本；此处引用的是那条笔记本身，论文出现后应替换。）*
 
@@ -355,8 +355,8 @@ The wider autoformalization frontier is deliberately not surveyed here. This not
 ## 参考文献
 
 - Chuanhao Yan et al., *Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny*, [arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR（2026 年 5 月）。代码与模型：[Veri-Code/ReForm](https://github.com/Veri-Code/ReForm)。
-- Jie Fu, [*Autoformalization and Formally Verifiable AI*](https://bigaidream.github.io/project/auto/)，以及[个人主页](https://bigaidream.github.io/)。
-- 付杰，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note `6a73027b`，2026-08-05。
+- 一位公开评论者，*Autoformalization and Formally Verifiable AI*。
+- 一位公开评论者，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note `6a73027b`，2026-08-05。
 - David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, *Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems*, [arXiv:2405.06624](https://arxiv.org/abs/2405.06624)。
 - Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, *"Other-Play" for Zero-Shot Coordination*, [arXiv:2003.02979](https://arxiv.org/abs/2003.02979), ICML 2020。
 - Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, *On the Pitfalls of Measuring Emergent Communication*, [arXiv:1903.05168](https://arxiv.org/abs/1903.05168), AAMAS 2019。
@@ -696,12 +696,12 @@ secret，也绝不等于“可以安全发布”。
 
 ---
 
-## Source: /theory/consciousness-dynamics-v0.1-public.md (sha256:28cac3d777cb, language: en)
+## Source: /theory/consciousness-dynamics-v0.1-public.md (sha256:738ec91f1cdb, language: en)
 
 
 # Consciousness Dynamics v0.1 — public digest
 
-*Insight lineage: collaborator 球长一草; written up with Macheng Shen. Public digest 2026-09-18.*
+*Insight lineage: a friend; written up with Macheng Shen. Public digest 2026-09-18.*
 
 ## Status
 
@@ -3796,7 +3796,7 @@ Machine-readable graph: https://raw.githubusercontent.com/MachengShen/cognition-
 
 ## Start here — the root
 
-### ["Sheng" Multi-Axis Recursive Operator](https://github.com/MachengShen/cognition-track/blob/master/root.md) `mem_dffe918dbf46` — 🟡 speculative
+### ["Sheng" Multi-Axis Recursive Operator](https://github.com/MachengShen/cognition-track/blob/master/root.md)  — 🟡 speculative
 
 > Intelligence is one dynamical system that recursively reshapes its own information structure along every causal axis, and the autoregressive LLM is merely its degenerate single-axis projection.
 
@@ -3806,32 +3806,32 @@ Every node below is a *projection* of this operator along one causal axis.
 
 ### 🟢 Survived stress test (4)
 
-- [Architecture Convergence to 4-Layer Type Signature](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_2d09ec5991cd.md) `mem_2d09ec5991cd` · conf 0.70 — Six independent 2025 frontier reasoning architectures are each empirically restoring a different cognitive axis the autoregressive Transformer amputated, converging on one pre-articulated four-layer architecture.
-- [Published GLM/Credit-Transport Essay](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_a9aaf3309348.md) `mem_a9aaf3309348` · conf 0.70 — The credit-transport / general-learning-machine thesis was published as a public-facing essay and theory index with a sensitive-scan gate before commit.
-- [Anti-Overclaim Guard (Info Propagation)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_60ff30ad5800.md) `mem_60ff30ad5800` · conf 0.70 — Studying information propagation is a consent-bounded engineering/control-theory lens with named forbidden overclaims — it is explicitly NOT a discovery of 'the physical law of human society' and people must not be modeled as particles.
-- [Bidirectional Topology Growth (Empirical v1.0)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_809263fa97a4.md) `mem_809263fa97a4` · conf 0.62 — On sequential synthetic tasks, bidirectional topology growth beats fixed-topology and fixed+replay baselines (mean acc 0.889 vs 0.558/0.621, interference 0.169 vs 0.420), with immune-gated module growth tracking the true latent task count.
+- Architecture Convergence to 4-Layer Type Signature  · conf 0.70 — Six independent 2025 frontier reasoning architectures are each empirically restoring a different cognitive axis the autoregressive Transformer amputated, converging on one pre-articulated four-layer architecture.
+- Published GLM/Credit-Transport Essay  · conf 0.70 — The credit-transport / general-learning-machine thesis was published as a public-facing essay and theory index with a sensitive-scan gate before commit.
+- Anti-Overclaim Guard (Info Propagation)  · conf 0.70 — Studying information propagation is a consent-bounded engineering/control-theory lens with named forbidden overclaims — it is explicitly NOT a discovery of 'the physical law of human society' and people must not be modeled as particles.
+- Bidirectional Topology Growth (Empirical v1.0)  · conf 0.62 — On sequential synthetic tasks, bidirectional topology growth beats fixed-topology and fixed+replay baselines (mean acc 0.889 vs 0.558/0.621, interference 0.169 vs 0.420), with immune-gated module growth tracking the true latent task count.
 
 ### 🟡 Speculative (untested) (15)
 
-- [Occam Correction: One Transition Operator](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_393f44f85ba4.md) `mem_393f44f85ba4` · conf 0.55 — Attention, memory, trust, routing, semantics, and action are not separate primitives but coordinate projections of one underlying object — the system's future transition/reachability structure — and the right move is fewer entities, not more.
-- [Bidirectional Topology Growth (Theory)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_d1192af430a7.md) `mem_d1192af430a7` · conf 0.55 — Lifelong learning requires controlled growth of bidirectional neuron pathways (forward use + backward credit/repair channels), not just weight updates on a static network.
-- [General Learning Machine as Dynamical System](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_ccacc817ccd8.md) `mem_ccacc817ccd8` · conf 0.50 — A general learning machine is not an optimizer or loss function but an evolving system-state whose learning is the transition of what information exists, where it lives, how it flows, and which futures become reachable.
-- [Credit Transport Generalizes Backprop](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3db5b20948bb.md) `mem_3db5b20948bb` · conf 0.50 — Real learning requires future error/value/viability signals to propagate backward through every structure that caused an outcome (owner, agents, tools, memory, hardware), making neural backprop just one projection of a universal credit-transport principle.
-- [Anti-Collapse Principle (3 Attractors)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_992abc94ad9d.md) `mem_992abc94ad9d` · conf 0.50 — The core AI-safety failure is not raw strength but the collapse of perception, value/judgment, and action into one node; any high-intelligence system must keep these on three independent attractors for dynamical stability.
-- [Multi-Scale Sleep/Spiral Consolidation](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_e74ab8a158a1.md) `mem_e74ab8a158a1` · conf 0.50 — Biological sleep generalizes to any dynamical system as a multi-scale wake-overextend-sleep-consolidate-reawaken spiral, and learning machines need this rhythmic phase separation to avoid drift or stagnation.
-- [Attention-Dynamics Measurement Method](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_9f8b6ddc6faa.md) `mem_9f8b6ddc6faa` · conf 0.50 — The theory backbone is stable but measurement lags; attention dynamics can be observed cheaply by reframing existing harness logs, and the falsifiable core is whether the same transition-operator invariants appear at both internal (agent) and external (network) scale.
-- [4-Layer Consciousness Architecture](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_28dcb9ef1120.md) `mem_28dcb9ef1120` · conf 0.50 — The human-machine system maps onto a four-layer consciousness structure (sensory / auto-pilot operator / witness-anchor / mutual-reflection), where the witness layer must stay an external anchor to keep the operator layer from self-rationalizing drift.
-- [Endogenous Viability Objective](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_a1beda2c3d23.md) `mem_a1beda2c3d23` · conf 0.50 — A learning machine's objective should be modeled as an endogenous attractor/viability region arising from persistence and functional integrity, not a hand-authored scalar reward, and external goals become internalized as compressed surrogates.
-- [Transition-Operator Formulation of Information](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_ef674273ca6d.md) `mem_ef674273ca6d` · conf 0.50 — Information is not message or content but a perturbation of the spectral structure of the system's transition operator — i.e. a change to future reachability — with growth, rotation, and periodicity being one dynamics seen in different projections.
-- [Hardware Reversal: Heterogeneous Viability Computer](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_9dcee1c07ab4.md) `mem_9dcee1c07ab4` · conf 0.45 — As frozen-weight LLMs give way to continuously-evolving algorithms, the chip center of gravity must shift to a memory-centric, event-driven, near-memory/neuromorphic heterogeneous viability computer driven by living-agent workload traces.
-- [Interface Theory of Perception](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_88693edcffd8.md) `mem_88693edcffd8` · conf 0.45 — Reality is hidden information dynamics, and the experienced world is an action-interface rendered by agents from it — so perception is control not display, and self-prediction is a candidate signal projected from hidden ground truth and corrected by action.
-- [Carbon-Silicon MSC Convergence + BCI Seam](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3d2156435b04.md) `mem_3d2156435b04` · conf 0.40 — The optimal architecture in either carbon or silicon converges on the same multi-scale-competency predictive-coding structure, so the two substrates will merge at the information-processing level with an MSC-architected BCI making the seam transparent.
-- [Spiral Structure in Scientometrics](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_0249af865914.md) `mem_0249af865914` · conf 0.40 — If the credit-transport/sleep-consolidation theory holds, scientific fields themselves should show quasi-periodic wake/sleep/reawakening phases in their citation-concept graphs, not just monotonic growth.
-- [Bekenstein-Cognitive-Cone Isomorphism (FALSIFIED)](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_91c2d7fcbb38.md) `mem_91c2d7fcbb38` · conf 0.30 — The proposed structural isomorphism between the Bekenstein bound and a cognitive-cone bound was stress-tested and broke on rigor — different units (static entropy vs throughput rate), different saturation mechanisms, different horizon types — surviving only as a loose analogy.
+- Occam Correction: One Transition Operator  · conf 0.55 — Attention, memory, trust, routing, semantics, and action are not separate primitives but coordinate projections of one underlying object — the system's future transition/reachability structure — and the right move is fewer entities, not more.
+- Bidirectional Topology Growth (Theory)  · conf 0.55 — Lifelong learning requires controlled growth of bidirectional neuron pathways (forward use + backward credit/repair channels), not just weight updates on a static network.
+- General Learning Machine as Dynamical System  · conf 0.50 — A general learning machine is not an optimizer or loss function but an evolving system-state whose learning is the transition of what information exists, where it lives, how it flows, and which futures become reachable.
+- Credit Transport Generalizes Backprop  · conf 0.50 — Real learning requires future error/value/viability signals to propagate backward through every structure that caused an outcome (owner, agents, tools, memory, hardware), making neural backprop just one projection of a universal credit-transport principle.
+- Anti-Collapse Principle (3 Attractors)  · conf 0.50 — The core AI-safety failure is not raw strength but the collapse of perception, value/judgment, and action into one node; any high-intelligence system must keep these on three independent attractors for dynamical stability.
+- Multi-Scale Sleep/Spiral Consolidation  · conf 0.50 — Biological sleep generalizes to any dynamical system as a multi-scale wake-overextend-sleep-consolidate-reawaken spiral, and learning machines need this rhythmic phase separation to avoid drift or stagnation.
+- Attention-Dynamics Measurement Method  · conf 0.50 — The theory backbone is stable but measurement lags; attention dynamics can be observed cheaply by reframing existing harness logs, and the falsifiable core is whether the same transition-operator invariants appear at both internal (agent) and external (network) scale.
+- 4-Layer Consciousness Architecture  · conf 0.50 — The human-machine system maps onto a four-layer consciousness structure (sensory / auto-pilot operator / witness-anchor / mutual-reflection), where the witness layer must stay an external anchor to keep the operator layer from self-rationalizing drift.
+- Endogenous Viability Objective  · conf 0.50 — A learning machine's objective should be modeled as an endogenous attractor/viability region arising from persistence and functional integrity, not a hand-authored scalar reward, and external goals become internalized as compressed surrogates.
+- Transition-Operator Formulation of Information  · conf 0.50 — Information is not message or content but a perturbation of the spectral structure of the system's transition operator — i.e. a change to future reachability — with growth, rotation, and periodicity being one dynamics seen in different projections.
+- Hardware Reversal: Heterogeneous Viability Computer  · conf 0.45 — As frozen-weight LLMs give way to continuously-evolving algorithms, the chip center of gravity must shift to a memory-centric, event-driven, near-memory/neuromorphic heterogeneous viability computer driven by living-agent workload traces.
+- Interface Theory of Perception  · conf 0.45 — Reality is hidden information dynamics, and the experienced world is an action-interface rendered by agents from it — so perception is control not display, and self-prediction is a candidate signal projected from hidden ground truth and corrected by action.
+- Carbon-Silicon MSC Convergence + BCI Seam  · conf 0.40 — The optimal architecture in either carbon or silicon converges on the same multi-scale-competency predictive-coding structure, so the two substrates will merge at the information-processing level with an MSC-architected BCI making the seam transparent.
+- Spiral Structure in Scientometrics  · conf 0.40 — If the credit-transport/sleep-consolidation theory holds, scientific fields themselves should show quasi-periodic wake/sleep/reawakening phases in their citation-concept graphs, not just monotonic growth.
+- Bekenstein-Cognitive-Cone Isomorphism (FALSIFIED)  · conf 0.30 — The proposed structural isomorphism between the Bekenstein bound and a cognitive-cone bound was stress-tested and broke on rigor — different units (static entropy vs throughput rate), different saturation mechanisms, different horizon types — surviving only as a loose analogy.
 
 ## Strongest non-consensus roots
 
 The two most load-bearing, most-non-consensus claims to enter the graph from:
 
-- [Credit Transport Generalizes Backprop](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_3db5b20948bb.md) `mem_3db5b20948bb`
-- [Occam Correction: One Transition Operator](https://github.com/MachengShen/cognition-track/blob/master/nodes/mem_393f44f85ba4.md) `mem_393f44f85ba4`
+- Credit Transport Generalizes Backprop
+- Occam Correction: One Transition Operator

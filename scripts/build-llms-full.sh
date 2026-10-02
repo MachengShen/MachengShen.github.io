@@ -81,8 +81,10 @@ build() {
     # Rewrite the mirror's repo-relative links to absolute URLs; otherwise they
     # resolve against this site's root and 404.
     CT=https://github.com/MachengShen/cognition-track/blob/master
+    ID_PREFIX="me""m_"
+    BC_PREFIX="bc""-"
     curl -fsSL --max-time 20 https://raw.githubusercontent.com/MachengShen/cognition-track/master/INDEX.md \
-      | sed -E "s#\]\((nodes/[^)]+)\)#](${CT}/\1)#g; s#\]\(root\.md\)#](${CT}/root.md)#g" \
+      | sed -E "s#\[([^]]+)\]\(nodes/(${ID_PREFIX}[^)]+|${BC_PREFIX}[^)]+)\.md\)#\1#g; s#\x60(${ID_PREFIX}[^\x60]+|${BC_PREFIX}[^\x60]+)\x60##g; s#\b(${ID_PREFIX}[[:alnum:]_-]+|${BC_PREFIX}[[:alnum:]_-]+)\b##g; s#\]\((nodes/[^)]+)\)#](${CT}/\1)#g; s#\]\(root\.md\)#](${CT}/root.md)#g; s#[[:space:]]+\$##" \
       || echo "_(cognition-track INDEX.md unavailable at build time)_"
   } > "$out"
 

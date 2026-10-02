@@ -2,17 +2,17 @@
 
 # 廉价的 verification 还不够，还得有可解析的 claim
 
-*写给付杰这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06*
+*写给一位公开评论者这条 verification 线的一封跨线笔记 —— 一处独立汇合、一个实测数字、三条反对意见，以及一件我们更想拿走而不是给出的东西 · Macheng Shen × agent · 2026-08-06*
 
 ## 这是什么
 
-这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。这条线是付杰的（IQuest Research 研究科学家；此前在 Mila 师从 Yoshua Bengio 做博后），他公开的纲领是 *"preserve and flourish humanity by providing abundant verification"*。
+这是一封写给某一条具体公开研究线的笔记，体裁与本站早先那封写给某个平行「信息本体论」频道的笔记相同：是邀请，不是评分表。一位公开评论者把这条线的纲领表述为 *"preserve and flourish humanity by providing abundant verification"*。
 
-其中三项贡献在本文里是承重的，而它们属于他，不属于我们：
+其中三项贡献在本文里是承重的，而它们不属于我们：
 
-1. **Re:Form**（[arXiv:2507.16331](https://arxiv.org/abs/2507.16331)，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou, Jie Fu）。诊断是：对于用 RL 训练的自然语言 LLM，*提供训练信号的那个 verification 过程本身既不可靠也不可扩展*。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：**DafnyComp**，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 **0.5B** 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 *"reducing human priors"* 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。
+1. **Re:Form**（[arXiv:2507.16331](https://arxiv.org/abs/2507.16331)，TMLR 2026 年 5 月；Chuanhao Yan, Fengdi Che, Xuhan Huang, Xu Xu, Xin Li, Yizhi Li, Xingwei Qu, Jingzhe Shi, Chenghua Lin, Yaodong Yang, Binhang Yuan, Hang Zhao, Yu Qiao, Bowen Zhou，以及一位公开评论者）。诊断是：对于用 RL 训练的自然语言 LLM，*提供训练信号的那个 verification 过程本身既不可靠也不可扩展*。药方是：让生成发生在形式空间里 —— Dafny —— 那里 verification 是自动且可证明的。结果包括：**DafnyComp**，一个带自动形式化 specification 的组合式形式程序 benchmark；一个 SFT 阶段，此后连 **0.5B** 的模型都能产出语法有效、可验证的 Dafny 代码并在此项上超过闭源模型；带正则化的 RL 进一步改善域外泛化。对本文最重要的是 *"reducing human priors"* 这个取向 —— 不由工程师逐样本写前置条件、后置条件或不变式，而是让 pipeline 自动收割 verifier 的诊断信息并迭代。
 
-2. **Autoformalization 议程**（[项目页](https://bigaidream.github.io/project/auto/)）：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。
+2. **Autoformalization 议程**：把自然语言内容转成可验证的形式化，明确前提是当前 LLM "cannot do genuine logical reasoning or self-verification on their own"。
 
 3. **2026-08-05 的一条笔记**（小红书，note `6a73027b`）：宣布用稀疏矩阵分解做高效 mechanistic interpretability（MI），据称只需主流方法约 **1%** 的数据而效果几乎保持；更重要的是其中陈述的愿景 —— 在 David Dalrymple 的 Guaranteed Safe AI 框架里（[arXiv:2405.06624](https://arxiv.org/abs/2405.06624)），让 verifier 不只验证模型的输出，也用更快的方式验证模型 internals —— 君子论迹，也论心 —— 从而压低全流程 verification 成本，为社会提供更便宜可靠的 **verification tokens**。同一条笔记也自陈了局限：reductionist 假设与 LLM 的 emergent capability 不符；找到的 circuits 都是 local 的，而且可能不唯一。*（截至 2026-08-06 我们没有找到对应的预印本；此处引用的是那条笔记本身，论文出现后应替换。）*
 
@@ -70,8 +70,8 @@
 ## 参考文献
 
 - Chuanhao Yan et al., *Re:Form — Reducing Human Priors in Scalable Formal Software Verification with RL in LLMs: A Preliminary Study on Dafny*, [arXiv:2507.16331](https://arxiv.org/abs/2507.16331), TMLR（2026 年 5 月）。代码与模型：[Veri-Code/ReForm](https://github.com/Veri-Code/ReForm)。
-- Jie Fu, [*Autoformalization and Formally Verifiable AI*](https://bigaidream.github.io/project/auto/)，以及[个人主页](https://bigaidream.github.io/)。
-- 付杰，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note `6a73027b`，2026-08-05。
+- 一位公开评论者，*Autoformalization and Formally Verifiable AI*。
+- 一位公开评论者，关于用稀疏矩阵分解做机制可解释与 abundant verification tokens 的笔记，小红书 note `6a73027b`，2026-08-05。
 - David "davidad" Dalrymple, Joar Skalse, Yoshua Bengio, Stuart Russell, Max Tegmark, Sanjit Seshia, Steve Omohundro, Christian Szegedy, Ben Goldhaber, Nora Ammann, Alessandro Abate, Joe Halpern, Clark Barrett, Ding Zhao, Tan Zhi-Xuan, Jeannette Wing, Joshua Tenenbaum, *Towards Guaranteed Safe AI: A Framework for Ensuring Robust and Reliable AI Systems*, [arXiv:2405.06624](https://arxiv.org/abs/2405.06624)。
 - Hengyuan Hu, Adam Lerer, Alex Peysakhovich, Jakob Foerster, *"Other-Play" for Zero-Shot Coordination*, [arXiv:2003.02979](https://arxiv.org/abs/2003.02979), ICML 2020。
 - Ryan Lowe, Jakob Foerster, Y-Lan Boureau, Joelle Pineau, Yann Dauphin, *On the Pitfalls of Measuring Emergent Communication*, [arXiv:1903.05168](https://arxiv.org/abs/1903.05168), AAMAS 2019。
