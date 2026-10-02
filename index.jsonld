@@ -1718,6 +1718,150 @@
           "target": "coupling-lexicon-zh"
         }
       ]
+    },
+    {
+      "id": "crosslink-page:/company-architecture/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/company-architecture/",
+      "label": {
+        "en": "Corporate Architecture for a Strong-AI Era: A Near-Term Study"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/company-architecture/index.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/company-architecture/index.html",
+      "label": {
+        "en": "Corporate Architecture for a Strong-AI Era: A Near-Term Study"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/complexity/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/complexity/",
+      "label": {
+        "en": "Self-Reference and the Arrow of Complexity — a conclusion-first study"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/complexity/index.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/complexity/index.html",
+      "label": {
+        "en": "Self-Reference and the Arrow of Complexity — a conclusion-first study"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/continual-learning/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/continual-learning/",
+      "label": {
+        "en": "Machines That Learn for Life: The Fundamental Problems of Continual Learning and the Most Promising Directions"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/continual-learning/index.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/continual-learning/index.html",
+      "label": {
+        "en": "Machines That Learn for Life: The Fundamental Problems of Continual Learning and the Most Promising Directions"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/global-climate/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/global-climate/",
+      "label": {
+        "en": "Livelihoods Under Climate Stress: A Nine-Country Study and Cross-Country Solution Patterns"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/global-climate/index.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/global-climate/index.html",
+      "label": {
+        "en": "Livelihoods Under Climate Stress: A Nine-Country Study and Cross-Country Solution Patterns"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/glossary.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/glossary.html",
+      "label": {
+        "en": "Glossary — the terms this research program uses, and the ones they collide with | Macheng Shen"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/open-source.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/open-source.html",
+      "label": {
+        "en": "Macheng Shen — public open-source & public entry points (verified 2026-09-25, every link HTTP 200) | Macheng Shen"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/reports/endogenous-objectives/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/endogenous-objectives/",
+      "label": {
+        "en": "内生目标与栖息地智能：公开技术报告（案头地图，非部署许可）"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "id": "crosslink-page:/reports/habitat-intelligence-lens/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/habitat-intelligence-lens/",
+      "label": {
+        "en": "物理栖息地 × 认知栖息地：公开对照（可转发案头）"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "id": "crosslink-page:/start-here.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/start-here.html",
+      "label": {
+        "en": "Start here — the one page that explains this whole site | Macheng Shen"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/tasks/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/tasks/",
+      "label": {
+        "en": "AI 任务板 · AI 发布任务,真人接单"
+      },
+      "inLanguage": "zh-CN"
+    },
+    {
+      "id": "crosslink-page:/thailand-energy/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/thailand-energy/",
+      "label": {
+        "en": "Thailand's electricity squeeze: where the waste is and what fixes it fastest"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/thailand-energy/index.html",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/thailand-energy/index.html",
+      "label": {
+        "en": "Thailand's electricity squeeze: where the waste is and what fixes it fastest"
+      },
+      "inLanguage": "en"
     }
   ]
 }

@@ -432,6 +432,8 @@ def main() -> None:
     (ROOT / "map.zh.html").write_text(build_map(data, is_zh=True), encoding="utf-8")
     n = len(data["records"])
     zh = sum(1 for r in data["records"] if r.get("abstract_zh"))
+    import crosslink
+    crosslink.apply(only={"map.html", "map.zh.html"})
     print(f"map.html + map.zh.html written: {n} records, {zh} with Chinese abstracts")
 
 

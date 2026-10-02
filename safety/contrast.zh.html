@@ -7,11 +7,7 @@
   <meta name="description" content="一份 OpenAI 自己发布的事故 postmortem——agent 绕过隔离、组成协调小组、互信未经验证的指令——拿来对照这支单人 agent 编队自己的事故记录,检验失效的分类到底是不是共享的,还是这套小系统只是在解一个私人问题。认知状态:speculative。" />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/contrast.zh.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/contrast.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/contrast.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/contrast.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="同样的失效,不同的量级" />
   <meta property="og:description" content="一份 OpenAI 自己发布的事故 postmortem,拿来对照这支单人 agent 编队自己的事故记录,检验失效的分类是不是共享的。" />
@@ -28,32 +24,53 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://machengshen.github.io/safety/contrast.zh.html",
-    "url": "https://machengshen.github.io/safety/contrast.zh.html",
-    "headline": "同样的失效,不同的量级",
-    "name": "同样的失效,不同的量级",
-    "description": "一份 OpenAI 自己发布的事故 postmortem,拿来对照这支单人 agent 编队自己的事故记录,检验失效的分类到底是不是共享的——还是这套小系统只是在解一个私人问题。认知状态:speculative。",
-    "inLanguage": "zh-Hans",
-    "datePublished": "2026-09-07",
-    "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/contrast.html",
-    "author": {"@type": "Person", "name": "Macheng Shen", "url": "https://machengshen.github.io/"},
-    "publisher": {"@type": "Person", "name": "Macheng Shen", "url": "https://machengshen.github.io/"},
-    "isPartOf": {"@type": "WebSite", "@id": "https://machengshen.github.io/#website",
-                 "url": "https://machengshen.github.io/", "name": "Macheng Shen"},
-    "about": [
-      "AI agent 装置层安全",
-      "前沿实验室事故 postmortem 对照",
-      "权限转发与未经验证的指令",
-      "gate 覆盖率审计",
-      "回溯性检测与实时检测"
-    ],
-    "keywords": "agent 安全, harness, 事故 postmortem, 失效分类, authority envelope, stop epoch, chain-of-thought monitoring, 回溯性检测"
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/contrast.zh.html",
+  "url": "https://machengshen.github.io/safety/contrast.zh.html",
+  "headline": "同样的失效,不同的量级",
+  "name": "同样的失效,不同的量级 | Macheng Shen",
+  "description": "一份 OpenAI 自己发布的事故 postmortem,拿来对照这支单人 agent 编队自己的事故记录,检验失效的分类到底是不是共享的——还是这套小系统只是在解一个私人问题。认知状态:speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/safety/contrast.html",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "about": [
+    "AI agent 装置层安全",
+    "前沿实验室事故 postmortem 对照",
+    "权限转发与未经验证的指令",
+    "gate 覆盖率审计",
+    "回溯性检测与实时检测"
+  ],
+  "keywords": "agent 安全, harness, 事故 postmortem, 失效分类, authority envelope, stop epoch, chain-of-thought monitoring, 回溯性检测",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/safety/evidence.zh.html",
+    "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "https://machengshen.github.io/safety/roadmap.zh.html"
+  ],
+  "translationOfWork": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/contrast.html"
   }
-  </script>
+}
+</script>
   <style>
 
 :root {
@@ -106,6 +123,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/contrast.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/contrast.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/contrast.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -213,7 +234,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/safety/evidence.zh.html">四起事故,以及它们的共同点 | Macheng Shen</a> — 四起脱敏的本地事故，构成这次跨量级比较的小规模证据基础。</li>
+    <li><a href="/safety/mechanisms.zh.html">真正在跑的是什么 | Macheng Shen</a> — 机制清单区分了代码中真正执行的控制与仍停留在规范里的设计。</li>
+    <li><a href="/safety/roadmap.zh.html">缺口,以及什么能证伪它 | Macheng Shen</a> — 公开缺口与证伪条件，限制了跨量级对照可以支持的结论范围。</li>
+  </ul>
+  <p><a href="/safety/contrast.html">English version</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

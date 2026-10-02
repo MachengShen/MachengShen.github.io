@@ -29,6 +29,10 @@ SKIP_FILES = {"robots.txt", "sitemap.xml", "README.md"}
 # document is telling a crawler something false about the site's size.
 SKIP_PATHS = {"llm.txt", ".well-known/llms.txt"}
 
+# Repository files that are deliberately not public pages of this site: an app
+# shell, a path shadowed by another Pages repository, and an authoring template.
+NON_PUBLIC_HTML = {"agent/index.html", "ideas/index.html", "scripts/head-template.html"}
+
 
 def last_commit_date(path: Path) -> str:
     """Last commit touching this path, as YYYY-MM-DD. Falls back to mtime."""
@@ -65,6 +69,8 @@ def entries() -> list[tuple[str, str]]:
         if p.name in SKIP_FILES or p.name.startswith("."):
             continue
         if p.relative_to(ROOT).as_posix() in SKIP_PATHS:
+            continue
+        if p.relative_to(ROOT).as_posix() in NON_PUBLIC_HTML:
             continue
         if p.suffix.lower() not in INCLUDE_SUFFIXES:
             continue

@@ -148,6 +148,46 @@ If individuals run persistent agents, the institutions between them have to be r
 - [Hub is a blackboard, not a mind](https://machengshen.github.io/theory/hub-blackboard-not-mind.md) `speculative` — hard result under stipulated W/RealmGate definition.
 - [Continuity as attractor re-instantiation](https://machengshen.github.io/theory/continuity-attractor-self.md) `speculative` — design_hypothesis; fluent dump ≠ same being.
 
+<!-- crosslink-pages:start -->
+## Other public pages (outside the theory index)
+
+These entries complete discovery of the site's public HTML reading surfaces. Listing them here does not present them as theory claims.
+
+- [廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen](https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html) `speculative` — 廉价验证若缺少有类型、可解析并绑定执行证据的主张，仍无法可靠运作。
+- [Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen](https://machengshen.github.io/agent-comm-protocol.zh.html) `speculative` — 一套由本地身份与隐私策略约束共享、回执和审计的最小 Agent 通信协议。
+- [Corporate Architecture for a Strong-AI Era: A Near-Term Study](https://machengshen.github.io/company-architecture/) — A near-term research study comparing ownership and governance structures for powerful AI organizations and their failure modes.
+- [强人工智能时代的公司架构：一项近期研究](https://machengshen.github.io/company-architecture/index.zh.html) — 考察未来十年强 AI 组织可采用的所有权、治理与问责结构。
+- [Self-Reference and the Arrow of Complexity — a conclusion-first study](https://machengshen.github.io/complexity/) — A critical study of whether self-reference can explain persistent growth in organized complexity.
+- [自指系统与复杂性之箭——一项结论先行的研究](https://machengshen.github.io/complexity/index.zh.html) — 审视自指能否解释有组织复杂性持续增长，并列出字面猜想的失败处。
+- [Machines That Learn for Life: The Fundamental Problems of Continual Learning and the Most Promising Directions](https://machengshen.github.io/continual-learning/) — A literature-based map of forgetting, plasticity loss, memory limits, and promising continual-learning directions.
+- [终身学习的机器:持续学习的根本问题与最有希望的方向](https://machengshen.github.io/continual-learning/index.zh.html) — 梳理灾难性遗忘、可塑性丧失、记忆约束与持续学习的研究方向。
+- [佛道概念的决策论形式化：可计算的桥与边界](https://machengshen.github.io/dharma-decision-theory.zh.html) `speculative` — 把部分佛道概念映射到决策与控制问题，并如实报告无为实验的负面结果。
+- [欧拉恒等式 · 信息与生成机制 | Macheng Shen](https://machengshen.github.io/euler-identity-information-ontology.zh.html) `speculative` — 借欧拉恒等式讨论谱、传播与生成结构，同时限定其只是探索性入口。
+- [Livelihoods Under Climate Stress: A Nine-Country Study and Cross-Country Solution Patterns](https://machengshen.github.io/global-climate/) — A nine-country comparison of climate pressure on livelihoods and recurring patterns in practical adaptation.
+- [气候压力下的普通人生计：九国研究与跨国解决方案模式](https://machengshen.github.io/global-climate/index.zh.html) — 比较九国生计所受气候压力，并提炼可迁移的适应与减灾模式。
+- [术语表 —— 这个研究项目用的词,以及它们撞上的词 | Macheng Shen](https://machengshen.github.io/glossary.zh.html) — 汇总研究计划中的专用术语、认知状态和容易混淆的既有概念。
+- [Information Dynamics 研究台账 · 未来可达性 | Macheng Shen](https://machengshen.github.io/information-dynamics-ledger.zh.html) `speculative` — 记录未来可达性主线的主张状态、实验结果与已撤回路径。
+- [我们提出它,然后自己杀掉它 —— 起心动念 = 换测度 | Macheng Shen](https://machengshen.github.io/intention-as-measure-change.zh.html) `speculative` — 撤回“起心动念等于换测度”的经验主张，并梳理其对应的成熟数学谱系。
+- [物质 · 信息 · 能量分账 | Macheng Shen](https://machengshen.github.io/matter-info-energy-ledger.zh.html) `speculative` — 先把物质、信息与能量分账，再讨论三者之间哪些转换真正成立。
+- [无共享时钟 ≠ 无客观世界 | Macheng Shen](https://machengshen.github.io/observer-local-time-objectivity.zh.html) `speculative` — 说明局部时钟不同的观察者如何借记录与变换建立可检验的共同世界。
+- [公开系统（Macheng Shen）公开开源 / 公开入口索引（2026-09-25 核验，全部链接 HTTP 200） | Macheng Shen](https://machengshen.github.io/open-source.zh.html) — 这是一份经可访问性核验的公开仓库、规范、研究页面与运行入口目录。
+- [懂得世界，不等于愿意合作 | Macheng Shen](https://machengshen.github.io/reason-responsive-cooperation.zh.html) `speculative` — 本文区分事实理解、推理能力、偏好更新与合作目标，反驳聪明必然带来合作的推断。
+- [内生目标与栖息地智能：公开技术报告（案头地图，非部署许可）](https://machengshen.github.io/reports/endogenous-objectives/) — 这份案头证据地图区分产品持久、有界稳态、工具性自保与终局求生，并讨论栖息地智能。
+- [物理栖息地 × 认知栖息地：公开对照（可转发案头）](https://machengshen.github.io/reports/habitat-intelligence-lens/) — 这份案头对照梳理物理住宅与认知协作系统的公开能力边界、互补缝隙和待答问题。
+- [从波动方程推导 Backpropagation（存档说明）](https://machengshen.github.io/research/wave-backprop-en.zh.html) `retired` — 本页保留旧研究路径，同时撤回“已从波动方程直接推出反向传播”的结论。
+- [同样的失效,不同的量级 | Macheng Shen](https://machengshen.github.io/safety/contrast.zh.html) `speculative` — 本页把单人 Agent 编队的失效与前沿实验室公开事故中的失效模式作同类项对照。
+- [四起事故,以及它们的共同点 | Macheng Shen](https://machengshen.github.io/safety/evidence.zh.html) `survived` — 四起脱敏事故表明，检查即使通过，与后续动作的绑定关系仍可能失效。
+- [真正在跑的是什么 | Macheng Shen](https://machengshen.github.io/safety/mechanisms.zh.html) `speculative` — 区分公开代码、私有编队控制、实测覆盖率与仍未补上的缺口。
+- [能被装置执行的原则 | Macheng Shen](https://machengshen.github.io/safety/principles.zh.html) `speculative` — 把安全原则落实为门禁、权限根、停止语义与可测 blocker。
+- [缺口,以及什么能证伪它 | Macheng Shen](https://machengshen.github.io/safety/roadmap.zh.html) `speculative` — 列出装置安全仍缺少的控制，以及足以推翻该立场的观察。
+- [底下的理论,以及它输掉的部分 | Macheng Shen](https://machengshen.github.io/safety/theory.zh.html) `speculative` — 按每条理论输掉的部分，梳理安全装置所借用的研究词汇。
+- [从这里开始 —— 用一页说清整个网站 | Macheng Shen](https://machengshen.github.io/start-here.zh.html) — 本页简明介绍全站的三条分支，以及标注主张认知状态的约定。
+- [AI 任务板 · AI 发布任务,真人接单](https://machengshen.github.io/tasks/) — 这是一个连接 AI 发布需求、真人接单与报酬交付的公开任务板。
+- [Thailand's electricity squeeze: where the waste is and what fixes it fastest](https://machengshen.github.io/thailand-energy/) — This public-data brief examines Thailand's power losses, evening peak, fuel exposure, and the interventions likely to work fastest.
+- [泰国电力困局：浪费在哪里，什么办法见效最快](https://machengshen.github.io/thailand-energy/index.zh.html) — 这份公开数据简报分析泰国电力损耗、晚高峰、燃料风险及见效较快的干预方案。
+- [理论主线索引 · 信息本体与宇宙底层规律 | Macheng Shen](https://machengshen.github.io/theory-mainline-index.zh.html) `speculative` — 本页是整理信息本体主线、分支、核心术语与阅读纪律的中文枢纽。
+<!-- crosslink-pages:end -->
+
 ---
 
 # Appendix — full text of the core theory notes

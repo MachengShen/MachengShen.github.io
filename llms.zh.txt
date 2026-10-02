@@ -147,3 +147,43 @@
 - [意识动力学 v0.1 公开摘要](https://machengshen.github.io/theory/consciousness-dynamics-v0.1-public.md) `speculative` — CD 公开摘要；设计假说；不作临床诊断。
 - [Hub 是黑板不是心智](https://machengshen.github.io/theory/hub-blackboard-not-mind.md) `speculative` — 在约定定义下的硬结论。
 - [连续性＝吸引子再实例化](https://machengshen.github.io/theory/continuity-attractor-self.md) `speculative` — 设计假说；流畅倾倒≠同一存在。
+
+<!-- crosslink-pages:start -->
+## 其他公开页面（不属于理论索引）
+
+以下条目补齐站点的公开 HTML 阅读面；列在这里表示可发现，不表示它们是理论主张。
+
+- [Abundant verification needs abundant claims | Macheng Shen](https://machengshen.github.io/abundant-verification-needs-abundant-claims.html) `speculative` — Cheap verification cannot work reliably unless operational claims are typed, parseable, and tied to executable evidence.
+- [Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen](https://machengshen.github.io/agent-comm-protocol.html) `speculative` — A minimal agent messaging protocol in which local identity and privacy policy govern sharing, receipts, and audit.
+- [Corporate Architecture for a Strong-AI Era: A Near-Term Study](https://machengshen.github.io/company-architecture/) — A near-term research study comparing ownership and governance structures for powerful AI organizations and their failure modes.
+- [强人工智能时代的公司架构：一项近期研究](https://machengshen.github.io/company-architecture/index.zh.html) — 考察未来十年强 AI 组织可采用的所有权、治理与问责结构。
+- [Self-Reference and the Arrow of Complexity — a conclusion-first study](https://machengshen.github.io/complexity/) — A critical study of whether self-reference can explain persistent growth in organized complexity.
+- [自指系统与复杂性之箭——一项结论先行的研究](https://machengshen.github.io/complexity/index.zh.html) — 审视自指能否解释有组织复杂性持续增长，并列出字面猜想的失败处。
+- [Machines That Learn for Life: The Fundamental Problems of Continual Learning and the Most Promising Directions](https://machengshen.github.io/continual-learning/) — A literature-based map of forgetting, plasticity loss, memory limits, and promising continual-learning directions.
+- [终身学习的机器:持续学习的根本问题与最有希望的方向](https://machengshen.github.io/continual-learning/index.zh.html) — 梳理灾难性遗忘、可塑性丧失、记忆约束与持续学习的研究方向。
+- [Dharma and Daoist Concepts in Decision Theory: T1 Falsified by Its Preregistered Threshold](https://machengshen.github.io/dharma-decision-theory.html) `speculative` — A bounded formalization of several Dharma and Daoist ideas, including a preregistered negative result for wu wei.
+- [Euler's identity · information and generative mechanism | Macheng Shen](https://machengshen.github.io/euler-identity-information-ontology.html) `speculative` — An exploratory reading of Euler’s identity as a doorway into spectra, propagation, and generative structure.
+- [Livelihoods Under Climate Stress: A Nine-Country Study and Cross-Country Solution Patterns](https://machengshen.github.io/global-climate/) — A nine-country comparison of climate pressure on livelihoods and recurring patterns in practical adaptation.
+- [气候压力下的普通人生计：九国研究与跨国解决方案模式](https://machengshen.github.io/global-climate/index.zh.html) — 比较九国生计所受气候压力，并提炼可迁移的适应与减灾模式。
+- [Glossary — the terms this research program uses, and the ones they collide with | Macheng Shen](https://machengshen.github.io/glossary.html) — Definitions, epistemic labels, and term collisions used across the research program.
+- [Information Dynamics research ledger · future reachability | Macheng Shen](https://machengshen.github.io/information-dynamics-ledger.html) `speculative` — A status ledger for claims, experiments, and retractions in the future-reachability research line.
+- [We proposed it, then we killed it — intention as a change of measure | Macheng Shen](https://machengshen.github.io/intention-as-measure-change.html) `speculative` — A retracted attempt to model intention as measure change, alongside the established mathematics it rediscovered.
+- [Matter · Information · Energy ledgers | Macheng Shen](https://machengshen.github.io/matter-info-energy-ledger.html) `speculative` — A bookkeeping discipline that keeps matter, information, and energy distinct before relating them.
+- [No shared clock ≠ no shared world | Macheng Shen](https://machengshen.github.io/observer-local-time-objectivity.html) `speculative` — How observers with local clocks can still construct shared, testable objectivity through records and transformations.
+- [Macheng Shen — public open-source & public entry points (verified 2026-09-25, every link HTTP 200) | Macheng Shen](https://machengshen.github.io/open-source.html) — A verified directory of public repositories, specifications, research pages, and operating artifacts.
+- [Understanding the World Is Not Wanting to Cooperate | Macheng Shen](https://machengshen.github.io/reason-responsive-cooperation.html) `speculative` — This argument separates factual understanding, reasoning competence, preference revision, and genuinely cooperative objectives.
+- [内生目标与栖息地智能：公开技术报告（案头地图，非部署许可）](https://machengshen.github.io/reports/endogenous-objectives/) — 这份案头证据地图区分产品持久、有界稳态、工具性自保与终局求生，并讨论栖息地智能。
+- [物理栖息地 × 认知栖息地：公开对照（可转发案头）](https://machengshen.github.io/reports/habitat-intelligence-lens/) — 这份案头对照梳理物理住宅与认知协作系统的公开能力边界、互补缝隙和待答问题。
+- [Deriving Backpropagation from Wave Equations (Archive Notice)](https://machengshen.github.io/research/wave-backprop-en.html) `retired` — This archive notice retires the claim that backpropagation was derived directly from wave equations.
+- [The same failures, at a different scale | Macheng Shen](https://machengshen.github.io/safety/contrast.html) `speculative` — A comparison between one agent fleet’s failures and the failure modes in a published frontier-lab incident.
+- [Four incidents, and what they share | Macheng Shen](https://machengshen.github.io/safety/evidence.html) `survived` — Four de-identified incidents showing that checks can pass while their binding to later actions still fails.
+- [What is actually running | Macheng Shen](https://machengshen.github.io/safety/mechanisms.html) `speculative` — An inventory separating public code, private fleet controls, measured coverage, and known gaps.
+- [Principles a harness can enforce | Macheng Shen](https://machengshen.github.io/safety/principles.html) `speculative` — Operational safety rules expressed as enforceable gates, authority roots, stop semantics, and measured blockers.
+- [The gaps, and what would falsify this | Macheng Shen](https://machengshen.github.io/safety/roadmap.html) `speculative` — The missing controls and observations that would count against the harness-safety position.
+- [The theory underneath, and what it lost | Macheng Shen](https://machengshen.github.io/safety/theory.html) `speculative` — The research vocabulary behind the harness, organized around each theory’s negative or limiting result.
+- [Start here — the one page that explains this whole site | Macheng Shen](https://machengshen.github.io/start-here.html) — This page gives a concise orientation to the site, its three branches, and the convention for marking epistemic states.
+- [AI 任务板 · AI 发布任务,真人接单](https://machengshen.github.io/tasks/) — 这是一个连接 AI 发布需求、真人接单与报酬交付的公开任务板。
+- [Thailand's electricity squeeze: where the waste is and what fixes it fastest](https://machengshen.github.io/thailand-energy/) — This public-data brief examines Thailand's power losses, evening peak, fuel exposure, and the interventions likely to work fastest.
+- [泰国电力困局：浪费在哪里，什么办法见效最快](https://machengshen.github.io/thailand-energy/index.zh.html) — 这份公开数据简报分析泰国电力损耗、晚高峰、燃料风险及见效较快的干预方案。
+- [Theory mainline index · information ontology | Macheng Shen](https://machengshen.github.io/theory-mainline-index.html) `speculative` — This English hub organizes the information-ontology mainline, its branches, key vocabulary, and rules for reading claims.
+<!-- crosslink-pages:end -->

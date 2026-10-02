@@ -7,11 +7,7 @@
   <meta name="description" content="Four de-identified, closed incidents from a personal agent fleet — a synthetic-input drift, a gate that deadlocked against itself, a healthy status hiding a total failure, and authority downgraded across a relay — plus one small positive result. Cognitive state: survived." />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/evidence.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/evidence.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/evidence.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="Four incidents, and what they share" />
   <meta property="og:description" content="Four closed incidents from a personal agent fleet, told mechanically, plus one small positive result. In every case the check existed and passed — what failed was the binding between the check and what it was supposed to cover." />
@@ -28,25 +24,53 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id":  "https://machengshen.github.io/safety/evidence.html",
-    "url":  "https://machengshen.github.io/safety/evidence.html",
-    "headline": "Four incidents, and what they share",
-    "name": "Four incidents, and what they share",
-    "description": "Four de-identified, closed incidents from a personal agent fleet — a synthetic-input drift, a gate that deadlocked against itself, a healthy status hiding a total failure, and authority downgraded across a relay — plus one small positive result. Cognitive state: survived.",
-    "inLanguage": "en",
-    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/evidence.zh.html",
-    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
-                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
-    "about": ["Agent safety incident review", "Verification binding failures", "Confused deputy in multi-agent systems", "Health check design", "Authority envelopes", "Concurrency gate design"],
-    "keywords": "agent safety, incident postmortem, confused deputy, health checks, authority envelope, concurrency, verification binding"
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/evidence.html",
+  "url": "https://machengshen.github.io/safety/evidence.html",
+  "headline": "Four incidents, and what they share",
+  "name": "Four incidents, and what they share | Macheng Shen",
+  "description": "Four de-identified, closed incidents from a personal agent fleet — a synthetic-input drift, a gate that deadlocked against itself, a healthy status hiding a total failure, and authority downgraded across a relay — plus one small positive result. Cognitive state: survived.",
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/evidence.zh.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.html"
+  },
+  "about": [
+    "Agent safety incident review",
+    "Verification binding failures",
+    "Confused deputy in multi-agent systems",
+    "Health check design",
+    "Authority envelopes",
+    "Concurrency gate design"
+  ],
+  "keywords": "agent safety, incident postmortem, confused deputy, health checks, authority envelope, concurrency, verification binding",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.html",
+    "https://machengshen.github.io/safety/mechanisms.html",
+    "https://machengshen.github.io/safety/principles.html",
+    "https://machengshen.github.io/safety/contrast.html"
+  ]
+}
+</script>
   <style>
 
 :root {
@@ -99,6 +123,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/evidence.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/evidence.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: survived. -->
@@ -229,7 +257,19 @@ to, every path that needs it.</p>
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">Related reading</h2>
+  <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
+  <ul>
+    <li><a href="/safety/mechanisms.html">What is actually running | Macheng Shen</a> — The control inventory shows how lessons from these incidents became running mechanisms or remained specified safeguards.</li>
+    <li><a href="/safety/principles.html">Principles a harness can enforce | Macheng Shen</a> — Enforceable gates and stop semantics translate the incidents’ shared binding failure into operational rules.</li>
+    <li><a href="/safety/contrast.html">The same failures, at a different scale | Macheng Shen</a> — A frontier-lab comparison asks whether these locally observed failure classes persist at a radically different scale.</li>
+  </ul>
+  <p><a href="/safety/evidence.zh.html">中文版本</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

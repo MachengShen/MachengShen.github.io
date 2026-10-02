@@ -7,11 +7,7 @@
   <meta name="description" content="来自个人 agent fleet 的四起脱敏、已收口事故:一次合成输入的漂移、一个跟自己死锁的门禁、一个状态健康却全线失败的依赖、一次在转发中被降级的权限——外加一个小的正面结果。认知状态:survived。" />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/evidence.zh.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/evidence.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/evidence.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="四起事故,以及它们的共同点" />
   <meta property="og:description" content="来自个人 agent fleet 的四起已收口事故,按机制原样讲述,外加一个小的正面结果。每一起里检查都存在也都通过了——出问题的是检查和它本该覆盖的那件事之间的绑定。" />
@@ -28,25 +24,54 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id":  "https://machengshen.github.io/safety/evidence.zh.html",
-    "url":  "https://machengshen.github.io/safety/evidence.zh.html",
-    "headline": "四起事故,以及它们的共同点",
-    "name": "四起事故,以及它们的共同点",
-    "description": "来自个人 agent fleet 的四起脱敏、已收口事故:一次合成输入的漂移、一个跟自己死锁的门禁、一个状态健康却全线失败的依赖、一次在转发中被降级的权限——外加一个小的正面结果。认知状态:survived。",
-    "inLanguage": "zh-Hans",
-    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/evidence.html",
-    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
-                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
-    "about": ["Agent safety incident review", "Verification binding failures", "Confused deputy in multi-agent systems", "Health check design", "Authority envelopes", "Concurrency gate design"],
-    "keywords": "agent 安全, 事故复盘, confused deputy, 健康检查, authority envelope, 并发, 校验绑定"
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/evidence.zh.html",
+  "url": "https://machengshen.github.io/safety/evidence.zh.html",
+  "headline": "四起事故,以及它们的共同点",
+  "name": "四起事故,以及它们的共同点 | Macheng Shen",
+  "description": "来自个人 agent fleet 的四起脱敏、已收口事故:一次合成输入的漂移、一个跟自己死锁的门禁、一个状态健康却全线失败的依赖、一次在转发中被降级的权限——外加一个小的正面结果。认知状态:survived。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/safety/evidence.html",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "about": [
+    "Agent safety incident review",
+    "Verification binding failures",
+    "Confused deputy in multi-agent systems",
+    "Health check design",
+    "Authority envelopes",
+    "Concurrency gate design"
+  ],
+  "keywords": "agent 安全, 事故复盘, confused deputy, 健康检查, authority envelope, 并发, 校验绑定",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "https://machengshen.github.io/safety/principles.zh.html",
+    "https://machengshen.github.io/safety/contrast.zh.html"
+  ],
+  "translationOfWork": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/evidence.html"
   }
-  </script>
+}
+</script>
   <style>
 
 :root {
@@ -99,6 +124,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/evidence.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/evidence.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/evidence.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: survived. -->
@@ -167,7 +196,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/safety/mechanisms.zh.html">真正在跑的是什么 | Macheng Shen</a> — 控制清单说明这些事故教训哪些已化为运行机制，哪些仍只是规范。</li>
+    <li><a href="/safety/principles.zh.html">能被装置执行的原则 | Macheng Shen</a> — 门禁与停止语义把事故共有的绑定失效转化成可执行规则。</li>
+    <li><a href="/safety/contrast.zh.html">同样的失效,不同的量级 | Macheng Shen</a> — 前沿实验室事故的对照，检验本地失效类别能否跨越规模继续成立。</li>
+  </ul>
+  <p><a href="/safety/evidence.html">English version</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

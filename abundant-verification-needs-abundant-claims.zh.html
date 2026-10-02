@@ -7,11 +7,7 @@
   <meta name="description" content="一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。" />
 
   <link rel="canonical" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
-  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="廉价的 verification 还不够，还得有可解析的 claim" />
   <meta property="og:description" content="verification 再便宜也没用，如果被验证的东西是以 verifier 无法解析的形式陈述的。一处汇合、一个来自 18 条真实 agent 回执的实测数字、三条关于验证模型 internals 的反对意见，以及能杀死本文的那个 baseline。" />
@@ -28,49 +24,57 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "@id": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
-    "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
-    "headline": "廉价的 verification 还不够，还得有可解析的 claim",
-    "name": "廉价的 verification 还不够，还得有可解析的 claim",
-    "description": "一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。",
-    "inLanguage": "zh-Hans",
-    "datePublished": "2026-08-06",
-    "dateModified": "2026-08-06",
-    "translationOfWork": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
-    "author": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://machengshen.github.io/#website",
-      "url": "https://machengshen.github.io/",
-      "name": "Macheng Shen"
-    },
-    "about": [
-      "非形式断言的自动形式化",
-      "大模型与形式验证",
-      "机制可解释与 Guaranteed Safe AI",
-      "agent 系统里的有类型回执"
-    ],
-    "keywords": "autoformalization, Dafny, 形式验证, verification tokens, 机制可解释, Guaranteed Safe AI, 有类型回执 schema, agent 回执, Goodhart 压力",
-    "citation": [
-      "https://arxiv.org/abs/2507.16331",
-      "https://arxiv.org/abs/2405.06624",
-      "https://arxiv.org/abs/2003.02979",
-      "https://arxiv.org/abs/1903.05168"
-    ]
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
+  "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html",
+  "headline": "廉价的 verification 还不够，还得有可解析的 claim",
+  "name": "廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen",
+  "description": "一封写给付杰 verification 线的跨线笔记：一处独立汇合被记为证据而非贡献；一个实测数字 —— 散文加正则的门对假 park 召回 10 之 5，而极小的有类型回执 schema 无此盲区；以及三条关于「验证模型 internals」的反对意见。认知状态：speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-08-06",
+  "dateModified": "2026-08-06",
+  "translationOfWork": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "about": [
+    "非形式断言的自动形式化",
+    "大模型与形式验证",
+    "机制可解释与 Guaranteed Safe AI",
+    "agent 系统里的有类型回执"
+  ],
+  "keywords": "autoformalization, Dafny, 形式验证, verification tokens, 机制可解释, Guaranteed Safe AI, 有类型回执 schema, agent 回执, Goodhart 压力",
+  "citation": [
+    "https://arxiv.org/abs/2507.16331",
+    "https://arxiv.org/abs/2405.06624",
+    "https://arxiv.org/abs/2003.02979",
+    "https://arxiv.org/abs/1903.05168"
+  ],
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/safety/evidence.zh.html",
+    "https://machengshen.github.io/safety/principles.zh.html",
+    "https://machengshen.github.io/information-dynamics-ledger.zh.html"
+  ]
+}
+</script>
 
   <style>
 :root {
@@ -123,6 +127,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/abundant-verification-needs-abundant-claims.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -252,7 +260,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/safety/evidence.zh.html">四起事故,以及它们的共同点 | Macheng Shen</a> — 四起事故进一步说明，检查通过不等于证据已绑定后续动作。</li>
+    <li><a href="/safety/principles.zh.html">能被装置执行的原则 | Macheng Shen</a> — 装置原则展示了有类型回执如何从可读记录变成可执行门禁。</li>
+    <li><a href="/information-dynamics-ledger.zh.html">Information Dynamics 研究台账 · 未来可达性 | Macheng Shen</a> — 研究台账示范了如何显式保存主张状态、实验结果与撤回路径。</li>
+  </ul>
+  <p><a href="/abundant-verification-needs-abundant-claims.html">English version</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

@@ -7,11 +7,7 @@
   <meta name="description" content="把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。" />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/index.zh.html" />
-  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/" />
-  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/index.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/" />
-
-  <meta property="og:type" content="website" />
+<meta property="og:type" content="website" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="安全是装置的属性,不是模型的属性" />
   <meta property="og:description" content="把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。" />
@@ -26,43 +22,52 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://machengshen.github.io/safety/index.zh.html",
+  "url": "https://machengshen.github.io/safety/index.zh.html",
+  "headline": "安全是装置的属性,不是模型的属性",
+  "name": "安全是装置的属性,不是模型的属性 | Macheng Shen",
+  "description": "把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/safety/",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
     "@type": "CollectionPage",
-    "@id": "https://machengshen.github.io/safety/index.zh.html",
-    "url": "https://machengshen.github.io/safety/index.zh.html",
-    "headline": "安全是装置的属性,不是模型的属性",
-    "name": "安全是装置的属性,不是模型的属性",
-    "description": "把安全当作模型外面那层装置的属性,而不是模型自身的属性:bright line、真正在跑的闸门、一个人的 agent 编队里四起写成案例的事故,以及缺口。每个机制都标注 running 或 specified。认知状态:speculative。",
-    "inLanguage": "zh-Hans",
-    "datePublished": "2026-09-07",
-    "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/",
-    "author": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://machengshen.github.io/#website",
-      "url": "https://machengshen.github.io/",
-      "name": "Macheng Shen"
-    },
-    "about": [
-      "Harness-level AI safety",
-      "Agent authority and delegation",
-      "Multi-agent coordination failures",
-      "Incident reporting for personal agent systems"
-    ],
-    "keywords": "agent safety, harness, authority envelope, bright lines, owner stop, action ledger, work claim, incident report, alignment"
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "about": [
+    "Harness-level AI safety",
+    "Agent authority and delegation",
+    "Multi-agent coordination failures",
+    "Incident reporting for personal agent systems"
+  ],
+  "keywords": "agent safety, harness, authority envelope, bright lines, owner stop, action ledger, work claim, incident report, alignment",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/safety/principles.zh.html",
+    "https://machengshen.github.io/safety/mechanisms.zh.html",
+    "https://machengshen.github.io/safety/evidence.zh.html"
+  ],
+  "translationOfWork": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/"
   }
-  </script>
+}
+</script>
 
   <style>
 
@@ -116,6 +121,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/index.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -216,7 +225,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/safety/principles.zh.html">能被装置执行的原则 | Macheng Shen</a> — 具体门禁、权限根与停止语义，把装置安全主张落实为可执行原则。</li>
+    <li><a href="/safety/mechanisms.zh.html">真正在跑的是什么 | Macheng Shen</a> — 运行徽章揭示了已经落地的控制与仍停留在纸面的设计之间的差别。</li>
+    <li><a href="/safety/evidence.zh.html">四起事故,以及它们的共同点 | Macheng Shen</a> — 真实事故说明，单项检查通过并不保证后续动作持续保持安全。</li>
+  </ul>
+  <p><a href="/safety/">English version</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

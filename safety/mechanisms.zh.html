@@ -7,11 +7,7 @@
   <meta name="description" content="安全板块的主线规则：给每个机制打 running / specified / private 徽章。以及一个不舒服的发现——本项目自己的公开仓库，在写这页的当天没能通过自己发布的 spec：六项 Safety Charter 机制里五项未实现，通信 spec 的签名 authority envelope 在示例文件自己的注释里写着「未实现」，还有一次 163 对（工具，入口）零覆盖的审计，以及背后那条 fail-open 设计规则。认知状态：speculative。" />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/mechanisms.zh.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/mechanisms.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/mechanisms.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/mechanisms.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="真正在跑的是什么" />
   <meta property="og:description" content="每个机制都打一个徽章：running（有代码强制执行，能指名文件）或 specified（有设计，没有公开代码强制执行）。然后是不舒服的部分：本项目自己的公开仓库今天没能通过自己发布的 spec，一次 163 对的覆盖率审计还发现一道 fail-safe-allow 的 gate 已经悄悄退化成了 always-allow。" />
@@ -28,51 +24,60 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://machengshen.github.io/safety/mechanisms.zh.html",
-    "url": "https://machengshen.github.io/safety/mechanisms.zh.html",
-    "headline": "真正在跑的是什么",
-    "name": "真正在跑的是什么",
-    "description": "安全板块的主线规则：给每个机制打 running / specified / private 徽章。以及一个不舒服的发现——本项目自己的公开仓库，在写这页的当天没能通过自己发布的 spec：六项 Safety Charter 机制里五项未实现，通信 spec 的签名 authority envelope 在示例文件自己的注释里写着「未实现」，还有一次 163 对（工具，入口）零覆盖的审计，以及背后那条 fail-open 设计规则。",
-    "inLanguage": "zh-Hans",
-    "datePublished": "2026-09-07",
-    "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/mechanisms.html",
-    "author": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "publisher": {
-      "@type": "Person",
-      "name": "Macheng Shen",
-      "url": "https://machengshen.github.io/"
-    },
-    "isPartOf": {
-      "@type": "WebSite",
-      "@id": "https://machengshen.github.io/#website",
-      "url": "https://machengshen.github.io/",
-      "name": "Macheng Shen"
-    },
-    "about": [
-      "Agent 安全 harness 设计",
-      "Spec 与代码的落差",
-      "Fail-open 与 fail-closed 的取舍",
-      "Agent 动作 gate 覆盖率审计",
-      "Authority envelope 与 delegation"
-    ],
-    "keywords": "agent 安全, harness engineering, spec-code gap, fail-open fail-closed, 覆盖率审计, authority envelope, agent gating, verification",
-    "citation": [
-      "https://github.com/starshard-ai/agent-mail-stack",
-      "https://github.com/starshard-ai/selfhost-chat",
-      "https://github.com/starshard-ai/agent-continuity-demo",
-      "https://github.com/starshard-ai/fleet-coordination-protocol",
-      "https://github.com/starshard-ai/starshard-communication"
-    ]
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/mechanisms.zh.html",
+  "url": "https://machengshen.github.io/safety/mechanisms.zh.html",
+  "headline": "真正在跑的是什么",
+  "name": "真正在跑的是什么 | Macheng Shen",
+  "description": "安全板块的主线规则：给每个机制打 running / specified / private 徽章。以及一个不舒服的发现——本项目自己的公开仓库，在写这页的当天没能通过自己发布的 spec：六项 Safety Charter 机制里五项未实现，通信 spec 的签名 authority envelope 在示例文件自己的注释里写着「未实现」，还有一次 163 对（工具，入口）零覆盖的审计，以及背后那条 fail-open 设计规则。",
+  "inLanguage": "zh-Hans",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": "https://machengshen.github.io/safety/mechanisms.html",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "about": [
+    "Agent 安全 harness 设计",
+    "Spec 与代码的落差",
+    "Fail-open 与 fail-closed 的取舍",
+    "Agent 动作 gate 覆盖率审计",
+    "Authority envelope 与 delegation"
+  ],
+  "keywords": "agent 安全, harness engineering, spec-code gap, fail-open fail-closed, 覆盖率审计, authority envelope, agent gating, verification",
+  "citation": [
+    "https://github.com/starshard-ai/agent-mail-stack",
+    "https://github.com/starshard-ai/selfhost-chat",
+    "https://github.com/starshard-ai/agent-continuity-demo",
+    "https://github.com/starshard-ai/fleet-coordination-protocol",
+    "https://github.com/starshard-ai/starshard-communication"
+  ],
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/safety/evidence.zh.html",
+    "https://machengshen.github.io/safety/principles.zh.html",
+    "https://machengshen.github.io/safety/roadmap.zh.html"
+  ],
+  "translationOfWork": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/mechanisms.html"
   }
-  </script>
+}
+</script>
 
   <style>
 :root {
@@ -125,6 +130,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/mechanisms.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/mechanisms.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/mechanisms.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -247,7 +256,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/safety/evidence.zh.html">四起事故,以及它们的共同点 | Macheng Shen</a> — 事故记录揭示了检查通过后，动作绑定仍会失效。</li>
+    <li><a href="/safety/principles.zh.html">能被装置执行的原则 | Macheng Shen</a> — 原则页说明这些运行机制分别要守住哪些权限边界。</li>
+    <li><a href="/safety/roadmap.zh.html">缺口,以及什么能证伪它 | Macheng Shen</a> — 尚未运行的控制和证伪条件，为当前机制清单划出边界。</li>
+  </ul>
+  <p><a href="/safety/mechanisms.html">English version</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

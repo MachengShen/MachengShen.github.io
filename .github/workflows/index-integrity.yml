@@ -26,6 +26,9 @@ jobs:
       - name: Every artifact is indexed, or excluded with a reason
         run: python3 scripts/check_index.py
 
+      - name: Every public page reaches every other within three plain-link hops
+        run: python3 scripts/crawl_check.py
+
       - name: Internal links in both index editions resolve on the deployed site
         if: github.event_name == 'push'
         run: |

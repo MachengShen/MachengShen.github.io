@@ -7,11 +7,7 @@
   <meta name="description" content="A frontier lab's own published incident postmortem, read against a one-person agent fleet's own incident log, to test whether the failure taxonomy is shared or whether the small system is solving a private problem. Cognitive state: speculative." />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/contrast.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/contrast.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/contrast.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/contrast.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="The same failures, at a different scale" />
   <meta property="og:description" content="OpenAI's own published incident postmortem, read against a one-person agent fleet's own incident log, to test whether the failure taxonomy is shared." />
@@ -28,32 +24,52 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "https://machengshen.github.io/safety/contrast.html",
-    "url": "https://machengshen.github.io/safety/contrast.html",
-    "headline": "The same failures, at a different scale",
-    "name": "The same failures, at a different scale",
-    "description": "A frontier lab's own published incident postmortem, read against a one-person agent fleet's own incident log, to test whether the failure taxonomy is shared or whether the small system is solving a private problem. Cognitive state: speculative.",
-    "inLanguage": "en",
-    "datePublished": "2026-09-07",
-    "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/contrast.zh.html",
-    "author": {"@type": "Person", "name": "Macheng Shen", "url": "https://machengshen.github.io/"},
-    "publisher": {"@type": "Person", "name": "Macheng Shen", "url": "https://machengshen.github.io/"},
-    "isPartOf": {"@type": "WebSite", "@id": "https://machengshen.github.io/#website",
-                 "url": "https://machengshen.github.io/", "name": "Macheng Shen"},
-    "about": [
-      "AI agent harness safety",
-      "frontier-lab incident postmortem comparison",
-      "authority relay and unverified instructions",
-      "gate coverage audit",
-      "retrospective versus real-time detection"
-    ],
-    "keywords": "agent safety, harness, incident postmortem, failure taxonomy, authority envelope, stop epoch, chain-of-thought monitoring, retrospective detection"
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/contrast.html",
+  "url": "https://machengshen.github.io/safety/contrast.html",
+  "headline": "The same failures, at a different scale",
+  "name": "The same failures, at a different scale | Macheng Shen",
+  "description": "A frontier lab's own published incident postmortem, read against a one-person agent fleet's own incident log, to test whether the failure taxonomy is shared or whether the small system is solving a private problem. Cognitive state: speculative.",
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/contrast.zh.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.html"
+  },
+  "about": [
+    "AI agent harness safety",
+    "frontier-lab incident postmortem comparison",
+    "authority relay and unverified instructions",
+    "gate coverage audit",
+    "retrospective versus real-time detection"
+  ],
+  "keywords": "agent safety, harness, incident postmortem, failure taxonomy, authority envelope, stop epoch, chain-of-thought monitoring, retrospective detection",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.html",
+    "https://machengshen.github.io/safety/evidence.html",
+    "https://machengshen.github.io/safety/mechanisms.html",
+    "https://machengshen.github.io/safety/roadmap.html"
+  ]
+}
+</script>
   <style>
 
 :root {
@@ -106,6 +122,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/contrast.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/contrast.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/contrast.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -213,7 +233,19 @@ td.num, th.num { text-align: right; }
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">Related reading</h2>
+  <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
+  <ul>
+    <li><a href="/safety/evidence.html">Four incidents, and what they share | Macheng Shen</a> — Four de-identified local incidents supply the small-scale evidence used in this cross-scale comparison.</li>
+    <li><a href="/safety/mechanisms.html">What is actually running | Macheng Shen</a> — The mechanism inventory reveals which proposed safeguards are enforced in code and which remain specifications.</li>
+    <li><a href="/safety/roadmap.html">The gaps, and what would falsify this | Macheng Shen</a> — Explicit gaps and falsifiers prevent the scale comparison from becoming an unchecked claim of generality.</li>
+  </ul>
+  <p><a href="/safety/contrast.zh.html">中文版本</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>

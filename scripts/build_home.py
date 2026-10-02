@@ -272,6 +272,11 @@ def main() -> None:
     (ROOT / "index.html").write_text(build(is_zh=False), encoding="utf-8")
     (ROOT / "index.zh.html").write_text(build(is_zh=True), encoding="utf-8")
     c = counts()
+    # Generated pages participate in the same checked-in cross-link graph as
+    # hand-authored pages.  Reapply after regeneration so this command alone
+    # cannot silently remove their marked blocks or structured metadata.
+    import crosslink
+    crosslink.apply(only={"index.html", "index.zh.html"})
     print(f"index.html + index.zh.html written: {c['total']} entries tallied, {c['zh']} Chinese-readable")
 
 

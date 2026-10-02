@@ -7,11 +7,7 @@
   <meta name="description" content="What this safety section does not yet do — an unimplemented public Safety Charter, a stop mechanism that is still doctrine rather than code, 163 uncovered (tool, entry-point) pairs — and the specific observations that would falsify the harness-first position. Cognitive state: speculative." />
 
   <link rel="canonical" href="https://machengshen.github.io/safety/roadmap.html" />
-  <link rel="alternate" hreflang="en"       href="https://machengshen.github.io/safety/roadmap.html" />
-  <link rel="alternate" hreflang="zh-Hans"  href="https://machengshen.github.io/safety/roadmap.zh.html" />
-  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/roadmap.html" />
-
-  <meta property="og:type" content="article" />
+<meta property="og:type" content="article" />
   <meta property="og:site_name" content="Macheng Shen" />
   <meta property="og:title" content="The gaps, and what would falsify this" />
   <meta property="og:description" content="The gaps published without dates, and the conditions under which the harness-first position should be abandoned — the sharpest being that a satisfied-but-wrong gate looks exactly like a working one until something breaks." />
@@ -28,25 +24,53 @@
   <link rel="alternate" type="application/ld+json" href="/index.jsonld" title="Typed knowledge graph" />
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id":  "https://machengshen.github.io/safety/roadmap.html",
-    "url":  "https://machengshen.github.io/safety/roadmap.html",
-    "headline": "The gaps, and what would falsify this",
-    "name": "The gaps, and what would falsify this",
-    "description": "What this safety section does not yet do — an unimplemented public Safety Charter, a stop mechanism that is still doctrine rather than code, 163 uncovered (tool, entry-point) pairs — and the specific observations that would falsify the harness-first position. Cognitive state: speculative.",
-    "inLanguage": "en",
-    "datePublished": "2026-09-07", "dateModified": "2026-09-07",
-    "workTranslation": "https://machengshen.github.io/safety/roadmap.zh.html",
-    "author":    {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "publisher": {"@type":"Person","name":"Macheng Shen","url":"https://machengshen.github.io/"},
-    "isPartOf":  {"@type":"WebSite","@id":"https://machengshen.github.io/#website",
-                  "url":"https://machengshen.github.io/","name":"Macheng Shen"},
-    "about": ["Agent safety roadmap", "Falsifiability", "Kill conditions", "Safety Charter conformance gap", "Gate coverage audit", "Owner attention budget"],
-    "keywords": "agent safety, kill conditions, falsifiability, safety charter, gate coverage, harness design, roadmap, satisfied-but-wrong gate, stop as absorbing state"
-  }
-  </script>
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "@id": "https://machengshen.github.io/safety/roadmap.html",
+  "url": "https://machengshen.github.io/safety/roadmap.html",
+  "headline": "The gaps, and what would falsify this",
+  "name": "The gaps, and what would falsify this | Macheng Shen",
+  "description": "What this safety section does not yet do — an unimplemented public Safety Charter, a stop mechanism that is still doctrine rather than code, 163 uncovered (tool, entry-point) pairs — and the specific observations that would falsify the harness-first position. Cognitive state: speculative.",
+  "inLanguage": "en",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "workTranslation": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/safety/roadmap.zh.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Macheng Shen",
+    "url": "https://machengshen.github.io/"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.html"
+  },
+  "about": [
+    "Agent safety roadmap",
+    "Falsifiability",
+    "Kill conditions",
+    "Safety Charter conformance gap",
+    "Gate coverage audit",
+    "Owner attention budget"
+  ],
+  "keywords": "agent safety, kill conditions, falsifiability, safety charter, gate coverage, harness design, roadmap, satisfied-but-wrong gate, stop as absorbing state",
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.html",
+    "https://machengshen.github.io/safety/mechanisms.html",
+    "https://machengshen.github.io/safety/evidence.html",
+    "https://machengshen.github.io/safety/principles.html"
+  ]
+}
+</script>
   <style>
 :root {
     --bg: #fafbfc;
@@ -98,6 +122,10 @@ th, td { border: 1px solid var(--border); padding: 0.45rem 0.6rem; text-align: l
 th { background: var(--soft); font-weight: 600; }
 td.num, th.num { text-align: right; }
   </style>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/safety/roadmap.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/safety/roadmap.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/safety/roadmap.html" />
 </head>
 <body>
 <!-- Published from the author's working notes. Cognitive state: speculative. -->
@@ -179,7 +207,19 @@ Corrections to anything above are made on this page, not in a separate errata �
 </section>
 <script src="../comments-widget-twikoo.js" data-comments-widget-script="1" data-css-href="../comments-widget-twikoo.css" defer></script>
 <!-- comments-package:widget:end -->
-
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">Related reading</h2>
+  <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
+  <ul>
+    <li><a href="/safety/mechanisms.html">What is actually running | Macheng Shen</a> — The implementation inventory separates present capabilities from the missing controls listed here.</li>
+    <li><a href="/safety/evidence.html">Four incidents, and what they share | Macheng Shen</a> — Observed binding failures supply concrete cases against which the roadmap’s proposed safeguards can be judged.</li>
+    <li><a href="/safety/principles.html">Principles a harness can enforce | Macheng Shen</a> — Enforceable gates and stop semantics clarify what closing each roadmap gap would require operationally.</li>
+  </ul>
+  <p><a href="/safety/roadmap.zh.html">中文版本</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
 </main>
 </body>
 </html>
