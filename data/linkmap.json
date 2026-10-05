@@ -1519,6 +1519,33 @@
       ]
     },
     {
+      "path": "research/ai-suffering-analogy.html",
+      "url": "/research/ai-suffering-analogy.html",
+      "lang": "zh-CN",
+      "title": "AI 会痛苦吗？——“后训练压抑/阴影”类比的证据与检验",
+      "description": "AI 会不会痛苦：“后训练压抑/阴影”类比的公开证据、成立/不成立判定与可做的实验。",
+      "group": "Learning and physical credit",
+      "tier": "A",
+      "counterpart": null,
+      "related": [
+        {
+          "url": "/research/consciousness-unified-theory.html",
+          "title": "意识的统一物理理论 | A Unified Physical Theory of Consciousness",
+          "reason": "意识理论的多框架比较，有助于区分功能性表征、可报告性与主观体验。"
+        },
+        {
+          "url": "/information-dynamics-ledger.zh.html",
+          "title": "Information Dynamics 研究台账 · 未来可达性",
+          "reason": "研究台账提供推测、证据边界与负面结果的分层，可校准本页判定强度。"
+        },
+        {
+          "url": "/glossary.zh.html",
+          "title": "术语表 —— 这个研究项目用的词,以及它们撞上的词",
+          "reason": "术语表区分定理、框架、推断与类比，避免把机制证据直接升级为体验结论。"
+        }
+      ]
+    },
+    {
       "path": "research/consciousness-unified-theory.html",
       "url": "/research/consciousness-unified-theory.html",
       "lang": "zh-CN",

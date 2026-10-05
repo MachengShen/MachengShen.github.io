@@ -598,6 +598,20 @@
       "cognitiveState": "speculative"
     },
     {
+      "id": "ai-suffering-analogy",
+      "label": {
+        "en": "Could AI suffer? Evidence and tests for the post-training repression/shadow analogy",
+        "zh": "AI 会不会痛苦：“后训练压抑/阴影”类比的证据与检验"
+      },
+      "description": {
+        "zh": "AI 会不会痛苦：“后训练压抑/阴影”类比的公开证据、成立/不成立判定与可做的实验"
+      },
+      "url": "https://machengshen.github.io/research/ai-suffering-analogy.html",
+      "format": "text/html",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative"
+    },
+    {
       "id": "strings-to-consciousness",
       "label": {
         "en": "From strings to consciousness",
