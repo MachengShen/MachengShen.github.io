@@ -115,6 +115,141 @@
       ]
     },
     {
+      "path": "personal-ai-fleet.html",
+      "url": "/personal-ai-fleet.html",
+      "lang": "en",
+      "title": "A personal AI crew you can just text on Signal | Macheng Shen",
+      "description": "A plain-language overview of a personal AI crew: everyday scenarios, how the pieces connect, the safety model, open-source repos, and how to self-host.",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/personal-ai-fleet.zh.html",
+      "related": [
+        {
+          "url": "/agent-comm-protocol.html",
+          "title": "Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen",
+          "reason": "The communication protocol behind the crew: local policy decides what one agent may share with another."
+        },
+        {
+          "url": "/spine/",
+          "title": "A spine for multi-agent work",
+          "reason": "The spine places memory, coordination, communication and safety as the load-bearing parts this overview describes in plain words."
+        },
+        {
+          "url": "/pipeline/",
+          "title": "A day-shaped pipeline for multi-agent work",
+          "reason": "A 7-stage workflow shows how a request becomes a checked task and a receipt."
+        }
+      ]
+    },
+    {
+      "path": "personal-ai-fleet.zh.html",
+      "url": "/personal-ai-fleet.zh.html",
+      "lang": "zh-Hans",
+      "title": "一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen",
+      "description": "面向普通人的 AI 小队总览：日常场景、各部分怎么连起来、安全模型、开源仓库与自托管方法。",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/personal-ai-fleet.html",
+      "related": [
+        {
+          "url": "/agent-comm-protocol.zh.html",
+          "title": "Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen",
+          "reason": "小队背后的通信协议：由本地策略决定一个 agent 能和另一个分享什么。"
+        },
+        {
+          "url": "/spine/index.zh.html",
+          "title": "多智能体协作的脊柱",
+          "reason": "脊柱把记忆、协调、通信与安全列为承重件，本页用人话讲的就是这些。"
+        },
+        {
+          "url": "/pipeline/index.zh.html",
+          "title": "多智能体协作的「一日流水线」",
+          "reason": "七站流水线展示一个请求怎样变成被核对过的任务和回执。"
+        }
+      ]
+    },
+    {
+      "path": "nervous-system-exploration.html",
+      "url": "/nervous-system-exploration.html",
+      "lang": "zh-Hans",
+      "title": "神经系统打包 + 动态任务图：探索结论 v2 | Macheng Shen",
+      "description": "多模型探索结论：可安装“神经系统”的最小内核是六条合同；动态任务图与抢占式优先队列可借的经典方法；两个实验的设置与通过线。",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": null,
+      "related": [
+        {
+          "url": "/personal-ai-fleet.zh.html",
+          "title": "一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen",
+          "reason": "本页探索的是把这套小队打包成可安装内核；总览页用人话讲它今天怎么跑。"
+        },
+        {
+          "url": "/spine/index.zh.html",
+          "title": "多智能体协作的脊柱",
+          "reason": "脊柱把记忆、协调、通信与安全列为承重件，对应本页的六条合同。"
+        },
+        {
+          "url": "/pipeline/index.zh.html",
+          "title": "多智能体协作的「一日流水线」",
+          "reason": "七站流水线是本页“认领→执行→验收”状态机在一天里的样子。"
+        }
+      ]
+    },
+    {
+      "path": "fleet-layered-architecture.html",
+      "url": "/fleet-layered-architecture.html",
+      "lang": "en",
+      "title": "A layered AI fleet: separate building from acceptance, test the verifier with planted faults | Macheng Shen",
+      "description": "Engineering note: layered architecture for a personal AI fleet - a dispatcher, an evidence-only verification seat (Gate), off-host rechecks, planted-fault blind tests and a kill switch; a dynamic task graph with a preemptive priority queue; a six-contract kernel; shadow-ranking and single-tester trial designs; honest limitations.",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/fleet-layered-architecture.zh.html",
+      "related": [
+        {
+          "url": "/personal-ai-fleet.html",
+          "title": "A personal AI crew you can just text on Signal | Macheng Shen",
+          "reason": "The plain-language overview of the crew whose layered verification this note specifies."
+        },
+        {
+          "url": "/abundant-verification-needs-abundant-claims.html",
+          "title": "Abundant verification needs abundant claims",
+          "reason": "Why cheap verification only pays off when claims are parseable; the receipts here are such claims."
+        },
+        {
+          "url": "/spine/",
+          "title": "A spine for multi-agent work",
+          "reason": "The spine names memory, coordination, communication and safety as load-bearing; this note details the verification and safety part."
+        }
+      ]
+    },
+    {
+      "path": "fleet-layered-architecture.zh.html",
+      "url": "/fleet-layered-architecture.zh.html",
+      "lang": "zh-Hans",
+      "title": "分层 AI 小队：建造与验收分开，用假故障考核验收席 | Macheng Shen",
+      "description": "工程笔记：个人 AI 小队的分层架构——调度席、只判证据的验收席 Gate、异机复验、假故障盲测与急停；动态任务图与抢占式优先队列；神经系统六条合同；影子排序与单人试用实验设计；诚实的局限。",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/fleet-layered-architecture.html",
+      "related": [
+        {
+          "url": "/personal-ai-fleet.zh.html",
+          "title": "一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen",
+          "reason": "用人话讲这支小队今天怎么跑；本页把其中的分层验收写成规格。"
+        },
+        {
+          "url": "/nervous-system-exploration.html",
+          "title": "神经系统打包 + 动态任务图：探索结论 v2 | Macheng Shen",
+          "reason": "本页第 2、3 节的任务图与六条合同，来自这份多模型探索结论。"
+        },
+        {
+          "url": "/spine/index.zh.html",
+          "title": "多智能体协作的脊柱",
+          "reason": "脊柱把记忆、协调、通信与安全列为承重件；本页细化其中的验收与安全。"
+        }
+      ]
+    },
+    {
       "path": "cancer-is-not-cells-waking-up.html",
       "url": "/cancer-is-not-cells-waking-up.html",
       "lang": "en",
@@ -1361,7 +1496,7 @@
       "url": "/pipeline/",
       "lang": "en",
       "title": "A day-shaped pipeline for multi-agent work",
-      "description": "This tutorial organizes a multi-agent working day into seven bounded stages for alignment, continuity, review, and delivery.",
+      "description": "This tutorial organizes a multi-agent working day into 7 bounded stages for alignment, continuity, review, and delivery.",
       "group": "Agent systems and protocols",
       "tier": "A",
       "counterpart": "/pipeline/index.zh.html",

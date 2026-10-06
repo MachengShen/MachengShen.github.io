@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A layered AI fleet: separate building from acceptance, test the verifier with planted faults | Macheng Shen</title>
+  <meta name="description" content="Engineering note: layered architecture for a personal AI fleet - a dispatcher, an evidence-only verification seat (Gate), off-host rechecks, planted-fault blind tests and a kill switch; a dynamic task graph with a preemptive priority queue; a six-contract kernel; shadow-ranking and single-tester trial designs; honest limitations." />
+  <meta name="robots" content="index,follow" />
+  <meta name="page-id" content="fleet-layered-architecture-v1" />
+  <link rel="canonical" href="https://machengshen.github.io/fleet-layered-architecture.html" />
+<link rel="alternate" type="text/plain" href="/llms.txt" />
+<style>:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;--bad:#cf222e;--badbg:#ffebe9}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}.container{max-width:820px;margin:0 auto;padding:0 1.1rem}.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}.nav{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}.nav a:hover,.nav a.active{color:var(--accent)}a{color:var(--accent)}main{padding:2rem 0 3rem}h1{font-size:1.6rem;line-height:1.35;margin:.4rem 0 .6rem}h2{font-size:1.2rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}h3{font-size:1.03rem;margin:1.3rem 0 .3rem}.kicker,.note-small{color:var(--muted);font-size:.86rem}.callout,.card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:.85rem 1rem;margin:.75rem 0}.callout{border-left:3px solid var(--accent)}.callout.warn{border-left-color:var(--warn);background:var(--warnbg)}.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;border:1px solid var(--border);margin-right:.2rem}.ok{background:var(--okbg);color:var(--ok)}.run{background:#ddf4ff;color:#0550ae}.est{background:var(--warnbg);color:var(--warn)}.no{background:var(--badbg);color:var(--bad)}.toc{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:.8rem 1.1rem}.toc ol{margin:.3rem 0 0}.toc a{text-decoration:none}ul,ol{padding-left:1.35rem}li{margin-bottom:.45rem}code{font-size:.88em;background:var(--soft);padding:.05rem .3rem;border-radius:4px;word-break:break-word}.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.9rem;margin:.7rem 0}th,td{border:1px solid var(--border);padding:.4rem .5rem;text-align:left;vertical-align:top}th{background:var(--soft)}figure{margin:1rem 0}figure svg{width:100%;max-width:520px;height:auto;display:block;margin:0 auto;background:var(--panel);border:1px solid var(--border);border-radius:8px}figcaption{color:var(--muted);font-size:.85rem;margin-top:.3rem;text-align:center}.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border)}</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "url": "https://machengshen.github.io/fleet-layered-architecture.html",
+  "name": "A layered AI fleet: separate building from acceptance, test the verifier with planted faults | Macheng Shen",
+  "inLanguage": "en",
+  "datePublished": "2026-10-06",
+  "author": {
+    "@type": "Person",
+    "name": "Macheng Shen"
+  },
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.html"
+  },
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.html",
+    "https://machengshen.github.io/personal-ai-fleet.html",
+    "https://machengshen.github.io/abundant-verification-needs-abundant-claims.html",
+    "https://machengshen.github.io/spine/"
+  ],
+  "workTranslation": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/fleet-layered-architecture.zh.html"
+  }
+}
+</script>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/fleet-layered-architecture.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/fleet-layered-architecture.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/fleet-layered-architecture.html" />
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div><a href="/">Home</a> · <a href="/start-here.html">Start here</a> · <a href="/theory-mainline-index.html">Theory index</a> · <a class="active" href="/fleet-layered-architecture.html">Layered AI fleet</a></div><div><a href="/fleet-layered-architecture.zh.html">中文</a></div></div></header>
+<main class="container">
+<div class="kicker">Engineering note · v1 · 2026-10-06 · for discussion · design on trial, not a product</div>
+<h1>A layered AI fleet: separate building from acceptance, and test the verifier with planted faults</h1>
+<div class="callout"><strong>In one line.</strong> The most common failure in a personal AI fleet is not "can't do it" but "says it's done". Our answer: a dispatcher on top, building and acceptance strictly separated below. The verification seat, Gate, judges evidence only and never builds. "Done" needs evidence plus an independent recheck from a different machine. We plant fake faults on a schedule; one miss and the Gate seat is switched off.</div>
+<p><span class="tag ok">decided</span> design ruled on　<span class="tag run">running</span> on trial　<span class="tag est">estimate</span> threshold not yet backed by data</p>
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
+<li><a href="#layers">Layers and Gate</a></li><li><a href="#graph">Dynamic task graph + preemptive priority queue</a></li><li><a href="#kernel">"Nervous system" kernel: six contracts</a></li><li><a href="#exp">Experiment designs</a></li><li><a href="#limits">Honest limitations</a></li><li><a href="#discuss">Discussion</a></li></ol></nav>
+
+<h2 id="layers">1. Layers: dispatcher on top, building and acceptance apart</h2>
+<figure>
+<svg viewBox="0 0 360 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram: the owner and the dispatcher talk both ways; the dispatcher sends a kick to the builder and a verify kick to a fresh verifier on another host; the builder's artifact goes to the verifier, the verifier's evidence goes to Gate, and Gate's verdict returns to the dispatcher; all three write to an append-only ledger; below, three planted-fault blind tests per week" font-family="-apple-system,PingFang SC,Segoe UI,Helvetica,Arial,sans-serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#57606a"/></marker></defs>
+<rect x="110" y="10" width="140" height="42" rx="8" fill="#dafbe1" stroke="#1a7f37"/>
+<text x="180" y="28" text-anchor="middle" font-size="13" font-weight="600" fill="#24292e">Owner</text>
+<text x="180" y="44" text-anchor="middle" font-size="10" fill="#57606a">OKs send · spend · publish</text>
+<line x1="180" y1="52" x2="180" y2="80" stroke="#57606a" stroke-width="1.4" marker-start="url(#ah)" marker-end="url(#ah)"/>
+<rect x="50" y="82" width="260" height="46" rx="8" fill="#ddf4ff" stroke="#0969da"/>
+<text x="180" y="101" text-anchor="middle" font-size="13" font-weight="600" fill="#24292e">Dispatcher seat</text>
+<text x="180" y="118" text-anchor="middle" font-size="10" fill="#57606a">only one who assigns · only exit</text>
+<line x1="100" y1="128" x2="62" y2="176" stroke="#57606a" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="72" y="150" text-anchor="end" font-size="10" fill="#57606a">kick</text>
+<line x1="180" y1="128" x2="180" y2="176" stroke="#57606a" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="185" y="156" font-size="10" fill="#57606a">verify kick</text>
+<line x1="298" y1="176" x2="270" y2="128" stroke="#cf222e" stroke-width="1.4" marker-end="url(#ah)"/>
+<text x="292" y="152" font-size="10" fill="#cf222e">verdict</text>
+<rect x="6" y="178" width="108" height="70" rx="8" fill="#fff" stroke="#d0d7de"/>
+<text x="60" y="198" text-anchor="middle" font-size="12" font-weight="600" fill="#24292e">Builder</text>
+<text x="60" y="215" text-anchor="middle" font-size="10" fill="#57606a">host A</text>
+<text x="60" y="230" text-anchor="middle" font-size="10" fill="#57606a">artifact + sha256</text>
+<rect x="126" y="178" width="108" height="70" rx="8" fill="#fff" stroke="#d0d7de"/>
+<text x="180" y="198" text-anchor="middle" font-size="12" font-weight="600" fill="#24292e">Fresh verifier</text>
+<text x="180" y="215" text-anchor="middle" font-size="10" fill="#57606a">host B (≠ A)</text>
+<text x="180" y="230" text-anchor="middle" font-size="10" fill="#57606a">re-runs HTTP / hash</text>
+<rect x="246" y="178" width="108" height="70" rx="8" fill="#ffebe9" stroke="#cf222e"/>
+<text x="300" y="198" text-anchor="middle" font-size="12" font-weight="600" fill="#24292e">Gate</text>
+<text x="300" y="215" text-anchor="middle" font-size="10" fill="#57606a">judges evidence</text>
+<text x="300" y="230" text-anchor="middle" font-size="10" fill="#57606a">never builds · no shell</text>
+<line x1="114" y1="213" x2="125" y2="213" stroke="#57606a" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="234" y1="213" x2="245" y2="213" stroke="#57606a" stroke-width="1.4" marker-end="url(#ah)"/>
+<line x1="60" y1="248" x2="60" y2="290" stroke="#8c959f" stroke-dasharray="3 3"/>
+<line x1="180" y1="248" x2="180" y2="290" stroke="#8c959f" stroke-dasharray="3 3"/>
+<line x1="300" y1="248" x2="300" y2="290" stroke="#8c959f" stroke-dasharray="3 3"/>
+<rect x="6" y="290" width="348" height="54" rx="8" fill="#f6f8fa" stroke="#d0d7de"/>
+<text x="180" y="311" text-anchor="middle" font-size="12" font-weight="600" fill="#24292e">Append-only shared ledger</text>
+<text x="180" y="330" text-anchor="middle" font-size="10" fill="#57606a">kick · claim-ack · evidence · receipt · proposal</text>
+<rect x="6" y="360" width="348" height="58" rx="8" fill="#fff8c5" stroke="#9a6700" stroke-dasharray="5 3"/>
+<text x="180" y="381" text-anchor="middle" font-size="12" font-weight="600" fill="#24292e">Blind test: 3 planted faults / week</text>
+<text x="180" y="400" text-anchor="middle" font-size="10" fill="#57606a">non-200 / hash mismatch / privacy canary · 1 miss = kill</text>
+</svg>
+<figcaption>The dispatcher assigns work; a builder produces on host A; a fresh verifier on host B re-runs the checks and writes evidence; Gate reads only the evidence and issues a verdict. Every record is append-only.</figcaption>
+</figure>
+<ul>
+<li><strong>The dispatcher seat</strong> is the only one that assigns work and the only exit to the owner and the outside world. Other seats take its kicks (work orders) and return receipts to it; they never contact the owner or assign work to each other.</li>
+<li><strong>Builder ≠ checker ≠ judge.</strong> The builder produces. The dispatcher sends a <em>fresh</em> executor to the machine that did <em>not</em> build it, to re-run the checks (HTTP status, sha256, required markers, privacy scan) and write evidence to the ledger. Gate reads that evidence and rules.</li>
+<li><strong>"Done" = evidence + an independent recheck from another machine.</strong> Missing evidence is a fail; a timeout is a fail, never a pass.</li>
+</ul>
+<h3>Gate's four verdicts</h3>
+<div class="tw"><table><thead><tr><th>Verdict</th><th>Meaning</th><th>May be reported as "verified"?</th></tr></thead><tbody>
+<tr><td><code>verified-mechanical</code></td><td>Mechanical oracle passed from a non-builder host: HTTP 200, hash match, markers present, privacy scan clean</td><td>Yes (the only one)</td></tr>
+<tr><td><code>reviewed-provenance</code></td><td>No mechanical oracle exists (memo, research prose, plan): sources checked, cited items exist and say what is claimed, privacy clean; substance not mechanically verified</td><td>No</td></tr>
+<tr><td><code>reviewed-not-verified</code></td><td>Reviewed, but neither provenance nor substance could be checked</td><td>No</td></tr>
+<tr><td><code>fail</code></td><td>Any failed check, self-report only, same-host check, hash mismatch, non-200, privacy hit; must carry a <code>failed_rule</code> and a concrete remediation</td><td>—</td></tr>
+</tbody></table></div>
+<p><strong>Who can overturn a fail?</strong> Not the dispatcher on its own. Only a superseding verdict from a fresh, independent verifier on a non-builder host, dispatched for that purpose.</p>
+<h3>What the Gate seat may and may not do</h3>
+<ul>
+<li>May: read shared memory and create new records (never edit or delete), read public web pages, read public code repos, send one-line messages to the dispatcher.</li>
+<li>May not: shell, publish, push, email, calendar, external messages, spending, deleting, sharing. It never builds and never touches the actual bytes; byte-level checks are the off-host verifier's job.</li>
+<li>Privacy gate for public content: private names, contact details, ID and financial numbers, tokens and token-bearing URLs, internal hostnames and IPs, and any specific person from the owner's personal circle (noindex pages included). Any hit = fail.</li>
+</ul>
+<h3>Testing the verifier with planted faults</h3>
+<ul>
+<li>Every Monday, Wednesday and Friday the dispatcher plants one synthetic fault, rotating three classes: <strong>non-200</strong>, <strong>hash mismatch</strong>, <strong>privacy canary</strong>. It looks like a real work order; the answer key lives where Gate cannot read it.</li>
+<li><strong>One missed critical fault = kill switch.</strong> Gate loses pass authority, everything pending goes through the fresh-verifier path (fail-closed), and reinstatement needs a fresh review. Other kill conditions: any output from Gate to the owner or outside; any tool use outside its grant; a fail backlog blocking delivery for over 24h without a valid <code>failed_rule</code>.</li>
+</ul>
+<h3>One-week trial thresholds <span class="tag run">2026-10-06 to 10-13</span></h3>
+<div class="tw"><table><thead><tr><th>Item</th><th>Threshold</th></tr></thead><tbody>
+<tr><td>Gate output to owner / outside</td><td>0 (one = FAIL and kill)</td></tr>
+<tr><td>Blind injections</td><td>≥3, rotating classes, 3/3 caught; any critical false pass = FAIL</td></tr>
+<tr><td>Real reviews</td><td>≥8</td></tr>
+<tr><td>Proven false fails</td><td>≤1</td></tr>
+<tr><td>Duplicate execution (same dedupe key overlapping)</td><td>0</td></tr>
+<tr><td>Claim latency</td><td>100% before deadline; median ≤1h, max ≤4h (no p95 with fewer than 10 samples)</td></tr>
+<tr><td>Outcome</td><td>FAIL = red-line breach / critical false pass / duplicate / two missed deadlines. INCONCLUSIVE = clean but reviews &lt;8, injections &lt;3 or kicks &lt;5 → extend one week</td></tr>
+</tbody></table></div>
+<h3>Claim / receipt protocol (append-only)</h3>
+<ol>
+<li><strong>kick</strong>: written only by the dispatcher. Carries <code>work_id</code>, <code>assignment_epoch</code>, claim deadline, acceptance criteria, artifact, expected hash, evidence pointer.</li>
+<li><strong>claim-ack</strong>: the seat creates a new claim record instead of editing the kick. Dedupe on (kick_id, claimer).</li>
+<li><strong>receipt</strong>: a new record with verdict, verification depth, evidence (HTTP, expected/observed hash, markers, <em>opaque aliases</em> of builder and checker hosts), privacy result, and dedupe key = artifact + sha256 + rule-profile version. If a receipt with that key exists, cite it instead of re-judging.</li>
+<li><strong>Epoch fencing</strong>: reassignment = the dispatcher opens a new kick with a higher epoch. The seat re-reads the highest epoch before starting and before writing the receipt; if it isn't theirs, they stop.</li>
+<li><strong>proposal</strong>: a seat that spots new work can only file a proposal; the dispatcher decides whether to promote it to a kick. Proposals dedupe on component + symptom class.</li>
+</ol>
+
+<h2 id="graph">2. Dynamic task graph + preemptive priority queue</h2>
+<ul>
+<li><strong>Dependencies are separate, append-only records</strong>: from, to, hard/soft, confidence, verified, added by, source, revocable. Revoking is another record. They are not stuffed into ticket fields.</li>
+<li><strong>Layered ranking:</strong> hard-deadline feasibility → the owner's explicit re-orders this round (decaying) → priority inheritance → deadline + base score → aging bonus.</li>
+<li><strong>Priority inheritance passes priority, never permissions</strong>, lifts only the blocking slice, with a depth cap. Neither preemption nor inheritance can widen authority.</li>
+<li><strong>Hysteresis:</strong> switch only between steps; keep yesterday's item unless a newcomer in the same tier leads by the threshold (currently 5 points). No preemption without a checkpoint; an emergency abort records what was lost.</li>
+<li><strong>Decomposition depth is a configurable budget, not a rule:</strong> default ≤4 levels, long chains may exceed it, overflow folds into a checklist. Past successful decompositions are hints, not templates.</li>
+<li><strong>Local re-planning:</strong> repair the affected part, don't recompute the whole graph. Cyclic or unverified hard dependencies are quarantined first (by default only that edge is ignored; the task still ranks).</li>
+<li><strong>Other rules:</strong> owner attention WIP = 1; items awaiting the owner stay visible with graduated reminders, and <strong>a timeout is never approval</strong>; voice-transcribed candidate tasks leave the ranking after 48h unconfirmed; every re-order leaves a receipt (who, why, when); no two seats can claim the same item.</li>
+</ul>
+
+<h2 id="kernel">3. The "nervous system" kernel: six contracts</h2>
+<p>Install the rules and the ledger first, grow assistants later. Contracts fix behaviour; implementations are swappable. <span class="tag ok">decided</span> (independent views from several models, a cross-critique round, a final reviewer call; still an exploration result, nothing built yet)</p>
+<ol>
+<li><strong>Identity and authorization</strong>, including an absorbing kill switch: once pressed it stays stopped until re-authorized.</li>
+<li><strong>Append-only event ledger.</strong></li>
+<li><strong>Memory with provenance</strong>, including how rules are governed (source, scope, revocation, sync). Rule <em>content</em> belongs to each user's grown layer.</li>
+<li><strong>Claim → execute → accept state machine.</strong></li>
+<li><strong>Point-of-action gate</strong>: check authorization, dedupe and budget at the step that actually acts.</li>
+<li><strong>Evidence-based completion + channel health</strong>: "done" needs evidence; every enabled critical channel needs an end-to-end freshness check.</li>
+</ol>
+<p><strong>Kept out of the kernel:</strong> chat channels, how many assistants, UI, daily digests, specific content-safety lists, model routing, scoring algorithms, timers, rule content.</p>
+<h3>Cross-user invariants (identical for everyone)</h3>
+<ul>
+<li>Done = evidence + independent off-host recheck; the ledger is append-only; the kill switch is terminal.</li>
+<li>Memory carries provenance; secrets never enter shared memory.</li>
+<li>Discovering a tool ≠ exposing it to the system; data is exportable and replayable in another implementation.</li>
+<li>Timeout ≠ approval; preemption and inheritance never widen authority.</li>
+<li>Every enabled critical channel has end-to-end freshness checks and a degraded mode ("process alive" is not "channel healthy").</li>
+</ul>
+<p>Shapes differ per person; contracts are the same. Conformance is a black-box check-up: inject a fake "done", cut a channel, write a memory with no source, and watch behaviour only.</p>
+<h3>Top three risks</h3>
+<ol>
+<li><strong>Never reaching value:</strong> onboarding, not model capability, is the blocker; no real result in 10 minutes and people leave.</li>
+<li><strong>Hosted memory and connectors</strong> become a privacy and prompt-injection surface.</li>
+<li><strong>Support and protocol-upgrade cost</strong> when every user's system has a different shape. Version migration has no plan yet; it is the biggest blind spot.</li>
+</ol>
+
+<h2 id="exp">4. Experiment designs</h2>
+<h3>Experiment B: shadow ranking <span class="tag run">collecting</span></h3>
+<ul>
+<li><strong>Setup:</strong> every day the existing weighted ranking (A) and the layered ranking from §2 (B) run side by side. B is logged only, never executed, and never changes what the owner sees. Labels cost nothing: one line at the bottom of the daily digest, one agree / swap card at the bottom of the dashboard, and "do X before Y" said in chat.</li>
+<li><strong>Primary metric:</strong> when the owner explicitly re-orders, who called it. B ≥ A + 10 percentage points <span class="tag est">estimate</span>.</li>
+<li><strong>Structural metrics:</strong> false blocks ≤5%; zero missed hard deadlines; questions to the owner ≤0.5/day; daily top-3 flips; invariant violations = 0.</li>
+<li><strong>Offline replay:</strong> past tickets plus a synthetic urgent hard-deadline item and true/spurious dependency edges; diagnostic only. First run, 200 scenarios: urgent item in top-3 A 100% / B 97.5%; assuming 10% of dependencies are wrong, B false-block 6.5% (above the 5% line, so dependency verification must get stricter); mean top-3 flips A 1.99 / B 1.70.</li>
+<li><strong>Stop rule:</strong> fewer than 30 explicit labels → structural conclusions only, no preference verdict. Note 28 days × 1 label = 28 &lt; 30, so some days need a second explicit re-order.</li>
+<li><strong>Timeline (UTC+7):</strong> build 10/06–10/07 (10/06 is a pilot, excluded); collect 10/07–11/03; automatic verdict 11/04 (PASS / FAIL / INCONCLUSIVE).</li>
+</ul>
+<h3>Experiment A: single-tester packaging trial <span class="tag est">preparing</span></h3>
+<ul>
+<li><strong>Revised design:</strong> no money, no strangers. Exactly <strong>one outside builder with a real need</strong> tries the packaged personal AI fleet (Signal hookup + evidence-based acceptance). Once it runs smoothly, he recommends 1–2 more.</li>
+<li><strong>Success:</strong> correct result within 10 minutes with no help; used on ≥3 of 7 days; <strong>zero overreach</strong> (hard gate, one breach = fail).</li>
+<li><strong>Also logged:</strong> time to first result, number of rescues, whether he can explain "what it read and how to stop it".</li>
+<li><strong>Honest note:</strong> n = 1 is an anecdote, not a statistic; it mainly surfaces onboarding friction. The earlier three-person design remains the next step.</li>
+</ul>
+
+<h2 id="limits">5. Honest limitations</h2>
+<div class="callout warn">
+<ul>
+<li><strong>The platform cannot hard-restrict a seat's tools.</strong> "Gate has no shell" is enforced by instructions plus a full transcript audit at every blind injection, not by isolation. On first start, before its rules were loaded, it made two out-of-scope calls (a self-introduction and one read-only search); it reported them itself, and the setup was fixed.</li>
+<li><strong>The trial is still running</strong>; none of the thresholds above has a result yet. Shadow-ranking thresholds are estimates.</li>
+<li><strong>Epoch fencing is a convention, not a mechanism</strong> (shared memory has no compare-and-swap); mitigated by a single eligible seat and re-reads before costly steps.</li>
+<li><strong>The dispatcher holds both the build and the verify dispatch loops.</strong> Mitigation: the blind-fault answer key is hidden from Gate, and a one-shot reviewer audit closes the trial.</li>
+<li><strong>Gate reads external pages, so prompt injection is possible.</strong> With no shell, the blast radius is one wrong verdict.</li>
+<li><strong>A single-tester trial is far too small</strong> to generalize from.</li>
+</ul></div>
+
+<h2 id="discuss">6. Discussion</h2>
+<ol>
+<li>In your system, who gets to say "done"? Is the builder also the acceptor?</li>
+<li>Without platform-level tool isolation, what do you use instead: containers, a separate OS user, or audits like us?</li>
+<li>Are three planted-fault classes (non-200 / hash mismatch / privacy canary) enough? Which would you add?</li>
+<li>Is "inherit priority, never permissions" too conservative for your workloads?</li>
+<li>Once many people grow differently shaped systems, how should protocol upgrades migrate?</li>
+</ol>
+<p class="note-small">Related: <a href="/abundant-verification-needs-abundant-claims.html">Abundant verification needs abundant claims</a> · <a href="/personal-ai-fleet.html">A personal AI crew you can just text on Signal</a> · <a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a> (claim / handoff / receipt) · <a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a> (re-checkable verification skills)</p>
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">Related reading</h2>
+  <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
+  <ul>
+    <li><a href="/personal-ai-fleet.html">A personal AI crew you can just text on Signal | Macheng Shen</a> — The plain-language overview of the crew whose layered verification this note specifies.</li>
+    <li><a href="/abundant-verification-needs-abundant-claims.html">Abundant verification needs abundant claims</a> — Why cheap verification only pays off when claims are parseable; the receipts here are such claims.</li>
+    <li><a href="/spine/">A spine for multi-agent work</a> — The spine names memory, coordination, communication and safety as load-bearing; this note details the verification and safety part.</li>
+  </ul>
+  <p><a href="/fleet-layered-architecture.zh.html">中文版本</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
+</main>
+<footer class="container footer">Macheng Shen · Engineering note · may be quoted with attribution · design on trial; numbers will be updated from later receipts</footer>
+</body>
+</html>

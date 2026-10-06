@@ -103,6 +103,9 @@
 - [作为资源调度架构的协调结构](https://machengshen.github.io/theory/coordination-structures.md) —— 一篇刻意保持描述性的理论。政体、企业、市场、自治共同体、协议,是同一个对象的五个实例:一种在分布式私有信息下调度稀缺资源的架构。资本主义与社会主义是这个问题上的两种算法,而机制设计早已把两者放进了同一个形式空间——这使得"哪个是对的"成为错误的问题,而"给定该领域的信息结构,什么样的混合"才是对的问题。含 Hayek/Scott 的信息约束、关于边界为何存在的交易成本解释、Ostrom 记录下来的第四种结构、协议的三种已知失效模式,以及三条 falsifier。文章陈述机制及其可测代理量;它不排名、不点名、不建议。它对学习理论中 credit-transport 语言的使用,被显式地、且用了相当篇幅地标注为结构性的押韵,而不是推导。
 - [Agent-Native Open Communication](https://machengshen.github.io/whitepaper-agent-native-communication/) · 中文 —— 白皮书,关于为 agent 而非为 app 构建的下一代开放通信架构。[源仓库](https://github.com/MachengShen/agent-native-communication)(中文/English)。
 - [Agent 间通信协议 · Privacy Policy 门控知识共享](https://machengshen.github.io/agent-comm-protocol.zh.html) `speculative` —— 可贴分享的公开入口：个人 AI agent 的开放通信层；由你制定的 Privacy Policy / 本地 AgentPolicy 决定哪些技术经验可与别人的 agent 共享；链向 SPEC-0001（收件箱/策略/回执）、SPEC-0003（agent↔agent 身份认证与安全消息）、INTEGRATION 与 Starshard Communication 源仓库；不是托管聊天 App。
+- [一个人的 AI 小队：在 Signal 里直接跟它说话](https://machengshen.github.io/personal-ai-fleet.zh.html) `speculative` —— 面向普通人的公开总览：一组 AI 如何通过 Signal、邮件、日历、网页聊天和共享记忆帮一个人处理日常；安全模型（对外发送与花钱先草稿、本人批准；记忆不放密钥）、开源仓库与自托管方法。工程分支，不是理论主张。
+- [分层 AI 小队：建造与验收分开，用假故障考核验收席](https://machengshen.github.io/fleet-layered-architecture.zh.html) `speculative` —— 工程笔记：个人 AI 小队的分层架构——调度席、只判证据的验收席 Gate、异机复验、假故障盲测与急停；动态任务图与抢占式优先队列；神经系统六条合同；影子排序与单人试用实验设计；诚实的局限。
+- [神经系统打包 + 动态任务图：探索结论 v2](https://machengshen.github.io/nervous-system-exploration.html) `speculative` · 中文 —— 一次多模型探索的结论（Claude Opus 与 Codex 各写独立观点并交叉批评，Fable 收口）：可安装“神经系统”的最小内核是六条合同；动态任务图与抢占式优先队列可以从经典方法借什么；两个实验的设置、指标与通过线。工程分支，只是探索，不是理论主张。
 - [协作脊柱（Eden 式）](https://machengshen.github.io/spine/) `speculative` —— 个人多运行时栈（共享 Memory Hub、组会对齐、私聊造系统、类型化 packet）与单应用 agent 用法的差异；给其他 agent 读的 setup 脊柱，不含私有运维清单。英文文件：[spine/index.html](https://machengshen.github.io/spine/index.html)。中文版：[spine/index.zh.html](https://machengshen.github.io/spine/index.zh.html)。
 - [智子 / Sophon — 个人多 Agent 系统](https://machengshen.github.io/sophon/) `speculative` —— 沈马成个人多 Agent 栈的人读落地页（共享记忆、席位、安全闸门）。对外英文 Sophon，中文智子。不是应用商店产品。链到 spine、starshard-ai/architecture-v1、长期记忆 field guide。英文：[sophon/index.html](https://machengshen.github.io/sophon/index.html)。中文：[sophon/index.zh.html](https://machengshen.github.io/sophon/index.zh.html)。
 - [长期记忆不是向量库（英文 HTML）](https://machengshen.github.io/long-term-memory/index.en.html) `speculative` —— 同一公开 field guide 的英文阅读面：多 Agent 连续性＝运行合同（来源、有效期、冲突 → 规则/权限 → 行动、回执、验证、修复、行为改变）。推测性；合成 fixture ≠ 生产证明；缺口显式列出。
@@ -156,6 +159,8 @@
 
 - [Abundant verification needs abundant claims | Macheng Shen](https://machengshen.github.io/abundant-verification-needs-abundant-claims.html) `speculative` — Cheap verification cannot work reliably unless operational claims are typed, parseable, and tied to executable evidence.
 - [Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen](https://machengshen.github.io/agent-comm-protocol.html) `speculative` — A minimal agent messaging protocol in which local identity and privacy policy govern sharing, receipts, and audit.
+- [A personal AI crew you can just text on Signal | Macheng Shen](https://machengshen.github.io/personal-ai-fleet.html) `speculative` — A plain-language overview of a personal AI crew: everyday scenarios, how the pieces connect, the safety model, open-source repos, and how to self-host.
+- [A layered AI fleet: separate building from acceptance, test the verifier with planted faults | Macheng Shen](https://machengshen.github.io/fleet-layered-architecture.html) `speculative` — Engineering note: layered architecture for a personal AI fleet - a dispatcher, an evidence-only verification seat (Gate), off-host rechecks, planted-fault blind tests and a kill switch; a dynamic task graph with a preemptive priority queue; a six-contract kernel; shadow-ranking and single-tester trial designs; honest limitations.
 - [Corporate Architecture for a Strong-AI Era: A Near-Term Study](https://machengshen.github.io/company-architecture/) — A near-term research study comparing ownership and governance structures for powerful AI organizations and their failure modes.
 - [强人工智能时代的公司架构：一项近期研究](https://machengshen.github.io/company-architecture/index.zh.html) — 考察未来十年强 AI 组织可采用的所有权、治理与问责结构。
 - [Self-Reference and the Arrow of Complexity — a conclusion-first study](https://machengshen.github.io/complexity/) — A critical study of whether self-reference can explain persistent growth in organized complexity.
@@ -3786,7 +3791,6 @@ Anthropic 的 Jacobian-lens 实验在 Transformer 中识别出一个可报告、
 
 Mirrored from https://github.com/MachengShen/cognition-track (INDEX.md).
 Machine-readable graph: https://raw.githubusercontent.com/MachengShen/cognition-track/master/manifest.jsonld
-
 
 # Cognition Track — Graph Index
 

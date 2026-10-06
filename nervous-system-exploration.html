@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>神经系统打包 + 动态任务图：探索结论 v2 | Macheng Shen</title>
+  <meta name="description" content="一次多模型探索的结论（Claude Opus 与 Codex 各写独立观点并交叉批评，Fable 收口）：可安装“神经系统”的最小内核是六条合同；动态任务图与抢占式优先队列怎么借经典方法；两个实验的设置、指标与通过线。只是探索，不开建。" />
+  <meta name="robots" content="index,follow" />
+  <meta name="page-id" content="nervous-system-exploration-v2" />
+  <link rel="canonical" href="https://machengshen.github.io/nervous-system-exploration.html" />
+<style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}
+.container{max-width:820px;margin:0 auto;padding:0 1.25rem}
+.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.nav .left{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.nav a.active,.nav a:hover{color:var(--accent)}
+main{padding:2rem 0 3rem}
+h1{font-size:1.65rem;line-height:1.35;margin:.4rem 0 .6rem}
+h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.04rem;margin:1.5rem 0 .3rem}
+.kicker{color:var(--muted);font-size:.85rem;letter-spacing:.05em}
+.callout{background:var(--soft);border-left:3px solid var(--accent);padding:.85rem 1.05rem;margin:1.1rem 0;border-radius:0 4px 4px 0}
+.callout.warn{background:var(--warnbg);border-left-color:var(--warn)}
+.entry{border:1px solid var(--border);border-radius:8px;background:var(--panel);padding:.9rem 1rem;margin:.7rem 0}
+.entry p{margin:.45rem 0 0}
+.entry .meta{color:var(--muted);font-size:.86rem;margin-top:.35rem}
+.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;background:var(--soft);border:1px solid var(--border);color:var(--muted);vertical-align:.1em;margin-right:.2rem}
+.tag.live{background:var(--okbg);border-color:#4ac26b;color:var(--ok)}
+.tag.part{background:#ddf4ff;border-color:#54aeff;color:#0550ae}
+.tag.plan{background:var(--warnbg);border-color:#d4a72c;color:var(--warn)}
+.note-small{color:var(--muted);font-size:.88rem}
+.toc{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:.9rem 1.1rem}
+.toc ol{margin:.4rem 0 0}.toc a{text-decoration:none}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.8rem 0}
+th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+figure{margin:1rem 0}figure svg{width:100%;height:auto;background:var(--panel);border:1px solid var(--border);border-radius:8px}
+figcaption{color:var(--muted);font-size:.86rem;margin-top:.3rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.88em}
+ul,ol{padding-left:1.4rem}li{margin-bottom:.45rem}a{color:var(--accent)}
+hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
+.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border);margin-top:2.5rem}
+@media (max-width:640px){.hide-sm{display:none}}
+</style>
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "url": "https://machengshen.github.io/nervous-system-exploration.html",
+  "name": "神经系统打包 + 动态任务图：探索结论 v2 | Macheng Shen",
+  "inLanguage": "zh-Hans",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/personal-ai-fleet.zh.html",
+    "https://machengshen.github.io/spine/index.zh.html",
+    "https://machengshen.github.io/pipeline/index.zh.html"
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div class="left">
+  <a href="/">Home</a>
+  <a href="/start-here.zh.html">从这里开始</a>
+  <a href="/theory-mainline-index.zh.html">理论主线</a>
+  <a href="/personal-ai-fleet.zh.html">AI 小队</a>
+  <a class="active" href="/nervous-system-exploration.html">神经系统探索</a>
+</div></div></header>
+<main class="container">
+<div class="kicker">探索结论 · v2 · 2026-10-06 · 工程分支（设计探索，不是理论主张，也不是已建成的东西）</div>
+<h1>神经系统打包 + 动态任务图：探索结论 v2</h1>
+<nav class="toc" aria-label="目录"><strong>目录</strong><ol>
+<li><a href="#nervous">神经系统打包</a></li><li><a href="#taskgraph">动态任务图 + 抢占式优先队列</a></li><li><a href="#order">先后与分歧</a></li></ol></nav>
+<p>参与：Claude Opus、Codex（各写一份独立观点，再互相批评一轮）→ <strong>Fable</strong> 收口（替换 v1：v1 的收口其实是 Opus，不是 Fable）。只是探索，不开建。</p>
+<div class="callout"><strong>一句话。</strong>先装一套"规矩和账本"，不先装一堆助手。任务排序的影子对比今天就能开；给外人试用的实验合成一张卡，等主人批了再跑，两件事可以并行。</div>
+<h2 id="nervous">第一节　神经系统打包</h2>
+<h3>可以往哪探索</h3>
+<ol>
+<li>内核是六条"合同"，不是四个组件：合同规定行为，具体用什么实现都可以换。</li>
+<li>两个入口：普通人用托管应用，先拿到一个真实结果；开发者自己部署参考实现。现有的轻量规则包、协作协议四原语、SQLite 记忆库加起来，大约已经覆盖八成（估计）。</li>
+<li>靠"摩擦"长出来：新工具登记后默认关着；同类摩擦攒够了，系统写一张"生长卡"（要解决什么、要什么权限、怎么验收、怎么删掉）；主人批准的是想法；做完由独立的一方验证，然后试用；没人用就自动休眠。</li>
+<li>能整包导出、在别的实现里重放：这是"不绑死某一家供应商"唯一能兑现的方式，没证明之前不许这么宣称。</li>
+</ol>
+<h3>最小内核</h3>
+<ul>
+<li>放进去：① 身份与授权（含"急停"，按下就彻底停，只有重新授权才能复活）；② 只能往后追加的事件账本；③ 带来源的记忆，其中包括规则的管理方式（来源、适用范围、撤销、同步）；④ 认领→执行→验收的状态机；⑤ 在真正动手的那一步把关（授权、去重、预算）；⑥ "完成"必须有证据，关键通道必须有健康证明。</li>
+<li>不放进去：聊天渠道、具体是哪几个助手、界面、日报、内容安全检查的具体清单、模型路由、打分算法、定时任务、规则的具体内容。</li>
+</ul>
+<h3>所有用户都必须一样的规矩</h3>
+<ul>
+<li>说"完成"要有证据，并换一台机器由别人独立复查；</li>
+<li>账本只能追加，每件事都留痕；急停是终点；</li>
+<li>记忆必须标来源；密钥本身不进共享记忆；</li>
+<li>发现了工具不等于开放给系统用；数据能导出能重放；</li>
+<li>超时不等于批准；抢占任务、临时抬高优先级都不能顺带扩大权限；</li>
+<li>凡是启用了的关键通道，都要有端到端的新鲜度检查和降级方案。</li>
+</ul>
+<p><strong>每个人会长得不一样的地方</strong>：有几个助手、接哪些渠道、规则和记忆写了什么、自动化到什么程度、长得多快，全都因人而异。形状不同，合同相同。合规靠一套黑盒体检（故意注入假"完成"、掐断通道、写一条没有来源的记忆等），只检查行为，不管怎么实现的。</p>
+<h3>最大的三个风险</h3>
+<ol>
+<li>用户还没看到价值就走了：卡住人的是上手，不是模型能力，10 分钟拿不到真实结果就会流失。</li>
+<li>托管的记忆库和各种连接器，会变成隐私和提示注入的攻击面。</li>
+<li>每个人的系统都不一样，支持成本和协议升级成本会爆炸。版本怎么迁移，两位顾问都没给方案，这是最大的盲点。</li>
+</ol>
+<h3>第一个实验（等主人批）</h3>
+<ul>
+<li>假设：完全不懂这些概念的普通人，靠一个只读的日历连接，10 分钟内能拿到一个可核对的结果，并在 7 天内自己再用。</li>
+<li>设置：做一个极薄的托管原型，只干一件事：读日历→生成第二天的冲突和准备清单→放在私密网页上。3 个人试（开发者、半懂技术、不懂技术各一个）。招募外部的人和新增托管这两件事合成<strong>一张</strong>决策卡给主人批，不拆成几次问。</li>
+<li>看这几个数：多久拿到第一个结果、要人帮几次、7 天里主动用了几天、有没有越权操作、用户能不能说清"它读了什么、怎么停掉"。</li>
+<li>成本：大约 1 个工程周，外加 100 到 300 美元（估计）。</li>
+<li>通过：至少 2 个人 10 分钟内不靠帮忙拿到正确结果；至少 2 个人 7 天里用了 3 天以上；不能有任何越权，这是硬门槛，违反一次就整体失败。</li>
+<li>时间盒：2 周。全部通过再扩到 8 个人。</li>
+</ul>
+<h2 id="taskgraph">第二节　动态任务图 + 抢占式优先队列</h2>
+<h3>可以往哪探索</h3>
+<ul>
+<li>任务就是共享记忆里现有的工单；任务之间的依赖关系单独记成只追加的记录。</li>
+<li>分层排序：先看硬约束 → 再看主人这一轮的明确指令 → 再看被重要任务"带"着抬高的任务 → 再看分数 → 最后给等太久的加分。</li>
+<li>只在两个步骤之间切换，分差小就不切，免得来回跳。</li>
+<li>对齐主人的方式是"给默认顺序，一键就能否决"。</li>
+<li>往前采集标签（而不是靠历史数据）。</li>
+</ul>
+<h3>经典方法里真正能借来的</h3>
+<ul>
+<li>分层任务网络（HTN）：层层拆解、部分有序可以借；它假设动作和状态都已经写清楚，这个前提不能借。以前成功的拆法只当提示，不当模板。</li>
+<li>在线调度："看不见未来"的设定可以借，用历史回放算一个跟最优解的差距比值；理论上的最优保证不存在，别去追。</li>
+<li>抢占式调度：可以借"优先级继承"，但只继承优先级，不继承权限。要能恢复地抢占，必须先有存档点。</li>
+<li>重规划：只修局部，不重算整张图。</li>
+<li>随时可中断的规划：长任务要定期产出"现在被打断也有用"的半成品。</li>
+<li>看板和排队论：限制同时在做的数量能缩短完成时间；主人注意力同时只能放在 1 件事上。</li>
+</ul>
+<h3>必须守住的规矩</h3>
+<ul>
+<li>没有安全存档点就不抢占；紧急中止必须记下丢了什么。</li>
+<li>等主人拍板的事项一直看得见、按时间梯度提醒，永远不悄悄过期，超时也不算批准。</li>
+<li>硬约束保证"还来得及完成"，不是永远排第一。</li>
+<li>每次重排都留回执（谁排的、为什么、什么时候）。</li>
+<li>有环的依赖和没核实的硬依赖先隔离，不进排序。</li>
+<li>语音转出来的候选任务，48 小时没人确认就不进排序。</li>
+<li>同一件事不能被两个助手同时认领。</li>
+<li>任务拆分层数不算硬规矩，是一个可以调的预算：默认最多 4 层，长链可以例外，超了就折叠成一张清单。</li>
+</ul>
+<h3>第一个实验（今天就能开）</h3>
+<ul>
+<li>设置：每天同时跑两版排序：现在的加权分，和"依赖约束＋优先级继承＋等待加分＋不轻易切换"。新版只记录，不执行。每天的摘要底部加一个零成本的标签采集：主人实际先做了哪件、有没有换顺序，一键或者不理都行。同时用历史工单离线合成"插队"场景，测误阻塞和来回跳。</li>
+<li>看这几个数：主人明确换顺序时哪一版押中了、误阻塞率、每天排序翻转几次、硬约束漏了几次、每天问主人几次。</li>
+<li>通过（估计）：新版一致率高至少 10 个百分点；误阻塞不超过 5%；硬约束一次不漏；每天提问不超过 0.5 次。</li>
+<li>时间盒：2 个工程日搭建，加 4 周被动采集。明确的标签不到 30 条，就只下结构上的结论（误阻塞、来回跳），不下偏好上的结论。</li>
+</ul>
+<h2 id="order">先后与分歧</h2>
+<ul>
+<li><strong>先后：</strong> 任务排序的影子实验今天就开，因为数据晚一天就少一天（现在只有 4 天的摘要、4 条按钮记录）。打包实验合成一张卡等主人批，批了第二周开始，两者并行不冲突。</li>
+<li><strong>规则进不进内核：</strong> 规则的管理方式进内核，规则内容属于长出来的部分。</li>
+<li><strong>"心跳正常不等于通道健康"：</strong> 是条件式的硬规矩，凡是启用了的关键通道都要有端到端检查。</li>
+<li><strong>拆解深度：</strong> 不是硬规矩，是可调的预算，默认最多 4 层。</li>
+<li><strong>实验规模：</strong> 先 3 个人，全部通过再扩到 8 个人；不能有任何越权，这是硬门槛。</li>
+<li><strong>Bradley–Terry 偏好模型：</strong> 暂时不用，攒到至少 100 条明确标签再说。</li>
+<li><strong>依赖关系怎么记：</strong> 单独记、只追加，不塞进工单的字段里。</li>
+<li><strong>"超时没反对就默认执行"：</strong> 只用于已授权、能撤回、有存档点的内部排序，等多久按剩余时间余量来定。外发、花钱、删除、分享永远不适用。</li>
+</ul>
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/personal-ai-fleet.zh.html">一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen</a> — 本页探索的是把这套小队打包成可安装内核；总览页用人话讲它今天怎么跑。</li>
+    <li><a href="/spine/index.zh.html">多智能体协作的脊柱</a> — 脊柱把记忆、协调、通信与安全列为承重件，对应本页的六条合同。</li>
+    <li><a href="/pipeline/index.zh.html">多智能体协作的「一日流水线」</a> — 七站流水线是本页“认领→执行→验收”状态机在一天里的样子。</li>
+  </ul>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="/">← 返回主页</a> · <a href="/theory-mainline-index.zh.html">理论主线索引</a> · <a href="/personal-ai-fleet.zh.html">AI 小队总览</a></p>
+  <p>Macheng Shen · 探索结论 v2 · 2026-10-06 · 工程分支，不是理论主张 · 只用通用场景，不涉及具体个人</p>
+</div></footer>
+</body>
+</html>

@@ -1020,6 +1020,53 @@
       "workTranslation": "https://machengshen.github.io/agent-comm-protocol.zh.html"
     },
     {
+      "id": "personal-ai-fleet-overview",
+      "label": {
+        "en": "A personal AI crew you can just text on Signal",
+        "zh": "一个人的 AI 小队：在 Signal 里直接跟它说话"
+      },
+      "description": {
+        "en": "Plain-language public overview of a personal AI crew: everyday scenarios, how the pieces connect, safety model (drafts plus owner approval for sends and spending), open-source repos, how to self-host. Engineering branch, not a theory claim.",
+        "zh": "面向普通人的 AI 小队公开总览：日常场景、各部分怎么连接、安全模型（对外发送与花钱先草稿、本人批准）、开源仓库与自托管。工程分支，不是理论主张。"
+      },
+      "url": "https://machengshen.github.io/personal-ai-fleet.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/personal-ai-fleet.zh.html"
+    },
+    {
+      "id": "nervous-system-exploration-v2",
+      "label": {
+        "en": "Nervous-system packaging + dynamic task graph: exploration verdict v2",
+        "zh": "神经系统打包 + 动态任务图：探索结论 v2"
+      },
+      "description": {
+        "en": "Chinese-language verdict of a multi-model design exploration (Claude Opus and Codex wrote independent views and cross-critiqued; Fable ruled): the minimal kernel of an installable agent \"nervous system\" is six contracts; what a dynamic task graph with a preemptive priority queue can borrow from classic planning and scheduling; two experiment designs with metrics and pass lines. Engineering branch, exploration only, not a theory claim.",
+        "zh": "一次多模型探索的结论（Claude Opus 与 Codex 各写独立观点并交叉批评，Fable 收口）：可安装“神经系统”的最小内核是六条合同；动态任务图与抢占式优先队列可以从经典方法借什么；两个实验的设置、指标与通过线。工程分支，只是探索，不是理论主张。"
+      },
+      "url": "https://machengshen.github.io/nervous-system-exploration.html",
+      "format": "text/html",
+      "inLanguage": "zh-Hans",
+      "cognitiveState": "speculative"
+    },
+    {
+      "id": "fleet-layered-architecture",
+      "label": {
+        "en": "A layered AI fleet: separate building from acceptance, test the verifier with planted faults",
+        "zh": "分层 AI 小队：建造与验收分开，用假故障考核验收席"
+      },
+      "description": {
+        "en": "Engineering note: layered architecture for a personal AI fleet - a dispatcher, an evidence-only verification seat (Gate), off-host rechecks, planted-fault blind tests and a kill switch; a dynamic task graph with a preemptive priority queue; a six-contract kernel; shadow-ranking and single-tester trial designs; honest limitations.",
+        "zh": "工程笔记：个人 AI 小队的分层架构——调度席、只判证据的验收席 Gate、异机复验、假故障盲测与急停；动态任务图与抢占式优先队列；神经系统六条合同；影子排序与单人试用实验设计；诚实的局限。"
+      },
+      "url": "https://machengshen.github.io/fleet-layered-architecture.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/fleet-layered-architecture.zh.html"
+    },
+    {
       "id": "starshard-architecture",
       "label": {
         "en": "Starshard: Architecture v1"
