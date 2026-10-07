@@ -100,89 +100,66 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
   <a class="active" href="/personal-ai-fleet.zh.html">AI 小队</a>
 </div></div></header>
 <main class="container">
-<div class="kicker">公开总览 · v1 · 2026-10-06 · 工程分支（运维与产品说明，不是理论主张）</div>
+<div class="kicker">公开总览 · v2 · 2026-10-07 · 工程分支（运维与产品说明，不是理论主张）</div>
 <h1>一个人的 AI 小队：在 Signal 里直接跟它说话</h1>
-<div class="callout"><strong>为什么要这样搭？</strong>AI 厂商很多，新 App 还在不断出现；一旦把工作和历史托付给某一家，离开就会很贵。这套系统刻意不黏人：模型和平台都是可替换的零件，而真正沉淀价值的部分——记忆、聊天、邮件——放在开放、自己拥有的组件里。出了更好的模型，直接换上，什么都不丢。</div>
-<p class="note-small">给不写代码的人看的说明。下面写的都是真实在跑的东西；还没做的明确标成“计划中”。</p>
-<div class="callout"><strong>一句话。</strong>不用装新 App。你在常用的聊天软件里（我们用 Signal）给助手“Sophon”发消息；它背后是一组分工不同的 AI，有的查资料，有的写代码，有的专门挑错。凡是要<strong>替你对外说话或花钱</strong>，它只给你一份草稿，你点头才发出去。</div>
-<p><span class="tag live">在跑</span> 每天真实使用　<span class="tag part">部分</span> 能用但有缺口　<span class="tag plan">计划中</span> 还没有</p>
+<div class="callout"><strong>为什么要这样搭？</strong>AI 厂商很多，新 App 还在不断出现；一旦把工作和历史托付给某一家，离开就会很贵。这套系统刻意不黏人：模型和平台都是可替换的零件，而真正沉淀价值的部分——记忆、聊天、邮件、规则和回执——放在开放、自己拥有的组件里。出了更好的模型，直接换上，什么都不丢。</div>
+<p class="note-small">给不写代码的人看的说明。下面写的都是真实在跑的东西；还没做的明确标成“计划中”或“已设计”。</p>
+<p><span class="tag live">已实现</span> 已经做出且可用（不一定达到生产稳定）　<span class="tag part">部分 / 已设计</span> 能用但有缺口，或已有规范但尚未完整实现　<span class="tag plan">计划中</span> 还没有</p>
+<p>不用装新 App：在常用的聊天软件里（这里用 Signal）给助手“Sophon”发消息即可。可替换的小队负责研究、执行和检查；凡是要<strong>替你对外说话或花钱</strong>，都只先给草稿，得到批准才会发出。</p>
 <nav class="toc" aria-label="目录"><strong>目录</strong><ol>
-<li><a href="#day">一天里它做些什么</a></li><li><a href="#how">怎么连起来（图）</a></li><li><a href="#arch">架构：谁负责什么</a></li>
-<li><a href="#safety">安全：它不能自己做的事</a></li><li><a href="#repos">开源代码</a></li><li><a href="#try">怎么试、怎么自己搭</a></li></ol></nav>
+<li><a href="#entry">入口与通信</a></li><li><a href="#roles">调度与席位</a></li><li><a href="#memory">共享记忆</a></li>
+<li><a href="#rules">硬规则与批准</a></li><li><a href="#verify">验证与可观测性</a></li><li><a href="#repos">开放组件与仓库</a></li></ol></nav>
 
-<h2 id="day">1. 一天里它做些什么</h2>
-<div class="entry"><strong>早上：一页晨报，只问你需要拍板的事</strong><p>它把今天的日程、待办和夜里收到的消息整理成一页。能按你以往习惯决定的小事，它自己决定并写明理由；只有两三件真正要你决定的（比如接送定几点、要不要改签）才单独列出来。</p><div class="meta"><span class="tag live">在跑</span> 日历 + 共享记忆 + 体验席 AI</div></div>
-<div class="entry"><strong>邮件：先分拣，再提醒，回信只存草稿</strong><p>新邮件按重要程度分拣，重要的每天汇总一次，发到你手机上最常看的邮箱，没处理的要事第二天会再提醒。需要回信时，它在 Gmail 里写好草稿，你看过再发。</p><div class="meta"><span class="tag part">部分</span> Gmail 分拣 → 每日摘要；Gmail 连接器只能存草稿</div></div>
-<div class="entry"><strong>聊天群：每天一条简报，只发链接</strong><p>在一个工作群里，它每天发一条“今日简报”的链接：把前一天的讨论按事件重写成要点，正文放在不公开的网页上。群里有人问“怎么把自己的 AI 接进来”，它准备好开源仓库链接，你回一句“发”，它才发出去。它发的每条消息都以 [Sophon] 开头，大家知道这是 AI 在说话。</p><div class="meta"><span class="tag live">在跑</span> Signal（作为你账号的“已连接设备”）</div></div>
-<div class="entry"><strong>研究：“帮我看看这篇论文”</strong><p>你转一篇论文或一个想法过来。调度 AI 先写好验收清单，交给负责建造的 AI 去查、去跑代码，再由验收 AI 逐条打勾或打叉；费用高的大模型只做最后一道评审。你手机上收到的是一页结论网页，先说结论，过程放在后面。</p><div class="meta"><span class="tag live">在跑</span> 研究目录 + 完成后自动回报</div></div>
-<div class="entry"><strong>家人和合作者：每人一个私人房间</strong><p>家人或合作者有自己的网页聊天房间（手机就能打开）。AI 先回答；答不了或者碰到红线，就转给主助手，答复再送回房间。每个人能看到的记忆按标签分开，默认什么都看不到，只开放明确共享的部分。</p><div class="meta"><span class="tag part">部分</span> 已有房间与分级权限；体验还在打磨</div></div>
-<div class="entry"><strong>放松：Sophon 音乐</strong><p>一个能离线播放的小音乐网页，带实时歌词，还有适合按摩房或车里的循环播放模式，扫码就能打开。</p><div class="meta"><span class="tag live">在跑</span> 静态网页 + 离线缓存</div></div>
-<div class="entry"><strong>公开写作：想法变成双语网页，社交帖先进草稿箱</strong><p>值得公开的想法会被整理成中英双语网页，发布前过一道公开安全检查（下文“安全”一节）。社交媒体帖子只写成草稿，等你审过再发。这一页本身就是这样做出来的。</p><div class="meta"><span class="tag live">在跑</span> 静态网站 + 发帖草稿</div></div>
-<div class="entry"><strong>它自己的“体检”：会收消息，才算活着</strong><p>“进程还在”不代表“能收到消息”。工作日里它定时给自己发一个暗号，再看能不能收到；收得到就保持安静，收不到才降级并报警。连 Signal 的授权失效（偶尔需要你用手机重新扫码）也是这样被发现的。</p><div class="meta"><span class="tag live">在跑</span> 回声探测；心跳 ≠ 健康</div></div>
+<h2 id="entry">1. 入口与通信</h2>
+<p><strong>它为主脊柱解决的问题：</strong>如果对话和交付路径都属于某一个 App，换 App 时就会丢掉关系、历史记录，或者两者一起丢。</p>
+<p>Signal 可以通过“已连接设备”成为日常入口；自托管网页聊天把每个联系人的记录保存成你磁盘上的 JSONL 文件；邮件提供本地持久队列、附件接收和“邮件唤醒 agent”。如果 SMTP 投递失败，邮件正文会留在本机，不会回退到云端服务。带令牌保护的网页还能让手机操控自己机器上的 agent，<code>fleet-drop</code> 则能把另一台机器上的文件送到手机 Signal。通信规范进一步定义了用户拥有的收件箱、地址、信任等级、生命周期回执，以及不绑定供应商的 agent 身份与委托权限设计。</p>
+<p class="note-small"><span class="tag live">已实现</span> <a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a>、<a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a>、<a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a> · <span class="tag part">已设计 / 部分实现</span> <a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></p>
 
-<h2 id="how">2. 怎么连起来</h2>
-<figure><svg viewBox="0 0 760 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="示意图：你通过 Signal、网页聊天和邮件找到前台 AI，前台交给调度，调度分派给建造、验收、评审，结果以草稿或网页回到你手机，由你批准" font-family="-apple-system,PingFang SC,Segoe UI,Helvetica,Arial,sans-serif"><defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10z" fill="#57606a"/></marker></defs><rect x="280" y="14" width="200" height="58" rx="10" fill="#dafbe1" stroke="#4ac26b" stroke-width="1.5"/><text x="380.0" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">你（手机）</text><text x="380.0" y="56" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">发消息 · 点批准</text><rect x="40" y="110" width="200" height="62" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/><text x="140.0" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">Signal</text><text x="140.0" y="154" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">主入口</text><rect x="280" y="110" width="200" height="62" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/><text x="380.0" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">网页聊天</text><text x="380.0" y="154" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">家人/合作者各一间</text><rect x="520" y="110" width="200" height="62" rx="10" fill="#f6f8fa" stroke="#d0d7de" stroke-width="1.5"/><text x="620.0" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">邮件 · 日历</text><text x="620.0" y="154" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">只存草稿</text><line x1="380" y1="72" x2="140" y2="108" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="380" y1="72" x2="380" y2="108" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="380" y1="72" x2="620" y2="108" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><rect x="260" y="212" width="240" height="62" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.5"/><text x="380.0" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">前台</text><text x="380.0" y="256" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">接话、判断去向</text><line x1="140" y1="172" x2="300" y2="210" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="380" y1="172" x2="380" y2="210" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="620" y1="172" x2="460" y2="210" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><rect x="260" y="310" width="240" height="62" rx="10" fill="#ddf4ff" stroke="#54aeff" stroke-width="1.5"/><text x="380.0" y="338" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">调度</text><text x="380.0" y="354" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">拆清单、派活、验收</text><line x1="380" y1="274" x2="380" y2="308" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><rect x="20" y="420" width="170" height="70" rx="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/><text x="105.0" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">建造</text><text x="105.0" y="468" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">Codex · Claude Code</text><rect x="205" y="420" width="170" height="70" rx="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/><text x="290.0" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">验收</text><text x="290.0" y="468" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">按清单 PASS/FAIL</text><rect x="390" y="420" width="170" height="70" rx="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/><text x="475.0" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">评审</text><text x="475.0" y="468" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">贵模型只看最后一道</text><rect x="575" y="420" width="170" height="70" rx="10" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5"/><text x="660.0" y="452" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">产出</text><text x="660.0" y="468" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">网页链接 · 草稿</text><line x1="330" y1="372" x2="105" y2="418" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="360" y1="372" x2="290" y2="418" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="400" y1="372" x2="475" y2="418" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><line x1="440" y1="372" x2="660" y2="418" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)"/><rect x="560" y="226" width="180" height="120" rx="10" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.5"/><text x="650.0" y="274" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">共享记忆</text><text x="650.0" y="291" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">所有 AI 读写同一份</text><text x="650.0" y="308" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">不放密钥</text><line x1="500" y1="243" x2="558" y2="262" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)" stroke-dasharray="5 4"/><line x1="500" y1="341" x2="558" y2="318" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)" stroke-dasharray="5 4"/><rect x="20" y="226" width="200" height="120" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.5"/><text x="120.0" y="274" text-anchor="middle" font-size="14" font-weight="700" fill="#24292e">常开的云服务器</text><text x="120.0" y="291" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">Signal 连接 · 定时任务</text><text x="120.0" y="308" text-anchor="middle" font-size="12" font-weight="400" fill="#24292e">私密网页</text><line x1="130" y1="226" x2="140" y2="175" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)" stroke-dasharray="5 4"/><line x1="220" y1="330" x2="262" y2="341" stroke="#57606a" stroke-width="1.6" marker-end="url(#ah)" stroke-dasharray="5 4"/><path d="M745,455 C 770,300 770,90 482,40" fill="none" stroke="#1a7f37" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#ah)"/><text x="752" y="530" font-size="12" fill="#1a7f37" text-anchor="end">对外发送/花钱：你点头才发</text></svg><figcaption>你只跟入口打交道。前台把事情交给调度，调度分给建造、验收、评审；所有 AI 共用一份记忆；一台常开的服务器负责 Signal 连接和定时任务。凡是对外的动作，都要绕回你手机上点一下。</figcaption></figure>
+<h2 id="roles">2. 调度与可替换席位</h2>
+<p><strong>它为主脊柱解决的问题：</strong>即使数据能搬走，流程若依赖某个模型的性格或工具，仍然是一种锁定。</p>
+<p>小队绑定的是席位，不是固定模型名：你发消息的聊天入口把请求交给调度；调度分派带验收检查的工作包；建造者执行；新的验证者重新运行这些检查；独立评审从另一类约束找问题。任何席位都能换模型、机器或平台。协作 work claim 能减少跨会话重复开工；它是租约，不是授权机制，也不保证“恰好执行一次”。</p>
+<p class="note-small"><span class="tag live">已实现，v0 实验性</span> <a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a> 中的跨会话事实、work claim、回执和冲突隔离 · <span class="tag live">可运行子集</span> <a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a></p>
 
-<h2 id="arch">3. 架构：谁负责什么</h2>
-<p>我们不指望一个“全能 AI”，而是用不同平台的 AI 各占一个席位，像一个小团队：</p>
-<table><thead><tr><th>席位</th><th>由谁担任</th><th>做什么</th></tr></thead><tbody>
-<tr><td>前台</td><td>Grok Bot</td><td>第一个接话的人：听懂需求、判断交给谁、把结果用一句话告诉你。不在前台干重活。</td></tr>
-<tr><td>调度</td><td>运行在前台平台上的任务总管</td><td>把需求拆成清单，派给建造和验收，管常开服务器，验收通过才回报。</td></tr>
-<tr><td>建造</td><td>Codex、Claude Code</td><td>写代码、查资料、做网页。</td></tr>
-<tr><td>验收</td><td>Claude Sonnet</td><td>开工前先写清单，做完逐条判 PASS/FAIL。</td></tr>
-<tr><td>评审</td><td>单独的资深裁决模型</td><td>架构设计和最后一道裁决。按用量计费，所以只用在关键处，只交一页纸。</td></tr>
-<tr><td>体验</td><td>专注使用体验的模型</td><td>晨报、把使用中的别扭整理成改进提案、把你的长期偏好写进记忆。</td></tr>
-<tr><td>对外</td><td>Outreach</td><td>公开发布与外部发现；所有公开内容先过安全检查。</td></tr>
-<tr><td>情报</td><td>Overheard</td><td>关注 X、Bluesky 上的公开高质量账号，工作日早上给摘要。</td></tr>
-</tbody></table>
-<h3>几条设计原则</h3>
+<h2 id="memory">3. 一份用户拥有的共享记忆</h2>
+<p><strong>它为主脊柱解决的问题：</strong>只有当决策、偏好、任务状态和回执能活过每次会话，换 agent 才真正没有损失。</p>
+<p>所有席位都能通过 HTTP 或 MCP 使用同一个可搜索的记忆库。参考服务把数据存在你控制的基础设施和 SQLite 里。夜间 Mirror 提出合并建议；假设检查器发现逻辑冲突；每周摘要用邮件呈现系统学到了什么，让改进可见；连续性演示则把相互矛盾的新信念放入隔离区，而不是静默覆盖已有事实。聊天记录和邮件仍是独立的开放档案，不被困在某个模型的内置记忆中。</p>
+<div class="callout warn"><strong>边界要说清楚。</strong>参考服务尚未强制校验 provenance 字段，也没有实现架构文档里的若干更强安全控制。它是 Phase 0 的底座，不是完整安全边界。</div>
+<p class="note-small"><span class="tag live">已实现</span> <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a> · 架构与安全契约：<a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a></p>
+
+<h2 id="rules">4. 硬规则与批准</h2>
+<p><strong>它为主脊柱解决的问题：</strong>可替换的模型需要稳定、位于提示词之外的权限边界，否则每次换模型都可能改变系统能做什么。</p>
 <ul>
-<li><strong>共享记忆是唯一的“公共笔记本”。</strong>所有 AI 通过同一个记忆服务（MCP 接口）读写，换平台、换模型也不丢上下文。ChatGPT 这类外部助手也能经一个网关写入“候选”，由舰队再筛。</li>
-<li><strong>手机优先。</strong>手机打不开大附件，所以长报告一律做成网页；链接先确认能打开（HTTP 200）再发给你。</li>
-<li><strong>“做完了”要能被别人复查。</strong>一件事算完成，需要三样东西：在哪台机器做的、产出的指纹（sha256）、以及另一台机器上能重跑的复查。我们还会故意放进错误，看复查能不能抓到。</li>
-<li><strong>任务有人认领、有截止、有后备。</strong>每个任务写明谁负责、何时过期、过期后交给哪台常开机器，不依赖会合上盖子的笔记本。</li>
-<li><strong>做完自己回来报。</strong>不需要你追问“跑完了吗”。</li>
+<li><strong>有后果的动作先出草稿。</strong>对外发送、公开发布和花钱必须等人批准；超时永远不等于批准。</li>
+<li><strong>不可逆动作前先写回执。</strong>通信设计采用“意图回执 + 执行回执”：动作前可核对授权，动作后记录结果。这个更强的两阶段协议是<span class="tag part">已设计</span>，不是 FCP v0 已保证的能力。</li>
+<li><strong>内容也是权限边界。</strong>公开材料必须通过失败即关闭的机械洁净扫描；即使执行者有发布工具，内容不合格也不能发布。</li>
+<li><strong>信任与权限只减不增。</strong>发现工具不等于把它暴露给系统；密钥不进共享记忆，抢占、继承和只能收窄的权限信封都不能扩大权限。身份与权限规范目前是<span class="tag part">已设计</span>。</li>
+<li><strong>花费有两道墙。</strong>公开自托管聊天在模型调用前检查本地每日预算，并建议再设置上游账户级限额。</li>
 </ul>
 
-<h2 id="safety">4. 安全：它不能自己做的事</h2>
-<div class="callout warn"><strong>原则：权限靠装置限制，不靠 AI 自觉。</strong>我们自己的审计里确实抓到过 AI 越权（比如没经允许就推送网页），所以下面这些是硬规则，不是建议。</div>
-<ul>
-<li><strong>对外发送、花钱：一律先草稿，你批准才执行。</strong>邮件连接器只能存草稿；社交帖只进草稿箱；群消息要你回“发”。</li>
-<li><strong>公开前过内容检查。</strong>不出现真实私人身份或可推断的家人朋友信息；不出现财务数字；不是新的身份或品牌承诺；只发到已登记、一小时内能撤回的地方。任何一项不过，就带着具体原因来问你。</li>
-<li><strong>记忆里不放密钥。</strong>令牌只留在生成它的机器上，不进共享记忆，不进聊天，不进网页。</li>
-<li><strong>分级权限。</strong>普通合作者、管家、家人管家、本人四级；身份、账单、域名、签名密钥、账号恢复这些“根权限”永远不下放给任何一级。</li>
-<li><strong>默认拒绝。</strong>每个协作者只看得到明确共享给他的记忆；标了私密、医疗、财务、关系等类别的，一律看不到。</li>
-<li><strong>表明身份。</strong>AI 在 Signal 里替你说话时，消息以 [Sophon] 开头。</li>
-</ul>
+<h2 id="verify">5. 验证与可观测性</h2>
+<p><strong>它为主脊柱解决的问题：</strong>数据可搬还不够；替换后的 agent 必须能判断事情是否真的发生、通道是否真的可用、结果从哪里来。</p>
+<p>完成回执可以记录产物、SHA-256 指纹、规则版本，以及由干净上下文或另一台机器复查的证据。在分层架构说明描述的运行试验中，只看证据的 Gate 有四种判定；只有非建造者主机重新检查后给出的 <code>verified-mechanical</code> 才能称为“已验证”。试验还会用预埋故障盲测验证者；漏掉一个关键故障就撤销其放行权，必要时可用 kill switch 停用该席位。</p>
+<p>通道健康要靠端到端探测：“进程在跑”只是心跳，“确实收到了”才是健康。对 Signal 而言，发送证明是服务器返回 <code>SUCCESS</code>，不是发送进程的退出码。SPEC-0002 用漏报监控、被过滤消息摘要、不确定性升级、重复发送检测和可运行演示，发现被静默过滤的重要消息。验证技能包括漂移镜像、按约束分工的对抗评审、复用检查、前端冒烟门、委派边界和仓库分诊；技能 provenance 则记录制作者、来源、版本、许可和问题入口，不夹带营销话术。</p>
+<p class="note-small"><span class="tag live">技能已提供</span> <a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>（六项） · <a href="https://github.com/starshard-ai/skill-provenance">skill-provenance</a> · 并非所有回执都经过独立验证，各仓库会说明自己的证明边界。</p>
 
-<h2 id="repos">5. 开源代码</h2>
-<p>下面的仓库都是公开的，逐个做过泄密扫描（密钥、令牌、内网地址、私人信息），结果干净。思路是：每个人的 AI 小队应该是自己的，而不是把数据流交给一两家巨头。</p>
-<p>许可：MIT / Apache 混合（各仓库分别为 MIT 或 Apache-2.0；白皮书为 CC-BY-SA-4.0；标“暂无”的仓库目前没有许可文件）。</p>
-<table><thead><tr><th>仓库</th><th>是什么</th><th>许可</th></tr></thead><tbody>
-<tr><td><a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a></td><td>把 Signal 接给你的 AI：signal-cli 作为“已连接设备”跑在你自己的账号上，提供收、发、发附件、发群四个动作。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a></td><td>自己部署、自己拥有的网页聊天：每个联系人一个房间，聊天记录就是你磁盘上的文件。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a></td><td>把邮件当作 AI 的可靠通道：本地发信队列、收附件、送达回执。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>共享记忆服务的参考实现（FastAPI + SQLite + MCP 桥），多个 AI 读写同一份记忆。</td><td>暂无（仓库内无 LICENSE 文件）</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>面向个人 AI 的开放通信底座规范：收件箱、寻址、信任与授权信封。</td><td>暂无（仓库内无 LICENSE 文件）</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a></td><td>多个 AI 之间的轻量协作协议：认领、交接、回执。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a></td><td>最小可运行演示：跨 AI 共享记忆、交接、发现信念冲突。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a></td><td>五个可安装的验证技能，让“说做完了”变成“别人能复查”。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/skill-provenance">skill-provenance</a></td><td>给 AI 技能加上诚实的出处说明：谁做的、怎么验证的。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a></td><td>整体架构、安全章程、快速上手与设计理念。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/agent-native-communication">agent-native-communication</a></td><td>白皮书（中文）：为 AI 原生的开放通信架构。</td><td>CC-BY-SA-4.0</td></tr>
+<h2 id="repos">6. 开放组件与仓库</h2>
+<p><strong>它为主脊柱解决的问题：</strong>一套不能用零件重新搭起的系统，并不真正属于你。</p>
+<p>可以只拿一条分支，也可以逐步组合；不必把整条数据流交给一家厂商。许可为 MIT / Apache 混合；通信白皮书为 CC-BY-SA-4.0。</p>
+<table><thead><tr><th>开放组件</th><th>实现哪条分支</th><th>许可</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a></td><td>Signal 已连接设备适配器；附件与跨机器文件投送到手机</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a></td><td>用户自有聊天、联系人房间、结构性租户隔离、本地花费护栏</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a></td><td>持久邮件队列、附件接收、后台 agent 仅向本人投递、邮件唤醒 agent</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>FastAPI + SQLite + MCP 共享记忆；Mirror、冲突建议与每周摘要</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a></td><td>跨会话事实、协作 work claim、可选回执、冲突隔离</td><td>MIT</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a></td><td>可运行的跨进程记忆与信念冲突隔离演示</td><td>MIT</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>收件箱、寻址、信任、回执、漏报监控、agent 身份与委托权限规范</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a></td><td>六项验证、漂移、复用、界面、委派边界和分诊技能</td><td>MIT</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/skill-provenance">skill-provenance</a></td><td>可安装 agent 技能的机器可读来源说明</td><td>MIT</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a></td><td>记忆优先架构、安全章程与快速上手</td><td>Apache-2.0</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/agent-native-communication">agent-native-communication</a></td><td>面向 agent 原生开放通信架构的中文白皮书</td><td>CC-BY-SA-4.0</td></tr>
 </tbody></table>
-<p class="note-small">打包版 <strong>fleetwright</strong>（把上面这些拼成一套可安装的“神经系统”）已通过内部门禁，<span class="tag plan">计划中</span>，还没公开。</p>
-
-<h2 id="try">6. 怎么试、怎么自己搭</h2>
-<div class="callout"><strong>说清楚：</strong>现在还没有一个公开托管、谁都能直接加好友的 bot <span class="tag plan">计划中</span>。我们的做法是让 AI 作为“已连接设备”登录你自己的 Signal，所以每个人都是自己搭一套。</div>
-<ol>
-<li><strong>最省事的起点：</strong>装好 Claude Code，先给它定几条长期规矩（记笔记、守红线、对外先给草稿），就能在电脑上有一个会记事、守红线的个人助手。</li>
-<li><strong>接上 Signal：</strong>准备一台常开的小服务器，用 <a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a> 把它连成你 Signal 的已连接设备（和连 Signal 桌面版一样扫码）。之后你在“给自己的备忘”里说话，它就能收到；也可以先用一个备用号码试。</li>
-<li><strong>给家人一个房间：</strong>用 <a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> 给每个人开一个网页聊天房间。</li>
-<li><strong>可选：</strong>邮件用 <a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a>；多个 AI 共享记忆用 <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>；让“做完了”可复查用 <a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>。</li>
-<li><strong>第一天就立规矩：</strong>告诉它“对外发消息、花钱、登录、改系统设置之前，先给我看草稿”。</li>
-</ol>
-<p class="note-small">代码大多是从真实在用的系统里抽出来的原型，会有 bug。别拿它存你输不起的东西。</p>
+<div class="callout"><strong>从小处开始。</strong>先运行记忆库，接一个通信入口，并强制“发送或花钱前先给草稿”。只有当多个 agent 真正造成协调问题时，再加协调与验证。公开托管、加好友即可使用的 bot 和一体化安装包都仍是<span class="tag plan">计划中</span>，今天还不可用。</div>
+<p class="note-small">这些是从真实系统中抽出的实验组件，会有 bug；在让它们接触重要数据或动作前，请先读各仓库写明的边界。</p>
 <!-- crosslink:start -->
 <section class="crosslink" aria-labelledby="crosslink-heading">
   <h2 id="crosslink-heading">相关阅读</h2>
@@ -199,7 +176,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 </main>
 <footer class="footer"><div class="container">
   <p><a href="/">← 返回主页</a> · <a href="/theory-mainline-index.zh.html">理论主线索引</a> · <a href="/personal-ai-fleet.html">English</a></p>
-  <p>公开总览 v1 · 2026-10-06 · 工程分支，不是理论主张 · 场景均已匿名化</p>
+  <p>公开总览 v2 · 2026-10-07 · 工程分支，不是理论主张 · 场景均已匿名化</p>
 </div></footer>
 </body>
 </html>
