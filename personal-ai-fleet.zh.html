@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen</title>
+  <title>一个人的 AI 小队：在 Signal 里直接跟它说话</title>
   <meta name="description" content="面向普通人的公开总览：一组分工不同的 AI 如何通过 Signal、邮件、日历和网页帮一个人处理日常；怎么连起来、安全怎么做、哪些代码开源、怎么自己搭。" />
   <meta name="robots" content="index,follow" />
   <meta name="page-id" content="personal-ai-fleet-overview-v1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="一个人的 AI 小队：在 Signal 里直接跟它说话" />
+  <meta property="og:description" content="面向普通人的公开总览：一组分工不同的 AI 如何通过 Signal、邮件、日历和网页帮一个人处理日常；怎么连起来、安全怎么做、哪些代码开源、怎么自己搭。" />
+  <meta property="og:url" content="https://machengshen.github.io/personal-ai-fleet.zh.html" />
+  <meta property="og:image" content="https://machengshen.github.io/assets/og/personal-ai-fleet-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A personal AI crew you can just text on Signal" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="一个人的 AI 小队：在 Signal 里直接跟它说话" />
+  <meta name="twitter:description" content="面向普通人的公开总览：一组分工不同的 AI 如何通过 Signal、邮件、日历和网页帮一个人处理日常；怎么连起来、安全怎么做、哪些代码开源、怎么自己搭。" />
+  <meta name="twitter:image" content="https://machengshen.github.io/assets/og/personal-ai-fleet-og.png" />
+  <meta name="twitter:image:alt" content="A personal AI crew you can just text on Signal" />
   <link rel="canonical" href="https://machengshen.github.io/personal-ai-fleet.zh.html" />
 <style>
 :root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;}
@@ -53,7 +67,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
   "@context": "https://schema.org",
   "@type": "Article",
   "url": "https://machengshen.github.io/personal-ai-fleet.zh.html",
-  "name": "一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen",
+  "name": "一个人的 AI 小队：在 Signal 里直接跟它说话",
   "inLanguage": "zh-Hans",
   "isPartOf": {
     "@type": "CollectionPage",
@@ -88,8 +102,9 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <main class="container">
 <div class="kicker">公开总览 · v1 · 2026-10-06 · 工程分支（运维与产品说明，不是理论主张）</div>
 <h1>一个人的 AI 小队：在 Signal 里直接跟它说话</h1>
-<p class="note-small">沈马成 · 给不写代码的人看的说明。下面写的都是真实在跑的东西；还没做的明确标成“计划中”。</p>
-<div class="callout"><strong>一句话。</strong>不用装新 App。你在常用的聊天软件里（我们用 Signal）给助手“智子”发消息；它背后是一组分工不同的 AI，有的查资料，有的写代码，有的专门挑错。凡是要<strong>替你对外说话或花钱</strong>，它只给你一份草稿，你点头才发出去。</div>
+<div class="callout"><strong>为什么要这样搭？</strong>AI 厂商很多，新 App 还在不断出现；一旦把工作和历史托付给某一家，离开就会很贵。这套系统刻意不黏人：模型和平台都是可替换的零件，而真正沉淀价值的部分——记忆、聊天、邮件——放在开放、自己拥有的组件里。出了更好的模型，直接换上，什么都不丢。</div>
+<p class="note-small">给不写代码的人看的说明。下面写的都是真实在跑的东西；还没做的明确标成“计划中”。</p>
+<div class="callout"><strong>一句话。</strong>不用装新 App。你在常用的聊天软件里（我们用 Signal）给助手“Sophon”发消息；它背后是一组分工不同的 AI，有的查资料，有的写代码，有的专门挑错。凡是要<strong>替你对外说话或花钱</strong>，它只给你一份草稿，你点头才发出去。</div>
 <p><span class="tag live">在跑</span> 每天真实使用　<span class="tag part">部分</span> 能用但有缺口　<span class="tag plan">计划中</span> 还没有</p>
 <nav class="toc" aria-label="目录"><strong>目录</strong><ol>
 <li><a href="#day">一天里它做些什么</a></li><li><a href="#how">怎么连起来（图）</a></li><li><a href="#arch">架构：谁负责什么</a></li>
@@ -97,11 +112,11 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 
 <h2 id="day">1. 一天里它做些什么</h2>
 <div class="entry"><strong>早上：一页晨报，只问你需要拍板的事</strong><p>它把今天的日程、待办和夜里收到的消息整理成一页。能按你以往习惯决定的小事，它自己决定并写明理由；只有两三件真正要你决定的（比如接送定几点、要不要改签）才单独列出来。</p><div class="meta"><span class="tag live">在跑</span> 日历 + 共享记忆 + 体验席 AI</div></div>
-<div class="entry"><strong>邮件：先分拣，再提醒，回信只存草稿</strong><p>新邮件按重要程度分拣，重要的每天汇总一次，发到你手机上最常看的邮箱（我们用的是 QQ 邮箱），没处理的要事第二天会再提醒。需要回信时，它在 Gmail 里写好草稿，你看过再发。</p><div class="meta"><span class="tag part">部分</span> Gmail 分拣 → 每日摘要；Gmail 连接器只能存草稿</div></div>
-<div class="entry"><strong>聊天群：每天一条简报，只发链接</strong><p>在一个工作群里，它每天发一条“今日简报”的链接：把前一天的讨论按事件重写成要点，正文放在不公开的网页上。群里有人问“怎么把自己的 AI 接进来”，它准备好开源仓库链接，你回一句“发”，它才发出去。它发的每条消息都以 [智子] 开头，大家知道这是 AI 在说话。</p><div class="meta"><span class="tag live">在跑</span> Signal（作为你账号的“已连接设备”）</div></div>
+<div class="entry"><strong>邮件：先分拣，再提醒，回信只存草稿</strong><p>新邮件按重要程度分拣，重要的每天汇总一次，发到你手机上最常看的邮箱，没处理的要事第二天会再提醒。需要回信时，它在 Gmail 里写好草稿，你看过再发。</p><div class="meta"><span class="tag part">部分</span> Gmail 分拣 → 每日摘要；Gmail 连接器只能存草稿</div></div>
+<div class="entry"><strong>聊天群：每天一条简报，只发链接</strong><p>在一个工作群里，它每天发一条“今日简报”的链接：把前一天的讨论按事件重写成要点，正文放在不公开的网页上。群里有人问“怎么把自己的 AI 接进来”，它准备好开源仓库链接，你回一句“发”，它才发出去。它发的每条消息都以 [Sophon] 开头，大家知道这是 AI 在说话。</p><div class="meta"><span class="tag live">在跑</span> Signal（作为你账号的“已连接设备”）</div></div>
 <div class="entry"><strong>研究：“帮我看看这篇论文”</strong><p>你转一篇论文或一个想法过来。调度 AI 先写好验收清单，交给负责建造的 AI 去查、去跑代码，再由验收 AI 逐条打勾或打叉；费用高的大模型只做最后一道评审。你手机上收到的是一页结论网页，先说结论，过程放在后面。</p><div class="meta"><span class="tag live">在跑</span> 研究目录 + 完成后自动回报</div></div>
 <div class="entry"><strong>家人和合作者：每人一个私人房间</strong><p>家人或合作者有自己的网页聊天房间（手机就能打开）。AI 先回答；答不了或者碰到红线，就转给主助手，答复再送回房间。每个人能看到的记忆按标签分开，默认什么都看不到，只开放明确共享的部分。</p><div class="meta"><span class="tag part">部分</span> 已有房间与分级权限；体验还在打磨</div></div>
-<div class="entry"><strong>放松：智子音乐</strong><p>一个能离线播放的小音乐网页，带实时歌词，还有适合按摩房或车里的循环播放模式，扫码就能打开。</p><div class="meta"><span class="tag live">在跑</span> 静态网页 + 离线缓存</div></div>
+<div class="entry"><strong>放松：Sophon 音乐</strong><p>一个能离线播放的小音乐网页，带实时歌词，还有适合按摩房或车里的循环播放模式，扫码就能打开。</p><div class="meta"><span class="tag live">在跑</span> 静态网页 + 离线缓存</div></div>
 <div class="entry"><strong>公开写作：想法变成双语网页，社交帖先进草稿箱</strong><p>值得公开的想法会被整理成中英双语网页，发布前过一道公开安全检查（下文“安全”一节）。社交媒体帖子只写成草稿，等你审过再发。这一页本身就是这样做出来的。</p><div class="meta"><span class="tag live">在跑</span> 静态网站 + 发帖草稿</div></div>
 <div class="entry"><strong>它自己的“体检”：会收消息，才算活着</strong><p>“进程还在”不代表“能收到消息”。工作日里它定时给自己发一个暗号，再看能不能收到；收得到就保持安静，收不到才降级并报警。连 Signal 的授权失效（偶尔需要你用手机重新扫码）也是这样被发现的。</p><div class="meta"><span class="tag live">在跑</span> 回声探测；心跳 ≠ 健康</div></div>
 
@@ -112,11 +127,11 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <p>我们不指望一个“全能 AI”，而是用不同平台的 AI 各占一个席位，像一个小团队：</p>
 <table><thead><tr><th>席位</th><th>由谁担任</th><th>做什么</th></tr></thead><tbody>
 <tr><td>前台</td><td>Grok Bot</td><td>第一个接话的人：听懂需求、判断交给谁、把结果用一句话告诉你。不在前台干重活。</td></tr>
-<tr><td>调度</td><td>Adam（跑在 Grok Bot 上的任务总管）</td><td>把需求拆成清单，派给建造和验收，管常开服务器，验收通过才回报。</td></tr>
+<tr><td>调度</td><td>运行在前台平台上的任务总管</td><td>把需求拆成清单，派给建造和验收，管常开服务器，验收通过才回报。</td></tr>
 <tr><td>建造</td><td>Codex、Claude Code</td><td>写代码、查资料、做网页。</td></tr>
 <tr><td>验收</td><td>Claude Sonnet</td><td>开工前先写清单，做完逐条判 PASS/FAIL。</td></tr>
-<tr><td>评审</td><td>“Fable”（小队里单独的资深裁决席；和 Claude Opus 是不同的模型）</td><td>架构设计和最后一道裁决。按用量计费，所以只用在关键处，只交一页纸。</td></tr>
-<tr><td>体验</td><td>Eva</td><td>晨报、把使用中的别扭整理成改进提案、把你的长期偏好写进记忆。</td></tr>
+<tr><td>评审</td><td>单独的资深裁决模型</td><td>架构设计和最后一道裁决。按用量计费，所以只用在关键处，只交一页纸。</td></tr>
+<tr><td>体验</td><td>专注使用体验的模型</td><td>晨报、把使用中的别扭整理成改进提案、把你的长期偏好写进记忆。</td></tr>
 <tr><td>对外</td><td>Outreach</td><td>公开发布与外部发现；所有公开内容先过安全检查。</td></tr>
 <tr><td>情报</td><td>Overheard</td><td>关注 X、Bluesky 上的公开高质量账号，工作日早上给摘要。</td></tr>
 </tbody></table>
@@ -137,35 +152,31 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <li><strong>记忆里不放密钥。</strong>令牌只留在生成它的机器上，不进共享记忆，不进聊天，不进网页。</li>
 <li><strong>分级权限。</strong>普通合作者、管家、家人管家、本人四级；身份、账单、域名、签名密钥、账号恢复这些“根权限”永远不下放给任何一级。</li>
 <li><strong>默认拒绝。</strong>每个协作者只看得到明确共享给他的记忆；标了私密、医疗、财务、关系等类别的，一律看不到。</li>
-<li><strong>表明身份。</strong>AI 在 Signal 里替你说话时，消息以 [智子] 开头。</li>
+<li><strong>表明身份。</strong>AI 在 Signal 里替你说话时，消息以 [Sophon] 开头。</li>
 </ul>
 
 <h2 id="repos">5. 开源代码</h2>
 <p>下面的仓库都是公开的，逐个做过泄密扫描（密钥、令牌、内网地址、私人信息），结果干净。思路是：每个人的 AI 小队应该是自己的，而不是把数据流交给一两家巨头。</p>
+<p>许可：MIT / Apache 混合（各仓库分别为 MIT 或 Apache-2.0；白皮书为 CC-BY-SA-4.0；标“暂无”的仓库目前没有许可文件）。</p>
 <table><thead><tr><th>仓库</th><th>是什么</th><th>许可</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a></td><td>把 Signal 接给你的 AI：signal-cli 作为“已连接设备”跑在你自己的账号上，提供收、发、发附件、发群四个动作。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/zhizi-agent-os">zhizi-agent-os</a></td><td>一条命令把 Claude Code 变成个人助手“智子”；默认是给非技术用户的温和模式，安全红线内置。</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a></td><td>自己部署、自己拥有的网页聊天：每个联系人一个房间，聊天记录就是你磁盘上的文件。</td><td>Apache-2.0</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a></td><td>把邮件当作 AI 的可靠通道：本地发信队列、收附件、送达回执。</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>共享记忆服务的参考实现（FastAPI + SQLite + MCP 桥），多个 AI 读写同一份记忆。</td><td>见仓库</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>面向个人 AI 的开放通信底座规范：收件箱、寻址、信任与授权信封。</td><td>见仓库</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>共享记忆服务的参考实现（FastAPI + SQLite + MCP 桥），多个 AI 读写同一份记忆。</td><td>暂无（仓库内无 LICENSE 文件）</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>面向个人 AI 的开放通信底座规范：收件箱、寻址、信任与授权信封。</td><td>暂无（仓库内无 LICENSE 文件）</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a></td><td>多个 AI 之间的轻量协作协议：认领、交接、回执。</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a></td><td>最小可运行演示：跨 AI 共享记忆、交接、发现信念冲突。</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a></td><td>五个可安装的验证技能，让“说做完了”变成“别人能复查”。</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/skill-provenance">skill-provenance</a></td><td>给 AI 技能加上诚实的出处说明：谁做的、怎么验证的。</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a></td><td>整体架构、安全章程、快速上手与设计理念。</td><td>Apache-2.0</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-native-communication">agent-native-communication</a></td><td>白皮书（中文）：为 AI 原生的开放通信架构。</td><td>CC-BY-SA-4.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/ilya-ml-scientist">ilya-ml-scientist</a></td><td>给 Claude Code 一个“机器学习科学家”人格，用于研究方向判断。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/living-information-system">living-information-system</a></td><td>一人+AI 跨学科研究项目的公开入口。</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/continual-learning-lab">continual-learning-lab</a></td><td>小型预注册持续学习实验的公开日志。</td><td>见仓库</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reversible-layer-aging">reversible-layer-aging</a></td><td>基于公开数据的可复现再分析（表观遗传方向）。</td><td>见仓库</td></tr>
 </tbody></table>
 <p class="note-small">打包版 <strong>fleetwright</strong>（把上面这些拼成一套可安装的“神经系统”）已通过内部门禁，<span class="tag plan">计划中</span>，还没公开。</p>
 
 <h2 id="try">6. 怎么试、怎么自己搭</h2>
 <div class="callout"><strong>说清楚：</strong>现在还没有一个公开托管、谁都能直接加好友的 bot <span class="tag plan">计划中</span>。我们的做法是让 AI 作为“已连接设备”登录你自己的 Signal，所以每个人都是自己搭一套。</div>
 <ol>
-<li><strong>最省事的起点：</strong>装好 Claude Code，运行 <a href="https://github.com/starshard-ai/zhizi-agent-os">zhizi-agent-os</a> 的一条安装命令，就能在电脑上有一个会记事、守红线的个人助手。</li>
+<li><strong>最省事的起点：</strong>装好 Claude Code，先给它定几条长期规矩（记笔记、守红线、对外先给草稿），就能在电脑上有一个会记事、守红线的个人助手。</li>
 <li><strong>接上 Signal：</strong>准备一台常开的小服务器，用 <a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a> 把它连成你 Signal 的已连接设备（和连 Signal 桌面版一样扫码）。之后你在“给自己的备忘”里说话，它就能收到；也可以先用一个备用号码试。</li>
 <li><strong>给家人一个房间：</strong>用 <a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> 给每个人开一个网页聊天房间。</li>
 <li><strong>可选：</strong>邮件用 <a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a>；多个 AI 共享记忆用 <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>；让“做完了”可复查用 <a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>。</li>
@@ -177,7 +188,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
   <h2 id="crosslink-heading">相关阅读</h2>
   <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
   <ul>
-    <li><a href="/agent-comm-protocol.zh.html">Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen</a> — 小队背后的通信协议：由本地策略决定一个 agent 能和另一个分享什么。</li>
+    <li><a href="/agent-comm-protocol.zh.html">Agent 间通信协议 · Privacy Policy 门控知识共享</a> — 小队背后的通信协议：由本地策略决定一个 agent 能和另一个分享什么。</li>
     <li><a href="/spine/index.zh.html">多智能体协作的脊柱</a> — 脊柱把记忆、协调、通信与安全列为承重件，本页用人话讲的就是这些。</li>
     <li><a href="/pipeline/index.zh.html">多智能体协作的「一日流水线」</a> — 七站流水线展示一个请求怎样变成被核对过的任务和回执。</li>
   </ul>
@@ -188,7 +199,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 </main>
 <footer class="footer"><div class="container">
   <p><a href="/">← 返回主页</a> · <a href="/theory-mainline-index.zh.html">理论主线索引</a> · <a href="/personal-ai-fleet.html">English</a></p>
-  <p>Macheng Shen · 公开总览 v1 · 2026-10-06 · 工程分支，不是理论主张 · 场景均已匿名化</p>
+  <p>公开总览 v1 · 2026-10-06 · 工程分支，不是理论主张 · 场景均已匿名化</p>
 </div></footer>
 </body>
 </html>

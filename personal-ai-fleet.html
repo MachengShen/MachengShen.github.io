@@ -3,10 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A personal AI crew you can just text on Signal | Macheng Shen</title>
+  <title>A personal AI crew you can just text on Signal</title>
   <meta name="description" content="A plain-language public overview: how a small crew of different AIs helps one person through Signal, email, calendar and web pages; how it connects, how safety works, which code is open source, and how to build your own." />
   <meta name="robots" content="index,follow" />
   <meta name="page-id" content="personal-ai-fleet-overview-v1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="A personal AI crew you can just text on Signal" />
+  <meta property="og:description" content="A plain-language public overview: how a small crew of different AIs helps one person through Signal, email, calendar and web pages; how it connects, how safety works, which code is open source, and how to build your own." />
+  <meta property="og:url" content="https://machengshen.github.io/personal-ai-fleet.html" />
+  <meta property="og:image" content="https://machengshen.github.io/assets/og/personal-ai-fleet-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="A personal AI crew you can just text on Signal" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="A personal AI crew you can just text on Signal" />
+  <meta name="twitter:description" content="A plain-language public overview: how a small crew of different AIs helps one person through Signal, email, calendar and web pages; how it connects, how safety works, which code is open source, and how to build your own." />
+  <meta name="twitter:image" content="https://machengshen.github.io/assets/og/personal-ai-fleet-og.png" />
+  <meta name="twitter:image:alt" content="A personal AI crew you can just text on Signal" />
   <link rel="canonical" href="https://machengshen.github.io/personal-ai-fleet.html" />
 <style>
 :root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;}
@@ -53,7 +67,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
   "@context": "https://schema.org",
   "@type": "Article",
   "url": "https://machengshen.github.io/personal-ai-fleet.html",
-  "name": "A personal AI crew you can just text on Signal | Macheng Shen",
+  "name": "A personal AI crew you can just text on Signal",
   "inLanguage": "en",
   "isPartOf": {
     "@type": "CollectionPage",
@@ -88,8 +102,9 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <main class="container">
 <div class="kicker">Public overview · v1 · 2026-10-06 · engineering branch (operations and product notes, not a theory claim)</div>
 <h1>A personal AI crew you can just text on Signal</h1>
-<p class="note-small">Macheng Shen · for people who don't write code. Everything below actually runs today; anything not built yet is marked “planned”.</p>
-<div class="callout"><strong>In one line.</strong> No new app. You message the assistant (“智子”, Zhizi) in a chat app you already use — we use Signal. Behind it is a small crew of different AIs: some research, some write code, one exists only to find mistakes. Whenever something would <strong>speak for you in public or spend money</strong>, it only prepares a draft; nothing goes out until you say yes.</div>
+<div class="callout"><strong>Why build it this way?</strong> AI vendors and new apps keep appearing; commit your work and history to one of them and leaving gets expensive. This system is deliberately not sticky: every model and platform is a replaceable part, while the parts that accumulate value — your memory, chat and mail — live in open pieces you own. When a better model ships, you swap it in and lose nothing.</div>
+<p class="note-small">For people who don't write code. Everything below actually runs today; anything not built yet is marked “planned”.</p>
+<div class="callout"><strong>In one line.</strong> No new app. You message the assistant (“Sophon”) in a chat app you already use — we use Signal. Behind it is a small crew of different AIs: some research, some write code, one exists only to find mistakes. Whenever something would <strong>speak for you in public or spend money</strong>, it only prepares a draft; nothing goes out until you say yes.</div>
 <p><span class="tag live">live</span> used every day　<span class="tag part">partial</span> works, with gaps　<span class="tag plan">planned</span> not yet</p>
 <nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
 <li><a href="#day">What it does in a day</a></li><li><a href="#how">How it connects (diagram)</a></li><li><a href="#arch">Architecture: who does what</a></li>
@@ -98,10 +113,10 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <h2 id="day">1. What it does in a day</h2>
 <div class="entry"><strong>Morning: a one-page brief that only asks what needs you</strong><p>Today's calendar, open tasks and overnight messages on one page. Small calls it can make from your known preferences, it makes, and says why. Only the two or three real decisions (what time is the pickup, change the flight or not) are listed for you.</p><div class="meta"><span class="tag live">live</span> calendar + shared memory + experience-seat AI</div></div>
 <div class="entry"><strong>Email: sorted first, reminded later, replies saved as drafts</strong><p>New mail is triaged by importance; the important items arrive once a day as a digest in the mailbox you actually read on your phone, and unhandled urgent ones come back the next day. Replies are written as Gmail drafts for you to check and send.</p><div class="meta"><span class="tag part">partial</span> Gmail triage → daily digest; the Gmail connector can only save drafts</div></div>
-<div class="entry"><strong>Group chat: one daily brief, link only</strong><p>In a work group, it posts a daily “today's brief” link: yesterday's discussion rewritten as event-level points, with the full text on a private web page. When someone asks “how do I hook up my own AI?”, it prepares the open-source repo link and sends it only after you reply “send”. Every message it sends starts with [智子], so people know an AI is talking.</p><div class="meta"><span class="tag live">live</span> Signal (as a linked device on your own account)</div></div>
+<div class="entry"><strong>Group chat: one daily brief, link only</strong><p>In a work group, it posts a daily “today's brief” link: yesterday's discussion rewritten as event-level points, with the full text on a private web page. When someone asks “how do I hook up my own AI?”, it prepares the open-source repo link and sends it only after you reply “send”. Every message it sends starts with [Sophon], so people know an AI is talking.</p><div class="meta"><span class="tag live">live</span> Signal (as a linked device on your own account)</div></div>
 <div class="entry"><strong>Research: “take a look at this paper”</strong><p>Forward a paper or an idea. The dispatcher writes an acceptance checklist first, builders read and run code, a checker ticks or crosses each item, and the expensive model only does the final review. Your phone gets a one-page result, conclusion first.</p><div class="meta"><span class="tag live">live</span> research folders + automatic report on completion</div></div>
 <div class="entry"><strong>Family and collaborators: a private room each</strong><p>Each family member or collaborator gets their own web chat room that opens on a phone. The AI answers first; if it can't, or a red line is involved, it escalates to the main assistant and the answer comes back to the room. What each person can see in memory is separated by labels and is deny-by-default.</p><div class="meta"><span class="tag part">partial</span> rooms and permission tiers exist; experience still being polished</div></div>
-<div class="entry"><strong>Downtime: Zhizi Music</strong><p>A small music web page that plays offline, with live lyrics and a loop mode for a massage room or the car; scan a QR code to open it.</p><div class="meta"><span class="tag live">live</span> static page + offline cache</div></div>
+<div class="entry"><strong>Downtime: Sophon Music</strong><p>A small music web page that plays offline, with live lyrics and a loop mode for a massage room or the car; scan a QR code to open it.</p><div class="meta"><span class="tag live">live</span> static page + offline cache</div></div>
 <div class="entry"><strong>Public writing: ideas become bilingual pages; social posts start as drafts</strong><p>Ideas worth sharing become Chinese/English pages after a public-safety check (see Safety). Social posts are written as drafts and wait for review. This page was made that way.</p><div class="meta"><span class="tag live">live</span> static site + post drafts</div></div>
 <div class="entry"><strong>Its own health check: alive means it can receive</strong><p>“The process is running” is not “messages arrive”. On workdays it sends itself a code word and checks that it comes back; quiet when green, degrade-and-alert when not. That is also how an expired Signal link (occasionally you re-scan a QR code on your phone) gets caught.</p><div class="meta"><span class="tag live">live</span> echo probe; heartbeat ≠ health</div></div>
 
@@ -112,11 +127,11 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <p>Instead of hoping for one do-everything AI, AIs from different platforms each hold a seat, like a small team:</p>
 <table><thead><tr><th>Seat</th><th>Held by</th><th>Job</th></tr></thead><tbody>
 <tr><td>Front desk</td><td>Grok Bot</td><td>First to answer: understands the ask, decides who takes it, tells you the result in a line. Does no heavy lifting at the desk.</td></tr>
-<tr><td>Dispatcher</td><td>Adam (a task manager running on Grok Bot)</td><td>Turns asks into checklists, assigns builders and checkers, runs the always-on server, reports only after acceptance.</td></tr>
+<tr><td>Dispatcher</td><td>A task manager running on the front-desk platform</td><td>Turns asks into checklists, assigns builders and checkers, runs the always-on server, reports only after acceptance.</td></tr>
 <tr><td>Builders</td><td>Codex, Claude Code</td><td>Write code, research, build pages.</td></tr>
 <tr><td>Checker</td><td>Claude Sonnet</td><td>Writes the checklist before work starts; judges each item PASS/FAIL after.</td></tr>
-<tr><td>Reviewer</td><td>“Fable” (the fleet’s separate senior judgment seat; a distinct model from Claude Opus)</td><td>Architecture and the final ruling. Pay-per-use, so used sparingly and asked for one page.</td></tr>
-<tr><td>Experience</td><td>Eva</td><td>Morning brief, turns daily friction into improvement proposals, records long-term preferences.</td></tr>
+<tr><td>Reviewer</td><td>A separate senior judgment model</td><td>Architecture and the final ruling. Pay-per-use, so used sparingly and asked for one page.</td></tr>
+<tr><td>Experience</td><td>An experience-focused model</td><td>Morning brief, turns daily friction into improvement proposals, records long-term preferences.</td></tr>
 <tr><td>Outreach</td><td>Outreach</td><td>Public releases and discovery; everything public passes the safety check first.</td></tr>
 <tr><td>Intel</td><td>Overheard</td><td>Watches high-signal public accounts on X and Bluesky; weekday morning digest.</td></tr>
 </tbody></table>
@@ -137,35 +152,31 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 <li><strong>No secrets in memory.</strong> Tokens stay on the machine that created them — never in shared memory, chat, or web pages.</li>
 <li><strong>Permission tiers.</strong> Collaborator, household steward, family steward, owner. Root powers — identity, billing, domains, signing keys, account recovery — are never delegated to any tier.</li>
 <li><strong>Deny by default.</strong> Each collaborator sees only memory explicitly shared with them; anything labeled private, medical, financial or relationship is hidden.</li>
-<li><strong>Say who is talking.</strong> When the AI speaks for you on Signal, the message starts with [智子].</li>
+<li><strong>Say who is talking.</strong> When the AI speaks for you on Signal, the message starts with [Sophon].</li>
 </ul>
 
 <h2 id="repos">5. Open-source code</h2>
 <p>All repositories below are public and were each scanned for leaks (keys, tokens, private network addresses, personal information); all came back clean. The idea: everyone's AI crew should belong to them, not to one or two giants that own the data flows.</p>
+<p>Licenses: mixed MIT / Apache-2.0 (each code repo is MIT or Apache-2.0; the whitepaper is CC-BY-SA-4.0; repos marked “none yet” currently have no license file).</p>
 <table><thead><tr><th>Repo</th><th>What it is</th><th>License</th></tr></thead><tbody>
 <tr><td><a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a></td><td>Give your agent a Signal channel: signal-cli as a linked device on your own account, with receive / send / send-attach / send-group.</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/zhizi-agent-os">zhizi-agent-os</a></td><td>One command turns Claude Code into a personal assistant (智子); a gentle default mode for non-technical users, with safety red lines built in.</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a></td><td>Self-hosted web chat for your agent: one room per contact; chat history is plain files on your disk.</td><td>Apache-2.0</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a></td><td>Email as a durable channel for a personal agent: local send spool, attachment intake, delivery receipts.</td><td>Apache-2.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>Reference server for a shared memory hub (FastAPI + SQLite + MCP bridge) so several agents read and write one memory.</td><td>see repo</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>An open, user-owned communication substrate spec for personal agents: inbox, addressing, trust, authority envelopes.</td><td>see repo</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/reference-impl">reference-impl</a></td><td>Reference server for a shared memory hub (FastAPI + SQLite + MCP bridge) so several agents read and write one memory.</td><td>none yet (no LICENSE file)</td></tr>
+<tr><td><a href="https://github.com/starshard-ai/starshard-communication">starshard-communication</a></td><td>An open, user-owned communication substrate spec for personal agents: inbox, addressing, trust, authority envelopes.</td><td>none yet (no LICENSE file)</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/fleet-coordination-protocol">fleet-coordination-protocol</a></td><td>A thin coordination wire between agents: claims, handoffs, receipts.</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-continuity-demo">agent-continuity-demo</a></td><td>Smallest runnable demo of cross-agent memory, handoff and catching a belief conflict.</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a></td><td>Five installable verification skills so “done” becomes something another agent can re-check.</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/skill-provenance">skill-provenance</a></td><td>A small standard for honest provenance on agent skills: who made it, how it was checked.</td><td>MIT</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/architecture-v1">architecture-v1</a></td><td>Architecture, safety charter, quickstart and philosophy.</td><td>Apache-2.0</td></tr>
 <tr><td><a href="https://github.com/starshard-ai/agent-native-communication">agent-native-communication</a></td><td>Whitepaper (Chinese): an agent-native open communication architecture.</td><td>CC-BY-SA-4.0</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/ilya-ml-scientist">ilya-ml-scientist</a></td><td>An ML-scientist persona for Claude Code, for research direction calls.</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/living-information-system">living-information-system</a></td><td>Public front door to a one-person, AI-assisted research program.</td><td>MIT</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/continual-learning-lab">continual-learning-lab</a></td><td>An open log of small pre-registered continual-learning experiments.</td><td>see repo</td></tr>
-<tr><td><a href="https://github.com/starshard-ai/reversible-layer-aging">reversible-layer-aging</a></td><td>A reproducible re-analysis on public epigenetic datasets.</td><td>see repo</td></tr>
 </tbody></table>
 <p class="note-small">A packaged bundle, <strong>fleetwright</strong> (these pieces assembled into one installable “nervous system”), has passed our internal gate and is <span class="tag plan">planned</span> — not public yet.</p>
 
 <h2 id="try">6. Try it / build your own</h2>
 <div class="callout"><strong>To be clear:</strong> there is no public hosted bot you can simply add as a contact yet <span class="tag plan">planned</span>. Our setup logs the AI into <em>your own</em> Signal as a linked device, so everyone runs their own.</div>
 <ol>
-<li><strong>Easiest start:</strong> install Claude Code and run the one-line installer from <a href="https://github.com/starshard-ai/zhizi-agent-os">zhizi-agent-os</a>. You get a personal assistant on your computer that keeps notes and respects red lines.</li>
+<li><strong>Easiest start:</strong> install Claude Code and give it a few standing rules (keep notes, respect red lines, draft before anything goes out). You get a personal assistant on your computer that keeps notes and respects red lines.</li>
 <li><strong>Add Signal:</strong> on a small always-on server, use <a href="https://github.com/starshard-ai/signal-agent-pipeline">signal-agent-pipeline</a> to link it as a device on your Signal (same QR scan as Signal Desktop). Then talk to it in “Note to Self”. A spare number is a good way to try first.</li>
 <li><strong>A room for family:</strong> <a href="https://github.com/starshard-ai/selfhost-chat">selfhost-chat</a> gives each person a web chat room.</li>
 <li><strong>Optional:</strong> email via <a href="https://github.com/starshard-ai/agent-mail-stack">agent-mail-stack</a>; shared memory across AIs via <a href="https://github.com/starshard-ai/reference-impl">reference-impl</a>; re-checkable “done” via <a href="https://github.com/starshard-ai/reviewer-wheels">reviewer-wheels</a>.</li>
@@ -177,7 +188,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
   <h2 id="crosslink-heading">Related reading</h2>
   <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
   <ul>
-    <li><a href="/agent-comm-protocol.html">Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen</a> — The communication protocol behind the crew: local policy decides what one agent may share with another.</li>
+    <li><a href="/agent-comm-protocol.html">Agent-to-agent communication · privacy-policy gated knowledge share</a> — The communication protocol behind the crew: local policy decides what one agent may share with another.</li>
     <li><a href="/spine/">A spine for multi-agent work</a> — The spine places memory, coordination, communication and safety as the load-bearing parts this overview describes in plain words.</li>
     <li><a href="/pipeline/">A day-shaped pipeline for multi-agent work</a> — A 7-stage workflow shows how a request becomes a checked task and a receipt.</li>
   </ul>
@@ -188,7 +199,7 @@ hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
 </main>
 <footer class="footer"><div class="container">
   <p><a href="/">← Home</a> · <a href="/theory-mainline-index.html">Theory mainline index</a> · <a href="/personal-ai-fleet.zh.html">中文版</a></p>
-  <p>Macheng Shen · public overview v1 · 2026-10-06 · engineering branch, not a theory claim · scenarios anonymized</p>
+  <p>Public overview v1 · 2026-10-06 · engineering branch, not a theory claim · scenarios anonymized</p>
 </div></footer>
 </body>
 </html>
