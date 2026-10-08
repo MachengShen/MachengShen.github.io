@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Covenant Networks: Can Institutions Be Made Forkable?</title>
+  <meta name="description" content="A covenant network: an organization built around a small, versioned set of rules that participants can inspect, verify, and—under defined conditions—fork. A rental-reputation dashboard provides a first test." />
+  <meta name="robots" content="index,follow" />
+  <meta name="page-id" content="covenant-network-v1" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Covenant Networks: Can Institutions Be Made Forkable?" />
+  <meta property="og:description" content="A covenant network: an organization built around a small, versioned set of rules that participants can inspect, verify, and—under defined conditions—fork. A rental-reputation dashboard provides a first test." />
+  <meta property="og:url" content="https://machengshen.github.io/covenant-network.html" />
+  <meta property="og:image" content="https://machengshen.github.io/assets/og/covenant-network-og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Covenant Networks: Can Institutions Be Made Forkable? / 公约网络：制度能否变得可分叉？" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="zh_CN" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Covenant Networks: Can Institutions Be Made Forkable?" />
+  <meta name="twitter:description" content="A covenant network: an organization built around a small, versioned set of rules that participants can inspect, verify, and—under defined conditions—fork. A rental-reputation dashboard provides a first test." />
+  <meta name="twitter:image" content="https://machengshen.github.io/assets/og/covenant-network-og.png" />
+  <meta name="twitter:image:alt" content="Covenant Networks: Can Institutions Be Made Forkable? / 公约网络：制度能否变得可分叉？" />
+  <link rel="canonical" href="https://machengshen.github.io/covenant-network.html" />
+<style>
+:root{--bg:#fafbfc;--panel:#fff;--text:#24292e;--muted:#57606a;--accent:#0969da;--border:#d0d7de;--soft:#f6f8fa;--warn:#9a6700;--warnbg:#fff8c5;--ok:#1a7f37;--okbg:#dafbe1;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Segoe UI","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.8}
+.container{max-width:820px;margin:0 auto;padding:0 1.25rem}
+.site-header{background:var(--panel);border-bottom:1px solid var(--border);padding:.75rem 0}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.nav .left{display:flex;gap:.9rem;align-items:center;flex-wrap:wrap}
+.nav a{color:var(--muted);text-decoration:none;font-size:.92rem}
+.nav a.active,.nav a:hover{color:var(--accent)}
+main{padding:2rem 0 3rem}
+h1{font-size:1.65rem;line-height:1.35;margin:.4rem 0 .6rem}
+h2{font-size:1.22rem;margin:2.2rem 0 .5rem;padding-bottom:.25rem;border-bottom:1px solid var(--border)}
+h3{font-size:1.04rem;margin:1.5rem 0 .3rem}
+.kicker{color:var(--muted);font-size:.85rem;letter-spacing:.05em}
+.callout{background:var(--soft);border-left:3px solid var(--accent);padding:.85rem 1.05rem;margin:1.1rem 0;border-radius:0 4px 4px 0}
+.callout.warn{background:var(--warnbg);border-left-color:var(--warn)}
+.entry{border:1px solid var(--border);border-radius:8px;background:var(--panel);padding:.9rem 1rem;margin:.7rem 0}
+.entry p{margin:.45rem 0 0}
+.entry .meta{color:var(--muted);font-size:.86rem;margin-top:.35rem}
+.tag{display:inline-block;font-size:.75rem;padding:.05rem .45rem;border-radius:10px;background:var(--soft);border:1px solid var(--border);color:var(--muted);vertical-align:.1em;margin-right:.2rem}
+.tag.live{background:var(--okbg);border-color:#4ac26b;color:var(--ok)}
+.tag.part{background:#ddf4ff;border-color:#54aeff;color:#0550ae}
+.tag.plan{background:var(--warnbg);border-color:#d4a72c;color:var(--warn)}
+.note-small{color:var(--muted);font-size:.88rem}
+.toc{background:var(--soft);border:1px solid var(--border);border-radius:8px;padding:.9rem 1.1rem}
+.toc ol{margin:.4rem 0 0}.toc a{text-decoration:none}
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin:.8rem 0}
+th,td{border:1px solid var(--border);padding:.45rem .55rem;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+figure{margin:1rem 0}figure svg{width:100%;height:auto;background:var(--panel);border:1px solid var(--border);border-radius:8px}
+figcaption{color:var(--muted);font-size:.86rem;margin-top:.3rem}
+code{background:var(--soft);padding:.05rem .3rem;border-radius:4px;font-size:.88em}
+ul,ol{padding-left:1.4rem}li{margin-bottom:.45rem}a{color:var(--accent)}
+hr{border:0;border-top:1px solid var(--border);margin:2.2rem 0}
+.footer{color:var(--muted);font-size:.9rem;padding:1.5rem 0 2rem;border-top:1px solid var(--border);margin-top:2.5rem}
+@media (max-width:640px){.hide-sm{display:none}}
+</style>
+
+  <link rel="alternate" type="text/plain" href="/llms.txt" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "url": "https://machengshen.github.io/covenant-network.html",
+  "name": "Covenant Networks: Can Institutions Be Made Forkable?",
+  "inLanguage": "en",
+  "image": "https://machengshen.github.io/assets/og/covenant-network-og.png",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.html"
+  },
+  "workTranslation": {
+    "@type": "CreativeWork",
+    "url": "https://machengshen.github.io/covenant-network.zh.html"
+  }
+}
+</script>
+
+  <link rel="alternate" hreflang="en" href="https://machengshen.github.io/covenant-network.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://machengshen.github.io/covenant-network.zh.html" />
+  <link rel="alternate" hreflang="x-default" href="https://machengshen.github.io/covenant-network.html" />
+</head>
+<body>
+<header class="site-header"><div class="container nav"><div class="left">
+  <a href="/">Home</a>
+  <a href="/start-here.html">Start here</a>
+  <a href="/theory-mainline-index.html">Theory index</a>
+  <a href="/covenant-network.zh.html">中文</a>
+  <a class="active" href="/covenant-network.html">Covenant networks</a>
+</div></div></header>
+<main class="container">
+<div class="kicker">Essay · v1 · 2026-10-08 · institutional design proposal, not a theory claim · <a href="/covenant-network.zh.html">中文版</a></div>
+<h1>Covenant Networks: Can Institutions Be Made Forkable?</h1>
+<!-- body:start (Gate-reviewed text, unchanged) -->
+<h2>Introduction: From Sacred Communities to Verifiable Cooperation</h2>
+<p>Religions are not merely systems of belief. Many have also functioned as durable infrastructures for cooperation: they transmit shared texts, define membership, establish duties, interpret exceptions, and coordinate people who may never meet. Their persistence poses a useful game-theoretic question. How can a community sustain commitments across distance, leadership changes, and generations when monitoring is incomplete and defection is often tempting?</p>
+<p>Religious doctrine cannot be reduced to incentives, and longevity proves neither truth nor justice. The narrower proposal is that religious institutions reveal mechanisms by which commitments become credible and portable. Because those mechanisms have often coexisted with coercion, inherited status, state support, and exclusion, they offer hypotheses rather than templates.</p>
+<p>This essay develops one such hypothesis: a <strong>covenant network</strong>, an organization built around a small, versioned set of rules that participants can inspect, verify, and—under defined conditions—fork. Its members might include individuals, firms, associations, and software agents with limited authority. The network would not erase hierarchy or law. It would try to make commitments, interpretation, institutional memory, and exit more observable and portable.</p>
+<p>The framework has five parts: credible commitment (<strong>C</strong>), host-independent replication (<strong>R</strong>), bounded revision and forkable exit (<strong>V</strong>), hierarchy as information routing (<strong>H</strong>), and explicit residual control (<strong>S</strong>). Four breakpoints—coercion, shallow commitment, capitalization of membership, and external rents—lead to a modest conclusion: covenant networks may help reversible, evidence-rich cooperation, but cannot replace states or politics.</p>
+<p>A rental-reputation dashboard provides a first test: report verified events concerning rental housing companies and properties—not public profiles of individuals—under strict revenue and privacy constraints.</p>
+<h2>1. Religion as Cooperation Infrastructure</h2>
+<p>Game theory begins from a difficulty: individually rational behavior can undermine collectively valuable outcomes. Repeated interaction can help, but only when participants expect a future, can identify one another, and can observe enough behavior to reward cooperation or punish defection. Large communities complicate all three conditions.</p>
+<p>Religious institutions have sometimes combined long time horizons, costly practices that deter casual free riding (Iannaccone 1992), portable texts, interpretive traditions, and offices that resolve disputes. Moralizing supernatural monitoring may enlarge the perceived audience for hidden behavior, although its historical and causal reach remains debated (Norenzayan 2013; Johnson 2016). Schism can release pressure without destroying every inherited practice.</p>
+<p>Religions do not necessarily survive by efficiently satisfying everyone: some relied on political power, and others disappeared despite sophisticated doctrine. Evidence connecting costly requirements to the longevity of certain communes is context-specific (Sosis &amp; Bressler 2003). Research associating weaker intensive kinship with broader impersonal cooperation is also correlational, not an institutional recipe (Schulz et al. 2019).</p>
+<p>The transferable lesson is therefore limited. Durable cooperation often needs a recognizable core, costly or consequential commitments, a means of transmission, an interpretive layer, and a legitimate way to handle disagreement. A modern organization might try to preserve these functions while rejecting sacred authority, inherited membership, comprehensive control over personal life, and irreversible exclusion.</p>
+<h2>2. The C/R/V + H + S Framework</h2>
+<h3>C: Credible commitment</h3>
+<p>A commitment is credible when others can reasonably expect it to constrain future action. In a covenant network, members accept a versioned covenant and important actions close an evidence loop: which rule version authorized the action, who acted, what occurred, and who independently checked the result. Higher-risk actions may require multiple approvals, a delay window, a tested rollback, or automatic suspension after failure.</p>
+<p>Receipts are not proof of virtue. They can establish only observable steps, not effort, motive, or every offline consequence. Team production also creates moral hazard when individual contributions cannot be separated (Holmström 1982). Accordingly, C still depends on repeated interaction, bonds or insurance where appropriate, external adjudication, and evidence that remains verifiable in adverse states (Drelichman &amp; Voth 2014).</p>
+<h3>R: Host-independent replication</h3>
+<p>Rules should not disappear when a founder leaves or a platform closes. The covenant, amendment history, interpretations, dissenting opinions, and permission structure should be reproducible across independent hosts with integrity checks. Participants should be able to export data they are legally entitled to possess in an interoperable format.</p>
+<p>The scarce resource, however, is often not the text but the authority to interpret it. Perfect copies of a constitution do not settle which interpretation governs a novel case. R without an account of interpretive authority creates either fragmentation or an unofficial priesthood. Replication must therefore cover procedures, precedents, and institutional roles—not just files.</p>
+<h3>V: Bounded revision and forkable exit</h3>
+<p>Rules must change, but revision must not silently rewrite history. V combines versioned amendment, protected core constraints, time-limited appeal, and exit with portable records. A departing group could create an interoperable branch while retaining verifiable contributions and lawful data. Forking differs from ordinary resignation: it preserves enough institutional memory and compatibility for genuine competition over governance.</p>
+<p>Yet a nominal right to fork may be worthless. Trademarks, capital, social graphs, certification, and legal rights may remain with the incumbent. Historically, viable splits often required wealthy or powerful sponsors. A real V therefore needs explicit rules for shared assets, names, reserves, and data at the point of separation.</p>
+<h3>H: Hierarchy as information routing</h3>
+<p>Large organizations need hierarchy because knowledge is unevenly distributed. Garicano (2000) models hierarchy as a system in which common problems are solved locally and exceptional problems move upward. A covenant network can use this insight without pretending that hierarchy is merely technical. Whoever controls escalation controls agendas. Auditing and adjudication are scarce, costly services, so specialists can become de facto sovereigns.</p>
+<p>H should specify what stays local, what escalates, and how decisions return to the edge. Competing auditors and appeals may help, but competition alone does not prevent capture.</p>
+<h3>S: Explicit residual control</h3>
+<p>Contracts are incomplete. No rule set can anticipate every emergency, ambiguity, or conflict (Hart &amp; Moore 1990). S asks the question that machine-readable rules can obscure: <strong>who decides the exception?</strong> Emergency powers, discretionary enforcement, and final interpretation must have named holders, narrow scopes, expiration dates, review procedures, and replacement mechanisms.</p>
+<p>S is what separates a serious constitution from a collection of automated clauses. If discretion exists but is hidden, power remains while accountability disappears. If discretion is abolished in theory, it is likely to return informally during the first crisis.</p>
+<p>Together, C/R/V + H + S describe a forkable constitutional protocol, not an autonomous sovereign. Courts, currencies, registries, and communications platforms still supply the surrounding enforcement environment.</p>
+<h2>3. Four Breakpoints</h2>
+<h3>Breakpoint 1: The monopoly of coercion</h3>
+<p>A covenant network cannot finally resolve violence, theft, or determined breach. It can revoke permissions, forfeit a bond under an enforceable agreement, deny service, publish a verified failure, or exclude a participant. Such “outcasting” can be powerful (Hathaway &amp; Shapiro 2011), but it ultimately depends on property rights and public enforcement. Work on social orders likewise emphasizes the foundational role of organized violence (Olson 1993; North, Wallis &amp; Weingast 2009).</p>
+<p>The design boundary should be explicit: covenant networks are candidates for reversible, digitally mediated cooperation, not territorial government or physical security. When bodily safety or compulsory remedies are at stake, public law remains indispensable.</p>
+<h3>Breakpoint 2: Easy exit can hollow out commitment</h3>
+<p>Exit protects members from tyranny, but extremely cheap exit can produce a shallow-commitment equilibrium. Participants may accept only obligations they would have honored anyway, leaving the institution impressive on paper and irrelevant under stress. The compliance literature warns that apparently high compliance can result from selecting weak commitments rather than inducing difficult cooperation (Downs, Rocke &amp; Barsoom 1996).</p>
+<p>The response is sequencing, not maximal friction. Members should first receive a time-limited chance to appeal and repair; then they should be able to leave with lawful, portable resources; afterward, branches should retain an interoperability layer where possible. Cohesion must arise from future cooperative surplus and fair process, not captivity. A falsifiable warning sign is that the model works only for low-risk obligations and fails whenever sacrifice is material.</p>
+<h3>Breakpoint 3: Membership becomes capital</h3>
+<p>Hereditary office, purchasable seats, and token-weighted governance share a structure: political qualification becomes a transferable asset. Wealth then converts into rule-making power, and incumbents can compound control. Membership and reputation should therefore be difficult to sell, inherit, or merge mechanically. Verifiable contribution, sortition, election, fixed terms, and conflict-of-interest rules are possible alternatives.</p>
+<p>But abolishing inheritance does not abolish succession problems. Primogeniture sometimes reduced instability during monarchical succession (Kokkonen &amp; Sundell 2014). A covenant network needs substitutes such as staggered terms, deputies, rehearsed handovers, and multiple qualified successors. Otherwise, an anti-dynastic rule merely renames the crisis.</p>
+<h3>Breakpoint 4: External rents sustain the institution</h3>
+<p>Institutional survival does not prove social efficiency. Guilds could persist because members and political elites shared exclusionary rents (Ogilvie 2014). A nominally open network may likewise rely on closed interfaces, captive data, regulatory privilege, or payments from the subjects it evaluates.</p>
+<p>The test is whether new nodes can compete under the same protocol and whether external revenue is disclosed. If portability disappears when it threatens the incumbent’s business model, R and V were ceremonial. This breakpoint is especially important for reputation systems, where the party seeking favorable treatment may also be the party most willing to pay.</p>
+<h2>4. Global Order as a Low-Resolution Precedent</h2>
+<p>International order shows that the absence of a single world sovereign does not imply the absence of rules. States use treaties, institutions, reciprocity, reputation, market access, and repeated bargaining to stabilize expectations (Bull 1977; Keohane 1984). Treaty withdrawal is often bounded rather than amnesiac: prior obligations and jurisdiction may survive departure (Helfer 2005).</p>
+<p>This resembles a covenant network, but only at low resolution. Enforcement is unequal and depends on state capabilities. Treaty publication does not make performance transparent; noncompliance may reflect ambiguity or limited capacity (Chayes &amp; Chayes 1993). Full participation belongs primarily to states, not individuals or firms. Finally, treaty exit is not replication: a departing state cannot normally copy institutional archives, certification, reserves, and network relations into a compatible branch.</p>
+<p>The analogy therefore disciplines rather than proves the proposal. The potentially distinctive features are open participation across actor types, event-level evidence, and the union of exit with replication. If these do not yield observable improvements over a combination of treaty, open-source foundation, and commercial arbitration, “covenant network” is merely a new label. International arbitration itself is a powerful nearest neighbor because private agreement and state court enforcement already operate together.</p>
+<h2>5. The Strongest Objections</h2>
+<p>The deepest objection is that openness, easy exit, and nonviolent enforcement remove exactly the costly commitment that solidarity requires. Sacrifice and stigma can deter free riding (Iannaccone 1992); eliminate every demanding obligation and the result may be a temporary project rather than a community. The design problem is not to abolish cost, but to distinguish legitimate, bounded contribution from captivity and domination.</p>
+<p>A second objection is historical. Private-order accounts of merchant institutions emphasize coordination among traders and rulers (Milgrom, North &amp; Weingast 1990; Greif, Milgrom &amp; Weingast 1994), while Kadens (2012) disputes romantic accounts of a spontaneously autonomous law merchant. Sovereign states outcompeted leagues and city networks in early modern Europe (Spruyt 1994). This literature is contested; it does not support the claim that decentralized institutions naturally displace states.</p>
+<p>A third objection is oligarchy. Formally open communities can concentrate authority (Michels 1911; Shaw &amp; Hill 2014). Polycentric governance can work, but Ostrom’s (1990) cases rely on boundaries and monitoring that conflict with unrestricted entry and exit. Auditors or maintainers may become a new ruling layer.</p>
+<p>A fourth objection is emergency governance. The DAO episode showed that “code is law” breaks down when participants face an exploit or unexpected loss; the 2016 exploit was ultimately resolved by an off-chain social decision to hard-fork the chain (see U.S. Securities and Exchange Commission 2017 for the episode). The lesson is not that software is useless, but that S cannot be compiled away.</p>
+<p>A fifth objection is epistemic. Evidence systems can generate convincing but correlated records. In experimental multi-agent AI systems, for example, an action log and its review may originate from the same model, infrastructure, or operator. That demonstrates short-cycle coordination, not independent verification, democratic legitimacy, or multigenerational stability. Claims that such systems already validate covenant governance remain unverified.</p>
+<p>The survivable claim is restrained: covenant networks may support reversible, verifiable, cross-organizational work, but cannot eliminate power, politics, coercion, or the state.</p>
+<h2>6. A First Instance: A Rental Reputation Dashboard</h2>
+<p>Rental housing offers a practical test because the game is asymmetric. A rental housing company may conduct hundreds of transactions, accumulate legal and operational expertise, and observe many tenants. An individual tenant may rent from that company once and cannot easily see its history. This resembles Akerlof’s (1970) market for lemons: hidden quality can degrade trust and reward poor performers.</p>
+<p>The core hypothesis is testable: <strong>can verified institutional history connect one-time tenants to a company’s repeated game?</strong></p>
+<p>The dashboard would report events rather than a moral score: public regulatory records, fee changes, deposit-return intervals, maintenance timelines, verification rates, dispute status, and remedies. Where lawful, old events remain visible beside corrections and improvement. Facts, opinions, and inferences stay separate: a dated response is evidentiary; perceived poor service is opinion; intent to defraud requires authoritative findings.</p>
+<h3>Verification and anti-manipulation</h3>
+<p>Only verified rental relationships should affect aggregate summaries. A double-blind submission window can reduce retaliation, with publication after both sides submit or a deadline expires. A company should not be able to delay a tenant’s report indefinitely by withholding final settlement; after a defined period, eligible material should proceed to review. Evidence quality—dated communications, work orders, receipts, or adjudicative records—should matter more than whether a report is positive or negative.</p>
+<p>One transaction should create at most one linked report set. Detection should look for suspicious timing clusters, repeated devices, copied language, and coordinated accounts, while publishing its false-positive and false-negative rates and providing appeal. Research shows that manipulation varies systematically with competition and reputation pressure (Mayzlin, Dover &amp; Chevalier 2014; Luca &amp; Zervas 2016). A single star rating should never conceal sample size, verification rate, uncertainty, or unresolved disputes.</p>
+<h3>Scope: no public individual profiles</h3>
+<p>The first version should focus on organizations and their relationships to properties, not on public profiles of landlords, tenants, employees, or other individuals. This reduces—but does not eliminate—privacy and defamation risk. Organizations engage in repeated transactions and usually leave more verifiable business records. The dashboard should link the operating company, relevant property, and verified event so that shell-company changes do not erase continuity, while avoiding publication of personal dossiers. Any handling of beneficial-control information must be legally reviewed and minimized.</p>
+<p>This boundary may reduce coverage in markets dominated by individual landlords. That tradeoff is intentional. The system should not solve sparse company data by constructing a public reputation system for private persons.</p>
+<h3>Privacy, appeal, and legal localization</h3>
+<p>Identity data should be separated from public event data, minimized, secured, and disclosed only when legally required. Every reported party needs notice, access to the evidence necessary to respond, correction and appeal channels, and visible outcomes. Refusal to participate may be stated only as a neutral procedural fact, not treated as proof of wrongdoing.</p>
+<p>Legal duties vary substantially by jurisdiction. Defamation, data protection, intermediary liability, consumer protection, and review-retention rules require local counsel before deployment. European rules concerning erasure and platform appeals, United States intermediary rules, and Chinese rules concerning reviews and reputation are not interchangeable. All legal implementation claims in this essay are preliminary and have not been verified for any specific deployment.</p>
+<h3>Revenue constitution</h3>
+<p>The funding model must be constrained before launch, because later incentives will shape governance. Three prohibitions should be constitutional:</p>
+<ol>
+<li><strong>No fees of any kind may be charged directly or indirectly, including through affiliates or intermediaries, to a rated party—such as a landlord, rental housing company, or other company being rated—for inclusion, verification, response, appeal, favorable treatment, suppression, ranking, badges, or access to the dashboard.</strong> Rated parties must not be customers.</li>
+<li><strong>No data may be sold, licensed, or otherwise supplied to tenant-screening companies, background-check providers, eviction-list services, or equivalent businesses.</strong></li>
+<li><strong>No public individual profiles may be created.</strong> The system must not become a tenant blacklist or a public dossier on landlords, employees, or complainants.</li>
+</ol>
+<p>Possible funding sources include tenant subscriptions, grants, public-interest institutions, or neutral-platform access fees, but each creates risks. Any institutional customer needs a use restriction against downstream tenant screening. Sustainable funding remains an open question that this essay does not resolve.</p>
+<h3>Why this is a covenant network</h3>
+<p>The dashboard’s covenant would define evidence standards, publication rules, appeals, privacy boundaries, and revenue prohibitions. C appears in event-level verification and independent review. R appears in portable schemas, exportable lawful records, and reproducible procedures. V appears in versioned rules, appeals, correction, and the possibility of an interoperable successor. H routes ordinary verification locally and exceptional disputes upward. S names who can decide ambiguous cases, under what term, with what appeal and audit.</p>
+<p>Success requires measurable accuracy, correction, search time, dispute resolution, and improvement after remedies. Failure includes pay-to-play treatment, individual blacklists, capture by rated companies, sale into tenant screening, unverifiable allegations, shell entities defeating continuity, or unusably slow appeals.</p>
+<h2>Conclusion: Portable Institutional Memory</h2>
+<p>The scarce resource may be institutional memory that is credible, portable, contestable, and bounded by privacy. Yet every mechanism can reverse: sacrifice becomes domination, interpretation becomes priesthood, hierarchy becomes agenda control, exit becomes shallowness, and persistence becomes rent extraction.</p>
+<p>The covenant-network proposal is valuable only if it remains falsifiable. Its signature claim is not decentralization, automation, or immutable records. It is that participants can carry verified history and lawful data into an interoperable fork without erasing past obligations or surrendering every shared asset to the incumbent. C/R/V + H + S provides a vocabulary for testing that claim; the four breakpoints identify where it is likely to fail.</p>
+<p>A rental-reputation dashboard is an appropriately narrow first experiment. It cannot equalize all housing power or replace courts. It can test whether carefully verified events, meaningful appeal, portable records, and a revenue constitution improve decisions without creating a new machinery of surveillance. The governing principle is simple: make institutional power leave evidence, give affected parties due process, and prevent the record from becoming another asset controlled by the strongest participant.</p>
+<h2>References</h2>
+<ul>
+<li>Akerlof, G. 1970. “The Market for ‘Lemons.’” <em>Quarterly Journal of Economics</em> 84(3).</li>
+<li>Bull, H. 1977. <em>The Anarchical Society.</em> Columbia University Press.</li>
+<li>Chayes, A.; Chayes, A. H. 1993. “On Compliance.” <em>International Organization</em> 47(2).</li>
+<li>Downs, G.; Rocke, D.; Barsoom, P. 1996. “Is the Good News about Compliance Good News about Cooperation?” <em>International Organization</em> 50(3).</li>
+<li>Drelichman, M.; Voth, H.-J. 2014. <em>Lending to the Borrower from Hell.</em> Princeton University Press.</li>
+<li>Garicano, L. 2000. “Hierarchies and the Organization of Knowledge in Production.” <em>Journal of Political Economy</em> 108(5).</li>
+<li>Greif, A.; Milgrom, P.; Weingast, B. 1994. “Coordination, Commitment, and Enforcement: The Case of the Merchant Guild.” <em>Journal of Political Economy</em> 102(4).</li>
+<li>Hart, O.; Moore, J. 1990. “Property Rights and the Nature of the Firm.” <em>Journal of Political Economy</em> 98(6).</li>
+<li>Hathaway, O.; Shapiro, S. 2011. “Outcasting: Enforcement in Domestic and International Law.” <em>Yale Law Journal</em> 121.</li>
+<li>Helfer, L. 2005. “Exiting Treaties.” <em>Virginia Law Review</em> 91.</li>
+<li>Holmström, B. 1982. “Moral Hazard in Teams.” <em>Bell Journal of Economics</em> 13(2).</li>
+<li>Iannaccone, L. 1992. “Sacrifice and Stigma.” <em>Journal of Political Economy</em> 100(2).</li>
+<li>Johnson, D. 2016. <em>God Is Watching You.</em> Oxford University Press.</li>
+<li>Kadens, E. 2012. “The Myth of the Customary Law Merchant.” <em>Texas Law Review</em> 90.</li>
+<li>Keohane, R. 1984. <em>After Hegemony.</em> Princeton University Press.</li>
+<li>Kokkonen, A.; Sundell, A. 2014. “Delivering Stability—Primogeniture and Autocratic Survival in European Monarchies 1000–1800.” <em>American Political Science Review</em> 108(2).</li>
+<li>Luca, M.; Zervas, G. 2016. “Fake It Till You Make It: Reputation, Competition, and Yelp Review Fraud.” <em>Management Science</em> 62(12).</li>
+<li>Mayzlin, D.; Dover, Y.; Chevalier, J. 2014. “Promotional Reviews: An Empirical Investigation of Online Review Manipulation.” <em>American Economic Review</em> 104(8).</li>
+<li>Michels, R. 1911. <em>Political Parties.</em></li>
+<li>Milgrom, P.; North, D.; Weingast, B. 1990. “The Role of Institutions in the Revival of Trade.” <em>Economics &amp; Politics</em> 2(1).</li>
+<li>Norenzayan, A. 2013. <em>Big Gods.</em> Princeton University Press.</li>
+<li>North, D.; Wallis, J.; Weingast, B. 2009. <em>Violence and Social Orders.</em> Cambridge University Press.</li>
+<li>Ogilvie, S. 2014. “The Economics of Guilds.” <em>Journal of Economic Perspectives</em> 28(4).</li>
+<li>Olson, M. 1993. “Dictatorship, Democracy, and Development.” <em>American Political Science Review</em> 87(3).</li>
+<li>Ostrom, E. 1990. <em>Governing the Commons.</em> Cambridge University Press.</li>
+<li>Schulz, J.; Bahrami-Rad, D.; Beauchamp, J.; Henrich, J. 2019. “The Church, Intensive Kinship, and Global Psychological Variation.” <em>Science</em> 366(6466).</li>
+<li>Shaw, A.; Hill, B. M. 2014. “Laboratories of Oligarchy?” <em>Journal of Communication</em> 64(2).</li>
+<li>Sosis, R.; Bressler, E. 2003. “Cooperation and Commune Longevity.” <em>Cross-Cultural Research</em> 37(2).</li>
+<li>Spruyt, H. 1994. <em>The Sovereign State and Its Competitors.</em> Princeton University Press.</li>
+<li>U.S. Securities and Exchange Commission. 2017. <em>Report of Investigation: The DAO.</em> Release No. 34-81207.</li>
+<li>Legal instruments: Vienna Convention on the Law of Treaties (1969), Arts. 54 and 56; Convention on the Recognition and Enforcement of Foreign Arbitral Awards (1958); GDPR, Regulation (EU) 2016/679, Art. 17; Digital Services Act, Regulation (EU) 2022/2065, Arts. 16 and 20; 47 U.S.C. §230; E-Commerce Law of the People’s Republic of China (2018), Art. 39; Civil Code of the People’s Republic of China (2020), Art. 1024.</li>
+</ul>
+<!-- body:end -->
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">Related reading</h2>
+  <p><a href="/theory-mainline-index.html">Theory mainline index</a> — Return to the site hub and grouped directory.</p>
+  <p><a href="/covenant-network.zh.html">中文版本</a></p>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
+</main>
+<footer class="footer"><div class="container">
+  <p><a href="/">← Home</a> · <a href="/theory-mainline-index.html">Theory mainline index</a> · <a href="/covenant-network.zh.html">中文版</a></p>
+  <p>Essay v1 · 2026-10-08 · institutional design proposal, not a theory claim; legal points are preliminary and not verified for any deployment</p>
+</div></footer>
+</body>
+</html>

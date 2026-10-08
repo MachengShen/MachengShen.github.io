@@ -1036,6 +1036,22 @@
       "workTranslation": "https://machengshen.github.io/personal-ai-fleet.zh.html"
     },
     {
+      "id": "covenant-network-essay",
+      "label": {
+        "en": "Covenant Networks: Can Institutions Be Made Forkable?",
+        "zh": "公约网络：制度能否变得可分叉？"
+      },
+      "description": {
+        "en": "Essay proposing a covenant network: an organization built around a small, versioned set of rules that participants can inspect, verify, and, under defined conditions, fork. Framework C/R/V + H + S, four breakpoints, and a rental-reputation dashboard as a first test. Does not claim to replace states, courts, or politics.",
+        "zh": "长文：公约网络——围绕少量、版本化规则构建、参与者能够检查、验证并在明确条件下分叉的组织。C/R/V + H + S 框架、四个断点，以及作为第一个检验的租赁信誉仪表盘。不主张替代国家、法院或政治。"
+      },
+      "url": "https://machengshen.github.io/covenant-network.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "cognitiveState": "speculative",
+      "workTranslation": "https://machengshen.github.io/covenant-network.zh.html"
+    },
+    {
       "id": "nervous-system-exploration-v2",
       "label": {
         "en": "Nervous-system packaging + dynamic task graph: exploration verdict v2",
