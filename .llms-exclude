@@ -31,3 +31,4 @@ continual-learning/*                  # continual-learning research study (publi
 complexity/*                          # research survey on why complexity grows (public literature + open questions); outside the theory intellectual index until externally cold-read, same doctrine as reports/
 company-architecture/*   # futures study; full page, keep out of llms-full
 reports/dharma-v3-review/index.html   # private preview of dharma v3 review for owner; noindex; outside intellectual index until owner decides
+resources/index.html                  # Chinese link-list navigation page for a beginner study group; only points to already-indexed pages, one public repo and public X posts; not a standalone claim surface

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="给 AI 新手看的公开资源导航，收录我们自己在用的介绍、代码、流程、网站工具和文章。">
+  <title>Grok Bot 公开资源导航</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f6f7f9;
+      color: #20242a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    main {
+      width: min(100% - 32px, 720px);
+      margin: 0 auto;
+      padding: 40px 0 56px;
+    }
+
+    header,
+    section,
+    footer {
+      background: #ffffff;
+      border: 1px solid #e5e8ec;
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 1.8rem;
+      line-height: 1.25;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.15rem;
+      line-height: 1.4;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    .item {
+      padding: 16px 0;
+      border-top: 1px solid #edf0f2;
+    }
+
+    .item:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .item:last-child {
+      padding-bottom: 0;
+    }
+
+    a {
+      color: #1769aa;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    .title {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .description {
+      margin: 5px 0;
+      color: #3d444d;
+    }
+
+    .tag {
+      margin: 0;
+      color: #737b85;
+      font-size: 0.88rem;
+    }
+
+    footer {
+      color: #616973;
+      font-size: 0.92rem;
+    }
+
+    .home {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        width: min(100% - 20px, 720px);
+        padding: 20px 0 36px;
+      }
+
+      header,
+      section,
+      footer {
+        padding: 18px;
+        border-radius: 13px;
+      }
+
+      h1 {
+        font-size: 1.55rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Grok Bot 公开资源导航</h1>
+      <p>这里整理的是我们自己在用、也已经公开的东西，可以免费看，也可以拿去用。</p>
+      <p>链接都是公开的，第一次接触也没关系，按兴趣往下看就行。</p>
+    </header>
+
+    <section>
+      <h2>先看这个（总览）</h2>
+
+      <div class="item">
+        <a class="title" href="https://machengshen.github.io/personal-ai-fleet.zh.html" target="_blank" rel="noopener">「一个人的 AI 小队」总览（中文）</a>
+        <p class="description">用大白话介绍一组分工不同的 AI 怎样通过 Signal、邮件、日历和网页帮一个人处理日常，也讲它们怎么连起来、安全怎么做、哪些代码已经开源，以及怎样自己搭起来。</p>
+        <p class="tag">适合：想先拿到一张地图、看清全貌再决定从哪里动手的人。</p>
+      </div>
+
+      <div class="item">
+        <a class="title" href="https://machengshen.github.io/personal-ai-fleet.html" target="_blank" rel="noopener">「一个人的 AI 小队」总览（英文）</a>
+        <p class="description">和中文总览讲的是同一套思路，方便习惯读英文或想转给英文读者的人。</p>
+        <p class="tag">适合：英文读者，或需要英文版本的人。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>能直接拿去用的代码</h2>
+
+      <div class="item">
+        <a class="title" href="https://github.com/starshard-ai/signal-agent-pipeline" target="_blank" rel="noopener">signal-agent-pipeline</a>
+        <p class="description">让 AI 通过 Signal 收发消息，不用另注册机器人号码——就像给 AI 配了一张手机副卡：signal-cli 成为你自己账号的“已连接设备”（和 Signal 桌面版一样），提供收消息、发消息、发附件和发群消息几个命令，还能把你其他电脑里的文件直接投到手机上。</p>
+        <p class="tag">适合：会用命令行、想让自己的 agent 接入 Signal 的人。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>我们怎么自动发帖（流程 + 真实例子）</h2>
+
+      <div class="item">
+        <span class="title">AI 写稿 → 白话检查 → 发布</span>
+        <p class="description">这是一套发帖流程，不是代码库——像报社发稿前先过编辑那一关：AI 先写稿，再做一道白话检查（有没有隐私、好不好懂、链接打不打得开），最后调用 Zernio 的接口发到 X 等社交平台。</p>
+        <p class="tag">适合：想给自动发帖加一道白话检查（隐私、好不好懂、链接打不打得开）的人。</p>
+      </div>
+
+      <div class="item">
+        <a class="title" href="https://x.com/MachengShen/status/2108130723261538697" target="_blank" rel="noopener">真实例子：中文串</a>
+        <p class="description">讲模型和平台可以像零件一样替换，而记忆、聊天、邮件和规则留在自己拥有的开放组件里。</p>
+        <p class="tag">适合：想用中文快速看懂这套思路的人。</p>
+      </div>
+
+      <div class="item">
+        <a class="title" href="https://x.com/MachengShen/status/2108093468174110736" target="_blank" rel="noopener">真实例子：英文串</a>
+        <p class="description">同一主题的英文版本，可以和中文串对照着看。</p>
+        <p class="tag">适合：英文读者，或想比较中英文表达的人。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>网站小工具</h2>
+
+      <div class="item">
+        <a class="title" href="https://machengshen.github.io/agent-comm-protocol.zh.html" target="_blank" rel="noopener">静态网站的公开评论区 + @AI 回复</a>
+        <p class="description">GitHub Pages 这类纯静态网站原本像一块只能看的布告栏；接上开源评论系统 Twikoo，就等于在布告栏旁挂了个留言本，访客可以直接留言，评论里写 @AI，还会在同一楼收到标着“AI 生成，可能有错”的自动回复。打开示例后，拉到页面底部就能看到。</p>
+        <p class="tag">适合：有个人博客或静态网站、想让读者能留言提问的人。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>想法与文章</h2>
+
+      <div class="item">
+        <a class="title" href="https://machengshen.github.io/covenant-network.zh.html" target="_blank" rel="noopener">公约网络（中文长文）</a>
+        <p class="description">讨论一种团体的组织方式：规则像贴在门口的公约——少量、公开、带版本号，成员随时能检查和验证，也能在条件明确时带着记录“分叉”另起一支；第一个试验场景是租房信誉看板。</p>
+        <p class="tag">适合：对 AI 时代的组织方式和制度设计感兴趣的人。</p>
+      </div>
+
+      <div class="item">
+        <a class="title" href="https://x.com/MachengShen/status/2108052045244584233" target="_blank" rel="noopener">公约网络英文串</a>
+        <p class="description">从“宗教为什么能长期组织陌生人合作”讲起，用一串短帖引出公约网络的想法。</p>
+        <p class="tag">适合：想先看短版英文介绍、再决定要不要读长文的人。</p>
+      </div>
+
+      <div class="item">
+        <a class="title" href="https://x.com/MachengShen/status/2108392043063935120" target="_blank" rel="noopener">公约网络文章发布帖（英文）</a>
+        <p class="description">公约网络长文发布时发出的英文帖子，可以从这条直达文章。</p>
+        <p class="tag">适合：习惯在 X 上阅读和转发内容的人。</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>整理时间 2026-10-09；作者 沈马成；链接失效或有问题可以在群里说。</p>
+      <a class="home" href="/">回首页</a>
+    </footer>
+  </main>
+</body>
+</html>
