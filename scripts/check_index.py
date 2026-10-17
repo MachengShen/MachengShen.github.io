@@ -64,7 +64,7 @@ SKIP_DIRS = {".git", ".github", ".claude", "scripts", "assets", "node_modules"}
 # repository. GitHub mounts a repo's own Pages site at /<repo>/ on the user
 # page, which shadows any folder of the same name here. Links under these
 # prefixes are legitimate, but their targets cannot be verified from this repo.
-EXTERNALLY_SERVED = ("/ideas/",)  # served by the separate MachengShen/ideas repo
+EXTERNALLY_SERVED = ("/ideas/", "/system-evolution-public/")  # served by separate MachengShen repos
 
 # Surfaces that exist but are not artifacts, so they are never index entries.
 MACHINE_SURFACES = {

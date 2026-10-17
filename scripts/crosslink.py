@@ -18,7 +18,8 @@ DATA = ROOT / "data/linkmap.json"
 SITE = "https://machengshen.github.io"
 START, END = "<!-- crosslink:start -->", "<!-- crosslink:end -->"
 EXCLUDED = {
-    "agent/index.html", "ideas/index.html", "scripts/head-template.html",
+    "agent/index.html", "ideas/index.html", "resources/index.html",
+    "scripts/head-template.html",
     "reports/dharma-v3-review/index.html",
     "reports/ccd-hcloud-habitat-lens/index.html",
 }
@@ -45,7 +46,7 @@ def public_files() -> list[Path]:
     out = []
     for p in sorted(ROOT.rglob("*.html")):
         rel = p.relative_to(ROOT).as_posix()
-        if rel in EXCLUDED or ".git" in p.parts:
+        if rel in EXCLUDED or ".git" in p.parts or rel.startswith(("ideas/", "system-evolution-public/")):
             continue
         text = p.read_text(encoding="utf-8", errors="replace")
         if re.search(r'<meta[^>]+name=["\']robots["\'][^>]+noindex', text[:5000], re.I):
@@ -64,7 +65,7 @@ def facts(p: Path) -> dict:
     rel = p.relative_to(ROOT).as_posix()
     title = _match(text, r"<title[^>]*>(.*?)</title>") or _match(text, r"<h1[^>]*>(.*?)</h1>") or rel
     lang = _match(text, r"<html[^>]*\blang=[\"']([^\"']+)") or ("zh-Hans" if ".zh." in rel else "en")
-    desc = _match(text, r'<meta[^>]*name=["\']description["\'][^>]*content=["\'](.*?)["\']')
+    desc = _match(text, r'<meta[^>]*name=["\']description["\'][^>]*content="([^"]*)"') or _match(text, r"<meta[^>]*name=['\"]description['\"][^>]*content='([^']*)'")
     if not desc:
         desc = _match(text, r"<main[^>]*>.*?<p[^>]*>(.*?)</p>") or _match(text, r"<p[^>]*>(.*?)</p>")
     desc = desc[:300].rstrip(" ,;:-") or title
@@ -77,9 +78,11 @@ def counterpart(rel: str, available: set[str]) -> str | None:
     elif rel == "index.zh.html": candidates = ["index.html"]
     elif rel == "long-term-memory/index.html": candidates = ["long-term-memory/index.en.html"]
     elif rel == "long-term-memory/index.en.html": candidates = ["long-term-memory/index.html"]
+    elif rel == "hf-incident-dao/index.html": candidates = ["hf-incident-dao/en.html"]
+    elif rel == "hf-incident-dao/en.html": candidates = ["hf-incident-dao/index.html"]
     elif ".zh.html" in rel: candidates = [rel.replace(".zh.html", ".html")]
     elif rel.endswith(".html"): candidates = [rel[:-5] + ".zh.html"]
-    if rel.endswith("/index.html") and rel not in {"index.html", "long-term-memory/index.html"}:
+    if rel.endswith("/index.html") and rel not in {"index.html", "long-term-memory/index.html", "hf-incident-dao/index.html"}:
         candidates.insert(0, rel[:-10] + "index.zh.html")
     if rel.endswith("/index.zh.html"):
         candidates.insert(0, rel.replace("/index.zh.html", "/index.html"))
@@ -87,13 +90,13 @@ def counterpart(rel: str, available: set[str]) -> str | None:
 
 
 def group_for(rel: str) -> str:
-    if rel.startswith("safety/"): return "Safety and verification"
+    if rel.startswith(("safety/", "hf-incident-dao/")): return "Safety and verification"
     if rel.startswith("charter/"): return "Human-agent coexistence"
     if rel.startswith("research/"): return "Learning and physical credit"
     if rel.startswith("essays/"): return "Agent architectures and learning"
     if rel.startswith(("reports/", "thailand-energy/", "global-climate/", "continual-learning/", "complexity/", "company-architecture/")): return "Other public pages (outside the theory index)"
     if rel.startswith(("tasks/", "sophon/", "long-term-memory/")): return "Other public pages (outside the theory index)"
-    if rel.startswith(("pipeline/", "spine/", "whitepaper-agent-native-communication/")) or "agent-comm" in rel or rel in {"substrate.html", "locality-as-protocol.html", "open-source.html", "open-source.zh.html"}: return "Agent systems and protocols"
+    if rel.startswith(("pipeline/", "spine/", "agent-internet/", "whitepaper-agent-native-communication/")) or "agent-comm" in rel or rel in {"substrate.html", "locality-as-protocol.html", "covenant-network.html", "covenant-network.zh.html", "open-source.html", "open-source.zh.html"}: return "Agent systems and protocols"
     if rel in {"index.html", "index.zh.html", "map.html", "map.zh.html", "start-here.html", "start-here.zh.html", "glossary.html", "glossary.zh.html", "theory-mainline-index.html", "theory-mainline-index.zh.html"}: return "Orientation and indexes"
     return "Information, mind, and agency"
 

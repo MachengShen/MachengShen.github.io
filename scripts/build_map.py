@@ -72,6 +72,8 @@ def load() -> dict:
             r["has_zh"] = True
             r["zh_url"] = "/" + zh_rel
             r["zh_native"] = True
+        elif r.get("has_zh") and r.get("zh_url"):
+            r["zh_native"] = True
         elif r.get("lang", "").startswith("zh"):
             r["has_zh"] = False
             r["zh_url"] = ""
@@ -392,7 +394,7 @@ def build_map(data: dict, *, is_zh: bool) -> str:
         "hasPart": [
             {"@type": "CreativeWork",
              "name": (r.get("title_zh") or r["title_en"]) if is_zh else r["title_en"],
-             "url": r["url"] if r.get("is_repo") else SITE + (r.get("zh_url") or r["url"] if is_zh else r["url"]),
+             "url": (lambda u: u if u.startswith("https://") else SITE + u)(r["url"] if r.get("is_repo") else (r.get("zh_url") or r["url"] if is_zh else r["url"])),
              **({"creativeWorkStatus": r["state"]} if r.get("state") in
                 ("survived", "speculative", "retired") else {})}
             for r in sorted(recs, key=lambda x: (x.get("order", 999), x["url"]))

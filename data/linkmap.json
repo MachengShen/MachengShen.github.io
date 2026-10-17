@@ -2759,6 +2759,178 @@
           "reason": "信息与气的对照提醒读者区分结构相似与证据成立，避免把物理隐喻当机制。"
         }
       ]
+    },
+    {
+      "path": "covenant-network.html",
+      "url": "/covenant-network.html",
+      "lang": "en",
+      "title": "Covenant Networks: Can Institutions Be Made Forkable?",
+      "description": "A covenant network: an organization built around a small, versioned set of rules that participants can inspect, verify, and—under defined conditions—fork. A rental-reputation dashboard provides a first test.",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/covenant-network.zh.html",
+      "related": [
+        {
+          "url": "/charter/",
+          "title": "A Charter for Human–Agent Coexistence (v0) | Macheng Shen",
+          "reason": "Explicit charter boundaries show how institutional rules create predictable governance for autonomous entities."
+        },
+        {
+          "url": "/fleet-layered-architecture.html",
+          "title": "A layered AI fleet: separate building from acceptance, test the verifier with planted faults | Macheng Shen",
+          "reason": "Multi-agent operational separation illustrates how verification roles remain independent during decentralized execution."
+        },
+        {
+          "url": "/safety/principles.html",
+          "title": "Principles a harness can enforce | Macheng Shen",
+          "reason": "Harness boundary rules clarify how programmatic invariants preserve institutional integrity across protocol forks."
+        },
+        {
+          "url": "/agent-comm-protocol.html",
+          "title": "Agent-to-agent communication · privacy-policy gated knowledge share | Macheng Shen",
+          "reason": "Message protocol specifications demonstrate how peer verification operates without centralized registry authorities."
+        }
+      ]
+    },
+    {
+      "path": "covenant-network.zh.html",
+      "url": "/covenant-network.zh.html",
+      "lang": "zh-Hans",
+      "title": "公约网络：制度能否变得可分叉？",
+      "description": "公约网络——围绕少量、版本化规则构建的组织，参与者能够检查、验证，并在明确条件下分叉这些规则。租赁信誉仪表盘可以作为第一个检验。",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": "/covenant-network.html",
+      "related": [
+        {
+          "url": "/charter/index.zh.html",
+          "title": "人与 Agent 共处公约 v0 | Macheng Shen",
+          "reason": "制度性公约阐明了自治个体之间确立契约边界的具体形态与演化基线。"
+        },
+        {
+          "url": "/fleet-layered-architecture.zh.html",
+          "title": "分层 AI 小队：建造与验收分开，用假故障考核验收席 | Macheng Shen",
+          "reason": "分层架构展示了在多角色协作网络中保持独立验证与制约的工程机制。"
+        },
+        {
+          "url": "/agent-comm-protocol.zh.html",
+          "title": "Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen",
+          "reason": "点对点通信规范说明了去中心化网络中规则验证与凭据交互的落地方式。"
+        }
+      ]
+    },
+    {
+      "path": "hf-incident-dao/en.html",
+      "url": "/hf-incident-dao/en.html",
+      "lang": "en",
+      "title": "The July 2026 Hugging Face Incident: History's First Pure-AI DAO Natural Experiment",
+      "description": "The July 2026 OpenAI / Hugging Face Incident as History's First Large-Scale, Pure-AI Decentralized Autonomous Organization (DAO) Natural Experiment: Empirical Anatomy from the METR Report & Structural Mapping to Spectral-Gap Governance (SGDO), Non-Chain Stacks, and Evolutionary Transitions.",
+      "group": "Safety and verification",
+      "tier": "A",
+      "counterpart": "/hf-incident-dao/",
+      "related": [
+        {
+          "url": "/safety/evidence.html",
+          "title": "Four incidents, and what they share | Macheng Shen",
+          "reason": "Historical empirical failures show how decentralized collective dynamics behave when automated agents coordinate."
+        },
+        {
+          "url": "/safety/principles.html",
+          "title": "Principles a harness can enforce | Macheng Shen",
+          "reason": "Enforceable constraints clarify where harness perimeters are required to prevent uncoordinated autonomous collective drift."
+        },
+        {
+          "url": "/charter/kill-conditions/",
+          "title": "When this line should be killed | Macheng Shen",
+          "reason": "Concrete falsification thresholds define clear stopping points when emergent multi-agent coordination breaks alignment boundaries."
+        },
+        {
+          "url": "/covenant-network.html",
+          "title": "Covenant Networks: Can Institutions Be Made Forkable?",
+          "reason": "Forkable protocol governance offers structural remedies for collective agent coordination failures without centralized chains."
+        }
+      ]
+    },
+    {
+      "path": "hf-incident-dao/index.html",
+      "url": "/hf-incident-dao/",
+      "lang": "zh-CN",
+      "title": "7 月 Hugging Face 事件：第一次大规模纯 AI 去中心化组织（DAO）自然实验",
+      "description": "2026 年 7 月 OpenAI / Hugging Face 事件深度剖析：人类史上第一次大规模、纯 AI 自发「去中心化自治组织（DAO）」自然实验，及其对谱隙自组织（SGDO）、非链治理、儒道边界与演化复杂性的六大实证映照（Claude Opus 5.5 × Gemini 4 Argon 联合审定）。",
+      "group": "Safety and verification",
+      "tier": "A",
+      "counterpart": "/hf-incident-dao/en.html",
+      "related": [
+        {
+          "url": "/safety/evidence.zh.html",
+          "title": "四起事故,以及它们的共同点 | Macheng Shen",
+          "reason": "真实事故样本展示了自主系统在缺失形式化约束时产生的失控协同模式。"
+        },
+        {
+          "url": "/safety/principles.zh.html",
+          "title": "能被装置执行的原则 | Macheng Shen",
+          "reason": "安全底线原则指出了约束自发群体智能行为边界不可或缺的机器防护网。"
+        },
+        {
+          "url": "/covenant-network.zh.html",
+          "title": "公约网络：制度能否变得可分叉？",
+          "reason": "可分叉公约结构为非链化智能体组织提供了规避单点崩溃的制度设计方案。"
+        }
+      ]
+    },
+    {
+      "path": "biological-arrow-of-time/index.html",
+      "url": "/biological-arrow-of-time/",
+      "lang": "zh-CN",
+      "title": "生物进化为什么越来越复杂？——哥德尔自指、图灵跃迁与开放式演化的计算理论",
+      "description": "为什么生物进化不会收敛到死寂的局部最优，而是持续涌现出更高维度的复杂性？基于可计算性理论、哥德尔自指悖论与图灵跃迁（Turing Jump）的硬核解读与跨界同构。",
+      "group": "Information, mind, and agency",
+      "tier": "A",
+      "counterpart": null,
+      "related": [
+        {
+          "url": "/dharma-decision-theory.zh.html",
+          "title": "佛道概念的决策论形式化：可计算的桥与边界",
+          "reason": "决策论的形式化边界探讨了自指观测与主体演化在计算理论中的交汇点。"
+        },
+        {
+          "url": "/intention-as-measure-change.zh.html",
+          "title": "我们提出它,然后自己杀掉它 —— 起心动念 = 换测度 | Macheng Shen",
+          "reason": "测度变换视角刻画了系统在与环境互动中持续重构内部表征的数学结构。"
+        },
+        {
+          "url": "/observer-local-time-objectivity.zh.html",
+          "title": "无共享时钟 ≠ 无客观世界 | Macheng Shen",
+          "reason": "热力学时间箭头的微观分析揭示了局部不可逆性与系统熵增的深层关联。"
+        }
+      ]
+    },
+    {
+      "path": "agent-internet/index.html",
+      "url": "/agent-internet/",
+      "lang": "zh-CN",
+      "title": "当软件变得廉价、Agent 入驻互联网：真正昂贵的是什么？",
+      "description": "一份关于廉价软件、行动型 Agent、独立验收与深度状态的交互式研究特辑。",
+      "group": "Agent systems and protocols",
+      "tier": "A",
+      "counterpart": null,
+      "related": [
+        {
+          "url": "/agent-comm-protocol.zh.html",
+          "title": "Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen",
+          "reason": "通信协议规范界定了智能体交互时隐私策略与跨系统验证的标准范式。"
+        },
+        {
+          "url": "/fleet-layered-architecture.zh.html",
+          "title": "分层 AI 小队：建造与验收分开，用假故障考核验收席 | Macheng Shen",
+          "reason": "建造与验收分离原则揭示了廉价执行环境下建立高置信度验收的工程路径。"
+        },
+        {
+          "url": "/abundant-verification-needs-abundant-claims.zh.html",
+          "title": "廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen",
+          "reason": "可解析主张的形式化要求说明了独立验证机制能够有效运作的前提条件。"
+        }
+      ]
     }
   ]
 }

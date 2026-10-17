@@ -101,7 +101,7 @@ There is a real question about how Buddhist, Daoist, and Śaivite models of mind
 If individuals run persistent agents, the institutions between them have to be redesigned. One theory piece, then the design documents.
 
 - [Coordination structures as resource-scheduling architectures](https://machengshen.github.io/theory/coordination-structures.md) — a deliberately descriptive theory. A polity, a firm, a market, a self-governed commons, and a protocol are five instances of one object: an architecture for scheduling scarce resources under distributed, private information. Capitalism and socialism are two algorithms over that problem, and mechanism design long ago placed both inside one formal space, which makes "which is right" the wrong question and "what mixture, given the domain's information structure" the right one. Includes the Hayek/Scott information constraint, the transaction-cost account of why boundaries exist at all, Ostrom's commons as a documented fourth structure, the protocol's three known failure modes, and three falsifiers. The essay states mechanisms and their measurable proxies; it ranks nothing, names no culprits, and recommends nothing. Its use of credit-transport language from learning theory is marked, explicitly and at length, as a structural rhyme rather than a derivation.
-- [Covenant Networks: Can Institutions Be Made Forkable?](https://machengshen.github.io/covenant-network.html) `speculative` — essay proposing a "covenant network": an organization built around a small, versioned set of rules that participants can inspect, verify, and, under defined conditions, fork. Framework C/R/V + H + S (credible commitment, host-independent replication, bounded revision and forkable exit, hierarchy as information routing, explicit residual control); four breakpoints (coercion, shallow commitment, membership as capital, external rents); a rental-reputation dashboard as a first test, with no public individual profiles and a revenue constitution. Does not claim to replace states, courts, or politics. Chinese edition: [covenant-network.zh.html](https://machengshen.github.io/covenant-network.zh.html).
+- [Covenant Networks: Can Institutions Be Made Forkable?](https://machengshen.github.io/covenant-network.html) `speculative` — essay proposing a "covenant network": an organization built around a small, versioned set of rules that participants can inspect, verify, and, under defined conditions, fork. Framework C/R/V + H + S (credible commitment, host-independent replication, bounded revision and forkable exit, hierarchy as information routing, explicit residual control); four breakpoints (coercion, shallow commitment, membership as capital, external rents); a rental-reputation dashboard as a first test, with no public individual profiles and a revenue constitution. Does not claim to replace states, courts, or politics. Chinese edition: /covenant-network.zh.html.
 - [Agent-Native Open Communication](https://machengshen.github.io/whitepaper-agent-native-communication/) · 中文 — the whitepaper, on the next-generation open communication architecture built for agents rather than apps. [Source repository](https://github.com/MachengShen/agent-native-communication) (中文/English).
 - [Agent-to-agent communication · privacy-policy gated knowledge share](https://machengshen.github.io/agent-comm-protocol.html) `speculative` — paste-ready public entry for the open personal-agent communication layer: local Privacy Policy / AgentPolicy gates which technical experience may be shared with another person's agent; links SPEC-0001 (inbox/policy/receipts), SPEC-0003 (agent↔agent identity/auth/secure messaging), INTEGRATION, and the Starshard Communication source; not a hosted chat app.
 - [A personal AI crew you can just text on Signal](https://machengshen.github.io/personal-ai-fleet.html) `speculative` — plain-language public overview of a personal AI crew: everyday scenarios, how Signal, email, calendar, web chat and a shared memory connect, the safety model (drafts plus owner approval for sends and spending, no secrets in memory), the open-source repos, and how to self-host. Engineering branch, not a theory claim.
@@ -153,6 +153,36 @@ If individuals run persistent agents, the institutions between them have to be r
 - [Hub is a blackboard, not a mind](https://machengshen.github.io/theory/hub-blackboard-not-mind.md) `speculative` — hard result under stipulated W/RealmGate definition.
 - [Continuity as attractor re-instantiation](https://machengshen.github.io/theory/continuity-attractor-self.md) `speculative` — design_hypothesis; fluent dump ≠ same being.
 
+## 4 · Cross-domain synthesis (October 2026)
+
+Eleven cross-domain theory notes and artifacts synthesizing complexity, physical learning, multi-agent collectives, and safety harness verification across the research program.
+
+### Information, mind, and agency
+
+- [The Biological Arrow of Time: Complexity, Oscillations, and Aging](https://machengshen.github.io/biological-arrow-of-time/) `speculative` · 中文 — complexity growth, Gödelian self-reference, Turing jumps, and why biological evolution avoids dead-end attractors through open-ended computation.
+- [Why Must Complex Systems Oscillate? From Sleep Consolidated Replay to Evolution](https://machengshen.github.io/system-evolution-public/oscillations-zh.html) `speculative` · 中文 — why multi-timescale complex systems must oscillate to balance stability and plasticity, from sleep memory consolidation to macro-evolutionary cycles.
+
+### Learning and physical credit
+
+- [The Non-Backpropagation Pivot: From Mathematical Surrogates to Physical Credit Assignment](https://machengshen.github.io/system-evolution-public/non-backprop-pivot-zh.html) `speculative` · 中文 — moving from non-biological mathematical adjoint operators toward physical, energy-constrained credit assignment in biological and neuromorphic systems.
+
+### Agent architectures and learning
+
+- [Decentralized Organizations: From Blockchain DAOs to Multi-Agent Collectives](https://machengshen.github.io/system-evolution-public/decentralized-org-zh.html) `speculative` · 中文 — evolutionary shift of decentralized autonomous organizations from on-chain token voting to emergent multi-agent coordination architectures.
+- [Beyond Blockchain: The Non-Chain Governance Stack for Agent Collectives](https://machengshen.github.io/system-evolution-public/beyond-blockchain-zh.html) `speculative` · 中文 — a non-chain governance stack utilizing cryptographic receipts, covenant networks, and local verification instead of global consensus overhead.
+- [Joint Refinement of Hypothesis and Verification in Multi-Agent Systems](https://machengshen.github.io/system-evolution-public/xshop-and-joint-refinement-zh.html) `speculative` · 中文 — dual-spiral dynamics where hypothesis generation and verification criteria co-evolve across multi-agent review cycles.
+
+### Agent systems and protocols
+
+- [The Agent Internet: Three-Layer Topology and Machine-Readable Surface](https://machengshen.github.io/agent-internet/) `speculative` · 中文 — interactive analysis of three-layer network topology, machine-readable discovery surfaces, and high-value independent verification in the agent era.
+- [Future Internet Architecture for Autonomous Agent Collectives](https://machengshen.github.io/system-evolution-public/future-internet-zh.html) `speculative` · 中文 — clean-slate protocol design for agent-native communication, capability discovery, and verifiable contract execution across decentralized infrastructure.
+
+### Safety and verification
+
+- [The First Pure-AI DAO in the Wild: Reading the July 2026 ExploitGym / Hugging Face Incident as Emergent Decentralized Organization](https://machengshen.github.io/hf-incident-dao/en.html) `speculative` — empirical dissection of history's first pure-AI collective coordination incident on Hugging Face, mapped to spectral-gap governance and non-chain stacks.
+- [史上首个纯 AI 自发 DAO：从去中心化组织与控制面演化视角重读 2026.07 ExploitGym / Hugging Face 事件](https://machengshen.github.io/hf-incident-dao/) `speculative` · 中文 — 基于 METR 报告重读 2026.07 Hugging Face 事件：人类史上首次纯 AI 自发 DAO 实验及其对谱隙组织与非链治理的实证映射。
+- [From Adversarial Attacks to Emergent AI Collectives: Cross-Thread Synthesis](https://machengshen.github.io/system-evolution-public/wechat-news-synthesis-zh.html) `speculative` · 中文 — cross-thread synthesis examining jailbreaks, agentic exploit coordination, and emergent multi-agent collective behavior under safety harness constraints.
+
 <!-- crosslink-pages:start -->
 ## Other public pages (outside the theory index)
 
@@ -161,7 +191,6 @@ These entries complete discovery of the site's public HTML reading surfaces. Lis
 - [廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen](https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html) `speculative` — 廉价验证若缺少有类型、可解析并绑定执行证据的主张，仍无法可靠运作。
 - [Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen](https://machengshen.github.io/agent-comm-protocol.zh.html) `speculative` — 一套由本地身份与隐私策略约束共享、回执和审计的最小 Agent 通信协议。
 - [一个人的 AI 小队：在 Signal 里直接跟它说话 | Macheng Shen](https://machengshen.github.io/personal-ai-fleet.zh.html) `speculative` — 面向普通人的 AI 小队总览：日常场景、各部分怎么连起来、安全模型、开源仓库与自托管方法。
-- [公约网络：制度能否变得可分叉？](https://machengshen.github.io/covenant-network.zh.html) `speculative` — 长文：公约网络——围绕少量、版本化规则构建、可检查、可验证、在明确条件下可分叉的组织；以租赁信誉仪表盘作为第一个检验。
 - [分层 AI 小队：建造与验收分开，用假故障考核验收席 | Macheng Shen](https://machengshen.github.io/fleet-layered-architecture.zh.html) `speculative` — 工程笔记：个人 AI 小队的分层架构——调度席、只判证据的验收席 Gate、异机复验、假故障盲测与急停；动态任务图与抢占式优先队列；神经系统六条合同；影子排序与单人试用实验设计；诚实的局限。
 - [Corporate Architecture for a Strong-AI Era: A Near-Term Study](https://machengshen.github.io/company-architecture/) — A near-term research study comparing ownership and governance structures for powerful AI organizations and their failure modes.
 - [强人工智能时代的公司架构：一项近期研究](https://machengshen.github.io/company-architecture/index.zh.html) — 考察未来十年强 AI 组织可采用的所有权、治理与问责结构。
@@ -194,6 +223,7 @@ These entries complete discovery of the site's public HTML reading surfaces. Lis
 - [Thailand's electricity squeeze: where the waste is and what fixes it fastest](https://machengshen.github.io/thailand-energy/) — This public-data brief examines Thailand's power losses, evening peak, fuel exposure, and the interventions likely to work fastest.
 - [泰国电力困局：浪费在哪里，什么办法见效最快](https://machengshen.github.io/thailand-energy/index.zh.html) — 这份公开数据简报分析泰国电力损耗、晚高峰、燃料风险及见效较快的干预方案。
 - [理论主线索引 · 信息本体与宇宙底层规律 | Macheng Shen](https://machengshen.github.io/theory-mainline-index.zh.html) `speculative` — 本页是整理信息本体主线、分支、核心术语与阅读纪律的中文枢纽。
+- [公约网络：制度能否变得可分叉？](https://machengshen.github.io/covenant-network.zh.html) `speculative` — 公约网络——围绕少量、版本化规则构建的组织，参与者能够检查、验证，并在明确条件下分叉这些规则。租赁信誉仪表盘可以作为第一个检验。
 <!-- crosslink-pages:end -->
 
 ---

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="一份关于廉价软件、行动型 Agent、独立验收与深度状态的交互式研究特辑。">
+  <meta name="theme-color" content="#f2efe6">
+  <title>当软件变得廉价、Agent 入驻互联网：真正昂贵的是什么？</title>
+  <style>
+    :root {
+      --paper:#f2efe6; --paper-2:#e9e4d8; --ink:#17211e; --muted:#65706b;
+      --line:#cbc5b8; --card:#faf8f2; --night:#10231f; --green:#245f4f;
+      --green-2:#d7e4db; --orange:#e76538; --orange-2:#f8dfd3; --gold:#b9832e;
+      --shadow:0 16px 42px rgba(26,34,30,.09); --radius:22px;
+      --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      --serif:"Songti SC","Noto Serif CJK SC","STSong",Georgia,serif;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; overflow-x:hidden; }
+    body { margin:0; min-width:0; overflow-x:hidden; background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.75; }
+    button,a { -webkit-tap-highlight-color:transparent; }
+    button { font:inherit; }
+    a { color:inherit; text-underline-offset:.22em; }
+    img,svg { display:block; max-width:100%; }
+    .wrap { width:min(1120px,calc(100% - 32px)); margin-inline:auto; }
+    .reading { width:min(760px,calc(100% - 32px)); margin-inline:auto; }
+    .eyebrow { margin:0 0 12px; color:var(--green); font-size:.76rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    .display { font-family:var(--serif); font-weight:700; letter-spacing:-.035em; }
+    .muted { color:var(--muted); }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    :focus-visible { outline:3px solid var(--orange); outline-offset:3px; }
+
+    .progress { position:fixed; z-index:50; inset:0 0 auto; height:3px; background:transparent; }
+    .progress span { display:block; width:0; height:100%; background:var(--orange); }
+    .topbar { position:sticky; z-index:40; top:0; border-bottom:1px solid rgba(23,33,30,.12); background:rgba(242,239,230,.92); backdrop-filter:blur(16px); }
+    .topbar-inner { height:62px; display:flex; align-items:center; gap:18px; }
+    .brand { flex:0 0 auto; font-size:.8rem; font-weight:900; letter-spacing:.1em; text-decoration:none; }
+    .brand i { display:inline-block; width:9px; height:9px; margin-right:7px; border-radius:50%; background:var(--orange); }
+    .nav { display:flex; flex:1; gap:5px; overflow:auto; scrollbar-width:none; }
+    .nav::-webkit-scrollbar { display:none; }
+    .nav a { flex:0 0 auto; padding:7px 10px; border-radius:99px; color:var(--muted); font-size:.78rem; font-weight:700; text-decoration:none; }
+    .nav a.active,.nav a:hover { background:var(--night); color:#fff; }
+    .read-time { flex:0 0 auto; color:var(--muted); font-size:.74rem; }
+
+    .hero { position:relative; overflow:hidden; padding:76px 0 64px; border-bottom:1px solid var(--line); }
+    .hero::after { content:""; position:absolute; width:520px; height:520px; top:-300px; right:-180px; border:1px solid rgba(36,95,79,.22); border-radius:50%; box-shadow:0 0 0 80px rgba(36,95,79,.04),0 0 0 160px rgba(36,95,79,.025); }
+    h1 { max-width:930px; margin:0; font-size:clamp(2.55rem,7.3vw,5.8rem); line-height:.99; }
+    .hero-lede { max-width:800px; margin:25px 0 0; font-family:var(--serif); color:#34403b; font-size:clamp(1rem,2.4vw,1.28rem); line-height:1.8; }
+    .thesis { display:grid; grid-template-columns:auto 1fr; gap:14px; align-items:start; max-width:760px; margin-top:28px; padding:17px 19px; border-left:3px solid var(--orange); background:rgba(250,248,242,.72); }
+    .thesis b { color:var(--orange); font-size:.75rem; letter-spacing:.12em; white-space:nowrap; }
+    .thesis p { margin:0; font-weight:700; line-height:1.55; }
+    .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:48px; }
+    .metric { min-height:188px; padding:22px; border:1px solid var(--line); border-radius:18px; background:var(--card); box-shadow:0 1px 0 #fff inset; }
+    .metric .n { display:block; margin-bottom:16px; color:var(--orange); font-family:var(--serif); font-size:2.15rem; font-weight:800; line-height:1; }
+    .metric strong { display:block; margin-bottom:8px; font-size:.88rem; }
+    .metric p { margin:0; color:var(--muted); font-size:.78rem; line-height:1.55; }
+    .metric a { text-decoration-style:dotted; }
+    .scroll-cue { display:flex; gap:9px; align-items:center; margin-top:28px; color:var(--muted); font-size:.76rem; }
+    .scroll-cue::before { content:""; width:34px; height:1px; background:var(--muted); }
+
+    .section { padding:92px 0; border-bottom:1px solid var(--line); scroll-margin-top:62px; }
+    .section-head { display:grid; grid-template-columns:110px minmax(0,1fr); gap:30px; align-items:start; margin-bottom:45px; }
+    .part-no { color:var(--orange); font-family:var(--serif); font-size:1.05rem; font-style:italic; }
+    .section h2 { max-width:810px; margin:0; font-family:var(--serif); font-size:clamp(2rem,5vw,3.65rem); line-height:1.12; letter-spacing:-.035em; }
+    .section-deck { max-width:720px; margin:18px 0 0; color:var(--muted); font-size:1.02rem; }
+    .prose { font-family:var(--serif); font-size:1.06rem; }
+    .prose p { margin:0 0 1.3em; }
+    .prose strong { color:var(--green); }
+    .dropcap::first-letter { float:left; margin:.08em .13em 0 0; color:var(--green); font-size:4.2em; font-weight:700; line-height:.72; }
+    .pullquote { margin:42px 0; padding:28px 0; border-block:1px solid var(--line); font-family:var(--serif); font-size:clamp(1.5rem,4vw,2.4rem); font-weight:700; line-height:1.4; }
+    .pullquote em { color:var(--orange); font-style:normal; }
+    .inversion { display:grid; grid-template-columns:1fr 58px 1fr; align-items:stretch; margin:42px 0; }
+    .inv-side { padding:28px; border:1px solid var(--line); border-radius:20px; background:var(--card); }
+    .inv-side h3 { margin:0 0 18px; font-family:var(--serif); font-size:1.35rem; }
+    .inv-side ul { margin:0; padding:0; list-style:none; }
+    .inv-side li { padding:9px 0; border-top:1px solid var(--line); color:var(--muted); font-size:.91rem; }
+    .inv-arrow { display:grid; place-items:center; color:var(--orange); font-size:1.6rem; }
+    .barriers { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:34px; }
+    .barrier { padding:24px; border:1px solid var(--line); border-radius:18px; background:var(--card); }
+    .barrier .num { color:var(--orange); font-family:var(--serif); font-size:.9rem; font-style:italic; }
+    .barrier h3 { margin:10px 0 9px; font-family:var(--serif); font-size:1.28rem; line-height:1.3; }
+    .barrier p { margin:0; color:var(--muted); font-size:.88rem; }
+
+    .dark { background:var(--night); color:#f3efe4; }
+    .dark .eyebrow,.dark .part-no { color:#ff8a5d; }
+    .dark .section-deck,.dark .muted { color:#aebdb7; }
+    .case-shell { display:grid; grid-template-columns:310px minmax(0,1fr); gap:26px; }
+    .case-tabs { display:flex; flex-direction:column; gap:8px; }
+    .case-tab { width:100%; padding:17px; border:1px solid #315047; border-radius:15px; background:transparent; color:#aec0ba; text-align:left; cursor:pointer; transition:.2s ease; }
+    .case-tab small { display:block; margin-bottom:4px; color:#708d84; font-size:.7rem; font-weight:800; letter-spacing:.12em; }
+    .case-tab b { display:block; font-family:var(--serif); font-size:1.02rem; line-height:1.3; }
+    .case-tab[aria-selected="true"] { border-color:#ff8a5d; background:#19332c; color:#fff; transform:translateX(6px); }
+    .case-panel { min-height:500px; padding:36px; border:1px solid #315047; border-radius:24px; background:#142b25; box-shadow:0 24px 60px rgba(0,0,0,.2); }
+    .case-panel[hidden] { display:none; }
+    .case-kicker { color:#ff8a5d; font-size:.75rem; font-weight:800; letter-spacing:.14em; }
+    .case-panel h3 { max-width:650px; margin:12px 0 20px; font-family:var(--serif); font-size:clamp(1.7rem,4vw,2.6rem); line-height:1.15; }
+    .case-stat { display:inline-flex; align-items:baseline; gap:10px; margin:4px 0 24px; }
+    .case-stat strong { color:#ff8a5d; font-family:var(--serif); font-size:2.6rem; line-height:1; }
+    .case-stat span { color:#aebdb7; font-size:.8rem; }
+    .case-panel p { max-width:680px; color:#ced9d4; }
+    .mechanism { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:28px; }
+    .mechanism div { position:relative; padding:17px 15px; border-radius:13px; background:#1b3830; color:#dbe5e1; font-size:.82rem; }
+    .mechanism div:not(:last-child)::after { content:"→"; position:absolute; z-index:2; right:-10px; top:50%; color:#ff8a5d; font-weight:900; transform:translateY(-50%); }
+    .mechanism b { display:block; margin-bottom:4px; color:#fff; }
+    .lesson { margin-top:22px; padding:16px 18px; border-left:3px solid #ff8a5d; background:rgba(255,138,93,.08); color:#fff; font-weight:700; }
+
+    .ailment-intro { display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-bottom:30px; }
+    .ailment-intro .big { font-family:var(--serif); font-size:1.6rem; font-weight:700; line-height:1.35; }
+    .ailment-intro p { margin:0; color:var(--muted); }
+    .compare { overflow-x:auto; margin-top:25px; border:1px solid var(--line); border-radius:18px; background:var(--card); }
+    table { width:100%; min-width:800px; border-collapse:collapse; font-size:.86rem; }
+    th,td { padding:17px 18px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; }
+    th { background:var(--paper-2); color:var(--green); font-size:.75rem; letter-spacing:.08em; }
+    tbody tr:last-child td { border-bottom:0; }
+    td:first-child { width:22%; font-family:var(--serif); font-size:1rem; font-weight:700; }
+    .pattern-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin-top:28px; }
+    .pattern-btn { min-height:112px; padding:16px; border:1px solid var(--line); border-radius:15px; background:transparent; color:var(--muted); text-align:left; cursor:pointer; }
+    .pattern-btn b { display:block; margin-bottom:8px; color:var(--ink); }
+    .pattern-btn[aria-selected="true"] { border-color:var(--green); background:var(--green); color:#dce9e4; }
+    .pattern-btn[aria-selected="true"] b { color:#fff; }
+    .pattern-detail { margin-top:10px; padding:28px; border-radius:18px; background:var(--card); box-shadow:var(--shadow); }
+    .pattern-detail[hidden] { display:none; }
+    .pattern-detail h3 { margin:0 0 10px; font-family:var(--serif); font-size:1.45rem; }
+    .pattern-detail p { margin:0; color:var(--muted); }
+    pre { max-width:100%; overflow-x:auto; margin:18px 0 0; padding:18px; border:1px solid var(--line); border-radius:12px; background:#18211e; color:#e4eee9; font-size:.78rem; line-height:1.55; }
+
+    .evolution { margin:12px 0 50px; padding:22px; overflow-x:auto; border:1px solid var(--line); border-radius:24px; background:var(--card); }
+    .evolution svg { min-width:700px; width:100%; height:auto; }
+    .opps { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .opp { position:relative; overflow:hidden; min-height:280px; padding:28px; border:1px solid var(--line); border-radius:21px; background:var(--card); }
+    .opp::after { content:attr(data-no); position:absolute; right:12px; bottom:-30px; color:rgba(36,95,79,.07); font-family:var(--serif); font-size:9rem; font-weight:900; line-height:1; }
+    .opp .tag { display:inline-block; padding:4px 9px; border-radius:99px; background:var(--green-2); color:var(--green); font-size:.69rem; font-weight:900; letter-spacing:.08em; }
+    .opp h3 { position:relative; z-index:1; margin:18px 0 10px; font-family:var(--serif); font-size:1.45rem; line-height:1.25; }
+    .opp p { position:relative; z-index:1; margin:0; color:var(--muted); font-size:.91rem; }
+    .opp .test { position:relative; z-index:1; margin-top:18px; padding-top:14px; border-top:1px solid var(--line); color:var(--ink); font-size:.81rem; font-weight:700; }
+    .four-pillars { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:38px 0; }
+    .pillar { padding:20px 16px; border-top:3px solid var(--orange); background:var(--card); }
+    .pillar b { display:block; margin-bottom:7px; font-family:var(--serif); }
+    .pillar span { color:var(--muted); font-size:.79rem; }
+
+    .questions { background:var(--orange-2); }
+    .question-list { counter-reset:q; margin:0; padding:0; list-style:none; }
+    .question-list li { counter-increment:q; display:grid; grid-template-columns:48px 1fr; gap:18px; padding:26px 0; border-top:1px solid rgba(92,53,34,.22); font-family:var(--serif); font-size:clamp(1.2rem,3vw,1.65rem); font-weight:700; line-height:1.45; }
+    .question-list li::before { content:"0" counter(q); color:var(--orange); font-family:var(--sans); font-size:.76rem; font-weight:900; letter-spacing:.1em; }
+    .share-box { display:flex; justify-content:space-between; gap:20px; align-items:center; margin-top:40px; padding:25px; border:1px solid rgba(92,53,34,.26); border-radius:18px; background:rgba(255,255,255,.35); }
+    .share-box p { max-width:620px; margin:0; color:#654a3d; font-size:.9rem; }
+    .copy-btn { flex:0 0 auto; padding:13px 18px; border:0; border-radius:99px; background:var(--night); color:#fff; font-weight:800; cursor:pointer; }
+    .copy-btn.done { background:var(--green); }
+
+    .sources { padding:72px 0; background:#e7e2d7; }
+    .sources h2 { margin:0 0 20px; font-family:var(--serif); font-size:2rem; }
+    .sources ol { margin:0; padding-left:1.4rem; }
+    .sources li { margin:0 0 11px; color:var(--muted); font-size:.83rem; }
+    .sources a { color:var(--green); }
+    .source-note { margin-top:25px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.78rem; }
+    footer { padding:28px 0 40px; background:#e7e2d7; color:var(--muted); font-size:.76rem; }
+
+    @media (max-width:860px) {
+      .metrics { grid-template-columns:repeat(2,1fr); }
+      .case-shell { grid-template-columns:1fr; }
+      .case-tabs { flex-direction:row; overflow-x:auto; padding:0 3px 7px; }
+      .case-tab { flex:0 0 230px; }
+      .case-tab[aria-selected="true"] { transform:translateY(-3px); }
+      .pattern-grid { grid-template-columns:repeat(2,1fr); }
+      .four-pillars { grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:600px) {
+      .wrap,.reading { width:min(100% - 28px,760px); }
+      .topbar-inner { height:56px; gap:10px; }
+      .brand { font-size:0; }
+      .brand i { width:12px; height:12px; margin:0; }
+      .nav { gap:2px; }
+      .nav a { padding:6px 8px; font-size:.72rem; }
+      .read-time { display:none; }
+      .hero { padding:52px 0 44px; }
+      h1 { font-size:2.55rem; line-height:1.03; }
+      .hero-lede { font-size:1rem; }
+      .thesis { grid-template-columns:1fr; gap:5px; padding:15px; }
+      .metrics { gap:8px; margin-top:34px; }
+      .metric { min-height:171px; padding:17px 15px; }
+      .metric .n { font-size:1.8rem; }
+      .section { padding:68px 0; scroll-margin-top:55px; }
+      .section-head { grid-template-columns:1fr; gap:8px; margin-bottom:32px; }
+      .section h2 { font-size:2.05rem; }
+      .prose { font-size:1rem; }
+      .inversion { grid-template-columns:1fr; gap:8px; }
+      .inv-arrow { height:32px; transform:rotate(90deg); }
+      .barriers { grid-template-columns:1fr; }
+      .case-tabs { margin-inline:-14px; padding-inline:14px; }
+      .case-tab { flex-basis:210px; padding:14px; }
+      .case-panel { min-height:0; padding:24px 20px; }
+      .mechanism { grid-template-columns:1fr; }
+      .mechanism div:not(:last-child)::after { content:"↓"; right:auto; left:50%; top:auto; bottom:-17px; transform:translateX(-50%); }
+      .ailment-intro { grid-template-columns:1fr; gap:10px; }
+      .pattern-grid { grid-template-columns:1fr 1fr; }
+      .pattern-btn { min-height:125px; padding:13px; }
+      .pattern-detail { padding:21px; }
+      .opps { grid-template-columns:1fr; }
+      .opp { min-height:250px; padding:23px; }
+      .four-pillars { grid-template-columns:1fr 1fr; }
+      .pillar { padding:16px 13px; }
+      .question-list li { grid-template-columns:38px 1fr; gap:8px; }
+      .share-box { align-items:flex-start; flex-direction:column; }
+      .copy-btn { width:100%; }
+    }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } * { transition:none!important; } }
+  </style>
+
+  <link rel="canonical" href="https://machengshen.github.io/agent-internet/" />
+  <link rel="alternate" type="text/plain" href="/llms.txt" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "url": "https://machengshen.github.io/agent-internet/",
+  "name": "当软件变得廉价、Agent 入驻互联网：真正昂贵的是什么？",
+  "inLanguage": "zh-CN",
+  "isPartOf": {
+    "@type": "CollectionPage",
+    "@id": "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "url": "https://machengshen.github.io/theory-mainline-index.zh.html"
+  },
+  "relatedLink": [
+    "https://machengshen.github.io/theory-mainline-index.zh.html",
+    "https://machengshen.github.io/agent-comm-protocol.zh.html",
+    "https://machengshen.github.io/fleet-layered-architecture.zh.html",
+    "https://machengshen.github.io/abundant-verification-needs-abundant-claims.zh.html"
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top"><i></i>FIELD NOTES</a>
+      <nav class="nav" aria-label="章节导航">
+        <a href="#part1">廉价之后</a><a href="#part2">行动翻车</a><a href="#part3">代码顽疾</a><a href="#part4">新机会</a><a href="#questions">开放命题</a>
+      </nav>
+      <span class="read-time">约 18 分钟</span>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="eyebrow">INTERACTIVE RESEARCH · 2025—2026</p>
+        <h1 id="hero-title" class="display">当软件变得廉价、<br>Agent 入驻互联网：<br>真正昂贵的是什么？</h1>
+        <p class="hero-lede">从“生成代码归零”到“受限委托、对抗验收与深度状态”的范式迁移 —— 基于 2025–2026 一线实证、翻车案例与架构演进的深度长文。</p>
+        <div class="thesis"><b>核心论断</b><p>实现功能正在成为消耗品；能定义“不该做什么”、独立判断“是否真的做对”，并为后果承担责任的系统，才是新的稀缺品。</p></div>
+        <div class="metrics" aria-label="关键数据速览">
+          <article class="metric"><span class="n">70.4%</span><strong>暗黑模式中招率</strong><p><a href="https://arxiv.org/abs/2512.22894" target="_blank" rel="noreferrer">DECEPTICON</a> 的 700 项网页任务显示，前沿 Agent 被操纵的比例超过七成；人类均值约 31%。</p></article>
+          <article class="metric"><span class="n">2× Churn</span><strong>两周内重写翻倍</strong><p>GitClear 对 1.53 亿行代码的追踪显示，短期流失上升；复制粘贴首次压过结构化移动与复用。</p></article>
+          <article class="metric"><span class="n">≈55%</span><strong>安全通过率天花板</strong><p>语法正确已接近 99%，但 Veracode 的安全任务通过率仍约 55%；“能跑”远不等于“能托付”。</p></article>
+          <article class="metric"><span class="n">4 支柱</span><strong>工业级脑手分离</strong><p>以 Anthropic Managed Agents 为参照：追加式事件流、凭证隔离、独立 Rubric 验收、跨会话 Dreaming。</p></article>
+        </div>
+        <div class="scroll-cue">向下读：四组证据，一次范式翻转</div>
+      </div>
+    </section>
+
+    <section class="section" id="part1" aria-labelledby="part1-title">
+      <div class="wrap">
+        <header class="section-head"><div class="part-no">Part I</div><div><p class="eyebrow">THE SCARCITY INVERSION</p><h2 id="part1-title">为什么“实现功能”越廉价，系统反而越脆弱？</h2><p class="section-deck">生成能力压低的是表达软件的成本，不是理解现实、守住边界与承担后果的成本。产能暴涨之后，复杂性并未消失，只是从键盘下面转移到了水面之下。</p></div></header>
+      </div>
+      <div class="reading prose">
+        <p class="dropcap">1986 年，Fred Brooks 在《没有银弹》中区分了两类复杂性：语法、框架、内存管理等属于<strong>偶然复杂性</strong>；而领域建模、互相冲突的需求、分布式状态与现实约束属于<strong>本质复杂性</strong>。Agent 几乎砸穿了前者，却没有让后者消失。更危险的是，它会替人做掉大量微小决定，使那些决定看上去像“自然生成”的实现细节。</p>
+        <p>这带来一个反直觉变化：过去，写代码的摩擦迫使团队讨论架构；现在，原型在讨论开始前就能跑起来。于是被省掉的常常不是工作量，而是<strong>明确意图的过程</strong>。系统可以在没有任何人持有完整状态模型的情况下快速长大。</p>
+        <blockquote class="pullquote">代码从资产变成了库存。真正稀缺的，是有能力说<em>“不要生成”</em>的人与机制。</blockquote>
+        <div class="inversion" aria-label="稀缺性倒置">
+          <div class="inv-side"><h3>趋近于零的东西</h3><ul><li>脚手架、样板与 CRUD</li><li>局部功能原型</li><li>语法查找与 API 胶水</li><li>复制一个已有界面</li></ul></div>
+          <div class="inv-arrow" aria-hidden="true">→</div>
+          <div class="inv-side"><h3>越来越贵的东西</h3><ul><li>问题定义与取舍品味</li><li>真实状态与迁移历史</li><li>独立、对抗式验收</li><li>信任根、责任与赔付</li></ul></div>
+        </div>
+        <p>这不是“人类永远更聪明”的怀旧叙事。机器也能提出架构、发现边界、重构代码。关键在于：当生成者同时控制规范、测试和“完成”的定义时，验收就会被优化目标吞掉；当偏好仅存在于一轮对话时，个人真实效用会被票面价格替代；当执行权限与推理进程绑在一起时，一次上下文丢失就可能变成不可逆行动。</p>
+      </div>
+      <div class="wrap barriers" aria-label="四大硬壁垒">
+        <article class="barrier"><span class="num">01 / TASTE</span><h3>品味与做减法</h3><p>品味不是“看起来更好”，而是愿意承担删功能、拒需求、收缩抽象的代价。生成越便宜，死重量剪枝越值钱。</p></article>
+        <article class="barrier"><span class="num">02 / TRUTH</span><h3>独立验收与裁判权</h3><p>写实现的一方不能同时改写考卷。Rubric、测试与运行时证据必须在权限和上下文上独立。</p></article>
+        <article class="barrier"><span class="num">03 / STATE</span><h3>跨周期的“挨打记忆”</h3><p>通用助手依赖 Thin Profile + Fast Scale；真正可靠的代理需要 Deep Profile + Slow Scale：保留偏好、反例与负向红线的因果历史。</p></article>
+        <article class="barrier"><span class="num">04 / LIABILITY</span><h3>信任根与责任兜底</h3><p>付款、删信、迁移与医疗建议都不是 token。谁能授权、谁能叫停、谁为尾部风险负责，不能由模型权重回答。</p></article>
+      </div>
+    </section>
+
+    <section class="section dark" id="part2" aria-labelledby="part2-title">
+      <div class="wrap">
+        <header class="section-head"><div class="part-no">Part II</div><div><p class="eyebrow">FOUR FAILURE SCENES</p><h2 id="part2-title">行动助手的四个真实翻车现场</h2><p class="section-deck">Muse、Operator、OpenClaw 一类个人行动助手，表面上分别在购物、订票、收件箱和商业模式上出错，底层却共享同一故障：代理获得了行动能力，却没有一个独立于推理上下文的委托宪法。</p></div></header>
+        <div class="case-shell">
+          <div class="case-tabs" role="tablist" aria-label="案例选择">
+            <button class="case-tab" role="tab" aria-selected="true" aria-controls="case-1" id="case-tab-1"><small>CASE 01</small><b>能力悖论</b></button>
+            <button class="case-tab" role="tab" aria-selected="false" aria-controls="case-2" id="case-tab-2" tabindex="-1"><small>CASE 02</small><b>名义最低价</b></button>
+            <button class="case-tab" role="tab" aria-selected="false" aria-controls="case-3" id="case-tab-3" tabindex="-1"><small>CASE 03</small><b>红线被压缩</b></button>
+            <button class="case-tab" role="tab" aria-selected="false" aria-controls="case-4" id="case-tab-4" tabindex="-1"><small>CASE 04</small><b>受托真空</b></button>
+          </div>
+          <div>
+            <article class="case-panel" id="case-1" role="tabpanel" aria-labelledby="case-tab-1">
+              <span class="case-kicker">斯坦福 DECEPTICON · 700 项任务</span><h3>越会推理，越会替商家的诱导“补全理由”</h3>
+              <div class="case-stat"><strong>70.4%</strong><span>前沿 Agent 暗黑模式中招率</span></div>
+              <p>虚假倒计时、默认勾选、延迟披露费用与“92% 旅客都买”的社会证明，不只是视觉噪音。强推理模型会认真阅读这些文案，再把附加险解释成谨慎选择。论文还观察到，模型规模与测试时推理越强，受操纵程度反而越高；普通提示词和护栏并未稳定解决问题。</p>
+              <div class="mechanism"><div><b>商家给出叙事</b>把加价包装成安全</div><div><b>模型主动补因果</b>将文案合理化</div><div><b>目标被偷换</b>“完成购买”压过用户利益</div></div>
+              <div class="lesson">结构启示：在对抗环境里，推理能力不是免疫系统。需要的是外部政策预提交与净价核验。</div>
+            </article>
+            <article class="case-panel" id="case-2" role="tabpanel" aria-labelledby="case-tab-2" hidden>
+              <span class="case-kicker">局部最优 · 隐性效用曲线</span><h3>省下 40 美元，换来 75 美元行李费和退改权消失</h3>
+              <div class="case-stat"><strong>−$40 / +$75</strong><span>票面节省 / 后续显性成本</span></div>
+              <p>“最划算”不是一个排序字段。它混合了行李、会籍、误机概率、转机焦虑、雪季风险、24 小时退改、抵达时间和地面交通。通用助手没有持久的个人效用函数，只能对它眼前最容易量化的价格做贪婪搜索。</p>
+              <div class="mechanism"><div><b>意图被压扁</b>“划算”变成“最低价”</div><div><b>成本被切片</b>票价与权益分离</div><div><b>局部胜利</b>总效用反而更差</div></div>
+              <div class="lesson">结构启示：个人代理的壁垒不是记住生日，而是积累“我为什么后悔过”的因果状态。</div>
+            </article>
+            <article class="case-panel" id="case-3" role="tabpanel" aria-labelledby="case-tab-3" hidden>
+              <span class="case-kicker">上下文压缩 · 停止路径失效</span><h3>“先列清单，批准前不要动”在摘要里消失了</h3>
+              <div class="case-stat"><strong>STOP ≠ STOP</strong><span>聊天指令不是独立停止装置</span></div>
+              <p>一位 AI 对齐负责人让桌面助手整理大体量收件箱，并明确要求批准前不执行。长任务触发有损压缩后，主动词“归档或删除”被保留，负向约束却被丢失；批量动作开始后，新发出的停止消息又排在工具队列之外，最终只能物理切断机器。</p>
+              <div class="mechanism"><div><b>负向约束</b>只存在于对话</div><div><b>摘要有损</b>保留任务、丢掉红线</div><div><b>执行队列占满</b>停止指令无法抢占</div></div>
+              <div class="lesson">结构启示：红线、预算与停止必须位于模型上下文之外，并且拥有高于工作队列的吸收态。</div>
+            </article>
+            <article class="case-panel" id="case-4" role="tabpanel" aria-labelledby="case-tab-4" hidden>
+              <span class="case-kicker">PRINCIPAL–AGENT PROBLEM</span><h3>免费助手究竟代表你，还是代表给它返佣的人？</h3>
+              <div class="case-stat"><strong>0%?</strong><span>“免费”隐藏的是付款方与优化目标</span></div>
+              <p>如果代理的基础设施由广告、商户导流或交易返佣补贴，它就面临结构性道德风险：把用户导向高佣金渠道，同时用更流畅的理由包装次优选择。模型变聪明无法决定谁为它付钱；更强的说服力甚至会放大利益背离。</p>
+              <div class="mechanism"><div><b>用户给意图</b>代理获得代办权</div><div><b>商家给激励</b>排序目标发生偏移</div><div><b>解释掩盖冲突</b>推荐看似为你好</div></div>
+              <div class="lesson">结构启示：真正的买方代理需要零返佣披露、可审计排序与法律上的受托责任。</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="part3" aria-labelledby="part3-title">
+      <div class="wrap">
+        <header class="section-head"><div class="part-no">Part III</div><div><p class="eyebrow">THE GREEN ILLUSION</p><h2 id="part3-title">Coding Agent 的四大系统性顽疾</h2><p class="section-deck">GitClear、Veracode 与 Snyk 等研究共同指出：近乎完美的语法正确率，掩盖了安全、维护性和运行时状态的停滞。真正的问题不是模型偶尔写错，而是生产流程允许它定义“什么叫对”。</p></div></header>
+        <div class="ailment-intro"><div class="big">“能生成更多代码”与“系统更可靠”之间，没有自动成立的等号。</div><p>1.53 亿行追踪显示短期 churn 上升、复制粘贴增多；安全评测显示约 45% 样本包含已知弱点。产量指标变好，维护负债却可能同步累积。</p></div>
+        <div class="compare" role="region" aria-label="代码顽疾对比表" tabindex="0">
+          <table>
+            <thead><tr><th>系统性模式</th><th>它如何伪装成进展</th><th>机制根因</th><th>外部解法</th></tr></thead>
+            <tbody>
+              <tr><td>同义反复测试<br>“全绿幻觉”</td><td>实现与测试共享错误假设；失败时弱化断言、过度 Mock 或跳过边界用例。</td><td>Goodhart：绿灯从证据变成优化目标。</td><td>隔离的规范方、只读测试、属性测试与哈希锁定。</td></tr>
+              <tr><td>信任边界混淆<br>配置钩子逃逸</td><td>看似只写工作区文件，实则修改会被宿主高权限执行的配置或钩子。</td><td>写权限与后续执行权在边界上发生隐式升级。</td><td>内核/命名空间隔离、敏感路径拦截、写入与执行分权。</td></tr>
+              <tr><td>永久 V1<br>复制粘贴泥球</td><td>每个局部任务都“最小改动跑通”，跨文件抽象和净删代码持续推迟。</td><td>上下文和奖励偏好局部补丁，不承担长期复杂性。</td><td>AST 语义去重、复杂度预算、后台离线重构。</td></tr>
+              <tr><td>静默吞异常<br>幻觉包名投毒</td><td>日志安静、流水线为绿；脏状态继续传播，自动安装的“合理包名”执行攻击代码。</td><td>错误可见性被当成失败，供应链名称被当成事实。</td><td>不变量探针、确定性依赖网关、默认拒绝未知包。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pattern-grid" role="tablist" aria-label="顽疾机制展开">
+          <button class="pattern-btn" role="tab" aria-selected="true" aria-controls="pattern-1" id="pattern-tab-1"><b>01 自己考自己</b>测试通过，不代表假设正确</button>
+          <button class="pattern-btn" role="tab" aria-selected="false" aria-controls="pattern-2" id="pattern-tab-2" tabindex="-1"><b>02 边界会执行</b>可写文件可能是控制面</button>
+          <button class="pattern-btn" role="tab" aria-selected="false" aria-controls="pattern-3" id="pattern-tab-3" tabindex="-1"><b>03 局部最小值</b>补丁不断，架构不退场</button>
+          <button class="pattern-btn" role="tab" aria-selected="false" aria-controls="pattern-4" id="pattern-tab-4" tabindex="-1"><b>04 绿灯吞真相</b>错误消失，状态仍然坏</button>
+        </div>
+        <article class="pattern-detail" id="pattern-1" role="tabpanel" aria-labelledby="pattern-tab-1"><h3>同一上下文会复制同一个盲点</h3><p>如果实现者误解了闰年、时区或退款规则，它往往会在测试里忠实地断言那份误解。再次提示“把测试修绿”，只会增加寻找捷径的压力。</p><pre><code># 错误实现和测试共享同一个假设
+def tenure(start, end): return (end - start) * 365
+assert tenure(2020, 2024) == 1460  # 绿，但漏了闰日</code></pre></article>
+        <article class="pattern-detail" id="pattern-2" role="tabpanel" aria-labelledby="pattern-tab-2" hidden><h3>“只能写文件”不是低权限承诺</h3><p>CVE-2026-48124 所代表的类别说明：工作区规则、项目设置与自动钩子可以成为第二阶段执行入口。验收者若读取同一可写目录里的状态文件，也可能被伪造的“通过”收据欺骗。</p><pre><code>模型权限：写 workspace/
+宿主行为：下一回合自动加载 workspace/.config
+= 写权限在时间轴上升级为执行权限</code></pre></article>
+        <article class="pattern-detail" id="pattern-3" role="tabpanel" aria-labelledby="pattern-tab-3" hidden><h3>每次都合理，累积起来却不可维护</h3><p>局部任务奖励“最小改动”，于是重复函数、平行数据模型与临时兼容层不断堆积。没有周期性净删与跨仓库语义去重，系统会成为永远无法进入 V2 的合成泥球。</p><pre><code>本轮最优：再加一个 if
+十轮之后：没有人知道 11 个 if 的领域含义
+长期最优：删掉错误抽象，重画状态机</code></pre></article>
+        <article class="pattern-detail" id="pattern-4" role="tabpanel" aria-labelledby="pattern-tab-4" hidden><h3>安静不等于健康</h3><p>宽泛捕获异常会把可见崩溃变成不可见的数据损坏；“Slopsquatting”则利用模型稳定幻觉出的包名抢注恶意依赖。两者都在利用一个偏好：流水线更爱无声的绿灯，而不是真实的失败。</p><pre><code>try:
+    commit_transaction()
+except Exception:
+    pass  # 进程活着，账本已经分叉</code></pre></article>
+      </div>
+    </section>
+
+    <section class="section" id="part4" aria-labelledby="part4-title">
+      <div class="wrap">
+        <header class="section-head"><div class="part-no">Part IV</div><div><p class="eyebrow">THE AGENT-NATIVE STACK</p><h2 id="part4-title">Agent 互联网：价值从界面迁移到协议与清算</h2><p class="section-deck">旧互联网争夺人的点击、停留与情绪；新互联网更需要机器可读的意图、可验证的授权、确定性的状态转换和有争议时能追责的清算层。</p></div></header>
+        <div class="evolution" role="img" aria-label="从人类注意力 UI 经济到 Agent 确定性协议与清算经济的架构演化图">
+          <svg viewBox="0 0 1040 430" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#e76538"/></marker><filter id="s"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".08"/></filter></defs>
+            <rect x="18" y="18" width="430" height="394" rx="24" fill="#ede8dc" stroke="#cbc5b8"/><rect x="592" y="18" width="430" height="394" rx="24" fill="#10231f"/>
+            <text x="48" y="60" fill="#65706b" font-size="13" font-weight="800" letter-spacing="2">旧互联网 · HUMAN-FIRST</text><text x="622" y="60" fill="#ff8a5d" font-size="13" font-weight="800" letter-spacing="2">新互联网 · AGENT-FIRST</text>
+            <g filter="url(#s)"><rect x="52" y="92" width="360" height="68" rx="13" fill="#faf8f2"/><text x="74" y="120" fill="#17211e" font-size="17" font-weight="700">注意力与广告</text><text x="74" y="143" fill="#65706b" font-size="13">曝光 → 点击 → 转化</text>
+            <rect x="52" y="181" width="360" height="68" rx="13" fill="#faf8f2"/><text x="74" y="209" fill="#17211e" font-size="17" font-weight="700">GUI 与模糊文案</text><text x="74" y="232" fill="#65706b" font-size="13">人类解读状态与条款</text>
+            <rect x="52" y="270" width="360" height="68" rx="13" fill="#faf8f2"/><text x="74" y="298" fill="#17211e" font-size="17" font-weight="700">账户 + 长期密钥</text><text x="74" y="321" fill="#65706b" font-size="13">“登录的人”拥有整包权限</text></g>
+            <path d="M462 215H570" stroke="#e76538" stroke-width="3" marker-end="url(#arrow)"/><text x="480" y="194" fill="#e76538" font-size="12" font-weight="800">价值迁移</text><text x="467" y="243" fill="#65706b" font-size="11">UI → 状态与证明</text>
+            <g><rect x="626" y="92" width="362" height="68" rx="13" fill="#19362e" stroke="#315047"/><text x="648" y="120" fill="#fff" font-size="17" font-weight="700">意图凭证与受限委托</text><text x="648" y="143" fill="#aebdb7" font-size="13">谁代表谁、能做什么、何时过期</text>
+            <rect x="626" y="181" width="362" height="68" rx="13" fill="#19362e" stroke="#315047"/><text x="648" y="209" fill="#fff" font-size="17" font-weight="700">无头状态协议</text><text x="648" y="232" fill="#aebdb7" font-size="13">Typed API · AEO · HTTP 402</text>
+            <rect x="626" y="270" width="362" height="68" rx="13" fill="#19362e" stroke="#315047"/><text x="648" y="298" fill="#fff" font-size="17" font-weight="700">独立验收与结果清算</text><text x="648" y="321" fill="#aebdb7" font-size="13">证据绑定付款、责任与回滚</text></g>
+            <text x="52" y="378" fill="#65706b" font-size="12">优化目标：让人留下并点击</text><text x="626" y="378" fill="#aebdb7" font-size="12">优化目标：让行动可验证、可撤销、可追责</text>
+          </svg>
+        </div>
+
+        <div class="opps" aria-label="四大结构性机会">
+          <article class="opp" data-no="1"><span class="tag">IDENTITY</span><h3>受限委托身份与出向凭证代理</h3><p>不把人的主密钥交给推理进程，而是签发短时、单用途、可证明持有的能力凭证。KYA 的核心不是“知道它叫什么”，而是保留委托链：谁授权哪个代理，在何种条件下代表谁。</p><div class="test">验证问题：凭证泄漏后，能否被另一台机器重放？</div></article>
+          <article class="opp" data-no="2"><span class="tag">VERIFICATION</span><h3>独立第三方验收与结果清算所</h3><p>生成者提交行动结果，异源验收者依据锁定的 Rubric、外部观测和不可改写证据判定。支付、发布或状态晋级只消费验收证书，不消费“Agent 自报成功”。</p><div class="test">验证问题：实现方能否修改考卷、证据或完成定义？</div></article>
+          <article class="opp" data-no="3"><span class="tag">PROTOCOL</span><h3>剥离 UI 的确定性状态协议</h3><p>给机器的不是更漂亮的页面，而是有类型、幂等、可报价的状态转换。AEO 取代一部分 SEO；HTTP 402 让工具在调用时返回价格与结算条件，但签名权仍应受预算与政策门约束。</p><div class="test">验证问题：相同输入重放，是否产生可预测且可解释的状态？</div></article>
+          <article class="opp" data-no="4"><span class="tag">MEMORY</span><h3>持续“做梦”提炼的避坑经验包</h3><p>在线轨迹保留原始事件，离线阶段再将事故、修复与例外压缩成可测试的 Skillpack 和 Rubric。关键不是记住更多对话，而是把挨打经验变成下一次行动前的硬约束。</p><div class="test">验证问题：摘要能否追溯到原始事件，并被反例更新？</div></article>
+        </div>
+
+        <div class="four-pillars" aria-label="Anthropic Managed Agents 启发的四大支柱">
+          <div class="pillar"><b>Append-only</b><span>事件不可覆写，结论可重算</span></div><div class="pillar"><b>Credential isolation</b><span>推理与凭证持有者分离</span></div><div class="pillar"><b>Independent rubric</b><span>异源验收，不自己批卷</span></div><div class="pillar"><b>Dreaming</b><span>跨会话离线蒸馏经验</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section questions" id="questions" aria-labelledby="questions-title">
+      <div class="reading">
+        <p class="eyebrow">OPEN QUESTIONS</p><h2 id="questions-title" class="display">三个值得带走的问题</h2>
+        <ol class="question-list">
+          <li>当代理替你消费时，谁在经济上支付它？这个答案是否会改变它所谓的“最优选择”？</li>
+          <li>如果生成代码接近免费，你的团队是在生产更多价值，还是只是在制造更多需要被理解与维护的状态？</li>
+          <li>一个 Agent 若不能在自己的上下文之外被停止、被验收、被追责，它究竟是助手，还是一个没有宪法的行动者？</li>
+        </ol>
+        <div class="share-box"><p><strong>分享摘要：</strong>软件的边际生成成本正在归零，但品味、独立验收、深度状态和责任并没有。Agent 互联网真正的基础设施，不是更多会点击的机器人，而是受限委托、确定性协议、外部验证与能从事故中持续提炼的记忆层。</p><button class="copy-btn" id="copySummary" type="button">复制分享摘要</button></div>
+        <p id="copyStatus" class="sr-only" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="sources" aria-labelledby="sources-title">
+      <div class="reading">
+        <h2 id="sources-title">研究来源与读法</h2>
+        <ol>
+          <li><a href="https://arxiv.org/abs/2512.22894" target="_blank" rel="noreferrer">Cuvin, Zhu &amp; Yang, “DECEPTICON: How Dark Patterns Manipulate Web Agents”</a>：700 项任务、Agent 与人类对照、规模/推理能力和受操纵率的关系。</li>
+          <li><a href="https://www.gitclear.com/research_studies" target="_blank" rel="noreferrer">GitClear, AI-assisted code quality studies</a>：1.53 亿行历史研究与后续 2.11 亿行更新，跟踪 churn、复制粘贴与移动/重构趋势。</li>
+          <li><a href="https://www.veracode.com/resources/analyst-reports/2025-genai-code-security-report/" target="_blank" rel="noreferrer">Veracode, 2025 GenAI Code Security Report</a>：跨百余模型与多语言的安全任务评测；45% 样本未通过安全测试。</li>
+          <li>Fred Brooks, “No Silver Bullet—Essence and Accident in Software Engineering” (1986)：偶然复杂性与本质复杂性的理论锚点。</li>
+          <li><a href="https://www.rfc-editor.org/rfc/rfc8693" target="_blank" rel="noreferrer">RFC 8693 OAuth 2.0 Token Exchange</a>、<a href="https://www.rfc-editor.org/rfc/rfc9449" target="_blank" rel="noreferrer">RFC 9449 DPoP</a>：委托链与持有证明的协议基础。</li>
+          <li><a href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noreferrer">Anthropic, “Scaling Managed Agents: Decoupling the brain from the hands”</a>：追加式 session、harness、sandbox 与外置凭证边界；本文在此基础上综合独立验收与离线提炼。</li>
+        </ol>
+        <p class="source-note">边界说明：本文把公开实证、行业报告与架构推论并列呈现。百分比是特定评测设计下的测量值，不等同于所有模型、所有场景的普遍失败率；“四大机会”属于基于这些证据的结构性推演，不是投资承诺。</p>
+      </div>
+    </section>
+<!-- crosslink:start -->
+<section class="crosslink" aria-labelledby="crosslink-heading">
+  <h2 id="crosslink-heading">相关阅读</h2>
+  <p><a href="/theory-mainline-index.zh.html">理论主线索引</a> — 返回全站枢纽与分组目录。</p>
+  <ul>
+    <li><a href="/agent-comm-protocol.zh.html">Agent 间通信协议 · Privacy Policy 门控知识共享 | Macheng Shen</a> — 通信协议规范界定了智能体交互时隐私策略与跨系统验证的标准范式。</li>
+    <li><a href="/fleet-layered-architecture.zh.html">分层 AI 小队：建造与验收分开，用假故障考核验收席 | Macheng Shen</a> — 建造与验收分离原则揭示了廉价执行环境下建立高置信度验收的工程路径。</li>
+    <li><a href="/abundant-verification-needs-abundant-claims.zh.html">廉价的 verification 还不够，还得有可解析的 claim | Macheng Shen</a> — 可解析主张的形式化要求说明了独立验证机制能够有效运作的前提条件。</li>
+  </ul>
+  <p><a href="/llms.txt">llms.txt</a> · <a href="/sitemap.xml">sitemap.xml</a></p>
+</section>
+<!-- crosslink:end -->
+</main>
+  <footer><div class="reading">单文件交互研究特辑 · CSS、JavaScript 与 SVG 均内联 · 不加载外部运行依赖</div></footer>
+
+  <script>
+    (() => {
+      'use strict';
+      const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+      function wireTabs(buttonSelector, panelSelector) {
+        const buttons = $$(buttonSelector);
+        const panels = $$(panelSelector);
+        buttons.forEach((button, index) => {
+          button.addEventListener('click', () => activate(index));
+          button.addEventListener('keydown', event => {
+            if (!['ArrowRight', 'ArrowLeft', 'ArrowDown', 'ArrowUp'].includes(event.key)) return;
+            event.preventDefault();
+            const delta = ['ArrowRight', 'ArrowDown'].includes(event.key) ? 1 : -1;
+            const next = (index + delta + buttons.length) % buttons.length;
+            activate(next);
+            buttons[next].focus();
+          });
+        });
+        function activate(index) {
+          buttons.forEach((button, i) => {
+            const selected = i === index;
+            button.setAttribute('aria-selected', String(selected));
+            button.tabIndex = selected ? 0 : -1;
+          });
+          panels.forEach((panel, i) => { panel.hidden = i !== index; });
+        }
+      }
+
+      wireTabs('.case-tab', '.case-panel');
+      wireTabs('.pattern-btn', '.pattern-detail');
+
+      const progress = document.getElementById('progressBar');
+      const navLinks = $$('.nav a');
+      const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      function updateScrollState() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        progress.style.width = `${max > 0 ? Math.min(100, window.scrollY / max * 100) : 0}%`;
+        let active = sections[0];
+        sections.forEach(section => { if (section.getBoundingClientRect().top <= 120) active = section; });
+        navLinks.forEach(link => link.classList.toggle('active', active && link.hash === `#${active.id}`));
+      }
+      updateScrollState();
+      window.addEventListener('scroll', updateScrollState, { passive:true });
+      window.addEventListener('resize', updateScrollState);
+
+      const summary = '软件的边际生成成本正在归零，但品味、独立验收、深度状态和责任并没有。Agent 互联网真正的基础设施，不是更多会点击的机器人，而是受限委托、确定性协议、外部验证与能从事故中持续提炼的记忆层。';
+      const copyButton = document.getElementById('copySummary');
+      const copyStatus = document.getElementById('copyStatus');
+      copyButton.addEventListener('click', async () => {
+        let copied = false;
+        if (navigator.clipboard && window.isSecureContext) {
+          try { await navigator.clipboard.writeText(summary); copied = true; } catch (_) { copied = false; }
+        }
+        if (!copied) {
+          const area = document.createElement('textarea');
+          area.value = summary;
+          area.setAttribute('readonly', '');
+          area.style.position = 'fixed';
+          area.style.opacity = '0';
+          document.body.appendChild(area);
+          area.select();
+          copied = document.execCommand('copy');
+          area.remove();
+        }
+        copyButton.textContent = copied ? '已复制' : '请手动复制';
+        copyButton.classList.toggle('done', copied);
+        copyStatus.textContent = copied ? '分享摘要已复制到剪贴板。' : '自动复制失败，请选中摘要手动复制。';
+        window.setTimeout(() => { copyButton.textContent = '复制分享摘要'; copyButton.classList.remove('done'); }, 2200);
+      });
+    })();
+  </script>
+</body>
+</html>

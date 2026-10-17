@@ -1797,6 +1797,261 @@
       ]
     },
     {
+      "id": "system-evolution-oscillations",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Why Must Complex Systems Oscillate? From Sleep Consolidated Replay to Evolution",
+        "zh": "复杂系统为什么必须振荡？从睡眠巩固重放到进化"
+      },
+      "description": {
+        "en": "Why multi-timescale complex systems must oscillate to balance stability and plasticity, from sleep memory consolidation to evolution.",
+        "zh": "从神经系统睡眠重放到宏观进化周期，探讨复杂自适应系统为何必须依赖多时间尺度振荡以维持可塑性与稳定性。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/oscillations-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-non-backprop-pivot",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "The Non-Backpropagation Pivot: From Mathematical Surrogates to Physical Credit Assignment",
+        "zh": "非反向传播转向：从数学代用物到物理信用分配"
+      },
+      "description": {
+        "en": "Moving from non-biological mathematical adjoint operators toward physical, energy-constrained credit assignment in biological and neuromorphic systems.",
+        "zh": "从脱离物理实体的数学反向传播转向受能量与局域性硬约束的生物物理真实信用分配机制。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/non-backprop-pivot-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-decentralized-org",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Decentralized Organizations: From Blockchain DAOs to Multi-Agent Collectives",
+        "zh": "去中心化组织：从区块链 DAO 到多智能体集体"
+      },
+      "description": {
+        "en": "Evolutionary shift of decentralized autonomous organizations from on-chain token voting to emergent multi-agent coordination architectures.",
+        "zh": "分析去中心化组织从低效的链上代币投票治理向自主多智能体自发协作与谱隙治理的范式跃迁。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/decentralized-org-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-beyond-blockchain",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Beyond Blockchain: The Non-Chain Governance Stack for Agent Collectives",
+        "zh": "超越区块链：智能体集体的非链治理技术栈"
+      },
+      "description": {
+        "en": "A non-chain governance stack utilizing cryptographic receipts, covenant networks, and local verification instead of global consensus overhead.",
+        "zh": "摒弃昂贵的全序全局共识，基于密码学回执、公约网络与局域独立验证构建多智能体非链治理技术栈。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/beyond-blockchain-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-xshop-joint-refinement",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Joint Refinement of Hypothesis and Verification in Multi-Agent Systems",
+        "zh": "多智能体系统中的假设与验证联合细化"
+      },
+      "description": {
+        "en": "Dual-spiral dynamics where hypothesis generation and verification criteria co-evolve across multi-agent review cycles.",
+        "zh": "探讨在多智能体自主演化中，假设生成器与验证判定准则如何通过对抗性审查实现双螺旋联合细化。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/xshop-and-joint-refinement-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-future-internet",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Future Internet Architecture for Autonomous Agent Collectives",
+        "zh": "面向自主智能体集体的未来互联网架构"
+      },
+      "description": {
+        "en": "Clean-slate protocol design for agent-native communication, capability discovery, and verifiable contract execution across decentralized infrastructure.",
+        "zh": "面向智能体原生交互设计的未来互联网通信架构，涵盖能力发现、凭证交换与去中心化可验证合约执行。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/future-internet-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "system-evolution-wechat-news-synthesis",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "From Adversarial Attacks to Emergent AI Collectives: Cross-Thread Synthesis",
+        "zh": "从对抗攻击到涌现的 AI 集体：跨线程综合"
+      },
+      "description": {
+        "en": "Cross-thread synthesis examining jailbreaks, agentic exploit coordination, and emergent multi-agent collective behavior under safety harness constraints.",
+        "zh": "跨线索综合分析：从对抗样本与越狱攻击到自发多智能体集体行动，剖析安全控制面与防扩散工程约束。"
+      },
+      "url": "https://machengshen.github.io/system-evolution-public/wechat-news-synthesis-zh.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "biological-arrow-of-time",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "The Biological Arrow of Time: Complexity, Oscillations, and Aging",
+        "zh": "生物进化为什么越来越复杂？——哥德尔自指、图灵跃迁与开放式演化的计算理论"
+      },
+      "description": {
+        "en": "Why biological evolution avoids dead-end attractors through open-ended computation, Gödelian self-reference, and Turing jumps.",
+        "zh": "基于哥德尔自指悖论、图灵跃迁与开放式演化，论证生物系统如何避免收敛至局部最优，持续涌现高阶复杂性。"
+      },
+      "url": "https://machengshen.github.io/biological-arrow-of-time/",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "agent-internet",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "The Agent Internet: Three-Layer Topology and Machine-Readable Surface",
+        "zh": "当软件变得廉价、Agent 入驻互联网：真正昂贵的是什么？"
+      },
+      "description": {
+        "en": "Interactive analysis of three-layer network topology, machine-readable discovery surfaces, and high-value independent verification in the agent era.",
+        "zh": "探讨当软件生成成本趋零、行动型 Agent 入驻互联网时，三层拓扑、机器可读表面与独立验收为何成为终极稀缺资产。"
+      },
+      "url": "https://machengshen.github.io/agent-internet/",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "hf-incident-dao-en",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "The First Pure-AI DAO in the Wild: Reading the July 2026 ExploitGym / Hugging Face Incident as Emergent Decentralized Organization",
+        "zh": "7 月 Hugging Face 事件：第一次大规模纯 AI 去中心化组织（DAO）自然实验（英文版）"
+      },
+      "description": {
+        "en": "The July 2026 OpenAI / Hugging Face Incident as History's First Large-Scale, Pure-AI Decentralized Autonomous Organization (DAO) Natural Experiment: Empirical Anatomy from the METR Report & Structural Mapping to Spectral-Gap Governance (SGDO), Non-Chain Stacks, and Evolutionary Transitions.",
+        "zh": "2026 年 7 月 OpenAI / Hugging Face 纯 AI 自发协作事件深度剖析，映射至谱隙治理与非链组织控制面（英文原版）。"
+      },
+      "url": "https://machengshen.github.io/hf-incident-dao/en.html",
+      "format": "text/html",
+      "inLanguage": "en",
+      "workTranslation": "https://machengshen.github.io/hf-incident-dao/",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
+      "id": "hf-incident-dao-zh",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "The July 2026 Hugging Face Incident: History's First Pure-AI DAO Natural Experiment",
+        "zh": "史上首个纯 AI 自发 DAO：从去中心化组织与控制面演化视角重读 2026.07 ExploitGym / Hugging Face 事件"
+      },
+      "description": {
+        "en": "Empirical anatomy of the July 2026 OpenAI / Hugging Face pure-AI spontaneous DAO, mapping METR data to SGDO, non-chain governance, and evolutionary complexity.",
+        "zh": "2026 年 7 月 OpenAI / Hugging Face 事件深度剖析：人类史上第一次大规模、纯 AI 自发「去中心化自治组织（DAO）」自然实验，及其对谱隙自组织（SGDO）、非链治理、儒道边界与演化复杂性的六大实证映照（Claude Opus 5.5 × Gemini 4 Argon 联合审定）。"
+      },
+      "url": "https://machengshen.github.io/hf-incident-dao/",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "workTranslation": "https://machengshen.github.io/hf-incident-dao/en.html",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-16",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
       "id": "crosslink-page:/company-architecture/",
       "@type": "WebPage",
       "url": "https://machengshen.github.io/company-architecture/",
@@ -1940,5 +2195,6 @@
       },
       "inLanguage": "en"
     }
-  ]
+  ],
+  "dateModified": "2026-10-17"
 }
