@@ -2052,6 +2052,29 @@
       }
     },
     {
+      "id": "open-weight-activation-safety-physics",
+      "@type": "ScholarlyArticle",
+      "label": {
+        "en": "Open-Weight LLM Activation PCA Abliteration: Vulnerability Diagnosis and First-Principles Physics Defense",
+        "zh": "开源权重语言模型激活空间 PCA 消融攻击（Abliteration）：脆弱性几何诊断与第一性原理物理防御"
+      },
+      "description": {
+        "en": "Technical report SE-2026.10025v1 (System Evolution open preprint series): orthogonal post-training alignment is geometrically a low-rank patch orthogonal to the core reasoning manifold, so it is removable by rank-3 residual-stream projection. Reports measured activation geometry and a zero-training closed-form weight surgery on Qwen2.5-0.5B-Instruct, an attack class that survives orthogonal projection but falls to whitened unmixing, and proposes a Grassmannian principal-angle / von Neumann spectral-entropy / Markov-blanket spectral-entanglement defense; embedded experiment data and an interactive in-page ablation simulator.",
+        "zh": "System Evolution 开放预印本系列技术报告 SE-2026.10025v1：正交后训练对齐在几何上只是与核心推理流形正交的低秩贴片，可被秩 3 残差流投影剥离。给出 Qwen2.5-0.5B-Instruct 的实测激活几何与零训练闭式权重手术——该攻击可躲过正交投影却败于白化解混——并提出格拉斯曼主夹角／冯·诺依曼谱熵／马尔可夫毯谱纠缠防御；页内嵌实验数据与交互式消融实验台。"
+      },
+      "url": "https://machengshen.github.io/open-weight-activation-safety-physics.html",
+      "format": "text/html",
+      "inLanguage": "zh-CN",
+      "cognitiveState": "speculative",
+      "dateModified": "2026-10-25",
+      "isPartOf": {
+        "@id": "https://machengshen.github.io/#website"
+      },
+      "author": {
+        "@id": "https://machengshen.github.io/#person"
+      }
+    },
+    {
       "id": "crosslink-page:/company-architecture/",
       "@type": "WebPage",
       "url": "https://machengshen.github.io/company-architecture/",
@@ -2196,5 +2219,5 @@
       "inLanguage": "en"
     }
   ],
-  "dateModified": "2026-10-17"
+  "dateModified": "2026-10-31"
 }

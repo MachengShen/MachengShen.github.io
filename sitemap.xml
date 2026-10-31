@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/agent-comm-protocol.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/agent-comm-protocol.zh.html</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/agent-internet/</loc>
@@ -174,7 +174,7 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/index.jsonld</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/index.zh.html</loc>
@@ -202,19 +202,19 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.txt</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms-full.zh.txt</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.txt</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/llms.zh.txt</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/locality-as-protocol.html</loc>
@@ -262,11 +262,15 @@
   </url>
   <url>
     <loc>https://machengshen.github.io/open-source.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/open-source.zh.html</loc>
-    <lastmod>2026-10-17</lastmod>
+    <lastmod>2026-10-31</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/open-weight-activation-safety-physics.html</loc>
+    <lastmod>2026-10-25</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/personal-ai-fleet.html</loc>
@@ -447,6 +451,30 @@
   <url>
     <loc>https://machengshen.github.io/substrate.html</loc>
     <lastmod>2026-10-02</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/THEORY.md</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/agent-economy-phase-transition.html</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/anatomy-of-certainty.html</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/essays/2026-10-20-agent-economy-phase-transition.md</loc>
+    <lastmod>2026-10-20</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/essays/2026-10-21-anatomy-of-certainty.md</loc>
+    <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://machengshen.github.io/system-evolution-public/</loc>
+    <lastmod>2026-10-21</lastmod>
   </url>
   <url>
     <loc>https://machengshen.github.io/tasks/</loc>

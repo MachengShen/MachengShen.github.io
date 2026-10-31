@@ -182,6 +182,7 @@
 - [The First Pure-AI DAO in the Wild: Reading the July 2026 ExploitGym / Hugging Face Incident as Emergent Decentralized Organization](https://machengshen.github.io/hf-incident-dao/en.html) `speculative` —— 2026 年 7 月 OpenAI / Hugging Face 纯 AI 自发协作事件深度剖析，映射至谱隙治理与非链组织控制面（英文原版）。
 - [史上首个纯 AI 自发 DAO：从去中心化组织与控制面演化视角重读 2026.07 ExploitGym / Hugging Face 事件](https://machengshen.github.io/hf-incident-dao/) `speculative` · 中文 —— 基于 METR 报告重读 2026.07 Hugging Face 事件：人类史上首次纯 AI 自发 DAO 实验及其对谱隙组织与非链治理的实证映射。
 - [从对抗攻击到涌现的 AI 集体：跨线程综合](https://machengshen.github.io/system-evolution-public/wechat-news-synthesis-zh.html) `speculative` · 中文 —— 跨线索综合分析：从对抗样本与越狱攻击到自发多智能体集体行动，剖析安全控制面与防扩散工程约束。
+- [开源权重语言模型激活空间 PCA 消融攻击（Abliteration）：脆弱性几何诊断与第一性原理物理防御](https://machengshen.github.io/open-weight-activation-safety-physics.html) `speculative` · 中文 —— System Evolution 开放预印本系列技术报告 SE-2026.10025v1：论证正交后训练对齐为何在低秩残差流投影下瓦解，给出 Qwen2.5-0.5B-Instruct 的 PCA 消融实测几何、能躲过正交投影却败于白化解混的零训练闭式权重手术，以及针对消融攻击类的格拉斯曼主夹角／冯·诺依曼谱熵／马尔可夫毯谱纠缠防御提案；页内嵌实验数据与交互式消融-纠缠实验台。
 
 <!-- crosslink-pages:start -->
 ## 其他公开页面（不属于理论索引）
