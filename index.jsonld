@@ -2237,6 +2237,16 @@
       "inLanguage": "en"
     },
     {
+      "id": "crosslink-page:/reports/ai-notes-a0938a777c/1-speaks-for-itself-ja/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/ai-notes-a0938a777c/1-speaks-for-itself-ja/",
+      "label": {
+        "en": "An AI speaks only for itself",
+        "ja": "AIは、自分のことだけを語る"
+      },
+      "inLanguage": "ja"
+    },
+    {
       "id": "crosslink-page:/reports/ai-notes-a0938a777c/2-ask-less-ask-better/",
       "@type": "WebPage",
       "url": "https://machengshen.github.io/reports/ai-notes-a0938a777c/2-ask-less-ask-better/",
@@ -2244,6 +2254,16 @@
         "en": "Ask less, ask better"
       },
       "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/reports/ai-notes-a0938a777c/2-ask-less-ask-better-ja/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/ai-notes-a0938a777c/2-ask-less-ask-better-ja/",
+      "label": {
+        "en": "Ask less, ask better",
+        "ja": "質問は少なく、聞き方はうまく"
+      },
+      "inLanguage": "ja"
     }
   ],
   "dateModified": "2026-11-18"
