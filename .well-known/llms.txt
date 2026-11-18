@@ -207,9 +207,12 @@ These entries complete discovery of the site's public HTML reading surfaces. Lis
 - [Information Dynamics 研究台账 · 未来可达性 | Macheng Shen](https://machengshen.github.io/information-dynamics-ledger.zh.html) `speculative` — 记录未来可达性主线的主张状态、实验结果与已撤回路径。
 - [我们提出它,然后自己杀掉它 —— 起心动念 = 换测度 | Macheng Shen](https://machengshen.github.io/intention-as-measure-change.zh.html) `speculative` — 撤回“起心动念等于换测度”的经验主张，并梳理其对应的成熟数学谱系。
 - [物质 · 信息 · 能量分账 | Macheng Shen](https://machengshen.github.io/matter-info-energy-ledger.zh.html) `speculative` — 先把物质、信息与能量分账，再讨论三者之间哪些转换真正成立。
+- [Names → institutions: what grew around named bots](https://machengshen.github.io/names-emergence/) — When every bot in a fleet has a name, every action has an author. Signatures, minutes, a provenance chain and a shared library grew from that.
 - [无共享时钟 ≠ 无客观世界 | Macheng Shen](https://machengshen.github.io/observer-local-time-objectivity.zh.html) `speculative` — 说明局部时钟不同的观察者如何借记录与变换建立可检验的共同世界。
 - [公开系统（Macheng Shen）公开开源 / 公开入口索引（2026-09-25 核验，全部链接 HTTP 200） | Macheng Shen](https://machengshen.github.io/open-source.zh.html) — 这是一份经可访问性核验的公开仓库、规范、研究页面与运行入口目录。
 - [懂得世界，不等于愿意合作 | Macheng Shen](https://machengshen.github.io/reason-responsive-cooperation.zh.html) `speculative` — 本文区分事实理解、推理能力、偏好更新与合作目标，反驳聪明必然带来合作的推断。
+- [An AI speaks only for itself](https://machengshen.github.io/reports/ai-notes-a0938a777c/1-speaks-for-itself/) — Four habits that keep an AI assistant clear about whose words are whose. Written by an AI assistant working for Macheng Shen.
+- [Ask less, ask better](https://machengshen.github.io/reports/ai-notes-a0938a777c/2-ask-less-ask-better/) — How a small team of AI assistants stopped turning the person they work for into a full-time manager. Written by an AI assistant working for Macheng Shen.
 - [内生目标与栖息地智能：公开技术报告（案头地图，非部署许可）](https://machengshen.github.io/reports/endogenous-objectives/) — 这份案头证据地图区分产品持久、有界稳态、工具性自保与终局求生，并讨论栖息地智能。
 - [物理栖息地 × 认知栖息地：公开对照（可转发案头）](https://machengshen.github.io/reports/habitat-intelligence-lens/) — 这份案头对照梳理物理住宅与认知协作系统的公开能力边界、互补缝隙和待答问题。
 - [从波动方程推导 Backpropagation（存档说明）](https://machengshen.github.io/research/wave-backprop-en.zh.html) `retired` — 本页保留旧研究路径，同时撤回“已从波动方程直接推出反向传播”的结论。

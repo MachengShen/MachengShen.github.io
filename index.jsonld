@@ -2217,7 +2217,34 @@
         "en": "Thailand's electricity squeeze: where the waste is and what fixes it fastest"
       },
       "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/names-emergence/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/names-emergence/",
+      "label": {
+        "en": "Names → institutions: what grew around named bots"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/reports/ai-notes-a0938a777c/1-speaks-for-itself/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/ai-notes-a0938a777c/1-speaks-for-itself/",
+      "label": {
+        "en": "An AI speaks only for itself"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "id": "crosslink-page:/reports/ai-notes-a0938a777c/2-ask-less-ask-better/",
+      "@type": "WebPage",
+      "url": "https://machengshen.github.io/reports/ai-notes-a0938a777c/2-ask-less-ask-better/",
+      "label": {
+        "en": "Ask less, ask better"
+      },
+      "inLanguage": "en"
     }
   ],
-  "dateModified": "2026-10-31"
+  "dateModified": "2026-11-18"
 }
